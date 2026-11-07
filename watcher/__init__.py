@@ -1,0 +1,1 @@
+"""Japan Deal Watcher Package."""

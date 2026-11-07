@@ -1,0 +1,2 @@
+# Japan Deal Watcher requirements
+# Pure standard library is used by default for maximum portability & speed in GitHub Actions

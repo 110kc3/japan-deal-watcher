@@ -1,0 +1,259 @@
+{
+  "settings": {
+    "currency_rate_jpy_pln": 0.024832,
+    "zenmarket_fee_jpy": 500,
+    "vat_rate": 0.23,
+    "free_storage_days": 60,
+    "consolidation_start_date": "2026-11-07"
+  },
+  "categories": [
+    {
+      "id": "ps_vita",
+      "name": "PlayStation Vita (Special Editions)",
+      "battery_type": "li-ion",
+      "target_pln_resale": 900,
+      "tracked_items": [
+        {
+          "id": "m87613074296",
+          "model": "PCH-2000 ZA24",
+          "color": "Neon Orange",
+          "target_price_jpy": 13333,
+          "est_pl_value": 900,
+          "note": "Super okazja cenowa, piękny neonowy pomarańcz"
+        },
+        {
+          "id": "m54226226221",
+          "model": "PCH-2000 ZA24",
+          "color": "Neon Orange",
+          "target_price_jpy": 22000,
+          "est_pl_value": 980,
+          "note": "W zestawie z grami, stan bardzo dobry"
+        },
+        {
+          "id": "m20893563232",
+          "model": "PCH-2000 ZA20",
+          "color": "Metallic Red",
+          "target_price_jpy": 15999,
+          "est_pl_value": 850,
+          "note": "Sprawny Slim w metalicznej czerwieni"
+        },
+        {
+          "id": "m34256656234",
+          "model": "PCH-2000 ZA20",
+          "color": "Metallic Red",
+          "target_price_jpy": 18500,
+          "est_pl_value": 880,
+          "note": "Bardzo zadbany stan wizualny"
+        },
+        {
+          "id": "m18827541996",
+          "model": "PCH-2000 ZA22",
+          "color": "Glacier White",
+          "target_price_jpy": 22500,
+          "est_pl_value": 950,
+          "note": "W komplecie z oryginalnym pudełkiem, sprawdzona"
+        },
+        {
+          "id": "m96154365165",
+          "model": "PCH-1000 ZA03",
+          "color": "Cosmic Red OLED",
+          "target_price_jpy": 17444,
+          "est_pl_value": 900,
+          "note": "Klasyczny Fat z nasyconą matrycą Samsung OLED"
+        },
+        {
+          "id": "m84038276319",
+          "model": "PCH-1000 ZA03",
+          "color": "Cosmic Red OLED",
+          "target_price_jpy": 24000,
+          "est_pl_value": 1050,
+          "note": "Zadbany egzemplarz OLED z akcesoriami"
+        },
+        {
+          "id": "m23811595029",
+          "model": "PCH-2000 ZA24",
+          "color": "Neon Orange Box CIB",
+          "target_price_jpy": 26500,
+          "est_pl_value": 1150,
+          "note": "Stan gabinetowy (Goku-bi-hin) w pełnym boxie"
+        }
+      ]
+    },
+    {
+      "id": "psp_handheld",
+      "name": "Sony PlayStation Portable (PSP-3000)",
+      "battery_type": "li-ion",
+      "target_pln_resale": 480,
+      "tracked_items": [
+        {
+          "id": "m76331551891",
+          "model": "PSP-3000 PB",
+          "color": "Piano Black",
+          "target_price_jpy": 9500,
+          "est_pl_value": 460,
+          "note": "Sprawdzona konsola Sony PSP-3000"
+        },
+        {
+          "id": "m44094807472",
+          "model": "PSP-3000",
+          "color": "Standard",
+          "target_price_jpy": 10000,
+          "est_pl_value": 480,
+          "note": "Konsola PSP-3000 w pełni przetestowana (動作品)"
+        },
+        {
+          "id": "m19431509115",
+          "model": "PSP / Vita bundle",
+          "color": "Various",
+          "target_price_jpy": 22000,
+          "est_pl_value": 950,
+          "note": "Zestaw z kartą pamięci 16GB"
+        }
+      ]
+    },
+    {
+      "id": "psp_games_mix",
+      "name": "Pakiety Gier Retro PSP (Mix UMD まとめ)",
+      "battery_type": "none",
+      "target_pln_resale": 500,
+      "tracked_items": [
+        {
+          "id": "m97540976496",
+          "model": "PSP UMD 20 sztuk",
+          "color": "Mix 20 Gier",
+          "target_price_jpy": 2780,
+          "est_pl_value": 500,
+          "note": "Mega pakiet 20 gier (Monster Hunter, RPG, bijatyki) - 3.45 zł za grę!"
+        },
+        {
+          "id": "m33182746717",
+          "model": "PSP UMD 8 sztuk",
+          "color": "Mix 8 Gier",
+          "target_price_jpy": 1000,
+          "est_pl_value": 200,
+          "note": "Pakiet 8 gier za 25 zł - idealne dopełnienie paczki"
+        },
+        {
+          "id": "m31232552895",
+          "model": "PSP UMD 10 sztuk CIB",
+          "color": "10 Gier w pudełkach",
+          "target_price_jpy": 4899,
+          "est_pl_value": 350,
+          "note": "Kompletne gry z instrukcjami i oryginalnymi boxami"
+        },
+        {
+          "id": "m70453155857",
+          "model": "PSP UMD 5 sztuk Gundam/etc",
+          "color": "5 Gier",
+          "target_price_jpy": 2200,
+          "est_pl_value": 150,
+          "note": "Gry mecha anime Gundam / akcja"
+        }
+      ]
+    },
+    {
+      "id": "retro_consoles_no_battery",
+      "name": "Konsole Retro (0% Baterii / Zasilanie AA)",
+      "battery_type": "dry-cell",
+      "target_pln_resale": 500,
+      "tracked_items": [
+        {
+          "id": "m91924534768",
+          "model": "Sega Saturn HST-3200",
+          "color": "Szary NTSC-J 60Hz",
+          "target_price_jpy": 10000,
+          "est_pl_value": 480,
+          "note": "Ikona gier 2D w 60Hz, idealna pod kartridż SAROO"
+        },
+        {
+          "id": "m77603603117",
+          "model": "Sega Saturn HST-3220",
+          "color": "Biały + Pad 3D",
+          "target_price_jpy": 13880,
+          "est_pl_value": 550,
+          "note": "Saturn V2 z analogowym kontrolerem pod Nights"
+        },
+        {
+          "id": "m67157383574",
+          "model": "Sega Dreamcast HKT-3000",
+          "color": "Biały MIL-CD",
+          "target_price_jpy": 10599,
+          "est_pl_value": 500,
+          "note": "Czyta kopie zapasowe MIL-CD bez modchipów"
+        },
+        {
+          "id": "m54270557163",
+          "model": "Sega Dreamcast HKT-3000",
+          "color": "Stan BDB",
+          "target_price_jpy": 11500,
+          "est_pl_value": 520,
+          "note": "Sprawdzona, czysta obudowa bez żółknięcia"
+        },
+        {
+          "id": "m48063236274",
+          "model": "Bandai WonderSwan Classic",
+          "color": "Czarno-Biały (1x AA)",
+          "target_price_jpy": 3300,
+          "est_pl_value": 260,
+          "note": "Konsola twórcy Game Boya na jedną baterię AA"
+        },
+        {
+          "id": "m50180450020",
+          "model": "Bandai WonderSwan Color",
+          "color": "Pearl Pink Box CIB (1x AA)",
+          "target_price_jpy": 9999,
+          "est_pl_value": 550,
+          "note": "Unikat kolekcjonerski w oryginalnym japońskim boxie"
+        },
+        {
+          "id": "m90627895232",
+          "model": "PlayStation 2 Slim SCPH-90000",
+          "color": "Ceramic White",
+          "target_price_jpy": 8480,
+          "est_pl_value": 480,
+          "note": "Ostatnia rewizja z wbudowanym zasilaczem 230V"
+        },
+        {
+          "id": "m16656301506",
+          "model": "Nintendo GameCube DOL-001",
+          "color": "Spice Orange",
+          "target_price_jpy": 4980,
+          "est_pl_value": 420,
+          "note": "Wyjście Digital AV Out pod HDMI i modchip PicoBoot"
+        }
+      ]
+    },
+    {
+      "id": "analog_lenses",
+      "name": "Japońskie Obiektywy Manualne (0% Baterii)",
+      "battery_type": "none",
+      "target_pln_resale": 400,
+      "tracked_items": [
+        {
+          "id": "m28154012236",
+          "model": "SMC Pentax-M 50mm f/1.4",
+          "color": "Mocowanie K",
+          "target_price_jpy": 6800,
+          "est_pl_value": 420,
+          "note": "Jasna portretówka, czyste soczewki bez grzyba"
+        },
+        {
+          "id": "m40636967720",
+          "model": "PENTAX S-M-C Takumar 50mm f/1.4",
+          "color": "Gwint M42",
+          "target_price_jpy": 5900,
+          "est_pl_value": 380,
+          "note": "Legendarna plastyka obrazu i kremowy bokeh"
+        },
+        {
+          "id": "m68587045346",
+          "model": "Nintendo Pokemon GB/GBC/GBA",
+          "color": "Pakiet 10 gier",
+          "target_price_jpy": 4500,
+          "est_pl_value": 350,
+          "note": "Pakiet 10 japońskich kartridży Pokemon"
+        }
+      ]
+    }
+  ]
+}
