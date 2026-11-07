@@ -57,8 +57,16 @@ class DealFetcher:
                     if img_match:
                         image_url = img_match.group(1)
 
-                    # If HTTP 200 is returned and price is present, item is available
-                    status = "Dostępne"
+                    # Check sold out status:
+                    # Mercari Japan server-side renders `<meta name="robots" content="noindex..."/>`
+                    # strictly on listings that have been sold out or deactivated.
+                    is_sold = bool(re.search(r'<meta[^>]*robots[^>]*noindex', html, re.IGNORECASE))
+                    if is_sold:
+                        status = "Zakończone / Sprzedane"
+                    elif price_jpy > 0:
+                        status = "Dostępne"
+                    else:
+                        status = "Niedostępne"
                     break
 
             except urllib.error.HTTPError as e:
@@ -68,13 +76,13 @@ class DealFetcher:
                     break
                 else:
                     logging.warning(f"Item {item_id} HTTP error: {e}")
-                    status = "Dostępne (Cached)"
+                    status = f"Błąd HTTP {e.code}"
                     if attempt == max_attempts - 1:
                         break
             except Exception as e:
                 if attempt == max_attempts - 1:
-                    logging.warning(f"Could not reach {item_id}: {e}. Using cached/seed values.")
-                    status = "Dostępne (Cached)"
+                    logging.warning(f"Could not reach {item_id}: {e}.")
+                    status = "Błąd połączenia"
 
         # Calculate landed cost in Poland
         # Base price JPY + proxy fee

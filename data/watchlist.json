@@ -9,17 +9,65 @@
   "categories": [
     {
       "id": "ps_vita",
-      "name": "PlayStation Vita (Special Editions)",
+      "name": "PlayStation Vita (Special Editions & Colors)",
       "battery_type": "li-ion",
       "target_pln_resale": 900,
       "tracked_items": [
         {
-          "id": "m87613074296",
+          "id": "m66393976337",
+          "model": "PCH-2000 ZA23",
+          "color": "Aqua Blue",
+          "target_price_jpy": 16000,
+          "est_pl_value": 880,
+          "note": "Super okazja cenowa, Slim w poszukiwanym kolorze Aqua Blue"
+        },
+        {
+          "id": "m37358258622",
+          "model": "PCH-2000 ZA23",
+          "color": "Aqua Blue",
+          "target_price_jpy": 16700,
+          "est_pl_value": 890,
+          "note": "Zadbana konsola PS Vita Slim Aqua Blue"
+        },
+        {
+          "id": "m80245760333",
+          "model": "PCH-2000 ZA23",
+          "color": "Aqua Blue",
+          "target_price_jpy": 18400,
+          "est_pl_value": 900,
+          "note": "Sprawdzona konsola PCH-2000 Aqua Blue"
+        },
+        {
+          "id": "m89938668341",
+          "model": "PCH-2000 ZA23",
+          "color": "Aqua Blue",
+          "target_price_jpy": 19999,
+          "est_pl_value": 950,
+          "note": "Piękny stan Bi-hin, Aqua Blue Wi-Fi"
+        },
+        {
+          "id": "m40874391205",
+          "model": "PCH-1000 ZA04",
+          "color": "Sapphire Blue OLED",
+          "target_price_jpy": 17777,
+          "est_pl_value": 950,
+          "note": "Nasycona matryca Samsung OLED w szafirowym błękicie"
+        },
+        {
+          "id": "m42691856798",
+          "model": "PCH-1000 ZA04",
+          "color": "Sapphire Blue Box CIB",
+          "target_price_jpy": 32980,
+          "est_pl_value": 1350,
+          "note": "Stan kolekcjonerski CIB z kompletnym fabrycznym pudełkiem"
+        },
+        {
+          "id": "m33337627533",
           "model": "PCH-2000 ZA24",
           "color": "Neon Orange",
-          "target_price_jpy": 13333,
-          "est_pl_value": 900,
-          "note": "Super okazja cenowa, piękny neonowy pomarańcz"
+          "target_price_jpy": 22500,
+          "est_pl_value": 980,
+          "note": "Sprawna konsola PS Vita Slim w jaskrawym neonowym pomarańczu"
         },
         {
           "id": "m54226226221",
@@ -28,6 +76,14 @@
           "target_price_jpy": 22000,
           "est_pl_value": 980,
           "note": "W zestawie z grami, stan bardzo dobry"
+        },
+        {
+          "id": "m23811595029",
+          "model": "PCH-2000 ZA24",
+          "color": "Neon Orange Box CIB",
+          "target_price_jpy": 26500,
+          "est_pl_value": 1150,
+          "note": "Stan gabinetowy (Goku-bi-hin) w pełnym boxie"
         },
         {
           "id": "m20893563232",
@@ -54,6 +110,14 @@
           "note": "W komplecie z oryginalnym pudełkiem, sprawdzona"
         },
         {
+          "id": "m24868044274",
+          "model": "PCH-2000 ZA22",
+          "color": "Glacier White MINT",
+          "target_price_jpy": 28080,
+          "est_pl_value": 1150,
+          "note": "Stan jak nowy (未使用級) Glacier White"
+        },
+        {
           "id": "m96154365165",
           "model": "PCH-1000 ZA03",
           "color": "Cosmic Red OLED",
@@ -68,14 +132,6 @@
           "target_price_jpy": 24000,
           "est_pl_value": 1050,
           "note": "Zadbany egzemplarz OLED z akcesoriami"
-        },
-        {
-          "id": "m23811595029",
-          "model": "PCH-2000 ZA24",
-          "color": "Neon Orange Box CIB",
-          "target_price_jpy": 26500,
-          "est_pl_value": 1150,
-          "note": "Stan gabinetowy (Goku-bi-hin) w pełnym boxie"
         }
       ]
     },
@@ -102,12 +158,20 @@
           "note": "Konsola PSP-3000 w pełni przetestowana (動作品)"
         },
         {
-          "id": "m19431509115",
-          "model": "PSP / Vita bundle",
-          "color": "Various",
-          "target_price_jpy": 22000,
-          "est_pl_value": 950,
-          "note": "Zestaw z kartą pamięci 16GB"
+          "id": "m30583549097",
+          "model": "PSP-3000 VB",
+          "color": "Vibrant Blue (Bez Baterii)",
+          "target_price_jpy": 9999,
+          "est_pl_value": 500,
+          "note": "Sprawdzona konsola bez baterii (0% ryzyka w wysyłce, czysta oszczędność)"
+        },
+        {
+          "id": "m72451152933",
+          "model": "PSP-3000 RR",
+          "color": "Radiant Red",
+          "target_price_jpy": 13000,
+          "est_pl_value": 520,
+          "note": "Przepiękna metaliczna czerwień, sprawdzona"
         }
       ]
     },
@@ -214,12 +278,28 @@
           "note": "Ostatnia rewizja z wbudowanym zasilaczem 230V"
         },
         {
+          "id": "m20551217997",
+          "model": "Nintendo GameCube DOL-001",
+          "color": "Violet",
+          "target_price_jpy": 5580,
+          "est_pl_value": 380,
+          "note": "Wyjście Digital AV Out pod HDMI i modchip PicoBoot"
+        },
+        {
+          "id": "m84849739765",
+          "model": "Nintendo GameCube DOL-001",
+          "color": "Black (Czarny)",
+          "target_price_jpy": 7480,
+          "est_pl_value": 450,
+          "note": "Sprawdzona konsola DOL-001 w kolorze czarnym"
+        },
+        {
           "id": "m16656301506",
           "model": "Nintendo GameCube DOL-001",
           "color": "Spice Orange",
-          "target_price_jpy": 4980,
-          "est_pl_value": 420,
-          "note": "Wyjście Digital AV Out pod HDMI i modchip PicoBoot"
+          "target_price_jpy": 11000,
+          "est_pl_value": 520,
+          "note": "Unikatowy japoński kolor Spice Orange, sprawny"
         }
       ]
     },
@@ -233,7 +313,7 @@
           "id": "m28154012236",
           "model": "SMC Pentax-M 50mm f/1.4",
           "color": "Mocowanie K",
-          "target_price_jpy": 6800,
+          "target_price_jpy": 2900,
           "est_pl_value": 420,
           "note": "Jasna portretówka, czyste soczewki bez grzyba"
         },
@@ -241,16 +321,16 @@
           "id": "m40636967720",
           "model": "PENTAX S-M-C Takumar 50mm f/1.4",
           "color": "Gwint M42",
-          "target_price_jpy": 5900,
-          "est_pl_value": 380,
+          "target_price_jpy": 8700,
+          "est_pl_value": 450,
           "note": "Legendarna plastyka obrazu i kremowy bokeh"
         },
         {
           "id": "m68587045346",
           "model": "Nintendo Pokemon GB/GBC/GBA",
           "color": "Pakiet 10 gier",
-          "target_price_jpy": 4500,
-          "est_pl_value": 350,
+          "target_price_jpy": 10000,
+          "est_pl_value": 550,
           "note": "Pakiet 10 japońskich kartridży Pokemon"
         }
       ]
@@ -334,12 +414,44 @@
           "note": "Czysty, zadbany egzemplarz w kolorze czerwonym"
         },
         {
+          "id": "m91852856485",
+          "model": "Game Boy Color CGB-001",
+          "color": "Czerwony Sprawdzony",
+          "target_price_jpy": 7480,
+          "est_pl_value": 380,
+          "note": "Sprawny Game Boy Color w japońskiej wersji"
+        },
+        {
+          "id": "m89166124900",
+          "model": "Game Boy Color CGB-001",
+          "color": "Żółty Sprawdzony",
+          "target_price_jpy": 9300,
+          "est_pl_value": 400,
+          "note": "Zadbana konsola w kolorze żółtym, sprawdzona"
+        },
+        {
+          "id": "m61172887339",
+          "model": "Game Boy Pocket CIB",
+          "color": "Stan Kolekcjonerski",
+          "target_price_jpy": 22000,
+          "est_pl_value": 750,
+          "note": "Unikat w pudełku z papierami (極美品 未使用品)"
+        },
+        {
           "id": "m71441943955",
           "model": "AV Famicom HVC-101",
           "color": "New Famicom AV",
           "target_price_jpy": 10100,
           "est_pl_value": 550,
           "note": "Ostatnia rewizja NES/Famicoma z fabrycznym wyjściem AV chinch"
+        },
+        {
+          "id": "m63831993174",
+          "model": "Pokemon Gold / Silver / Crystal",
+          "color": "Pakiet 3 gier",
+          "target_price_jpy": 3000,
+          "est_pl_value": 250,
+          "note": "3 legendarne gry Pokemon 2. generacji na Game Boya"
         }
       ]
     }

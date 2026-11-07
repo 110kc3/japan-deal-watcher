@@ -42,5 +42,21 @@ class TestFetcher(unittest.TestCase):
             self.assertEqual(res["zenmarket_url"], "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m999888777")
             self.assertEqual(res["status"], "Dostępne")
 
+    def test_sold_item_detection(self):
+        fallback = {"target_price_jpy": 12000}
+        with patch("urllib.request.urlopen") as mock_open:
+            mock_resp = MagicMock()
+            mock_resp.read.return_value = (
+                b'<meta name="robots" content="noindex, follow"/>'
+                b'<meta name="product:price:amount" content="12000"/>'
+                b'<title>Sold Console - Mercari</title>'
+            )
+            mock_resp.__enter__.return_value = mock_resp
+            mock_open.return_value = mock_resp
+
+            res = self.fetcher.fetch_item_info("m111222333", fallback)
+            self.assertEqual(res["status"], "Zakończone / Sprzedane")
+            self.assertEqual(res["price_jpy"], 12000)
+
 if __name__ == "__main__":
     unittest.main()
