@@ -1,6 +1,7 @@
 """Generates comprehensive, live GitHub README.md for Japan Deal Watcher."""
 
 from datetime import datetime
+from .deal_analyzer import DealAnalyzer
 
 def sanitize_md(text):
     """Sanitizes text for safe inclusion in Markdown tables."""
@@ -16,6 +17,7 @@ class MarkdownGenerator:
         self.timeline = timeline_status
         self.rate = float(rate)
         self.is_live_rate = is_live_rate
+        self.analyzer = DealAnalyzer(deals)
 
     @staticmethod
     def format_margin(margin, roi):
@@ -32,6 +34,11 @@ class MarkdownGenerator:
         days_rem = self.timeline["days_remaining"]
         deadline = self.timeline["deadline"]
         status_badge = self.timeline["status_badge"]
+
+        # 1. AI Analysis & Ranking
+        ranked_deals = self.analyzer.get_ranked_deals()
+        top_worth_buying = [d for d in ranked_deals if d.get("is_worth_buying")][:5]
+        optimal_basket = self.analyzer.get_optimal_consolidation_basket()
 
         # Filter top snipes (highest margin/ROI, must be available)
         valid_deals = [d for d in self.deals if "404" not in d.get("status", "") and "Zakończone" not in d.get("status", "")]
@@ -50,7 +57,8 @@ class MarkdownGenerator:
         md.append("![Status](https://img.shields.io/badge/Watcher-Active-brightgreen) "
                   f"![Last Scan](https://img.shields.io/badge/Last%20Scan-{now_str.replace(' ', '%20')}-blue) "
                   f"![Exchange Rate](https://img.shields.io/badge/{rate_badge_label}-100%20JPY%20%E2%89%88%20{self.rate * 100:.2f}%20PLN-{rate_badge_color}) "
-                  f"![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-{days_rem}%20Days%20Left-orange)")
+                  f"![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-{days_rem}%20Days%20Left-orange) "
+                  "![Update Cycle](https://img.shields.io/badge/Cycle-Hourly%20(1h)-purple)")
         md.append("")
         md.append("---")
         md.append("")
@@ -79,6 +87,35 @@ class MarkdownGenerator:
         md.append("")
         md.append("---")
         md.append("")
+
+        # AI Worth-Buying Evaluation Section
+        if top_worth_buying:
+            md.append("## 🤖 Automatyczna Analiza Opłacalności AI (Worth-Buying Score)")
+            md.append("")
+            md.append("> Algorytm scoringowy ocenia każdą ofertę w skali 0–100 na podstawie: **czystego zysku w PLN**, **ROI %**, **płynności rynkowej w Polsce** oraz **wygody logistycznej (0% Li-Ion = brak restrykcji IATA)**.")
+            md.append("")
+            md.append("### 🌟 Top 5 Ofert \"Kupuj Natychmiast\" (Najwyższy Wskaźnik Opłacalności)")
+            md.append("")
+            md.append("| Werdykt AI | Wynik | Przedmiot / Model | Szacowany Koszt | Wartość w PL | Zysk Netto (ROI) | Uzasadnienie Zakupu (AI Rationale) | Akcja |")
+            md.append("|:---:|:---:|---|---:|---:|---:|---|---|")
+            for tw in top_worth_buying:
+                clean_m = sanitize_md(tw.get('model', ''))
+                clean_c = sanitize_md(tw.get('color', ''))
+                margin_str = self.format_margin(tw.get('est_margin_pln', 0), tw.get('roi_percent', 0))
+                clean_rat = sanitize_md(tw.get('rationale', ''))
+                md.append(
+                    f"| {tw['verdict_icon']}<br><strong>{tw['tier']}</strong> | "
+                    f"**{tw['score']}/100** | "
+                    f"**{clean_m}**<br><small>{clean_c}</small> | "
+                    f"~{tw['landed_cost_pln']:.2f} zł | "
+                    f"~{tw['est_pl_value']:.2f} zł | "
+                    f"{margin_str} | "
+                    f"<small>{clean_rat}</small> | "
+                    f"[🛒 Kup ZenMarket]({tw['zenmarket_url']})<br>[🇯🇵 Mercari]({tw['mercari_url']}) |"
+                )
+            md.append("")
+            md.append("---")
+            md.append("")
 
         if top_snipes:
             md.append("## 🎯 Top 3 Snipes (Highest Polish Market Profit)")
@@ -117,8 +154,8 @@ class MarkdownGenerator:
             md.append(f"## {clean_cat}")
             md.append(f"> **Typ zasilania / IATA:** {b_badge}")
             md.append("")
-            md.append("| Model / Wariant | Cena JPY (PLN) | Koszt w PL (z VAT) | Cena w Polsce | Potencjalny Zysk | Status | Linki |")
-            md.append("|---|---:|---:|---:|---:|:---:|---|")
+            md.append("| Model / Wariant | Cena JPY (PLN) | Koszt w PL (z VAT) | Cena w Polsce | Potencjalny Zysk | Werdykt AI | Status | Linki |")
+            md.append("|---|---:|---:|---:|---:|:---:|:---:|---|")
             
             for it in items:
                 status_icon = "✅ Dostępne" if "Dostępne" in it.get("status", "") else "❌ Zakończone / 404"
@@ -127,12 +164,16 @@ class MarkdownGenerator:
                 clean_note = sanitize_md(it.get("custom_note", ""))
                 margin_str = self.format_margin(it.get("est_margin_pln", 0), it.get("roi_percent", 0))
 
+                deal_eval = self.analyzer.analyze_deal(it)
+                ai_badge = f"{deal_eval['verdict_icon']} <strong>{deal_eval['tier']}</strong><br><small>{deal_eval['score']}/100</small>" if deal_eval.get("is_active") else "⚪ N/A"
+
                 md.append(
                     f"| **{clean_model}**<br><small>{clean_color}<br>*{clean_note}*</small> | "
                     f"**{it['price_jpy']:,} JPY**<br>(~{it['price_pln_raw']:.2f} zł) | "
                     f"~{it['landed_cost_pln']:.2f} zł | "
                     f"**{it['est_pl_value']:.2f} zł** | "
                     f"{margin_str} | "
+                    f"{ai_badge} | "
                     f"{status_icon} | "
                     f"[🛒 ZenMarket 1-Click]({it['zenmarket_url']})<br>[🇯🇵 Mercari Oferta]({it['mercari_url']}) |"
                 )
@@ -140,21 +181,32 @@ class MarkdownGenerator:
             md.append("---")
             md.append("")
 
-        # Consolidation simulation box
-        md.append("## 💡 Symulator Paczki Zbiorczej (Oszczędność na Wysyłce)")
+        # Dynamic Consolidation simulation box
+        b_items = optimal_basket.get("items", [])
+        md.append("## 💡 Optymalny Koszyk Konsolidacyjny (Wysyłka Zbiorcza)")
         md.append("")
-        md.append("Zamiast wysyłać każdy przedmiot osobno (gdzie minimalny koszt paczki kurierskiej to ~110 zł):")
+        md.append(f"Zamiast wysyłać każdy przedmiot osobno (gdzie minimalny koszt paczki kurierskiej to ~110 zł), algorytm dobrał optymalny zestaw {len(b_items)} pozycji, dokładnie przestrzegając limitu IATA (maks. 2 akumulatory Li-Ion):")
         md.append("")
-        md.append("| Skład Paczki Konsolidacyjnej | Baterie Li-Ion | Koszt Zakupu (JPY) | Szacowany Zysk w Polsce |")
-        md.append("|---|:---:|---:|---:|")
-        md.append("| 1× **PS Vita Neon Orange** (Slim ZA24) | 1 (Slot 1/2) | 13 333 JPY (~331 zł) | +380 zł |")
-        md.append("| 1× **Sony PSP-3000** (Piano Black) | 1 (Slot 2/2) | 7 980 JPY (~198 zł) | +170 zł |")
-        md.append("| 1× **Mega Pakiet 20 Gier PSP UMD** | 0 (Bez limitu) | 2 780 JPY (~69 zł) | +330 zł |")
-        md.append("| 1× **Obiektyw SMC Pentax-M 50mm f/1.4** | 0 (Bez limitu) | 6 800 JPY (~168 zł) | +210 zł |")
-        md.append("| **Łącznie w 1 kartonie transportowym** | **2 / 2 (100% IATA OK)** | **30 893 JPY (~766 zł)** | **+1 090 zł zysku!** |")
+        md.append("| Skład Paczki Konsolidacyjnej | Baterie Li-Ion | Koszt Zakupu (JPY) | Koszt w PL (z VAT) | Wartość w Polsce | Szacowany Zysk Netto |")
+        md.append("|---|:---:|---:|---:|---:|---:|")
+        for bi in b_items:
+            b_li = "1 (Slot Li-Ion)" if not bi["is_no_battery"] else "0 (Bez limitu)"
+            md.append(
+                f"| 1× **{sanitize_md(bi['model'])}** ({sanitize_md(bi['color'])}) | {b_li} | "
+                f"{bi['price_jpy']:,} JPY (~{bi['price_pln_raw']:.2f} zł) | ~{bi['landed_cost_pln']:.2f} zł | "
+                f"~{bi['est_pl_value']:.2f} zł | **+{bi['est_margin_pln']:.2f} zł** |"
+            )
+        md.append(
+            f"| **ŁĄCZNIE W 1 KARTONIE ({optimal_basket['total_items']} poz.)** | "
+            f"**{optimal_basket['li_ion_count']} / 2 Li-Ion (100% OK)** | "
+            f"**{optimal_basket['total_jpy']:,} JPY** | "
+            f"**~{optimal_basket['total_landed_pln']:.2f} zł** | "
+            f"**~{optimal_basket['total_est_pln']:.2f} zł** | "
+            f"**<strong style='color:#10b981;'>+{optimal_basket['total_margin_pln']:.2f} zł (+{optimal_basket['total_roi']}%)</strong>** |"
+        )
         md.append("")
-        md.append("> **Oszczędność na wysyłce:** 4 przesyłki osobno = ~440 zł. Jedna paczka zbiorcza FedEx/Airmail (~2.2 kg) = **~175 zł**.  ")
-        md.append("> 💰 **Czysta oszczędność na samej logistyce: ~265 zł w kieszeni!**")
+        md.append(f"> **Oszczędność na wysyłce:** {len(b_items)} przesyłek osobno = ~{len(b_items) * 110} zł. Jedna paczka skonsolidowana EMS/Airmail (~2.4 kg) = **~175 zł**.  ")
+        md.append(f"> 💰 **Czysta oszczędność na samej logistyce konsolidacyjnej: ~{(len(b_items) * 110) - 175} zł w kieszeni!**")
         md.append("")
         md.append("---")
         md.append("")
@@ -167,7 +219,7 @@ class MarkdownGenerator:
         md.append("  > *\"Please turn on the console and take 1 clear photo of the screen displaying the main menu (to check for dead pixels or screen yellowing). Please take 1 photo of the open battery compartment, and 1 photo of the back serial label.\"*")
         md.append("- **Dla obiektywów analogowych:**")
         md.append("  > *\"Please shine a flashlight through the lens elements and take 1 photo of the glass clarity (checking for fungus or haze), 1 photo of the front element, and 1 photo of the rear mount.\"*")
-        md.append("- **Dla konsol stacjonarnych (Saturn, Dreamcast, PS2):**")
+        md.append("- **Dla konsol stacjonarnych (Saturn, Dreamcast, PS2, GameCube):**")
         md.append("  > *\"Please take 1 photo of the overall front and top shell, 1 photo of the bottom label with serial number, and 1 photo of the controller ports.\"*")
         md.append("")
         md.append("---")
@@ -176,7 +228,8 @@ class MarkdownGenerator:
         # Automation details
         md.append("## ⚙️ How This Watcher Works")
         md.append("")
-        md.append("- **Automated Refresh:** GitHub Actions runs every 6 hours (`cron: '0 */6 * * *'`) and on manual trigger (`workflow_dispatch`).")
+        md.append("- **Automated Refresh:** GitHub Actions runs every hour (`cron: '0 * * * *'`) and on manual trigger (`workflow_dispatch`).")
+        md.append("- **AI Worth-Buying Valuation:** Real-time scoring of margin, ROI, and logistics suitability for each listing.")
         md.append("- **Live Verification:** Queries Mercari Japan directly for price changes, item removal, or sale status.")
         md.append("- **Local Run:**")
         md.append("  ```bash")

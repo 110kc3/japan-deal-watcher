@@ -61,9 +61,12 @@ class TestMarkdownGenerator(unittest.TestCase):
         self.assertIn("NBP%20Live", md)
         self.assertIn("60-Day Warehouse Packing & Consolidation Timeline", md)
         self.assertIn("Top 3 Snipes", md)
+        self.assertIn("Automatyczna Analiza Opłacalności AI", md)
+        self.assertIn("Hourly%20(1h)", md)
         self.assertIn("PS Vita Slim", md)
         self.assertIn("+440.00 zł", md)
         self.assertIn("ZenMarket 1-Click", md)
+        self.assertIn("Optymalny Koszyk Konsolidacyjny", md)
 
 if __name__ == "__main__":
     unittest.main()

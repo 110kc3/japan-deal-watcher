@@ -1,0 +1,175 @@
+"""Automated Deal Value & Worth-Buying Analyzer."""
+
+class DealAnalyzer:
+    """
+    Evaluates deals on profitability, market liquidity, condition, 
+    and logistics suitability for 60-day consolidation.
+    """
+
+    CATEGORY_WEIGHTS = {
+        "psp_games_mix": 1.25,      # High volume, zero Li-Ion, huge margin
+        "nintendo_retro": 1.20,     # Pokémon & Game Boy Color high liquidity
+        "ps_vita": 1.15,            # High Polish demand, but occupies Li-Ion slot
+        "analog_lenses": 1.15,      # Fast sale to photo enthusiasts, 0% Li-Ion
+        "ps1_consoles": 1.10,       # PSone / LCD high collector margin
+        "retro_consoles_no_battery": 1.10, # GameCube DOL-001 / Saturn
+        "psp_handheld": 1.05        # Good margin, but occupies Li-Ion unless dry
+    }
+
+    def __init__(self, deals):
+        self.deals = deals
+
+    def analyze_deal(self, deal):
+        """
+        Calculates a 0-100 Worth-Buying Score and generates an actionable verdict.
+        """
+        status = deal.get("status", "Active")
+        is_active = "Dostępne" in status and "404" not in status and "Zakończone" not in status
+
+        if not is_active:
+            return {
+                "id": deal.get("id"),
+                "score": 0,
+                "tier": "INACTIVE",
+                "verdict": "NIEDOSTĘPNE",
+                "verdict_icon": "❌",
+                "rationale": "Oferta została zakończona lub wyprzedana na Mercari.",
+                "is_active": False,
+                "is_worth_buying": False
+            }
+
+        price_jpy = deal.get("price_jpy", 0)
+        landed_cost_pln = deal.get("landed_cost_pln", 0)
+        est_pl_value = deal.get("est_pl_value", 0)
+        margin_pln = deal.get("est_margin_pln", 0)
+        roi_percent = deal.get("roi_percent", 0)
+        battery_type = deal.get("battery_type", "none")
+        cat_id = deal.get("category_id", "")
+        model = deal.get("model", "")
+        color = deal.get("color", "")
+        note = deal.get("custom_note", "")
+
+        # 1. Margin Points (0 to 35 pts)
+        # 350+ PLN margin gets max points
+        margin_pts = min(35.0, max(0.0, (margin_pln / 350.0) * 35.0))
+
+        # 2. ROI Points (0 to 35 pts)
+        # 70%+ ROI gets max points
+        roi_pts = min(35.0, max(0.0, (roi_percent / 70.0) * 35.0))
+
+        # 3. Logistics & Battery Bonus (0 to 15 pts)
+        # Items without Li-Ion don't consume the strict 2-device limit
+        is_no_battery = battery_type != "li-ion" or "Bez Baterii" in color or "bez baterii" in note.lower()
+        battery_pts = 15.0 if is_no_battery else 8.0
+
+        # 4. Liquidity & Category Factor (0 to 15 pts)
+        cat_factor = self.CATEGORY_WEIGHTS.get(cat_id, 1.0)
+        liquidity_pts = min(15.0, 10.0 * cat_factor)
+
+        raw_score = margin_pts + roi_pts + battery_pts + liquidity_pts
+        score = round(min(100.0, raw_score), 1)
+
+        # Classify Tier and Verdict
+        if score >= 80:
+            tier = "S-TIER"
+            verdict = "KUPUJ NATYCHMIAST (MUST BUY)"
+            verdict_icon = "🌟"
+            is_worth_buying = True
+        elif score >= 65:
+            tier = "A-TIER"
+            verdict = "BARDZO DOBRA OKAZJA (STRONG BUY)"
+            verdict_icon = "🚀"
+            is_worth_buying = True
+        elif score >= 50:
+            tier = "B-TIER"
+            verdict = "DOBRA CENA / DO KOSZYKA (FAIR DEAL)"
+            verdict_icon = "🛒"
+            is_worth_buying = True
+        else:
+            tier = "C-TIER"
+            verdict = "DO ROZWAŻENIA / WATCHLISTA (WATCH)"
+            verdict_icon = "⏱️"
+            is_worth_buying = False
+
+        # Generate custom Polish rationale
+        reasons = []
+        if roi_percent >= 60:
+            reasons.append(f"bardzo wysoki zwrot z inwestycji (+{roi_percent:.1f}% ROI)")
+        elif roi_percent >= 35:
+            reasons.append(f"atrakcyjna stopa zwrotu (+{roi_percent:.1f}% ROI)")
+
+        if margin_pln >= 300:
+            reasons.append(f"wysoki zysk na czysto (+{margin_pln:.0f} zł)")
+        elif margin_pln >= 150:
+            reasons.append(f"pewny zysk handlowy (+{margin_pln:.0f} zł)")
+
+        if is_no_battery:
+            reasons.append("brak baterii Li-Ion (0% restrykcji IATA, darmowe dopełnienie paczki)")
+        else:
+            reasons.append("zajmuje 1 slot bateryjny Li-Ion (maks. 2 na paczkę)")
+
+        rationale = "Przedmiot warty zakupu: " + ", ".join(reasons) + "."
+
+        return {
+            "id": deal.get("id"),
+            "model": model,
+            "color": color,
+            "category_id": cat_id,
+            "category_name": deal.get("category_name", ""),
+            "price_jpy": price_jpy,
+            "price_pln_raw": deal.get("price_pln_raw", 0),
+            "landed_cost_pln": landed_cost_pln,
+            "est_pl_value": est_pl_value,
+            "est_margin_pln": margin_pln,
+            "roi_percent": roi_percent,
+            "battery_type": battery_type,
+            "is_no_battery": is_no_battery,
+            "score": score,
+            "tier": tier,
+            "verdict": verdict,
+            "verdict_icon": verdict_icon,
+            "rationale": rationale,
+            "is_active": True,
+            "is_worth_buying": is_worth_buying,
+            "zenmarket_url": deal.get("zenmarket_url", ""),
+            "mercari_url": deal.get("mercari_url", "")
+        }
+
+    def get_ranked_deals(self):
+        """Returns active analyzed deals sorted by Worth-Buying Score descending."""
+        analyzed = [self.analyze_deal(d) for d in self.deals]
+        active_deals = [d for d in analyzed if d.get("is_active")]
+        return sorted(active_deals, key=lambda x: x["score"], reverse=True)
+
+    def get_optimal_consolidation_basket(self):
+        """
+        Constructs an optimal shipping basket complying with IATA:
+        - Exactly or up to 2 Li-Ion handhelds
+        - Plus top 0% Li-Ion items (games, lenses, retro consoles)
+        """
+        ranked = self.get_ranked_deals()
+        
+        li_ion_items = [d for d in ranked if not d["is_no_battery"]]
+        no_battery_items = [d for d in ranked if d["is_no_battery"]]
+
+        selected_li_ion = li_ion_items[:2]
+        selected_no_battery = no_battery_items[:4]
+
+        basket = selected_li_ion + selected_no_battery
+        total_jpy = sum(d["price_jpy"] for d in basket)
+        total_landed_pln = sum(d["landed_cost_pln"] for d in basket)
+        total_est_pln = sum(d["est_pl_value"] for d in basket)
+        total_margin_pln = round(total_est_pln - total_landed_pln, 2)
+        total_roi = round((total_margin_pln / total_landed_pln) * 100, 1) if total_landed_pln > 0 else 0
+
+        return {
+            "items": basket,
+            "li_ion_count": len(selected_li_ion),
+            "no_battery_count": len(selected_no_battery),
+            "total_items": len(basket),
+            "total_jpy": total_jpy,
+            "total_landed_pln": round(total_landed_pln, 2),
+            "total_est_pln": round(total_est_pln, 2),
+            "total_margin_pln": total_margin_pln,
+            "total_roi": total_roi
+        }
