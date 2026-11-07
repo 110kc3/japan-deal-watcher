@@ -1,20 +1,36 @@
 """Consolidation and 60-day packing timeline tracker."""
 
-from datetime import datetime, timedelta
+from datetime import datetime, date, timedelta
 from .config import FREE_STORAGE_DAYS, CONSOLIDATION_START, MAX_LI_ION_PER_PARCEL
 
 class ConsolidationTracker:
     def __init__(self, start_date=CONSOLIDATION_START, storage_limit_days=FREE_STORAGE_DAYS):
-        self.start_date = start_date
-        self.storage_limit_days = storage_limit_days
+        if isinstance(start_date, str):
+            self.start_date = datetime.strptime(start_date, "%Y-%m-%d").date()
+        elif isinstance(start_date, datetime):
+            self.start_date = start_date.date()
+        elif isinstance(start_date, date):
+            self.start_date = start_date
+        else:
+            self.start_date = date.today()
+
+        self.storage_limit_days = int(storage_limit_days)
 
     def get_timeline_status(self, now=None):
         if now is None:
-            now = datetime.now()
+            now_date = date.today()
+        elif isinstance(now, datetime):
+            now_date = now.date()
+        elif isinstance(now, date):
+            now_date = now
+        elif isinstance(now, str):
+            now_date = datetime.strptime(now, "%Y-%m-%d").date()
+        else:
+            now_date = date.today()
         
         deadline = self.start_date + timedelta(days=self.storage_limit_days)
-        days_passed = (now - self.start_date).days
-        days_remaining = max(0, (deadline - now).days)
+        days_passed = (now_date - self.start_date).days
+        days_remaining = max(0, (deadline - now_date).days)
         
         # Determine status level
         if days_remaining > 30:

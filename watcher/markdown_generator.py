@@ -2,11 +2,30 @@
 
 from datetime import datetime
 
+def sanitize_md(text):
+    """Sanitizes text for safe inclusion in Markdown tables."""
+    if text is None:
+        return ""
+    # Replace pipes and newlines that break Markdown tables
+    clean = str(text).replace("|", "&#124;").replace("\n", " ").replace("\r", "").strip()
+    return clean
+
 class MarkdownGenerator:
-    def __init__(self, deals, timeline_status, rate=0.024832):
+    def __init__(self, deals, timeline_status, rate=0.024832, is_live_rate=False):
         self.deals = deals
         self.timeline = timeline_status
-        self.rate = rate
+        self.rate = float(rate)
+        self.is_live_rate = is_live_rate
+
+    @staticmethod
+    def format_margin(margin, roi):
+        """Formats margin and ROI with proper colors and signs."""
+        if margin > 0:
+            return f"<strong style='color:#10b981;'>+{margin:.2f} zł</strong><br><small>(+{roi:.1f}%)</small>"
+        elif margin < 0:
+            return f"<strong style='color:#ef4444;'>{margin:.2f} zł</strong><br><small>({roi:.1f}%)</small>"
+        else:
+            return f"<strong style='color:#6b7280;'>0.00 zł</strong><br><small>(0.0%)</small>"
 
     def generate(self):
         now_str = datetime.now().strftime("%Y-%m-%d %H:%M UTC")
@@ -14,10 +33,13 @@ class MarkdownGenerator:
         deadline = self.timeline["deadline"]
         status_badge = self.timeline["status_badge"]
 
-        # Filter top snipes (highest margin/ROI)
+        # Filter top snipes (highest margin/ROI, must be available)
         valid_deals = [d for d in self.deals if "404" not in d.get("status", "") and "Zakończone" not in d.get("status", "")]
         sorted_deals = sorted(valid_deals, key=lambda x: x.get("est_margin_pln", 0), reverse=True)
         top_snipes = sorted_deals[:3]
+
+        rate_badge_label = "NBP%20Live" if self.is_live_rate else "Rate"
+        rate_badge_color = "success" if self.is_live_rate else "informational"
 
         md = []
         md.append("# 🇯🇵 Japan Deal Watcher & Consolidation Dashboard")
@@ -27,7 +49,7 @@ class MarkdownGenerator:
         md.append("")
         md.append("![Status](https://img.shields.io/badge/Watcher-Active-brightgreen) "
                   f"![Last Scan](https://img.shields.io/badge/Last%20Scan-{now_str.replace(' ', '%20')}-blue) "
-                  f"![Exchange Rate](https://img.shields.io/badge/Rate-100%20JPY%20%E2%89%88%202.48%20PLN-informational) "
+                  f"![Exchange Rate](https://img.shields.io/badge/{rate_badge_label}-100%20JPY%20%E2%89%88%20{self.rate * 100:.2f}%20PLN-{rate_badge_color}) "
                   f"![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-{days_rem}%20Days%20Left-orange)")
         md.append("")
         md.append("---")
@@ -58,20 +80,24 @@ class MarkdownGenerator:
         md.append("---")
         md.append("")
 
-        md.append("## 🎯 Top 3 Snipes (Highest Polish Market Profit)")
-        md.append("")
-        md.append("| Model / Przedmiot | Cena w Japonii | Szacowany Koszt w PL | Wartość w Polsce | Zysk na Czysto | Akcja |")
-        md.append("|---|---:|---:|---:|---:|---|")
-        for s in top_snipes:
-            md.append(
-                f"| **{s['model']}** ({s['color']}) | {s['price_jpy']:,} JPY (~{s['price_pln_raw']} zł) | "
-                f"~{s['landed_cost_pln']} zł | ~{s['est_pl_value']} zł | "
-                f"**+{s['est_margin_pln']} zł** (+{s['roi_percent']}%) | "
-                f"[🛒 Kup ZenMarket]({s['zenmarket_url']}) · [🇯🇵 Mercari]({s['mercari_url']}) |"
-            )
-        md.append("")
-        md.append("---")
-        md.append("")
+        if top_snipes:
+            md.append("## 🎯 Top 3 Snipes (Highest Polish Market Profit)")
+            md.append("")
+            md.append("| Model / Przedmiot | Cena w Japonii | Szacowany Koszt w PL | Wartość w Polsce | Zysk na Czysto | Akcja |")
+            md.append("|---|---:|---:|---:|---:|---|")
+            for s in top_snipes:
+                clean_model = sanitize_md(s.get('model', ''))
+                clean_color = sanitize_md(s.get('color', ''))
+                margin_str = self.format_margin(s.get('est_margin_pln', 0), s.get('roi_percent', 0))
+                md.append(
+                    f"| **{clean_model}** ({clean_color}) | {s['price_jpy']:,} JPY (~{s['price_pln_raw']:.2f} zł) | "
+                    f"~{s['landed_cost_pln']:.2f} zł | ~{s['est_pl_value']:.2f} zł | "
+                    f"{margin_str} | "
+                    f"[🛒 Kup ZenMarket]({s['zenmarket_url']}) · [🇯🇵 Mercari]({s['mercari_url']}) |"
+                )
+            md.append("")
+            md.append("---")
+            md.append("")
 
         # Render each category
         categories = {}
@@ -87,7 +113,8 @@ class MarkdownGenerator:
             
             b_badge = "🔴 Li-Ion (Zajmuje 1 slot bateryjny, max 2 na paczkę)" if b_type == "li-ion" else "🟢 No-Battery / Dry Cell (Brak limitu w paczce)"
             
-            md.append(f"## {cat_name}")
+            clean_cat = sanitize_md(cat_name)
+            md.append(f"## {clean_cat}")
             md.append(f"> **Typ zasilania / IATA:** {b_badge}")
             md.append("")
             md.append("| Model / Wariant | Cena JPY (PLN) | Koszt w PL (z VAT) | Cena w Polsce | Potencjalny Zysk | Status | Linki |")
@@ -95,12 +122,17 @@ class MarkdownGenerator:
             
             for it in items:
                 status_icon = "✅ Dostępne" if "Dostępne" in it.get("status", "") else "❌ Zakończone / 404"
+                clean_model = sanitize_md(it.get("model", ""))
+                clean_color = sanitize_md(it.get("color", ""))
+                clean_note = sanitize_md(it.get("custom_note", ""))
+                margin_str = self.format_margin(it.get("est_margin_pln", 0), it.get("roi_percent", 0))
+
                 md.append(
-                    f"| **{it['model']}**<br><small>{it['color']}<br>*{it['custom_note']}*</small> | "
-                    f"**{it['price_jpy']:,} JPY**<br>(~{it['price_pln_raw']} zł) | "
-                    f"~{it['landed_cost_pln']} zł | "
-                    f"**{it['est_pl_value']} zł** | "
-                    f"<strong style='color:green;'>+{it['est_margin_pln']} zł</strong><br>(+{it['roi_percent']}%) | "
+                    f"| **{clean_model}**<br><small>{clean_color}<br>*{clean_note}*</small> | "
+                    f"**{it['price_jpy']:,} JPY**<br>(~{it['price_pln_raw']:.2f} zł) | "
+                    f"~{it['landed_cost_pln']:.2f} zł | "
+                    f"**{it['est_pl_value']:.2f} zł** | "
+                    f"{margin_str} | "
                     f"{status_icon} | "
                     f"[🛒 ZenMarket 1-Click]({it['zenmarket_url']})<br>[🇯🇵 Mercari Oferta]({it['mercari_url']}) |"
                 )

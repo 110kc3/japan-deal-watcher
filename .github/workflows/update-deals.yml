@@ -12,6 +12,10 @@ on:
       - 'data/watchlist.json'
       - 'watcher/**'
 
+concurrency:
+  group: deal-watcher-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
@@ -26,6 +30,10 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+
+      - name: Run Test Suite
+        run: |
+          python -m unittest discover tests
 
       - name: Run Deal Watcher
         run: |

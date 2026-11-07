@@ -6,6 +6,7 @@ import sys
 from pathlib import Path
 
 from watcher.config import WATCHLIST_FILE, CURRENT_DEALS_FILE, BASE_DIR
+from watcher.currency import get_live_nbp_rate
 from watcher.fetcher import DealFetcher
 from watcher.consolidation import ConsolidationTracker
 from watcher.markdown_generator import MarkdownGenerator
@@ -23,24 +24,36 @@ def main():
         watchlist = json.load(f)
 
     settings = watchlist.get("settings", {})
-    rate = settings.get("currency_rate_jpy_pln", 0.024832)
+    fallback_rate = settings.get("currency_rate_jpy_pln", 0.024832)
 
-    # 1. Fetch deal data
+    # 1. Fetch live NBP rate or fallback
+    rate, is_live_rate = get_live_nbp_rate()
+    if not is_live_rate:
+        rate = fallback_rate
+
+    # 2. Fetch deal data
     fetcher = DealFetcher(rate=rate)
     deals = fetcher.scan_watchlist(watchlist)
 
-    # 2. Save current deals to JSON
+    # 3. Save current deals to JSON
     with open(CURRENT_DEALS_FILE, "w", encoding="utf-8") as f:
         json.dump(deals, f, indent=2, ensure_ascii=False)
     print(f"✅ Saved {len(deals)} deals to {CURRENT_DEALS_FILE}")
 
-    # 3. Calculate consolidation timeline
-    tracker = ConsolidationTracker()
+    # 4. Calculate consolidation timeline
+    start_date = settings.get("consolidation_start_date", "2026-11-07")
+    storage_limit = settings.get("free_storage_days", 60)
+    tracker = ConsolidationTracker(start_date=start_date, storage_limit_days=storage_limit)
     timeline = tracker.get_timeline_status()
     print(f"⏳ 60-Day Warehouse Storage: {timeline['days_remaining']} days remaining until {timeline['deadline']}")
 
-    # 4. Generate README.md
-    generator = MarkdownGenerator(deals=deals, timeline_status=timeline, rate=rate)
+    # 5. Generate README.md
+    generator = MarkdownGenerator(
+        deals=deals,
+        timeline_status=timeline,
+        rate=rate,
+        is_live_rate=is_live_rate
+    )
     readme_content = generator.generate()
 
     readme_path = BASE_DIR / "README.md"

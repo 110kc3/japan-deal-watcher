@@ -21,6 +21,16 @@ CONSOLIDATION_START = datetime(2026, 11, 7)
 # IATA Air Shipment Lithium Battery Regulations
 MAX_LI_ION_PER_PARCEL = 2
 
+# Category-aware estimated shipping share in consolidated parcel (PLN)
+CATEGORY_SHIPPING_SHARES = {
+    "ps_vita": 35.0,                  # ~220g handheld
+    "psp_handheld": 30.0,             # ~190g handheld
+    "psp_games_mix": 20.0,            # ~120-180g UMD lots
+    "retro_consoles_no_battery": 65.0, # ~1.5-2.0kg Sega/Sony home console
+    "analog_lenses": 25.0             # ~200g prime lens
+}
+DEFAULT_SHIPPING_SHARE_PLN = 30.0
+
 # HTTP Request headers
 USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
