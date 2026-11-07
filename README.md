@@ -3,7 +3,7 @@
 > **Automated Private Deal Watcher for Retro Consoles, Handhelds, UMD Bundles & Analog Lenses**  
 > *Live tracking Mercari Japan, Yahoo Auctions & ZenMarket consolidation timeline.*
 
-![Status](https://img.shields.io/badge/Watcher-Active-brightgreen) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-07%2020:16%20UTC-blue) ![Exchange Rate](https://img.shields.io/badge/NBP%20Live-100%20JPY%20%E2%89%88%202.48%20PLN-success) ![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-60%20Days%20Left-orange)
+![Status](https://img.shields.io/badge/Watcher-Active-brightgreen) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-07%2020:25%20UTC-blue) ![Exchange Rate](https://img.shields.io/badge/NBP%20Live-100%20JPY%20%E2%89%88%202.48%20PLN-success) ![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-60%20Days%20Left-orange)
 
 ---
 
@@ -31,8 +31,8 @@ ZenMarket provides **60 days of free warehouse storage** from the moment an item
 | Model / Przedmiot | Cena w Japonii | Szacowany Koszt w PL | Wartość w Polsce | Zysk na Czysto | Akcja |
 |---|---:|---:|---:|---:|---|
 | **PCH-2000 ZA24** (Neon Orange) | 13,333 JPY (~331.09 zł) | ~465.56 zł | ~900.00 zł | <strong style='color:#10b981;'>+434.44 zł</strong><br><small>(+93.3%)</small> | [🛒 Kup ZenMarket](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m87613074296) · [🇯🇵 Mercari](https://jp.mercari.com/item/m87613074296) |
+| **PS one SCPH-100 + Ekran LCD** (Zestaw z Monitorem Sony) | 28,000 JPY (~695.30 zł) | ~925.84 zł | ~1350.00 zł | <strong style='color:#10b981;'>+424.16 zł</strong><br><small>(+45.8%)</small> | [🛒 Kup ZenMarket](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m63306829409) · [🇯🇵 Mercari](https://jp.mercari.com/item/m63306829409) |
 | **PSP UMD 20 sztuk** (Mix 20 Gier) | 2,780 JPY (~69.03 zł) | ~124.78 zł | ~500.00 zł | <strong style='color:#10b981;'>+375.22 zł</strong><br><small>(+300.7%)</small> | [🛒 Kup ZenMarket](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m97540976496) · [🇯🇵 Mercari](https://jp.mercari.com/item/m97540976496) |
-| **PCH-1000 ZA03** (Cosmic Red OLED) | 17,444 JPY (~433.17 zł) | ~591.12 zł | ~900.00 zł | <strong style='color:#10b981;'>+308.88 zł</strong><br><small>(+52.3%)</small> | [🛒 Kup ZenMarket](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m96154365165) · [🇯🇵 Mercari](https://jp.mercari.com/item/m96154365165) |
 
 ---
 
@@ -102,6 +102,31 @@ ZenMarket provides **60 days of free warehouse storage** from the moment an item
 
 ---
 
+## Sony PlayStation 1 & PSone (0% Baterii)
+> **Typ zasilania / IATA:** 🟢 No-Battery / Dry Cell (Brak limitu w paczce)
+
+| Model / Wariant | Cena JPY (PLN) | Koszt w PL (z VAT) | Cena w Polsce | Potencjalny Zysk | Status | Linki |
+|---|---:|---:|---:|---:|:---:|---|
+| **PSone SCPH-100**<br><small>Biały Slim<br>*Kompaktowy PSone w rewelacyjnej cenie*</small> | **3,000 JPY**<br>(~74.50 zł) | ~162.25 zł | **250.00 zł** | <strong style='color:#10b981;'>+87.75 zł</strong><br><small>(+54.1%)</small> | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m45409824978)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m45409824978) |
+| **PS one SCPH-100 Zestaw**<br><small>Biały z Padem<br>*Kompletny zestaw z oryginalnym kontrolerem i kablami*</small> | **7,500 JPY**<br>(~186.24 zł) | ~299.70 zł | **380.00 zł** | <strong style='color:#10b981;'>+80.30 zł</strong><br><small>(+26.8%)</small> | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m12340146667)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m12340146667) |
+| **PS1 Fat SCPH-7000 Box CIB**<br><small>Szary Klasyk<br>*Stan kolekcjonerski CIB w pudełku z instrukcjami*</small> | **10,899 JPY**<br>(~270.64 zł) | ~403.51 zł | **520.00 zł** | <strong style='color:#10b981;'>+116.49 zł</strong><br><small>(+28.9%)</small> | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m74926187824)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m74926187824) |
+| **PS one SCPH-100 + Ekran LCD**<br><small>Zestaw z Monitorem Sony<br>*Święty Graal: oficjalny dedykowany monitor LCD Sony*</small> | **28,000 JPY**<br>(~695.30 zł) | ~925.84 zł | **1350.00 zł** | <strong style='color:#10b981;'>+424.16 zł</strong><br><small>(+45.8%)</small> | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m63306829409)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m63306829409) |
+
+---
+
+## Nintendo Retro: Super Famicom & Game Boy Color (0% Li-Ion)
+> **Typ zasilania / IATA:** 🟢 No-Battery / Dry Cell (Brak limitu w paczce)
+
+| Model / Wariant | Cena JPY (PLN) | Koszt w PL (z VAT) | Cena w Polsce | Potencjalny Zysk | Status | Linki |
+|---|---:|---:|---:|---:|:---:|---|
+| **Super Famicom SHVC-001**<br><small>Szary Klasyk NTSC-J<br>*Kultowy japoński SNES za grosze, sprawny*</small> | **2,400 JPY**<br>(~59.60 zł) | ~137.78 zł | **260.00 zł** | <strong style='color:#10b981;'>+122.22 zł</strong><br><small>(+88.7%)</small> | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m40920472377)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m40920472377) |
+| **Super Famicom + 2 Pady + 10 Gier**<br><small>Mega Zestaw<br>*Gotowy zestaw retro: 2 kontrolery i 10 japońskich hitów*</small> | **11,800 JPY**<br>(~293.02 zł) | ~424.88 zł | **650.00 zł** | <strong style='color:#10b981;'>+225.12 zł</strong><br><small>(+53.0%)</small> | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m39670684370)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m39670684370) |
+| **Game Boy Color CGB-001**<br><small>Turkusowy (2x AA)<br>*Zasilanie 2x AA, zero baterii litowych, sprawdzony*</small> | **6,000 JPY**<br>(~148.99 zł) | ~247.73 zł | **380.00 zł** | <strong style='color:#10b981;'>+132.27 zł</strong><br><small>(+53.4%)</small> | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m87504628450)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m87504628450) |
+| **Game Boy Color CGB-001**<br><small>Czerwony (2x AA)<br>*Czysty, zadbany egzemplarz w kolorze czerwonym*</small> | **7,200 JPY**<br>(~178.79 zł) | ~284.38 zł | **380.00 zł** | <strong style='color:#10b981;'>+95.62 zł</strong><br><small>(+33.6%)</small> | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m17168125308)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m17168125308) |
+| **AV Famicom HVC-101**<br><small>New Famicom AV<br>*Ostatnia rewizja NES/Famicoma z fabrycznym wyjściem AV chinch*</small> | **10,100 JPY**<br>(~250.80 zł) | ~372.96 zł | **550.00 zł** | <strong style='color:#10b981;'>+177.04 zł</strong><br><small>(+47.5%)</small> | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m71441943955)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m71441943955) |
+
+---
+
 ## 💡 Symulator Paczki Zbiorczej (Oszczędność na Wysyłce)
 
 Zamiast wysyłać każdy przedmiot osobno (gdzie minimalny koszt paczki kurierskiej to ~110 zł):
@@ -142,4 +167,4 @@ Po zakupieniu przedmiotu w panelu ZenMarket kliknij *Order Photos* i wklej:
 - **Adding New Items:** Edit `data/watchlist.json` and push to `main`.
 
 ---
-*Dashboard automatically maintained by GitHub Actions & Antigravity Agent. Last updated: 2026-11-07 20:16 UTC.*
+*Dashboard automatically maintained by GitHub Actions & Antigravity Agent. Last updated: 2026-11-07 20:25 UTC.*

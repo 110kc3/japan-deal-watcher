@@ -254,6 +254,94 @@
           "note": "Pakiet 10 japońskich kartridży Pokemon"
         }
       ]
+    },
+    {
+      "id": "ps1_consoles",
+      "name": "Sony PlayStation 1 & PSone (0% Baterii)",
+      "battery_type": "none",
+      "target_pln_resale": 350,
+      "tracked_items": [
+        {
+          "id": "m45409824978",
+          "model": "PSone SCPH-100",
+          "color": "Biały Slim",
+          "target_price_jpy": 3000,
+          "est_pl_value": 250,
+          "note": "Kompaktowy PSone w rewelacyjnej cenie"
+        },
+        {
+          "id": "m12340146667",
+          "model": "PS one SCPH-100 Zestaw",
+          "color": "Biały z Padem",
+          "target_price_jpy": 7500,
+          "est_pl_value": 380,
+          "note": "Kompletny zestaw z oryginalnym kontrolerem i kablami"
+        },
+        {
+          "id": "m74926187824",
+          "model": "PS1 Fat SCPH-7000 Box CIB",
+          "color": "Szary Klasyk",
+          "target_price_jpy": 10899,
+          "est_pl_value": 520,
+          "note": "Stan kolekcjonerski CIB w pudełku z instrukcjami"
+        },
+        {
+          "id": "m63306829409",
+          "model": "PS one SCPH-100 + Ekran LCD",
+          "color": "Zestaw z Monitorem Sony",
+          "target_price_jpy": 28000,
+          "est_pl_value": 1350,
+          "note": "Święty Graal: oficjalny dedykowany monitor LCD Sony"
+        }
+      ]
+    },
+    {
+      "id": "nintendo_retro",
+      "name": "Nintendo Retro: Super Famicom & Game Boy Color (0% Li-Ion)",
+      "battery_type": "dry-cell",
+      "target_pln_resale": 400,
+      "tracked_items": [
+        {
+          "id": "m40920472377",
+          "model": "Super Famicom SHVC-001",
+          "color": "Szary Klasyk NTSC-J",
+          "target_price_jpy": 2400,
+          "est_pl_value": 260,
+          "note": "Kultowy japoński SNES za grosze, sprawny"
+        },
+        {
+          "id": "m39670684370",
+          "model": "Super Famicom + 2 Pady + 10 Gier",
+          "color": "Mega Zestaw",
+          "target_price_jpy": 11800,
+          "est_pl_value": 650,
+          "note": "Gotowy zestaw retro: 2 kontrolery i 10 japońskich hitów"
+        },
+        {
+          "id": "m87504628450",
+          "model": "Game Boy Color CGB-001",
+          "color": "Turkusowy (2x AA)",
+          "target_price_jpy": 6000,
+          "est_pl_value": 380,
+          "note": "Zasilanie 2x AA, zero baterii litowych, sprawdzony"
+        },
+        {
+          "id": "m17168125308",
+          "model": "Game Boy Color CGB-001",
+          "color": "Czerwony (2x AA)",
+          "target_price_jpy": 7200,
+          "est_pl_value": 380,
+          "note": "Czysty, zadbany egzemplarz w kolorze czerwonym"
+        },
+        {
+          "id": "m71441943955",
+          "model": "AV Famicom HVC-101",
+          "color": "New Famicom AV",
+          "target_price_jpy": 10100,
+          "est_pl_value": 550,
+          "note": "Ostatnia rewizja NES/Famicoma z fabrycznym wyjściem AV chinch"
+        }
+      ]
     }
   ]
 }

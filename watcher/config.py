@@ -27,6 +27,8 @@ CATEGORY_SHIPPING_SHARES = {
     "psp_handheld": 30.0,             # ~190g handheld
     "psp_games_mix": 20.0,            # ~120-180g UMD lots
     "retro_consoles_no_battery": 65.0, # ~1.5-2.0kg Sega/Sony home console
+    "ps1_consoles": 45.0,             # ~550g PSone to 1.2kg PS1 fat
+    "nintendo_retro": 40.0,           # ~150g GBC to 800g Super Famicom
     "analog_lenses": 25.0             # ~200g prime lens
 }
 DEFAULT_SHIPPING_SHARE_PLN = 30.0
