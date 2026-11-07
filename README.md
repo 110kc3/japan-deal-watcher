@@ -3,7 +3,7 @@
 > **Automated Private Deal Watcher for Retro Consoles, Handhelds, UMD Bundles & Analog Lenses**  
 > *Live tracking Mercari Japan, Yahoo Auctions & ZenMarket consolidation timeline.*
 
-![Status](https://img.shields.io/badge/Watcher-Active-brightgreen) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-07%2019:57%20UTC-blue) ![Exchange Rate](https://img.shields.io/badge/Rate-100%20JPY%20%E2%89%88%202.48%20PLN-informational) ![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-59%20Days%20Left-orange)
+![Status](https://img.shields.io/badge/Watcher-Active-brightgreen) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-07%2019:58%20UTC-blue) ![Exchange Rate](https://img.shields.io/badge/Rate-100%20JPY%20%E2%89%88%202.48%20PLN-informational) ![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-59%20Days%20Left-orange)
 
 ---
 
@@ -98,7 +98,7 @@ ZenMarket provides **60 days of free warehouse storage** from the moment an item
 |---|---:|---:|---:|---:|:---:|---|
 | **SMC Pentax-M 50mm f/1.4**<br><small>Mocowanie K<br>*Jasna portretówka, czyste soczewki bez grzyba*</small> | **2,900 JPY**<br>(~72.01 zł) | ~146.9 zł | **420 zł** | <strong style='color:green;'>+273.1 zł</strong><br>(+185.9%) | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m28154012236)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m28154012236) |
 | **PENTAX S-M-C Takumar 50mm f/1.4**<br><small>Gwint M42<br>*Legendarna plastyka obrazu i kremowy bokeh*</small> | **8,700 JPY**<br>(~216.04 zł) | ~324.05 zł | **380 zł** | <strong style='color:green;'>+55.95 zł</strong><br>(+17.3%) | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m40636967720)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m40636967720) |
-| **Nintendo Pokemon GB/GBC/GBA**<br><small>Pakiet 10 gier<br>*Pakiet 10 japońskich kartridży Pokemon*</small> | **10,000 JPY**<br>(~248.32 zł) | ~363.76 zł | **350 zł** | <strong style='color:green;'>+-13.76 zł</strong><br>(+-3.8%) | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m68587045346)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m68587045346) |
+| **Nintendo Pokemon GB/GBC/GBA**<br><small>Pakiet 10 gier<br>*Pakiet 10 japońskich kartridży Pokemon*</small> | **4,500 JPY**<br>(~111.74 zł) | ~195.77 zł | **350 zł** | <strong style='color:green;'>+154.23 zł</strong><br>(+78.8%) | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m68587045346)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m68587045346) |
 
 ---
 
@@ -142,4 +142,4 @@ Po zakupieniu przedmiotu w panelu ZenMarket kliknij *Order Photos* i wklej:
 - **Adding New Items:** Edit `data/watchlist.json` and push to `main`.
 
 ---
-*Dashboard automatically maintained by GitHub Actions & Antigravity Agent. Last updated: 2026-11-07 19:57 UTC.*
+*Dashboard automatically maintained by GitHub Actions & Antigravity Agent. Last updated: 2026-11-07 19:58 UTC.*
