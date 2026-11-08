@@ -1,4 +1,4 @@
-"""Generates comprehensive, live GitHub README.md for Japan Deal Watcher."""
+"""Generates condensed, consolidated, live GitHub README.md for Japan Deal Watcher."""
 
 from datetime import datetime
 from .deal_analyzer import DealAnalyzer
@@ -31,6 +31,34 @@ class MarkdownGenerator:
         else:
             return f"<strong style='color:#6b7280;'>0.00 zł</strong><br><small>(0.0%)</small>"
 
+    @staticmethod
+    def format_short_rationale(tw):
+        """Creates punchy, condensed key selling points instead of verbose paragraphs."""
+        badges = []
+        cond_type = tw.get("condition_type", "")
+        if cond_type == "untested_opportunity":
+            badges.append("⚡ Niesprawdzany (Okazja)")
+        elif cond_type == "lens_clean":
+            badges.append("💎 Czysta optyka")
+        elif cond_type == "confirmed_working":
+            badges.append("✅ Sprawdzony 100%")
+        else:
+            badges.append("✅ Stan dobry")
+
+        if tw.get("battery_type") != "li-ion":
+            badges.append("🟢 0% Li-Ion")
+        else:
+            badges.append("🔴 1 Li-Ion")
+
+        roi = tw.get("roi_percent", 0)
+        margin = tw.get("est_margin_pln", 0)
+        if roi >= 60:
+            badges.append(f"Wysoki ROI (+{roi:.0f}%)")
+        if margin >= 200:
+            badges.append(f"Zysk +{margin:.0f} zł")
+
+        return " · ".join(badges)
+
     def generate(self):
         now_str = datetime.now().strftime("%Y-%m-%d %H:%M UTC")
         days_rem = self.timeline["days_remaining"]
@@ -51,6 +79,7 @@ class MarkdownGenerator:
         rate_badge_color = "success" if self.is_live_rate else "informational"
 
         md = []
+        # Header & Badges (Compact)
         md.append("# 🇯🇵 Japan Deal Watcher & Consolidation Dashboard")
         md.append("")
         md.append(f"> **Automated Private Deal Watcher for Retro Consoles, Handhelds, UMD Bundles & Analog Lenses**  ")
@@ -65,58 +94,31 @@ class MarkdownGenerator:
                   "![Lens Cap](https://img.shields.io/badge/Lens%20Cap-Max%20100%20PLN-orange) "
                   "![Update Cycle](https://img.shields.io/badge/Cycle-Hourly%20(1h)-purple)")
         md.append("")
-        md.append("> 🔨 **Alternatywne rynki:** Sprawdź dedykowany katalog licytacji i ofert ze sklepów retro: [**YAHOO_AUCTIONS_DEALS.md** (Yahoo! Auctions, Surugaya, Hard-Off)](YAHOO_AUCTIONS_DEALS.md)  ")
-        md.append("> 🎯 **Taktyka Snajpera i Ceny Końcowe:** Sprawdź twarde limity licytacji w ostatnich minutach: [**AUCTION_SNIPING_GUIDE.md** (Poradnik Snajpera i Ceny Końcowe)](AUCTION_SNIPING_GUIDE.md)  ")
-        md.append("> 💰 **Audyt Opłacalności:** Czy oferty faktycznie się opłacają? Zobacz [**REAL_PROFITABILITY_AUDIT.md** (Reality-Check, Ukryte Koszty i Płynność)](REAL_PROFITABILITY_AUDIT.md)  ")
-        md.append("> 📈 **Historia Cen i Sprzedaży:** Śledź co się sprzedaje i jakie ceny osiąga: [**MARKET_SALES_HISTORY.md** (Rejestr Sprzedaży i Trendy Cenowe)](MARKET_SALES_HISTORY.md)  ")
-        md.append("> 📊 **Obsidian Vault:** [2026-11-08-real-world-profitability-audit.md](file:///home/borg/docker/obsidian/vault/20-reports/adhoc/2026-11-08-real-world-profitability-audit.md) · [ps-vita-blue-market-report.md](file:///home/borg/docker/obsidian/vault/20-reports/adhoc/2026-11-07-ps-vita-blue-market-report.md)")
+        # Sleek Quick Navigation Bar
+        md.append("> 🧭 **Szybka Nawigacja:** [🔨 Yahoo Aukcje (YAHOO_AUCTIONS_DEALS.md)](YAHOO_AUCTIONS_DEALS.md) · [🎯 Poradnik Snajpera (AUCTION_SNIPING_GUIDE.md)](AUCTION_SNIPING_GUIDE.md) · [💰 Audyt Opłacalności (REAL_PROFITABILITY_AUDIT.md)](REAL_PROFITABILITY_AUDIT.md) · [📈 Historia Sprzedaży (MARKET_SALES_HISTORY.md)](MARKET_SALES_HISTORY.md)")
         md.append("")
         md.append("---")
         md.append("")
+
+        # 2. Consolidated Storage & Landed Cost Card
         md.append("## 📦 60-Day Warehouse Packing & Consolidation Timeline")
         md.append("")
-        md.append(f"ZenMarket provides **60 days of free warehouse storage** from the moment an item is delivered to Osaka. After 60 days, storage fees incur (50 JPY/item/day).")
+        md.append(f"ZenMarket zapewnia **60 dni darmowego przechowywania** w Osace na połączenie ofert z Mercari i Yahoo Auctions w 1 tanią paczkę zbiorczą.")
         md.append("")
-        md.append("| Metric | Status | Details |")
-        md.append("|---|---|---|")
-        md.append(f"| **Storage Cycle Started** | `{self.timeline['start_date']}` | Initial tracking cycle started |")
-        md.append(f"| **Free Storage Deadline** | **`{deadline}`** | Must create & ship package before this date |")
-        md.append(f"| **Days Remaining** | **`{days_rem} dni`** | {status_badge} |")
-        md.append(f"| **IATA Li-Ion Limit** | **Maks. 2 urządzenia** | Baterie litowe: tylko 2 sztuki na przesyłkę lotniczą! |")
-        md.append(f"| **No-Battery Items** | **Bez limitu (0%)** | Gry PSP UMD, Game Boy DMG, WonderSwan (1x AA), konsole stacjonarne |")
+        md.append("| Magazyn ZenMarket Osaka | Cykl & Deadline | Limit Baterii IATA | Formuła Landed Cost (PL z VAT) |")
+        md.append("|:---:|:---:|:---:|---|")
+        md.append(f"| **`{days_rem} dni darmowego magazynu`**<br><small>{status_badge}</small> | "
+                  f"Start: `{self.timeline['start_date']}`<br>Deadline: **`{deadline}`** | "
+                  f"**Maks. 2 Li-Ion / paczka**<br><small>0% dla gier UMD, konsol stacjonarnych i po demontażu baterii (Dry Shipping)</small> | "
+                  f"`(Cena JPY + 800 JPY wysyłka JP) × kurs NBP + 2 EUR + wysyłka intl + 3.5% depozyt + 23% VAT` |")
         md.append("")
         md.append("> [!TIP]")
-        md.append("> **Czy na pewno nie da się wysłać więcej niż 2 baterii?**  ")
-        md.append("> Limit 2 sztuk dotyczy wyłącznie standardowej **poczty lotniczej** (IATA PI 967). Masz 2 genialne alternatywy:  \n"
-                  "> 1. **Poczta morska (Japan Post Seamail):** Brak jakichkolwiek limitów baterii (możesz spakować 15–25 konsol w 1 paczce) i 40–50% niższy koszt!  \n"
-                  "> 2. **Dry Shipping (usunięcie baterii w magazynie ZenMarket):** Dla konsol Nintendo DS / PSP wyjęcie baterii (1 śrubka) zamienia je w towar 0% Li-Ion! Możesz wysłać 20 sztuk samolotem w 3 dni, a nowe baterie na Allegro to koszt zaledwie 15–25 zł.  \n"
-                  "> Pełny poradnik omijania limitu znajdziesz w [AUCTION_SNIPING_GUIDE.md (Sekcja 6)](AUCTION_SNIPING_GUIDE.md#-tajniki-logistyki-bateryjnej-czy-na-pewno-nie-da-się-wysłać-więcej-niż-2-baterie).")
-        md.append("")
-
-        # Visual progress bar for 60 days
-        total_days = 60
-        passed = max(0, min(total_days, self.timeline['days_passed']))
-        percent_used = int((passed / total_days) * 100)
-        filled_blocks = int(passed / 3)
-        empty_blocks = 20 - filled_blocks
-        bar = "█" * filled_blocks + "░" * empty_blocks
-        md.append(f"**Consolidation Window Progress ({percent_used}% passed):**")
-        md.append(f"```text\n[{bar}] {passed}/60 Days used ({days_rem} days remaining until {deadline})\n```")
-        md.append("")
-        md.append("### 💰 Realna Formuła Kalkulacji Kosztów „Landed Cost” w Polsce")
-        md.append("")
-        md.append("Każda kwota w kolumnie **Szacowany Koszt w PL (z VAT)** zawiera kompletny, zaktualizowany łańcuch opłat:")
-        md.append(f"- **Cena zakupu w Japonii:** Przeliczona bezpośrednio po kursie NBP (`100 JPY ≈ {self.rate * 100:.2f} zł`).")
-        md.append(f"- **Obsługa i wysyłka krajowa w Japonii (+800 JPY / item):** Koszt dostawy od sprzedawcy do magazynu w Osace (`~{800 * self.rate:.2f} zł`).")
-        md.append(f"- **Prowizja ZenMarket (+2.00 EUR / item):** Stała opłata serwisowa za zakup przedmiotu (`~{2.0 * self.rate_eur:.2f} zł`).")
-        md.append("- **Udział w przesyłce międzynarodowej:** Koszt transportu w paczce zbiorczej (20–65 zł zależnie od wagi kategorii).")
-        md.append("- **Prowizja doładowania salda (+3.5%):** Opłata manipulacyjna bramki płatniczej (karta/Stripe/PayPal) przy zasileniu konta ZenMarket.")
-        md.append("- **Polski podatek VAT (+23%):** Należność celno-skarbowa naliczana przy odprawie w Polsce od wartości towaru i przesyłki.")
+        md.append("> **Więcej niż 2 baterie?** Użyj poczty morskiej (*Japan Post Seamail* – brak limitów baterii) lub *Dry Shipping* (usunięcie baterii w magazynie ZenMarket – 1 śrubka w DS/PSP, nowa bateria na Allegro to 15–25 zł). Szczegóły: [AUCTION_SNIPING_GUIDE.md](AUCTION_SNIPING_GUIDE.md) oraz [REAL_PROFITABILITY_AUDIT.md](REAL_PROFITABILITY_AUDIT.md).")
         md.append("")
         md.append("---")
         md.append("")
 
-        # AI Worth-Buying Evaluation Section
+        # 3. AI Worth-Buying Evaluation & Top 3 Snipes
         if top_worth_buying:
             md.append("## 🤖 Automatyczna Analiza Opłacalności AI (Worth-Buying Score)")
             md.append("")
@@ -124,13 +126,13 @@ class MarkdownGenerator:
             md.append("")
             md.append("### 🌟 Top 5 Ofert \"Kupuj Natychmiast\" (Najwyższy Wskaźnik Opłacalności)")
             md.append("")
-            md.append("| Werdykt AI | Wynik | Przedmiot / Model | Szacowany Koszt | Wartość w PL | Zysk Netto (ROI) | Uzasadnienie Zakupu (AI Rationale) | Akcja |")
+            md.append("| Werdykt AI | Wynik | Przedmiot / Model | Szacowany Koszt | Wartość w PL | Zysk Netto (ROI) | Kluczowy Atut (AI) | Akcja |")
             md.append("|:---:|:---:|---|---:|---:|---:|---|---|")
             for tw in top_worth_buying:
                 clean_m = sanitize_md(tw.get('model', ''))
                 clean_c = sanitize_md(tw.get('color', ''))
                 margin_str = self.format_margin(tw.get('est_margin_pln', 0), tw.get('roi_percent', 0))
-                clean_rat = sanitize_md(tw.get('rationale', ''))
+                short_rat = self.format_short_rationale(tw)
                 md.append(
                     f"| {tw['verdict_icon']}<br><strong>{tw['tier']}</strong> | "
                     f"**{tw['score']}/100** | "
@@ -138,7 +140,7 @@ class MarkdownGenerator:
                     f"~{tw['landed_cost_pln']:.2f} zł | "
                     f"~{tw['est_pl_value']:.2f} zł | "
                     f"{margin_str} | "
-                    f"<small>{clean_rat}</small> | "
+                    f"<small>{short_rat}</small> | "
                     f"[🛒 Kup ZenMarket]({tw['zenmarket_url']})<br>[🇯🇵 Mercari]({tw['mercari_url']}) |"
                 )
             md.append("")
@@ -164,7 +166,7 @@ class MarkdownGenerator:
             md.append("---")
             md.append("")
 
-        # Render each category
+        # 4. Render categories: separate active deals from ended deals (Collapsible Archive)
         categories = {}
         for d in self.deals:
             cname = d.get("category_name", "Inne")
@@ -186,82 +188,108 @@ class MarkdownGenerator:
             md.append(f"## {clean_cat}")
             md.append(f"> **Typ zasilania / IATA:** {b_badge}")
             if "aparat" in cat_name.lower() or "camera" in cat_name.lower():
-                md.append("> 📷 **Reguła Cenowa:** Zgodnie z zasadą inwestycyjną: *aparaty powyżej 100 zł nie są okazjami*. Wszystkie pozycje w tej kategorii mają ceny zakupu <= 100 zł (~4,000 JPY).")
+                md.append("> 📷 **Reguła Cenowa:** aparaty <= 100 zł (~4,000 JPY).")
             elif "obiektyw" in cat_name.lower() or "lens" in cat_name.lower():
-                md.append("> 🔍 **Reguła Cenowa:** Zgodnie z zasadą inwestycyjną: *obiektywy w dużych cenach odpadają*. Wszystkie pozycje w tej kategorii mają ceny zakupu <= 100 zł (~4,000 JPY), gwarantując wysoki ROI przy zerowym ryzyku kapitałowym.")
+                md.append("> 🔍 **Reguła Cenowa:** obiektywy <= 100 zł (~4,000 JPY) o wysokim ROI.")
             elif "nintendo ds" in cat_name.lower() or "ds" in cat_name.lower():
-                md.append("> 🎮 **Kategoria Nintendo DS:** Kultowe handheldy Dual Screen. Klapka baterii na 1 śrubkę umożliwia demontaż w magazynie ZenMarket (Dry Shipping), co zamienia konsolę w 0% Li-Ion i pozwala na nielimitowaną wysyłkę lotniczą!")
+                md.append("> 🎮 **Kategoria Nintendo DS:** Kultowe handheldy Dual Screen (możliwy demontaż baterii / Dry Shipping 0% Li-Ion).")
             md.append("")
-            md.append("| Model / Wariant | Stan / Weryfikacja | Cena JPY (PLN) | Koszt w PL (z VAT) | Cena w Polsce | Potencjalny Zysk | Werdykt AI | Status | Linki |")
-            md.append("|---|:---:|---:|---:|---:|---:|:---:|:---:|---|")
-            
-            for it in items:
-                is_ended = ("Dostępne" not in it.get("status", ""))
-                is_broken = it.get("is_broken") or "Wykluczone" in it.get("status", "")
-                
-                if is_broken:
-                    status_icon = "~~🚫 Wykluczone (Uszkodzone)~~"
-                elif is_ended:
-                    status_icon = "~~❌ Zakończone / Sprzedane~~"
-                else:
-                    status_icon = "✅ Dostępne"
-                
-                clean_model = sanitize_md(it.get("model", ""))
-                clean_color = sanitize_md(it.get("color", ""))
-                clean_note = sanitize_md(it.get("custom_note", ""))
-                margin_str = self.format_margin(it.get("est_margin_pln", 0), it.get("roi_percent", 0))
 
-                cond_type = it.get("condition_type", "standard_good")
-                if cond_type == "untested_opportunity":
-                    cond_html = "⚡ <strong>Niesprawdzany</strong><br><small style='color:#d97706;'>Potencjał zysku</small>"
-                elif cond_type == "confirmed_working":
-                    cond_html = "✅ <strong>Sprawdzony</strong><br><small style='color:#10b981;'>Sprawny 100%</small>"
-                elif cond_type == "lens_clean":
-                    cond_html = "💎 <strong>Czysty</strong><br><small style='color:#0284c7;'>Bez wad optyki</small>"
-                elif it.get("is_broken") or cond_type == "broken":
-                    cond_html = "❌ <strong>Uszkodzony</strong><br><small style='color:#ef4444;'>Wykluczony</small>"
-                else:
-                    cond_html = "✅ <strong>Stan Dobry</strong>"
+            # Separate active and ended items
+            active_items = [it for it in items if "Dostępne" in it.get("status", "")]
+            ended_items = [it for it in items if "Dostępne" not in it.get("status", "")]
 
-                deal_eval = self.analyzer.analyze_deal(it)
-                ai_badge = f"{deal_eval['verdict_icon']} <strong>{deal_eval['tier']}</strong><br><small>{deal_eval['score']}/100</small>" if deal_eval.get("is_active") else "⚪ N/A"
+            table_header = "| Model / Wariant | Stan / Weryfikacja | Cena JPY (PLN) | Koszt w PL (z VAT) | Cena w Polsce | Potencjalny Zysk | Werdykt AI | Status | Linki |"
+            table_sep = "|---|:---:|---:|---:|---:|---:|:---:|:---:|---|"
 
-                if is_ended or is_broken:
-                    # User rule: "kiedy oferta sie skonczy wykresl ja z readme" -> Strikethrough
-                    model_col = f"~~**{clean_model}**~~<br><small>~~{clean_color}~~<br>*~~{clean_note}~~*</small>"
-                    cond_col = f"~~{cond_html}~~"
+            if active_items:
+                md.append(table_header)
+                md.append(table_sep)
+                for it in active_items:
+                    clean_model = sanitize_md(it.get("model", ""))
+                    clean_color = sanitize_md(it.get("color", ""))
+                    clean_note = sanitize_md(it.get("custom_note", ""))
+                    margin_str = self.format_margin(it.get("est_margin_pln", 0), it.get("roi_percent", 0))
+
+                    cond_type = it.get("condition_type", "standard_good")
+                    if cond_type == "untested_opportunity":
+                        cond_html = "⚡ <strong>Niesprawdzany</strong><br><small style='color:#d97706;'>Potencjał zysku</small>"
+                    elif cond_type == "confirmed_working":
+                        cond_html = "✅ <strong>Sprawdzony</strong><br><small style='color:#10b981;'>Sprawny 100%</small>"
+                    elif cond_type == "lens_clean":
+                        cond_html = "💎 <strong>Czysty</strong><br><small style='color:#0284c7;'>Bez wad optyki</small>"
+                    else:
+                        cond_html = "✅ <strong>Stan Dobry</strong>"
+
+                    deal_eval = self.analyzer.analyze_deal(it)
+                    ai_badge = f"{deal_eval['verdict_icon']} <strong>{deal_eval['tier']}</strong><br><small>{deal_eval['score']}/100</small>" if deal_eval.get("is_active") else "⚪ N/A"
+
+                    # Condensed model cell: avoid repeating color twice
+                    note_str = f"<br>*{clean_note}*" if clean_note and clean_note != clean_color else ""
+                    model_col = f"**{clean_model}**<br><small>{clean_color}{note_str}</small>"
+                    price_col = f"**{it['price_jpy']:,} JPY**<br>(~{it['price_pln_raw']:.2f} zł)"
+                    landed_col = f"~{it['landed_cost_pln']:.2f} zł"
+                    pl_col = f"**{it['est_pl_value']:.2f} zł**"
+                    links_col = f"[🛒 ZenMarket 1-Click]({it['zenmarket_url']})<br>[🇯🇵 Mercari Oferta]({it['mercari_url']})"
+
+                    md.append(
+                        f"| {model_col} | "
+                        f"{cond_html} | "
+                        f"{price_col} | "
+                        f"{landed_col} | "
+                        f"{pl_col} | "
+                        f"{margin_str} | "
+                        f"{ai_badge} | "
+                        f"✅ Dostępne | "
+                        f"{links_col} |"
+                    )
+                md.append("")
+            else:
+                md.append("*Brak nowych aktywnych ofert w tej chwili (wszystkie pozycje wyprzedane lub w trakcie transakcji).*")
+                md.append("")
+
+            # If there are ended items in this category, render them cleanly in a collapsible section
+            if ended_items:
+                md.append(f"<details><summary>📁 Zakończone / Sprzedane w tej kategorii ({len(ended_items)} ofert - kliknij, aby rozwinąć)</summary>")
+                md.append("")
+                md.append(table_header)
+                md.append(table_sep)
+                for it in ended_items:
+                    clean_model = sanitize_md(it.get("model", ""))
+                    clean_color = sanitize_md(it.get("color", ""))
+                    margin_str = self.format_margin(it.get("est_margin_pln", 0), it.get("roi_percent", 0))
+
+                    is_broken = it.get("is_broken") or "Wykluczone" in it.get("status", "")
+                    status_icon = "~~🚫 Wykluczone (Uszkodzone)~~" if is_broken else "~~❌ Zakończone / Sprzedane~~"
+
+                    model_col = f"~~**{clean_model}**~~<br><small>~~{clean_color}~~</small>"
+                    cond_col = "~~✅ Stan Dobry~~"
                     price_col = f"~~**{it['price_jpy']:,} JPY**~~<br>(~~~{it['price_pln_raw']:.2f} zł~~)"
                     landed_col = f"~~~{it['landed_cost_pln']:.2f} zł~~"
                     pl_col = f"~~**{it['est_pl_value']:.2f} zł**~~"
                     margin_col = f"~~{margin_str}~~"
-                    ai_col = f"~~{ai_badge}~~"
-                    links_col = f"~~[🛒 ZenMarket 1-Click]({it['zenmarket_url']})~~<br>~~[🇯🇵 Mercari Oferta]({it['mercari_url']})~~"
-                else:
-                    model_col = f"**{clean_model}**<br><small>{clean_color}<br>*{clean_note}*</small>"
-                    cond_col = cond_html
-                    price_col = f"**{it['price_jpy']:,} JPY**<br>(~{it['price_pln_raw']:.2f} zł)"
-                    landed_col = f"~{it['landed_cost_pln']:.2f} zł"
-                    pl_col = f"**{it['est_pl_value']:.2f} zł**"
-                    margin_col = margin_str
-                    ai_col = ai_badge
-                    links_col = f"[🛒 ZenMarket 1-Click]({it['zenmarket_url']})<br>[🇯🇵 Mercari Oferta]({it['mercari_url']})"
+                    ai_col = "~~⚪ N/A~~"
+                    links_col = f"~~[🛒 ZenMarket 1-Click]({it['zenmarket_url']})~~"
 
-                md.append(
-                    f"| {model_col} | "
-                    f"{cond_col} | "
-                    f"{price_col} | "
-                    f"{landed_col} | "
-                    f"{pl_col} | "
-                    f"{margin_col} | "
-                    f"{ai_col} | "
-                    f"{status_icon} | "
-                    f"{links_col} |"
-                )
-            md.append("")
+                    md.append(
+                        f"| {model_col} | "
+                        f"{cond_col} | "
+                        f"{price_col} | "
+                        f"{landed_col} | "
+                        f"{pl_col} | "
+                        f"{margin_col} | "
+                        f"{ai_col} | "
+                        f"{status_icon} | "
+                        f"{links_col} |"
+                    )
+                md.append("")
+                md.append("</details>")
+                md.append("")
+
             md.append("---")
             md.append("")
 
-        # Dynamic Consolidation simulation box
+        # 5. Dynamic Consolidation simulation box (Condensed)
         b_items = optimal_basket.get("items", [])
         md.append("## 💡 Optymalny Koszyk Konsolidacyjny (Wysyłka Zbiorcza)")
         md.append("")
@@ -285,14 +313,13 @@ class MarkdownGenerator:
             f"**<strong style='color:#10b981;'>+{optimal_basket['total_margin_pln']:.2f} zł (+{optimal_basket['total_roi']}%)</strong>** |"
         )
         md.append("")
-        md.append(f"> **Oszczędność na wysyłce:** {len(b_items)} przesyłek osobno = ~{len(b_items) * 110} zł. Jedna paczka skonsolidowana EMS/Airmail (~2.4 kg) = **~175 zł**.  ")
-        md.append(f"> 💰 **Czysta oszczędność na samej logistyce konsolidacyjnej: ~{(len(b_items) * 110) - 175} zł w kieszeni!**")
+        md.append(f"> 💰 **Czysta oszczędność na konsolidacji: ~{(len(b_items) * 110) - 175} zł w kieszeni!** ({len(b_items)} przesyłek osobno = ~{len(b_items) * 110} zł vs 1 paczka EMS = ~175 zł).")
         md.append("")
         md.append("---")
         md.append("")
 
-        # Inspection cheatsheet
-        md.append("## 🛡️ Formułki Inspekcji Zdjęciowej ZenMarket (500 JPY za 3 zdjęcia)")
+        # 6. Collapsible Photo Inspection Formulas (Clean reference)
+        md.append("<details><summary>🛡️ Formułki Inspekcji Zdjęciowej ZenMarket (Order Photos - 500 JPY za 3 zdjęcia)</summary>")
         md.append("")
         md.append("Po zakupieniu przedmiotu w panelu ZenMarket kliknij *Order Photos* i wklej:")
         md.append("- **Dla PS Vita / PSP:**")
@@ -302,20 +329,17 @@ class MarkdownGenerator:
         md.append("- **Dla konsol stacjonarnych (Saturn, Dreamcast, PS2, GameCube):**")
         md.append("  > *\"Please take 1 photo of the overall front and top shell, 1 photo of the bottom label with serial number, and 1 photo of the controller ports.\"*")
         md.append("")
+        md.append("</details>")
+        md.append("")
         md.append("---")
         md.append("")
 
-        # Automation details
+        # 7. Concise Technical Footer
         md.append("## ⚙️ How This Watcher Works")
         md.append("")
-        md.append("- **Automated Refresh:** GitHub Actions runs every hour (`cron: '0 * * * *'`) and on manual trigger (`workflow_dispatch`).")
-        md.append("- **AI Worth-Buying Valuation:** Real-time scoring of margin, ROI, and logistics suitability for each listing.")
-        md.append("- **Live Verification:** Queries Mercari Japan directly for price changes, item removal, or sale status.")
-        md.append("- **Local Run:**")
-        md.append("  ```bash")
-        md.append("  python3 main.py")
-        md.append("  ```")
-        md.append("- **Adding New Items:** Edit `data/watchlist.json` and push to `main`.")
+        md.append("- **Automated Refresh:** GitHub Actions uruchamiane co godzinę (`cron: '0 * * * *'`) pobiera aktualne kursy NBP i sprawdza dostępność.")
+        md.append("- **AI Worth-Buying Valuation:** Matematyczna wycena marży, ROI, IATA i płynności w Polsce w czasie rzeczywistym.")
+        md.append("- **Lokalne uruchomienie:** `python3 main.py` w repozytorium.")
         md.append("")
         md.append("---")
         md.append(f"*Dashboard automatically maintained by GitHub Actions & Antigravity Agent. Last updated: {now_str}.*")
