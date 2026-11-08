@@ -152,6 +152,62 @@
       ]
     },
     {
+      "id": "psp_go",
+      "name": "Sony PlayStation Portable Go (PSP-N1000 - 16GB Flash)",
+      "battery_type": "li-ion",
+      "target_pln_resale": 900,
+      "tracked_items": [
+        {
+          "id": "m29873867950",
+          "model": "PSP Go Pearl White",
+          "color": "Pearl White (PSP-N1000 PW)",
+          "target_price_jpy": 20000,
+          "est_pl_value": 850,
+          "note": "Sprawdzona, przyciski i boot OK, bateria trzyma, dodatkowa nowa bateria"
+        },
+        {
+          "id": "m36209570318",
+          "model": "PSP Go Piano Black",
+          "color": "Piano Black (PSP-N1001)",
+          "target_price_jpy": 21500,
+          "est_pl_value": 880,
+          "note": "Wersja czarna, zaktualizowany soft 6.61, ładny stan wizualny"
+        },
+        {
+          "id": "m83178868969",
+          "model": "PSP Go Piano Black (Niesprawdzana)",
+          "color": "Piano Black (Wysoki Potencjał Zysku)",
+          "target_price_jpy": 23000,
+          "est_pl_value": 850,
+          "note": "Brak ładowarki u sprzedawcy - niesprawdzana, wysoki potencjał arbitrażu"
+        },
+        {
+          "id": "m73355124461",
+          "model": "PSP Go Piano Black + Kabel",
+          "color": "Piano Black (Zestaw Kabel USB)",
+          "target_price_jpy": 24800,
+          "est_pl_value": 950,
+          "note": "W pełni sprawna, ekran bez rys, przyciski sprawne, dedykowany kabel USB"
+        },
+        {
+          "id": "m62310546851",
+          "model": "PSP Go Piano Black + Zasilacz",
+          "color": "Piano Black (Komplet AC + Etui)",
+          "target_price_jpy": 26000,
+          "est_pl_value": 1020,
+          "note": "Komplet z oryginalnym zasilaczem sieciowym i etui transportowym, sprawna"
+        },
+        {
+          "id": "m81432088648",
+          "model": "PSP Go Pearl White (CIB)",
+          "color": "Pearl White (W Pudełku)",
+          "target_price_jpy": 26999,
+          "est_pl_value": 1200,
+          "note": "Egzemplarz kolekcjonerski w oryginalnym kartonie z akcesoriami, sprawna"
+        }
+      ]
+    },
+    {
       "id": "psp_games_mix",
       "name": "Pakiety Gier Retro PSP (Mix UMD まとめ)",
       "battery_type": "none",
@@ -166,12 +222,12 @@
           "note": "Tani pakiet 8 gier UMD, cena za grę ~3 zł w JP!"
         },
         {
-          "id": "m60765014627",
-          "model": "PSP UMD 10 sztuk",
-          "color": "Mix 10 Gier",
-          "target_price_jpy": 1399,
-          "est_pl_value": 280,
-          "note": "Zestaw 10 gier UMD, świetny dopełniacz do paczki (0% Li-Ion)"
+          "id": "m68019720937",
+          "model": "PSP UMD 10 sztuk (Sprawne)",
+          "color": "Mix 10 Gier CIB",
+          "target_price_jpy": 3000,
+          "est_pl_value": 340,
+          "note": "10 gier UMD w pudełkach (God Eater, 7th Dragon, Gundam, Burnout), stan sprawdzony"
         },
         {
           "id": "m95924617150",
@@ -246,36 +302,36 @@
           "note": "Model DOL-001 z portem Digital AV Out, kable, zasilacz, pad"
         },
         {
-          "id": "m49466595486",
-          "model": "PlayStation 2 Slim",
-          "color": "SCPH-75000",
-          "target_price_jpy": 4000,
-          "est_pl_value": 320,
-          "note": "Klasyczna mała PS2 Slim, idealna do wysyłki (lekka, 0% baterii)"
+          "id": "m76344716191",
+          "model": "PlayStation 2 Slim (Box + 2 Pady)",
+          "color": "SCPH-70000 Black (Pudełko)",
+          "target_price_jpy": 7480,
+          "est_pl_value": 520,
+          "note": "W oryginalnym kartonie, 2x DualShock 2, zasilacz, kable, czyta gry i DVD 100% OK"
         },
         {
-          "id": "m51092364226",
-          "model": "PlayStation 2 Twin Pack",
-          "color": "2x PS2 Slim",
-          "target_price_jpy": 7200,
-          "est_pl_value": 550,
-          "note": "Dwupak konsol PS2 Slim w jednej cenie"
+          "id": "m12133298445",
+          "model": "PlayStation 2 Slim FF XII",
+          "color": "SCPH-75000 FF Edycja Limitowana",
+          "target_price_jpy": 7300,
+          "est_pl_value": 520,
+          "note": "Limitowana edycja Final Fantasy XII, nowy laser zamontowany, czyta PS1 i PS2"
         },
         {
-          "id": "m84092254693",
-          "model": "GameCube Silver + SFC",
-          "color": "Zestaw 2 konsol",
-          "target_price_jpy": 6900,
-          "est_pl_value": 580,
-          "note": "Kombi: GameCube Silver + Super Famicom w jednym locie"
+          "id": "m33105362005",
+          "model": "Nintendo GameCube Silver Zestaw",
+          "color": "Silver + Pad + 3 Gry",
+          "target_price_jpy": 9800,
+          "est_pl_value": 680,
+          "note": "Komplet z oryginalnym padem, zasilaczem, kablem AV i 3 grami, czyta płyty 100% OK"
         },
         {
-          "id": "m59927018070",
-          "model": "GameCube Orange + SFC",
-          "color": "Zestaw 2 konsol",
-          "target_price_jpy": 8300,
-          "est_pl_value": 650,
-          "note": "Kombi: GameCube Orange + Super Famicom z padami"
+          "id": "m16233376718",
+          "model": "Nintendo GameCube Black Zestaw",
+          "color": "Black + Pad + Okablowanie",
+          "target_price_jpy": 8980,
+          "est_pl_value": 620,
+          "note": "Konsola z padem, zasilaczem i kablem AV, w pełni sprawdzona i działająca"
         }
       ]
     },

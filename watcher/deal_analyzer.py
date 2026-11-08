@@ -10,6 +10,7 @@ class DealAnalyzer:
         "psp_games_mix": 1.25,      # High volume, zero Li-Ion, huge margin
         "nintendo_retro": 1.20,     # Pokémon & Game Boy Color high liquidity
         "ps_vita": 1.15,            # High Polish demand, but occupies Li-Ion slot
+        "psp_go": 1.15,             # Sliding compact console, 16GB, Li-Ion slot, high demand
         "analog_lenses": 1.15,      # Fast sale to photo enthusiasts, 0% Li-Ion
         "ps1_consoles": 1.10,       # PSone / LCD high collector margin
         "retro_consoles_no_battery": 1.10, # GameCube DOL-001 / Saturn
@@ -24,7 +25,20 @@ class DealAnalyzer:
         Calculates a 0-100 Worth-Buying Score and generates an actionable verdict.
         """
         status = deal.get("status", "Active")
-        is_active = "Dostępne" in status and "404" not in status and "Zakończone" not in status
+        is_broken = deal.get("is_broken", False) or "Wykluczone" in status or deal.get("condition_type") == "broken"
+        is_active = "Dostępne" in status and "404" not in status and "Zakończone" not in status and not is_broken
+
+        if is_broken:
+            return {
+                "id": deal.get("id"),
+                "score": 0,
+                "tier": "EXCLUDED",
+                "verdict": "WYKLUCZONE (USZKODZONE)",
+                "verdict_icon": "🚫",
+                "rationale": "Oferta wykluczona z listy: opis sprzedawcy wskazuje na uszkodzenie (defekt napędu/lasera/zasilania).",
+                "is_active": False,
+                "is_worth_buying": False
+            }
 
         if not is_active:
             return {
@@ -48,6 +62,8 @@ class DealAnalyzer:
         model = deal.get("model", "")
         color = deal.get("color", "")
         note = deal.get("custom_note", "")
+        cond_type = deal.get("condition_type", "standard_good")
+        cond_badge = deal.get("condition_badge", "✅ Stan Dobry")
 
         # 1. Margin Points (0 to 35 pts)
         # 350+ PLN margin gets max points
@@ -66,7 +82,12 @@ class DealAnalyzer:
         cat_factor = self.CATEGORY_WEIGHTS.get(cat_id, 1.0)
         liquidity_pts = min(15.0, 10.0 * cat_factor)
 
-        raw_score = margin_pts + roi_pts + battery_pts + liquidity_pts
+        # 5. Opportunity Gain Factor (Arbitrage for untested gear with high upside)
+        opp_bonus = 0.0
+        if cond_type == "untested_opportunity" and roi_percent >= 40:
+            opp_bonus = 3.0  # Extra boost for cheap untested equipment with huge gain potential
+
+        raw_score = margin_pts + roi_pts + battery_pts + liquidity_pts + opp_bonus
         score = round(min(100.0, raw_score), 1)
 
         # Classify Tier and Verdict
@@ -93,6 +114,13 @@ class DealAnalyzer:
 
         # Generate custom Polish rationale
         reasons = []
+        if cond_type == "untested_opportunity":
+            reasons.append("⚡ sprzęt niesprawdzany przez sprzedawcę (wysoki potencjał zysku / arbitraż)")
+        elif cond_type == "lens_clean":
+            reasons.append("💎 optyka czysta bez defektów")
+        elif cond_type == "confirmed_working":
+            reasons.append("✅ sprzęt w 100% sprawdzony i przetestowany")
+
         if roi_percent >= 60:
             reasons.append(f"bardzo wysoki zwrot z inwestycji (+{roi_percent:.1f}% ROI)")
         elif roi_percent >= 35:
@@ -124,6 +152,8 @@ class DealAnalyzer:
             "roi_percent": roi_percent,
             "battery_type": battery_type,
             "is_no_battery": is_no_battery,
+            "condition_type": cond_type,
+            "condition_badge": cond_badge,
             "score": score,
             "tier": tier,
             "verdict": verdict,

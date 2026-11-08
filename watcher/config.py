@@ -24,6 +24,7 @@ MAX_LI_ION_PER_PARCEL = 2
 # Category-aware estimated shipping share in consolidated parcel (PLN)
 CATEGORY_SHIPPING_SHARES = {
     "ps_vita": 35.0,                  # ~220g handheld
+    "psp_go": 30.0,                   # ~158g compact slider handheld
     "psp_handheld": 30.0,             # ~190g handheld
     "psp_games_mix": 20.0,            # ~120-180g UMD lots
     "retro_consoles_no_battery": 65.0, # ~1.5-2.0kg Sega/Sony home console

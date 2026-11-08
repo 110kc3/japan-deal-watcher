@@ -1,10 +1,38 @@
 import unittest
 from unittest.mock import patch, MagicMock
-from watcher.fetcher import DealFetcher
+from watcher.fetcher import DealFetcher, classify_condition
 
 class TestFetcher(unittest.TestCase):
     def setUp(self):
         self.fetcher = DealFetcher(rate=0.025, enable_mercapi=False)
+
+    def test_classify_condition_broken(self):
+        broken_text = "本体は電源は入りますがゲーム読み込みが出来ません。ジャンク品です。"
+        res = classify_condition(broken_text)
+        self.assertTrue(res["is_broken"])
+        self.assertEqual(res["condition_type"], "broken")
+        self.assertIn("Uszkodzony", res["condition_badge"])
+
+    def test_classify_condition_untested(self):
+        untested_text = "充電器がない為動作未確認です。現状渡しとなります。"
+        res = classify_condition(untested_text)
+        self.assertFalse(res["is_broken"])
+        self.assertTrue(res["is_untested"])
+        self.assertEqual(res["condition_type"], "untested_opportunity")
+        self.assertIn("Niesprawdzany", res["condition_badge"])
+
+    def test_classify_condition_working(self):
+        working_text = "動作確認済みです。ボタン操作良好、液晶綺麗です。"
+        res = classify_condition(working_text)
+        self.assertFalse(res["is_broken"])
+        self.assertFalse(res["is_untested"])
+        self.assertTrue(res["is_working"])
+        self.assertEqual(res["condition_type"], "confirmed_working")
+
+    def test_classify_condition_negation(self):
+        negation_text = "液晶画面割れなし。ボタン故障はありません。美品。"
+        res = classify_condition(negation_text)
+        self.assertFalse(res["is_broken"])
 
     def test_landed_cost_calculation(self):
         # target item: 10,000 JPY

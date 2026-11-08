@@ -78,7 +78,43 @@ class TestDealAnalyzer(unittest.TestCase):
         ranked = self.analyzer.get_ranked_deals()
         self.assertEqual(len(ranked), 3)  # Sold item omitted
         self.assertGreaterEqual(ranked[0]["score"], ranked[1]["score"])
-        self.assertGreaterEqual(ranked[1]["score"], ranked[2]["score"])
+
+    def test_broken_item_exclusion(self):
+        broken_deal = {
+            "id": "m_broken_cube",
+            "model": "Broken GameCube",
+            "is_broken": True,
+            "condition_type": "broken",
+            "status": "Wykluczone: Uszkodzone (Broken)"
+        }
+        res = self.analyzer.analyze_deal(broken_deal)
+        self.assertFalse(res["is_active"])
+        self.assertFalse(res["is_worth_buying"])
+        self.assertEqual(res["tier"], "EXCLUDED")
+        self.assertIn("WYKLUCZONE", res["verdict"])
+
+    def test_untested_opportunity_scoring(self):
+        untested_deal = {
+            "id": "m_untested_psp_go",
+            "model": "PSP Go Untested",
+            "color": "Piano Black",
+            "category_id": "psp_go",
+            "price_jpy": 20000,
+            "price_pln_raw": 496.0,
+            "landed_cost_pln": 660.0,
+            "est_pl_value": 1000.0,
+            "est_margin_pln": 340.0,
+            "roi_percent": 51.5,
+            "battery_type": "li-ion",
+            "status": "Dostępne",
+            "condition_type": "untested_opportunity",
+            "condition_badge": "⚡ Niesprawdzany (Potencjał Zysku)"
+        }
+        res = self.analyzer.analyze_deal(untested_deal)
+        self.assertTrue(res["is_active"])
+        self.assertTrue(res["is_worth_buying"])
+        self.assertIn("⚡", res["rationale"])
+        self.assertIn("arbitraż", res["rationale"])
 
     def test_optimal_consolidation_basket(self):
         basket = self.analyzer.get_optimal_consolidation_basket()

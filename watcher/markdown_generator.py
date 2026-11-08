@@ -154,21 +154,37 @@ class MarkdownGenerator:
             md.append(f"## {clean_cat}")
             md.append(f"> **Typ zasilania / IATA:** {b_badge}")
             md.append("")
-            md.append("| Model / Wariant | Cena JPY (PLN) | Koszt w PL (z VAT) | Cena w Polsce | Potencjalny Zysk | Werdykt AI | Status | Linki |")
-            md.append("|---|---:|---:|---:|---:|:---:|:---:|---|")
+            md.append("| Model / Wariant | Stan / Weryfikacja | Cena JPY (PLN) | Koszt w PL (z VAT) | Cena w Polsce | Potencjalny Zysk | Werdykt AI | Status | Linki |")
+            md.append("|---|:---:|---:|---:|---:|---:|:---:|:---:|---|")
             
             for it in items:
                 status_icon = "✅ Dostępne" if "Dostępne" in it.get("status", "") else "❌ Zakończone / 404"
+                if it.get("is_broken") or "Wykluczone" in it.get("status", ""):
+                    status_icon = "🚫 Wykluczone (Uszkodzone)"
+                
                 clean_model = sanitize_md(it.get("model", ""))
                 clean_color = sanitize_md(it.get("color", ""))
                 clean_note = sanitize_md(it.get("custom_note", ""))
                 margin_str = self.format_margin(it.get("est_margin_pln", 0), it.get("roi_percent", 0))
+
+                cond_type = it.get("condition_type", "standard_good")
+                if cond_type == "untested_opportunity":
+                    cond_html = "⚡ <strong>Niesprawdzany</strong><br><small style='color:#d97706;'>Potencjał zysku</small>"
+                elif cond_type == "confirmed_working":
+                    cond_html = "✅ <strong>Sprawdzony</strong><br><small style='color:#10b981;'>Sprawny 100%</small>"
+                elif cond_type == "lens_clean":
+                    cond_html = "💎 <strong>Czysty</strong><br><small style='color:#0284c7;'>Bez wad optyki</small>"
+                elif it.get("is_broken") or cond_type == "broken":
+                    cond_html = "❌ <strong>Uszkodzony</strong><br><small style='color:#ef4444;'>Wykluczony</small>"
+                else:
+                    cond_html = "✅ <strong>Stan Dobry</strong>"
 
                 deal_eval = self.analyzer.analyze_deal(it)
                 ai_badge = f"{deal_eval['verdict_icon']} <strong>{deal_eval['tier']}</strong><br><small>{deal_eval['score']}/100</small>" if deal_eval.get("is_active") else "⚪ N/A"
 
                 md.append(
                     f"| **{clean_model}**<br><small>{clean_color}<br>*{clean_note}*</small> | "
+                    f"{cond_html} | "
                     f"**{it['price_jpy']:,} JPY**<br>(~{it['price_pln_raw']:.2f} zł) | "
                     f"~{it['landed_cost_pln']:.2f} zł | "
                     f"**{it['est_pl_value']:.2f} zł** | "
