@@ -11,6 +11,246 @@
   },
   "categories": [
     {
+      "id": "nintendo_3ds_handhelds",
+      "name": "Nintendo 3DS & New 3DS (Królowie Płynności: New 3DS XL, New 3DS, 3DS LL)",
+      "battery_type": "li-ion",
+      "target_pln_resale": 750,
+      "tracked_items": [
+        {
+          "id": "m88999031428",
+          "model": "Nintendo 3DS",
+          "color": "Aqua Blue",
+          "target_price_jpy": 6800,
+          "est_pl_value": 460,
+          "note": "Oryginalny 3DS w metalicznym błękicie, suwak 3D i gałka circle pad działają płynnie",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m99010142539",
+          "model": "Nintendo 3DS",
+          "color": "Cosmo Black",
+          "target_price_jpy": 6900,
+          "est_pl_value": 470,
+          "note": "Głęboka czerń Cosmo Black, sprawne kamery 3D, czyta kardridże DS i 3DS bez zarzutu",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m10121253640",
+          "model": "Nintendo 3DS LL (XL - Old)",
+          "color": "Blue / Black (SPR-001)",
+          "target_price_jpy": 8500,
+          "est_pl_value": 580,
+          "note": "Wersja XL o powiększonych ekranach, stabilna bateria, komfortowy chwyt (Old 3DS XL)",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m10121253641",
+          "model": "Nintendo 3DS LL (XL - Old)",
+          "color": "Red / Black (SPR-001)",
+          "target_price_jpy": 8800,
+          "est_pl_value": 590,
+          "note": "Klasyczny dwukolorowy Old 3DS XL, ekrany bez przebarwień, pełna sprawność",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m10121253642",
+          "model": "New Nintendo 3DS",
+          "color": "White (Kisekae Cover Plates)",
+          "target_price_jpy": 11000,
+          "est_pl_value": 750,
+          "note": "New Nintendo 3DS (KTR-001), mocniejszy procesor, c-stick, wymienne panele obudowy Kisekae",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m10121253643",
+          "model": "New Nintendo 3DS LL (New 3DS XL)",
+          "color": "Metallic Blue (Super-Stable 3D / IPS)",
+          "target_price_jpy": 13800,
+          "est_pl_value": 920,
+          "note": "New 3DS XL (RED-001) w kolorze Metallic Blue, super-stabilne 3D z eye-trackingiem, gniazdo micro SD",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m10121253644",
+          "model": "New Nintendo 3DS XL Monster Hunter 4G Edition",
+          "color": "Silver / MH4G Crest (Limited)",
+          "target_price_jpy": 16500,
+          "est_pl_value": 1150,
+          "note": "Rzadka limitowana edycja Monster Hunter 4G, matryce IPS, wzmocniony c-stick",
+          "battery_type": "li-ion"
+        }
+      ]
+    },
+    {
+      "id": "nintendo_ds_handhelds",
+      "name": "Nintendo DS & DSi (DSi LL Dual IPS, DS Lite, Edycje Kolekcjonerskie)",
+      "battery_type": "li-ion",
+      "target_pln_resale": 380,
+      "tracked_items": [
+        {
+          "id": "m11928374651",
+          "model": "Nintendo DS Lite",
+          "color": "Metallic Silver (Komplet z Rysikiem)",
+          "target_price_jpy": 3500,
+          "est_pl_value": 260,
+          "note": "W pełni sprawny DS Lite z rysikiem i zaślepką Slot-2 GBA, zawias sztywny, ekrany bez rys",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m22938475862",
+          "model": "Nintendo DS Lite",
+          "color": "Crimson / Black",
+          "target_price_jpy": 3800,
+          "est_pl_value": 290,
+          "note": "Dwukolorowa kultowa wersja Crimson/Black, sprawny dotyk i czytnik gier DS oraz GBA",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m33948586973",
+          "model": "Nintendo DS Lite",
+          "color": "Ice Blue",
+          "target_price_jpy": 3400,
+          "est_pl_value": 250,
+          "note": "Jasnobłękitna klasyczna obudowa, oba ekrany jasne bez żółknięcia, stan bdb",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m44958697084",
+          "model": "Nintendo DSi",
+          "color": "Matte Black",
+          "target_price_jpy": 3200,
+          "est_pl_value": 240,
+          "note": "Matowa czerń, wbudowana pamięć i aparat, sprawny slot SD i Wi-Fi, łatwy mod CFW",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m55968708195",
+          "model": "Nintendo DSi LL (XL)",
+          "color": "Dark Brown (Ekrany IPS)",
+          "target_price_jpy": 4800,
+          "est_pl_value": 380,
+          "note": "Duże ekrany 4.2 cala z fabrycznymi matrycami IPS, fenomenalny kąt widzenia, stan bdb",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m55968708196",
+          "model": "Nintendo DSi LL (XL)",
+          "color": "Wine Red / Natural White (IPS)",
+          "target_price_jpy": 4500,
+          "est_pl_value": 390,
+          "note": "Kultowy kolor Wine Red, podwójne ekrany IPS, duży stylus dotykowy w zestawie",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m66978819206",
+          "model": "Nintendo DS Lite Final Fantasy III Crystal Edition",
+          "color": "Crystal White / FF III Art (Limited)",
+          "target_price_jpy": 6800,
+          "est_pl_value": 580,
+          "note": "Rzadka limitowana edycja kolekcjonerska Final Fantasy III, numerowana obudowa, 100% sprawna",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m77988920317",
+          "model": "Nintendo DS Lite Pokémon Dialga & Palkia Edition",
+          "color": "Metallic Black / Gold & Silver Art",
+          "target_price_jpy": 7800,
+          "est_pl_value": 680,
+          "note": "Poszukiwana kolekcjonerska edycja Pokémon Diamond/Pearl, brokatowa grafika legend",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m55968708197",
+          "model": "Nintendo DSi LL (XL)",
+          "color": "Natural White (Dual IPS + Pen)",
+          "target_price_jpy": 4900,
+          "est_pl_value": 390,
+          "note": "Wersja Natural White z dużym rysikiem pen, ekrany Dual IPS o szerokich kątach",
+          "battery_type": "li-ion"
+        }
+      ]
+    },
+    {
+      "id": "gameboy_advance_retro",
+      "name": "Nintendo Game Boy (GBA SP AGS-101 Brighter, GBA, GBC & Micro)",
+      "battery_type": "li-ion",
+      "target_pln_resale": 650,
+      "tracked_items": [
+        {
+          "id": "m82785046364",
+          "model": "Game Boy Advance SP (AGS-101 Brighter LCD)",
+          "color": "Pearl Blue (Podświetlenie II Generacji)",
+          "target_price_jpy": 12000,
+          "est_pl_value": 780,
+          "note": "Oryginalny model AGS-101 z jasnym podświetleniem fabrycznym, ogromny popyt w PL",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m70099354764",
+          "model": "Game Boy Advance SP Famicom 20th Anniversary",
+          "color": "Famicom Red / Gold (Limited)",
+          "target_price_jpy": 11500,
+          "est_pl_value": 720,
+          "note": "Kolekcjonerska edycja 20th Anniversary w kolorystyce pierwszego Famicoma",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m67708364696",
+          "model": "Game Boy Advance SP (AGS-001) Komplet",
+          "color": "Onyx Black + Oryginalna Ładowarka",
+          "target_price_jpy": 7500,
+          "est_pl_value": 480,
+          "note": "Sprawdzony klasyczny GBA SP ze sprawnym zawiasem i ładowarką",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m67708364697",
+          "model": "Game Boy Advance SP Pokémon Torchic Edition",
+          "color": "Torchic Orange (Pokémon Center Limited)",
+          "target_price_jpy": 14000,
+          "est_pl_value": 950,
+          "note": "Rzadkie wydanie Pokémon Center, kultowy rarytas dla fanów Pokémonów",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m89166124900",
+          "model": "Game Boy Color CGB-001",
+          "color": "Atomic Purple (Przezroczysty Fiolet)",
+          "target_price_jpy": 6800,
+          "est_pl_value": 450,
+          "note": "Kultowy przezroczysty fiolet Atomic Purple, 100% sprawny dźwięk i ekran, 0% Li-Ion (baterie AA)",
+          "battery_type": "none"
+        },
+        {
+          "id": "m89166124901",
+          "model": "Game Boy Color Pokémon Center 3rd Anniversary",
+          "color": "Clear Blue / Pokémon Art (Limited)",
+          "target_price_jpy": 13500,
+          "est_pl_value": 900,
+          "note": "Limitowana edycja Pokémon Center z grafiką Pikachu i Pichu, 0% Li-Ion",
+          "battery_type": "none"
+        },
+        {
+          "id": "m89166124902",
+          "model": "Game Boy Advance (AGB-001 Poziomy)",
+          "color": "Glacier / Indigo",
+          "target_price_jpy": 6000,
+          "est_pl_value": 390,
+          "note": "Klasyczny horyzontalny Game Boy Advance AGB-001, idealny pod mod ekranu IPS, 0% Li-Ion",
+          "battery_type": "none"
+        },
+        {
+          "id": "m89166124903",
+          "model": "Game Boy Micro (OXY-001)",
+          "color": "Famicom 20th Anniversary Edition",
+          "target_price_jpy": 15000,
+          "est_pl_value": 980,
+          "note": "Najmniejszy handheld Nintendo, metalowy front Famicom, niesamowita ostrość ekranu",
+          "battery_type": "li-ion"
+        }
+      ]
+    },
+    {
       "id": "ps_vita",
       "name": "PlayStation Vita (Special Editions & Colors)",
       "battery_type": "li-ion",
@@ -226,320 +466,162 @@
       ]
     },
     {
-      "id": "retro_consoles_no_battery",
-      "name": "Konsole Stacjonarne Retro (0% Baterii Li-Ion)",
+      "id": "high_margin_curated_consoles",
+      "name": "Wyselekcjonowane Konsole Stacjonarne (Tylko Wysoki Zysk > 400-750 zł)",
       "battery_type": "none",
-      "target_pln_resale": 550,
+      "target_pln_resale": 1300,
       "tracked_items": [
         {
+          "id": "m72172383528",
+          "model": "PSone COMBO SCPH-130 (Zintegrowany 5\" LCD Sony)",
+          "color": "Biały Mini + Doczepiany Ekran LCD",
+          "target_price_jpy": 24000,
+          "est_pl_value": 1600,
+          "note": "Święty Graal kolekcjonerów PS1: oryginalny ekran LCD Sony SCPH-130, zysk w PL ponad +700 zł, 0% Li-Ion",
+          "battery_type": "none"
+        },
+        {
+          "id": "m68942378440",
+          "model": "PlayStation 4 Pro Monster Hunter World Rathalos (1TB CIB)",
+          "color": "Rathalos Red & Black (W Oryginalnym Kartonie)",
+          "target_price_jpy": 24500,
+          "est_pl_value": 1550,
+          "note": "Limitowana PS4 Pro w pełnym zestawie pudełkowym CIB z dedykowanym padem, wysoka marża kolekcjonerska",
+          "battery_type": "none"
+        },
+        {
           "id": "m39636324812",
-          "model": "Nintendo GameCube",
-          "color": "Spice Orange",
-          "target_price_jpy": 5000,
-          "est_pl_value": 450,
-          "note": "Kultowy kolor Spice Orange, konsola stacjonarna 0% Li-Ion"
+          "model": "Nintendo GameCube DOL-001 Spice Orange",
+          "color": "Spice Orange (Z Cyfrowym Portem Digital Out)",
+          "target_price_jpy": 6800,
+          "est_pl_value": 650,
+          "note": "Japoński wariant Spice Orange z poszukiwanym portem Digital Out pod adaptery HDMI Prism/Carby",
+          "battery_type": "none"
         },
         {
-          "id": "m54041656104",
-          "model": "Nintendo GameCube + Pad",
-          "color": "Indigo Violet",
-          "target_price_jpy": 7000,
-          "est_pl_value": 520,
-          "note": "Fioletowy GameCube z oryginalnym padem Nintendo"
-        },
-        {
-          "id": "m30893948691",
-          "model": "Nintendo GameCube DOL-001",
-          "color": "DOL-001 Zestaw",
-          "target_price_jpy": 7500,
-          "est_pl_value": 580,
-          "note": "Model DOL-001 z portem Digital AV Out, kable, zasilacz, pad"
-        },
-        {
-          "id": "m76344716191",
-          "model": "PlayStation 2 Slim (Box + 2 Pady)",
-          "color": "SCPH-70000 Black (Pudełko)",
-          "target_price_jpy": 7480,
-          "est_pl_value": 520,
-          "note": "W oryginalnym kartonie, 2x DualShock 2, zasilacz, kable, czyta gry i DVD 100% OK"
-        },
-        {
-          "id": "m12133298445",
-          "model": "PlayStation 2 Slim FF XII",
-          "color": "SCPH-75000 FF Edycja Limitowana",
-          "target_price_jpy": 7300,
-          "est_pl_value": 520,
-          "note": "Limitowana edycja Final Fantasy XII, nowy laser zamontowany, czyta PS1 i PS2"
-        },
-        {
-          "id": "m33105362005",
-          "model": "Nintendo GameCube Silver Zestaw",
-          "color": "Silver + Pad + 3 Gry",
-          "target_price_jpy": 9800,
-          "est_pl_value": 680,
-          "note": "Komplet z oryginalnym padem, zasilaczem, kablem AV i 3 grami, czyta płyty 100% OK"
-        },
-        {
-          "id": "m16233376718",
-          "model": "Nintendo GameCube Black Zestaw",
-          "color": "Black + Pad + Okablowanie",
-          "target_price_jpy": 8980,
-          "est_pl_value": 620,
-          "note": "Konsola z padem, zasilaczem i kablem AV, w pełni sprawdzona i działająca"
+          "id": "m41575032864",
+          "model": "PlayStation 4 Metal Gear Solid V Limited Edition (Boxed)",
+          "color": "Bordo & Złoto / Bionic Arm Design (Pudełko)",
+          "target_price_jpy": 21500,
+          "est_pl_value": 1350,
+          "note": "Kolekcjonerska PS4 w kolorystyce bionicznego ramienia Snakea w oryginalnym kartonie MGS V",
+          "battery_type": "none"
         }
       ]
     },
     {
-      "id": "ps1_consoles",
-      "name": "Sony PlayStation 1 & PSone (0% Baterii)",
+      "id": "film_cameras_point_shoot",
+      "name": "Aparaty Analogowe Typu Małpka (35mm Point & Shoot)",
       "battery_type": "none",
       "target_pln_resale": 500,
       "tracked_items": [
         {
-          "id": "m42280425875",
-          "model": "PlayStation 1 SCPH-5000",
-          "color": "Szary Klasyk",
-          "target_price_jpy": 3999,
-          "est_pl_value": 380,
-          "note": "Sprawdzona PS1, 2 kontrolery, 3 karty pamięci w cenie!"
+          "id": "m67087305139",
+          "model": "Nikon TW2D Dual Lens (35mm / 70mm Switchable)",
+          "color": "Czarny Klasyczny",
+          "target_price_jpy": 1500,
+          "est_pl_value": 280,
+          "note": "Sprawdzony, migawka działa, dwuogniskowy zgrabny kompakt Nikon z datownikiem, 0% Li-Ion",
+          "battery_type": "none"
         },
         {
-          "id": "m58392367000",
-          "model": "PSone SCPH-100",
-          "color": "Biały Mini",
-          "target_price_jpy": 5000,
-          "est_pl_value": 390,
-          "note": "Kompaktowa mała PSone, bardzo poszukiwana do kolekcji"
-        },
-        {
-          "id": "m29205121884",
-          "model": "PlayStation 1 SCPH-1000",
-          "color": "Audiofilski RCA",
-          "target_price_jpy": 5555,
-          "est_pl_value": 480,
-          "note": "Legendarny wariant SCPH-1000 z wbudowanymi złoconymi gniazdami RCA"
-        },
-        {
-          "id": "m74990954712",
-          "model": "PSone SCPH-100 Komplet",
-          "color": "Zasilacz + Pad",
-          "target_price_jpy": 6000,
-          "est_pl_value": 450,
-          "note": "PSone z oryginalnym małym zasilaczem Sony i padem, sprawdzona"
-        },
-        {
-          "id": "m35294419328",
-          "model": "PSone SCPH-100 Stan BDB",
-          "color": "Biały Mini",
-          "target_price_jpy": 6880,
-          "est_pl_value": 460,
-          "note": "Czysta, zadbana PSone z kompletem kabli"
-        },
-        {
-          "id": "m67313496694",
-          "model": "PSone SCPH-100 Zestaw",
-          "color": "Biały Mini",
-          "target_price_jpy": 8000,
-          "est_pl_value": 490,
-          "note": "Sprawna konsola PSone z gwarancją działania"
-        }
-      ]
-    },
-    {
-      "id": "nintendo_retro",
-      "name": "Nintendo Retro: Game Boy & Super Famicom (0% Li-Ion)",
-      "battery_type": "none",
-      "target_pln_resale": 520,
-      "tracked_items": [
-        {
-          "id": "m12606582038",
-          "model": "Game Boy Pocket SFC Edition",
-          "color": "Super Famicom Gray",
-          "target_price_jpy": 8000,
-          "est_pl_value": 550,
-          "note": "Wyjątkowa edycja Pocket w barwach SFC, zasilanie baterie AAA"
-        },
-        {
-          "id": "m89166124900",
-          "model": "Game Boy Color CGB-001",
-          "color": "Dandelion Yellow",
-          "target_price_jpy": 9300,
-          "est_pl_value": 550,
-          "note": "Żółty GBC, 100% sprawny dźwięk i ekran, zasilanie AA"
-        },
-        {
-          "id": "m85716669611",
-          "model": "Zestaw Gier Game Boy",
-          "color": "Pokémon Green + inne",
-          "target_price_jpy": 7900,
-          "est_pl_value": 480,
-          "note": "Zestaw kultowych japońskich gier z Pokémon Green na czele"
-        },
-        {
-          "id": "m39670684370",
-          "model": "Super Famicom SHVC-001",
-          "color": "Konsola + 2 Pady + 10 Gier",
-          "target_price_jpy": 11800,
-          "est_pl_value": 680,
-          "note": "Pełen gotowy zestaw do grania z 10 grami retro, czyszczony"
-        },
-        {
-          "id": "m82785046364",
-          "model": "Game Boy Advance SP",
-          "color": "Pearl Green",
-          "target_price_jpy": 9500,
-          "est_pl_value": 580,
-          "note": "Rzadki pastelowy Pearl Green, 100% sprawny mechanizm"
-        },
-        {
-          "id": "m70099354764",
-          "model": "Game Boy Advance SP",
-          "color": "Azurite Blue",
-          "target_price_jpy": 11000,
-          "est_pl_value": 620,
-          "note": "GBA SP w kolorze Azurite Blue, ładny stan"
-        },
-        {
-          "id": "m67708364696",
-          "model": "Game Boy Advance SP Komplet",
-          "color": "Blue + Ładowarka",
-          "target_price_jpy": 11000,
-          "est_pl_value": 640,
-          "note": "Sprawny GBA SP w zestawie z oryginalną ładowarką"
-        }
-      ]
-    },
-    {
-      "id": "nintendo_ds_consoles",
-      "name": "Nintendo DS & 3DS (DS Lite, DSi, 3DS & Edycje Limitowane)",
-      "battery_type": "li-ion",
-      "target_pln_resale": 350,
-      "tracked_items": [
-        {
-          "id": "m11928374651",
-          "model": "Nintendo DS Lite",
-          "color": "Metallic Silver (Komplet z Rysikiem)",
-          "target_price_jpy": 3500,
-          "est_pl_value": 260,
-          "note": "W pełni sprawny DS Lite z rysikiem i zaślepką Slot-2 GBA, zawias sztywny, ekrany bez rys",
-          "battery_type": "li-ion"
-        },
-        {
-          "id": "m22938475862",
-          "model": "Nintendo DS Lite",
-          "color": "Crimson / Black",
-          "target_price_jpy": 3800,
-          "est_pl_value": 290,
-          "note": "Dwukolorowa kultowa wersja Crimson/Black, sprawny dotyk i czytnik gier DS oraz GBA",
-          "battery_type": "li-ion"
-        },
-        {
-          "id": "m33948586973",
-          "model": "Nintendo DS Lite",
-          "color": "Ice Blue",
-          "target_price_jpy": 3400,
+          "id": "m27938961414",
+          "model": "Pentax Espio P Compact 35mm",
+          "color": "Czarny / Złote Napisy",
+          "target_price_jpy": 1900,
           "est_pl_value": 250,
-          "note": "Jasnobłękitna klasyczna obudowa, oba ekrany jasne bez żółknięcia, stan bdb",
-          "battery_type": "li-ion"
+          "note": "Niesprawdzany z braku baterii (⚡ hit cenowy za 1900 JPY!), czysta optyka, 0% Li-Ion",
+          "battery_type": "none"
         },
         {
-          "id": "m44958697084",
-          "model": "Nintendo DSi",
-          "color": "Matte Black",
-          "target_price_jpy": 3200,
+          "id": "m15919018689",
+          "model": "Ricoh Myport Zoom Macro (38-60mm)",
+          "color": "Czarny Ergonomiczny",
+          "target_price_jpy": 2300,
+          "est_pl_value": 320,
+          "note": "W pełni sprawny z trybem Macro do zbliżeń, świetny japoński aparat kompaktowy, 0% Li-Ion",
+          "battery_type": "none"
+        },
+        {
+          "id": "m67499875058",
+          "model": "Canon Autoboy A PANORAMA (38-76mm AiAF)",
+          "color": "Czarny Kompakt",
+          "target_price_jpy": 3000,
+          "est_pl_value": 350,
+          "note": "Niesprawdzany z braku baterii (⚡ okazja cenowa), tryb panoramy i automatyczny autofokus AiAF, 0% Li-Ion",
+          "battery_type": "none"
+        },
+        {
+          "id": "m95103324088",
+          "model": "Konica Big Mini NEO-R + Dedykowane Etui",
+          "color": "Tytanowy Szary / Czarny",
+          "target_price_jpy": 3500,
+          "est_pl_value": 420,
+          "note": "Sprawdzony z oryginalnym etui, seria Big Mini słynąca z ostrości, 0% Li-Ion",
+          "battery_type": "none"
+        },
+        {
+          "id": "m51928471012",
+          "model": "Minolta Riva Zoom 70 Date (35-70mm AF Macro)",
+          "color": "Czarny Klasyczny",
+          "target_price_jpy": 1200,
+          "est_pl_value": 220,
+          "note": "Sprawny autofokus i zoom, zasilany zwykłą baterią CR123A, 0% Li-Ion (cena < 100 zł: okazja!)",
+          "battery_type": "none"
+        },
+        {
+          "id": "m48291047192",
+          "model": "Fuji Cardia Travel Mini Dual-P (28mm / 45mm Fujinon)",
+          "color": "Szampański Tytan",
+          "target_price_jpy": 1500,
+          "est_pl_value": 260,
+          "note": "Niesprawdzany z braku baterii (⚡ hit cenowy!), kultowy obiektyw Fujinon 28mm wide, 0% Li-Ion",
+          "battery_type": "none"
+        },
+        {
+          "id": "m39104820193",
+          "model": "Pentax Espio 738 (38-70mm SMC Pentax)",
+          "color": "Czarny Matowy",
+          "target_price_jpy": 1800,
           "est_pl_value": 240,
-          "note": "Matowa czerń, wbudowana pamięć i aparat, sprawny slot SD i Wi-Fi, łatwy mod CFW",
-          "battery_type": "li-ion"
+          "note": "W pełni sprawny kompakt z powłokami SMC Pentax, czysta optyka bez rys, 0% Li-Ion",
+          "battery_type": "none"
         },
         {
-          "id": "m55968708195",
-          "model": "Nintendo DSi LL (XL)",
-          "color": "Dark Brown (Ekrany IPS)",
-          "target_price_jpy": 4800,
-          "est_pl_value": 380,
-          "note": "Duże ekrany 4.2 cala z fabrycznymi matrycami IPS, fenomenalny kąt widzenia, stan bdb",
-          "battery_type": "li-ion"
+          "id": "m72049182041",
+          "model": "Olympus AF-10 Twin (35mm / 70mm Dwuogniskowy)",
+          "color": "Czarny Clamshell",
+          "target_price_jpy": 2200,
+          "est_pl_value": 280,
+          "note": "Niesprawdzany z braku baterii (⚡ okazja cenowa), zsuwana klapka obiektywu, 0% Li-Ion",
+          "battery_type": "none"
         },
         {
-          "id": "m55968708196",
-          "model": "Nintendo DSi LL (XL)",
-          "color": "Wine Red / Natural White (IPS)",
-          "target_price_jpy": 4500,
-          "est_pl_value": 390,
-          "note": "Kultowy kolor Wine Red, podwójne ekrany IPS, duży stylus dotykowy w zestawie",
-          "battery_type": "li-ion"
+          "id": "m10948201948",
+          "model": "Canon Prima Super 28V / Autoboy WT28 (28-48mm Wide)",
+          "color": "Srebrzysto-Czarny",
+          "target_price_jpy": 2500,
+          "est_pl_value": 300,
+          "note": "Sprawdzony, migawka i flesz działają, rzadki szeroki kąt 28mm, 0% Li-Ion",
+          "battery_type": "none"
         },
         {
-          "id": "m66978819206",
-          "model": "Nintendo DS Lite Final Fantasy III Crystal Edition",
-          "color": "Crystal White / FF III Art (Limited)",
-          "target_price_jpy": 6800,
-          "est_pl_value": 580,
-          "note": "Rzadka limitowana edycja kolekcjonerska Final Fantasy III, numerowana obudowa, 100% sprawna",
-          "battery_type": "li-ion"
+          "id": "m63910284719",
+          "model": "Kyocera Yashica Zoomate 70 (38-70mm Yashica Lens)",
+          "color": "Czarny Ergonomiczny",
+          "target_price_jpy": 2800,
+          "est_pl_value": 270,
+          "note": "Niesprawdzany (⚡ czyszczenie szafy!), japońska optyka Kyocera Yashica, 0% Li-Ion",
+          "battery_type": "none"
         },
         {
-          "id": "m77988920317",
-          "model": "Nintendo DS Lite Pokémon Dialga & Palkia Edition",
-          "color": "Metallic Black / Gold & Silver Art",
-          "target_price_jpy": 7800,
-          "est_pl_value": 680,
-          "note": "Poszukiwana kolekcjonerska edycja Pokémon Diamond/Pearl, brokatowa grafika legend",
-          "battery_type": "li-ion"
-        },
-        {
-          "id": "m88999031428",
-          "model": "Nintendo 3DS",
-          "color": "Aqua Blue",
-          "target_price_jpy": 6800,
-          "est_pl_value": 460,
-          "note": "Oryginalny 3DS w metalicznym błękicie, suwak 3D i gałka circle pad działają płynnie",
-          "battery_type": "li-ion"
-        },
-        {
-          "id": "m99010142539",
-          "model": "Nintendo 3DS",
-          "color": "Cosmo Black",
-          "target_price_jpy": 6900,
-          "est_pl_value": 470,
-          "note": "Głęboka czerń Cosmo Black, sprawne kamery 3D, czyta kardridże DS i 3DS bez zarzutu",
-          "battery_type": "li-ion"
-        },
-        {
-          "id": "m10121253640",
-          "model": "Nintendo 3DS LL (XL - Old)",
-          "color": "Blue / Black (SPR-001)",
-          "target_price_jpy": 8500,
-          "est_pl_value": 580,
-          "note": "Wersja XL o powiększonych ekranach, stabilna bateria, komfortowy chwyt (Old 3DS XL)",
-          "battery_type": "li-ion"
-        },
-        {
-          "id": "m10121253641",
-          "model": "Nintendo 3DS LL (XL - Old)",
-          "color": "Red / Black (SPR-001)",
-          "target_price_jpy": 8800,
-          "est_pl_value": 590,
-          "note": "Klasyczny dwukolorowy Old 3DS XL, ekrany bez przebarwień, pełna sprawność",
-          "battery_type": "li-ion"
-        },
-        {
-          "id": "m10121253642",
-          "model": "New Nintendo 3DS",
-          "color": "White (Kisekae Cover Plates)",
-          "target_price_jpy": 11000,
-          "est_pl_value": 750,
-          "note": "New Nintendo 3DS (KTR-001), mocniejszy procesor, c-stick, wymienne panele obudowy Kisekae",
-          "battery_type": "li-ion"
-        },
-        {
-          "id": "m10121253643",
-          "model": "New Nintendo 3DS LL (New 3DS XL)",
-          "color": "Metallic Blue (Super-Stable 3D / IPS)",
-          "target_price_jpy": 13800,
-          "est_pl_value": 920,
-          "note": "New 3DS XL (RED-001) w kolorze Metallic Blue, super-stabilne 3D z eye-trackingiem, gniazdo micro SD",
-          "battery_type": "li-ion"
+          "id": "m84019283741",
+          "model": "Konica Pop EFJ (Hexanon 36mm f/4 Prime)",
+          "color": "Retro Czerwień / Czarny",
+          "target_price_jpy": 3200,
+          "est_pl_value": 350,
+          "note": "Sprawny mechanicznie 100%, stałka Hexanon 36mm, kultowy model collectorski, 0% Li-Ion",
+          "battery_type": "none"
         }
       ]
     },
@@ -761,238 +843,6 @@
           "target_price_jpy": 2499,
           "est_pl_value": 260,
           "note": "Oryginalny szmaragdowy japoński pad PS2, sprawdzony, przewodowy (0% Li-Ion!)",
-          "battery_type": "none"
-        }
-      ]
-    },
-    {
-      "id": "ps_limited_consoles",
-      "name": "Limitowane Konsole PlayStation PS1-PS5 (Edycje Specjalne)",
-      "battery_type": "none",
-      "target_pln_resale": 1200,
-      "tracked_items": [
-        {
-          "id": "m72172383528",
-          "model": "PSone COMBO SCPH-130 (Zintegrowany 5\" LCD Sony)",
-          "color": "Biały Mini + Doczepiany Ekran LCD",
-          "target_price_jpy": 25800,
-          "est_pl_value": 1600,
-          "note": "Kultowy zestaw Combo z oficjalnym 5-calowym ekranem LCD Sony, sprawdzony 100%, 0% Li-Ion",
-          "battery_type": "none"
-        },
-        {
-          "id": "m43232873153",
-          "model": "PlayStation 2 SCPH-37000 Zen Black",
-          "color": "Zen Black (Dymny Przezroczysty ze Złotym Logo)",
-          "target_price_jpy": 7780,
-          "est_pl_value": 650,
-          "note": "Rzadki japoński wariant Zen Black z oryginalnym padem, piękny stan, 0% Li-Ion",
-          "battery_type": "none"
-        },
-        {
-          "id": "m17336885424",
-          "model": "PlayStation 2 SCPH-39000 TB Toy's Blue",
-          "color": "Toy's Blue (Przezroczysty Lazurowy Błękit)",
-          "target_price_jpy": 8980,
-          "est_pl_value": 750,
-          "note": "Limitowana edycja Toy's Blue, wyczyszczona, sprawdzona 100%, 0% Li-Ion",
-          "battery_type": "none"
-        },
-        {
-          "id": "m68942378439",
-          "model": "PlayStation 2 SCPH-37000 Ocean Blue",
-          "color": "Ocean Blue (Głęboki Błękit Szklisty)",
-          "target_price_jpy": 15000,
-          "est_pl_value": 880,
-          "note": "W pełni sprawna konsola Ocean Blue, kultowa poszukiwana przezroczysta obudowa, 0% Li-Ion",
-          "battery_type": "none"
-        },
-        {
-          "id": "m31444611493",
-          "model": "PlayStation 2 SCPH-50000 Sakura Pink",
-          "color": "Sakura Pink (Pastelowy Róż Wiśniowy)",
-          "target_price_jpy": 16800,
-          "est_pl_value": 980,
-          "note": "Stan gabinetowy (極美品), czyta gry bez opóźnień, rzadkie limitowane wydanie Sakura, 0% Li-Ion",
-          "battery_type": "none"
-        },
-        {
-          "id": "m49640743036",
-          "model": "PlayStation 3 Slim Tales of Xillia X Edition",
-          "color": "Matowa Czerń + Złoto-Czerwona Grafika Xillia",
-          "target_price_jpy": 10000,
-          "est_pl_value": 750,
-          "note": "Limitowana edycja Tales of Xillia, niesprawdzana z braku kabli (super okazja cenowa!), 0% Li-Ion",
-          "battery_type": "none"
-        },
-        {
-          "id": "m93940319143",
-          "model": "PlayStation 3 Slim One Piece Kaizoku Musou Gold (320GB)",
-          "color": "One Piece Gold (Złota Grafika Luffy)",
-          "target_price_jpy": 22500,
-          "est_pl_value": 1150,
-          "note": "Stan bardzo ładny (美品), sprawdzona 100%, limitowana złota edycja One Piece, 0% Li-Ion",
-          "battery_type": "none"
-        },
-        {
-          "id": "m28511520235",
-          "model": "PlayStation 3 Slim Final Fantasy XIII Lightning Edition",
-          "color": "Ceramic White + Różowa Grafika Lightning",
-          "target_price_jpy": 23880,
-          "est_pl_value": 1300,
-          "note": "Świetny stan zachowania, w pełni sprawna, kultowa kolekcjonerska edycja FFXIII, 0% Li-Ion",
-          "battery_type": "none"
-        },
-        {
-          "id": "m41575032863",
-          "model": "PlayStation 4 Dragon Quest Metal Slime Edition",
-          "color": "Srebrny Metal Slime + Figurka Hagure Metal",
-          "target_price_jpy": 19000,
-          "est_pl_value": 1200,
-          "note": "Komplet z kontrolerem i figurką Metal Slime, w pełni sprawdzona, 0% Li-Ion",
-          "battery_type": "none"
-        },
-        {
-          "id": "m67941189004",
-          "model": "PlayStation 4 Metal Gear Solid V Limited Edition",
-          "color": "Bordowo-Złota Diamond Dogs + 4 Gry",
-          "target_price_jpy": 21500,
-          "est_pl_value": 1350,
-          "note": "Limitowany zestaw MGSV Phantom Pain z kontrolerem i 4 grami, sprawdzony 100%, 0% Li-Ion",
-          "battery_type": "none"
-        },
-        {
-          "id": "m15042187336",
-          "model": "PlayStation 4 Pro Monster Hunter World Rathalos (1TB)",
-          "color": "Rathalos Red & Black + 2 Gry",
-          "target_price_jpy": 27999,
-          "est_pl_value": 1550,
-          "note": "Wersja PS4 Pro 1TB z grafiką Rathalosa, sprawdzona 100%, pudełko i gry w zestawie, 0% Li-Ion",
-          "battery_type": "none"
-        },
-        {
-          "id": "m99188429494",
-          "model": "PlayStation 5 Marvel's Spider-Man 2 Limited Edition",
-          "color": "Symbiote Black & Red + Oryginalny Pad",
-          "target_price_jpy": 64500,
-          "est_pl_value": 3400,
-          "note": "Kompletna konsola PS5 Spider-Man 2 z oryginalnym padem, sprawdzona 100%, gigantyczna marża w PL",
-          "battery_type": "li-ion"
-        }
-      ]
-    },
-    {
-      "id": "film_cameras_point_shoot",
-      "name": "Aparaty Analogowe Typu Małpka (35mm Point & Shoot)",
-      "battery_type": "none",
-      "target_pln_resale": 500,
-      "tracked_items": [
-        {
-          "id": "m67087305139",
-          "model": "Nikon TW2D Dual Lens (35mm / 70mm Switchable)",
-          "color": "Czarny Klasyczny",
-          "target_price_jpy": 1500,
-          "est_pl_value": 280,
-          "note": "Sprawdzony, migawka działa, dwuogniskowy zgrabny kompakt Nikon z datownikiem, 0% Li-Ion",
-          "battery_type": "none"
-        },
-        {
-          "id": "m27938961414",
-          "model": "Pentax Espio P Compact 35mm",
-          "color": "Czarny / Złote Napisy",
-          "target_price_jpy": 1900,
-          "est_pl_value": 250,
-          "note": "Niesprawdzany z braku baterii (⚡ hit cenowy za 1900 JPY!), czysta optyka, 0% Li-Ion",
-          "battery_type": "none"
-        },
-        {
-          "id": "m15919018689",
-          "model": "Ricoh Myport Zoom Macro (38-60mm)",
-          "color": "Czarny Ergonomiczny",
-          "target_price_jpy": 2300,
-          "est_pl_value": 320,
-          "note": "W pełni sprawny z trybem Macro do zbliżeń, świetny japoński aparat kompaktowy, 0% Li-Ion",
-          "battery_type": "none"
-        },
-        {
-          "id": "m67499875058",
-          "model": "Canon Autoboy A PANORAMA (38-76mm AiAF)",
-          "color": "Czarny Kompakt",
-          "target_price_jpy": 3000,
-          "est_pl_value": 350,
-          "note": "Niesprawdzany z braku baterii (⚡ okazja cenowa), tryb panoramy i automatyczny autofokus AiAF, 0% Li-Ion",
-          "battery_type": "none"
-        },
-        {
-          "id": "m95103324088",
-          "model": "Konica Big Mini NEO-R + Dedykowane Etui",
-          "color": "Tytanowy Szary / Czarny",
-          "target_price_jpy": 3500,
-          "est_pl_value": 420,
-          "note": "Sprawdzony z oryginalnym etui, seria Big Mini słynąca z ostrości, 0% Li-Ion",
-          "battery_type": "none"
-        },
-        {
-          "id": "m51928471012",
-          "model": "Minolta Riva Zoom 70 Date (35-70mm AF Macro)",
-          "color": "Czarny Klasyczny",
-          "target_price_jpy": 1200,
-          "est_pl_value": 220,
-          "note": "Sprawny autofokus i zoom, zasilany zwykłą baterią CR123A, 0% Li-Ion (cena < 100 zł: okazja!)",
-          "battery_type": "none"
-        },
-        {
-          "id": "m48291047192",
-          "model": "Fuji Cardia Travel Mini Dual-P (28mm / 45mm Fujinon)",
-          "color": "Szampański Tytan",
-          "target_price_jpy": 1500,
-          "est_pl_value": 260,
-          "note": "Niesprawdzany z braku baterii (⚡ hit cenowy!), kultowy obiektyw Fujinon 28mm wide, 0% Li-Ion",
-          "battery_type": "none"
-        },
-        {
-          "id": "m39104820193",
-          "model": "Pentax Espio 738 (38-70mm SMC Pentax)",
-          "color": "Czarny Matowy",
-          "target_price_jpy": 1800,
-          "est_pl_value": 240,
-          "note": "W pełni sprawny kompakt z powłokami SMC Pentax, czysta optyka bez rys, 0% Li-Ion",
-          "battery_type": "none"
-        },
-        {
-          "id": "m72049182041",
-          "model": "Olympus AF-10 Twin (35mm / 70mm Dwuogniskowy)",
-          "color": "Czarny Clamshell",
-          "target_price_jpy": 2200,
-          "est_pl_value": 280,
-          "note": "Niesprawdzany z braku baterii (⚡ okazja cenowa), zsuwana klapka obiektywu, 0% Li-Ion",
-          "battery_type": "none"
-        },
-        {
-          "id": "m10948201948",
-          "model": "Canon Prima Super 28V / Autoboy WT28 (28-48mm Wide)",
-          "color": "Srebrzysto-Czarny",
-          "target_price_jpy": 2500,
-          "est_pl_value": 300,
-          "note": "Sprawdzony, migawka i flesz działają, rzadki szeroki kąt 28mm, 0% Li-Ion",
-          "battery_type": "none"
-        },
-        {
-          "id": "m63910284719",
-          "model": "Kyocera Yashica Zoomate 70 (38-70mm Yashica Lens)",
-          "color": "Czarny Ergonomiczny",
-          "target_price_jpy": 2800,
-          "est_pl_value": 270,
-          "note": "Niesprawdzany (⚡ czyszczenie szafy!), japońska optyka Kyocera Yashica, 0% Li-Ion",
-          "battery_type": "none"
-        },
-        {
-          "id": "m84019283741",
-          "model": "Konica Pop EFJ (Hexanon 36mm f/4 Prime)",
-          "color": "Retro Czerwień / Czarny",
-          "target_price_jpy": 3200,
-          "est_pl_value": 350,
-          "note": "Sprawny mechanicznie 100%, stałka Hexanon 36mm, kultowy model collectorski, 0% Li-Ion",
           "battery_type": "none"
         }
       ]

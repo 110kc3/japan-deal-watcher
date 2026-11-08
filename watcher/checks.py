@@ -168,11 +168,29 @@ def is_nintendo_ds_item(item: Dict[str, Any]) -> bool:
     cat_name = item.get("category_name", "").lower()
     model = item.get("model", "").lower()
 
-    if cat_id in ["nintendo_ds_consoles", "nintendo_handhelds"]:
+    if cat_id in ["nintendo_ds_consoles", "nintendo_handhelds", "nintendo_3ds_handhelds", "nintendo_ds_handhelds"]:
         return True
     if any(k in cat_name for k in ["nintendo ds", "ds lite", "dsi", "3ds", "2ds", "new 3ds", "dsi ll", "dsi xl"]):
         return True
     if any(k in model for k in ["ds lite", "dsi", "3ds", "2ds", "nintendo ds", "new 3ds", "dsi ll", "dsi xl"]):
+        return True
+    return False
+
+
+def is_handheld_item(item: Dict[str, Any]) -> bool:
+    """Detects whether an item belongs to any handheld console category."""
+    cat_id = item.get("category_id", "")
+    cat_name = item.get("category_name", "").lower()
+    model = item.get("model", "").lower()
+
+    if cat_id in [
+        "nintendo_3ds_handhelds", "nintendo_ds_handhelds", "gameboy_advance_retro",
+        "ps_vita", "ps_vita_handhelds", "psp_handheld", "nintendo_ds_consoles"
+    ]:
+        return True
+    if any(k in cat_name for k in ["handheld", "vita", "psp", "game boy", "gba", "3ds", "ds lite", "dsi"]):
+        return True
+    if any(k in model for k in ["vita", "psp", "game boy", "gba", "3ds", "ds lite", "dsi", "gbc", "micro"]):
         return True
     return False
 

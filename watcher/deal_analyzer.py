@@ -21,19 +21,26 @@ class DealAnalyzer:
     """
 
     CATEGORY_WEIGHTS = {
-        "retro_games_mix": 1.25,    # High volume, zero Li-Ion, huge margin (DS, GBA, PS1/PS2, SFC)
-        "psp_games_mix": 1.25,      # Legacy alias
-        "nintendo_retro": 1.20,     # Pokémon & Game Boy Color high liquidity
-        "nintendo_ds_consoles": 1.15, # Huge Polish nostalgia / GBA backward compatibility / CFW
-        "ps_vita": 1.15,            # High Polish demand, but occupies Li-Ion slot
-        "analog_lenses": 1.15,      # Fast sale to photo enthusiasts, 0% Li-Ion
-        "ps1_consoles": 1.10,       # PSone / LCD high collector margin
-        "retro_consoles_no_battery": 1.10, # GameCube DOL-001 / Saturn
-        "psp_handheld": 1.05,       # Good margin, but occupies Li-Ion unless dry
-        "ps5_limited_controllers": 1.15,       # High Polish resale demand for Limited Edition DualSense
-        "ps_retro_limited_controllers": 1.10,  # Collectors demand for DualShock 1-4 limited editions
-        "ps_limited_consoles": 1.15,           # Collector demand for rare PlayStation limited editions
-        "film_cameras_point_shoot": 1.25       # Huge youth/hipster market in PL, instant turnover, 0% Li-Ion
+        # Granular Handhelds (Grupa 1: "Płynne Złoto" i Grupa 2)
+        "nintendo_3ds_handhelds": 1.30, # Top #1 Polish demand, CFW Luma3DS, fastest turnover
+        "gameboy_advance_retro": 1.25,  # GBA SP AGS-101 & Pokémon high liquidity
+        "nintendo_ds_handhelds": 1.20,  # DSi LL IPS & DS Lite high liquidity
+        "ps_vita": 1.20,                # High Polish demand for colorful Vitas
+        "ps_vita_handhelds": 1.20,      # Alias
+        "retro_games_mix": 1.25,        # High volume, zero Li-Ion, huge margin (DS, GBA, PS1/PS2, SFC)
+        "high_margin_curated_consoles": 1.15, # Curated PSone Combo & rare CIB consoles (>400-750 PLN profit)
+        "film_cameras_point_shoot": 1.25, # Huge youth/hipster market in PL, instant turnover, 0% Li-Ion
+        "analog_lenses": 1.15,          # Fast sale to photo enthusiasts, 0% Li-Ion
+        "ps5_limited_controllers": 1.15, # High Polish resale demand for Limited Edition DualSense
+        "ps_retro_limited_controllers": 1.10, # Collectors demand for DualShock 1-4 limited editions
+        "psp_handheld": 1.10,           # Good margin, but occupies Li-Ion unless dry
+        # Legacy aliases
+        "nintendo_ds_consoles": 1.15,
+        "nintendo_retro": 1.20,
+        "psp_games_mix": 1.25,
+        "ps1_consoles": 1.10,
+        "retro_consoles_no_battery": 1.10,
+        "ps_limited_consoles": 1.15
     }
 
     def __init__(self, deals, rate_jpy=DEFAULT_JPY_PLN_RATE, rate_eur=DEFAULT_EUR_PLN_RATE):

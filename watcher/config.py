@@ -38,9 +38,16 @@ MAX_LENS_PRICE_PLN = 100.0
 
 # Category-aware estimated shipping share in consolidated parcel (PLN)
 CATEGORY_SHIPPING_SHARES = {
+    # Granular Handhelds (Grupa 1: "Płynne Złoto" i Grupa 2)
+    "nintendo_3ds_handhelds": 30.0,   # ~250g 3DS to 330g New 3DS XL
+    "nintendo_ds_handhelds": 30.0,    # ~218g DS Lite to 314g DSi LL
+    "gameboy_advance_retro": 25.0,    # ~140g GBA SP to 160g GBC
     "ps_vita": 35.0,                  # ~220g handheld
+    "ps_vita_handhelds": 35.0,        # Alias
     "psp_handheld": 30.0,             # ~190g handheld
     "retro_games_mix": 20.0,          # ~150-300g mixed retro game lots (0% Li-Ion)
+    "high_margin_curated_consoles": 65.0, # ~1.2-4.0kg PSone Combo / PS4 Pro Rathalos CIB
+    # Legacy & peripheral categories
     "psp_games_mix": 20.0,            # Legacy alias
     "retro_consoles_no_battery": 65.0, # ~1.5-2.0kg Sega/Sony home console
     "ps1_consoles": 45.0,             # ~550g PSone to 1.2kg PS1 fat
