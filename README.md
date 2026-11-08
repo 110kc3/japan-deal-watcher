@@ -3,7 +3,7 @@
 > **Automated Private Deal Watcher for Retro Consoles, Handhelds, UMD Bundles & Analog Lenses**  
 > *Live tracking Mercari Japan, Yahoo Auctions & ZenMarket consolidation timeline.*
 
-![Status](https://img.shields.io/badge/Watcher-Active-brightgreen) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-08%2007:40%20UTC-blue) ![Exchange Rate](https://img.shields.io/badge/NBP%20Live-100%20JPY%20%E2%89%88%202.48%20PLN-success) ![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-59%20Days%20Left-orange) ![Update Cycle](https://img.shields.io/badge/Cycle-Hourly%20(1h)-purple)
+![Status](https://img.shields.io/badge/Watcher-Active-brightgreen) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-08%2007:57%20UTC-blue) ![Exchange Rate](https://img.shields.io/badge/NBP%20Live-100%20JPY%20%E2%89%88%202.48%20PLN-success) ![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-59%20Days%20Left-orange) ![Update Cycle](https://img.shields.io/badge/Cycle-Hourly%20(1h)-purple)
 
 ---
 
@@ -57,7 +57,7 @@ ZenMarket provides **60 days of free warehouse storage** from the moment an item
 
 | Model / Wariant | Stan / Weryfikacja | Cena JPY (PLN) | Koszt w PL (z VAT) | Cena w Polsce | Potencjalny Zysk | Werdykt AI | Status | Linki |
 |---|:---:|---:|---:|---:|---:|:---:|:---:|---|
-| **PCH-2000 Slim**<br><small>Black<br>*Najtańsza sprawna PS Vita 2000 Slim na rynku, stan bdb*</small> | ✅ <strong>Stan Dobry</strong> | **16,000 JPY**<br>(~397.31 zł) | ~547.02 zł | **750.00 zł** | <strong style='color:#10b981;'>+202.98 zł</strong><br><small>(+37.1%)</small> | 🛒 <strong>B-TIER</strong><br><small>58.3/100</small> | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m49076044020)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m49076044020) |
+| **PCH-2000 Slim**<br><small>Black<br>*Najtańsza sprawna PS Vita 2000 Slim na rynku, stan bdb*</small> | ✅ <strong>Stan Dobry</strong> | **16,100 JPY**<br>(~399.80 zł) | ~550.07 zł | **750.00 zł** | <strong style='color:#10b981;'>+199.93 zł</strong><br><small>(+36.3%)</small> | 🛒 <strong>B-TIER</strong><br><small>57.6/100</small> | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m49076044020)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m49076044020) |
 | **PCH-2000 Slim**<br><small>Metallic Red<br>*Świetny wariant Metallic Red Slim, sprawna konsola*</small> | ✅ <strong>Sprawdzony</strong><br><small style='color:#10b981;'>Sprawny 100%</small> | **15,999 JPY**<br>(~397.29 zł) | ~546.98 zł | **880.00 zł** | <strong style='color:#10b981;'>+333.02 zł</strong><br><small>(+60.9%)</small> | 🌟 <strong>S-TIER</strong><br><small>83.3/100</small> | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m20893563232)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m20893563232) |
 | **PCH-2000 Slim**<br><small>Light Blue / White<br>*Dwukolorowa edycja Light Blue & White Slim*</small> | ✅ <strong>Stan Dobry</strong> | **16,000 JPY**<br>(~397.31 zł) | ~547.02 zł | **900.00 zł** | <strong style='color:#10b981;'>+352.98 zł</strong><br><small>(+64.5%)</small> | 🌟 <strong>S-TIER</strong><br><small>86.8/100</small> | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m64989059155)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m64989059155) |
 | **PCH-2000 Slim**<br><small>Blue<br>*PS Vita Slim w kolorze niebieskim, stan ładny*</small> | ✅ <strong>Stan Dobry</strong> | **15,000 JPY**<br>(~372.48 zł) | ~516.47 zł | **890.00 zł** | <strong style='color:#10b981;'>+373.53 zł</strong><br><small>(+72.3%)</small> | 🌟 <strong>S-TIER</strong><br><small>89.5/100</small> | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m42326406700)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m42326406700) |
@@ -215,4 +215,4 @@ Po zakupieniu przedmiotu w panelu ZenMarket kliknij *Order Photos* i wklej:
 - **Adding New Items:** Edit `data/watchlist.json` and push to `main`.
 
 ---
-*Dashboard automatically maintained by GitHub Actions & Antigravity Agent. Last updated: 2026-11-08 07:40 UTC.*
+*Dashboard automatically maintained by GitHub Actions & Antigravity Agent. Last updated: 2026-11-08 07:57 UTC.*
