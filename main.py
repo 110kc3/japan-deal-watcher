@@ -11,6 +11,7 @@ from watcher.config import (
     YAHOO_DEALS_FILE,
     YAHOO_MD_FILE,
     SNIPER_GUIDE_MD_FILE,
+    MARKET_SALES_MD_FILE,
     BASE_DIR
 )
 from watcher.currency import get_live_rates
@@ -19,6 +20,8 @@ from watcher.consolidation import ConsolidationTracker
 from watcher.markdown_generator import MarkdownGenerator
 from watcher.alternative_generator import AlternativeDealsGenerator
 from watcher.sniper_guide_generator import SniperGuideGenerator
+from watcher.history_tracker import HistoryTracker
+from watcher.history_generator import HistoryGenerator
 
 def main():
     print("=" * 60)
@@ -104,6 +107,33 @@ def main():
         with open(SNIPER_GUIDE_MD_FILE, "w", encoding="utf-8") as f:
             f.write(sniper_guide_content)
         print(f"📄 Successfully generated and updated {SNIPER_GUIDE_MD_FILE} (Tactical Sniping Guide)")
+
+    # 8. Record Price History and Generate MARKET_SALES_HISTORY.md
+    history_tracker = HistoryTracker()
+    all_scan_deals = list(deals)
+    if YAHOO_DEALS_FILE.exists():
+        with open(YAHOO_DEALS_FILE, "r", encoding="utf-8") as f:
+            y_deals = json.load(f)
+        all_scan_deals.extend(y_deals)
+
+    scan_stats = history_tracker.record_scan(all_scan_deals, rate_jpy=rate_jpy, rate_eur=rate_eur)
+    print(f"📈 History Tracker: {scan_stats['total_sales']} closed sales recorded ({scan_stats['new_sales']} new, {scan_stats['total_tracked']} tracked items)")
+
+    history_gen = HistoryGenerator(history_tracker)
+    sales_md_content = history_gen.generate()
+    with open(MARKET_SALES_MD_FILE, "w", encoding="utf-8") as f:
+        f.write(sales_md_content)
+    print(f"📄 Successfully generated and updated {MARKET_SALES_MD_FILE} (Market Sales & Price Intelligence)")
+
+    # Also save copy to Obsidian vault
+    obsidian_sales_path = Path("/home/borg/docker/obsidian/vault/20-reports/adhoc/2026-11-08-market-sales-history.md")
+    if obsidian_sales_path.parent.exists():
+        try:
+            with open(obsidian_sales_path, "w", encoding="utf-8") as f:
+                f.write(sales_md_content)
+            print(f"📑 Copied sales history report to Obsidian: {obsidian_sales_path.name}")
+        except Exception as e:
+            print(f"[WARN] Obsidian copy skipped: {e}")
 
     print("=" * 60)
 

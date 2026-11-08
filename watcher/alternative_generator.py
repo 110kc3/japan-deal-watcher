@@ -127,7 +127,7 @@ class AlternativeDealsGenerator:
                   "![Lens Cap](https://img.shields.io/badge/Lens%20Cap-Max%20100%20PLN-orange) "
                   "![Sniper Bidding](https://img.shields.io/badge/ZenMarket-Automated%20Sniper-brightgreen)")
         md.append("")
-        md.append("⬅ **Nawigacja:** [Wróć do Głównego Dashboardu Mercari (README.md)](README.md) · [🎯 Poradnik Snajpera i Ceny Końcowe (AUCTION_SNIPING_GUIDE.md)](AUCTION_SNIPING_GUIDE.md) · [💰 Audyt Opłacalności (REAL_PROFITABILITY_AUDIT.md)](REAL_PROFITABILITY_AUDIT.md) · [Obsidian Report](file:///home/borg/docker/obsidian/vault/20-reports/adhoc/2026-11-08-real-world-profitability-audit.md)")
+        md.append("⬅ **Nawigacja:** [Wróć do Głównego Dashboardu Mercari (README.md)](README.md) · [🎯 Poradnik Snajpera i Ceny Końcowe (AUCTION_SNIPING_GUIDE.md)](AUCTION_SNIPING_GUIDE.md) · [💰 Audyt Opłacalności (REAL_PROFITABILITY_AUDIT.md)](REAL_PROFITABILITY_AUDIT.md) · [📈 Historia Sprzedaży (MARKET_SALES_HISTORY.md)](MARKET_SALES_HISTORY.md)")
         md.append("")
         md.append("---")
         md.append("")
@@ -247,7 +247,8 @@ class AlternativeDealsGenerator:
             md.append("|---|:---:|---:|---:|---:|---:|:---:|:---:|---|")
 
             for it in items:
-                status_icon = "✅ Aktywna" if "Aktywna" in it.get("status", "") or "Dostępne" in it.get("status", "") else "❌ Zakończona"
+                is_ended = ("Aktywna" not in it.get("status", "") and "Dostępne" not in it.get("status", ""))
+                status_icon = "~~❌ Zakończona~~" if is_ended else "✅ Aktywna"
                 clean_model = sanitize_md(it.get("model", ""))
                 clean_color = sanitize_md(it.get("color", ""))
                 clean_note = sanitize_md(it.get("custom_note", ""))
@@ -258,16 +259,35 @@ class AlternativeDealsGenerator:
 
                 links_str = self.format_deal_links(it)
 
+                if is_ended:
+                    model_col = f"~~**{clean_model}**~~<br><small>~~{clean_color}~~<br>*~~{clean_note}~~*</small>"
+                    plat_col = f"~~`{it.get('platform', 'Yahoo')}`~~"
+                    price_col = f"~~**{it['price_jpy']:,} JPY**~~<br>(~~~{it['price_pln_raw']:.2f} zł~~)"
+                    landed_col = f"~~~{it['landed_cost_pln']:.2f} zł~~"
+                    pl_col = f"~~**{it['est_pl_value']:.2f} zł**~~"
+                    margin_col = f"~~{margin_str}~~"
+                    ai_col = f"~~{ai_badge}~~"
+                    links_col = f"~~{links_str}~~"
+                else:
+                    model_col = f"**{clean_model}**<br><small>{clean_color}<br>*{clean_note}*</small>"
+                    plat_col = f"`{it.get('platform', 'Yahoo')}`"
+                    price_col = f"**{it['price_jpy']:,} JPY**<br>(~{it['price_pln_raw']:.2f} zł)"
+                    landed_col = f"~{it['landed_cost_pln']:.2f} zł"
+                    pl_col = f"**{it['est_pl_value']:.2f} zł**"
+                    margin_col = margin_str
+                    ai_col = ai_badge
+                    links_col = links_str
+
                 md.append(
-                    f"| **{clean_model}**<br><small>{clean_color}<br>*{clean_note}*</small> | "
-                    f"`{it.get('platform', 'Yahoo')}` | "
-                    f"**{it['price_jpy']:,} JPY**<br>(~{it['price_pln_raw']:.2f} zł) | "
-                    f"~{it['landed_cost_pln']:.2f} zł | "
-                    f"**{it['est_pl_value']:.2f} zł** | "
-                    f"{margin_str} | "
-                    f"{ai_badge} | "
+                    f"| {model_col} | "
+                    f"{plat_col} | "
+                    f"{price_col} | "
+                    f"{landed_col} | "
+                    f"{pl_col} | "
+                    f"{margin_col} | "
+                    f"{ai_col} | "
                     f"{status_icon} | "
-                    f"{links_str} |"
+                    f"{links_col} |"
                 )
             md.append("")
             md.append("---")

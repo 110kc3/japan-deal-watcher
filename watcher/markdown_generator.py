@@ -68,6 +68,7 @@ class MarkdownGenerator:
         md.append("> 🔨 **Alternatywne rynki:** Sprawdź dedykowany katalog licytacji i ofert ze sklepów retro: [**YAHOO_AUCTIONS_DEALS.md** (Yahoo! Auctions, Surugaya, Hard-Off)](YAHOO_AUCTIONS_DEALS.md)  ")
         md.append("> 🎯 **Taktyka Snajpera i Ceny Końcowe:** Sprawdź twarde limity licytacji w ostatnich minutach: [**AUCTION_SNIPING_GUIDE.md** (Poradnik Snajpera i Ceny Końcowe)](AUCTION_SNIPING_GUIDE.md)  ")
         md.append("> 💰 **Audyt Opłacalności:** Czy oferty faktycznie się opłacają? Zobacz [**REAL_PROFITABILITY_AUDIT.md** (Reality-Check, Ukryte Koszty i Płynność)](REAL_PROFITABILITY_AUDIT.md)  ")
+        md.append("> 📈 **Historia Cen i Sprzedaży:** Śledź co się sprzedaje i jakie ceny osiąga: [**MARKET_SALES_HISTORY.md** (Rejestr Sprzedaży i Trendy Cenowe)](MARKET_SALES_HISTORY.md)  ")
         md.append("> 📊 **Obsidian Vault:** [2026-11-08-real-world-profitability-audit.md](file:///home/borg/docker/obsidian/vault/20-reports/adhoc/2026-11-08-real-world-profitability-audit.md) · [ps-vita-blue-market-report.md](file:///home/borg/docker/obsidian/vault/20-reports/adhoc/2026-11-07-ps-vita-blue-market-report.md)")
         md.append("")
         md.append("---")
@@ -195,9 +196,15 @@ class MarkdownGenerator:
             md.append("|---|:---:|---:|---:|---:|---:|:---:|:---:|---|")
             
             for it in items:
-                status_icon = "✅ Dostępne" if "Dostępne" in it.get("status", "") else "❌ Zakończone / 404"
-                if it.get("is_broken") or "Wykluczone" in it.get("status", ""):
-                    status_icon = "🚫 Wykluczone (Uszkodzone)"
+                is_ended = ("Dostępne" not in it.get("status", ""))
+                is_broken = it.get("is_broken") or "Wykluczone" in it.get("status", "")
+                
+                if is_broken:
+                    status_icon = "~~🚫 Wykluczone (Uszkodzone)~~"
+                elif is_ended:
+                    status_icon = "~~❌ Zakończone / Sprzedane~~"
+                else:
+                    status_icon = "✅ Dostępne"
                 
                 clean_model = sanitize_md(it.get("model", ""))
                 clean_color = sanitize_md(it.get("color", ""))
@@ -219,16 +226,36 @@ class MarkdownGenerator:
                 deal_eval = self.analyzer.analyze_deal(it)
                 ai_badge = f"{deal_eval['verdict_icon']} <strong>{deal_eval['tier']}</strong><br><small>{deal_eval['score']}/100</small>" if deal_eval.get("is_active") else "⚪ N/A"
 
+                if is_ended or is_broken:
+                    # User rule: "kiedy oferta sie skonczy wykresl ja z readme" -> Strikethrough
+                    model_col = f"~~**{clean_model}**~~<br><small>~~{clean_color}~~<br>*~~{clean_note}~~*</small>"
+                    cond_col = f"~~{cond_html}~~"
+                    price_col = f"~~**{it['price_jpy']:,} JPY**~~<br>(~~~{it['price_pln_raw']:.2f} zł~~)"
+                    landed_col = f"~~~{it['landed_cost_pln']:.2f} zł~~"
+                    pl_col = f"~~**{it['est_pl_value']:.2f} zł**~~"
+                    margin_col = f"~~{margin_str}~~"
+                    ai_col = f"~~{ai_badge}~~"
+                    links_col = f"~~[🛒 ZenMarket 1-Click]({it['zenmarket_url']})~~<br>~~[🇯🇵 Mercari Oferta]({it['mercari_url']})~~"
+                else:
+                    model_col = f"**{clean_model}**<br><small>{clean_color}<br>*{clean_note}*</small>"
+                    cond_col = cond_html
+                    price_col = f"**{it['price_jpy']:,} JPY**<br>(~{it['price_pln_raw']:.2f} zł)"
+                    landed_col = f"~{it['landed_cost_pln']:.2f} zł"
+                    pl_col = f"**{it['est_pl_value']:.2f} zł**"
+                    margin_col = margin_str
+                    ai_col = ai_badge
+                    links_col = f"[🛒 ZenMarket 1-Click]({it['zenmarket_url']})<br>[🇯🇵 Mercari Oferta]({it['mercari_url']})"
+
                 md.append(
-                    f"| **{clean_model}**<br><small>{clean_color}<br>*{clean_note}*</small> | "
-                    f"{cond_html} | "
-                    f"**{it['price_jpy']:,} JPY**<br>(~{it['price_pln_raw']:.2f} zł) | "
-                    f"~{it['landed_cost_pln']:.2f} zł | "
-                    f"**{it['est_pl_value']:.2f} zł** | "
-                    f"{margin_str} | "
-                    f"{ai_badge} | "
+                    f"| {model_col} | "
+                    f"{cond_col} | "
+                    f"{price_col} | "
+                    f"{landed_col} | "
+                    f"{pl_col} | "
+                    f"{margin_col} | "
+                    f"{ai_col} | "
                     f"{status_icon} | "
-                    f"[🛒 ZenMarket 1-Click]({it['zenmarket_url']})<br>[🇯🇵 Mercari Oferta]({it['mercari_url']}) |"
+                    f"{links_col} |"
                 )
             md.append("")
             md.append("---")

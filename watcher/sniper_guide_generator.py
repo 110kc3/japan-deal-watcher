@@ -70,7 +70,7 @@ class SniperGuideGenerator:
             "⬅ **Nawigacja:** [Główny Dashboard Mercari (README.md)](README.md) · "
             "[Katalog Alternatywnych Ofert (YAHOO_AUCTIONS_DEALS.md)](YAHOO_AUCTIONS_DEALS.md) · "
             "[💰 Audyt Opłacalności (REAL_PROFITABILITY_AUDIT.md)](REAL_PROFITABILITY_AUDIT.md) · "
-            "[Obsidian Report](file:///home/borg/docker/obsidian/vault/20-reports/adhoc/2026-11-08-real-world-profitability-audit.md)"
+            "[📈 Historia Sprzedaży (MARKET_SALES_HISTORY.md)](MARKET_SALES_HISTORY.md)"
         )
         md.append("")
         md.append("---")
