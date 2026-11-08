@@ -3,7 +3,10 @@
 > **Automated Private Deal Watcher for Retro Consoles, Handhelds, UMD Bundles & Analog Lenses**  
 > *Live tracking Mercari Japan, Yahoo Auctions & ZenMarket consolidation timeline.*
 
-![Status](https://img.shields.io/badge/Watcher-Active-brightgreen) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-08%2009:19%20UTC-blue) ![Exchange Rate](https://img.shields.io/badge/NBP%20Live-100%20JPY%20%E2%89%88%202.48%20PLN-success) ![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-59%20Days%20Left-orange) ![Update Cycle](https://img.shields.io/badge/Cycle-Hourly%20(1h)-purple)
+![Status](https://img.shields.io/badge/Watcher-Active-brightgreen) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-08%2009:32%20UTC-blue) ![Exchange Rate](https://img.shields.io/badge/NBP%20Live-100%20JPY%20%E2%89%88%202.48%20PLN-success) ![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-59%20Days%20Left-orange) ![Update Cycle](https://img.shields.io/badge/Cycle-Hourly%20(1h)-purple)
+
+> 🔨 **Alternatywne rynki:** Sprawdź dedykowany katalog licytacji i ofert ze sklepów retro: [**YAHOO_AUCTIONS_DEALS.md** (Yahoo! Auctions, Surugaya, Hard-Off)](YAHOO_AUCTIONS_DEALS.md)  
+> 📊 **Obsidian Vault:** [2026-11-07-ps-vita-blue-market-report.md](file:///home/borg/docker/obsidian/vault/20-reports/adhoc/2026-11-07-ps-vita-blue-market-report.md)
 
 ---
 
@@ -57,10 +60,10 @@ ZenMarket provides **60 days of free warehouse storage** from the moment an item
 
 | Model / Wariant | Stan / Weryfikacja | Cena JPY (PLN) | Koszt w PL (z VAT) | Cena w Polsce | Potencjalny Zysk | Werdykt AI | Status | Linki |
 |---|:---:|---:|---:|---:|---:|:---:|:---:|---|
-| **PCH-2000 Slim**<br><small>Black<br>*Najtańsza sprawna PS Vita 2000 Slim na rynku, stan bdb*</small> | ✅ <strong>Stan Dobry</strong> | **16,200 JPY**<br>(~402.28 zł) | ~553.12 zł | **750.00 zł** | <strong style='color:#10b981;'>+196.88 zł</strong><br><small>(+35.6%)</small> | 🛒 <strong>B-TIER</strong><br><small>57.0/100</small> | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m49076044020)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m49076044020) |
+| **PCH-2000 Slim**<br><small>Black<br>*Najtańsza sprawna PS Vita 2000 Slim na rynku, stan bdb*</small> | ✅ <strong>Stan Dobry</strong> | **16,400 JPY**<br>(~407.24 zł) | ~559.23 zł | **750.00 zł** | <strong style='color:#10b981;'>+190.77 zł</strong><br><small>(+34.1%)</small> | 🛒 <strong>B-TIER</strong><br><small>55.6/100</small> | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m49076044020)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m49076044020) |
 | **PCH-2000 Slim**<br><small>Metallic Red<br>*Świetny wariant Metallic Red Slim, sprawna konsola*</small> | ✅ <strong>Sprawdzony</strong><br><small style='color:#10b981;'>Sprawny 100%</small> | **15,999 JPY**<br>(~397.29 zł) | ~546.98 zł | **880.00 zł** | <strong style='color:#10b981;'>+333.02 zł</strong><br><small>(+60.9%)</small> | 🌟 <strong>S-TIER</strong><br><small>83.3/100</small> | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m20893563232)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m20893563232) |
 | **PCH-2000 Slim**<br><small>Light Blue / White<br>*Dwukolorowa edycja Light Blue & White Slim*</small> | ✅ <strong>Stan Dobry</strong> | **16,000 JPY**<br>(~397.31 zł) | ~547.02 zł | **900.00 zł** | <strong style='color:#10b981;'>+352.98 zł</strong><br><small>(+64.5%)</small> | 🌟 <strong>S-TIER</strong><br><small>86.8/100</small> | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m64989059155)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m64989059155) |
-| **PCH-2000 Slim**<br><small>Blue<br>*PS Vita Slim w kolorze niebieskim, stan ładny*</small> | ✅ <strong>Stan Dobry</strong> | **14,000 JPY**<br>(~347.65 zł) | ~485.93 zł | **890.00 zł** | <strong style='color:#10b981;'>+404.07 zł</strong><br><small>(+83.2%)</small> | 🌟 <strong>S-TIER</strong><br><small>89.5/100</small> | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m42326406700)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m42326406700) |
+| **PCH-2000 Slim**<br><small>Blue<br>*PS Vita Slim w kolorze niebieskim, stan ładny*</small> | ✅ <strong>Stan Dobry</strong> | **14,100 JPY**<br>(~350.13 zł) | ~488.98 zł | **890.00 zł** | <strong style='color:#10b981;'>+401.02 zł</strong><br><small>(+82.0%)</small> | 🌟 <strong>S-TIER</strong><br><small>89.5/100</small> | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m42326406700)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m42326406700) |
 | **PCH-2000 Slim**<br><small>Glacier White<br>*Czysta biała wersja Glacier White Slim*</small> | ✅ <strong>Sprawdzony</strong><br><small style='color:#10b981;'>Sprawny 100%</small> | **17,333 JPY**<br>(~430.41 zł) | ~587.73 zł | **850.00 zł** | <strong style='color:#10b981;'>+262.27 zł</strong><br><small>(+44.6%)</small> | 🚀 <strong>A-TIER</strong><br><small>68.0/100</small> | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m64627979696)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m64627979696) |
 | **PCH-2000 Slim**<br><small>Neon Orange<br>*Rzadki japoński kolor Neon Orange, wysoka marża w PL*</small> | ✅ <strong>Sprawdzony</strong><br><small style='color:#10b981;'>Sprawny 100%</small> | **21,800 JPY**<br>(~541.34 zł) | ~724.17 zł | **1050.00 zł** | <strong style='color:#10b981;'>+325.83 zł</strong><br><small>(+45.0%)</small> | 🚀 <strong>A-TIER</strong><br><small>74.6/100</small> | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m33337627533)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m33337627533) |
 | **PCH-2000 Slim (CIB)**<br><small>Glacier White<br>*Biała Slimka w oryginalnym pudełku z papierami*</small> | ✅ <strong>Sprawdzony</strong><br><small style='color:#10b981;'>Sprawny 100%</small> | **20,000 JPY**<br>(~496.64 zł) | ~669.19 zł | **1050.00 zł** | <strong style='color:#10b981;'>+380.81 zł</strong><br><small>(+56.9%)</small> | 🌟 <strong>S-TIER</strong><br><small>83.0/100</small> | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m18827541996)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m18827541996) |
@@ -249,13 +252,13 @@ Zamiast wysyłać każdy przedmiot osobno (gdzie minimalny koszt paczki kuriersk
 
 | Skład Paczki Konsolidacyjnej | Baterie Li-Ion | Koszt Zakupu (JPY) | Koszt w PL (z VAT) | Wartość w Polsce | Szacowany Zysk Netto |
 |---|:---:|---:|---:|---:|---:|
-| 1× **PCH-2000 Slim** (Blue) | 1 (Slot Li-Ion) | 14,000 JPY (~347.65 zł) | ~485.93 zł | ~890.00 zł | **+404.07 zł** |
+| 1× **PCH-2000 Slim** (Blue) | 1 (Slot Li-Ion) | 14,100 JPY (~350.13 zł) | ~488.98 zł | ~890.00 zł | **+401.02 zł** |
 | 1× **DualSense 30th Anniversary Limited Edition** (Classic PS1 Grey (Kolorowe logo PS)) | 1 (Slot Li-Ion) | 14,600 JPY (~362.55 zł) | ~498.10 zł | ~850.00 zł | **+351.90 zł** |
 | 1× **PSP UMD 17 sztuk (CIB)** (17 Gier Box) | 0 (Bez limitu) | 2,600 JPY (~64.56 zł) | ~119.28 zł | ~480.00 zł | **+360.72 zł** |
 | 1× **Olympus μ [mju:] 35mm F3.5 (Oryginalna Stałka Prime)** (Głęboka Czerń Clamshell) | 0 (Bez limitu) | 12,999 JPY (~322.79 zł) | ~443.05 zł | ~950.00 zł | **+506.95 zł** |
 | 1× **PSone COMBO SCPH-130 (Zintegrowany 5" LCD Sony)** (Biały Mini + Doczepiany Ekran LCD) | 0 (Bez limitu) | 25,800 JPY (~640.67 zł) | ~877.09 zł | ~1600.00 zł | **+722.91 zł** |
 | 1× **PlayStation 2 SCPH-39000 TB Toy's Blue** (Toy's Blue (Przezroczysty Lazurowy Błękit)) | 0 (Bez limitu) | 8,980 JPY (~222.99 zł) | ~363.35 zł | ~750.00 zł | **+386.65 zł** |
-| **ŁĄCZNIE W 1 KARTONIE (6 poz.)** | **2 / 2 Li-Ion (100% OK)** | **78,979 JPY** | **~2786.80 zł** | **~5520.00 zł** | **<strong style='color:#10b981;'>+2733.20 zł (+98.1%)</strong>** |
+| **ŁĄCZNIE W 1 KARTONIE (6 poz.)** | **2 / 2 Li-Ion (100% OK)** | **79,079 JPY** | **~2789.85 zł** | **~5520.00 zł** | **<strong style='color:#10b981;'>+2730.15 zł (+97.9%)</strong>** |
 
 > **Oszczędność na wysyłce:** 6 przesyłek osobno = ~660 zł. Jedna paczka skonsolidowana EMS/Airmail (~2.4 kg) = **~175 zł**.  
 > 💰 **Czysta oszczędność na samej logistyce konsolidacyjnej: ~485 zł w kieszeni!**
@@ -286,4 +289,4 @@ Po zakupieniu przedmiotu w panelu ZenMarket kliknij *Order Photos* i wklej:
 - **Adding New Items:** Edit `data/watchlist.json` and push to `main`.
 
 ---
-*Dashboard automatically maintained by GitHub Actions & Antigravity Agent. Last updated: 2026-11-08 09:19 UTC.*
+*Dashboard automatically maintained by GitHub Actions & Antigravity Agent. Last updated: 2026-11-08 09:32 UTC.*

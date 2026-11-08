@@ -7,6 +7,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = BASE_DIR / "data"
 WATCHLIST_FILE = DATA_DIR / "watchlist.json"
 CURRENT_DEALS_FILE = DATA_DIR / "current_deals.json"
+YAHOO_DEALS_FILE = DATA_DIR / "yahoo_deals.json"
+YAHOO_MD_FILE = BASE_DIR / "YAHOO_AUCTIONS_DEALS.md"
 
 # NBP reference rates & tax parameters
 DEFAULT_JPY_PLN_RATE = 0.024832  # 100 JPY ≈ 2.48 PLN

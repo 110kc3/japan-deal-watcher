@@ -5,11 +5,18 @@ import json
 import sys
 from pathlib import Path
 
-from watcher.config import WATCHLIST_FILE, CURRENT_DEALS_FILE, BASE_DIR
+from watcher.config import (
+    WATCHLIST_FILE,
+    CURRENT_DEALS_FILE,
+    YAHOO_DEALS_FILE,
+    YAHOO_MD_FILE,
+    BASE_DIR
+)
 from watcher.currency import get_live_nbp_rate
 from watcher.fetcher import DealFetcher
 from watcher.consolidation import ConsolidationTracker
 from watcher.markdown_generator import MarkdownGenerator
+from watcher.alternative_generator import AlternativeDealsGenerator
 
 def main():
     print("=" * 60)
@@ -60,6 +67,22 @@ def main():
     with open(readme_path, "w", encoding="utf-8") as f:
         f.write(readme_content)
     print(f"📄 Successfully generated and updated {readme_path}")
+
+    # 6. Generate YAHOO_AUCTIONS_DEALS.md (Alternative marketplaces)
+    if YAHOO_DEALS_FILE.exists():
+        with open(YAHOO_DEALS_FILE, "r", encoding="utf-8") as f:
+            yahoo_deals = json.load(f)
+        alt_generator = AlternativeDealsGenerator(
+            raw_deals=yahoo_deals,
+            timeline_status=timeline,
+            rate=rate,
+            is_live_rate=is_live_rate
+        )
+        yahoo_md_content = alt_generator.generate()
+        with open(YAHOO_MD_FILE, "w", encoding="utf-8") as f:
+            f.write(yahoo_md_content)
+        print(f"📄 Successfully generated and updated {YAHOO_MD_FILE} ({len(yahoo_deals)} alternative deals)")
+
     print("=" * 60)
 
 if __name__ == "__main__":
