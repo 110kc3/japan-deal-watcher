@@ -3,6 +3,7 @@
 import unittest
 from watcher.checks import (
     check_camera_price_cap,
+    check_lens_price_cap,
     check_defects,
     check_untested_opportunity,
     check_shipping_trap,
@@ -12,9 +13,11 @@ from watcher.checks import (
     check_dataset_integrity,
     check_markdown_dashboards,
     run_full_system_audit,
-    is_camera_item
+    is_camera_item,
+    is_lens_item,
+    is_nintendo_ds_item,
 )
-from watcher.config import WATCHLIST_FILE, YAHOO_DEALS_FILE, BASE_DIR, MAX_CAMERA_PRICE_PLN
+from watcher.config import WATCHLIST_FILE, YAHOO_DEALS_FILE, BASE_DIR, MAX_CAMERA_PRICE_PLN, MAX_LENS_PRICE_PLN
 
 
 class TestChecks(unittest.TestCase):
@@ -31,6 +34,32 @@ class TestChecks(unittest.TestCase):
         self.assertTrue(is_camera_item(cam3))
         self.assertTrue(is_camera_item(cam4))
         self.assertFalse(is_camera_item(not_cam))
+
+    def test_lens_detection(self):
+        lens1 = {"category_id": "analog_lenses", "model": "SMC Pentax-M 50mm f/1.4"}
+        lens2 = {"category_id": "other", "category_name": "Obiektywy Analogowe"}
+        lens3 = {"category_id": "other", "model": "Olympus F.Zuiko Auto-S 50mm f/1.8"}
+        lens4 = {"category_id": "other", "model": "Super Takumar 55mm f/1.8 Lens"}
+        not_lens = {"category_id": "nintendo_ds_consoles", "model": "Nintendo DS Lite"}
+
+        self.assertTrue(is_lens_item(lens1))
+        self.assertTrue(is_lens_item(lens2))
+        self.assertTrue(is_lens_item(lens3))
+        self.assertTrue(is_lens_item(lens4))
+        self.assertFalse(is_lens_item(not_lens))
+
+    def test_nintendo_ds_detection(self):
+        ds1 = {"category_id": "nintendo_ds_consoles", "model": "Nintendo DS Lite"}
+        ds2 = {"category_id": "other", "category_name": "Nintendo DS / DSi / 3DS"}
+        ds3 = {"category_id": "other", "model": "Nintendo DSi LL Dark Brown IPS"}
+        ds4 = {"category_id": "other", "model": "Nintendo 3DS XL Aqua Blue"}
+        not_ds = {"category_id": "ps_vita", "model": "PlayStation Vita"}
+
+        self.assertTrue(is_nintendo_ds_item(ds1))
+        self.assertTrue(is_nintendo_ds_item(ds2))
+        self.assertTrue(is_nintendo_ds_item(ds3))
+        self.assertTrue(is_nintendo_ds_item(ds4))
+        self.assertFalse(is_nintendo_ds_item(not_ds))
 
     def test_camera_price_cap_rule(self):
         # 1. Camera <= 100 PLN passes
@@ -61,6 +90,38 @@ class TestChecks(unittest.TestCase):
             "price_pln_raw": 450.00
         }
         ok, msg = check_camera_price_cap(expensive_console)
+        self.assertTrue(ok)
+        self.assertIn("N/A", msg)
+
+    def test_lens_price_cap_rule(self):
+        # 1. Lens <= 100 PLN passes
+        cheap_lens = {
+            "category_id": "analog_lenses",
+            "model": "SMC Pentax-M 50mm f/2",
+            "price_pln_raw": 44.70
+        }
+        ok, msg = check_lens_price_cap(cheap_lens)
+        self.assertTrue(ok)
+        self.assertIn("mieści się w limicie", msg)
+
+        # 2. Lens > 100 PLN fails
+        expensive_lens = {
+            "category_id": "analog_lenses",
+            "model": "Canon FD 50mm f/1.4",
+            "price_pln_raw": 215.00
+        }
+        ok, msg = check_lens_price_cap(expensive_lens)
+        self.assertFalse(ok)
+        self.assertIn("przekracza dopuszczalny limit", msg)
+        self.assertIn("Obiektywy w dużych cenach odpadają", msg)
+
+        # 3. Non-lens item > 100 PLN is not affected
+        expensive_console = {
+            "category_id": "ps_vita",
+            "model": "PS Vita OLED",
+            "price_pln_raw": 450.00
+        }
+        ok, msg = check_lens_price_cap(expensive_console)
         self.assertTrue(ok)
         self.assertIn("N/A", msg)
 

@@ -3,11 +3,15 @@
 from .config import (
     DEFAULT_JPY_PLN_RATE,
     DEFAULT_EUR_PLN_RATE,
-    MAX_CAMERA_PRICE_PLN
+    MAX_CAMERA_PRICE_PLN,
+    MAX_LENS_PRICE_PLN
 )
 from .checks import (
     check_camera_price_cap,
-    is_camera_item
+    is_camera_item,
+    check_lens_price_cap,
+    is_lens_item,
+    is_nintendo_ds_item
 )
 
 class DealAnalyzer:
@@ -19,6 +23,7 @@ class DealAnalyzer:
     CATEGORY_WEIGHTS = {
         "psp_games_mix": 1.25,      # High volume, zero Li-Ion, huge margin
         "nintendo_retro": 1.20,     # Pokémon & Game Boy Color high liquidity
+        "nintendo_ds_consoles": 1.15, # Huge Polish nostalgia / GBA backward compatibility / CFW
         "ps_vita": 1.15,            # High Polish demand, but occupies Li-Ion slot
         "psp_go": 1.15,             # Sliding compact console, 16GB, Li-Ion slot, high demand
         "analog_lenses": 1.15,      # Fast sale to photo enthusiasts, 0% Li-Ion
@@ -118,6 +123,41 @@ class DealAnalyzer:
                     "mercari_url": deal.get("mercari_url", "")
                 }
 
+        # Check Lens Price Cap: User rule "obiektywy tez w duzych cenach odpadaja"
+        if is_lens_item(deal):
+            lens_cap_ok, lens_cap_msg = check_lens_price_cap(deal, max_price_pln=MAX_LENS_PRICE_PLN)
+            if not lens_cap_ok:
+                raw_price = deal.get("price_pln_raw", round(price_jpy * self.rate_jpy, 2))
+                return {
+                    "id": deal.get("id"),
+                    "model": model,
+                    "color": color,
+                    "category_id": cat_id,
+                    "category_name": deal.get("category_name", ""),
+                    "price_jpy": price_jpy,
+                    "price_pln_raw": raw_price,
+                    "landed_cost_pln": landed_cost_pln,
+                    "est_pl_value": est_pl_value,
+                    "est_margin_pln": margin_pln,
+                    "roi_percent": roi_percent,
+                    "battery_type": battery_type,
+                    "is_no_battery": is_no_battery,
+                    "condition_type": cond_type,
+                    "condition_badge": cond_badge,
+                    "score": 0,
+                    "tier": "DISQUALIFIED",
+                    "verdict": "NIE JEST OKAZJĄ (CENA OBIEKTYWU > 100 ZŁ)",
+                    "verdict_icon": "🚫",
+                    "rationale": f"Obiektyw wykluczony: {lens_cap_msg}",
+                    "is_active": True,
+                    "is_worth_buying": False,
+                    "checks_passed": ["defects_clean", "listing_sanity"],
+                    "checks_failed": ["lens_price_cap_100_pln"],
+                    "checks_summary": "1 Błąd: Cena Obiektywu > 100 zł (Nie Jest Okazją)",
+                    "zenmarket_url": deal.get("zenmarket_url", ""),
+                    "mercari_url": deal.get("mercari_url", "")
+                }
+
         # 1. Margin Points (0 to 35 pts)
         # 350+ PLN margin gets max points
         margin_pts = min(35.0, max(0.0, (margin_pln / 350.0) * 35.0))
@@ -196,6 +236,8 @@ class DealAnalyzer:
         checks_failed = []
         if is_camera_item(deal):
             checks_passed.append("camera_price_cap_100_pln")
+        if is_lens_item(deal):
+            checks_passed.append("lens_price_cap_100_pln")
         if cond_type == "untested_opportunity":
             checks_passed.append("untested_arbitrage_gain")
         if roi_percent >= 30 and margin_pln >= 40:

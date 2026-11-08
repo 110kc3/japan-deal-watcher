@@ -12,11 +12,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from watcher.checks import (
     run_full_system_audit,
     check_camera_price_cap,
+    check_lens_price_cap,
     check_defects,
     check_iata_lithium,
-    is_camera_item
+    is_camera_item,
+    is_lens_item
 )
-from watcher.config import CURRENT_DEALS_FILE, MAX_CAMERA_PRICE_PLN
+from watcher.config import CURRENT_DEALS_FILE, MAX_CAMERA_PRICE_PLN, MAX_LENS_PRICE_PLN
 
 
 def main():
@@ -60,6 +62,20 @@ def main():
                     print(f"         └─ Przekroczono limit: {oc.get('model')} ({oc.get('price_pln_raw', 0):.2f} zł > 100 zł)")
             else:
                 print(f"[✅ PASS] 📷 Live Camera Deals Price Cap Check: Wszystkie {len(camera_deals)} aparatów <= 100 zł!")
+
+            # Lens price cap check on live deals
+            lens_deals = [d for d in active_deals if is_lens_item(d)]
+            overpriced_lenses = [
+                d for d in lens_deals
+                if d.get("price_pln_raw", 0) > MAX_LENS_PRICE_PLN
+            ]
+            if overpriced_lenses:
+                has_errors = True
+                print(f"[❌ FAIL] 🔍 Live Lens Deals Price Cap Check (Max {MAX_LENS_PRICE_PLN:.2f} zł)")
+                for ol in overpriced_lenses:
+                    print(f"         └─ Przekroczono limit: {ol.get('model')} ({ol.get('price_pln_raw', 0):.2f} zł > 100 zł)")
+            else:
+                print(f"[✅ PASS] 🔍 Live Lens Deals Price Cap Check: Wszystkie {len(lens_deals)} obiektywów <= 100 zł!")
 
             # Defect check on active deals
             broken_active = [d for d in active_deals if d.get("is_broken")]

@@ -237,5 +237,76 @@ class TestDealAnalyzer(unittest.TestCase):
         self.assertIn("NIE JEST OKAZJĄ", res["verdict"])
         self.assertIn("camera_price_cap_100_pln", res["checks_failed"])
 
+    def test_analog_lens_under_100_pln_is_deal(self):
+        # Lens under 100 PLN is an okazja!
+        cheap_lens = {
+            "id": "m_pentax_50mm",
+            "model": "SMC Pentax-M 50mm f/2",
+            "color": "Black Prime",
+            "category_id": "analog_lenses",
+            "price_jpy": 1800,
+            "price_pln_raw": 44.70,
+            "landed_cost_pln": 122.0,
+            "est_pl_value": 260.0,
+            "est_margin_pln": 138.0,
+            "roi_percent": 113.1,
+            "battery_type": "none",
+            "status": "Dostępne",
+            "condition_type": "lens_clean"
+        }
+        res = self.analyzer.analyze_deal(cheap_lens)
+        self.assertTrue(res["is_active"])
+        self.assertTrue(res["is_worth_buying"])
+        self.assertIn(res["tier"], ["S-TIER", "A-TIER"])
+        self.assertTrue(res["is_no_battery"])
+        self.assertIn("lens_price_cap_100_pln", res["checks_passed"])
+
+    def test_analog_lens_over_100_pln_disqualified(self):
+        # User rule: "obiektywy tez w duzych cenach odpadaja"
+        expensive_lens = {
+            "id": "m_expensive_takumar",
+            "model": "Super Takumar 50mm f/1.4 8-Element",
+            "color": "Black",
+            "category_id": "analog_lenses",
+            "price_jpy": 8800,
+            "price_pln_raw": 218.0,
+            "landed_cost_pln": 308.0,
+            "est_pl_value": 450.0,
+            "est_margin_pln": 142.0,
+            "roi_percent": 46.1,
+            "battery_type": "none",
+            "status": "Dostępne",
+            "condition_type": "lens_clean"
+        }
+        res = self.analyzer.analyze_deal(expensive_lens)
+        self.assertTrue(res["is_active"])
+        self.assertFalse(res["is_worth_buying"])
+        self.assertEqual(res["tier"], "DISQUALIFIED")
+        self.assertIn("NIE JEST OKAZJĄ", res["verdict"])
+        self.assertIn("lens_price_cap_100_pln", res["checks_failed"])
+
+    def test_nintendo_ds_consoles_deal(self):
+        # Nintendo DS category deal
+        ds_deal = {
+            "id": "m_ds_lite_silver",
+            "model": "Nintendo DS Lite Metallic Silver",
+            "color": "Metallic Silver",
+            "category_id": "nintendo_ds_consoles",
+            "price_jpy": 2800,
+            "price_pln_raw": 69.50,
+            "landed_cost_pln": 152.0,
+            "est_pl_value": 320.0,
+            "est_margin_pln": 168.0,
+            "roi_percent": 110.5,
+            "battery_type": "li-ion",
+            "status": "Dostępne",
+            "condition_type": "confirmed_working"
+        }
+        res = self.analyzer.analyze_deal(ds_deal)
+        self.assertTrue(res["is_active"])
+        self.assertTrue(res["is_worth_buying"])
+        self.assertIn(res["tier"], ["S-TIER", "A-TIER"])
+        self.assertFalse(res["is_no_battery"])
+
 if __name__ == "__main__":
     unittest.main()

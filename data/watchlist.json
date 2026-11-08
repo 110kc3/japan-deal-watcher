@@ -459,10 +459,108 @@
       ]
     },
     {
+      "id": "nintendo_ds_consoles",
+      "name": "Nintendo DS & 3DS (DS Lite, DSi, 3DS & Edycje Limitowane)",
+      "battery_type": "li-ion",
+      "target_pln_resale": 350,
+      "tracked_items": [
+        {
+          "id": "m11928374651",
+          "model": "Nintendo DS Lite",
+          "color": "Metallic Silver (Komplet z Rysikiem)",
+          "target_price_jpy": 3500,
+          "est_pl_value": 260,
+          "note": "W pełni sprawny DS Lite z rysikiem i zaślepką Slot-2 GBA, zawias sztywny, ekrany bez rys",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m22938475862",
+          "model": "Nintendo DS Lite",
+          "color": "Crimson / Black",
+          "target_price_jpy": 3800,
+          "est_pl_value": 290,
+          "note": "Dwukolorowa kultowa wersja Crimson/Black, sprawny dotyk i czytnik gier DS oraz GBA",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m33948586973",
+          "model": "Nintendo DS Lite",
+          "color": "Ice Blue",
+          "target_price_jpy": 3400,
+          "est_pl_value": 250,
+          "note": "Jasnobłękitna klasyczna obudowa, oba ekrany jasne bez żółknięcia, stan bdb",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m44958697084",
+          "model": "Nintendo DSi",
+          "color": "Matte Black",
+          "target_price_jpy": 3200,
+          "est_pl_value": 240,
+          "note": "Matowa czerń, wbudowana pamięć i aparat, sprawny slot SD i Wi-Fi, łatwy mod CFW",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m55968708195",
+          "model": "Nintendo DSi LL (XL)",
+          "color": "Dark Brown (Ekrany IPS)",
+          "target_price_jpy": 4800,
+          "est_pl_value": 380,
+          "note": "Duże ekrany 4.2 cala z fabrycznymi matrycami IPS, fenomenalny kąt widzenia, stan bdb",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m66978819206",
+          "model": "Nintendo DS Lite Final Fantasy III Crystal Edition",
+          "color": "Crystal White / FF III Art (Limited)",
+          "target_price_jpy": 6800,
+          "est_pl_value": 580,
+          "note": "Rzadka limitowana edycja kolekcjonerska Final Fantasy III, numerowana obudowa, 100% sprawna",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m77988920317",
+          "model": "Nintendo DS Lite Pokémon Dialga & Palkia Edition",
+          "color": "Metallic Black / Gold & Silver Art",
+          "target_price_jpy": 7800,
+          "est_pl_value": 680,
+          "note": "Poszukiwana kolekcjonerska edycja Pokémon Diamond/Pearl, brokatowa grafika legend",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m88999031428",
+          "model": "Nintendo 3DS",
+          "color": "Aqua Blue",
+          "target_price_jpy": 6800,
+          "est_pl_value": 460,
+          "note": "Oryginalny 3DS w metalicznym błękicie, suwak 3D i gałka circle pad działają płynnie",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m99010142539",
+          "model": "Nintendo 3DS",
+          "color": "Cosmo Black",
+          "target_price_jpy": 6900,
+          "est_pl_value": 470,
+          "note": "Głęboka czerń Cosmo Black, sprawne kamery 3D, czyta kardridże DS i 3DS bez zarzutu",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m10121253640",
+          "model": "Nintendo 3DS LL (XL)",
+          "color": "Blue / Black",
+          "target_price_jpy": 8900,
+          "est_pl_value": 590,
+          "note": "Wersja XL o powiększonych ekranach, stabilna bateria, komfortowy chwyt",
+          "battery_type": "li-ion"
+        }
+      ]
+    },
+    {
       "id": "analog_lenses",
       "name": "Japońskie Obiektywy Manualne (0% Baterii)",
       "battery_type": "none",
-      "target_pln_resale": 450,
+      "target_pln_resale": 350,
       "tracked_items": [
         {
           "id": "m28154012236",
@@ -470,55 +568,62 @@
           "color": "Mocowanie K",
           "target_price_jpy": 2900,
           "est_pl_value": 420,
-          "note": "Absolutny hit cenowy za jasny obiektyw f/1.4, brak grzyba/mgły"
+          "note": "Absolutny hit cenowy za jasny obiektyw f/1.4, brak grzyba/mgły, cena < 100 zł",
+          "battery_type": "none"
         },
         {
-          "id": "m60358963258",
-          "model": "SMC Pentax-M 50mm f/1.4",
-          "color": "Mocowanie K (Dry Box)",
-          "target_price_jpy": 5250,
-          "est_pl_value": 450,
-          "note": "Przechowywany w szafie wilgociowej (dry box), czysty, przedni dekielek"
+          "id": "m39104820111",
+          "model": "Super-Takumar 55mm f/1.8 (M42)",
+          "color": "Mocowanie Gwint M42",
+          "target_price_jpy": 1800,
+          "est_pl_value": 320,
+          "note": "Kultowy obiektyw portretowy Asahi Pentax, piękny bokeh, czyste szkła, 0% Li-Ion",
+          "battery_type": "none"
         },
         {
-          "id": "m40640196321",
-          "model": "SMC Takumar 50mm f/1.4 + Hood",
-          "color": "Mocowanie M42",
-          "target_price_jpy": 6000,
-          "est_pl_value": 480,
-          "note": "Oryginalna osłona przeciwsłoneczna i futerał w zestawie"
+          "id": "m48291047222",
+          "model": "SMC Pentax-M 50mm f/2 (K-mount)",
+          "color": "Mocowanie Bagnet K",
+          "target_price_jpy": 1500,
+          "est_pl_value": 260,
+          "note": "Kompaktowy, niesamowicie ostry obiektyw standardowy Pentax, cena < 100 zł, 0% Li-Ion",
+          "battery_type": "none"
         },
         {
-          "id": "m59019035458",
-          "model": "SMC Pentax-M 50mm f/1.4 Cleaned",
-          "color": "Mocowanie K",
-          "target_price_jpy": 6500,
-          "est_pl_value": 460,
-          "note": "Soczewki wyczyszczone, przysłona sucha, pierścień płynny"
+          "id": "m10948201333",
+          "model": "Canon FD 50mm f/1.8 S.C.",
+          "color": "Mocowanie Canon FD",
+          "target_price_jpy": 2200,
+          "est_pl_value": 300,
+          "note": "Klasyczny japoński obiektyw Canon FD, świetny do adapterów bezlusterkowców, 0% Li-Ion",
+          "battery_type": "none"
         },
         {
-          "id": "m64964264080",
-          "model": "SMC Pentax 50mm f/1.4 Classic",
-          "color": "Mocowanie K",
-          "target_price_jpy": 6980,
-          "est_pl_value": 470,
-          "note": "Klasyczny japoński portretowy obiektyw stałoogniskowy"
+          "id": "m51928471444",
+          "model": "Minolta MD 50mm f/1.7 Rokkor",
+          "color": "Mocowanie Minolta MD",
+          "target_price_jpy": 1900,
+          "est_pl_value": 280,
+          "note": "Powłoki Rokkor, miękki bokeh, płynny pierścień ostrości, cena < 100 zł, 0% Li-Ion",
+          "battery_type": "none"
         },
         {
-          "id": "m69413457658",
-          "model": "SMC Pentax-A 50mm f/1.4",
-          "color": "Mocowanie K (Wersja A)",
-          "target_price_jpy": 7555,
-          "est_pl_value": 550,
-          "note": "Poszukiwana wersja ze stykiem automatyki przysłony (pozycja A)"
+          "id": "m72049182555",
+          "model": "Olympus OM-System F.Zuiko 50mm f/1.8",
+          "color": "Mocowanie Olympus OM",
+          "target_price_jpy": 2500,
+          "est_pl_value": 320,
+          "note": "Miniaturowy japoński obiektyw stałoogniskowy Zuiko, znakomity kontrast, 0% Li-Ion",
+          "battery_type": "none"
         },
         {
-          "id": "m40636967720",
-          "model": "S-M-C Takumar 50mm f/1.4 Mint",
-          "color": "Mocowanie M42",
-          "target_price_jpy": 8700,
-          "est_pl_value": 520,
-          "note": "Stan kolekcjonerski Mint, powłoki antyrefleksyjne nienaruszone"
+          "id": "m84019283666",
+          "model": "SMC Pentax 28mm f/2.8 Wide (K-mount)",
+          "color": "Szerokokątny 28mm K-mount",
+          "target_price_jpy": 3200,
+          "est_pl_value": 380,
+          "note": "Bardzo poszukiwany szeroki kąt 28mm, powłoki SMC, stan bdb, cena < 100 zł, 0% Li-Ion",
+          "battery_type": "none"
         }
       ]
     },

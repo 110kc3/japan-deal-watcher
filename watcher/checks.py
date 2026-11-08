@@ -27,6 +27,7 @@ from .config import (
     YAHOO_MD_FILE,
     SNIPER_GUIDE_MD_FILE,
     MAX_CAMERA_PRICE_PLN,
+    MAX_LENS_PRICE_PLN,
     MAX_LI_ION_PER_PARCEL,
     DEFAULT_JPY_PLN_RATE,
     DEFAULT_EUR_PLN_RATE
@@ -122,6 +123,58 @@ def check_camera_price_cap(item: Dict[str, Any], max_price_pln: float = MAX_CAME
     if raw_pln > max_price_pln:
         return False, f"Cena aparatu {raw_pln:.2f} zł przekracza dopuszczalny limit {max_price_pln:.2f} zł. Aparaty powyżej 100 zł nie są okazjami."
     return True, f"Cena aparatu {raw_pln:.2f} zł mieści się w limicie okazjonalnym (<= {max_price_pln:.2f} zł)"
+
+
+def is_lens_item(item: Dict[str, Any]) -> bool:
+    """Detects whether an item belongs to the analog/manual lens category."""
+    cat_id = item.get("category_id", "")
+    cat_name = item.get("category_name", "").lower()
+    model = item.get("model", "").lower()
+    note = item.get("custom_note", item.get("note", "")).lower()
+
+    if cat_id in ["analog_lenses", "manual_lenses", "lenses"]:
+        return True
+    if any(k in cat_name for k in ["obiektyw", "lens", "takumar", "zuiko", "rokkor"]):
+        return True
+    if any(k in model for k in ["takumar", "pentax-m", "canon fd", "zuiko", "rokkor", "50mm f/", "55mm f/", "28mm f/", "50mm f1", "55mm f1"]):
+        return True
+    if "obiektyw" in note:
+        return True
+    return False
+
+
+def check_lens_price_cap(item: Dict[str, Any], max_price_pln: float = MAX_LENS_PRICE_PLN) -> Tuple[bool, str]:
+    """
+    Check: Lens Price Cap.
+    User rule: 'obiektywy tez w duzych cenach odpadaja'.
+    Any analog lens with item purchase price > 100 PLN is rejected as a deal.
+    """
+    if not is_lens_item(item):
+        return True, "N/A (Przedmiot nie jest obiektywem)"
+
+    raw_pln = item.get("price_pln_raw")
+    if raw_pln is None:
+        price_jpy = item.get("price_jpy", item.get("target_price_jpy", 0))
+        raw_pln = round(price_jpy * DEFAULT_JPY_PLN_RATE, 2)
+
+    if raw_pln > max_price_pln:
+        return False, f"Cena obiektywu {raw_pln:.2f} zł przekracza dopuszczalny limit {max_price_pln:.2f} zł. Obiektywy w dużych cenach odpadają."
+    return True, f"Cena obiektywu {raw_pln:.2f} zł mieści się w limicie okazjonalnym (<= {max_price_pln:.2f} zł)"
+
+
+def is_nintendo_ds_item(item: Dict[str, Any]) -> bool:
+    """Detects whether an item belongs to the Nintendo DS / 3DS handheld family."""
+    cat_id = item.get("category_id", "")
+    cat_name = item.get("category_name", "").lower()
+    model = item.get("model", "").lower()
+
+    if cat_id == "nintendo_ds_consoles":
+        return True
+    if any(k in cat_name for k in ["nintendo ds", "ds lite", "dsi", "3ds", "2ds"]):
+        return True
+    if any(k in model for k in ["ds lite", "dsi", "3ds", "2ds", "nintendo ds"]):
+        return True
+    return False
 
 
 def check_defects(text: str, custom_note: str = "", item_condition: str = "") -> Tuple[bool, str]:
@@ -267,6 +320,15 @@ def check_dataset_integrity(filepath: Path, expected_type: str = "watchlist") ->
                             f"Naruszenie reguły aparatów w {it.get('id', 'item')} ({it.get('model')}): "
                             f"cena {raw_pln:.2f} zł > {MAX_CAMERA_PRICE_PLN:.2f} zł!"
                         )
+                # Validate lens prices
+                if cat_id == "analog_lenses" or is_lens_item(it):
+                    price_jpy = it.get("target_price_jpy", 0)
+                    raw_pln = price_jpy * DEFAULT_JPY_PLN_RATE
+                    if raw_pln > MAX_LENS_PRICE_PLN:
+                        errors.append(
+                            f"Naruszenie reguły obiektywów w {it.get('id', 'item')} ({it.get('model')}): "
+                            f"cena {raw_pln:.2f} zł > {MAX_LENS_PRICE_PLN:.2f} zł!"
+                        )
     elif expected_type == "yahoo_deals":
         if not isinstance(data, list):
             errors.append(f"{filepath}: Dane powinny być listą ofert")
@@ -279,6 +341,14 @@ def check_dataset_integrity(filepath: Path, expected_type: str = "watchlist") ->
                         errors.append(
                             f"Naruszenie reguły aparatów w aukcji {it.get('id', 'deal')} ({it.get('model')}): "
                             f"cena {raw_pln:.2f} zł > {MAX_CAMERA_PRICE_PLN:.2f} zł!"
+                        )
+                if is_lens_item(it):
+                    price_jpy = it.get("price_jpy", 0)
+                    raw_pln = price_jpy * DEFAULT_JPY_PLN_RATE
+                    if raw_pln > MAX_LENS_PRICE_PLN:
+                        errors.append(
+                            f"Naruszenie reguły obiektywów w aukcji {it.get('id', 'deal')} ({it.get('model')}): "
+                            f"cena {raw_pln:.2f} zł > {MAX_LENS_PRICE_PLN:.2f} zł!"
                         )
 
     return len(errors) == 0, errors
@@ -317,16 +387,16 @@ def run_full_system_audit(strict: bool = False) -> Dict[str, Any]:
     ok, msg = check_currency_health(DEFAULT_JPY_PLN_RATE, DEFAULT_EUR_PLN_RATE)
     audit_results.append({"name": "NBP Live Currency Rates", "passed": ok, "message": msg, "icon": "💱"})
 
-    # 2. Watchlist integrity & camera <= 100 PLN rule
+    # 2. Watchlist integrity & camera / lens <= 100 PLN rules
     ok, errs = check_dataset_integrity(WATCHLIST_FILE, expected_type="watchlist")
-    msg = "Wszystkie kategorie i aparaty spełniają limit <= 100 zł" if ok else "; ".join(errs)
-    audit_results.append({"name": "Watchlist Dataset & Camera <= 100 zł Rule", "passed": ok, "message": msg, "icon": "📋"})
+    msg = "Wszystkie kategorie, aparaty i obiektywy spełniają limit <= 100 zł" if ok else "; ".join(errs)
+    audit_results.append({"name": "Watchlist Dataset & Camera/Lens <= 100 zł Rules", "passed": ok, "message": msg, "icon": "📋"})
 
-    # 3. Yahoo deals integrity & camera <= 100 PLN rule
+    # 3. Yahoo deals integrity & camera / lens <= 100 PLN rules
     if YAHOO_DEALS_FILE.exists():
         ok, errs = check_dataset_integrity(YAHOO_DEALS_FILE, expected_type="yahoo_deals")
-        msg = "Wszystkie aukcje i aparaty spełniają limit <= 100 zł" if ok else "; ".join(errs)
-        audit_results.append({"name": "Yahoo Deals Dataset & Camera <= 100 zł Rule", "passed": ok, "message": msg, "icon": "🔨"})
+        msg = "Wszystkie aukcje, aparaty i obiektywy spełniają limit <= 100 zł" if ok else "; ".join(errs)
+        audit_results.append({"name": "Yahoo Deals Dataset & Camera/Lens <= 100 zł Rules", "passed": ok, "message": msg, "icon": "🔨"})
 
     # 4. Markdown dashboards integrity
     ok, errs = check_markdown_dashboards(BASE_DIR)

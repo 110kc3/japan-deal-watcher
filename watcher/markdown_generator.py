@@ -62,6 +62,7 @@ class MarkdownGenerator:
                   f"![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-{days_rem}%20Days%20Left-orange) "
                   "![Deal Checks](https://img.shields.io/badge/Deal%20Checks-10%20Rules%20PASS-brightgreen) "
                   "![Camera Cap](https://img.shields.io/badge/Camera%20Cap-Max%20100%20PLN-orange) "
+                  "![Lens Cap](https://img.shields.io/badge/Lens%20Cap-Max%20100%20PLN-orange) "
                   "![Update Cycle](https://img.shields.io/badge/Cycle-Hourly%20(1h)-purple)")
         md.append("")
         md.append("> 🔨 **Alternatywne rynki:** Sprawdź dedykowany katalog licytacji i ofert ze sklepów retro: [**YAHOO_AUCTIONS_DEALS.md** (Yahoo! Auctions, Surugaya, Hard-Off)](YAHOO_AUCTIONS_DEALS.md)  ")
@@ -81,6 +82,13 @@ class MarkdownGenerator:
         md.append(f"| **Days Remaining** | **`{days_rem} dni`** | {status_badge} |")
         md.append(f"| **IATA Li-Ion Limit** | **Maks. 2 urządzenia** | Baterie litowe: tylko 2 sztuki na przesyłkę lotniczą! |")
         md.append(f"| **No-Battery Items** | **Bez limitu (0%)** | Gry PSP UMD, Game Boy DMG, WonderSwan (1x AA), konsole stacjonarne |")
+        md.append("")
+        md.append("> [!TIP]")
+        md.append("> **Czy na pewno nie da się wysłać więcej niż 2 baterii?**  ")
+        md.append("> Limit 2 sztuk dotyczy wyłącznie standardowej **poczty lotniczej** (IATA PI 967). Masz 2 genialne alternatywy:  \n"
+                  "> 1. **Poczta morska (Japan Post Seamail):** Brak jakichkolwiek limitów baterii (możesz spakować 15–25 konsol w 1 paczce) i 40–50% niższy koszt!  \n"
+                  "> 2. **Dry Shipping (usunięcie baterii w magazynie ZenMarket):** Dla konsol Nintendo DS / PSP wyjęcie baterii (1 śrubka) zamienia je w towar 0% Li-Ion! Możesz wysłać 20 sztuk samolotem w 3 dni, a nowe baterie na Allegro to koszt zaledwie 15–25 zł.  \n"
+                  "> Pełny poradnik omijania limitu znajdziesz w [AUCTION_SNIPING_GUIDE.md (Sekcja 6)](AUCTION_SNIPING_GUIDE.md#-tajniki-logistyki-bateryjnej-czy-na-pewno-nie-da-się-wysłać-więcej-niż-2-baterie).")
         md.append("")
 
         # Visual progress bar for 60 days
@@ -177,6 +185,10 @@ class MarkdownGenerator:
             md.append(f"> **Typ zasilania / IATA:** {b_badge}")
             if "aparat" in cat_name.lower() or "camera" in cat_name.lower():
                 md.append("> 📷 **Reguła Cenowa:** Zgodnie z zasadą inwestycyjną: *aparaty powyżej 100 zł nie są okazjami*. Wszystkie pozycje w tej kategorii mają ceny zakupu <= 100 zł (~4,000 JPY).")
+            elif "obiektyw" in cat_name.lower() or "lens" in cat_name.lower():
+                md.append("> 🔍 **Reguła Cenowa:** Zgodnie z zasadą inwestycyjną: *obiektywy w dużych cenach odpadają*. Wszystkie pozycje w tej kategorii mają ceny zakupu <= 100 zł (~4,000 JPY), gwarantując wysoki ROI przy zerowym ryzyku kapitałowym.")
+            elif "nintendo ds" in cat_name.lower() or "ds" in cat_name.lower():
+                md.append("> 🎮 **Kategoria Nintendo DS:** Kultowe handheldy Dual Screen. Klapka baterii na 1 śrubkę umożliwia demontaż w magazynie ZenMarket (Dry Shipping), co zamienia konsolę w 0% Li-Ion i pozwala na nielimitowaną wysyłkę lotniczą!")
             md.append("")
             md.append("| Model / Wariant | Stan / Weryfikacja | Cena JPY (PLN) | Koszt w PL (z VAT) | Cena w Polsce | Potencjalny Zysk | Werdykt AI | Status | Linki |")
             md.append("|---|:---:|---:|---:|---:|---:|:---:|:---:|---|")

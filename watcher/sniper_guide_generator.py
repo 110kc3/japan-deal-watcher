@@ -13,10 +13,11 @@ from .config import (
     ZENMARKET_DEPOSIT_FEE_RATE,
     CATEGORY_SHIPPING_SHARES,
     DEFAULT_SHIPPING_SHARE_PLN,
-    MAX_CAMERA_PRICE_PLN
+    MAX_CAMERA_PRICE_PLN,
+    MAX_LENS_PRICE_PLN,
 )
 from .costs import calculate_landed_cost, calculate_max_sniper_bid
-from .checks import is_camera_item
+from .checks import is_camera_item, is_lens_item
 
 
 def sanitize_md(text: Any) -> str:
@@ -115,7 +116,7 @@ class SniperGuideGenerator:
         md.append("")
 
         # Section 2: Full Ceilings Table
-        md.append("## 📊 Tabela Twardych Limitów Snajpera (Hard Sniping Caps) – 41 Modeli")
+        md.append(f"## 📊 Tabela Twardych Limitów Snajpera (Hard Sniping Caps) – {len(self.raw_deals)} Modeli")
         md.append("")
         md.append(
             "Poniższa tabela zawiera wyliczone z dokładnością do 100 JPY **twarde limity snajpera**, "
@@ -167,6 +168,16 @@ class SniperGuideGenerator:
                     max_cam_jpy = int((MAX_CAMERA_PRICE_PLN / self.rate) // 100 * 100)
                     if max_bid > max_cam_jpy:
                         max_bid = max_cam_jpy
+                        recalc = calculate_landed_cost(max_bid, cat_id, self.rate, self.rate_eur)
+                        landed_at_cap = recalc["landed_cost_pln"]
+                        guar_margin = round(est_pl - landed_at_cap, 2)
+                        guar_roi = round((guar_margin / landed_at_cap * 100.0), 1) if landed_at_cap > 0 else 0.0
+
+                # Strict lens ceiling: "obiektywy tez w duzych cenach odpadaja" (max 100 PLN)
+                if is_lens_item(it) or cat_id == "analog_lenses":
+                    max_lens_jpy = int((MAX_LENS_PRICE_PLN / self.rate) // 100 * 100)
+                    if max_bid > max_lens_jpy:
+                        max_bid = max_lens_jpy
                         recalc = calculate_landed_cost(max_bid, cat_id, self.rate, self.rate_eur)
                         landed_at_cap = recalc["landed_cost_pln"]
                         guar_margin = round(est_pl - landed_at_cap, 2)
@@ -283,7 +294,48 @@ class SniperGuideGenerator:
         md.append("---")
         md.append("")
 
-        # Section 6: Quick Action Checklist
+        # Section 6: Tactical Battery Logistics Guide
+        md.append("## 🔋 Tajniki Logistyki Bateryjnej: Czy na pewno nie da się wysłać więcej niż 2 baterie?")
+        md.append("")
+        md.append(
+            "Często pojawia się pytanie: *„Czy limit IATA oznacza, że w jednym zamówieniu mogę kupić tylko 2 konsole przenośne?”*  \n"
+            "Odpowiedź brzmi: **NIE! Istnieją 4 sprawdzone w boju metody, aby legalnie i tanio sprowadzić znacznie więcej konsol w jednej dostawie.**"
+        )
+        md.append("")
+        md.append("> [!NOTE]")
+        md.append("> **Dlaczego w ogóle istnieje limit 2 baterii?**  ")
+        md.append("> Wynika on z międzynarodowych przepisów lotniczych **IATA DGR (Packing Instruction 967 Section II)**. Zgodnie z nimi, w standardowej przesyłce lotniczej (Japan Post EMS, DHL Express, FedEx, Airmail) dopuszcza się maksymalnie **2 urządzenia z zainstalowanym akumulatorem litowo-jonowym na 1 paczkę** bez konieczności zgłaszania ładunku niebezpiecznego (Dangerous Goods – DG). Status DG wiązałby się z certyfikowanym opakowaniem UN i opłatą manipulacyjną rzędu 200–400 zł.")
+        md.append("")
+        md.append("### 4 Sprawdzone Sposoby na Ominięcie Limitu Baterii")
+        md.append("")
+        md.append("#### 🚢 Metoda 1: Poczta Morska (Japan Post Seamail / 船便) – ZERO LIMITÓW BATERII!")
+        md.append("- **Jak to działa:** Przepisy IATA obowiązują **wyłącznie w transporcie lotniczym**. Kodeks morski (IMDG Code) dla małych akumulatorów konsumenckich (<100 Wh) nie nakłada limitu 2 sztuk na karton.")
+        md.append("- **Możliwości:** Przez pocztę morską możesz w ZenMarket spakować potężny karton zawierający **10, 15, a nawet 25 konsol (Nintendo DS Lite, DSi, 3DS, PSP, PS Vita) z bateriami w środku w 1 paczce!**")
+        md.append("- **Finanse:** Poczta morska jest **o 40–50% tańsza** od przesyłek kurierskich EMS/DHL (np. 10 kg karton to ułamek kosztu lotniczego).")
+        md.append("- **Czas dostawy:** Statek płynie z portu w Osace do Polski około **60–90 dni**. To perfekcyjna metoda dla osób budujących stały asortyment retro sklepiku lub hurtowe zapasy na flipy.")
+        md.append("")
+        md.append("#### 🪛 Metoda 2: „Dry Shipping” (Usunięcie Baterii w Magazynie) – PRO TIP DLA NINTENDO DS & PSP!")
+        md.append("- **Jak to działa:** W konsolach takich jak **Nintendo DS Lite, DSi, DSi LL, 3DS, 3DS XL/LL, 2DS oraz Sony PSP-1000/2000/3000** akumulator nie jest wklejony – znajduje się pod klapką serwisową na jedną małą śrubkę krzyżakową lub zatrzask.")
+        md.append("- **Instrukcja dla ZenMarket:** Przy tworzeniu paczki lub w wiadomości do obsługi klienta ZenMarket wpisujesz:")
+        md.append("  > *\"Please open the battery covers and safely remove/dispose of the lithium-ion batteries from items #... (本体からリチウムバッテリーを取り外して破棄してください). Please ship consoles as battery-free equipment.\"*")
+        md.append("- **Magiczny efekt prawny:** Konsola bez baterii staje się towarem **0% Li-Ion** (zwykła elektronika i tworzywo sztuczne). Możesz wysłać **15–20 konsol Nintendo DS / PSP w jednej szybkiej paczce kurierskiej lotniczej (dostawa 3–5 dni)!**")
+        md.append("- **Rachunek ekonomiczny:** Japońskie 15-20 letnie baterie w konsolach retro i tak są zużyte lub spuchnięte. Nowe, świeże zamienniki baterii do DS Lite, DSi, 3DS czy PSP na polskim Allegro kosztują zaledwie **15–25 zł**! Kupujący w Polsce znacznie chętniej zapłaci za konsolę ze świeżą, nową baterią o 100% fabrycznej pojemności.")
+        md.append("")
+        md.append("#### 📦 Metoda 3: Konsolidacja Hybrydowa i Podział Paczek (Split Consolidation)")
+        md.append("- **Jak to działa:** ZenMarket zapewnia aż **60 dni darmowego przechowywania** w magazynie w Osace.")
+        md.append("- Jeśli w ciągu tego okresu upolujesz 4 konsole Li-Ion (np. 2x PS Vita + 2x 3DS) oraz 10 obiektywów analogowych i 20 gier PSP UMD:")
+        md.append("  - Tworzysz w panelu **Paczkę A**: 2 konsole Li-Ion + 5 obiektywów + 10 gier.")
+        md.append("  - Tworzysz **Paczkę B**: 2 konsole Li-Ion + 5 obiektywów + 10 gier.")
+        md.append("- Obie paczki lecą kurierem lotniczym, obie w 100% spełniają limit IATA (maks. 2 Li-Ion), a koszt transportu lotniczego rozkłada się równo pomiędzy poszczególne przedmioty.")
+        md.append("")
+        md.append("#### ✈️ Metoda 4: Dedykowane Kanały Cargo B2C (ECMS Express / ZenMarket Express)")
+        md.append("- Niektóre komercyjne linie drobnicowe zintegrowane z ZenMarket (np. **ZenMarket Express** / **ECMS**) posiadają własne certyfikaty przewoźnika i pozwalają na wysyłkę **do 4 urządzeń z akumulatorami Li-Ion** w jednej przesyłce do hubu tranzytowego w Europie.")
+        md.append("- Dostępność tej opcji zależy od aktualnych umów frachtowych ZenMarket i wagi paczki – warto sprawdzić kalkulator wysyłki przed finalizacją.")
+        md.append("")
+        md.append("---")
+        md.append("")
+
+        # Section 7: Quick Action Checklist
         md.append("## ✅ Szybka Checklista Przed Wciśnięciem „Snajper”")
         md.append("")
         md.append("- [ ] **Krok 1:** Czy sprawdziłem wycenę w Polsce w [Tabeli Limitów](#-tabela-twardych-limitów-snajpera-hard-sniping-caps--41-modeli)?")

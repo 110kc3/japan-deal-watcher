@@ -29,9 +29,10 @@ CONSOLIDATION_START = datetime(2026, 11, 7)
 # IATA Air Shipment Lithium Battery Regulations
 MAX_LI_ION_PER_PARCEL = 2
 
-# Camera deals strict price cap (PLN)
-# User rule: "aparaty powyżej 100zł nie są okazjami"
+# Camera & Lens deals strict price cap (PLN)
+# User rules: "aparaty powyżej 100zł nie są okazjami", "obiektywy tez w duzych cenach odpadaja"
 MAX_CAMERA_PRICE_PLN = 100.0
+MAX_LENS_PRICE_PLN = 100.0
 
 # Category-aware estimated shipping share in consolidated parcel (PLN)
 CATEGORY_SHIPPING_SHARES = {
@@ -42,6 +43,7 @@ CATEGORY_SHIPPING_SHARES = {
     "retro_consoles_no_battery": 65.0, # ~1.5-2.0kg Sega/Sony home console
     "ps1_consoles": 45.0,             # ~550g PSone to 1.2kg PS1 fat
     "nintendo_retro": 40.0,           # ~150g GBC to 800g Super Famicom
+    "nintendo_ds_consoles": 30.0,     # ~218g DS Lite to 314g DSi LL
     "analog_lenses": 25.0,            # ~200g prime lens
     "ps5_limited_controllers": 30.0,  # ~280g DualSense controller
     "ps_retro_limited_controllers": 30.0, # ~210-280g DualShock 1-4 controller

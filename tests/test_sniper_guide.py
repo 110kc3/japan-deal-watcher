@@ -65,6 +65,9 @@ class TestSniperGuide(unittest.TestCase):
         self.assertIn("Złote Okna Czasowe", md)
         self.assertIn("Czarna Lista i Pułapki Sprzedawców", md)
         self.assertIn("Multi-Sniper na 1 Budżet", md)
+        self.assertIn("Tajniki Logistyki Bateryjnej: Czy na pewno nie da się wysłać więcej niż 2 baterie?", md)
+        self.assertIn("Poczta Morska (Japan Post Seamail", md)
+        self.assertIn("Dry Shipping", md)
         self.assertIn("Szybka Checklista Przed Wciśnięciem „Snajper”", md)
 
         # Check ending soon URLs
@@ -78,6 +81,36 @@ class TestSniperGuide(unittest.TestCase):
         self.assertIn("Hurtowy Pakiet 50 Gier PSP UMD", md)
         self.assertIn("🔴 1 Li-Ion", md)
         self.assertIn("🟢 0% Li-Ion", md)
+
+    def test_sniper_lens_cap_enforcement(self):
+        lens_deals = [
+            {
+                "id": "yahoo_lens_001",
+                "model": "SMC Pentax-M 50mm f/1.4",
+                "color": "Black",
+                "platform": "Yahoo! Auctions Japan",
+                "category_id": "analog_lenses",
+                "category_name": "Obiektywy Analogowe (0% Baterii)",
+                "battery_type": "none",
+                "price_jpy": 2800,
+                "est_pl_value": 380.0,
+                "custom_note": "Optyka czysta",
+                "search_query_jp": "SMC Pentax-M 50mm",
+                "source_url": "https://auctions.yahoo.co.jp/search",
+                "zenmarket_url": "https://zenmarket.jp",
+                "status": "Aktywna"
+            }
+        ]
+        gen = SniperGuideGenerator(
+            raw_deals=lens_deals,
+            timeline_status=self.sample_timeline,
+            rate=0.024832,
+            rate_eur=4.3925,
+            is_live_rate=True
+        )
+        md = gen.generate()
+        # Max lens price is 100 PLN -> 100 / 0.024832 = 4027 JPY -> rounded to 4,000 JPY
+        self.assertIn("4,000 JPY", md)
 
     def test_calculate_max_sniper_bid_logic(self):
         cap = calculate_max_sniper_bid(890.0, "ps_vita", target_roi_pct=30.0, rate_jpy=0.024832, rate_eur=4.3925)
