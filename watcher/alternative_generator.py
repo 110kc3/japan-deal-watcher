@@ -5,9 +5,14 @@ from .deal_analyzer import DealAnalyzer
 from .config import (
     CATEGORY_SHIPPING_SHARES,
     DEFAULT_SHIPPING_SHARE_PLN,
+    DEFAULT_JPY_PLN_RATE,
+    DEFAULT_EUR_PLN_RATE,
     ZENMARKET_FEE_JPY,
+    ZENMARKET_FEE_EUR,
+    ZENMARKET_DEPOSIT_FEE_RATE,
     VAT_RATE
 )
+from .costs import calculate_landed_cost
 
 def sanitize_md(text):
     """Sanitizes text for safe inclusion in Markdown tables."""
@@ -18,10 +23,11 @@ def sanitize_md(text):
 class AlternativeDealsGenerator:
     """Generates a dedicated Markdown report for Yahoo! Auctions Japan & Surugaya deals."""
 
-    def __init__(self, raw_deals, timeline_status, rate=0.024832, is_live_rate=False):
+    def __init__(self, raw_deals, timeline_status, rate=DEFAULT_JPY_PLN_RATE, rate_eur=DEFAULT_EUR_PLN_RATE, is_live_rate=False):
         self.raw_deals = raw_deals
         self.timeline = timeline_status
         self.rate = float(rate)
+        self.rate_eur = float(rate_eur)
         self.is_live_rate = is_live_rate
 
         # Re-calculate landed costs with current live rate
@@ -34,17 +40,23 @@ class AlternativeDealsGenerator:
             item = dict(d)
             price_jpy = item.get("price_jpy", 0)
             cat_id = item.get("category_id", "")
-            shipping_share = CATEGORY_SHIPPING_SHARES.get(cat_id, DEFAULT_SHIPPING_SHARE_PLN)
-            price_pln_raw = round(price_jpy * self.rate, 2)
-
-            # (Price + 500 JPY proxy fee) * JPY/PLN * 1.23 VAT + category shipping share
-            landed_cost = round(((price_jpy + ZENMARKET_FEE_JPY) * self.rate * (1.0 + VAT_RATE)) + shipping_share, 2)
+            cost_info = calculate_landed_cost(
+                price_jpy=price_jpy,
+                category_id=cat_id,
+                rate_jpy=self.rate,
+                rate_eur=self.rate_eur
+            )
+            landed_cost = cost_info["landed_cost_pln"]
             est_pl_value = float(item.get("est_pl_value", 0))
             est_margin = round(est_pl_value - landed_cost, 2)
             roi_pct = round((est_margin / landed_cost * 100.0), 1) if landed_cost > 0 else 0.0
 
-            item["price_pln_raw"] = price_pln_raw
-            item["shipping_share_pln"] = shipping_share
+            item["price_pln_raw"] = cost_info["price_pln_raw"]
+            item["domestic_shipping_pln"] = cost_info["domestic_shipping_pln"]
+            item["zenmarket_fee_pln"] = cost_info["zenmarket_fee_pln"]
+            item["deposit_fee_pln"] = cost_info["deposit_fee_pln"]
+            item["vat_pln"] = cost_info["vat_pln"]
+            item["shipping_share_pln"] = cost_info["shipping_share_pln"]
             item["landed_cost_pln"] = landed_cost
             item["est_margin_pln"] = est_margin
             item["roi_percent"] = roi_pct
@@ -108,7 +120,8 @@ class AlternativeDealsGenerator:
         md.append("| **Format Sprzedaży** | Kup Teraz (Stała cena) | **Licytacja + Opcjonalnie Kup Teraz** | Kup Teraz (Sklep retro) | Kup Teraz / Licytacja |")
         md.append("| **Pakiety Hurtowe (Loty)** | Małe zestawy (2–5 szt.) | **Olbrzymie pakiety (20–60 szt.)** | Średnie pakiety | Rzadko, wysoka marża |")
         md.append("| **Snajper Ofert (Automatyzacja)** | N/A (Wymaga szybkiego zakupu) | **✅ Pełny Snajper w ZenMarket (2 min przed końcem)** | N/A (Kup Teraz) | Snajper eBay |")
-        md.append("| **Prowizja Pośrednika** | 500 JPY / przedmiot | **500 JPY tylko przy wygranej aukcji!** | 500 JPY / zamówienie | 0 zł (wliczona w cenę) |")
+        md.append("| **Prowizja Pośrednika** | 2 EUR / przedmiot + 800 JPY | **2 EUR / przedmiot + 800 JPY (tylko wygrana!)** | 2 EUR / przedmiot + 800 JPY | 0 zł (wliczona w cenę) |")
+        md.append("| **Prowizja Wpłaty (Depozyt)** | 3.5% (bramka płatnicza) | **3.5% (bramka płatnicza)** | 3.5% (bramka płatnicza) | 0% (karta/PayPal w cenie) |")
         md.append("| **Darmowy Magazyn (Konsolidacja)** | 60 dni w ZenMarket | **60 dni w ZenMarket** | 60 dni w ZenMarket | Brak (wysyłka osobno) |")
         md.append("| **Opłata VAT** | 23% przy odprawie w PL | **23% przy odprawie w PL** | 23% przy odprawie w PL | Płacony przy kasie (IOSS) |")
         md.append("")
@@ -236,7 +249,7 @@ class AlternativeDealsGenerator:
         md.append("")
         md.append("1. **Doładuj saldo depozytowe w ZenMarket:** Aby złożyć ofertę, musisz mieć zdeponowaną kwotę równą Twojej maksymalnej ofercie (w JPY). Jeśli przegrasz aukcję, cała kwota natychmiast wraca na Twoje saldo bez żadnych potrąceń!")
         md.append("2. **Używaj funkcji „Snajper ofert” (Automated Sniper):** Przy licytacji zaznacz opcję *Snajper*. ZenMarket złoży Twoją ofertę dokładnie 2 minuty przed końcem licytacji. Zapobiega to wojnom licytacyjnym.")
-        md.append("3. **Prowizja 500 JPY:** Prowizja proxy (500 JPY / ~12,40 zł) jest pobierana **wyłącznie w przypadku wygrania aukcji**. Licytowanie na 10 różnych przedmiotach, z których wygrasz 1, kosztuje dokładnie 500 JPY.")
+        md.append("3. **Prowizje i Koszty Landed Cost:** Model uwzględnia pełne realne obciążenia ZenMarket: **2 EUR** opłaty serwisowej od przedmiotu (~8,78 zł), **800 JPY** za item (obsługa i wysyłka krajowa w Japonii, ~19,87 zł), **3.5%** prowizji za doładowanie salda kartą/Stripe, udział w wysyłce lotniczej oraz **23% polskiego podatku VAT**. Na licytacjach Yahoo prowizja serwisowa pobierana jest **wyłącznie w przypadku wygranej aukcji**.")
         md.append("4. **Wysyłka lokalna w Japonii:** Zwracaj uwagę na oznaczenie kosztów dostawy w Japonii (`送料`). Większość ofert oznaczona jest jako `送料無料` (Darmowa wysyłka) lub nalicza zryczałtowane 500–800 JPY.")
         md.append("5. **Wspólna paczka z Mercari:** Po wygraniu aukcji na Yahoo, przedmiot trafia do Twojego panelu ZenMarket obok przedmiotów z Mercari. Możesz zaznaczyć je wszystkie i jednym kliknięciem zlecić spakowanie do 1 kartonu.")
         md.append("")

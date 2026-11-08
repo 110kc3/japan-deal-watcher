@@ -8,11 +8,15 @@ from .config import (
     USER_AGENT,
     REQUEST_TIMEOUT,
     DEFAULT_JPY_PLN_RATE,
+    DEFAULT_EUR_PLN_RATE,
     ZENMARKET_FEE_JPY,
+    ZENMARKET_FEE_EUR,
+    ZENMARKET_DEPOSIT_FEE_RATE,
     VAT_RATE,
     CATEGORY_SHIPPING_SHARES,
     DEFAULT_SHIPPING_SHARE_PLN
 )
+from .costs import calculate_landed_cost
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 
@@ -141,8 +145,9 @@ def classify_condition(text, item_condition="", custom_note=""):
 
 
 class DealFetcher:
-    def __init__(self, rate=DEFAULT_JPY_PLN_RATE, enable_mercapi=True):
+    def __init__(self, rate=DEFAULT_JPY_PLN_RATE, rate_eur=DEFAULT_EUR_PLN_RATE, enable_mercapi=True):
         self.rate = float(rate)
+        self.rate_eur = float(rate_eur)
         self.headers = {"User-Agent": USER_AGENT}
         self.enable_mercapi = enable_mercapi and _HAS_MERCAPI
         self.mercapi_client = Mercapi() if self.enable_mercapi else None
@@ -264,16 +269,16 @@ class DealFetcher:
         if is_broken:
             status = "Wykluczone: Uszkodzone (Broken)"
 
-        # Calculate landed cost in Poland
-        total_jpy = max(0, price_jpy) + ZENMARKET_FEE_JPY
-        base_pln = total_jpy * self.rate
-        
-        # Category-aware shipping share
-        shipping_share_pln = CATEGORY_SHIPPING_SHARES.get(category_id, DEFAULT_SHIPPING_SHARE_PLN)
-        
-        # VAT 23%
-        vat_pln = (base_pln + shipping_share_pln) * VAT_RATE
-        landed_cost_pln = round(base_pln + shipping_share_pln + vat_pln, 2)
+        # Calculate landed cost in Poland with full fee itemization
+        cost_info = calculate_landed_cost(
+            price_jpy=price_jpy,
+            category_id=category_id,
+            rate_jpy=self.rate,
+            rate_eur=self.rate_eur
+        )
+        landed_cost_pln = cost_info["landed_cost_pln"]
+        shipping_share_pln = cost_info["shipping_share_pln"]
+        price_pln_raw = cost_info["price_pln_raw"]
 
         est_pl_value = float(fallback_info.get("est_pl_value", landed_cost_pln * 1.5)) if fallback_info else landed_cost_pln * 1.5
         est_margin_pln = round(est_pl_value - landed_cost_pln, 2)
@@ -283,7 +288,11 @@ class DealFetcher:
             "id": item_id,
             "title": title,
             "price_jpy": price_jpy,
-            "price_pln_raw": round(price_jpy * self.rate, 2),
+            "price_pln_raw": price_pln_raw,
+            "domestic_shipping_pln": cost_info["domestic_shipping_pln"],
+            "zenmarket_fee_pln": cost_info["zenmarket_fee_pln"],
+            "deposit_fee_pln": cost_info["deposit_fee_pln"],
+            "vat_pln": cost_info["vat_pln"],
             "shipping_share_pln": shipping_share_pln,
             "landed_cost_pln": landed_cost_pln,
             "est_pl_value": est_pl_value,

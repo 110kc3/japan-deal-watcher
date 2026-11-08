@@ -1,7 +1,10 @@
 {
   "settings": {
     "currency_rate_jpy_pln": 0.024832,
-    "zenmarket_fee_jpy": 500,
+    "currency_rate_eur_pln": 4.35,
+    "zenmarket_fee_jpy": 800,
+    "zenmarket_fee_eur": 2.0,
+    "zenmarket_deposit_fee_rate": 0.035,
     "vat_rate": 0.23,
     "free_storage_days": 60,
     "consolidation_start_date": "2026-11-07"

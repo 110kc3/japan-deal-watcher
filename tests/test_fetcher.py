@@ -36,11 +36,14 @@ class TestFetcher(unittest.TestCase):
 
     def test_landed_cost_calculation(self):
         # target item: 10,000 JPY
-        # zenmarket fee: 500 JPY -> total 10,500 JPY
-        # base_pln = 10,500 * 0.025 = 262.5 PLN
+        # domestic shipping: 800 JPY -> 20.00 PLN (at 0.025)
+        # zenmarket fee: 2 EUR -> 8.70 PLN (at 4.35)
+        # base_purchase = 250.0 + 20.0 + 8.70 = 278.70 PLN
         # category "ps_vita" -> shipping_share = 35.0 PLN
-        # vat = (262.5 + 35.0) * 0.23 = 68.425 PLN
-        # landed_cost = 262.5 + 35.0 + 68.425 = 365.925 -> 365.93 PLN
+        # subtotal = 278.70 + 35.0 = 313.70 PLN
+        # deposit fee 3.5% = 10.98 PLN
+        # vat 23% = 72.15 PLN
+        # landed_cost = 278.70 + 35.0 + 10.98 + 72.15 = 396.83 PLN
         fallback = {"target_price_jpy": 10000, "est_pl_value": 800.0, "note": "Test Vita"}
         
         # Test with cached/fallback path (mocking urlopen to 404 to test fallback math)
@@ -52,8 +55,8 @@ class TestFetcher(unittest.TestCase):
             self.assertEqual(res["price_jpy"], 10000)
             self.assertEqual(res["price_pln_raw"], 250.0)
             self.assertEqual(res["shipping_share_pln"], 35.0)
-            self.assertAlmostEqual(res["landed_cost_pln"], 365.93, places=2)
-            self.assertAlmostEqual(res["est_margin_pln"], 800.0 - 365.93, places=2)
+            self.assertAlmostEqual(res["landed_cost_pln"], 396.83, places=2)
+            self.assertAlmostEqual(res["est_margin_pln"], 800.0 - 396.83, places=2)
             self.assertGreater(res["roi_percent"], 100.0)
             self.assertEqual(res["status"], "Zakończone / 404")
 

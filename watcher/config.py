@@ -12,7 +12,12 @@ YAHOO_MD_FILE = BASE_DIR / "YAHOO_AUCTIONS_DEALS.md"
 
 # NBP reference rates & tax parameters
 DEFAULT_JPY_PLN_RATE = 0.024832  # 100 JPY ≈ 2.48 PLN
-ZENMARKET_FEE_JPY = 500          # 500 JPY proxy fee per won auction
+DEFAULT_EUR_PLN_RATE = 4.35      # 1 EUR ≈ 4.35 PLN
+
+# ZenMarket fees & deposit rates
+ZENMARKET_FEE_JPY = 800          # 800 JPY fee per item (domestic shipping / item charge)
+ZENMARKET_FEE_EUR = 2.0          # 2 EUR fee per item (ZenMarket proxy / handling fee)
+ZENMARKET_DEPOSIT_FEE_RATE = 0.035  # 3.5% deposit processing fee (Stripe / Card / PayPal)
 VAT_RATE = 0.23                  # 23% Polish VAT
 
 # ZenMarket Free Storage Policy

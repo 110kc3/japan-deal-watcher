@@ -12,7 +12,7 @@ from watcher.config import (
     YAHOO_MD_FILE,
     BASE_DIR
 )
-from watcher.currency import get_live_nbp_rate
+from watcher.currency import get_live_rates
 from watcher.fetcher import DealFetcher
 from watcher.consolidation import ConsolidationTracker
 from watcher.markdown_generator import MarkdownGenerator
@@ -31,15 +31,20 @@ def main():
         watchlist = json.load(f)
 
     settings = watchlist.get("settings", {})
-    fallback_rate = settings.get("currency_rate_jpy_pln", 0.024832)
+    fallback_rate_jpy = settings.get("currency_rate_jpy_pln", 0.024832)
+    fallback_rate_eur = settings.get("currency_rate_eur_pln", 4.35)
 
-    # 1. Fetch live NBP rate or fallback
-    rate, is_live_rate = get_live_nbp_rate()
-    if not is_live_rate:
-        rate = fallback_rate
+    # 1. Fetch live NBP rates or fallback
+    rate_jpy, rate_eur, is_live_jpy, is_live_eur = get_live_rates()
+    if not is_live_jpy:
+        rate_jpy = fallback_rate_jpy
+    if not is_live_eur:
+        rate_eur = fallback_rate_eur
+
+    print(f"💱 Exchange rates: 100 JPY ≈ {rate_jpy * 100:.2f} PLN | 1 EUR ≈ {rate_eur:.4f} PLN")
 
     # 2. Fetch deal data
-    fetcher = DealFetcher(rate=rate)
+    fetcher = DealFetcher(rate=rate_jpy, rate_eur=rate_eur)
     deals = fetcher.scan_watchlist(watchlist)
 
     # 3. Save current deals to JSON
@@ -58,8 +63,9 @@ def main():
     generator = MarkdownGenerator(
         deals=deals,
         timeline_status=timeline,
-        rate=rate,
-        is_live_rate=is_live_rate
+        rate=rate_jpy,
+        rate_eur=rate_eur,
+        is_live_rate=is_live_jpy
     )
     readme_content = generator.generate()
 
@@ -75,8 +81,9 @@ def main():
         alt_generator = AlternativeDealsGenerator(
             raw_deals=yahoo_deals,
             timeline_status=timeline,
-            rate=rate,
-            is_live_rate=is_live_rate
+            rate=rate_jpy,
+            rate_eur=rate_eur,
+            is_live_rate=is_live_jpy
         )
         yahoo_md_content = alt_generator.generate()
         with open(YAHOO_MD_FILE, "w", encoding="utf-8") as f:

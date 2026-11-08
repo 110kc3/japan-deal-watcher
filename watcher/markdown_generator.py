@@ -2,6 +2,7 @@
 
 from datetime import datetime
 from .deal_analyzer import DealAnalyzer
+from .config import DEFAULT_JPY_PLN_RATE, DEFAULT_EUR_PLN_RATE
 
 def sanitize_md(text):
     """Sanitizes text for safe inclusion in Markdown tables."""
@@ -12,10 +13,11 @@ def sanitize_md(text):
     return clean
 
 class MarkdownGenerator:
-    def __init__(self, deals, timeline_status, rate=0.024832, is_live_rate=False):
+    def __init__(self, deals, timeline_status, rate=DEFAULT_JPY_PLN_RATE, rate_eur=DEFAULT_EUR_PLN_RATE, is_live_rate=False):
         self.deals = deals
         self.timeline = timeline_status
         self.rate = float(rate)
+        self.rate_eur = float(rate_eur)
         self.is_live_rate = is_live_rate
         self.analyzer = DealAnalyzer(deals)
 
@@ -87,6 +89,16 @@ class MarkdownGenerator:
         bar = "█" * filled_blocks + "░" * empty_blocks
         md.append(f"**Consolidation Window Progress ({percent_used}% passed):**")
         md.append(f"```text\n[{bar}] {passed}/60 Days used ({days_rem} days remaining until {deadline})\n```")
+        md.append("")
+        md.append("### 💰 Realna Formuła Kalkulacji Kosztów „Landed Cost” w Polsce")
+        md.append("")
+        md.append("Każda kwota w kolumnie **Szacowany Koszt w PL (z VAT)** zawiera kompletny, zaktualizowany łańcuch opłat:")
+        md.append(f"- **Cena zakupu w Japonii:** Przeliczona bezpośrednio po kursie NBP (`100 JPY ≈ {self.rate * 100:.2f} zł`).")
+        md.append(f"- **Obsługa i wysyłka krajowa w Japonii (+800 JPY / item):** Koszt dostawy od sprzedawcy do magazynu w Osace (`~{800 * self.rate:.2f} zł`).")
+        md.append(f"- **Prowizja ZenMarket (+2.00 EUR / item):** Stała opłata serwisowa za zakup przedmiotu (`~{2.0 * self.rate_eur:.2f} zł`).")
+        md.append("- **Udział w przesyłce międzynarodowej:** Koszt transportu w paczce zbiorczej (20–65 zł zależnie od wagi kategorii).")
+        md.append("- **Prowizja doładowania salda (+3.5%):** Opłata manipulacyjna bramki płatniczej (karta/Stripe/PayPal) przy zasileniu konta ZenMarket.")
+        md.append("- **Polski podatek VAT (+23%):** Należność celno-skarbowa naliczana przy odprawie w Polsce od wartości towaru i przesyłki.")
         md.append("")
         md.append("---")
         md.append("")

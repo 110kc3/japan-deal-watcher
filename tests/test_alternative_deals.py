@@ -51,31 +51,32 @@ class TestAlternativeDeals(unittest.TestCase):
         }
 
     def test_recompute_costs(self):
+        from watcher.costs import calculate_landed_cost
         rate = 0.024832
+        rate_eur = 4.35
         gen = AlternativeDealsGenerator(
             raw_deals=self.sample_deals,
             timeline_status=self.sample_timeline,
             rate=rate,
+            rate_eur=rate_eur,
             is_live_rate=True
         )
         deals = gen.deals
         self.assertEqual(len(deals), 2)
 
-        # Item 1: PS Vita (12500 JPY, fee 500, shipping 35 PLN, VAT 23%)
+        # Item 1: PS Vita (12500 JPY, 800 JPY dom, 2 EUR fee, 3.5% dep, 23% VAT)
         d1 = deals[0]
-        expected_raw_pln = round(12500 * rate, 2)
-        expected_landed = round(((12500 + 500) * rate * 1.23) + 35.0, 2)
-        expected_margin = round(750.0 - expected_landed, 2)
-        self.assertEqual(d1["price_pln_raw"], expected_raw_pln)
-        self.assertEqual(d1["landed_cost_pln"], expected_landed)
-        self.assertEqual(d1["est_margin_pln"], expected_margin)
+        c1 = calculate_landed_cost(12500, "ps_vita", rate_jpy=rate, rate_eur=rate_eur)
+        self.assertEqual(d1["price_pln_raw"], c1["price_pln_raw"])
+        self.assertEqual(d1["landed_cost_pln"], c1["landed_cost_pln"])
+        self.assertEqual(d1["est_margin_pln"], round(750.0 - c1["landed_cost_pln"], 2))
         self.assertGreater(d1["roi_percent"], 0)
 
-        # Item 2: PSP games mix (3800 JPY, fee 500, shipping 20 PLN)
+        # Item 2: PSP games mix (3800 JPY, 800 JPY dom, 2 EUR fee, 3.5% dep, 23% VAT)
         d2 = deals[1]
-        expected_landed_2 = round(((3800 + 500) * rate * 1.23) + 20.0, 2)
-        self.assertEqual(d2["landed_cost_pln"], expected_landed_2)
-        self.assertGreater(d2["est_margin_pln"], 300)
+        c2 = calculate_landed_cost(3800, "psp_games_mix", rate_jpy=rate, rate_eur=rate_eur)
+        self.assertEqual(d2["landed_cost_pln"], c2["landed_cost_pln"])
+        self.assertGreater(d2["est_margin_pln"], 200)
 
     def test_markdown_generation_content(self):
         gen = AlternativeDealsGenerator(
