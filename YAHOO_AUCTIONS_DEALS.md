@@ -3,7 +3,7 @@
 > **Katalog Alternatywnych Ofert z Yahoo! Japan Auctions (ヤフオク!), Surugaya (駿河屋) i Hard-Off Net Mall**  
 > *Dedykowane źródło licytacji z niskim progiem wejścia, hurtowych lotów gier retro oraz rzadkich wydań konsol i aparatów analogowych.*
 
-![Platforms](https://img.shields.io/badge/Platforms-Yahoo!%20Auctions%20%7C%20Surugaya%20%7C%20Hard--Off-orange) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-08%2009:58%20UTC-blue) ![Exchange Rate](https://img.shields.io/badge/NBP%20Live-100%20JPY%20%E2%89%88%202.48%20PLN-success) ![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-59%20Days%20Left-orange) ![Sniper Bidding](https://img.shields.io/badge/ZenMarket-Automated%20Sniper-brightgreen)
+![Platforms](https://img.shields.io/badge/Platforms-Yahoo!%20Auctions%20%7C%20Surugaya%20%7C%20Hard--Off-orange) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-08%2010:57%20UTC-blue) ![Exchange Rate](https://img.shields.io/badge/NBP%20Live-100%20JPY%20%E2%89%88%202.48%20PLN-success) ![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-59%20Days%20Left-orange) ![Sniper Bidding](https://img.shields.io/badge/ZenMarket-Automated%20Sniper-brightgreen)
 
 ⬅ **Nawigacja:** [Wróć do Głównego Dashboardu Mercari (README.md)](README.md) · [Kompleksowy Raport Rynkowy w Obsidian](file:///home/borg/docker/obsidian/vault/20-reports/adhoc/2026-11-07-ps-vita-blue-market-report.md)
 
