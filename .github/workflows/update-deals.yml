@@ -47,6 +47,10 @@ jobs:
         run: |
           python main.py
 
+      - name: Run Verification Checks Audit
+        run: |
+          python check_deals.py --strict
+
       - name: Commit and Push Changes
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"

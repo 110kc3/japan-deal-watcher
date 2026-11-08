@@ -14,9 +14,18 @@ from .config import (
     ZENMARKET_DEPOSIT_FEE_RATE,
     VAT_RATE,
     CATEGORY_SHIPPING_SHARES,
-    DEFAULT_SHIPPING_SHARE_PLN
+    DEFAULT_SHIPPING_SHARE_PLN,
+    MAX_CAMERA_PRICE_PLN
 )
 from .costs import calculate_landed_cost
+from .checks import (
+    DEFECT_KEYWORDS,
+    UNTESTED_KEYWORDS,
+    CLEAN_OPTICS_KEYWORDS,
+    CONFIRMED_WORKING_KEYWORDS,
+    TRAP_KEYWORDS,
+    is_camera_item
+)
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 
@@ -38,7 +47,8 @@ def classify_condition(text, item_condition="", custom_note=""):
     """
     t = text or ""
     n = custom_note or ""
-    combined = (t + " " + n).lower()
+    c = item_condition or ""
+    combined = (t + " " + n + " " + c).lower()
 
     # Pre-clean known future-disclaimer phrases and untested disclaimers
     cleaned = combined
@@ -48,31 +58,36 @@ def classify_condition(text, item_condition="", custom_note=""):
     cleaned = cleaned.replace("故障の可能性", "未確認")
     cleaned = cleaned.replace("故障している可能性", "未確認")
 
-    # Negations for leaks and abnormalities
+    # Negations for leaks, fungus, haze, abnormalities
+    cleaned = cleaned.replace("カビなし", "カビ無し")
+    cleaned = cleaned.replace("クモリなし", "クモリ無し")
+    cleaned = cleaned.replace("傷なし", "傷無し")
     cleaned = cleaned.replace("電池液漏れ無", "液漏れなし")
     cleaned = cleaned.replace("液漏れ無", "液漏れなし")
     cleaned = cleaned.replace("異常無", "異常なし")
+
+    # Check for empty box / trap keywords
+    for trap in TRAP_KEYWORDS:
+        if trap in cleaned:
+            return {
+                "is_broken": True,
+                "is_untested": False,
+                "is_working": False,
+                "condition_type": "broken",
+                "condition_badge": "❌ Pułapka Oferty (Tylko Pudełko)",
+                "matched_flag": trap
+            }
 
     # If item is explicitly stated as untested because seller lacks cables/charger, prioritize untested
     is_explicit_untested = any(w in cleaned for w in [
         "動作未確認", "未確認", "充電器がない為動作未確認", "手元に電源コードやケーブル類がないため", "コードがないため", "確認していません"
     ])
 
-    # 1. Defect & Broken detection (exclusion filter)
-    broken_keywords = [
-        "故障", "壊れて", "壊れ", "動かない", "動作不可", "作動不可",
-        "起動不可", "起動しません", "起動しない", "電源入りません", "電源つかない", "電源が入らない",
-        "画面割れ", "液晶割れ", "液晶漏れ", "液漏れ", "バックライト切れ",
-        "水没", "不動品",
-        "読み込みが出来ません", "読み込み不可", "読み込まない", "ディスク読み込まない",
-        "スティック誤作動", "スティックドリフト",
-        "破損しており", "破損あり"
-    ]
-    # If not explicitly marked as untested due to lack of cables, also check for parts-only flag
+    broken_keywords = sorted(list(DEFECT_KEYWORDS), key=len, reverse=True)
     if not is_explicit_untested:
         broken_keywords.append("部品取り")
 
-    negations = ["なし", "ありません", "ないです", "確認済み", "無", "無し"]
+    negations = ["なし", "ありません", "ないです", "確認済み", "無", "無し", "見られません", "ございません"]
     for kw in broken_keywords:
         if kw in cleaned:
             is_negated = any(kw + neg in cleaned or kw + "は" + neg in cleaned for neg in negations)
@@ -87,13 +102,7 @@ def classify_condition(text, item_condition="", custom_note=""):
                 }
 
     # 2. Untested / Not Checked detection (POTENTIAL FOR GAIN)
-    untested_keywords = [
-        "未確認", "動作未確認", "動作未チェック", "未チェック",
-        "現状品", "現状渡し", "通電のみ", "通電確認のみ", "通電ok",
-        "確認していません", "確認しておりません", "動作確認はしておりません", "確認できておりません",
-        "充電器がない", "環境がない", "ソフトがない", "コードがない", "未検品"
-    ]
-    for kw in untested_keywords:
+    for kw in sorted(UNTESTED_KEYWORDS, key=len, reverse=True):
         if kw in cleaned:
             return {
                 "is_broken": False,
@@ -105,8 +114,7 @@ def classify_condition(text, item_condition="", custom_note=""):
             }
 
     # 3. Vintage optics clean detection
-    lens_keywords = ["光学クリア", "カビなし", "クモリなし", "分解清掃", "黄変除去", "dry box", "防湿box"]
-    for kw in lens_keywords:
+    for kw in CLEAN_OPTICS_KEYWORDS:
         if kw in combined:
             return {
                 "is_broken": False,
@@ -118,12 +126,7 @@ def classify_condition(text, item_condition="", custom_note=""):
             }
 
     # 4. Confirmed working detection
-    working_keywords = [
-        "動作確認済み", "動作確認済", "動作品", "完動品", "動作ok",
-        "起動確認", "初期化済", "ボタン正常", "読み込みok", "液晶良好",
-        "美品", "良品", "整備済", "メンテナンス済", "新品バッテリー"
-    ]
-    for kw in working_keywords:
+    for kw in CONFIRMED_WORKING_KEYWORDS:
         if kw in combined:
             return {
                 "is_broken": False,

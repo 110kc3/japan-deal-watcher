@@ -29,6 +29,10 @@ CONSOLIDATION_START = datetime(2026, 11, 7)
 # IATA Air Shipment Lithium Battery Regulations
 MAX_LI_ION_PER_PARCEL = 2
 
+# Camera deals strict price cap (PLN)
+# User rule: "aparaty powyżej 100zł nie są okazjami"
+MAX_CAMERA_PRICE_PLN = 100.0
+
 # Category-aware estimated shipping share in consolidated parcel (PLN)
 CATEGORY_SHIPPING_SHARES = {
     "ps_vita": 35.0,                  # ~220g handheld

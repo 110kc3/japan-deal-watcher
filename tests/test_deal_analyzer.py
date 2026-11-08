@@ -189,8 +189,33 @@ class TestDealAnalyzer(unittest.TestCase):
         self.assertEqual(res["tier"], "S-TIER")
         self.assertTrue(res["is_no_battery"])
 
-    def test_film_cameras_point_shoot_deal(self):
-        camera_deal = {
+    def test_film_cameras_point_shoot_under_100_pln_is_deal(self):
+        # Camera under 100 PLN is an okazja!
+        cheap_camera = {
+            "id": "m_nikon_tw2d",
+            "model": "Nikon TW2D Dual Lens",
+            "color": "Black",
+            "category_id": "film_cameras_point_shoot",
+            "price_jpy": 1500,
+            "price_pln_raw": 37.25,
+            "landed_cost_pln": 115.0,
+            "est_pl_value": 280.0,
+            "est_margin_pln": 165.0,
+            "roi_percent": 143.5,
+            "battery_type": "none",
+            "status": "Dostępne",
+            "condition_type": "confirmed_working"
+        }
+        res = self.analyzer.analyze_deal(cheap_camera)
+        self.assertTrue(res["is_active"])
+        self.assertTrue(res["is_worth_buying"])
+        self.assertIn(res["tier"], ["S-TIER", "A-TIER"])
+        self.assertTrue(res["is_no_battery"])
+        self.assertIn("camera_price_cap_100_pln", res["checks_passed"])
+
+    def test_film_cameras_point_shoot_over_100_pln_disqualified(self):
+        # User rule: "aparaty powyżej 100zł nie są okazjami"
+        expensive_camera = {
             "id": "m_nikon_pikaichi",
             "model": "Nikon L35AF ISO 400 Pikaichi",
             "color": "Black",
@@ -205,11 +230,12 @@ class TestDealAnalyzer(unittest.TestCase):
             "status": "Dostępne",
             "condition_type": "confirmed_working"
         }
-        res = self.analyzer.analyze_deal(camera_deal)
+        res = self.analyzer.analyze_deal(expensive_camera)
         self.assertTrue(res["is_active"])
-        self.assertTrue(res["is_worth_buying"])
-        self.assertEqual(res["tier"], "S-TIER")
-        self.assertTrue(res["is_no_battery"])
+        self.assertFalse(res["is_worth_buying"])
+        self.assertEqual(res["tier"], "DISQUALIFIED")
+        self.assertIn("NIE JEST OKAZJĄ", res["verdict"])
+        self.assertIn("camera_price_cap_100_pln", res["checks_failed"])
 
 if __name__ == "__main__":
     unittest.main()

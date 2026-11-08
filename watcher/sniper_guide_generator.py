@@ -13,8 +13,10 @@ from .config import (
     ZENMARKET_DEPOSIT_FEE_RATE,
     CATEGORY_SHIPPING_SHARES,
     DEFAULT_SHIPPING_SHARE_PLN,
+    MAX_CAMERA_PRICE_PLN
 )
 from .costs import calculate_landed_cost, calculate_max_sniper_bid
+from .checks import is_camera_item
 
 
 def sanitize_md(text: Any) -> str:
@@ -159,6 +161,16 @@ class SniperGuideGenerator:
                 landed_at_cap = cap_info["landed_cost_at_cap"]
                 guar_margin = cap_info["guaranteed_margin_pln"]
                 guar_roi = cap_info["guaranteed_roi_pct"]
+
+                # Strict camera ceiling: "aparaty powyżej 100zł nie są okazjami"
+                if is_camera_item(it) or cat_id == "film_cameras_point_shoot":
+                    max_cam_jpy = int((MAX_CAMERA_PRICE_PLN / self.rate) // 100 * 100)
+                    if max_bid > max_cam_jpy:
+                        max_bid = max_cam_jpy
+                        recalc = calculate_landed_cost(max_bid, cat_id, self.rate, self.rate_eur)
+                        landed_at_cap = recalc["landed_cost_pln"]
+                        guar_margin = round(est_pl - landed_at_cap, 2)
+                        guar_roi = round((guar_margin / landed_at_cap * 100.0), 1) if landed_at_cap > 0 else 0.0
 
                 # Typical market clearing range
                 low_clearing = int(price_curr * 0.9 // 100 * 100)

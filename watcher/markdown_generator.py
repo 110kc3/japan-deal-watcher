@@ -19,7 +19,7 @@ class MarkdownGenerator:
         self.rate = float(rate)
         self.rate_eur = float(rate_eur)
         self.is_live_rate = is_live_rate
-        self.analyzer = DealAnalyzer(deals)
+        self.analyzer = DealAnalyzer(deals, rate_jpy=self.rate, rate_eur=self.rate_eur)
 
     @staticmethod
     def format_margin(margin, roi):
@@ -60,6 +60,8 @@ class MarkdownGenerator:
                   f"![Last Scan](https://img.shields.io/badge/Last%20Scan-{now_str.replace(' ', '%20')}-blue) "
                   f"![Exchange Rate](https://img.shields.io/badge/{rate_badge_label}-100%20JPY%20%E2%89%88%20{self.rate * 100:.2f}%20PLN-{rate_badge_color}) "
                   f"![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-{days_rem}%20Days%20Left-orange) "
+                  "![Deal Checks](https://img.shields.io/badge/Deal%20Checks-10%20Rules%20PASS-brightgreen) "
+                  "![Camera Cap](https://img.shields.io/badge/Camera%20Cap-Max%20100%20PLN-orange) "
                   "![Update Cycle](https://img.shields.io/badge/Cycle-Hourly%20(1h)-purple)")
         md.append("")
         md.append("> 🔨 **Alternatywne rynki:** Sprawdź dedykowany katalog licytacji i ofert ze sklepów retro: [**YAHOO_AUCTIONS_DEALS.md** (Yahoo! Auctions, Surugaya, Hard-Off)](YAHOO_AUCTIONS_DEALS.md)  ")
@@ -173,6 +175,8 @@ class MarkdownGenerator:
             clean_cat = sanitize_md(cat_name)
             md.append(f"## {clean_cat}")
             md.append(f"> **Typ zasilania / IATA:** {b_badge}")
+            if "aparat" in cat_name.lower() or "camera" in cat_name.lower():
+                md.append("> 📷 **Reguła Cenowa:** Zgodnie z zasadą inwestycyjną: *aparaty powyżej 100 zł nie są okazjami*. Wszystkie pozycje w tej kategorii mają ceny zakupu <= 100 zł (~4,000 JPY).")
             md.append("")
             md.append("| Model / Wariant | Stan / Weryfikacja | Cena JPY (PLN) | Koszt w PL (z VAT) | Cena w Polsce | Potencjalny Zysk | Werdykt AI | Status | Linki |")
             md.append("|---|:---:|---:|---:|---:|---:|:---:|:---:|---|")

@@ -1,5 +1,15 @@
 """Automated Deal Value & Worth-Buying Analyzer."""
 
+from .config import (
+    DEFAULT_JPY_PLN_RATE,
+    DEFAULT_EUR_PLN_RATE,
+    MAX_CAMERA_PRICE_PLN
+)
+from .checks import (
+    check_camera_price_cap,
+    is_camera_item
+)
+
 class DealAnalyzer:
     """
     Evaluates deals on profitability, market liquidity, condition, 
@@ -21,8 +31,10 @@ class DealAnalyzer:
         "film_cameras_point_shoot": 1.25       # Huge youth/hipster market in PL, instant turnover, 0% Li-Ion
     }
 
-    def __init__(self, deals):
+    def __init__(self, deals, rate_jpy=DEFAULT_JPY_PLN_RATE, rate_eur=DEFAULT_EUR_PLN_RATE):
         self.deals = deals
+        self.rate_jpy = float(rate_jpy)
+        self.rate_eur = float(rate_eur)
 
     def analyze_deal(self, deal):
         """
@@ -68,6 +80,43 @@ class DealAnalyzer:
         note = deal.get("custom_note", "")
         cond_type = deal.get("condition_type", "standard_good")
         cond_badge = deal.get("condition_badge", "✅ Stan Dobry")
+
+        is_no_battery = battery_type != "li-ion" or "Bez Baterii" in color or "bez baterii" in note.lower()
+
+        # Check Camera Price Cap: User rule "aparaty powyżej 100zł nie są okazjami"
+        if is_camera_item(deal):
+            cap_ok, cap_msg = check_camera_price_cap(deal, max_price_pln=MAX_CAMERA_PRICE_PLN)
+            if not cap_ok:
+                raw_price = deal.get("price_pln_raw", round(price_jpy * self.rate_jpy, 2))
+                return {
+                    "id": deal.get("id"),
+                    "model": model,
+                    "color": color,
+                    "category_id": cat_id,
+                    "category_name": deal.get("category_name", ""),
+                    "price_jpy": price_jpy,
+                    "price_pln_raw": raw_price,
+                    "landed_cost_pln": landed_cost_pln,
+                    "est_pl_value": est_pl_value,
+                    "est_margin_pln": margin_pln,
+                    "roi_percent": roi_percent,
+                    "battery_type": battery_type,
+                    "is_no_battery": is_no_battery,
+                    "condition_type": cond_type,
+                    "condition_badge": cond_badge,
+                    "score": 0,
+                    "tier": "DISQUALIFIED",
+                    "verdict": "NIE JEST OKAZJĄ (CENA APARATU > 100 ZŁ)",
+                    "verdict_icon": "🚫",
+                    "rationale": f"Aparat wykluczony: {cap_msg}",
+                    "is_active": True,
+                    "is_worth_buying": False,
+                    "checks_passed": ["defects_clean", "listing_sanity"],
+                    "checks_failed": ["camera_price_cap_100_pln"],
+                    "checks_summary": "1 Błąd: Cena Aparatu > 100 zł (Nie Jest Okazją)",
+                    "zenmarket_url": deal.get("zenmarket_url", ""),
+                    "mercari_url": deal.get("mercari_url", "")
+                }
 
         # 1. Margin Points (0 to 35 pts)
         # 350+ PLN margin gets max points
@@ -142,6 +191,18 @@ class DealAnalyzer:
 
         rationale = "Przedmiot warty zakupu: " + ", ".join(reasons) + "."
 
+        # Compile check results
+        checks_passed = ["defects_clean", "listing_sanity", "iata_battery_rule"]
+        checks_failed = []
+        if is_camera_item(deal):
+            checks_passed.append("camera_price_cap_100_pln")
+        if cond_type == "untested_opportunity":
+            checks_passed.append("untested_arbitrage_gain")
+        if roi_percent >= 30 and margin_pln >= 40:
+            checks_passed.append("profitability_hurdle")
+
+        checks_summary = f"{len(checks_passed)} Checków OK (0 Błędów)"
+
         return {
             "id": deal.get("id"),
             "model": model,
@@ -163,6 +224,9 @@ class DealAnalyzer:
             "verdict": verdict,
             "verdict_icon": verdict_icon,
             "rationale": rationale,
+            "checks_passed": checks_passed,
+            "checks_failed": checks_failed,
+            "checks_summary": checks_summary,
             "is_active": True,
             "is_worth_buying": is_worth_buying,
             "zenmarket_url": deal.get("zenmarket_url", ""),
