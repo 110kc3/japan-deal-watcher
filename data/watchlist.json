@@ -518,6 +518,157 @@
           "note": "Stan kolekcjonerski Mint, powłoki antyrefleksyjne nienaruszone"
         }
       ]
+    },
+    {
+      "id": "ps5_limited_controllers",
+      "name": "Limitowane Kontrolery PS5 DualSense (Edycje Specjalne)",
+      "battery_type": "li-ion",
+      "target_pln_resale": 700,
+      "tracked_items": [
+        {
+          "id": "m63463074848",
+          "model": "DualSense God of War Ragnarök Limited Edition",
+          "color": "Two-Tone Blue / Ice White (Bear & Wolf)",
+          "target_price_jpy": 7990,
+          "est_pl_value": 550,
+          "note": "Sprawdzony 100%, limitowane wydanie Ragnarök z motywem wilka i niedźwiedzia",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m42110515743",
+          "model": "DualSense Astro Bot Limited Edition",
+          "color": "Astro Bot Blue & White (Eyes on Touchpad)",
+          "target_price_jpy": 8900,
+          "est_pl_value": 600,
+          "note": "Oryginalna edycja limitowana Astro Bot z niebieskimi akcentami i oczami na touchpadzie",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m38091834685",
+          "model": "DualSense Astro Bot Limited Edition (Stan Gabinetowy)",
+          "color": "Astro Bot Blue & White",
+          "target_price_jpy": 9970,
+          "est_pl_value": 650,
+          "note": "Stan niemal nowy (1-2 ładowania), gabinetowy, poszukiwana edycja kolekcjonerska",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m68853102375",
+          "model": "DualSense Monster Hunter Wilds Limited Edition",
+          "color": "Wilds Red / Gold Accents",
+          "target_price_jpy": 12000,
+          "est_pl_value": 650,
+          "note": "Fabrycznie nowy, oficjalna edycja Capcom Monster Hunter Wilds",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m28342292493",
+          "model": "DualSense Final Fantasy XVI Limited Edition",
+          "color": "Midnight Black / Gold FFXVI Inscription",
+          "target_price_jpy": 13000,
+          "est_pl_value": 700,
+          "note": "Wydanie ekskluzywne na rynek japoński (Japan-exclusive), złote inskrypcje FFXVI",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m91656556697",
+          "model": "DualSense 30th Anniversary Limited Edition",
+          "color": "Classic PS1 Grey (Kolorowe logo PS)",
+          "target_price_jpy": 14600,
+          "est_pl_value": 850,
+          "note": "Stan idealny (極美品), kultowa edycja 30-lecia PlayStation w kolorze szarym PS1",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m22670211650",
+          "model": "DualSense Marvel's Spider-Man 2 Limited Edition",
+          "color": "Symbiote Black & Red",
+          "target_price_jpy": 22600,
+          "est_pl_value": 1050,
+          "note": "Fabrycznie nowy w pudełku (CIB Sealed), wyprzedany Spider-Man 2, topowy kolekcjonerski",
+          "battery_type": "li-ion"
+        }
+      ]
+    },
+    {
+      "id": "ps_retro_limited_controllers",
+      "name": "Limitowane Kontrolery PS1-PS4 (DualShock Retro & Collector)",
+      "battery_type": "li-ion",
+      "target_pln_resale": 450,
+      "tracked_items": [
+        {
+          "id": "m28161760027",
+          "model": "DualShock 4 Monster Hunter World: Rathalos Edition",
+          "color": "Deep Crimson Red / Rathalos Crest",
+          "target_price_jpy": 3800,
+          "est_pl_value": 380,
+          "note": "Oryginalny pad limitowany MHW Rathalos CUH-ZCT2J, niesamowita cena 3800 JPY",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m19794763678",
+          "model": "DualShock 3 Metallic Blue Limited (CECHZC2J)",
+          "color": "Metallic Blue (Metaliczny błękit)",
+          "target_price_jpy": 3980,
+          "est_pl_value": 320,
+          "note": "Oficjalna wersja limitowana 2009, sprawdzony 100%, stan bdb",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m96349064018",
+          "model": "HORI Dragon Quest Slime Controller PS2 (HP2-177)",
+          "color": "Slime Blue (Figurka Kropelka)",
+          "target_price_jpy": 4800,
+          "est_pl_value": 450,
+          "note": "Kultowy kontroler-figurka Hori w kształcie Slime'a, sprawdzony, przewodowy (0% Li-Ion!)",
+          "battery_type": "none"
+        },
+        {
+          "id": "m77203249089",
+          "model": "DualShock 4 Berry Blue Limited Edition",
+          "color": "Berry Blue (Fiolet / Turkus)",
+          "target_price_jpy": 7800,
+          "est_pl_value": 450,
+          "note": "Nieużywany (未使用), jeden z najbardziej poszukiwanych dwukolorowych DualShock 4",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m80372131687",
+          "model": "DualShock 4 500 Million Limited Edition (CUH-ZCT2J50)",
+          "color": "Translucent Dark Blue (Przezroczysty z miedzią)",
+          "target_price_jpy": 9200,
+          "est_pl_value": 580,
+          "note": "Limitowany do 50k sztuk na świat, przezroczysty granat ze złotym symbolem PS, sprawdzony",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m96519020556",
+          "model": "DualShock 4 Death Stranding Limited Edition",
+          "color": "Translucent Amber / BB Pod Yellow",
+          "target_price_jpy": 9200,
+          "est_pl_value": 550,
+          "note": "Limitowane wydanie Kojima Productions Death Stranding, sprawdzony 100%",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m94449458311",
+          "model": "PS1 DualShock Island Blue Boxed (SCPH-1200)",
+          "color": "Island Blue (Morski błękit) + BOX/Instrukcja",
+          "target_price_jpy": 11000,
+          "est_pl_value": 750,
+          "note": "Unikat z 1999 r., pad w folii fabrycznej w pudełku z papierami, przewodowy (0% Li-Ion!)",
+          "battery_type": "none"
+        },
+        {
+          "id": "m18564401275",
+          "model": "PS2 DualShock 2 Emerald Green (SCPH-10010)",
+          "color": "Clear Emerald Green (Szmaragdowy przezroczysty)",
+          "target_price_jpy": 2499,
+          "est_pl_value": 260,
+          "note": "Oryginalny szmaragdowy japoński pad PS2, sprawdzony, przewodowy (0% Li-Ion!)",
+          "battery_type": "none"
+        }
+      ]
     }
   ]
 }

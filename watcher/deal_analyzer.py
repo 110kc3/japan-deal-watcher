@@ -14,7 +14,9 @@ class DealAnalyzer:
         "analog_lenses": 1.15,      # Fast sale to photo enthusiasts, 0% Li-Ion
         "ps1_consoles": 1.10,       # PSone / LCD high collector margin
         "retro_consoles_no_battery": 1.10, # GameCube DOL-001 / Saturn
-        "psp_handheld": 1.05        # Good margin, but occupies Li-Ion unless dry
+        "psp_handheld": 1.05,       # Good margin, but occupies Li-Ion unless dry
+        "ps5_limited_controllers": 1.15,       # High Polish resale demand for Limited Edition DualSense
+        "ps_retro_limited_controllers": 1.10   # Collectors demand for DualShock 1-4 limited editions
     }
 
     def __init__(self, deals):

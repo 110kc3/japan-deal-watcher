@@ -30,7 +30,9 @@ CATEGORY_SHIPPING_SHARES = {
     "retro_consoles_no_battery": 65.0, # ~1.5-2.0kg Sega/Sony home console
     "ps1_consoles": 45.0,             # ~550g PSone to 1.2kg PS1 fat
     "nintendo_retro": 40.0,           # ~150g GBC to 800g Super Famicom
-    "analog_lenses": 25.0             # ~200g prime lens
+    "analog_lenses": 25.0,            # ~200g prime lens
+    "ps5_limited_controllers": 30.0,  # ~280g DualSense controller
+    "ps_retro_limited_controllers": 30.0 # ~210-280g DualShock 1-4 controller
 }
 DEFAULT_SHIPPING_SHARE_PLN = 30.0
 

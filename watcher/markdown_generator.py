@@ -145,10 +145,14 @@ class MarkdownGenerator:
             categories[cname].append(d)
 
         for cat_name, items in categories.items():
-            first_item = items[0]
-            b_type = first_item.get("battery_type", "none")
-            
-            b_badge = "🔴 Li-Ion (Zajmuje 1 slot bateryjny, max 2 na paczkę)" if b_type == "li-ion" else "🟢 No-Battery / Dry Cell (Brak limitu w paczce)"
+            has_li_ion = any(it.get("battery_type") == "li-ion" for it in items)
+            has_no_bat = any(it.get("battery_type") != "li-ion" for it in items)
+            if has_li_ion and has_no_bat:
+                b_badge = "🟡 Mieszany: Kontrolery PS3/PS4 zawierają Li-Ion (1 slot), a przewodowe PS1/PS2 są bez baterii (0% Li-Ion – brak limitu!)"
+            elif has_li_ion:
+                b_badge = "🔴 Li-Ion (Zajmuje 1 slot bateryjny, max 2 na paczkę)"
+            else:
+                b_badge = "🟢 No-Battery / Dry Cell (Brak limitu w paczce)"
             
             clean_cat = sanitize_md(cat_name)
             md.append(f"## {clean_cat}")

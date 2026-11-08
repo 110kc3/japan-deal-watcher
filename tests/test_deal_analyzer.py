@@ -123,5 +123,49 @@ class TestDealAnalyzer(unittest.TestCase):
         self.assertGreater(basket["total_margin_pln"], 0)
         self.assertGreater(basket["total_items"], 0)
 
+    def test_ps5_limited_controller_deal(self):
+        ps5_deal = {
+            "id": "m_ps5_gow",
+            "model": "DualSense God of War Ragnarök Limited Edition",
+            "color": "Two-Tone Blue",
+            "category_id": "ps5_limited_controllers",
+            "price_jpy": 7990,
+            "price_pln_raw": 198.0,
+            "landed_cost_pln": 283.0,
+            "est_pl_value": 550.0,
+            "est_margin_pln": 267.0,
+            "roi_percent": 94.3,
+            "battery_type": "li-ion",
+            "status": "Dostępne",
+            "condition_type": "confirmed_working"
+        }
+        res = self.analyzer.analyze_deal(ps5_deal)
+        self.assertTrue(res["is_active"])
+        self.assertTrue(res["is_worth_buying"])
+        self.assertEqual(res["tier"], "S-TIER")
+        self.assertFalse(res["is_no_battery"])
+
+    def test_retro_controller_deal_no_battery(self):
+        retro_deal = {
+            "id": "m_ps2_slime",
+            "model": "HORI Dragon Quest Slime Controller PS2",
+            "color": "Slime Blue",
+            "category_id": "ps_retro_limited_controllers",
+            "price_jpy": 4800,
+            "price_pln_raw": 119.0,
+            "landed_cost_pln": 192.0,
+            "est_pl_value": 450.0,
+            "est_margin_pln": 258.0,
+            "roi_percent": 134.4,
+            "battery_type": "none",
+            "status": "Dostępne",
+            "condition_type": "confirmed_working"
+        }
+        res = self.analyzer.analyze_deal(retro_deal)
+        self.assertTrue(res["is_active"])
+        self.assertTrue(res["is_worth_buying"])
+        self.assertEqual(res["tier"], "S-TIER")
+        self.assertTrue(res["is_no_battery"])
+
 if __name__ == "__main__":
     unittest.main()

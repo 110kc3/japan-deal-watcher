@@ -318,7 +318,7 @@ class DealFetcher:
                 details = self.fetch_item_info(item_id, item, category_id=cat_id)
                 details["category_id"] = cat_id
                 details["category_name"] = cat_name
-                details["battery_type"] = battery_type
+                details["battery_type"] = item.get("battery_type", battery_type)
                 details["model"] = item.get("model", "")
                 details["color"] = item.get("color", "")
                 details["custom_note"] = item.get("note", "")
