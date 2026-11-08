@@ -621,7 +621,7 @@
     "est_pl_value": 950.0,
     "est_margin_pln": 128.18,
     "roi_percent": 15.6,
-    "status": "Dostępne",
+    "status": "W trakcie transakcji",
     "condition_type": "untested_opportunity",
     "condition_badge": "⚡ Niesprawdzany (Potencjał Zysku)",
     "is_broken": false,
