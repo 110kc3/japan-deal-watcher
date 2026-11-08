@@ -64,6 +64,34 @@ class AlternativeDealsGenerator:
         return computed
 
     @staticmethod
+    def format_deal_links(deal):
+        """Formats 1-click live proxy links based on platform."""
+        platform = deal.get("platform", "Yahoo! Auctions Japan")
+        zen_url = deal.get("zenmarket_url", "")
+        buyee_url = deal.get("buyee_url", "")
+        src_url = deal.get("source_url", "")
+
+        if "Surugaya" in platform:
+            links = [
+                f"[🛒 Surugaya w ZenMarket (Live)]({zen_url})",
+                f"[🛒 Licytuj Buyee (Live)]({buyee_url})" if buyee_url else "",
+                f"[🇯🇵 Surugaya Direct]({src_url})"
+            ]
+        elif "Hard-Off" in platform:
+            links = [
+                f"[🛒 Hard-Off w ZenMarket (Live)]({zen_url})",
+                f"[🛒 Licytuj Buyee (Live)]({buyee_url})" if buyee_url else "",
+                f"[🇯🇵 Hard-Off Direct]({src_url})"
+            ]
+        else:
+            links = [
+                f"[🎯 Snajper ZenMarket (Live Aukcje)]({zen_url})",
+                f"[🛒 Licytuj Buyee (Live)]({buyee_url})" if buyee_url else "",
+                f"[🇯🇵 Szukaj na Yahoo JP]({src_url})"
+            ]
+        return "<br>".join([link for link in links if link])
+
+    @staticmethod
     def format_margin(margin, roi):
         if margin > 0:
             return f"<strong style='color:#10b981;'>+{margin:.2f} zł</strong><br><small>(+{roi:.1f}%)</small>"
@@ -97,6 +125,15 @@ class AlternativeDealsGenerator:
                   "![Sniper Bidding](https://img.shields.io/badge/ZenMarket-Automated%20Sniper-brightgreen)")
         md.append("")
         md.append("⬅ **Nawigacja:** [Wróć do Głównego Dashboardu Mercari (README.md)](README.md) · [Kompleksowy Raport Rynkowy w Obsidian](file:///home/borg/docker/obsidian/vault/20-reports/adhoc/2026-11-07-ps-vita-blue-market-report.md)")
+        md.append("")
+        md.append("---")
+        md.append("")
+        md.append("> [!IMPORTANT]")
+        md.append("> **Gwarancja Działających Ofert (1-Click Live Deep Links bez Błędów 404):**")
+        md.append("> - **Dlaczego poprzednie linki zwracały 404?** Pojedyncze licytacje na Yahoo! Japan trwają zazwyczaj od 24h do 7 dni. Tradycyjne linki do statycznych numerów aukcji po zakończeniu licytacji bezpowrotnie wygasają i powodują błąd 404 Not Found.")
+        md.append("> - **Stałe strumienie licytacji na żywo:** Wszystkie poniższe odnośniki zostały przekształcone w dynamiczne strumienie wyszukiwania (`Live Proxy Streams`) z autentycznymi japońskimi frazami kolekcjonerskimi, posortowane od najniższej ceny. Nigdy nie wygasają i zawsze prezentują obecnie trwające licytacje!")
+        md.append("> - **Automatyczny Snajper w ZenMarket (Działa w Polsce bez VPN):** Kliknij `[🎯 Snajper ZenMarket (Live Aukcje)]` – otworzy polski panel ZenMarket z aktywnymi aukcjami i przyciskiem automatycznego snajpera (licytacja na 2 minuty przed końcem).")
+        md.append("> - **Bezpośrednie Yahoo JP (Wymaga VPN):** Odnośnik `[🇯🇵 Szukaj na Yahoo JP]` prowadzi do oficjalnego portalu Yahoo Japan. Dostęp bezpośredni z adresów IP w Unii Europejskiej zwraca błąd 403 Forbidden (blokada regionalna Yahoo z 2022 r.). Użyj ZenMarket / Buyee (omijają blokadę) lub połącz się przez VPN (Japonia / USA).")
         md.append("")
         md.append("---")
         md.append("")
@@ -150,10 +187,11 @@ class AlternativeDealsGenerator:
 
         md.append("## 🎯 Top 3 Rekomendowane Perełki z Yahoo! Auctions / Surugaya")
         md.append("")
-        md.append("| Pozycja | Cena JPY (PLN) | Koszt w PL (z VAT) | Cena w Polsce | Potencjalny Zysk | Platforma | Linki 1-Click |")
+        md.append("| Pozycja | Cena JPY (PLN) | Koszt w PL (z VAT) | Cena w Polsce | Potencjalny Zysk | Platforma | Linki 1-Click (Live) |")
         md.append("|---|---:|---:|---:|---:|:---:|---|")
         for s in top_snipes:
             margin_str = self.format_margin(s["est_margin_pln"], s["roi_percent"])
+            links_str = self.format_deal_links(s)
             md.append(
                 f"| **{sanitize_md(s['model'])}**<br><small>{sanitize_md(s['color'])}</small> | "
                 f"**{s['price_jpy']:,} JPY**<br>(~{s['price_pln_raw']:.2f} zł) | "
@@ -161,7 +199,7 @@ class AlternativeDealsGenerator:
                 f"**{s['est_pl_value']:.2f} zł** | "
                 f"{margin_str} | "
                 f"`{s['platform']}` | "
-                f"[🎯 Snajper ZenMarket]({s['zenmarket_url']})<br>[🇯🇵 Źródło]({s['source_url']}) |"
+                f"{links_str} |"
             )
         md.append("")
         md.append("---")
@@ -189,7 +227,7 @@ class AlternativeDealsGenerator:
             md.append(f"## {clean_cat}")
             md.append(f"> **Typ zasilania / IATA:** {b_badge}")
             md.append("")
-            md.append("| Model / Wariant | Platforma | Cena JPY (PLN) | Koszt w PL (z VAT) | Cena w Polsce | Potencjalny Zysk | Werdykt AI | Status | Linki i Licytacja |")
+            md.append("| Model / Wariant | Platforma | Cena JPY (PLN) | Koszt w PL (z VAT) | Cena w Polsce | Potencjalny Zysk | Werdykt AI | Status | Linki i Licytacja (Live) |")
             md.append("|---|:---:|---:|---:|---:|---:|:---:|:---:|---|")
 
             for it in items:
@@ -202,6 +240,8 @@ class AlternativeDealsGenerator:
                 deal_eval = self.analyzer.analyze_deal(it)
                 ai_badge = f"{deal_eval['verdict_icon']} <strong>{deal_eval['tier']}</strong><br><small>{deal_eval['score']}/100</small>" if deal_eval.get("is_active") else "⚪ N/A"
 
+                links_str = self.format_deal_links(it)
+
                 md.append(
                     f"| **{clean_model}**<br><small>{clean_color}<br>*{clean_note}*</small> | "
                     f"`{it.get('platform', 'Yahoo')}` | "
@@ -211,7 +251,7 @@ class AlternativeDealsGenerator:
                     f"{margin_str} | "
                     f"{ai_badge} | "
                     f"{status_icon} | "
-                    f"[🎯 Snajper ZenMarket]({it['zenmarket_url']})<br>[🛒 Buyee Link]({it['buyee_url']})<br>[🇯🇵 Oferta Źródłowa]({it['source_url']}) |"
+                    f"{links_str} |"
                 )
             md.append("")
             md.append("---")

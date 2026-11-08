@@ -3,7 +3,7 @@
 > **Automated Private Deal Watcher for Retro Consoles, Handhelds, UMD Bundles & Analog Lenses**  
 > *Live tracking Mercari Japan, Yahoo Auctions & ZenMarket consolidation timeline.*
 
-![Status](https://img.shields.io/badge/Watcher-Active-brightgreen) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-08%2010:57%20UTC-blue) ![Exchange Rate](https://img.shields.io/badge/NBP%20Live-100%20JPY%20%E2%89%88%202.48%20PLN-success) ![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-59%20Days%20Left-orange) ![Update Cycle](https://img.shields.io/badge/Cycle-Hourly%20(1h)-purple)
+![Status](https://img.shields.io/badge/Watcher-Active-brightgreen) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-08%2011:08%20UTC-blue) ![Exchange Rate](https://img.shields.io/badge/NBP%20Live-100%20JPY%20%E2%89%88%202.48%20PLN-success) ![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-59%20Days%20Left-orange) ![Update Cycle](https://img.shields.io/badge/Cycle-Hourly%20(1h)-purple)
 
 > 🔨 **Alternatywne rynki:** Sprawdź dedykowany katalog licytacji i ofert ze sklepów retro: [**YAHOO_AUCTIONS_DEALS.md** (Yahoo! Auctions, Surugaya, Hard-Off)](YAHOO_AUCTIONS_DEALS.md)  
 > 📊 **Obsidian Vault:** [2026-11-07-ps-vita-blue-market-report.md](file:///home/borg/docker/obsidian/vault/20-reports/adhoc/2026-11-07-ps-vita-blue-market-report.md)
@@ -166,7 +166,7 @@ Każda kwota w kolumnie **Szacowany Koszt w PL (z VAT)** zawiera kompletny, zakt
 | **Super Famicom SHVC-001**<br><small>Konsola + 2 Pady + 10 Gier<br>*Pełen gotowy zestaw do grania z 10 grami retro, czyszczony*</small> | ✅ <strong>Sprawdzony</strong><br><small style='color:#10b981;'>Sprawny 100%</small> | **11,800 JPY**<br>(~293.02 zł) | ~457.53 zł | **680.00 zł** | <strong style='color:#10b981;'>+222.47 zł</strong><br><small>(+48.6%)</small> | 🚀 <strong>A-TIER</strong><br><small>73.5/100</small> | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m39670684370)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m39670684370) |
 | **Game Boy Advance SP**<br><small>Pearl Green<br>*Rzadki pastelowy Pearl Green, 100% sprawny mechanizm*</small> | ✅ <strong>Sprawdzony</strong><br><small style='color:#10b981;'>Sprawny 100%</small> | **9,500 JPY**<br>(~235.90 zł) | ~385.27 zł | **580.00 zł** | <strong style='color:#10b981;'>+194.73 zł</strong><br><small>(+50.5%)</small> | 🚀 <strong>A-TIER</strong><br><small>71.7/100</small> | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m82785046364)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m82785046364) |
 | **Game Boy Advance SP**<br><small>Azurite Blue<br>*GBA SP w kolorze Azurite Blue, ładny stan*</small> | ✅ <strong>Sprawdzony</strong><br><small style='color:#10b981;'>Sprawny 100%</small> | **11,000 JPY**<br>(~273.15 zł) | ~432.39 zł | **620.00 zł** | <strong style='color:#10b981;'>+187.61 zł</strong><br><small>(+43.4%)</small> | 🚀 <strong>A-TIER</strong><br><small>67.5/100</small> | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m70099354764)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m70099354764) |
-| **Game Boy Advance SP Komplet**<br><small>Blue + Ładowarka<br>*Sprawny GBA SP w zestawie z oryginalną ładowarką*</small> | ✅ <strong>Sprawdzony</strong><br><small style='color:#10b981;'>Sprawny 100%</small> | **11,000 JPY**<br>(~273.15 zł) | ~432.39 zł | **640.00 zł** | <strong style='color:#10b981;'>+207.61 zł</strong><br><small>(+48.0%)</small> | 🚀 <strong>A-TIER</strong><br><small>71.8/100</small> | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m67708364696)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m67708364696) |
+| **Game Boy Advance SP Komplet**<br><small>Blue + Ładowarka<br>*Sprawny GBA SP w zestawie z oryginalną ładowarką*</small> | ✅ <strong>Sprawdzony</strong><br><small style='color:#10b981;'>Sprawny 100%</small> | **10,900 JPY**<br>(~270.67 zł) | ~429.26 zł | **640.00 zł** | <strong style='color:#10b981;'>+210.74 zł</strong><br><small>(+49.1%)</small> | 🚀 <strong>A-TIER</strong><br><small>72.6/100</small> | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m67708364696)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m67708364696) |
 
 ---
 
@@ -299,4 +299,4 @@ Po zakupieniu przedmiotu w panelu ZenMarket kliknij *Order Photos* i wklej:
 - **Adding New Items:** Edit `data/watchlist.json` and push to `main`.
 
 ---
-*Dashboard automatically maintained by GitHub Actions & Antigravity Agent. Last updated: 2026-11-08 10:57 UTC.*
+*Dashboard automatically maintained by GitHub Actions & Antigravity Agent. Last updated: 2026-11-08 11:08 UTC.*

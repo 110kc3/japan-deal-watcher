@@ -19,9 +19,10 @@ class TestAlternativeDeals(unittest.TestCase):
                 "price_jpy": 12500,
                 "est_pl_value": 750.0,
                 "custom_note": "Aukcja od 1 JPY, stan B+",
-                "source_url": "https://auctions.yahoo.co.jp/jp/auction/yahoo_psvita_001",
-                "zenmarket_url": "https://zenmarket.jp/pl/auction.aspx?itemCode=yahoo_psvita_001",
-                "buyee_url": "https://buyee.jp/item/yahoo/auction/yahoo_psvita_001",
+                "search_query_jp": "PS Vita PCH-2000 アクアブルー",
+                "source_url": "https://auctions.yahoo.co.jp/search/search?p=PS+Vita+PCH-2000+%E3%82%A2%E3%82%AF%E3%82%A2%E3%83%96%E3%83%AB%E3%83%BC",
+                "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=PS+Vita+PCH-2000+%E3%82%A2%E3%82%AF%E3%82%A2%E3%83%96%E3%83%AB%E3%83%BC&sort=price&order=asc",
+                "buyee_url": "https://buyee.jp/item/search/query/PS+Vita+PCH-2000+%E3%82%A2%E3%82%AF%E3%82%A2%E3%83%96%E3%83%AB%E3%83%BC?translationType=1&sort=cbids&order=a",
                 "status": "Aktywna (Licytacja)"
             },
             {
@@ -35,9 +36,10 @@ class TestAlternativeDeals(unittest.TestCase):
                 "price_jpy": 3800,
                 "est_pl_value": 480.0,
                 "custom_note": "Zestaw 40 płyt UMD, stan pudełek dobry",
-                "source_url": "https://www.suruga-ya.jp/product/detail/surugaya_psp_games_001",
-                "zenmarket_url": "https://zenmarket.jp/pl/otherproduct.aspx?itemCode=surugaya_psp_games_001",
-                "buyee_url": "https://buyee.jp/item/surugaya/surugaya_psp_games_001",
+                "search_query_jp": "PSP ソフト まとめ",
+                "source_url": "https://www.suruga-ya.jp/search?search_word=PSP+%E3%82%BD%E3%83%95%E3%83%88+%E3%81%BE%E3%81%A8%E3%82%81",
+                "zenmarket_url": "https://zenmarket.jp/pl/surugaya.aspx?q=PSP+%E3%82%BD%E3%83%95%E3%83%88+%E3%81%BE%E3%81%A8%E3%82%81",
+                "buyee_url": "https://buyee.jp/item/search/query/PSP+%E3%82%BD%E3%83%95%E3%83%88+%E3%81%BE%E3%81%A8%E3%82%81?translationType=1",
                 "status": "Dostępne w sklepie"
             }
         ]
@@ -91,6 +93,7 @@ class TestAlternativeDeals(unittest.TestCase):
         self.assertIn("NBP%20Live", md)
         self.assertIn("Automated Sniper", md)
         self.assertIn("Wróć do Głównego Dashboardu Mercari (README.md)", md)
+        self.assertIn("Gwarancja Działających Ofert", md)
         self.assertIn("Porównanie Japońskich Platform Zakupowych", md)
         self.assertIn("Surugaya (駿河屋)", md)
         self.assertIn("Top 3 Rekomendowane Perełki", md)
@@ -98,6 +101,8 @@ class TestAlternativeDeals(unittest.TestCase):
         self.assertIn("Poradnik Licytacji przez ZenMarket Sniper", md)
         self.assertIn("Aqua Blue", md)
         self.assertIn("Lot 40 gier PSP UMD", md)
+        self.assertIn("Snajper ZenMarket (Live Aukcje)", md)
+        self.assertIn("Surugaya w ZenMarket (Live)", md)
 
     def test_yahoo_deals_json_integrity(self):
         self.assertTrue(YAHOO_DEALS_FILE.exists(), f"Missing {YAHOO_DEALS_FILE}")
@@ -110,7 +115,7 @@ class TestAlternativeDeals(unittest.TestCase):
         required_keys = {
             "id", "model", "platform", "category_id", "category_name",
             "battery_type", "price_jpy", "est_pl_value", "source_url",
-            "zenmarket_url", "buyee_url", "status"
+            "zenmarket_url", "buyee_url", "status", "search_query_jp"
         }
 
         platforms = set()
@@ -122,6 +127,13 @@ class TestAlternativeDeals(unittest.TestCase):
             self.assertGreater(deal["est_pl_value"], 0)
             self.assertTrue(deal["source_url"].startswith("http"))
             self.assertTrue(deal["zenmarket_url"].startswith("http"))
+            self.assertTrue(len(deal["search_query_jp"]) > 0)
+            # Ensure links are live search/sniper queries, never dummy single-auction links
+            self.assertIn("zenmarket.jp", deal["zenmarket_url"])
+            self.assertTrue("q=" in deal["zenmarket_url"] or "sellerUrl=" in deal["zenmarket_url"])
+            self.assertNotIn("/auction.aspx?itemCode=", deal["zenmarket_url"])
+            self.assertIn("search", deal["source_url"])
+            self.assertIn("buyee.jp", deal["buyee_url"])
             platforms.add(deal["platform"])
             categories.add(deal["category_id"])
 
