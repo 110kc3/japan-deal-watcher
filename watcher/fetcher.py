@@ -16,76 +16,121 @@ from .config import (
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 
+try:
+    import asyncio
+    from mercapi import Mercapi
+    _HAS_MERCAPI = True
+except ImportError:
+    _HAS_MERCAPI = False
+
+
 class DealFetcher:
-    def __init__(self, rate=DEFAULT_JPY_PLN_RATE):
+    def __init__(self, rate=DEFAULT_JPY_PLN_RATE, enable_mercapi=True):
         self.rate = float(rate)
         self.headers = {"User-Agent": USER_AGENT}
+        self.enable_mercapi = enable_mercapi and _HAS_MERCAPI
+        self.mercapi_client = Mercapi() if self.enable_mercapi else None
+        self._loop = None
+
+    def _get_loop(self):
+        if self._loop is None or self._loop.is_closed():
+            self._loop = asyncio.new_event_loop()
+            asyncio.set_event_loop(self._loop)
+        return self._loop
 
     def fetch_item_info(self, item_id, fallback_info=None, category_id=None):
         """
-        Inspects live Mercari item page, extracts title and price with retry support.
+        Inspects live Mercari item using official/signed API when available,
+        falling back to HTTP scraping. Extracts exact live status: 'on_sale' vs 'sold_out' / 'trading'.
         """
-        url = f"https://jp.mercari.com/item/{item_id}"
-        req = urllib.request.Request(url, headers=self.headers)
-        
         title = fallback_info.get("note", "Przedmiot Mercari") if fallback_info else "Przedmiot Mercari"
         price_jpy = fallback_info.get("target_price_jpy", 0) if fallback_info else 0
         status = "Active"
         image_url = None
 
-        # Try up to 2 attempts with timeout
-        max_attempts = 2
-        for attempt in range(max_attempts):
+        checked_via_mercapi = False
+
+        if self.enable_mercapi and self.mercapi_client:
             try:
-                with urllib.request.urlopen(req, timeout=REQUEST_TIMEOUT) as resp:
-                    html = resp.read().decode("utf-8")
-                    
-                    # Check price
-                    p_match = re.search(r'product:price:amount\"\s*content=\"(\d+)\"', html)
-                    if p_match:
-                        price_jpy = int(p_match.group(1))
+                loop = self._get_loop()
+                item_data = loop.run_until_complete(self.mercapi_client.item(item_id))
+                checked_via_mercapi = True
 
-                    # Check title
-                    t_match = re.search(r'<title>(.*?)</title>', html)
-                    if t_match:
-                        clean_title = t_match.group(1).split("-")[0].strip()
-                        if clean_title and clean_title != "メルカリ":
-                            title = clean_title
-
-                    # Check image
-                    img_match = re.search(r'<meta property=[\"\']og:image[\"\'] content=[\"\']([^\"\']+)[\"\']', html)
-                    if img_match:
-                        image_url = img_match.group(1)
-
-                    # Check sold out status:
-                    # Mercari Japan server-side renders `<meta name="robots" content="noindex..."/>`
-                    # strictly on listings that have been sold out or deactivated.
-                    is_sold = bool(re.search(r'<meta[^>]*robots[^>]*noindex', html, re.IGNORECASE))
-                    if is_sold:
-                        status = "Zakończone / Sprzedane"
-                    elif price_jpy > 0:
-                        status = "Dostępne"
-                    else:
-                        status = "Niedostępne"
-                    break
-
-            except urllib.error.HTTPError as e:
-                if e.code == 404:
-                    logging.warning(f"Item {item_id} returned 404 (Sold / Removed).")
+                if item_data is None:
                     status = "Zakończone / 404"
-                    break
                 else:
-                    logging.warning(f"Item {item_id} HTTP error: {e}")
-                    status = f"Błąd HTTP {e.code}"
-                    if attempt == max_attempts - 1:
-                        break
+                    if item_data.name:
+                        title = item_data.name
+                    if item_data.price:
+                        price_jpy = item_data.price
+                    if item_data.thumbnails:
+                        image_url = item_data.thumbnails[0]
+
+                    raw_status = str(item_data.status).lower()
+                    if "on_sale" in raw_status:
+                        status = "Dostępne"
+                    elif "trading" in raw_status:
+                        status = "W trakcie transakcji"
+                    elif "sold" in raw_status:
+                        status = "Zakończone / Sprzedane"
+                    else:
+                        status = f"Status: {raw_status}"
+
             except Exception as e:
-                if attempt == max_attempts - 1:
-                    logging.warning(f"Could not reach {item_id}: {e}.")
-                    status = "Błąd połączenia"
+                logging.debug(f"Mercapi check for {item_id} failed: {e}. Falling back to HTTP.")
+                checked_via_mercapi = False
+
+        if not checked_via_mercapi:
+            url = f"https://jp.mercari.com/item/{item_id}"
+            req = urllib.request.Request(url, headers=self.headers)
+            max_attempts = 2
+            for attempt in range(max_attempts):
+                try:
+                    with urllib.request.urlopen(req, timeout=REQUEST_TIMEOUT) as resp:
+                        html = resp.read().decode("utf-8")
+                        
+                        # Check price
+                        p_match = re.search(r'product:price:amount\"\s*content=\"(\d+)\"', html)
+                        if p_match:
+                            price_jpy = int(p_match.group(1))
+
+                        # Check title
+                        t_match = re.search(r'<title>(.*?)</title>', html)
+                        if t_match:
+                            clean_title = t_match.group(1).split("-")[0].strip()
+                            if clean_title and clean_title != "メルカリ":
+                                title = clean_title
+
+                        # Check image
+                        img_match = re.search(r'<meta property=[\"\']og:image[\"\'] content=[\"\']([^\"\']+)[\"\']', html)
+                        if img_match:
+                            image_url = img_match.group(1)
+
+                        is_sold = bool(re.search(r'<meta[^>]*robots[^>]*noindex', html, re.IGNORECASE))
+                        if is_sold:
+                            status = "Zakończone / Sprzedane"
+                        elif price_jpy > 0:
+                            status = "Dostępne"
+                        else:
+                            status = "Niedostępne"
+                        break
+
+                except urllib.error.HTTPError as e:
+                    if e.code == 404:
+                        logging.warning(f"Item {item_id} returned 404 (Sold / Removed).")
+                        status = "Zakończone / 404"
+                        break
+                    else:
+                        logging.warning(f"Item {item_id} HTTP error: {e}")
+                        status = f"Błąd HTTP {e.code}"
+                        if attempt == max_attempts - 1:
+                            break
+                except Exception as e:
+                    if attempt == max_attempts - 1:
+                        logging.warning(f"Could not reach {item_id}: {e}.")
+                        status = "Błąd połączenia"
 
         # Calculate landed cost in Poland
-        # Base price JPY + proxy fee
         total_jpy = max(0, price_jpy) + ZENMARKET_FEE_JPY
         base_pln = total_jpy * self.rate
         

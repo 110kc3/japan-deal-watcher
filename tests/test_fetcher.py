@@ -4,7 +4,7 @@ from watcher.fetcher import DealFetcher
 
 class TestFetcher(unittest.TestCase):
     def setUp(self):
-        self.fetcher = DealFetcher(rate=0.025)
+        self.fetcher = DealFetcher(rate=0.025, enable_mercapi=False)
 
     def test_landed_cost_calculation(self):
         # target item: 10,000 JPY

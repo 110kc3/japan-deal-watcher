@@ -14,164 +14,140 @@
       "target_pln_resale": 900,
       "tracked_items": [
         {
-          "id": "m66393976337",
-          "model": "PCH-2000 ZA23",
-          "color": "Aqua Blue",
-          "target_price_jpy": 16000,
-          "est_pl_value": 880,
-          "note": "Super okazja cenowa, Slim w poszukiwanym kolorze Aqua Blue"
-        },
-        {
-          "id": "m37358258622",
-          "model": "PCH-2000 ZA23",
-          "color": "Aqua Blue",
-          "target_price_jpy": 16700,
-          "est_pl_value": 890,
-          "note": "Zadbana konsola PS Vita Slim Aqua Blue"
-        },
-        {
-          "id": "m80245760333",
-          "model": "PCH-2000 ZA23",
-          "color": "Aqua Blue",
-          "target_price_jpy": 18400,
-          "est_pl_value": 900,
-          "note": "Sprawdzona konsola PCH-2000 Aqua Blue"
-        },
-        {
-          "id": "m89938668341",
-          "model": "PCH-2000 ZA23",
-          "color": "Aqua Blue",
-          "target_price_jpy": 19999,
-          "est_pl_value": 950,
-          "note": "Piękny stan Bi-hin, Aqua Blue Wi-Fi"
-        },
-        {
-          "id": "m40874391205",
-          "model": "PCH-1000 ZA04",
-          "color": "Sapphire Blue OLED",
-          "target_price_jpy": 17777,
-          "est_pl_value": 950,
-          "note": "Nasycona matryca Samsung OLED w szafirowym błękicie"
-        },
-        {
-          "id": "m42691856798",
-          "model": "PCH-1000 ZA04",
-          "color": "Sapphire Blue Box CIB",
-          "target_price_jpy": 32980,
-          "est_pl_value": 1350,
-          "note": "Stan kolekcjonerski CIB z kompletnym fabrycznym pudełkiem"
-        },
-        {
-          "id": "m33337627533",
-          "model": "PCH-2000 ZA24",
-          "color": "Neon Orange",
-          "target_price_jpy": 22500,
-          "est_pl_value": 980,
-          "note": "Sprawna konsola PS Vita Slim w jaskrawym neonowym pomarańczu"
-        },
-        {
-          "id": "m54226226221",
-          "model": "PCH-2000 ZA24",
-          "color": "Neon Orange",
-          "target_price_jpy": 22000,
-          "est_pl_value": 980,
-          "note": "W zestawie z grami, stan bardzo dobry"
-        },
-        {
-          "id": "m23811595029",
-          "model": "PCH-2000 ZA24",
-          "color": "Neon Orange Box CIB",
-          "target_price_jpy": 26500,
-          "est_pl_value": 1150,
-          "note": "Stan gabinetowy (Goku-bi-hin) w pełnym boxie"
+          "id": "m49076044020",
+          "model": "PCH-2000 Slim",
+          "color": "Black",
+          "target_price_jpy": 13000,
+          "est_pl_value": 750,
+          "note": "Najtańsza sprawna PS Vita 2000 Slim na rynku, stan bdb"
         },
         {
           "id": "m20893563232",
-          "model": "PCH-2000 ZA20",
+          "model": "PCH-2000 Slim",
           "color": "Metallic Red",
           "target_price_jpy": 15999,
-          "est_pl_value": 850,
-          "note": "Sprawny Slim w metalicznej czerwieni"
+          "est_pl_value": 880,
+          "note": "Świetny wariant Metallic Red Slim, sprawna konsola"
         },
         {
-          "id": "m34256656234",
-          "model": "PCH-2000 ZA20",
-          "color": "Metallic Red",
-          "target_price_jpy": 18500,
-          "est_pl_value": 880,
-          "note": "Bardzo zadbany stan wizualny"
+          "id": "m64989059155",
+          "model": "PCH-2000 Slim",
+          "color": "Light Blue / White",
+          "target_price_jpy": 16000,
+          "est_pl_value": 900,
+          "note": "Dwukolorowa edycja Light Blue & White Slim"
+        },
+        {
+          "id": "m42326406700",
+          "model": "PCH-2000 Slim",
+          "color": "Blue",
+          "target_price_jpy": 17000,
+          "est_pl_value": 890,
+          "note": "PS Vita Slim w kolorze niebieskim, stan ładny"
+        },
+        {
+          "id": "m64627979696",
+          "model": "PCH-2000 Slim",
+          "color": "Glacier White",
+          "target_price_jpy": 17333,
+          "est_pl_value": 850,
+          "note": "Czysta biała wersja Glacier White Slim"
+        },
+        {
+          "id": "m33337627533",
+          "model": "PCH-2000 Slim",
+          "color": "Neon Orange",
+          "target_price_jpy": 22500,
+          "est_pl_value": 1050,
+          "note": "Rzadki japoński kolor Neon Orange, wysoka marża w PL"
         },
         {
           "id": "m18827541996",
-          "model": "PCH-2000 ZA22",
+          "model": "PCH-2000 Slim (CIB)",
           "color": "Glacier White",
           "target_price_jpy": 22500,
-          "est_pl_value": 950,
-          "note": "W komplecie z oryginalnym pudełkiem, sprawdzona"
-        },
-        {
-          "id": "m24868044274",
-          "model": "PCH-2000 ZA22",
-          "color": "Glacier White MINT",
-          "target_price_jpy": 28080,
-          "est_pl_value": 1150,
-          "note": "Stan jak nowy (未使用級) Glacier White"
-        },
-        {
-          "id": "m96154365165",
-          "model": "PCH-1000 ZA03",
-          "color": "Cosmic Red OLED",
-          "target_price_jpy": 17444,
-          "est_pl_value": 900,
-          "note": "Klasyczny Fat z nasyconą matrycą Samsung OLED"
+          "est_pl_value": 1050,
+          "note": "Biała Slimka w oryginalnym pudełku z papierami"
         },
         {
           "id": "m84038276319",
-          "model": "PCH-1000 ZA03",
-          "color": "Cosmic Red OLED",
+          "model": "PCH-1000 OLED",
+          "color": "Cosmic Red",
           "target_price_jpy": 24000,
-          "est_pl_value": 1050,
-          "note": "Zadbany egzemplarz OLED z akcesoriami"
+          "est_pl_value": 1100,
+          "note": "Piękny ekran OLED, rzadka czerwień Cosmic Red"
+        },
+        {
+          "id": "m42691856798",
+          "model": "PCH-1000 OLED (CIB)",
+          "color": "Sapphire Blue",
+          "target_price_jpy": 32980,
+          "est_pl_value": 1350,
+          "note": "Kolekcjonerski OLED Sapphire Blue w oryginalnym kartonie"
         }
       ]
     },
     {
       "id": "psp_handheld",
-      "name": "Sony PlayStation Portable (PSP-3000)",
+      "name": "Sony PlayStation Portable (PSP-2000 / PSP-3000)",
       "battery_type": "li-ion",
-      "target_pln_resale": 480,
+      "target_pln_resale": 550,
       "tracked_items": [
         {
-          "id": "m76331551891",
-          "model": "PSP-3000 PB",
+          "id": "m72865261018",
+          "model": "PSP-2000 Piano Black",
           "color": "Piano Black",
-          "target_price_jpy": 9500,
-          "est_pl_value": 460,
-          "note": "Sprawdzona konsola Sony PSP-3000"
-        },
-        {
-          "id": "m44094807472",
-          "model": "PSP-3000",
-          "color": "Standard",
-          "target_price_jpy": 10000,
-          "est_pl_value": 480,
-          "note": "Konsola PSP-3000 w pełni przetestowana (動作品)"
-        },
-        {
-          "id": "m30583549097",
-          "model": "PSP-3000 VB",
-          "color": "Vibrant Blue (Bez Baterii)",
-          "target_price_jpy": 9999,
-          "est_pl_value": 500,
-          "note": "Sprawdzona konsola bez baterii (0% ryzyka w wysyłce, czysta oszczędność)"
-        },
-        {
-          "id": "m72451152933",
-          "model": "PSP-3000 RR",
-          "color": "Radiant Red",
-          "target_price_jpy": 13000,
+          "target_price_jpy": 8280,
           "est_pl_value": 520,
-          "note": "Przepiękna metaliczna czerwień, sprawdzona"
+          "note": "Stan idealny, nowa bateria w zestawie, 100% sprawny"
+        },
+        {
+          "id": "m98291958915",
+          "model": "PSP-2000 Felicia Blue",
+          "color": "Felicia Blue",
+          "target_price_jpy": 8980,
+          "est_pl_value": 580,
+          "note": "Jasnoniebieski kolor Felicia Blue, nowa bateria, stan bdb"
+        },
+        {
+          "id": "m38631327894",
+          "model": "PSP-2000 Mint Green",
+          "color": "Mint Green",
+          "target_price_jpy": 8980,
+          "est_pl_value": 590,
+          "note": "Pastelowy zielony Mint Green, rzadki w Europie, bdb stan"
+        },
+        {
+          "id": "m22963157222",
+          "model": "PSP-2000 Vibrant Blue",
+          "color": "Vibrant Blue",
+          "target_price_jpy": 8980,
+          "est_pl_value": 580,
+          "note": "Głęboki błękit Vibrant Blue, nowa bateria, sprawny"
+        },
+        {
+          "id": "m59278200552",
+          "model": "PSP-2000 Ice Silver",
+          "color": "Ice Silver",
+          "target_price_jpy": 8980,
+          "est_pl_value": 550,
+          "note": "Srebrny Ice Silver, nowa bateria, ładna obudowa"
+        },
+        {
+          "id": "m42217747974",
+          "model": "PSP-2000 Ceramic White",
+          "color": "Ceramic White",
+          "target_price_jpy": 8980,
+          "est_pl_value": 560,
+          "note": "Biała konsola Ceramic White, nowa bateria, sprawna"
+        },
+        {
+          "id": "m63683062191",
+          "model": "PSP-3000 (CIB)",
+          "color": "Piano Black",
+          "target_price_jpy": 11000,
+          "est_pl_value": 690,
+          "note": "Ekran bez scanlines PSP-3000 w oryginalnym kartonie"
         }
       ]
     },
@@ -179,159 +155,127 @@
       "id": "psp_games_mix",
       "name": "Pakiety Gier Retro PSP (Mix UMD まとめ)",
       "battery_type": "none",
-      "target_pln_resale": 500,
+      "target_pln_resale": 450,
       "tracked_items": [
-        {
-          "id": "m97540976496",
-          "model": "PSP UMD 20 sztuk",
-          "color": "Mix 20 Gier",
-          "target_price_jpy": 2780,
-          "est_pl_value": 500,
-          "note": "Mega pakiet 20 gier (Monster Hunter, RPG, bijatyki) - 3.45 zł za grę!"
-        },
         {
           "id": "m33182746717",
           "model": "PSP UMD 8 sztuk",
           "color": "Mix 8 Gier",
           "target_price_jpy": 1000,
-          "est_pl_value": 200,
-          "note": "Pakiet 8 gier za 25 zł - idealne dopełnienie paczki"
+          "est_pl_value": 240,
+          "note": "Tani pakiet 8 gier UMD, cena za grę ~3 zł w JP!"
+        },
+        {
+          "id": "m60765014627",
+          "model": "PSP UMD 10 sztuk",
+          "color": "Mix 10 Gier",
+          "target_price_jpy": 1399,
+          "est_pl_value": 280,
+          "note": "Zestaw 10 gier UMD, świetny dopełniacz do paczki (0% Li-Ion)"
+        },
+        {
+          "id": "m95924617150",
+          "model": "PSP UMD 10 sztuk",
+          "color": "Mix 10 Gier",
+          "target_price_jpy": 2080,
+          "est_pl_value": 320,
+          "note": "Zestaw 10 gier UMD, popularne serie japońskie"
+        },
+        {
+          "id": "m70453155857",
+          "model": "PSP UMD 5 sztuk",
+          "color": "Gundam & G-Gen",
+          "target_price_jpy": 2200,
+          "est_pl_value": 250,
+          "note": "Pakiet 5 gier UMD mech/anime Gundam"
+        },
+        {
+          "id": "m20093535366",
+          "model": "PSP UMD 17 sztuk (CIB)",
+          "color": "17 Gier Box",
+          "target_price_jpy": 2600,
+          "est_pl_value": 480,
+          "note": "Aż 17 gier w pudełkach z okładkami, potężna marża jednostkowa"
+        },
+        {
+          "id": "m42611850999",
+          "model": "PSP UMD 10 sztuk",
+          "color": "Monster Hunter/Musou",
+          "target_price_jpy": 2620,
+          "est_pl_value": 350,
+          "note": "Pakiet z Monster Hunter, Super Robot Wars i Dynasty Warriors"
         },
         {
           "id": "m31232552895",
           "model": "PSP UMD 10 sztuk CIB",
           "color": "10 Gier w pudełkach",
           "target_price_jpy": 4899,
-          "est_pl_value": 350,
-          "note": "Kompletne gry z instrukcjami i oryginalnymi boxami"
-        },
-        {
-          "id": "m70453155857",
-          "model": "PSP UMD 5 sztuk Gundam/etc",
-          "color": "5 Gier",
-          "target_price_jpy": 2200,
-          "est_pl_value": 150,
-          "note": "Gry mecha anime Gundam / akcja"
+          "est_pl_value": 420,
+          "note": "Gry retro CIB z instrukcjami, bardzo poszukiwane na Allegro"
         }
       ]
     },
     {
       "id": "retro_consoles_no_battery",
-      "name": "Konsole Retro (0% Baterii / Zasilanie AA)",
-      "battery_type": "dry-cell",
-      "target_pln_resale": 500,
-      "tracked_items": [
-        {
-          "id": "m91924534768",
-          "model": "Sega Saturn HST-3200",
-          "color": "Szary NTSC-J 60Hz",
-          "target_price_jpy": 10000,
-          "est_pl_value": 480,
-          "note": "Ikona gier 2D w 60Hz, idealna pod kartridż SAROO"
-        },
-        {
-          "id": "m77603603117",
-          "model": "Sega Saturn HST-3220",
-          "color": "Biały + Pad 3D",
-          "target_price_jpy": 13880,
-          "est_pl_value": 550,
-          "note": "Saturn V2 z analogowym kontrolerem pod Nights"
-        },
-        {
-          "id": "m67157383574",
-          "model": "Sega Dreamcast HKT-3000",
-          "color": "Biały MIL-CD",
-          "target_price_jpy": 10599,
-          "est_pl_value": 500,
-          "note": "Czyta kopie zapasowe MIL-CD bez modchipów"
-        },
-        {
-          "id": "m54270557163",
-          "model": "Sega Dreamcast HKT-3000",
-          "color": "Stan BDB",
-          "target_price_jpy": 11500,
-          "est_pl_value": 520,
-          "note": "Sprawdzona, czysta obudowa bez żółknięcia"
-        },
-        {
-          "id": "m48063236274",
-          "model": "Bandai WonderSwan Classic",
-          "color": "Czarno-Biały (1x AA)",
-          "target_price_jpy": 3300,
-          "est_pl_value": 260,
-          "note": "Konsola twórcy Game Boya na jedną baterię AA"
-        },
-        {
-          "id": "m50180450020",
-          "model": "Bandai WonderSwan Color",
-          "color": "Pearl Pink Box CIB (1x AA)",
-          "target_price_jpy": 9999,
-          "est_pl_value": 550,
-          "note": "Unikat kolekcjonerski w oryginalnym japońskim boxie"
-        },
-        {
-          "id": "m90627895232",
-          "model": "PlayStation 2 Slim SCPH-90000",
-          "color": "Ceramic White",
-          "target_price_jpy": 8480,
-          "est_pl_value": 480,
-          "note": "Ostatnia rewizja z wbudowanym zasilaczem 230V"
-        },
-        {
-          "id": "m20551217997",
-          "model": "Nintendo GameCube DOL-001",
-          "color": "Violet",
-          "target_price_jpy": 5580,
-          "est_pl_value": 380,
-          "note": "Wyjście Digital AV Out pod HDMI i modchip PicoBoot"
-        },
-        {
-          "id": "m84849739765",
-          "model": "Nintendo GameCube DOL-001",
-          "color": "Black (Czarny)",
-          "target_price_jpy": 7480,
-          "est_pl_value": 450,
-          "note": "Sprawdzona konsola DOL-001 w kolorze czarnym"
-        },
-        {
-          "id": "m16656301506",
-          "model": "Nintendo GameCube DOL-001",
-          "color": "Spice Orange",
-          "target_price_jpy": 11000,
-          "est_pl_value": 520,
-          "note": "Unikatowy japoński kolor Spice Orange, sprawny"
-        }
-      ]
-    },
-    {
-      "id": "analog_lenses",
-      "name": "Japońskie Obiektywy Manualne (0% Baterii)",
+      "name": "Konsole Stacjonarne Retro (0% Baterii Li-Ion)",
       "battery_type": "none",
-      "target_pln_resale": 400,
+      "target_pln_resale": 550,
       "tracked_items": [
         {
-          "id": "m28154012236",
-          "model": "SMC Pentax-M 50mm f/1.4",
-          "color": "Mocowanie K",
-          "target_price_jpy": 2900,
-          "est_pl_value": 420,
-          "note": "Jasna portretówka, czyste soczewki bez grzyba"
-        },
-        {
-          "id": "m40636967720",
-          "model": "PENTAX S-M-C Takumar 50mm f/1.4",
-          "color": "Gwint M42",
-          "target_price_jpy": 8700,
+          "id": "m39636324812",
+          "model": "Nintendo GameCube",
+          "color": "Spice Orange",
+          "target_price_jpy": 5000,
           "est_pl_value": 450,
-          "note": "Legendarna plastyka obrazu i kremowy bokeh"
+          "note": "Kultowy kolor Spice Orange, konsola stacjonarna 0% Li-Ion"
         },
         {
-          "id": "m68587045346",
-          "model": "Nintendo Pokemon GB/GBC/GBA",
-          "color": "Pakiet 10 gier",
-          "target_price_jpy": 10000,
+          "id": "m54041656104",
+          "model": "Nintendo GameCube + Pad",
+          "color": "Indigo Violet",
+          "target_price_jpy": 7000,
+          "est_pl_value": 520,
+          "note": "Fioletowy GameCube z oryginalnym padem Nintendo"
+        },
+        {
+          "id": "m30893948691",
+          "model": "Nintendo GameCube DOL-001",
+          "color": "DOL-001 Zestaw",
+          "target_price_jpy": 7500,
+          "est_pl_value": 580,
+          "note": "Model DOL-001 z portem Digital AV Out, kable, zasilacz, pad"
+        },
+        {
+          "id": "m49466595486",
+          "model": "PlayStation 2 Slim",
+          "color": "SCPH-75000",
+          "target_price_jpy": 4000,
+          "est_pl_value": 320,
+          "note": "Klasyczna mała PS2 Slim, idealna do wysyłki (lekka, 0% baterii)"
+        },
+        {
+          "id": "m51092364226",
+          "model": "PlayStation 2 Twin Pack",
+          "color": "2x PS2 Slim",
+          "target_price_jpy": 7200,
           "est_pl_value": 550,
-          "note": "Pakiet 10 japońskich kartridży Pokemon"
+          "note": "Dwupak konsol PS2 Slim w jednej cenie"
+        },
+        {
+          "id": "m84092254693",
+          "model": "GameCube Silver + SFC",
+          "color": "Zestaw 2 konsol",
+          "target_price_jpy": 6900,
+          "est_pl_value": 580,
+          "note": "Kombi: GameCube Silver + Super Famicom w jednym locie"
+        },
+        {
+          "id": "m59927018070",
+          "model": "GameCube Orange + SFC",
+          "color": "Zestaw 2 konsol",
+          "target_price_jpy": 8300,
+          "est_pl_value": 650,
+          "note": "Kombi: GameCube Orange + Super Famicom z padami"
         }
       ]
     },
@@ -339,119 +283,183 @@
       "id": "ps1_consoles",
       "name": "Sony PlayStation 1 & PSone (0% Baterii)",
       "battery_type": "none",
-      "target_pln_resale": 350,
+      "target_pln_resale": 500,
       "tracked_items": [
         {
-          "id": "m45409824978",
-          "model": "PSone SCPH-100",
-          "color": "Biały Slim",
-          "target_price_jpy": 3000,
-          "est_pl_value": 250,
-          "note": "Kompaktowy PSone w rewelacyjnej cenie"
-        },
-        {
-          "id": "m12340146667",
-          "model": "PS one SCPH-100 Zestaw",
-          "color": "Biały z Padem",
-          "target_price_jpy": 7500,
-          "est_pl_value": 380,
-          "note": "Kompletny zestaw z oryginalnym kontrolerem i kablami"
-        },
-        {
-          "id": "m74926187824",
-          "model": "PS1 Fat SCPH-7000 Box CIB",
+          "id": "m42280425875",
+          "model": "PlayStation 1 SCPH-5000",
           "color": "Szary Klasyk",
-          "target_price_jpy": 10899,
-          "est_pl_value": 520,
-          "note": "Stan kolekcjonerski CIB w pudełku z instrukcjami"
+          "target_price_jpy": 3999,
+          "est_pl_value": 380,
+          "note": "Sprawdzona PS1, 2 kontrolery, 3 karty pamięci w cenie!"
         },
         {
-          "id": "m63306829409",
-          "model": "PS one SCPH-100 + Ekran LCD",
-          "color": "Zestaw z Monitorem Sony",
-          "target_price_jpy": 28000,
-          "est_pl_value": 1350,
-          "note": "Święty Graal: oficjalny dedykowany monitor LCD Sony"
+          "id": "m58392367000",
+          "model": "PSone SCPH-100",
+          "color": "Biały Mini",
+          "target_price_jpy": 5000,
+          "est_pl_value": 390,
+          "note": "Kompaktowa mała PSone, bardzo poszukiwana do kolekcji"
+        },
+        {
+          "id": "m29205121884",
+          "model": "PlayStation 1 SCPH-1000",
+          "color": "Audiofilski RCA",
+          "target_price_jpy": 5555,
+          "est_pl_value": 480,
+          "note": "Legendarny wariant SCPH-1000 z wbudowanymi złoconymi gniazdami RCA"
+        },
+        {
+          "id": "m74990954712",
+          "model": "PSone SCPH-100 Komplet",
+          "color": "Zasilacz + Pad",
+          "target_price_jpy": 6000,
+          "est_pl_value": 450,
+          "note": "PSone z oryginalnym małym zasilaczem Sony i padem, sprawdzona"
+        },
+        {
+          "id": "m35294419328",
+          "model": "PSone SCPH-100 Stan BDB",
+          "color": "Biały Mini",
+          "target_price_jpy": 6880,
+          "est_pl_value": 460,
+          "note": "Czysta, zadbana PSone z kompletem kabli"
+        },
+        {
+          "id": "m67313496694",
+          "model": "PSone SCPH-100 Zestaw",
+          "color": "Biały Mini",
+          "target_price_jpy": 8000,
+          "est_pl_value": 490,
+          "note": "Sprawna konsola PSone z gwarancją działania"
         }
       ]
     },
     {
       "id": "nintendo_retro",
-      "name": "Nintendo Retro: Super Famicom & Game Boy Color (0% Li-Ion)",
-      "battery_type": "dry-cell",
-      "target_pln_resale": 400,
+      "name": "Nintendo Retro: Game Boy & Super Famicom (0% Li-Ion)",
+      "battery_type": "none",
+      "target_pln_resale": 520,
       "tracked_items": [
         {
-          "id": "m40920472377",
-          "model": "Super Famicom SHVC-001",
-          "color": "Szary Klasyk NTSC-J",
-          "target_price_jpy": 2400,
-          "est_pl_value": 260,
-          "note": "Kultowy japoński SNES za grosze, sprawny"
+          "id": "m12606582038",
+          "model": "Game Boy Pocket SFC Edition",
+          "color": "Super Famicom Gray",
+          "target_price_jpy": 8000,
+          "est_pl_value": 550,
+          "note": "Wyjątkowa edycja Pocket w barwach SFC, zasilanie baterie AAA"
         },
         {
-          "id": "m39670684370",
-          "model": "Super Famicom + 2 Pady + 10 Gier",
-          "color": "Mega Zestaw",
-          "target_price_jpy": 11800,
-          "est_pl_value": 650,
-          "note": "Gotowy zestaw retro: 2 kontrolery i 10 japońskich hitów"
+          "id": "m13676623169",
+          "model": "Game Boy Advance SP",
+          "color": "Silver",
+          "target_price_jpy": 8500,
+          "est_pl_value": 520,
+          "note": "GBA SP z podświetlanym ekranem, sprawna konsola"
         },
         {
-          "id": "m87504628450",
-          "model": "Game Boy Color CGB-001",
-          "color": "Turkusowy (2x AA)",
-          "target_price_jpy": 6000,
-          "est_pl_value": 380,
-          "note": "Zasilanie 2x AA, zero baterii litowych, sprawdzony"
-        },
-        {
-          "id": "m17168125308",
-          "model": "Game Boy Color CGB-001",
-          "color": "Czerwony (2x AA)",
-          "target_price_jpy": 7200,
-          "est_pl_value": 380,
-          "note": "Czysty, zadbany egzemplarz w kolorze czerwonym"
-        },
-        {
-          "id": "m91852856485",
-          "model": "Game Boy Color CGB-001",
-          "color": "Czerwony Sprawdzony",
-          "target_price_jpy": 7480,
-          "est_pl_value": 380,
-          "note": "Sprawny Game Boy Color w japońskiej wersji"
+          "id": "m58488820588",
+          "model": "Game Boy Advance SP",
+          "color": "Pearl Blue",
+          "target_price_jpy": 9000,
+          "est_pl_value": 540,
+          "note": "Jasnobłękitny Pearl Blue, sprawny mechanizm klapki"
         },
         {
           "id": "m89166124900",
           "model": "Game Boy Color CGB-001",
-          "color": "Żółty Sprawdzony",
+          "color": "Dandelion Yellow",
           "target_price_jpy": 9300,
-          "est_pl_value": 400,
-          "note": "Zadbana konsola w kolorze żółtym, sprawdzona"
-        },
-        {
-          "id": "m61172887339",
-          "model": "Game Boy Pocket CIB",
-          "color": "Stan Kolekcjonerski",
-          "target_price_jpy": 22000,
-          "est_pl_value": 750,
-          "note": "Unikat w pudełku z papierami (極美品 未使用品)"
-        },
-        {
-          "id": "m71441943955",
-          "model": "AV Famicom HVC-101",
-          "color": "New Famicom AV",
-          "target_price_jpy": 10100,
           "est_pl_value": 550,
-          "note": "Ostatnia rewizja NES/Famicoma z fabrycznym wyjściem AV chinch"
+          "note": "Żółty GBC, 100% sprawny dźwięk i ekran, zasilanie AA"
         },
         {
-          "id": "m63831993174",
-          "model": "Pokemon Gold / Silver / Crystal",
-          "color": "Pakiet 3 gier",
-          "target_price_jpy": 3000,
-          "est_pl_value": 250,
-          "note": "3 legendarne gry Pokemon 2. generacji na Game Boya"
+          "id": "m66035146829",
+          "model": "Game Boy Advance SP",
+          "color": "AGS-001",
+          "target_price_jpy": 9500,
+          "est_pl_value": 530,
+          "note": "Konsola GBA SP, czyta kartridże bez zarzutu"
+        },
+        {
+          "id": "m85716669611",
+          "model": "Zestaw Gier Game Boy",
+          "color": "Pokémon Green + inne",
+          "target_price_jpy": 7900,
+          "est_pl_value": 480,
+          "note": "Zestaw kultowych japońskich gier z Pokémon Green na czele"
+        },
+        {
+          "id": "m39670684370",
+          "model": "Super Famicom SHVC-001",
+          "color": "Konsola + 2 Pady + 10 Gier",
+          "target_price_jpy": 11800,
+          "est_pl_value": 680,
+          "note": "Pełen gotowy zestaw do grania z 10 grami retro, czyszczony"
+        }
+      ]
+    },
+    {
+      "id": "analog_lenses",
+      "name": "Japońskie Obiektywy Manualne (0% Baterii)",
+      "battery_type": "none",
+      "target_pln_resale": 450,
+      "tracked_items": [
+        {
+          "id": "m28154012236",
+          "model": "SMC Pentax-M 50mm f/1.4",
+          "color": "Mocowanie K",
+          "target_price_jpy": 2900,
+          "est_pl_value": 420,
+          "note": "Absolutny hit cenowy za jasny obiektyw f/1.4, brak grzyba/mgły"
+        },
+        {
+          "id": "m32363698411",
+          "model": "SMC Takumar 50mm f/1.4",
+          "color": "Mocowanie M42",
+          "target_price_jpy": 5500,
+          "est_pl_value": 450,
+          "note": "Serwisowany egzemplarz: żółknięcie torowe usunięte promieniami UV!"
+        },
+        {
+          "id": "m40640196321",
+          "model": "SMC Takumar 50mm f/1.4 + Hood",
+          "color": "Mocowanie M42",
+          "target_price_jpy": 6000,
+          "est_pl_value": 480,
+          "note": "Oryginalna osłona przeciwsłoneczna i futerał w zestawie"
+        },
+        {
+          "id": "m59019035458",
+          "model": "SMC Pentax-M 50mm f/1.4 Cleaned",
+          "color": "Mocowanie K",
+          "target_price_jpy": 6500,
+          "est_pl_value": 460,
+          "note": "Soczewki wyczyszczone, przysłona sucha, pierścień płynny"
+        },
+        {
+          "id": "m64964264080",
+          "model": "SMC Pentax 50mm f/1.4 Classic",
+          "color": "Mocowanie K",
+          "target_price_jpy": 6980,
+          "est_pl_value": 470,
+          "note": "Klasyczny japoński portretowy obiektyw stałoogniskowy"
+        },
+        {
+          "id": "m69413457658",
+          "model": "SMC Pentax-A 50mm f/1.4",
+          "color": "Mocowanie K (Wersja A)",
+          "target_price_jpy": 7555,
+          "est_pl_value": 550,
+          "note": "Poszukiwana wersja ze stykiem automatyki przysłony (pozycja A)"
+        },
+        {
+          "id": "m40636967720",
+          "model": "S-M-C Takumar 50mm f/1.4 Mint",
+          "color": "Mocowanie M42",
+          "target_price_jpy": 8700,
+          "est_pl_value": 520,
+          "note": "Stan kolekcjonerski Mint, powłoki antyrefleksyjne nienaruszone"
         }
       ]
     }
