@@ -67,6 +67,7 @@ class TestMarkdownGenerator(unittest.TestCase):
         self.assertIn("+440.00 zł", md)
         self.assertIn("ZenMarket 1-Click", md)
         self.assertIn("Optymalny Koszyk Konsolidacyjny", md)
+        self.assertIn("AUCTION_SNIPING_GUIDE.md", md)
 
 if __name__ == "__main__":
     unittest.main()

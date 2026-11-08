@@ -10,6 +10,7 @@ from watcher.config import (
     CURRENT_DEALS_FILE,
     YAHOO_DEALS_FILE,
     YAHOO_MD_FILE,
+    SNIPER_GUIDE_MD_FILE,
     BASE_DIR
 )
 from watcher.currency import get_live_rates
@@ -17,6 +18,7 @@ from watcher.fetcher import DealFetcher
 from watcher.consolidation import ConsolidationTracker
 from watcher.markdown_generator import MarkdownGenerator
 from watcher.alternative_generator import AlternativeDealsGenerator
+from watcher.sniper_guide_generator import SniperGuideGenerator
 
 def main():
     print("=" * 60)
@@ -89,6 +91,19 @@ def main():
         with open(YAHOO_MD_FILE, "w", encoding="utf-8") as f:
             f.write(yahoo_md_content)
         print(f"📄 Successfully generated and updated {YAHOO_MD_FILE} ({len(yahoo_deals)} alternative deals)")
+
+        # 7. Generate AUCTION_SNIPING_GUIDE.md (Tactical sniping masterclass & hard caps)
+        sniper_generator = SniperGuideGenerator(
+            raw_deals=yahoo_deals,
+            timeline_status=timeline,
+            rate=rate_jpy,
+            rate_eur=rate_eur,
+            is_live_rate=is_live_jpy
+        )
+        sniper_guide_content = sniper_generator.generate()
+        with open(SNIPER_GUIDE_MD_FILE, "w", encoding="utf-8") as f:
+            f.write(sniper_guide_content)
+        print(f"📄 Successfully generated and updated {SNIPER_GUIDE_MD_FILE} (Tactical Sniping Guide)")
 
     print("=" * 60)
 

@@ -63,6 +63,7 @@ class MarkdownGenerator:
                   "![Update Cycle](https://img.shields.io/badge/Cycle-Hourly%20(1h)-purple)")
         md.append("")
         md.append("> 🔨 **Alternatywne rynki:** Sprawdź dedykowany katalog licytacji i ofert ze sklepów retro: [**YAHOO_AUCTIONS_DEALS.md** (Yahoo! Auctions, Surugaya, Hard-Off)](YAHOO_AUCTIONS_DEALS.md)  ")
+        md.append("> 🎯 **Taktyka Snajpera i Ceny Końcowe:** Sprawdź twarde limity licytacji w ostatnich minutach: [**AUCTION_SNIPING_GUIDE.md** (Poradnik Snajpera i Ceny Końcowe)](AUCTION_SNIPING_GUIDE.md)  ")
         md.append("> 📊 **Obsidian Vault:** [2026-11-07-ps-vita-blue-market-report.md](file:///home/borg/docker/obsidian/vault/20-reports/adhoc/2026-11-07-ps-vita-blue-market-report.md)")
         md.append("")
         md.append("---")

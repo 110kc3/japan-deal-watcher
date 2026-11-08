@@ -124,7 +124,7 @@ class AlternativeDealsGenerator:
                   f"![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-{days_rem}%20Days%20Left-orange) "
                   "![Sniper Bidding](https://img.shields.io/badge/ZenMarket-Automated%20Sniper-brightgreen)")
         md.append("")
-        md.append("⬅ **Nawigacja:** [Wróć do Głównego Dashboardu Mercari (README.md)](README.md) · [Kompleksowy Raport Rynkowy w Obsidian](file:///home/borg/docker/obsidian/vault/20-reports/adhoc/2026-11-07-ps-vita-blue-market-report.md)")
+        md.append("⬅ **Nawigacja:** [Wróć do Głównego Dashboardu Mercari (README.md)](README.md) · [🎯 Poradnik Snajpera i Ceny Końcowe (AUCTION_SNIPING_GUIDE.md)](AUCTION_SNIPING_GUIDE.md) · [Kompleksowy Raport Rynkowy w Obsidian](file:///home/borg/docker/obsidian/vault/20-reports/adhoc/2026-11-07-ps-vita-blue-market-report.md)")
         md.append("")
         md.append("---")
         md.append("")

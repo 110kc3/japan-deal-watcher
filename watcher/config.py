@@ -9,6 +9,7 @@ WATCHLIST_FILE = DATA_DIR / "watchlist.json"
 CURRENT_DEALS_FILE = DATA_DIR / "current_deals.json"
 YAHOO_DEALS_FILE = DATA_DIR / "yahoo_deals.json"
 YAHOO_MD_FILE = BASE_DIR / "YAHOO_AUCTIONS_DEALS.md"
+SNIPER_GUIDE_MD_FILE = BASE_DIR / "AUCTION_SNIPING_GUIDE.md"
 
 # NBP reference rates & tax parameters
 DEFAULT_JPY_PLN_RATE = 0.024832  # 100 JPY ≈ 2.48 PLN

@@ -51,7 +51,7 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add README.md YAHOO_AUCTIONS_DEALS.md data/current_deals.json
+          git add README.md YAHOO_AUCTIONS_DEALS.md AUCTION_SNIPING_GUIDE.md data/current_deals.json
           git diff --staged --quiet || (
             git commit -m "chore(deals): update live deals dashboard & 60-day storage countdown [skip ci]"
             git pull --rebase --autostash origin main

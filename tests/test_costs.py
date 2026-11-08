@@ -45,5 +45,16 @@ class TestCosts(unittest.TestCase):
         # landed_cost = 28.0 + 20.0 + 1.68 + 11.04 = 60.72 PLN
         self.assertEqual(res["landed_cost_pln"], 60.72)
 
+    def test_calculate_max_sniper_bid(self):
+        from watcher.costs import calculate_max_sniper_bid
+        rate_jpy = 0.024832
+        rate_eur = 4.35
+        # 890 PLN market value, ps_vita, 30% target ROI
+        res = calculate_max_sniper_bid(890.0, "ps_vita", target_roi_pct=30.0, rate_jpy=rate_jpy, rate_eur=rate_eur)
+        self.assertGreater(res["max_bid_jpy"], 10000)
+        self.assertLessEqual(res["landed_cost_at_cap"], 890.0 / 1.30 + 1.0) # tolerance due to 100 JPY rounding
+        self.assertGreaterEqual(res["guaranteed_roi_pct"], 30.0)
+        self.assertGreater(res["guaranteed_margin_pln"], 200.0)
+
 if __name__ == "__main__":
     unittest.main()

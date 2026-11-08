@@ -103,6 +103,7 @@ class TestAlternativeDeals(unittest.TestCase):
         self.assertIn("Lot 40 gier PSP UMD", md)
         self.assertIn("Snajper ZenMarket (Live Aukcje)", md)
         self.assertIn("Surugaya w ZenMarket (Live)", md)
+        self.assertIn("AUCTION_SNIPING_GUIDE.md", md)
 
     def test_yahoo_deals_json_integrity(self):
         self.assertTrue(YAHOO_DEALS_FILE.exists(), f"Missing {YAHOO_DEALS_FILE}")
