@@ -17,7 +17,7 @@
           "id": "m49076044020",
           "model": "PCH-2000 Slim",
           "color": "Black",
-          "target_price_jpy": 13000,
+          "target_price_jpy": 16000,
           "est_pl_value": 750,
           "note": "Najtańsza sprawna PS Vita 2000 Slim na rynku, stan bdb"
         },
@@ -350,36 +350,12 @@
           "note": "Wyjątkowa edycja Pocket w barwach SFC, zasilanie baterie AAA"
         },
         {
-          "id": "m13676623169",
-          "model": "Game Boy Advance SP",
-          "color": "Silver",
-          "target_price_jpy": 8500,
-          "est_pl_value": 520,
-          "note": "GBA SP z podświetlanym ekranem, sprawna konsola"
-        },
-        {
-          "id": "m58488820588",
-          "model": "Game Boy Advance SP",
-          "color": "Pearl Blue",
-          "target_price_jpy": 9000,
-          "est_pl_value": 540,
-          "note": "Jasnobłękitny Pearl Blue, sprawny mechanizm klapki"
-        },
-        {
           "id": "m89166124900",
           "model": "Game Boy Color CGB-001",
           "color": "Dandelion Yellow",
           "target_price_jpy": 9300,
           "est_pl_value": 550,
           "note": "Żółty GBC, 100% sprawny dźwięk i ekran, zasilanie AA"
-        },
-        {
-          "id": "m66035146829",
-          "model": "Game Boy Advance SP",
-          "color": "AGS-001",
-          "target_price_jpy": 9500,
-          "est_pl_value": 530,
-          "note": "Konsola GBA SP, czyta kartridże bez zarzutu"
         },
         {
           "id": "m85716669611",
@@ -396,6 +372,30 @@
           "target_price_jpy": 11800,
           "est_pl_value": 680,
           "note": "Pełen gotowy zestaw do grania z 10 grami retro, czyszczony"
+        },
+        {
+          "id": "m82785046364",
+          "model": "Game Boy Advance SP",
+          "color": "Pearl Green",
+          "target_price_jpy": 9500,
+          "est_pl_value": 580,
+          "note": "Rzadki pastelowy Pearl Green, 100% sprawny mechanizm"
+        },
+        {
+          "id": "m70099354764",
+          "model": "Game Boy Advance SP",
+          "color": "Azurite Blue",
+          "target_price_jpy": 11000,
+          "est_pl_value": 620,
+          "note": "GBA SP w kolorze Azurite Blue, ładny stan"
+        },
+        {
+          "id": "m67708364696",
+          "model": "Game Boy Advance SP Komplet",
+          "color": "Blue + Ładowarka",
+          "target_price_jpy": 11000,
+          "est_pl_value": 640,
+          "note": "Sprawny GBA SP w zestawie z oryginalną ładowarką"
         }
       ]
     },
