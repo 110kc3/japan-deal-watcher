@@ -32,7 +32,9 @@ CATEGORY_SHIPPING_SHARES = {
     "nintendo_retro": 40.0,           # ~150g GBC to 800g Super Famicom
     "analog_lenses": 25.0,            # ~200g prime lens
     "ps5_limited_controllers": 30.0,  # ~280g DualSense controller
-    "ps_retro_limited_controllers": 30.0 # ~210-280g DualShock 1-4 controller
+    "ps_retro_limited_controllers": 30.0, # ~210-280g DualShock 1-4 controller
+    "ps_limited_consoles": 60.0,       # ~1.2-3.0kg PS1-PS5 special edition console
+    "film_cameras_point_shoot": 25.0   # ~180-280g 35mm compact point-and-shoot camera
 }
 DEFAULT_SHIPPING_SHARE_PLN = 30.0
 

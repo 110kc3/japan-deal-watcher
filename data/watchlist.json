@@ -669,6 +669,238 @@
           "battery_type": "none"
         }
       ]
+    },
+    {
+      "id": "ps_limited_consoles",
+      "name": "Limitowane Konsole PlayStation PS1-PS5 (Edycje Specjalne)",
+      "battery_type": "none",
+      "target_pln_resale": 1200,
+      "tracked_items": [
+        {
+          "id": "m72172383528",
+          "model": "PSone COMBO SCPH-130 (Zintegrowany 5\" LCD Sony)",
+          "color": "Biały Mini + Doczepiany Ekran LCD",
+          "target_price_jpy": 25800,
+          "est_pl_value": 1600,
+          "note": "Kultowy zestaw Combo z oficjalnym 5-calowym ekranem LCD Sony, sprawdzony 100%, 0% Li-Ion",
+          "battery_type": "none"
+        },
+        {
+          "id": "m43232873153",
+          "model": "PlayStation 2 SCPH-37000 Zen Black",
+          "color": "Zen Black (Dymny Przezroczysty ze Złotym Logo)",
+          "target_price_jpy": 7780,
+          "est_pl_value": 650,
+          "note": "Rzadki japoński wariant Zen Black z oryginalnym padem, piękny stan, 0% Li-Ion",
+          "battery_type": "none"
+        },
+        {
+          "id": "m17336885424",
+          "model": "PlayStation 2 SCPH-39000 TB Toy's Blue",
+          "color": "Toy's Blue (Przezroczysty Lazurowy Błękit)",
+          "target_price_jpy": 8980,
+          "est_pl_value": 750,
+          "note": "Limitowana edycja Toy's Blue, wyczyszczona, sprawdzona 100%, 0% Li-Ion",
+          "battery_type": "none"
+        },
+        {
+          "id": "m68942378439",
+          "model": "PlayStation 2 SCPH-37000 Ocean Blue",
+          "color": "Ocean Blue (Głęboki Błękit Szklisty)",
+          "target_price_jpy": 15000,
+          "est_pl_value": 880,
+          "note": "W pełni sprawna konsola Ocean Blue, kultowa poszukiwana przezroczysta obudowa, 0% Li-Ion",
+          "battery_type": "none"
+        },
+        {
+          "id": "m31444611493",
+          "model": "PlayStation 2 SCPH-50000 Sakura Pink",
+          "color": "Sakura Pink (Pastelowy Róż Wiśniowy)",
+          "target_price_jpy": 16800,
+          "est_pl_value": 980,
+          "note": "Stan gabinetowy (極美品), czyta gry bez opóźnień, rzadkie limitowane wydanie Sakura, 0% Li-Ion",
+          "battery_type": "none"
+        },
+        {
+          "id": "m49640743036",
+          "model": "PlayStation 3 Slim Tales of Xillia X Edition",
+          "color": "Matowa Czerń + Złoto-Czerwona Grafika Xillia",
+          "target_price_jpy": 10000,
+          "est_pl_value": 750,
+          "note": "Limitowana edycja Tales of Xillia, niesprawdzana z braku kabli (super okazja cenowa!), 0% Li-Ion",
+          "battery_type": "none"
+        },
+        {
+          "id": "m93940319143",
+          "model": "PlayStation 3 Slim One Piece Kaizoku Musou Gold (320GB)",
+          "color": "One Piece Gold (Złota Grafika Luffy)",
+          "target_price_jpy": 22500,
+          "est_pl_value": 1150,
+          "note": "Stan bardzo ładny (美品), sprawdzona 100%, limitowana złota edycja One Piece, 0% Li-Ion",
+          "battery_type": "none"
+        },
+        {
+          "id": "m28511520235",
+          "model": "PlayStation 3 Slim Final Fantasy XIII Lightning Edition",
+          "color": "Ceramic White + Różowa Grafika Lightning",
+          "target_price_jpy": 23880,
+          "est_pl_value": 1300,
+          "note": "Świetny stan zachowania, w pełni sprawna, kultowa kolekcjonerska edycja FFXIII, 0% Li-Ion",
+          "battery_type": "none"
+        },
+        {
+          "id": "m41575032863",
+          "model": "PlayStation 4 Dragon Quest Metal Slime Edition",
+          "color": "Srebrny Metal Slime + Figurka Hagure Metal",
+          "target_price_jpy": 19000,
+          "est_pl_value": 1200,
+          "note": "Komplet z kontrolerem i figurką Metal Slime, w pełni sprawdzona, 0% Li-Ion",
+          "battery_type": "none"
+        },
+        {
+          "id": "m67941189004",
+          "model": "PlayStation 4 Metal Gear Solid V Limited Edition",
+          "color": "Bordowo-Złota Diamond Dogs + 4 Gry",
+          "target_price_jpy": 21500,
+          "est_pl_value": 1350,
+          "note": "Limitowany zestaw MGSV Phantom Pain z kontrolerem i 4 grami, sprawdzony 100%, 0% Li-Ion",
+          "battery_type": "none"
+        },
+        {
+          "id": "m15042187336",
+          "model": "PlayStation 4 Pro Monster Hunter World Rathalos (1TB)",
+          "color": "Rathalos Red & Black + 2 Gry",
+          "target_price_jpy": 27999,
+          "est_pl_value": 1550,
+          "note": "Wersja PS4 Pro 1TB z grafiką Rathalosa, sprawdzona 100%, pudełko i gry w zestawie, 0% Li-Ion",
+          "battery_type": "none"
+        },
+        {
+          "id": "m99188429494",
+          "model": "PlayStation 5 Marvel's Spider-Man 2 Limited Edition",
+          "color": "Symbiote Black & Red + Oryginalny Pad",
+          "target_price_jpy": 64500,
+          "est_pl_value": 3400,
+          "note": "Kompletna konsola PS5 Spider-Man 2 z oryginalnym padem, sprawdzona 100%, gigantyczna marża w PL",
+          "battery_type": "li-ion"
+        }
+      ]
+    },
+    {
+      "id": "film_cameras_point_shoot",
+      "name": "Aparaty Analogowe Typu Małpka (35mm Point & Shoot)",
+      "battery_type": "none",
+      "target_pln_resale": 500,
+      "tracked_items": [
+        {
+          "id": "m67087305139",
+          "model": "Nikon TW2D Dual Lens (35mm / 70mm Switchable)",
+          "color": "Czarny Klasyczny",
+          "target_price_jpy": 1500,
+          "est_pl_value": 280,
+          "note": "Sprawdzony, migawka działa, dwuogniskowy zgrabny kompakt Nikon z datownikiem, 0% Li-Ion",
+          "battery_type": "none"
+        },
+        {
+          "id": "m27938961414",
+          "model": "Pentax Espio P Compact 35mm",
+          "color": "Czarny / Złote Napisy",
+          "target_price_jpy": 1900,
+          "est_pl_value": 250,
+          "note": "Niesprawdzany z braku baterii (⚡ hit cenowy za 1900 JPY!), czysta optyka, 0% Li-Ion",
+          "battery_type": "none"
+        },
+        {
+          "id": "m15919018689",
+          "model": "Ricoh Myport Zoom Macro (38-60mm)",
+          "color": "Czarny Ergonomiczny",
+          "target_price_jpy": 2300,
+          "est_pl_value": 320,
+          "note": "W pełni sprawny z trybem Macro do zbliżeń, świetny japoński aparat kompaktowy, 0% Li-Ion",
+          "battery_type": "none"
+        },
+        {
+          "id": "m67499875058",
+          "model": "Canon Autoboy A PANORAMA (38-76mm AiAF)",
+          "color": "Czarny Kompakt",
+          "target_price_jpy": 3000,
+          "est_pl_value": 350,
+          "note": "Niesprawdzany z braku baterii (⚡ okazja cenowa), tryb panoramy i automatyczny autofokus AiAF, 0% Li-Ion",
+          "battery_type": "none"
+        },
+        {
+          "id": "m95103324088",
+          "model": "Konica Big Mini NEO-R + Dedykowane Etui",
+          "color": "Tytanowy Szary / Czarny",
+          "target_price_jpy": 3500,
+          "est_pl_value": 420,
+          "note": "Sprawdzony z oryginalnym etui, seria Big Mini słynąca z ostrości, 0% Li-Ion",
+          "battery_type": "none"
+        },
+        {
+          "id": "m44602850130",
+          "model": "Canon Autoboy 3 Quartz Date (38mm f/2.8 Prime)",
+          "color": "Czarny / Czerwona Linia Canon",
+          "target_price_jpy": 4980,
+          "est_pl_value": 480,
+          "note": "Sprawny 100%, legendarny jasny obiektyw 38mm f/2.8, wbudowany automatyczny flash, 0% Li-Ion",
+          "battery_type": "none"
+        },
+        {
+          "id": "m70413577348",
+          "model": "Canon Autoboy Luna 35mm (Z Etui)",
+          "color": "Srebrzysto-Szampański / Księżycowa Klapka",
+          "target_price_jpy": 5000,
+          "est_pl_value": 450,
+          "note": "Kultowy model z przesuwaną osłoną obiektywu w kształcie półksiężyca, bardzo modny, 0% Li-Ion",
+          "battery_type": "none"
+        },
+        {
+          "id": "m86239398343",
+          "model": "Pentax Espio 115M (Aluminiowa Obudowa + Pilot + Box)",
+          "color": "Szczotkowane Aluminium (Komplet)",
+          "target_price_jpy": 7500,
+          "est_pl_value": 520,
+          "note": "Stan gabinetowy z pilotem, instrukcją i etui, w pełni sprawny, kompakt premium, 0% Li-Ion",
+          "battery_type": "none"
+        },
+        {
+          "id": "m64941898789",
+          "model": "Konica C35 EF \"Pikkari Konica\" (Hexanon 38mm f/2.8)",
+          "color": "Czarny Retro / Nowe Uszczelki Światłoszczelne",
+          "target_price_jpy": 6500,
+          "est_pl_value": 500,
+          "note": "W pełni sprawny (完動・美品), legendarny jasny Hexanon 38mm f/2.8, wymienione uszczelki, 0% Li-Ion",
+          "battery_type": "none"
+        },
+        {
+          "id": "m76441596859",
+          "model": "Olympus TRIP 35 (Czerwona Flaga \"赤ベロ\" OK + Nowe Uszczelki)",
+          "color": "Klasyczny Srebrno-Czarny Vintage",
+          "target_price_jpy": 8690,
+          "est_pl_value": 650,
+          "note": "Stan idealny, automatyczny światłomierz selenowy 100% sprawny, działa bez baterii na zawsze!, 0% Li-Ion",
+          "battery_type": "none"
+        },
+        {
+          "id": "m65483005798",
+          "model": "Olympus μ[mju:]-II 115 VF (Visual Finder Clamshell)",
+          "color": "Szampańskie Złoto Clamshell",
+          "target_price_jpy": 9900,
+          "est_pl_value": 650,
+          "note": "Niesprawdzany (⚡ hit zysku!), poszukiwana odporna na zachlapania seria mju-II z celownikiem VF, 0% Li-Ion",
+          "battery_type": "none"
+        },
+        {
+          "id": "m21258803882",
+          "model": "Olympus μ [mju:] 35mm F3.5 (Oryginalna Stałka Prime)",
+          "color": "Głęboka Czerń Clamshell",
+          "target_price_jpy": 12999,
+          "est_pl_value": 950,
+          "note": "Święty Graal aparatów kompaktowych ze stałką 35mm f/3.5, niesamowita ostrość, topowa płynność, 0% Li-Ion",
+          "battery_type": "none"
+        }
+      ]
     }
   ]
 }

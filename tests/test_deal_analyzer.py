@@ -167,5 +167,49 @@ class TestDealAnalyzer(unittest.TestCase):
         self.assertEqual(res["tier"], "S-TIER")
         self.assertTrue(res["is_no_battery"])
 
+    def test_ps_limited_console_deal(self):
+        console_deal = {
+            "id": "m_psone_combo",
+            "model": "PSone COMBO SCPH-130",
+            "color": "White Combo",
+            "category_id": "ps_limited_consoles",
+            "price_jpy": 25800,
+            "price_pln_raw": 640.0,
+            "landed_cost_pln": 863.0,
+            "est_pl_value": 1600.0,
+            "est_margin_pln": 737.0,
+            "roi_percent": 85.4,
+            "battery_type": "none",
+            "status": "Dostępne",
+            "condition_type": "confirmed_working"
+        }
+        res = self.analyzer.analyze_deal(console_deal)
+        self.assertTrue(res["is_active"])
+        self.assertTrue(res["is_worth_buying"])
+        self.assertEqual(res["tier"], "S-TIER")
+        self.assertTrue(res["is_no_battery"])
+
+    def test_film_cameras_point_shoot_deal(self):
+        camera_deal = {
+            "id": "m_nikon_pikaichi",
+            "model": "Nikon L35AF ISO 400 Pikaichi",
+            "color": "Black",
+            "category_id": "film_cameras_point_shoot",
+            "price_jpy": 7980,
+            "price_pln_raw": 198.0,
+            "landed_cost_pln": 284.0,
+            "est_pl_value": 750.0,
+            "est_margin_pln": 466.0,
+            "roi_percent": 164.1,
+            "battery_type": "none",
+            "status": "Dostępne",
+            "condition_type": "confirmed_working"
+        }
+        res = self.analyzer.analyze_deal(camera_deal)
+        self.assertTrue(res["is_active"])
+        self.assertTrue(res["is_worth_buying"])
+        self.assertEqual(res["tier"], "S-TIER")
+        self.assertTrue(res["is_no_battery"])
+
 if __name__ == "__main__":
     unittest.main()

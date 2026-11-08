@@ -16,7 +16,9 @@ class DealAnalyzer:
         "retro_consoles_no_battery": 1.10, # GameCube DOL-001 / Saturn
         "psp_handheld": 1.05,       # Good margin, but occupies Li-Ion unless dry
         "ps5_limited_controllers": 1.15,       # High Polish resale demand for Limited Edition DualSense
-        "ps_retro_limited_controllers": 1.10   # Collectors demand for DualShock 1-4 limited editions
+        "ps_retro_limited_controllers": 1.10,  # Collectors demand for DualShock 1-4 limited editions
+        "ps_limited_consoles": 1.15,           # Collector demand for rare PlayStation limited editions
+        "film_cameras_point_shoot": 1.25       # Huge youth/hipster market in PL, instant turnover, 0% Li-Ion
     }
 
     def __init__(self, deals):
