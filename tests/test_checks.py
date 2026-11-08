@@ -206,7 +206,7 @@ class TestChecks(unittest.TestCase):
         invalid_basket = [
             {"model": "PS Vita 2000", "battery_type": "li-ion"},
             {"model": "PSP-3000", "battery_type": "li-ion"},
-            {"model": "PSP Go", "battery_type": "li-ion"}
+            {"model": "New Nintendo 3DS XL", "battery_type": "li-ion"}
         ]
         ok, msg = check_iata_lithium(invalid_basket)
         self.assertFalse(ok)

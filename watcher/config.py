@@ -39,9 +39,9 @@ MAX_LENS_PRICE_PLN = 100.0
 # Category-aware estimated shipping share in consolidated parcel (PLN)
 CATEGORY_SHIPPING_SHARES = {
     "ps_vita": 35.0,                  # ~220g handheld
-    "psp_go": 30.0,                   # ~158g compact slider handheld
     "psp_handheld": 30.0,             # ~190g handheld
-    "psp_games_mix": 20.0,            # ~120-180g UMD lots
+    "retro_games_mix": 20.0,          # ~150-300g mixed retro game lots (0% Li-Ion)
+    "psp_games_mix": 20.0,            # Legacy alias
     "retro_consoles_no_battery": 65.0, # ~1.5-2.0kg Sega/Sony home console
     "ps1_consoles": 45.0,             # ~550g PSone to 1.2kg PS1 fat
     "nintendo_retro": 40.0,           # ~150g GBC to 800g Super Famicom

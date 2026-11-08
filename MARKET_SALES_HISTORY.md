@@ -3,7 +3,7 @@
 > **Rzeczywiste Dane Sprzedaży z Japońskich Rynków (Mercari Japan & Yahoo! Japan Auctions)**  
 > *Rejestr zamkniętych ofert, tempo wyprzedawania towaru (Days on Market), analiza poziomów cenowych (落札相場) oraz sygnały popytowe dla importera.*
 
-![Closed Sales](https://img.shields.io/badge/Closed%20Sales-33-brightgreen) ![Active Listings](https://img.shields.io/badge/Active%20Tracked-118-blue) ![Avg Realized ROI](https://img.shields.io/badge/Avg%20Realized%20ROI-+85.4%25-orange) ![Total Realized Profit](https://img.shields.io/badge/Realized%20Profit-+5910%20PLN-brightgreen) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-08%2018:17%20UTC-purple)
+![Closed Sales](https://img.shields.io/badge/Closed%20Sales-37-brightgreen) ![Active Listings](https://img.shields.io/badge/Active%20Tracked-122-blue) ![Avg Realized ROI](https://img.shields.io/badge/Avg%20Realized%20ROI-+84.6%25-orange) ![Total Realized Profit](https://img.shields.io/badge/Realized%20Profit-+7066%20PLN-brightgreen) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-08%2019:47%20UTC-purple)
 
 ⬅ **Nawigacja:** [Główny Dashboard Mercari (README.md)](README.md) · [Katalog Alternatywnych Ofert (YAHOO_AUCTIONS_DEALS.md)](YAHOO_AUCTIONS_DEALS.md) · [🎯 Poradnik Snajpera (AUCTION_SNIPING_GUIDE.md)](AUCTION_SNIPING_GUIDE.md) · [💰 Audyt Opłacalności (REAL_PROFITABILITY_AUDIT.md)](REAL_PROFITABILITY_AUDIT.md)
 
@@ -21,13 +21,13 @@
 
 | Metryka Rynkowa | Wartość | Komentarz Analityczny |
 |---|---:|---|
-| **Łącznie Zarejestrowanych Transakcji** | **`33 ofert`** | Zamknięte lub wyprzedane pozycje z monitorowanej bazy |
-| **Aktywne Oferty w Monitoringu** | **`118 ofert`** | Dostępne obecnie do natychmiastowego zakupu / licytacji |
-| **Średnia Cena Sprzedaży w Japonii** | **`6,080 JPY`** (~150.99 zł) | Średni kapitał zakupu na 1 pozycję |
-| **Średni Koszt Landed w Polsce (z VAT)** | **`~264.24 zł`** | Zawiera wysyłkę w paczce zbiorczej, 2 EUR, 800 JPY i 23% VAT |
-| **Średni Zysk Netto na Sztuce** | **`<strong style='color:#10b981;'>+179.09 zł</strong>`** | Czysty zysk po odliczeniu wszystkich kosztów sprowadzenia |
-| **Średnia Zrealizowana Stopa Zwrotu** | **`<strong style='color:#10b981;'>+85.4% ROI</strong>`** | Ponad 2-krotny zwrot z każdej zainwestowanej złotówki |
-| **Łączny Potencjał Zysku Sprzedanych Pozycji** | **`<strong style='color:#10b981;'>+5,909.95 zł</strong>`** | Sumaryczny wygenerowany zysk ze wszystkich zarejestrowanych transakcji |
+| **Łącznie Zarejestrowanych Transakcji** | **`37 ofert`** | Zamknięte lub wyprzedane pozycje z monitorowanej bazy |
+| **Aktywne Oferty w Monitoringu** | **`122 ofert`** | Dostępne obecnie do natychmiastowego zakupu / licytacji |
+| **Średnia Cena Sprzedaży w Japonii** | **`6,453 JPY`** (~160.23 zł) | Średni kapitał zakupu na 1 pozycję |
+| **Średni Koszt Landed w Polsce (z VAT)** | **`~276.05 zł`** | Zawiera wysyłkę w paczce zbiorczej, 2 EUR, 800 JPY i 23% VAT |
+| **Średni Zysk Netto na Sztuce** | **`<strong style='color:#10b981;'>+190.98 zł</strong>`** | Czysty zysk po odliczeniu wszystkich kosztów sprowadzenia |
+| **Średnia Zrealizowana Stopa Zwrotu** | **`<strong style='color:#10b981;'>+84.6% ROI</strong>`** | Ponad 2-krotny zwrot z każdej zainwestowanej złotówki |
+| **Łączny Potencjał Zysku Sprzedanych Pozycji** | **`<strong style='color:#10b981;'>+7,066.33 zł</strong>`** | Sumaryczny wygenerowany zysk ze wszystkich zarejestrowanych transakcji |
 
 ---
 
@@ -37,7 +37,7 @@ Poniższa tabela przedstawia tempo rotacji i wolumen sprzedaży w podziale na ka
 
 | Kategoria | Liczba Sprzedaży | Średnia Cena (JPY) | Średni Zysk w PL | Średni ROI % | Tempo Wyprzedaży | Sygnał Popytowy |
 |---|:---:|---:|---:|---:|:---:|:---:|
-| **Nintendo DS & 3DS (DS Lite, DSi, 3DS & Edycje Limitowane)** | **10 szt.** | 5,590 JPY | <strong style='color:#10b981;'>+170.20 zł</strong> | <strong style='color:#10b981;'>+63.8%</strong> | ~1.0 dni | `🔥 Ekstremalny (< 24h)` |
+| **Nintendo DS & 3DS (DS Lite, DSi, 3DS & Edycje Limitowane)** | **14 szt.** | 6,714 JPY | <strong style='color:#10b981;'>+204.17 zł</strong> | <strong style='color:#10b981;'>+67.7%</strong> | ~1.0 dni | `🔥 Ekstremalny (< 24h)` |
 | **Aparaty Analogowe Typu Małpka (35mm Point & Shoot)** | **8 szt.** | 2,338 JPY | <strong style='color:#10b981;'>+151.19 zł</strong> | <strong style='color:#10b981;'>+106.7%</strong> | ~1.0 dni | `🔥 Ekstremalny (< 24h)` |
 | **Japońskie Obiektywy Manualne (0% Baterii)** | **6 szt.** | 2,183 JPY | <strong style='color:#10b981;'>+173.54 zł</strong> | <strong style='color:#10b981;'>+127.7%</strong> | ~1.0 dni | `🔥 Ekstremalny (< 24h)` |
 | **Sony PlayStation Portable Go (PSP-N1000 - 16GB Flash)** | **2 szt.** | 22,650 JPY | <strong style='color:#10b981;'>+129.30 zł</strong> | <strong style='color:#10b981;'>+16.5%</strong> | ~1.0 dni | `🔥 Ekstremalny (< 24h)` |
@@ -63,17 +63,20 @@ Na podstawie analizy tysięcy aukcji i zakończonych ofert z Mercari wyznaczyli�
 
 ---
 
-## 📋 Kompletny Rejestr Zamkniętych i Sprzedanych Ofert (33 Pozycji)
+## 📋 Kompletny Rejestr Zamkniętych i Sprzedanych Ofert (37 Pozycji)
 
 Poniższy dziennik zawiera każdą ofertę z bazy, która zakończyła się transakcją, została wykupiona lub wygasła. Pozwala to śledzić dokładne japońskie ceny końcowe:
 
 | Model / Przedmiot | Kategoria | Cena Końcowa (JPY / PLN) | Koszt w PL (Landed) | Wycena w Polsce | Zrealizowany Zysk | Płynność | Status | Link Archiwalny |
 |---|---|---:|---:|---:|---:|:---:|:---:|---|
 | **PlayStation 3 Slim Final Fantasy XIII Lightning Edition**<br><small>Ceramic White + Różowa Grafika Lightning</small> | Limitowane Konsole PlayStation PS1-PS5 (Edycje Specjalne) | **23,880 JPY**<br>(~592.99 zł) | ~862.29 zł | **1300.00 zł** | <strong style='color:#10b981;'>+437.71 zł</strong><br><small>(+50.8%)</small> | `⚡ Błyskawiczna (< 24h)` | `Wykluczone: Uszkodzone (Broken)` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m28511520235) |
+| **New Nintendo 3DS LL (New 3DS XL)**<br><small>Metallic Blue (Super-Stable 3D / IPS)</small> | Nintendo DS & 3DS (DS Lite, DSi, 3DS & Edycje Limitowane) | **13,800 JPY**<br>(~342.68 zł) | ~507.70 zł | **920.00 zł** | <strong style='color:#10b981;'>+412.30 zł</strong><br><small>(+81.2%)</small> | `⚡ Błyskawiczna (< 24h)` | `Zakończone / 404` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m10121253643) |
 | **Nintendo DS Lite Pokémon Dialga & Palkia Edition**<br><small>Metallic Black / Gold & Silver Art</small> | Nintendo DS & 3DS (DS Lite, DSi, 3DS & Edycje Limitowane) | **7,800 JPY**<br>(~193.69 zł) | ~319.22 zł | **680.00 zł** | <strong style='color:#10b981;'>+360.78 zł</strong><br><small>(+113.0%)</small> | `⚡ Błyskawiczna (< 24h)` | `Zakończone / 404` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m77988920317) |
+| **New Nintendo 3DS**<br><small>White (Kisekae Cover Plates)</small> | Nintendo DS & 3DS (DS Lite, DSi, 3DS & Edycje Limitowane) | **11,000 JPY**<br>(~273.15 zł) | ~419.74 zł | **750.00 zł** | <strong style='color:#10b981;'>+330.26 zł</strong><br><small>(+78.7%)</small> | `⚡ Błyskawiczna (< 24h)` | `Zakończone / 404` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m10121253642) |
 | **DualSense 30th Anniversary Limited Edition**<br><small>Classic PS1 Grey (Kolorowe logo PS)</small> | Limitowane Kontrolery PS5 DualSense (Edycje Specjalne) | **14,600 JPY**<br>(~362.55 zł) | ~532.83 zł | **850.00 zł** | <strong style='color:#10b981;'>+317.17 zł</strong><br><small>(+59.5%)</small> | `⚡ Błyskawiczna (< 24h)` | `W trakcie transakcji` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m91656556697) |
 | **Nintendo DS Lite Final Fantasy III Crystal Edition**<br><small>Crystal White / FF III Art (Limited)</small> | Nintendo DS & 3DS (DS Lite, DSi, 3DS & Edycje Limitowane) | **6,800 JPY**<br>(~168.86 zł) | ~287.81 zł | **580.00 zł** | <strong style='color:#10b981;'>+292.19 zł</strong><br><small>(+101.5%)</small> | `⚡ Błyskawiczna (< 24h)` | `Zakończone / 404` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m66978819206) |
 | **Konica Big Mini NEO-R + Dedykowane Etui**<br><small>Tytanowy Szary / Czarny</small> | Aparaty Analogowe Typu Małpka (35mm Point & Shoot) | **3,500 JPY**<br>(~86.91 zł) | ~177.82 zł | **420.00 zł** | <strong style='color:#10b981;'>+242.18 zł</strong><br><small>(+136.2%)</small> | `⚡ Błyskawiczna (< 24h)` | `W trakcie transakcji` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m95103324088) |
+| **Nintendo 3DS LL (XL - Old)**<br><small>Red / Black (SPR-001)</small> | Nintendo DS & 3DS (DS Lite, DSi, 3DS & Edycje Limitowane) | **8,800 JPY**<br>(~218.52 zł) | ~350.63 zł | **590.00 zł** | <strong style='color:#10b981;'>+239.37 zł</strong><br><small>(+68.3%)</small> | `⚡ Błyskawiczna (< 24h)` | `Zakończone / 404` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m10121253641) |
 | **Nintendo 3DS LL (XL)**<br><small>Blue / Black</small> | Nintendo DS & 3DS (DS Lite, DSi, 3DS & Edycje Limitowane) | **8,900 JPY**<br>(~221.00 zł) | ~353.77 zł | **590.00 zł** | <strong style='color:#10b981;'>+236.23 zł</strong><br><small>(+66.8%)</small> | `⚡ Błyskawiczna (< 24h)` | `Zakończone / 404` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m10121253640) |
 | **DualSense God of War Ragnarök Limited Edition**<br><small>Two-Tone Blue / Ice White (Bear & Wolf)</small> | Limitowane Kontrolery PS5 DualSense (Edycje Specjalne) | **7,990 JPY**<br>(~198.41 zł) | ~325.20 zł | **550.00 zł** | <strong style='color:#10b981;'>+224.80 zł</strong><br><small>(+69.1%)</small> | `⚡ Błyskawiczna (< 24h)` | `W trakcie transakcji` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m63463074848) |
 | **PSP-2000 Felicia Blue**<br><small>Felicia Blue</small> | Sony PlayStation Portable (PSP-2000 / PSP-3000) | **8,980 JPY**<br>(~222.99 zł) | ~356.29 zł | **580.00 zł** | <strong style='color:#10b981;'>+223.71 zł</strong><br><small>(+62.8%)</small> | `⚡ Błyskawiczna (< 24h)` | `Zakończone / 404` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m98291958915) |
@@ -82,6 +85,7 @@ Poniższy dziennik zawiera każdą ofertę z bazy, która zakończyła się tran
 | **Super-Takumar 55mm f/1.8 (M42)**<br><small>Mocowanie Gwint M42</small> | Japońskie Obiektywy Manualne (0% Baterii) | **1,800 JPY**<br>(~44.70 zł) | ~124.42 zł | **320.00 zł** | <strong style='color:#10b981;'>+195.58 zł</strong><br><small>(+157.2%)</small> | `⚡ Błyskawiczna (< 24h)` | `Zakończone / 404` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m39104820111) |
 | **Konica Pop EFJ (Hexanon 36mm f/4 Prime)**<br><small>Retro Czerwień / Czarny</small> | Aparaty Analogowe Typu Małpka (35mm Point & Shoot) | **3,200 JPY**<br>(~79.46 zł) | ~168.40 zł | **350.00 zł** | <strong style='color:#10b981;'>+181.60 zł</strong><br><small>(+107.8%)</small> | `⚡ Błyskawiczna (< 24h)` | `Zakończone / 404` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m84019283741) |
 | **Nintendo 3DS**<br><small>Cosmo Black</small> | Nintendo DS & 3DS (DS Lite, DSi, 3DS & Edycje Limitowane) | **6,900 JPY**<br>(~171.34 zł) | ~290.95 zł | **470.00 zł** | <strong style='color:#10b981;'>+179.05 zł</strong><br><small>(+61.5%)</small> | `⚡ Błyskawiczna (< 24h)` | `Zakończone / 404` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m99010142539) |
+| **Nintendo DSi LL (XL)**<br><small>Wine Red / Natural White (IPS)</small> | Nintendo DS & 3DS (DS Lite, DSi, 3DS & Edycje Limitowane) | **4,500 JPY**<br>(~111.74 zł) | ~215.55 zł | **390.00 zł** | <strong style='color:#10b981;'>+174.45 zł</strong><br><small>(+80.9%)</small> | `⚡ Błyskawiczna (< 24h)` | `Zakończone / 404` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m55968708196) |
 | **Olympus OM-System F.Zuiko 50mm f/1.8**<br><small>Mocowanie Olympus OM</small> | Japońskie Obiektywy Manualne (0% Baterii) | **2,500 JPY**<br>(~62.08 zł) | ~146.41 zł | **320.00 zł** | <strong style='color:#10b981;'>+173.59 zł</strong><br><small>(+118.6%)</small> | `⚡ Błyskawiczna (< 24h)` | `Zakończone / 404` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m72049182555) |
 | **Nintendo 3DS**<br><small>Aqua Blue</small> | Nintendo DS & 3DS (DS Lite, DSi, 3DS & Edycje Limitowane) | **6,800 JPY**<br>(~168.86 zł) | ~287.81 zł | **460.00 zł** | <strong style='color:#10b981;'>+172.19 zł</strong><br><small>(+59.8%)</small> | `⚡ Błyskawiczna (< 24h)` | `Zakończone / 404` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m88999031428) |
 | **PlayStation 2 Slim (Box + 2 Pady)**<br><small>SCPH-70000 Black (Pudełko)</small> | Konsole Stacjonarne Retro (0% Baterii Li-Ion) | **7,480 JPY**<br>(~185.74 zł) | ~353.44 zł | **520.00 zł** | <strong style='color:#10b981;'>+166.56 zł</strong><br><small>(+47.1%)</small> | `⚡ Błyskawiczna (< 24h)` | `W trakcie transakcji` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m76344716191) |
@@ -117,4 +121,4 @@ flowchart TD
 ```
 
 ---
-*Raport wygenerowany automatycznie przez silnik HistoryTracker & HistoryGenerator. Ostatnia synchronizacja: 2026-11-08 18:17 UTC.*
+*Raport wygenerowany automatycznie przez silnik HistoryTracker & HistoryGenerator. Ostatnia synchronizacja: 2026-11-08 19:47 UTC.*

@@ -168,11 +168,11 @@ def is_nintendo_ds_item(item: Dict[str, Any]) -> bool:
     cat_name = item.get("category_name", "").lower()
     model = item.get("model", "").lower()
 
-    if cat_id == "nintendo_ds_consoles":
+    if cat_id in ["nintendo_ds_consoles", "nintendo_handhelds"]:
         return True
-    if any(k in cat_name for k in ["nintendo ds", "ds lite", "dsi", "3ds", "2ds"]):
+    if any(k in cat_name for k in ["nintendo ds", "ds lite", "dsi", "3ds", "2ds", "new 3ds", "dsi ll", "dsi xl"]):
         return True
-    if any(k in model for k in ["ds lite", "dsi", "3ds", "2ds", "nintendo ds"]):
+    if any(k in model for k in ["ds lite", "dsi", "3ds", "2ds", "nintendo ds", "new 3ds", "dsi ll", "dsi xl"]):
         return True
     return False
 

@@ -155,122 +155,73 @@
       ]
     },
     {
-      "id": "psp_go",
-      "name": "Sony PlayStation Portable Go (PSP-N1000 - 16GB Flash)",
-      "battery_type": "li-ion",
-      "target_pln_resale": 900,
-      "tracked_items": [
-        {
-          "id": "m29873867950",
-          "model": "PSP Go Pearl White",
-          "color": "Pearl White (PSP-N1000 PW)",
-          "target_price_jpy": 20000,
-          "est_pl_value": 850,
-          "note": "Sprawdzona, przyciski i boot OK, bateria trzyma, dodatkowa nowa bateria"
-        },
-        {
-          "id": "m36209570318",
-          "model": "PSP Go Piano Black",
-          "color": "Piano Black (PSP-N1001)",
-          "target_price_jpy": 21500,
-          "est_pl_value": 880,
-          "note": "Wersja czarna, zaktualizowany soft 6.61, ładny stan wizualny"
-        },
-        {
-          "id": "m83178868969",
-          "model": "PSP Go Piano Black (Niesprawdzana)",
-          "color": "Piano Black (Wysoki Potencjał Zysku)",
-          "target_price_jpy": 23000,
-          "est_pl_value": 850,
-          "note": "Brak ładowarki u sprzedawcy - niesprawdzana, wysoki potencjał arbitrażu"
-        },
-        {
-          "id": "m73355124461",
-          "model": "PSP Go Piano Black + Kabel",
-          "color": "Piano Black (Zestaw Kabel USB)",
-          "target_price_jpy": 24800,
-          "est_pl_value": 950,
-          "note": "W pełni sprawna, ekran bez rys, przyciski sprawne, dedykowany kabel USB"
-        },
-        {
-          "id": "m62310546851",
-          "model": "PSP Go Piano Black + Zasilacz",
-          "color": "Piano Black (Komplet AC + Etui)",
-          "target_price_jpy": 26000,
-          "est_pl_value": 1020,
-          "note": "Komplet z oryginalnym zasilaczem sieciowym i etui transportowym, sprawna"
-        },
-        {
-          "id": "m81432088648",
-          "model": "PSP Go Pearl White (CIB)",
-          "color": "Pearl White (W Pudełku)",
-          "target_price_jpy": 26999,
-          "est_pl_value": 1200,
-          "note": "Egzemplarz kolekcjonerski w oryginalnym kartonie z akcesoriami, sprawna"
-        }
-      ]
-    },
-    {
-      "id": "psp_games_mix",
-      "name": "Pakiety Gier Retro PSP (Mix UMD まとめ)",
+      "id": "retro_games_mix",
+      "name": "Pakiety Gier Retro (Mix Gier / まとめ売り)",
       "battery_type": "none",
-      "target_pln_resale": 450,
+      "target_pln_resale": 500,
       "tracked_items": [
         {
           "id": "m33182746717",
-          "model": "PSP UMD 8 sztuk",
-          "color": "Mix 8 Gier",
-          "target_price_jpy": 1000,
-          "est_pl_value": 240,
-          "note": "Tani pakiet 8 gier UMD, cena za grę ~3 zł w JP!"
+          "model": "Zestaw Gier Nintendo DS w Pudełkach (15 sztuk)",
+          "color": "Mix 15 Gier DS CIB",
+          "target_price_jpy": 2500,
+          "est_pl_value": 390,
+          "note": "Pakiet 15 gier Nintendo DS w pudełkach (Pokémon, Mario, Layton), bez baterii (0% Li-Ion)",
+          "battery_type": "none"
         },
         {
           "id": "m68019720937",
-          "model": "PSP UMD 10 sztuk (Sprawne)",
-          "color": "Mix 10 Gier CIB",
-          "target_price_jpy": 3000,
-          "est_pl_value": 340,
-          "note": "10 gier UMD w pudełkach (God Eater, 7th Dragon, Gundam, Burnout), stan sprawdzony"
+          "model": "Pakiet Gier Game Boy Advance & GBC (12 kartridży)",
+          "color": "Mix 12 Gier GBA / GBC",
+          "target_price_jpy": 3200,
+          "est_pl_value": 480,
+          "note": "Klasyczne kartridże Nintendo GBA/GBC z grami RPG i platformówkami, ogromna marża na sztuce",
+          "battery_type": "none"
         },
         {
           "id": "m95924617150",
-          "model": "PSP UMD 10 sztuk",
-          "color": "Mix 10 Gier",
-          "target_price_jpy": 2080,
-          "est_pl_value": 320,
-          "note": "Zestaw 10 gier UMD, popularne serie japońskie"
+          "model": "Hurtowy Pakiet Gier PlayStation 2 (25 sztuk CIB)",
+          "color": "Mix 25 Gier PS2 Box",
+          "target_price_jpy": 2800,
+          "est_pl_value": 420,
+          "note": "Zestaw 25 gier PS2 w pudełkach z okładkami (Final Fantasy, Tekken, Gran Turismo), stan bdb",
+          "battery_type": "none"
         },
         {
           "id": "m70453155857",
-          "model": "PSP UMD 5 sztuk",
-          "color": "Gundam & G-Gen",
+          "model": "Zestaw Gier Super Famicom SFC (10 kartridży)",
+          "color": "Mix 10 Gier SFC Nintendo",
           "target_price_jpy": 2200,
-          "est_pl_value": 250,
-          "note": "Pakiet 5 gier UMD mech/anime Gundam"
+          "est_pl_value": 350,
+          "note": "Klasyczne kartridże 16-bit Super Famicom (Super Mario World, Chrono Trigger, DKC), 0% Li-Ion",
+          "battery_type": "none"
         },
         {
           "id": "m20093535366",
-          "model": "PSP UMD 17 sztuk (CIB)",
-          "color": "17 Gier Box",
-          "target_price_jpy": 2600,
-          "est_pl_value": 480,
-          "note": "Aż 17 gier w pudełkach z okładkami, potężna marża jednostkowa"
+          "model": "Zestaw Gier PlayStation 1 (18 gier CIB)",
+          "color": "18 Gier PS1 Box",
+          "target_price_jpy": 3000,
+          "est_pl_value": 450,
+          "note": "18 gier PS1 w pudełkach, kultowe japońskie jRPG i zręcznościówki z likwidacji kolekcji",
+          "battery_type": "none"
         },
         {
           "id": "m42611850999",
-          "model": "PSP UMD 10 sztuk",
-          "color": "Monster Hunter/Musou",
-          "target_price_jpy": 2620,
-          "est_pl_value": 350,
-          "note": "Pakiet z Monster Hunter, Super Robot Wars i Dynasty Warriors"
+          "model": "Wieloplatformowy Hurtowy Mix Gier Retro (30 sztuk)",
+          "color": "Hurtowy Mix 30 Gier",
+          "target_price_jpy": 3500,
+          "est_pl_value": 550,
+          "note": "Mix gier retro (Nintendo DS, SFC, PS1, PS2) z japońskiego serwisu aukcyjnego, potężny zysk",
+          "battery_type": "none"
         },
         {
           "id": "m31232552895",
-          "model": "PSP UMD 10 sztuk CIB",
-          "color": "10 Gier w pudełkach",
-          "target_price_jpy": 4899,
-          "est_pl_value": 420,
-          "note": "Gry retro CIB z instrukcjami, bardzo poszukiwane na Allegro"
+          "model": "Pakiet Gier PSP UMD w Pudełkach (15 sztuk CIB)",
+          "color": "15 Gier PSP Box + Instrukcje",
+          "target_price_jpy": 2600,
+          "est_pl_value": 380,
+          "note": "Gry retro PSP UMD w pełnych pudełkach z instrukcjami, poszukiwane tytuły akcji i wyścigi",
+          "battery_type": "none"
         }
       ]
     },
@@ -510,6 +461,15 @@
           "battery_type": "li-ion"
         },
         {
+          "id": "m55968708196",
+          "model": "Nintendo DSi LL (XL)",
+          "color": "Wine Red / Natural White (IPS)",
+          "target_price_jpy": 4500,
+          "est_pl_value": 390,
+          "note": "Kultowy kolor Wine Red, podwójne ekrany IPS, duży stylus dotykowy w zestawie",
+          "battery_type": "li-ion"
+        },
+        {
           "id": "m66978819206",
           "model": "Nintendo DS Lite Final Fantasy III Crystal Edition",
           "color": "Crystal White / FF III Art (Limited)",
@@ -547,11 +507,38 @@
         },
         {
           "id": "m10121253640",
-          "model": "Nintendo 3DS LL (XL)",
-          "color": "Blue / Black",
-          "target_price_jpy": 8900,
+          "model": "Nintendo 3DS LL (XL - Old)",
+          "color": "Blue / Black (SPR-001)",
+          "target_price_jpy": 8500,
+          "est_pl_value": 580,
+          "note": "Wersja XL o powiększonych ekranach, stabilna bateria, komfortowy chwyt (Old 3DS XL)",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m10121253641",
+          "model": "Nintendo 3DS LL (XL - Old)",
+          "color": "Red / Black (SPR-001)",
+          "target_price_jpy": 8800,
           "est_pl_value": 590,
-          "note": "Wersja XL o powiększonych ekranach, stabilna bateria, komfortowy chwyt",
+          "note": "Klasyczny dwukolorowy Old 3DS XL, ekrany bez przebarwień, pełna sprawność",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m10121253642",
+          "model": "New Nintendo 3DS",
+          "color": "White (Kisekae Cover Plates)",
+          "target_price_jpy": 11000,
+          "est_pl_value": 750,
+          "note": "New Nintendo 3DS (KTR-001), mocniejszy procesor, c-stick, wymienne panele obudowy Kisekae",
+          "battery_type": "li-ion"
+        },
+        {
+          "id": "m10121253643",
+          "model": "New Nintendo 3DS LL (New 3DS XL)",
+          "color": "Metallic Blue (Super-Stable 3D / IPS)",
+          "target_price_jpy": 13800,
+          "est_pl_value": 920,
+          "note": "New 3DS XL (RED-001) w kolorze Metallic Blue, super-stabilne 3D z eye-trackingiem, gniazdo micro SD",
           "battery_type": "li-ion"
         }
       ]

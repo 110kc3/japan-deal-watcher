@@ -21,11 +21,11 @@ class DealAnalyzer:
     """
 
     CATEGORY_WEIGHTS = {
-        "psp_games_mix": 1.25,      # High volume, zero Li-Ion, huge margin
+        "retro_games_mix": 1.25,    # High volume, zero Li-Ion, huge margin (DS, GBA, PS1/PS2, SFC)
+        "psp_games_mix": 1.25,      # Legacy alias
         "nintendo_retro": 1.20,     # Pokémon & Game Boy Color high liquidity
         "nintendo_ds_consoles": 1.15, # Huge Polish nostalgia / GBA backward compatibility / CFW
         "ps_vita": 1.15,            # High Polish demand, but occupies Li-Ion slot
-        "psp_go": 1.15,             # Sliding compact console, 16GB, Li-Ion slot, high demand
         "analog_lenses": 1.15,      # Fast sale to photo enthusiasts, 0% Li-Ion
         "ps1_consoles": 1.10,       # PSone / LCD high collector margin
         "retro_consoles_no_battery": 1.10, # GameCube DOL-001 / Saturn
