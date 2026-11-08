@@ -364,7 +364,8 @@ def check_markdown_dashboards(base_dir: Path = BASE_DIR) -> Tuple[bool, List[str
     dashboards = [
         base_dir / "README.md",
         base_dir / "YAHOO_AUCTIONS_DEALS.md",
-        base_dir / "AUCTION_SNIPING_GUIDE.md"
+        base_dir / "AUCTION_SNIPING_GUIDE.md",
+        base_dir / "REAL_PROFITABILITY_AUDIT.md"
     ]
     for doc in dashboards:
         if not doc.exists():

@@ -69,7 +69,8 @@ class SniperGuideGenerator:
         md.append(
             "⬅ **Nawigacja:** [Główny Dashboard Mercari (README.md)](README.md) · "
             "[Katalog Alternatywnych Ofert (YAHOO_AUCTIONS_DEALS.md)](YAHOO_AUCTIONS_DEALS.md) · "
-            "[Raport Rynkowy PS Vita](file:///home/borg/docker/obsidian/vault/20-reports/adhoc/2026-11-07-ps-vita-blue-market-report.md)"
+            "[💰 Audyt Opłacalności (REAL_PROFITABILITY_AUDIT.md)](REAL_PROFITABILITY_AUDIT.md) · "
+            "[Obsidian Report](file:///home/borg/docker/obsidian/vault/20-reports/adhoc/2026-11-08-real-world-profitability-audit.md)"
         )
         md.append("")
         md.append("---")
