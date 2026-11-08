@@ -3,7 +3,7 @@
 > **Automated Private Deal Watcher for Retro Consoles, Handhelds, UMD Bundles & Analog Lenses**  
 > *Live tracking Mercari Japan, Yahoo Auctions & ZenMarket consolidation timeline.*
 
-![Status](https://img.shields.io/badge/Watcher-Active-brightgreen) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-08%2019:48%20UTC-blue) ![Exchange Rate](https://img.shields.io/badge/NBP%20Live-100%20JPY%20%E2%89%88%202.48%20PLN-success) ![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-59%20Days%20Left-orange) ![Deal Checks](https://img.shields.io/badge/Deal%20Checks-10%20Rules%20PASS-brightgreen) ![Camera Cap](https://img.shields.io/badge/Camera%20Cap-Max%20100%20PLN-orange) ![Lens Cap](https://img.shields.io/badge/Lens%20Cap-Max%20100%20PLN-orange) ![Update Cycle](https://img.shields.io/badge/Cycle-Hourly%20(1h)-purple)
+![Status](https://img.shields.io/badge/Watcher-Active-brightgreen) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-08%2019:57%20UTC-blue) ![Exchange Rate](https://img.shields.io/badge/NBP%20Live-100%20JPY%20%E2%89%88%202.48%20PLN-success) ![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-59%20Days%20Left-orange) ![Deal Checks](https://img.shields.io/badge/Deal%20Checks-10%20Rules%20PASS-brightgreen) ![Camera Cap](https://img.shields.io/badge/Camera%20Cap-Max%20100%20PLN-orange) ![Lens Cap](https://img.shields.io/badge/Lens%20Cap-Max%20100%20PLN-orange) ![Update Cycle](https://img.shields.io/badge/Cycle-Hourly%20(1h)-purple)
 
 > 🧭 **Szybka Nawigacja:** [🔨 Yahoo Aukcje (YAHOO_AUCTIONS_DEALS.md)](YAHOO_AUCTIONS_DEALS.md) · [🎯 Poradnik Snajpera (AUCTION_SNIPING_GUIDE.md)](AUCTION_SNIPING_GUIDE.md) · [💰 Audyt Opłacalności (REAL_PROFITABILITY_AUDIT.md)](REAL_PROFITABILITY_AUDIT.md) · [📈 Historia Sprzedaży (MARKET_SALES_HISTORY.md)](MARKET_SALES_HISTORY.md)
 
@@ -271,7 +271,7 @@ ZenMarket zapewnia **60 dni darmowego przechowywania** w Osace na połączenie o
 
 | Model / Wariant | Stan / Weryfikacja | Cena JPY (PLN) | Koszt w PL (z VAT) | Cena w Polsce | Potencjalny Zysk | Werdykt AI | Status | Linki |
 |---|:---:|---:|---:|---:|---:|:---:|:---:|---|
-| ~~**PlayStation 3 Slim Final Fantasy XIII Lightning Edition**~~<br><small>~~Ceramic White + Różowa Grafika Lightning~~</small> | ~~✅ Stan Dobry~~ | ~~**23,880 JPY**~~<br>(~~~592.99 zł~~) | ~~~862.29 zł~~ | ~~**1300.00 zł**~~ | ~~<strong style='color:#10b981;'>+437.71 zł</strong><br><small>(+50.8%)</small>~~ | ~~⚪ N/A~~ | ~~🚫 Wykluczone (Uszkodzone)~~ | ~~[🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m28511520235)~~ |
+| ~~**PlayStation 3 Slim Final Fantasy XIII Lightning Edition**~~<br><small>~~Ceramic White + Różowa Grafika Lightning~~</small> | ~~✅ Stan Dobry~~ | ~~**23,680 JPY**~~<br>(~~~588.02 zł~~) | ~~~856.00 zł~~ | ~~**1300.00 zł**~~ | ~~<strong style='color:#10b981;'>+444.00 zł</strong><br><small>(+51.9%)</small>~~ | ~~⚪ N/A~~ | ~~🚫 Wykluczone (Uszkodzone)~~ | ~~[🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m28511520235)~~ |
 
 </details>
 
@@ -344,4 +344,4 @@ Po zakupieniu przedmiotu w panelu ZenMarket kliknij *Order Photos* i wklej:
 - **Lokalne uruchomienie:** `python3 main.py` w repozytorium.
 
 ---
-*Dashboard automatically maintained by GitHub Actions & Antigravity Agent. Last updated: 2026-11-08 19:48 UTC.*
+*Dashboard automatically maintained by GitHub Actions & Antigravity Agent. Last updated: 2026-11-08 19:57 UTC.*
