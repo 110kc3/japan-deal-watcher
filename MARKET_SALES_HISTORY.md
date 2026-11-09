@@ -3,7 +3,7 @@
 > **Rzeczywiste Dane Sprzedaży z Japońskich Rynków (Mercari Japan & Yahoo! Japan Auctions)**  
 > *Rejestr zamkniętych ofert, tempo wyprzedawania towaru (Days on Market), analiza poziomów cenowych (落札相場) oraz sygnały popytowe dla importera.*
 
-![Closed Sales](https://img.shields.io/badge/Closed%20Sales-48-brightgreen) ![Active Listings](https://img.shields.io/badge/Active%20Tracked-125-blue) ![Avg Realized ROI](https://img.shields.io/badge/Avg%20Realized%20ROI-+81.9%25-orange) ![Total Realized Profit](https://img.shields.io/badge/Realized%20Profit-+11267%20PLN-brightgreen) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-09%2011:58%20UTC-purple)
+![Closed Sales](https://img.shields.io/badge/Closed%20Sales-49-brightgreen) ![Active Listings](https://img.shields.io/badge/Active%20Tracked-124-blue) ![Avg Realized ROI](https://img.shields.io/badge/Avg%20Realized%20ROI-+82.8%25-orange) ![Total Realized Profit](https://img.shields.io/badge/Realized%20Profit-+11447%20PLN-brightgreen) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-09%2012:57%20UTC-purple)
 
 ⬅ **Nawigacja:** [Główny Dashboard Mercari (README.md)](README.md) · [Katalog Alternatywnych Ofert (YAHOO_AUCTIONS_DEALS.md)](YAHOO_AUCTIONS_DEALS.md) · [🎯 Poradnik Snajpera (AUCTION_SNIPING_GUIDE.md)](AUCTION_SNIPING_GUIDE.md) · [💰 Audyt Opłacalności (REAL_PROFITABILITY_AUDIT.md)](REAL_PROFITABILITY_AUDIT.md)
 
@@ -21,13 +21,13 @@
 
 | Metryka Rynkowa | Wartość | Komentarz Analityczny |
 |---|---:|---|
-| **Łącznie Zarejestrowanych Transakcji** | **`48 ofert`** | Zamknięte lub wyprzedane pozycje z monitorowanej bazy |
-| **Aktywne Oferty w Monitoringu** | **`125 ofert`** | Dostępne obecnie do natychmiastowego zakupu / licytacji |
-| **Średnia Cena Sprzedaży w Japonii** | **`8,286 JPY`** (~205.75 zł) | Średni kapitał zakupu na 1 pozycję |
-| **Średni Koszt Landed w Polsce (z VAT)** | **`~335.26 zł`** | Zawiera wysyłkę w paczce zbiorczej, 2 EUR, 800 JPY i 23% VAT |
-| **Średni Zysk Netto na Sztuce** | **`<strong style='color:#10b981;'>+234.74 zł</strong>`** | Czysty zysk po odliczeniu wszystkich kosztów sprowadzenia |
-| **Średnia Zrealizowana Stopa Zwrotu** | **`<strong style='color:#10b981;'>+81.9% ROI</strong>`** | Ponad 2-krotny zwrot z każdej zainwestowanej złotówki |
-| **Łączny Potencjał Zysku Sprzedanych Pozycji** | **`<strong style='color:#10b981;'>+11,267.34 zł</strong>`** | Sumaryczny wygenerowany zysk ze wszystkich zarejestrowanych transakcji |
+| **Łącznie Zarejestrowanych Transakcji** | **`49 ofert`** | Zamknięte lub wyprzedane pozycje z monitorowanej bazy |
+| **Aktywne Oferty w Monitoringu** | **`124 ofert`** | Dostępne obecnie do natychmiastowego zakupu / licytacji |
+| **Średnia Cena Sprzedaży w Japonii** | **`8,164 JPY`** (~202.71 zł) | Średni kapitał zakupu na 1 pozycję |
+| **Średni Koszt Landed w Polsce (z VAT)** | **`~331.28 zł`** | Zawiera wysyłkę w paczce zbiorczej, 2 EUR, 800 JPY i 23% VAT |
+| **Średni Zysk Netto na Sztuce** | **`<strong style='color:#10b981;'>+233.62 zł</strong>`** | Czysty zysk po odliczeniu wszystkich kosztów sprowadzenia |
+| **Średnia Zrealizowana Stopa Zwrotu** | **`<strong style='color:#10b981;'>+82.8% ROI</strong>`** | Ponad 2-krotny zwrot z każdej zainwestowanej złotówki |
+| **Łączny Potencjał Zysku Sprzedanych Pozycji** | **`<strong style='color:#10b981;'>+11,447.37 zł</strong>`** | Sumaryczny wygenerowany zysk ze wszystkich zarejestrowanych transakcji |
 
 ---
 
@@ -38,7 +38,7 @@ Poniższa tabela przedstawia tempo rotacji i wolumen sprzedaży w podziale na ka
 | Kategoria | Liczba Sprzedaży | Średnia Cena (JPY) | Średni Zysk w PL | Średni ROI % | Tempo Wyprzedaży | Sygnał Popytowy |
 |---|:---:|---:|---:|---:|:---:|:---:|
 | **Nintendo DS & 3DS (DS Lite, DSi, 3DS & Edycje Limitowane)** | **14 szt.** | 6,714 JPY | <strong style='color:#10b981;'>+204.17 zł</strong> | <strong style='color:#10b981;'>+67.7%</strong> | ~1.0 dni | `🔥 Ekstremalny (< 24h)` |
-| **Aparaty Analogowe Typu Małpka (35mm Point & Shoot)** | **8 szt.** | 2,338 JPY | <strong style='color:#10b981;'>+151.19 zł</strong> | <strong style='color:#10b981;'>+106.7%</strong> | ~1.0 dni | `🔥 Ekstremalny (< 24h)` |
+| **Aparaty Analogowe Typu Małpka (35mm Point & Shoot)** | **9 szt.** | 2,333 JPY | <strong style='color:#10b981;'>+154.40 zł</strong> | <strong style='color:#10b981;'>+109.2%</strong> | ~1.0 dni | `🔥 Ekstremalny (< 24h)` |
 | **Japońskie Obiektywy Manualne (0% Baterii)** | **6 szt.** | 2,183 JPY | <strong style='color:#10b981;'>+173.54 zł</strong> | <strong style='color:#10b981;'>+127.7%</strong> | ~1.0 dni | `🔥 Ekstremalny (< 24h)` |
 | **Nintendo Game Boy (GBA SP AGS-101 Brighter, GBA, GBC & Micro)** | **5 szt.** | 11,600 JPY | <strong style='color:#10b981;'>+367.74 zł</strong> | <strong style='color:#10b981;'>+83.4%</strong> | ~1.0 dni | `🔥 Ekstremalny (< 24h)` |
 | **Sony PlayStation Portable Go (PSP-N1000 - 16GB Flash)** | **2 szt.** | 22,650 JPY | <strong style='color:#10b981;'>+129.30 zł</strong> | <strong style='color:#10b981;'>+16.5%</strong> | ~1.0 dni | `🔥 Ekstremalny (< 24h)` |
@@ -68,7 +68,7 @@ Na podstawie analizy tysięcy aukcji i zakończonych ofert z Mercari wyznaczyli�
 
 ---
 
-## 📋 Kompletny Rejestr Zamkniętych i Sprzedanych Ofert (48 Pozycji)
+## 📋 Kompletny Rejestr Zamkniętych i Sprzedanych Ofert (49 Pozycji)
 
 Poniższy dziennik zawiera każdą ofertę z bazy, która zakończyła się transakcją, została wykupiona lub wygasła. Pozwala to śledzić dokładne japońskie ceny końcowe:
 
@@ -97,6 +97,7 @@ Poniższy dziennik zawiera każdą ofertę z bazy, która zakończyła się tran
 | **PSP UMD 10 sztuk**<br><small>Monster Hunter/Musou</small> | Pakiety Gier Retro PSP (Mix UMD まとめ) | **2,620 JPY**<br>(~65.06 zł) | ~143.86 zł | **350.00 zł** | <strong style='color:#10b981;'>+206.14 zł</strong><br><small>(+143.3%)</small> | `⚡ Błyskawiczna (< 24h)` | `Wykluczone: Uszkodzone (Broken)` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m42611850999) |
 | **Super-Takumar 55mm f/1.8 (M42)**<br><small>Mocowanie Gwint M42</small> | Japońskie Obiektywy Manualne (0% Baterii) | **1,800 JPY**<br>(~44.70 zł) | ~124.42 zł | **320.00 zł** | <strong style='color:#10b981;'>+195.58 zł</strong><br><small>(+157.2%)</small> | `⚡ Błyskawiczna (< 24h)` | `Zakończone / 404` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m39104820111) |
 | **Konica Pop EFJ (Hexanon 36mm f/4 Prime)**<br><small>Retro Czerwień / Czarny</small> | Aparaty Analogowe Typu Małpka (35mm Point & Shoot) | **3,200 JPY**<br>(~79.46 zł) | ~168.40 zł | **350.00 zł** | <strong style='color:#10b981;'>+181.60 zł</strong><br><small>(+107.8%)</small> | `⚡ Błyskawiczna (< 24h)` | `Zakończone / 404` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m84019283741) |
+| **Ricoh Myport Zoom Macro (38-60mm)**<br><small>Czarny Ergonomiczny</small> | Aparaty Analogowe Typu Małpka (35mm Point & Shoot) | **2,300 JPY**<br>(~57.04 zł) | ~139.97 zł | **320.00 zł** | <strong style='color:#10b981;'>+180.03 zł</strong><br><small>(+128.6%)</small> | `🔥 Błyskawiczna (< 24h)` | `W trakcie transakcji` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m15919018689) |
 | **Nintendo 3DS**<br><small>Cosmo Black</small> | Nintendo DS & 3DS (DS Lite, DSi, 3DS & Edycje Limitowane) | **6,900 JPY**<br>(~171.34 zł) | ~290.95 zł | **470.00 zł** | <strong style='color:#10b981;'>+179.05 zł</strong><br><small>(+61.5%)</small> | `⚡ Błyskawiczna (< 24h)` | `Zakończone / 404` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m99010142539) |
 | **Nintendo DSi LL (XL)**<br><small>Wine Red / Natural White (IPS)</small> | Nintendo DS & 3DS (DS Lite, DSi, 3DS & Edycje Limitowane) | **4,500 JPY**<br>(~111.74 zł) | ~215.55 zł | **390.00 zł** | <strong style='color:#10b981;'>+174.45 zł</strong><br><small>(+80.9%)</small> | `⚡ Błyskawiczna (< 24h)` | `Zakończone / 404` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m55968708196) |
 | **Olympus OM-System F.Zuiko 50mm f/1.8**<br><small>Mocowanie Olympus OM</small> | Japońskie Obiektywy Manualne (0% Baterii) | **2,500 JPY**<br>(~62.08 zł) | ~146.41 zł | **320.00 zł** | <strong style='color:#10b981;'>+173.59 zł</strong><br><small>(+118.6%)</small> | `⚡ Błyskawiczna (< 24h)` | `Zakończone / 404` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m72049182555) |
@@ -137,4 +138,4 @@ flowchart TD
 ```
 
 ---
-*Raport wygenerowany automatycznie przez silnik HistoryTracker & HistoryGenerator. Ostatnia synchronizacja: 2026-11-09 11:58 UTC.*
+*Raport wygenerowany automatycznie przez silnik HistoryTracker & HistoryGenerator. Ostatnia synchronizacja: 2026-11-09 12:57 UTC.*
