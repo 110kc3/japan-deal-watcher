@@ -450,6 +450,13 @@ function renderDealCard(deal, isAuction) {
       </button>
     `;
   } else {
+    const zenStreamBtn = deal.links && deal.links.zenmarket_search_mercari
+      ? `<a href="${deal.links.zenmarket_search_mercari}" target="_blank" rel="noopener" class="btn-action secondary">🔍 Strumień Mercari</a>`
+      : '';
+    const mercLiveBtn = deal.links && deal.links.mercari_live_search
+      ? `<a href="${deal.links.mercari_live_search}" target="_blank" rel="noopener" class="btn-action secondary">🇯🇵 Mercari Live</a>`
+      : '';
+
     actionButtons = `
       <a href="${deal.links.zenmarket_buy}" target="_blank" rel="noopener" class="btn-action primary">
         🛒 Kup w ZenMarket
@@ -457,6 +464,8 @@ function renderDealCard(deal, isAuction) {
       <a href="${deal.links.mercari_direct}" target="_blank" rel="noopener" class="btn-action secondary">
         🇯🇵 Mercari Direct
       </a>
+      ${zenStreamBtn}
+      ${mercLiveBtn}
       ${allegroBtn}
       ${olxBtn}
       <button class="btn-action accent-blue btn-calc-trigger" data-deal-id="${deal.id}" data-type="mercari">

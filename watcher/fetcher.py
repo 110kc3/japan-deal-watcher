@@ -186,7 +186,8 @@ class DealFetcher:
         raw_description = fallback_info.get("note", "") if fallback_info else ""
         item_condition = ""
 
-        if not str(item_id).startswith("m"):
+        is_mercari_id = bool(re.match(r"^m\d+$", str(item_id)))
+        if not is_mercari_id:
             # Non-Mercari tracked item (e.g. curated proxy stream or test lot)
             cost_info = calculate_landed_cost(
                 price_jpy=price_jpy,
@@ -197,6 +198,17 @@ class DealFetcher:
             est_pl = float(fallback_info.get("est_pl_value", 0)) if fallback_info else 0.0
             margin = round(est_pl - cost_info["landed_cost_pln"], 2)
             roi = round((margin / cost_info["landed_cost_pln"] * 100.0), 1) if cost_info["landed_cost_pln"] > 0 else 0.0
+            
+            # Avoid leaking internal IDs into search URLs
+            search_q = fallback_info.get("search_query_jp") or fallback_info.get("model", "") if fallback_info else ""
+            encoded_q = urllib.parse.quote(search_q)
+            zenmarket_url = fallback_info.get("zenmarket_url") if fallback_info else ""
+            if not zenmarket_url:
+                zenmarket_url = f"https://zenmarket.jp/pl/yahoo.aspx?q={encoded_q}"
+            mercari_url = fallback_info.get("source_url") if fallback_info else ""
+            if not mercari_url:
+                mercari_url = f"https://jp.mercari.com/search?keyword={encoded_q}&status=on_sale"
+
             return {
                 "id": item_id,
                 "title": fallback_info.get("model", title) if fallback_info else title,
@@ -216,8 +228,9 @@ class DealFetcher:
                 "shipping_share_pln": cost_info["shipping_share_pln"],
                 "vat_pln": cost_info["vat_pln"],
                 "zenmarket_fee_pln": cost_info["zenmarket_fee_pln"],
-                "zenmarket_url": fallback_info.get("zenmarket_url", f"https://zenmarket.jp/pl/yahoo.aspx?q={item_id}") if fallback_info else "",
-                "mercari_url": fallback_info.get("source_url", "") if fallback_info else "",
+                "zenmarket_url": zenmarket_url,
+                "mercari_url": mercari_url,
+                "search_query_jp": search_q,
                 "category_id": category_id,
                 "battery_type": fallback_info.get("battery_type", "none") if fallback_info else "none",
                 "photo_inspection": fallback_info.get("photo_inspection") if fallback_info else None
@@ -256,8 +269,14 @@ class DealFetcher:
                         status = f"Status: {raw_status}"
 
             except Exception as e:
-                logging.debug(f"Mercapi check for {item_id} failed: {e}. Falling back to HTTP.")
-                checked_via_mercapi = False
+                err_msg = str(e)
+                if "KeyError" in type(e).__name__ or "data" in err_msg or "404" in err_msg or "400" in err_msg:
+                    logging.info(f"Item {item_id} confirmed non-existent / 404 via Mercapi ({e}).")
+                    status = "Zakończone / 404"
+                    checked_via_mercapi = True
+                else:
+                    logging.debug(f"Mercapi check for {item_id} failed: {e}. Falling back to HTTP.")
+                    checked_via_mercapi = False
 
         if not checked_via_mercapi:
             url = f"https://jp.mercari.com/item/{item_id}"
@@ -270,15 +289,12 @@ class DealFetcher:
                         
                         # Check price
                         p_match = re.search(r'product:price:amount\"\s*content=\"(\d+)\"', html)
-                        if p_match:
-                            price_jpy = int(p_match.group(1))
-
+                        
                         # Check title
                         t_match = re.search(r'<title>(.*?)</title>', html)
+                        clean_title = ""
                         if t_match:
                             clean_title = t_match.group(1).split("-")[0].strip()
-                            if clean_title and clean_title != "メルカリ":
-                                title = clean_title
 
                         # Check image
                         img_match = re.search(r'<meta property=[\"\']og:image[\"\'] content=[\"\']([^\"\']+)[\"\']', html)
@@ -290,13 +306,23 @@ class DealFetcher:
                         if desc_match:
                             raw_description = desc_match.group(1)
 
-                        is_sold = bool(re.search(r'<meta[^>]*robots[^>]*noindex', html, re.IGNORECASE))
-                        if is_sold:
-                            status = "Zakończone / Sprzedane"
-                        elif price_jpy > 0:
-                            status = "Dostępne"
+                        is_sold = bool(
+                            re.search(r'<meta[^>]*robots[^>]*noindex', html, re.IGNORECASE) or
+                            "売り切れ" in html or
+                            "item-status:sold-out" in html
+                        )
+
+                        if p_match:
+                            price_jpy = int(p_match.group(1))
+                            if clean_title and clean_title != "メルカリ":
+                                title = clean_title
+                            if is_sold:
+                                status = "Zakończone / Sprzedane"
+                            else:
+                                status = "Dostępne"
                         else:
-                            status = "Niedostępne"
+                            # SPA shell without product data: item is dead/removed
+                            status = "Zakończone / 404"
                         break
 
                 except urllib.error.HTTPError as e:
@@ -359,6 +385,7 @@ class DealFetcher:
             "matched_flag": cond_info["matched_flag"],
             "description_snippet": raw_description[:160].replace("\n", " ").strip() if raw_description else "",
             "image_url": image_url,
+            "search_query_jp": fallback_info.get("search_query_jp", "") if fallback_info else "",
             "mercari_url": f"https://jp.mercari.com/item/{item_id}",
             "zenmarket_url": f"https://zenmarket.jp/pl/mercariproduct.aspx?itemCode={item_id}"
         }

@@ -6,6 +6,8 @@ assess individual Polish resale values, and evaluate lot arbitrage.
 """
 
 import re
+import unicodedata
+import urllib.parse
 from typing import Dict, List, Any, Optional
 
 # Polish market value reference catalog for Japanese games identified in lot photos (Allegro Archiwum / OLX medians)
@@ -445,8 +447,10 @@ class LotVisionInspector:
                 if "cib" in raw_text or "箱" in raw_text or "pudełk" in raw_text:
                     val = game["est_pl_value_cib"]
                 clean_title = game["title"].split("(")[0].strip()
-                allegro_search = f"https://allegro.pl/kategoria/gry?string={clean_title.replace(' ', '+')}+Japonia"
-                olx_search = f"https://www.olx.pl/oferty/q-{clean_title.lower().replace(' ', '-')}-japonia/"
+                allegro_search = f"https://allegro.pl/listing?string={urllib.parse.quote(clean_title + ' Japonia')}"
+                clean_slug = unicodedata.normalize('NFKD', clean_title).encode('ascii', 'ignore').decode('utf-8').lower()
+                clean_slug = re.sub(r'[^a-z0-9]+', '-', clean_slug).strip('-')
+                olx_search = f"https://www.olx.pl/oferty/q-{clean_slug}-japonia/"
 
                 spotted_gems.append({
                     "id": key,

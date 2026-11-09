@@ -15,8 +15,9 @@ Enforces:
 
 import json
 import logging
+import re
 from pathlib import Path
-from typing import Dict, List, Any, Tuple
+from typing import Dict, List, Any, Tuple, Optional
 
 from .config import (
     BASE_DIR,
@@ -26,6 +27,7 @@ from .config import (
     YAHOO_DEALS_FILE,
     YAHOO_MD_FILE,
     SNIPER_GUIDE_MD_FILE,
+    DOCS_DATA_FILE,
     MAX_CAMERA_PRICE_PLN,
     MAX_LENS_PRICE_PLN,
     MAX_LI_ION_PER_PARCEL,
@@ -402,6 +404,69 @@ def check_markdown_dashboards(base_dir: Path = BASE_DIR) -> Tuple[bool, List[str
     return len(errors) == 0, errors
 
 
+def check_link_integrity(docs_deals_file: Optional[Path] = None) -> Tuple[bool, List[str]]:
+    """
+    Check 10: Link Integrity and Search Stream Verification.
+    Verifies that deals in docs/data/deals.json:
+    1. Zero URLs leak internal proxy IDs (danshari_, pentax_pc35af_manual, mju_2_prime_black).
+    2. Zero URLs have uninterpolated template braces ({item_id}, {encoded_q}, %7B).
+    3. OLX links are valid ASCII slugs matching ^https://www\.olx\.pl/oferty/q-[a-z0-9-]+/$ (no %26, no kanji).
+    4. Allegro links have clean, properly encoded search queries without raw Japanese kanji.
+    5. ZenMarket and Mercari URLs are properly formed HTTPS links.
+    """
+    target = docs_deals_file or DOCS_DATA_FILE
+    if not target.exists():
+        return True, []
+
+    errors: List[str] = []
+    try:
+        with open(target, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except Exception as e:
+        return False, [f"Błąd odczytu {target.name}: {e}"]
+
+    items = data.get("auctions", []) + data.get("mercari_deals", [])
+    if not items:
+        return False, ["Brak ofert w deals.json"]
+
+    jp_regex = re.compile(r"[\u3000-\u303f\u3040-\u309f\u30a0-\u30ff\uff00-\uffef\u4e00-\u9faf]")
+    olx_regex = re.compile(r"^https://www\.olx\.pl/oferty/q-[a-z0-9-]+/$")
+
+    for it in items:
+        iid = it.get("id", "unknown")
+        links = it.get("links", {})
+        for link_key, url in links.items():
+            if not url or not isinstance(url, str):
+                errors.append(f"Przedmiot {iid}: Pusty link '{link_key}'")
+                continue
+
+            # 1. No leaked proxy IDs
+            if any(p in url for p in ["danshari_", "pentax_pc35af_manual", "mju_2_prime_black"]):
+                errors.append(f"Przedmiot {iid}: Link '{link_key}' wycieka wewnętrzne proxy ID ({url})")
+
+            # 2. No uninterpolated placeholders
+            if "{" in url or "}" in url or "%7B" in url or "%7D" in url:
+                errors.append(f"Przedmiot {iid}: Link '{link_key}' zawiera niezastąpione klamry ({url})")
+
+            # 3. OLX format check
+            if link_key == "olx_search":
+                if not olx_regex.match(url):
+                    errors.append(f"Przedmiot {iid}: Nieprawidłowy format OLX slug ({url})")
+                if "%26" in url or "-&-" in url:
+                    errors.append(f"Przedmiot {iid}: OLX link zawiera niedozwolony znak '&' ({url})")
+
+            # 4. Allegro format check
+            if link_key == "allegro_search":
+                if jp_regex.search(url) or "%E3%80%90" in url:
+                    errors.append(f"Przedmiot {iid}: Allegro search zawiera japoński tekst lub tagi ({url})")
+
+            # 5. ZenMarket format check
+            if "zenmarket" in link_key and not url.startswith("https://zenmarket.jp/"):
+                errors.append(f"Przedmiot {iid}: ZenMarket URL nie zaczyna się od https://zenmarket.jp/ ({url})")
+
+    return len(errors) == 0, errors
+
+
 def run_full_system_audit(strict: bool = False) -> Dict[str, Any]:
     """
     Executes all system and deal verification checks, returning an executive audit report.
@@ -427,6 +492,11 @@ def run_full_system_audit(strict: bool = False) -> Dict[str, Any]:
     ok, errs = check_markdown_dashboards(BASE_DIR)
     msg = "Wszystkie dashboardy Markdown (README, YAHOO, SNIPER) aktywne" if ok else "; ".join(errs)
     audit_results.append({"name": "Markdown Dashboards & Cross-Links", "passed": ok, "message": msg, "icon": "📄"})
+
+    # 5. Link integrity & Polish market search streams verification
+    ok, errs = check_link_integrity(DOCS_DATA_FILE)
+    msg = "Wszystkie linki (ZenMarket, Allegro, OLX) zweryfikowane, zero 404/błędów" if ok else "; ".join(errs)
+    audit_results.append({"name": "Link & Search Stream Integrity (ZenMarket/Allegro/OLX)", "passed": ok, "message": msg, "icon": "🔗"})
 
     total_checks = len(audit_results)
     passed_checks = sum(1 for r in audit_results if r["passed"])

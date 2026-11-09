@@ -3,7 +3,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from watcher.webapp_exporter import WebappExporter
+from watcher.webapp_exporter import WebappExporter, clean_polish_market_queries
 from watcher.config import DEFAULT_JPY_PLN_RATE, DEFAULT_EUR_PLN_RATE, MAX_CAMERA_PRICE_PLN, MAX_LENS_PRICE_PLN
 
 
@@ -131,6 +131,58 @@ class TestWebappExporter(unittest.TestCase):
             # Only the 1 active Mercari deal should be included (excluding 404)
             self.assertEqual(len(data["mercari_deals"]), 1)
             self.assertEqual(data["mercari_deals"][0]["id"], "m1234567890")
+
+    def test_clean_polish_market_queries(self):
+        cases = [
+            ("【断捨離】Karton 50 Gier Nintendo DS & 3DS (Likwidacja Pokoju / Wyprzedaż)", "gry nintendo ds zestaw", "gry-nintendo-ds-zestaw"),
+            ("【実家整理】Karton 40 Kartridży Game Boy & GBA (Strych / Pamiątki z Dzieciństwa)", "gry game boy advance zestaw", "gry-game-boy-advance-zestaw"),
+            ("【引退品】Zestaw 60 Gier Sony PSP UMD (Kolekcja Gracza / まとめ売り)", "gry psp zestaw", "gry-psp-zestaw"),
+            ("【断捨離】Zestaw 15 Kartridży Pokémon (DS / GBA / GBC - Wyprzedaż Prywatna)", "gry pokemon nintendo", "gry-pokemon-nintendo"),
+            ("Olympus [mju:]-II (μ-II 35mm f/2.8 Prime - Czarny Weatherproof)", "Olympus Mju II", "olympus-mju-ii"),
+            ("Pentax PC35AF (Oryginalny Naciąg Ręczny Thumbwheel - Bez silnika M)", "Pentax PC35AF", "pentax-pc35af"),
+            ("PCH-2000 Slim", "PS Vita Slim", "ps-vita-slim"),
+            ("PCH-1000 OLED", "PS Vita OLED", "ps-vita-oled"),
+            ("New Nintendo 3DS LL (New 3DS XL)", "New Nintendo 3DS XL", "new-nintendo-3ds-xl"),
+            ("DualSense Wireless Controller (Astro Bot Limited Edition)", "DualSense Astro Bot", "dualsense-astro-bot"),
+            ("DualShock 4 Berry Blue Limited Edition", "DualShock 4 Berry Blue", "dualshock-4-berry-blue")
+        ]
+        for model_str, expected_pl_q, expected_slug in cases:
+            pl_q, slug = clean_polish_market_queries({"model": model_str})
+            self.assertEqual(pl_q, expected_pl_q)
+            self.assertEqual(slug, expected_slug)
+            self.assertNotIn("%26", slug)
+            self.assertNotIn("&", slug)
+            self.assertRegex(slug, r"^[a-z0-9-]+$")
+
+    def test_proxy_id_leak_prevention(self):
+        proxy_item = {
+            "id": "danshari_ds_3ds_50",
+            "model": "【断捨離】Karton 50 Gier Nintendo DS & 3DS (Likwidacja Pokoju / Wyprzedaż)",
+            "status": "Dostępne",
+            "search_query_jp": "DS 3DS ソフト 断捨離 大量 まとめ売り",
+            "target_price_jpy": 4800,
+            "est_pl_value": 380.0
+        }
+        exporter = WebappExporter(
+            rate_jpy=0.024802,
+            rate_eur=4.3873,
+            is_live_rate=True,
+            mercari_deals=[proxy_item]
+        )
+        processed = exporter.process_mercari_deal(proxy_item)
+        links = processed["links"]
+
+        # Ensure no URL contains the raw string 'danshari_ds_3ds_50'
+        for link_name, url in links.items():
+            self.assertNotIn("danshari_ds_3ds_50", url, f"Link {link_name} leaked internal proxy ID")
+
+        # Verify search query stream presence
+        self.assertIn("zenmarket_search_mercari", links)
+        self.assertIn("mercari_live_search", links)
+        self.assertIn("zenmarket_yahoo_search", links)
+        self.assertIn("allegro_search", links)
+        self.assertIn("olx_search", links)
+        self.assertEqual(links["olx_search"], "https://www.olx.pl/oferty/q-gry-nintendo-ds-zestaw/")
 
 
 if __name__ == "__main__":
