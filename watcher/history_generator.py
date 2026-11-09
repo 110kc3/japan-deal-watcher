@@ -53,6 +53,7 @@ class HistoryGenerator:
         md.append("")
         md.append(
             "⬅ **Nawigacja:** [Główny Dashboard Mercari (README.md)](README.md) · "
+            "[📡 Radar Licytacji (AUCTION_RADAR.md)](AUCTION_RADAR.md) · "
             "[Katalog Alternatywnych Ofert (YAHOO_AUCTIONS_DEALS.md)](YAHOO_AUCTIONS_DEALS.md) · "
             "[🎯 Poradnik Snajpera (AUCTION_SNIPING_GUIDE.md)](AUCTION_SNIPING_GUIDE.md) · "
             "[💰 Audyt Opłacalności (REAL_PROFITABILITY_AUDIT.md)](REAL_PROFITABILITY_AUDIT.md)"

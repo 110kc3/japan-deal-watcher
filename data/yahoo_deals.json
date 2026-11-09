@@ -16,7 +16,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=New%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20LL%20%E6%9C%AC%E4%BD%93",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=New%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20LL%20%E6%9C%AC%E4%BD%93&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/New%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20LL%20%E6%9C%AC%E4%BD%93?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "Newニンテンドー3DS LL 本体"
+    "search_query_jp": "Newニンテンドー3DS LL 本体",
+    "closed_price_min_jpy": 13000,
+    "closed_price_avg_jpy": 18500,
+    "closed_price_max_jpy": 25000,
+    "mercari_bin_avg_jpy": 23500,
+    "auction_advantage_note": "Aukcje 1 JPY kończą się 20-30% taniej niż Mercari; wysoki popyt na ekrany IPS"
   },
   {
     "id": "new_n3ds_ktr",
@@ -35,7 +40,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=New%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20%E6%9C%AC%E4%BD%93",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=New%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20%E6%9C%AC%E4%BD%93&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/New%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20%E6%9C%AC%E4%BD%93?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "Newニンテンドー3DS 本体"
+    "search_query_jp": "Newニンテンドー3DS 本体",
+    "closed_price_min_jpy": 11000,
+    "closed_price_avg_jpy": 14500,
+    "closed_price_max_jpy": 19000,
+    "mercari_bin_avg_jpy": 19500,
+    "auction_advantage_note": "Model KTR-001 rzadki na Mercari, aukcje na Yahoo pozwalają ustrzelić go poniżej 15k JPY"
   },
   {
     "id": "n3ds_xl_old_spr",
@@ -54,7 +64,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20LL%20%E6%9C%AC%E4%BD%93",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20LL%20%E6%9C%AC%E4%BD%93&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20LL%20%E6%9C%AC%E4%BD%93?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "ニンテンドー3DS LL 本体"
+    "search_query_jp": "ニンテンドー3DS LL 本体",
+    "closed_price_min_jpy": 6500,
+    "closed_price_avg_jpy": 8500,
+    "closed_price_max_jpy": 12000,
+    "mercari_bin_avg_jpy": 11000,
+    "auction_advantage_note": "Popularny na modowanie, duża podaż na aukcjach 1 JPY"
   },
   {
     "id": "n3ds_aqua_blue",
@@ -73,7 +88,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20%E6%9C%AC%E4%BD%93%20%E3%82%A2%E3%82%AF%E3%82%A2%E3%83%96%E3%83%AB%E3%83%BC",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20%E6%9C%AC%E4%BD%93%20%E3%82%A2%E3%82%AF%E3%82%A2%E3%83%96%E3%83%AB%E3%83%BC&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20%E6%9C%AC%E4%BD%93%20%E3%82%A2%E3%82%AF%E3%82%A2%E3%83%96%E3%83%AB%E3%83%BC?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "ニンテンドー3DS 本体 アクアブルー"
+    "search_query_jp": "ニンテンドー3DS 本体 アクアブルー",
+    "closed_price_min_jpy": 4500,
+    "closed_price_avg_jpy": 5800,
+    "closed_price_max_jpy": 7500,
+    "mercari_bin_avg_jpy": 7500,
+    "auction_advantage_note": "Klasyczny 3DS, regularnie zamyka się poniżej 6,000 JPY"
   },
   {
     "id": "ndsi_ll_wine_red",
@@ -92,7 +112,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=Nintendo%20DSi%20LL%20%E6%9C%AC%E4%BD%93",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=Nintendo%20DSi%20LL%20%E6%9C%AC%E4%BD%93&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/Nintendo%20DSi%20LL%20%E6%9C%AC%E4%BD%93?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "Nintendo DSi LL 本体"
+    "search_query_jp": "Nintendo DSi LL 本体",
+    "closed_price_min_jpy": 3500,
+    "closed_price_avg_jpy": 5200,
+    "closed_price_max_jpy": 7500,
+    "mercari_bin_avg_jpy": 7200,
+    "auction_advantage_note": "DSi LL ma fabryczne ekrany IPS; na Yahoo zamyka się o 2,000 JPY taniej niż na Mercari"
   },
   {
     "id": "nds_lite_silver",
@@ -111,7 +136,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=Nintendo%20DS%20Lite%20%E6%9C%AC%E4%BD%93%20%E5%8B%95%E4%BD%9C%E7%A2%BA%E8%AA%8D%E6%B8%88%E3%81%BF",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=Nintendo%20DS%20Lite%20%E6%9C%AC%E4%BD%93%20%E5%8B%95%E4%BD%9C%E7%A2%BA%E8%AA%8D%E6%B8%88%E3%81%BF&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/Nintendo%20DS%20Lite%20%E6%9C%AC%E4%BD%93%20%E5%8B%95%E4%BD%9C%E7%A2%BA%E8%AA%8D%E6%B8%88%E3%81%BF?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "Nintendo DS Lite 本体 動作確認済み"
+    "search_query_jp": "Nintendo DS Lite 本体 動作確認済み",
+    "closed_price_min_jpy": 1800,
+    "closed_price_avg_jpy": 2400,
+    "closed_price_max_jpy": 3200,
+    "mercari_bin_avg_jpy": 3500,
+    "auction_advantage_note": "Tani hit obrotowy, świetny do dopełnienia paczki konsolidacyjnej"
   },
   {
     "id": "nds_lite_crimson",
@@ -130,7 +160,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=DS%20Lite%20%E3%82%AF%E3%83%AA%E3%83%A0%E3%82%BE%E3%83%B3%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=DS%20Lite%20%E3%82%AF%E3%83%AA%E3%83%A0%E3%82%BE%E3%83%B3%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/DS%20Lite%20%E3%82%AF%E3%83%AA%E3%83%A0%E3%82%BE%E3%83%B3%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "DS Lite クリムゾンブラック"
+    "search_query_jp": "DS Lite クリムゾンブラック",
+    "closed_price_min_jpy": 2200,
+    "closed_price_avg_jpy": 2800,
+    "closed_price_max_jpy": 3800,
+    "mercari_bin_avg_jpy": 3900,
+    "auction_advantage_note": "Poszukiwany dwukolorowy wariant z czerwoną klapą"
   },
   {
     "id": "nds_ff3_limited",
@@ -149,7 +184,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=DS%20Lite%20%E3%83%95%E3%82%A1%E3%82%A4%E3%83%8A%E3%83%AB%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BCIII%20%E3%82%AF%E3%83%AA%E3%82%B9%E3%82%BF%E3%83%AB%E3%82%A8%E3%83%87%E3%82%A3%E3%82%B7%E3%83%A7%E3%83%B3",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=DS%20Lite%20%E3%83%95%E3%82%A1%E3%82%A4%E3%83%8A%E3%83%AB%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BCIII%20%E3%82%AF%E3%83%AA%E3%82%B9%E3%82%BF%E3%83%AB%E3%82%A8%E3%83%87%E3%82%A3%E3%82%B7%E3%83%A7%E3%83%B3&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/DS%20Lite%20%E3%83%95%E3%82%A1%E3%82%A4%E3%83%8A%E3%83%AB%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BCIII%20%E3%82%AF%E3%83%AA%E3%82%B9%E3%82%BF%E3%83%AB%E3%82%A8%E3%83%87%E3%82%A3%E3%82%B7%E3%83%A7%E3%83%B3?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "DS Lite ファイナルファンタジーIII クリスタルエディション"
+    "search_query_jp": "DS Lite ファイナルファンタジーIII クリスタルエディション",
+    "closed_price_min_jpy": 5000,
+    "closed_price_avg_jpy": 6800,
+    "closed_price_max_jpy": 9500,
+    "mercari_bin_avg_jpy": 10500,
+    "auction_advantage_note": "Edycja limitowana Final Fantasy III, duży zysk kolekcjonerski"
   },
   {
     "id": "gba_sp_famicom",
@@ -168,7 +208,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%9C%E3%83%BC%E3%82%A4%E3%82%A2%E3%83%89%E3%83%90%E3%83%B3%E3%82%B9SP%20%E3%83%95%E3%82%A1%E3%83%9F%E3%82%B3%E3%83%B3%E3%82%AB%E3%83%A9%E3%83%BC",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%9C%E3%83%BC%E3%82%A4%E3%82%A2%E3%83%89%E3%83%90%E3%83%B3%E3%82%B9SP%20%E3%83%95%E3%82%A1%E3%83%9F%E3%82%B3%E3%83%B3%E3%82%AB%E3%83%A9%E3%83%BC&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%9C%E3%83%BC%E3%82%A4%E3%82%A2%E3%83%89%E3%83%90%E3%83%B3%E3%82%B9SP%20%E3%83%95%E3%82%A1%E3%83%9F%E3%82%B3%E3%83%B3%E3%82%AB%E3%83%A9%E3%83%BC?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "ゲームボーイアドバンスSP ファミコンカラー"
+    "search_query_jp": "ゲームボーイアドバンスSP ファミコンカラー",
+    "closed_price_min_jpy": 8500,
+    "closed_price_avg_jpy": 11500,
+    "closed_price_max_jpy": 16000,
+    "mercari_bin_avg_jpy": 15500,
+    "auction_advantage_note": "Famicom 20th Anniversary, aukcje dają okazję na zakup ~10,000 JPY"
   },
   {
     "id": "gba_sp_brighter_101",
@@ -187,7 +232,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%9C%E3%83%BC%E3%82%A4%E3%82%A2%E3%83%89%E3%83%90%E3%83%B3%E3%82%B9SP%20AGS-101",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%9C%E3%83%BC%E3%82%A4%E3%82%A2%E3%83%89%E3%83%90%E3%83%B3%E3%82%B9SP%20AGS-101&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%9C%E3%83%BC%E3%82%A4%E3%82%A2%E3%83%89%E3%83%90%E3%83%B3%E3%82%B9SP%20AGS-101?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "ゲームボーイアドバンスSP AGS-101"
+    "search_query_jp": "ゲームボーイアドバンスSP AGS-101",
+    "closed_price_min_jpy": 13000,
+    "closed_price_avg_jpy": 16500,
+    "closed_price_max_jpy": 22000,
+    "mercari_bin_avg_jpy": 21000,
+    "auction_advantage_note": "Oryginalny jaśniejszy ekran Brighter LCD; szybka sprzedaż w Polsce"
   },
   {
     "id": "gbc_atomic_purple",
@@ -206,7 +256,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%9C%E3%83%BC%E3%82%A4%E3%82%AB%E3%83%A9%E3%83%BC%20%E6%9C%AC%E4%BD%93%20%E3%82%AF%E3%83%AA%E3%82%A2%E3%83%91%E3%83%BC%E3%83%97%E3%83%AB",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%9C%E3%83%BC%E3%82%A4%E3%82%AB%E3%83%A9%E3%83%BC%20%E6%9C%AC%E4%BD%93%20%E3%82%AF%E3%83%AA%E3%82%A2%E3%83%91%E3%83%BC%E3%83%97%E3%83%AB&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%9C%E3%83%BC%E3%82%A4%E3%82%AB%E3%83%A9%E3%83%BC%20%E6%9C%AC%E4%BD%93%20%E3%82%AF%E3%83%AA%E3%82%A2%E3%83%91%E3%83%BC%E3%83%97%E3%83%AB?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "ゲームボーイカラー 本体 クリアパープル"
+    "search_query_jp": "ゲームボーイカラー 本体 クリアパープル",
+    "closed_price_min_jpy": 5000,
+    "closed_price_avg_jpy": 6500,
+    "closed_price_max_jpy": 8500,
+    "mercari_bin_avg_jpy": 8800,
+    "auction_advantage_note": "Kultowy przezroczysty fiolet, brak baterii li-ion (0% ryzyka IATA)"
   },
   {
     "id": "gba_glacier_agb",
@@ -225,7 +280,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%9C%E3%83%BC%E3%82%A4%E3%82%A2%E3%83%89%E3%83%90%E3%83%B3%E3%82%B9%20%E6%9C%AC%E4%BD%93%20AGB-001",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%9C%E3%83%BC%E3%82%A4%E3%82%A2%E3%83%89%E3%83%90%E3%83%B3%E3%82%B9%20%E6%9C%AC%E4%BD%93%20AGB-001&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%9C%E3%83%BC%E3%82%A4%E3%82%A2%E3%83%89%E3%83%90%E3%83%B3%E3%82%B9%20%E6%9C%AC%E4%BD%93%20AGB-001?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "ゲームボーイアドバンス 本体 AGB-001"
+    "search_query_jp": "ゲームボーイアドバンス 本体 AGB-001",
+    "closed_price_min_jpy": 4000,
+    "closed_price_avg_jpy": 5200,
+    "closed_price_max_jpy": 7000,
+    "mercari_bin_avg_jpy": 7200,
+    "auction_advantage_note": "Poziomy GBA Glacier, idealny pod modowanie IPS lub czystą odsprzedaż"
   },
   {
     "id": "v1173928104",
@@ -244,7 +304,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=PS%20Vita%20PCH-2000%20%E3%82%A2%E3%82%AF%E3%82%A2%E3%83%96%E3%83%AB%E3%83%BC",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=PS%20Vita%20PCH-2000%20%E3%82%A2%E3%82%AF%E3%82%A2%E3%83%96%E3%83%AB%E3%83%BC&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/PS%20Vita%20PCH-2000%20%E3%82%A2%E3%82%AF%E3%82%A2%E3%83%96%E3%83%AB%E3%83%BC?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "PS Vita PCH-2000 アクアブルー"
+    "search_query_jp": "PS Vita PCH-2000 アクアブルー",
+    "closed_price_min_jpy": 12000,
+    "closed_price_avg_jpy": 14500,
+    "closed_price_max_jpy": 17000,
+    "mercari_bin_avg_jpy": 17500,
+    "auction_advantage_note": "Najchętniej kupowany kolor Aqua Blue w Polsce, na aukcjach oszczędność ~3,000 JPY"
   },
   {
     "id": "w1169041285",
@@ -263,7 +328,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=PS%20Vita%20PCH-1000%20%E3%82%B5%E3%83%95%E3%82%A1%E3%82%A4%E3%82%A2%E3%83%96%E3%83%AB%E3%83%BC",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=PS%20Vita%20PCH-1000%20%E3%82%B5%E3%83%95%E3%82%A1%E3%82%A4%E3%82%A2%E3%83%96%E3%83%AB%E3%83%BC&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/PS%20Vita%20PCH-1000%20%E3%82%B5%E3%83%95%E3%82%A1%E3%82%A4%E3%82%A2%E3%83%96%E3%83%AB%E3%83%BC?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "PS Vita PCH-1000 サファイアブルー"
+    "search_query_jp": "PS Vita PCH-1000 サファイアブルー",
+    "closed_price_min_jpy": 11500,
+    "closed_price_avg_jpy": 13800,
+    "closed_price_max_jpy": 16500,
+    "mercari_bin_avg_jpy": 16800,
+    "auction_advantage_note": "Ekran OLED Sapphire Blue, poszukiwany przez purystów grafiki"
   },
   {
     "id": "k1158209411",
@@ -282,7 +352,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=PS%20Vita%20PCH-2000%20%E3%83%A1%E3%82%BF%E3%83%AA%E3%83%83%E3%82%AF%E3%83%AC%E3%83%83%E3%83%89",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=PS%20Vita%20PCH-2000%20%E3%83%A1%E3%82%BF%E3%83%AA%E3%83%83%E3%82%AF%E3%83%AC%E3%83%83%E3%83%89&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/PS%20Vita%20PCH-2000%20%E3%83%A1%E3%82%BF%E3%83%AA%E3%83%83%E3%82%AF%E3%83%AC%E3%83%83%E3%83%89?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "PS Vita PCH-2000 メタリックレッド"
+    "search_query_jp": "PS Vita PCH-2000 メタリックレッド",
+    "closed_price_min_jpy": 12500,
+    "closed_price_avg_jpy": 14800,
+    "closed_price_max_jpy": 17500,
+    "mercari_bin_avg_jpy": 18000,
+    "auction_advantage_note": "Metaliczna czerwień Metallic Red, wysoka płynność na Allegro"
   },
   {
     "id": "j1147820193",
@@ -301,7 +376,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=PS%20Vita%20PCH-2000%20%E3%82%B0%E3%83%AC%E3%82%A4%E3%82%B7%E3%83%A3%E3%83%BC%E3%83%9B%E3%83%AF%E3%82%A4%E3%83%88",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=PS%20Vita%20PCH-2000%20%E3%82%B0%E3%83%AC%E3%82%A4%E3%82%B7%E3%83%A3%E3%83%BC%E3%83%9B%E3%83%AF%E3%82%A4%E3%83%88&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/PS%20Vita%20PCH-2000%20%E3%82%B0%E3%83%AC%E3%82%A4%E3%82%B7%E3%83%A3%E3%83%BC%E3%83%9B%E3%83%AF%E3%82%A4%E3%83%88?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "PS Vita PCH-2000 グレイシャーホワイト"
+    "search_query_jp": "PS Vita PCH-2000 グレイシャーホワイト",
+    "closed_price_min_jpy": 11500,
+    "closed_price_avg_jpy": 13500,
+    "closed_price_max_jpy": 16000,
+    "mercari_bin_avg_jpy": 16500,
+    "auction_advantage_note": "Biały Slim Glacier White, regularnie licytowany w okolicach 13,000 JPY"
   },
   {
     "id": "q1182390112",
@@ -320,7 +400,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=PS%20Vita%20PCH-2000%20%E3%83%8D%E3%82%AA%E3%83%B3%E3%82%AA%E3%83%AC%E3%83%B3%E3%82%B8",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=PS%20Vita%20PCH-2000%20%E3%83%8D%E3%82%AA%E3%83%B3%E3%82%AA%E3%83%AC%E3%83%B3%E3%82%B8&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/PS%20Vita%20PCH-2000%20%E3%83%8D%E3%82%AA%E3%83%B3%E3%82%AA%E3%83%AC%E3%83%B3%E3%82%B8?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "PS Vita PCH-2000 ネオンオレンジ"
+    "search_query_jp": "PS Vita PCH-2000 ネオンオレンジ",
+    "closed_price_min_jpy": 16000,
+    "closed_price_avg_jpy": 19000,
+    "closed_price_max_jpy": 23000,
+    "mercari_bin_avg_jpy": 24000,
+    "auction_advantage_note": "Rzadki kolor Neon Orange, potężna marża w PL (>350 zł)"
   },
   {
     "id": "psp3000_vibrant_blue",
@@ -339,7 +424,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=PSP-3000%20%E3%83%90%E3%82%A4%E3%83%96%E3%83%A9%E3%83%B3%E3%83%88%E3%83%96%E3%83%AB%E3%83%BC",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=PSP-3000%20%E3%83%90%E3%82%A4%E3%83%96%E3%83%A9%E3%83%B3%E3%83%88%E3%83%96%E3%83%AB%E3%83%BC&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/PSP-3000%20%E3%83%90%E3%82%A4%E3%83%96%E3%83%A9%E3%83%B3%E3%83%88%E3%83%96%E3%83%AB%E3%83%BC?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "PSP-3000 バイブラントブルー"
+    "search_query_jp": "PSP-3000 バイブラントブルー",
+    "closed_price_min_jpy": 6500,
+    "closed_price_avg_jpy": 8500,
+    "closed_price_max_jpy": 11000,
+    "mercari_bin_avg_jpy": 11000,
+    "auction_advantage_note": "Metaliczny błękit, zamyka się poniżej 9,000 JPY"
   },
   {
     "id": "psp3000_monster_hunter",
@@ -358,7 +448,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=PSP-3000%20%E3%83%A2%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%8F%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%9D%E3%83%BC%E3%82%BF%E3%83%96%E3%83%AB%203rd%20%E3%83%8F%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%BA%E3%83%Amodel",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=PSP-3000%20MHB%20%E3%83%A2%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%8F%E3%83%B3%E3%82%BF%E3%83%BC&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/PSP-3000%20MHB?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "PSP-3000 MHB モンハン"
+    "search_query_jp": "PSP-3000 MHB モンハン",
+    "closed_price_min_jpy": 10000,
+    "closed_price_avg_jpy": 13000,
+    "closed_price_max_jpy": 16500,
+    "mercari_bin_avg_jpy": 17000,
+    "auction_advantage_note": "Limitowany Monster Hunter z grubszą obudową i baterią"
   },
   {
     "id": "h1179048211",
@@ -377,7 +472,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=%E3%82%B2%E3%83%BC%E3%83%A0%20%E3%82%BD%E3%83%95%E3%83%88%20%E3%81%BE%E3%81%A8%E3%82%81%20%E5%A4%A7%E9%87%8F",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%B2%E3%83%BC%E3%83%A0%20%E3%82%BD%E3%83%95%E3%83%88%20%E3%81%BE%E3%81%A8%E3%82%81%20%E5%A4%A7%E9%87%8F&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/%E3%82%B2%E3%83%BC%E3%83%A0%20%E3%82%BD%E3%83%95%E3%83%88%20%E3%81%BE%E3%81%A8%E3%82%81%20%E5%A4%A7%E9%87%8F?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "ゲーム ソフト まとめ 大量"
+    "search_query_jp": "ゲーム ソフト まとめ 大量",
+    "closed_price_min_jpy": 3000,
+    "closed_price_avg_jpy": 4800,
+    "closed_price_max_jpy": 7500,
+    "mercari_bin_avg_jpy": 9500,
+    "auction_advantage_note": "Królowie marży: 0% Li-Ion, aukcje hurtowe od 1 JPY kończą się ułamkiem ceny jednostkowej"
   },
   {
     "id": "b1168492019",
@@ -396,7 +496,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=DS%20%E3%82%BD%E3%83%95%E3%83%88%20%E3%81%BE%E3%81%A8%E3%82%81%E5%A3%B2%E3%82%8A%20%E3%82%BB%E3%83%83%E3%83%88",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=DS%20%E3%82%BD%E3%83%95%E3%83%88%20%E3%81%BE%E3%81%A8%E3%82%81%E5%A3%B2%E3%82%8A%20%E3%82%BB%E3%83%83%E3%83%88&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/DS%20%E3%82%BD%E3%83%95%E3%83%88%20%E3%81%BE%E3%81%A8%E3%82%81%E5%A3%B2%E3%82%8A%20%E3%82%BB%E3%83%83%E3%83%88?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "DS ソフト まとめ売り セット"
+    "search_query_jp": "DS ソフト まとめ売り セット",
+    "closed_price_min_jpy": 2800,
+    "closed_price_avg_jpy": 4200,
+    "closed_price_max_jpy": 6500,
+    "mercari_bin_avg_jpy": 8500,
+    "auction_advantage_note": "Gry DS w pudełkach, 0% Li-Ion, średnio 140 JPY za grę na aukcji"
   },
   {
     "id": "c1157839201",
@@ -415,7 +520,12 @@
     "source_url": "https://www.suruga-ya.jp/search?search_word=%E3%82%B2%E3%83%BC%E3%83%A0%20%E3%82%BD%E3%83%95%E3%83%88%20%E3%81%BE%E3%81%A8%E3%82%81",
     "zenmarket_url": "https://zenmarket.jp/pl/surugaya.aspx?q=%E3%82%B2%E3%83%BC%E3%83%A0%20%E3%82%BD%E3%83%95%E3%83%88%20%E3%81%BE%E3%81%A8%E3%82%81",
     "buyee_url": "https://buyee.jp/item/search/query/%E3%82%B2%E3%83%BC%E3%83%A0%20%E3%82%BD%E3%83%95%E3%83%88%20%E3%81%BE%E3%81%A8%E3%82%81?translationType=1",
-    "search_query_jp": "ゲーム ソフト まとめ"
+    "search_query_jp": "ゲーム ソフト まとめ",
+    "closed_price_min_jpy": 2500,
+    "closed_price_avg_jpy": 3800,
+    "closed_price_max_jpy": 5500,
+    "mercari_bin_avg_jpy": 7500,
+    "auction_advantage_note": "Pakiety japońskich gier PS1/PS2 na płytach, zerowe ryzyko bateryjne"
   },
   {
     "id": "a1189402911",
@@ -434,7 +544,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=PSone%20%E3%82%B3%E3%83%B3%E3%83%9C%20SCPH-130%20%E6%B6%B2%E6%99%B6",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=PSone%20%E3%82%B3%E3%83%B3%E3%83%9C%20SCPH-130%20%E6%B6%B2%E6%99%B6&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/PSone%20%E3%82%B3%E3%83%B3%E3%83%9C%20SCPH-130%20%E6%B6%B2%E6%99%B6?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "PSone コンボ SCPH-130 液晶"
+    "search_query_jp": "PSone コンボ SCPH-130 液晶",
+    "closed_price_min_jpy": 16000,
+    "closed_price_avg_jpy": 21000,
+    "closed_price_max_jpy": 26000,
+    "mercari_bin_avg_jpy": 28000,
+    "auction_advantage_note": "Zintegrowany 5-calowy LCD Sony, unikat w Polsce z marżą > 650 zł"
   },
   {
     "id": "j1128492014",
@@ -453,7 +568,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=PS4%20Pro%20%E3%83%AA%E3%82%AA%E3%83%AC%E3%82%A6%E3%82%B9%20%E3%82%A8%E3%83%87%E3%82%A3%E3%82%B7%E3%83%A7%E3%83%B3",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=PS4%20Pro%20%E3%83%AA%E3%82%AA%E3%83%AC%E3%82%A6%E3%82%B9%20%E3%82%A8%E3%83%87%E3%82%A3%E3%82%B7%E3%83%A7%E3%83%B3&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/PS4%20Pro%20%E3%83%AA%E3%82%AA%E3%83%AC%E3%82%A6%E3%82%B9%20%E3%82%A8%E3%83%87%E3%82%A3%E3%82%B7%E3%83%A7%E3%83%B3?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "PS4 Pro リオレウス エディション"
+    "search_query_jp": "PS4 Pro リオレウス エディション",
+    "closed_price_min_jpy": 22000,
+    "closed_price_avg_jpy": 26500,
+    "closed_price_max_jpy": 32000,
+    "mercari_bin_avg_jpy": 34000,
+    "auction_advantage_note": "PS4 Pro Monster Hunter Rathalos CIB, kolekcjonerski rarytas"
   },
   {
     "id": "f1172938411",
@@ -472,7 +592,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%AD%E3%83%A5%E3%83%BC%E3%83%96%20%E6%9C%AC%E4%BD%93%20DOL-001",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%AD%E3%83%A5%E3%83%BC%E3%83%96%20%E6%9C%AC%E4%BD%93%20DOL-001&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%AD%E3%83%A5%E3%83%BC%E3%83%96%20%E6%9C%AC%E4%BD%93%20DOL-001?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "ゲームキューブ 本体 DOL-001"
+    "search_query_jp": "ゲームキューブ 本体 DOL-001",
+    "closed_price_min_jpy": 4000,
+    "closed_price_avg_jpy": 5800,
+    "closed_price_max_jpy": 7800,
+    "mercari_bin_avg_jpy": 8500,
+    "auction_advantage_note": "Kultowy Spice Orange DOL-001 z portem cyfrowym, 0% baterii"
   },
   {
     "id": "s1138492016",
@@ -491,7 +616,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=PS4%20%E3%83%A1%E3%82%BF%E3%83%AB%E3%82%AE%E3%82%A2%20%E3%82%BD%E3%83%AA%E3%83%83%E3%83%89%20%E9%99%90%E5%AE%9A%20%E6%9C%AC%E4%BD%93",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=PS4%20%E3%83%A1%E3%82%BF%E3%83%AB%E3%82%AE%E3%82%A2%20%E3%82%BD%E3%83%AA%E3%83%83%E3%83%89%20%E9%99%90%E5%AE%9A%20%E6%9C%AC%E4%BD%93&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/PS4%20%E3%83%A1%E3%82%BF%E3%83%AB%E3%82%AE%E3%82%A2%20%E3%82%BD%E3%83%AA%E3%83%83%E3%83%89%20%E9%99%90%E5%AE%9A%20%E6%9C%AC%E4%BD%93?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "PS4 メタルギア ソリッド 限定 本体"
+    "search_query_jp": "PS4 メタルギア ソリッド 限定 本体",
+    "closed_price_min_jpy": 18000,
+    "closed_price_avg_jpy": 21500,
+    "closed_price_max_jpy": 25000,
+    "mercari_bin_avg_jpy": 27000,
+    "auction_advantage_note": "Limitowana PS4 Diamond Dogs bordowo-złota, wysoki popyt w PL"
   },
   {
     "id": "c1184920188",
@@ -510,7 +640,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=DualSense%2030%E5%91%A8%E5%B9%B4%20%E3%82%A2%E3%83%8B%E3%83%90%E3%83%BC%E3%82%B5%E3%83%AA%E3%83%BC%20%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AD%E3%83%BC%E3%83%A9%E3%83%BC",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=DualSense%2030%E5%91%A8%E5%B9%B4%20%E3%82%A2%E3%83%8B%E3%83%90%E3%83%BC%E3%82%B5%E3%83%AA%E3%83%BC%20%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AD%E3%83%BC%E3%83%A9%E3%83%BC&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/DualSense%2030%E5%91%A8%E5%B9%B4%20%E3%82%A2%E3%83%8B%E3%83%90%E3%83%BC%E3%82%B5%E3%83%AA%E3%83%BC%20%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AD%E3%83%BC%E3%83%A9%E3%83%BC?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "DualSense 30周年 アニバーサリー コントローラー"
+    "search_query_jp": "DualSense 30周年 アニバーサリー コントローラー",
+    "closed_price_min_jpy": 12000,
+    "closed_price_avg_jpy": 14000,
+    "closed_price_max_jpy": 17000,
+    "mercari_bin_avg_jpy": 17500,
+    "auction_advantage_note": "DualSense 30th Anniversary szary PS1, szybka odsprzedaż"
   },
   {
     "id": "v1174920199",
@@ -529,7 +664,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=DualSense%20%E3%82%A2%E3%82%B9%E3%83%88%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%20%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AD%E3%83%BC%E3%83%A9%E3%83%BC",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=DualSense%20%E3%82%A2%E3%82%B9%E3%83%88%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%20%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AD%E3%83%BC%E3%83%A9%E3%83%BC&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/DualSense%20%E3%82%A2%E3%82%B9%E3%83%88%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%20%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AD%E3%83%BC%E3%83%A9%E3%83%BC?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "DualSense アストロボット コントローラー"
+    "search_query_jp": "DualSense アストロボット コントローラー",
+    "closed_price_min_jpy": 7500,
+    "closed_price_avg_jpy": 9000,
+    "closed_price_max_jpy": 11000,
+    "mercari_bin_avg_jpy": 11500,
+    "auction_advantage_note": "Astro Bot DualSense, świeży hit kolekcjonerski"
   },
   {
     "id": "b1168492015",
@@ -548,7 +688,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=%E3%83%87%E3%83%A5%E3%82%A2%E3%83%AB%E3%82%B7%E3%83%A7%E3%83%83%E3%82%AF4%20500%20Million%20Limited%20Edition",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%83%87%E3%83%A5%E3%82%A2%E3%83%AB%E3%82%B7%E3%83%A7%E3%83%83%E3%82%AF4%20500%20Million%20Limited%20Edition&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/%E3%83%87%E3%83%A5%E3%82%A2%E3%83%AB%E3%82%B7%E3%83%A7%E3%83%83%E3%82%AF4%20500%20Million%20Limited%20Edition?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "デュアルショック4 500 Million Limited Edition"
+    "search_query_jp": "デュアルショック4 500 Million Limited Edition",
+    "closed_price_min_jpy": 7000,
+    "closed_price_avg_jpy": 8500,
+    "closed_price_max_jpy": 11000,
+    "mercari_bin_avg_jpy": 11000,
+    "auction_advantage_note": "DualShock 4 500 Million półprzezroczysty, rzadki na aukcjach"
   },
   {
     "id": "n1158492012",
@@ -567,7 +712,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=PS2%20%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%A0%20%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AD%E3%83%BC%E3%83%A9%E3%83%BC%20HORI",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=PS2%20%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%A0%20%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AD%E3%83%BC%E3%83%A9%E3%83%BC%20HORI&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/PS2%20%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%A0%20%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AD%E3%83%BC%E3%83%A9%E3%83%BC%20HORI?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "PS2 スライム コントローラー HORI"
+    "search_query_jp": "PS2 スライム コントローラー HORI",
+    "closed_price_min_jpy": 3500,
+    "closed_price_avg_jpy": 4500,
+    "closed_price_max_jpy": 6000,
+    "mercari_bin_avg_jpy": 6500,
+    "auction_advantage_note": "Hori Dragon Quest Slime PS2, unikatowy gadżet bez baterii"
   },
   {
     "id": "t1148492017",
@@ -586,7 +736,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=%E3%83%87%E3%83%A5%E3%82%A2%E3%83%AB%E3%82%B7%E3%83%A7%E3%83%83%E3%82%AF4%20%E3%83%AA%E3%82%AA%E3%83%AC%E3%82%A6%E3%82%B9%20%E3%82%A8%E3%83%87%E3%82%A3%E3%82%B7%E3%83%A7%E3%83%B3",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%83%87%E3%83%A5%E3%82%A2%E3%83%AB%E3%82%B7%E3%83%A7%E3%83%83%E3%82%AF4%20%E3%83%AA%E3%82%AA%E3%83%AC%E3%82%A6%E3%82%B9%20%E3%82%A8%E3%83%87%E3%82%A3%E3%82%B7%E3%83%A7%E3%83%B3&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/%E3%83%87%E3%83%A5%E3%82%A2%E3%83%AB%E3%82%B7%E3%83%A7%E3%83%83%E3%82%AF4%20%E3%83%AA%E3%82%AA%E3%83%AC%E3%82%A6%E3%82%B9%20%E3%82%A8%E3%83%87%E3%82%A3%E3%82%B7%E3%83%A7%E3%83%B3?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "デュアルショック4 リオレウス エディション"
+    "search_query_jp": "デュアルショック4 リオレウス エディション",
+    "closed_price_min_jpy": 3000,
+    "closed_price_avg_jpy": 4200,
+    "closed_price_max_jpy": 5500,
+    "mercari_bin_avg_jpy": 5500,
+    "auction_advantage_note": "DualShock 4 Rathalos czerwony, poszukiwany pad"
   },
   {
     "id": "k1189402188",
@@ -605,7 +760,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=%E3%83%9F%E3%83%8E%E3%83%AB%E3%82%BF%20%E3%83%AA%E3%83%BC%E3%83%90%20%E3%82%BA%E3%83%BC%E3%83%A0%2070",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%83%9F%E3%83%8E%E3%83%AB%E3%82%BF%20%E3%83%AA%E3%83%BC%E3%83%90%20%E3%82%BA%E3%83%BC%E3%83%A0%2070&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/%E3%83%9F%E3%83%8E%E3%83%AB%E3%82%BF%20%E3%83%AA%E3%83%BC%E3%83%90%20%E3%82%BA%E3%83%BC%E3%83%A0%2070?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "ミノルタ リーバ ズーム 70"
+    "search_query_jp": "ミノルタ リーバ ズーム 70",
+    "closed_price_min_jpy": 800,
+    "closed_price_avg_jpy": 1400,
+    "closed_price_max_jpy": 2200,
+    "mercari_bin_avg_jpy": 2000,
+    "auction_advantage_note": "Autofokus 35-70mm, tani i niezawodny kompakt"
   },
   {
     "id": "i1178492014",
@@ -624,7 +784,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=%E5%AF%8C%E5%A3%AB%20%E3%82%AB%E3%83%AB%E3%83%87%E3%82%A3%E3%82%A2%20%E3%83%88%E3%83%A9%E3%83%99%E3%83%AB%20%E3%83%9F%E3%83%8B",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=%E5%AF%8C%E5%A3%AB%20%E3%82%AB%E3%83%AB%E3%83%87%E3%82%A3%E3%82%A2%20%E3%83%88%E3%83%A9%E3%83%99%E3%83%AB%20%E3%83%9F%E3%83%8B&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/%E5%AF%8C%E5%A3%AB%20%E3%82%AB%E3%83%AB%E3%83%87%E3%82%A3%E3%82%A2%20%E3%83%88%E3%83%A9%E3%83%99%E3%83%AB%20%E3%83%9F%E3%83%8B?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "富士 カルディア トラベル ミニ"
+    "search_query_jp": "富士 カルディア トラベル ミニ",
+    "closed_price_min_jpy": 1000,
+    "closed_price_avg_jpy": 1600,
+    "closed_price_max_jpy": 2500,
+    "mercari_bin_avg_jpy": 2400,
+    "auction_advantage_note": "Dwuogniskowy szeroki kąt 28mm/45mm Fujinon"
   },
   {
     "id": "o1168492017",
@@ -643,7 +808,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=Canon%20%E3%82%AA%E3%83%BC%E3%83%88%E3%83%9C%E3%83%BC%E3%82%A4%203%2038mm%20F2.8",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=Canon%20%E3%82%AA%E3%83%BC%E3%83%88%E3%83%9C%E3%83%BC%E3%82%A4%203%2038mm%20F2.8&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/Canon%20%E3%82%AA%E3%83%BC%E3%83%88%E3%83%9C%E3%83%BC%E3%82%A4%203%2038mm%20F2.8?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "Canon オートボーイ 3 38mm F2.8"
+    "search_query_jp": "Canon オートボーイ 3 38mm F2.8",
+    "closed_price_min_jpy": 2500,
+    "closed_price_avg_jpy": 3200,
+    "closed_price_max_jpy": 3900,
+    "mercari_bin_avg_jpy": 4800,
+    "auction_advantage_note": "Autoboy 3 z jasnym obiektywem 38mm f/2.8 Prime (trzymany <= 100 zł)"
   },
   {
     "id": "y1158492012",
@@ -662,7 +832,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=PENTAX%20%E3%82%A8%E3%82%B9%E3%83%94%E3%82%AA%2080",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=PENTAX%20%E3%82%A8%E3%82%B9%E3%83%94%E3%82%AA%2080&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/PENTAX%20%E3%82%A8%E3%82%B9%E3%83%94%E3%82%AA%2080?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "PENTAX エスピオ 80"
+    "search_query_jp": "PENTAX エスピオ 80",
+    "closed_price_min_jpy": 1000,
+    "closed_price_avg_jpy": 1600,
+    "closed_price_max_jpy": 2400,
+    "mercari_bin_avg_jpy": 2200,
+    "auction_advantage_note": "Pentax Espio SMC Zoom, wysoka jakość optyki"
   },
   {
     "id": "p1148492015",
@@ -681,7 +856,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=%E3%82%AA%E3%83%AA%E3%83%B3%E3%83%91%E3%82%B9%20AF-10%20TWIN",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%AA%E3%83%AA%E3%83%B3%E3%83%91%E3%82%B9%20AF-10%20TWIN&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/%E3%82%AA%E3%83%AA%E3%83%B3%E3%83%91%E3%82%B9%20AF-10%20TWIN?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "オリンパス AF-10 TWIN"
+    "search_query_jp": "オリンパス AF-10 TWIN",
+    "closed_price_min_jpy": 1500,
+    "closed_price_avg_jpy": 2200,
+    "closed_price_max_jpy": 3200,
+    "mercari_bin_avg_jpy": 3200,
+    "auction_advantage_note": "Dwuogniskowy kompakt clamshell, duży popyt wśród młodzieży"
   },
   {
     "id": "w1138492019",
@@ -700,7 +880,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=Nikon%20TW2D%20%E3%83%95%E3%82%A3%E3%83%AB%E3%83%A0%E3%82%AB%E3%83%A1%E3%83%A9",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=Nikon%20TW2D%20%E3%83%95%E3%82%A3%E3%83%AB%E3%83%A0%E3%82%AB%E3%83%A1%E3%83%A9&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/Nikon%20TW2D%20%E3%83%95%E3%82%A3%E3%83%AB%E3%83%A0%E3%82%AB%E3%83%A1%E3%83%A9?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "Nikon TW2D フィルムカメラ"
+    "search_query_jp": "Nikon TW2D フィルムカメラ",
+    "closed_price_min_jpy": 1000,
+    "closed_price_avg_jpy": 1500,
+    "closed_price_max_jpy": 2200,
+    "mercari_bin_avg_jpy": 2200,
+    "auction_advantage_note": "Nikon TW2D Dual Lens, japońska solidność"
   },
   {
     "id": "q1128492011",
@@ -719,7 +904,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=Canon%20%E3%82%AA%E3%83%BC%E3%83%88%E3%83%9C%E3%83%BC%E3%82%A4%20WT28",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=Canon%20%E3%82%AA%E3%83%BC%E3%83%88%E3%83%9C%E3%83%BC%E3%82%A4%20WT28&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/Canon%20%E3%82%AA%E3%83%BC%E3%83%88%E3%83%9C%E3%83%BC%E3%82%A4%20WT28?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "Canon オートボーイ WT28"
+    "search_query_jp": "Canon オートボーイ WT28",
+    "closed_price_min_jpy": 1500,
+    "closed_price_avg_jpy": 2200,
+    "closed_price_max_jpy": 3000,
+    "mercari_bin_avg_jpy": 3000,
+    "auction_advantage_note": "Szerokokątny zoom 28mm, lekki i poszukiwany"
   },
   {
     "id": "e1118492016",
@@ -738,7 +928,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=%E3%82%B3%E3%83%8B%E3%82%AB%20%E3%83%93%E3%83%83%E3%82%B0%E3%83%9F%E3%83%8B%20NEO",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%B3%E3%83%8B%E3%82%AB%20%E3%83%93%E3%83%83%E3%82%B0%E3%83%9F%E3%83%8B%20NEO&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/%E3%82%B3%E3%83%8B%E3%82%AB%20%E3%83%93%E3%83%83%E3%82%B0%E3%83%9F%E3%83%8B%20NEO?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "コニカ ビッグミニ NEO"
+    "search_query_jp": "コニカ ビッグミニ NEO",
+    "closed_price_min_jpy": 2200,
+    "closed_price_avg_jpy": 2900,
+    "closed_price_max_jpy": 3800,
+    "mercari_bin_avg_jpy": 4200,
+    "auction_advantage_note": "Kultowa seria Big Mini, metaliczny design"
   },
   {
     "id": "z1184920188",
@@ -757,7 +952,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=SMC%20PENTAX-M%2050mm%20F1.4",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=SMC%20PENTAX-M%2050mm%20F1.4&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/SMC%20PENTAX-M%2050mm%20F1.4?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "SMC PENTAX-M 50mm F1.4"
+    "search_query_jp": "SMC PENTAX-M 50mm F1.4",
+    "closed_price_min_jpy": 2000,
+    "closed_price_avg_jpy": 2800,
+    "closed_price_max_jpy": 3800,
+    "mercari_bin_avg_jpy": 4200,
+    "auction_advantage_note": "Bardzo jasny obiektyw f/1.4, mocowanie K, 0% baterii"
   },
   {
     "id": "x1174920199",
@@ -776,7 +976,12 @@
     "source_url": "https://auctions.yahoo.co.jp/search/search?p=SMC%20PENTAX-M%2050mm%20F2",
     "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=SMC%20PENTAX-M%2050mm%20F2&sort=price&order=asc",
     "buyee_url": "https://buyee.jp/item/search/query/SMC%20PENTAX-M%2050mm%20F2?translationType=1&sort=cbids&order=a",
-    "search_query_jp": "SMC PENTAX-M 50mm F2"
+    "search_query_jp": "SMC PENTAX-M 50mm F2",
+    "closed_price_min_jpy": 1200,
+    "closed_price_avg_jpy": 1700,
+    "closed_price_max_jpy": 2500,
+    "mercari_bin_avg_jpy": 2500,
+    "auction_advantage_note": "Kompaktowy pancake 50mm f/2, idealny na start"
   },
   {
     "id": "m1168492011",
@@ -795,6 +1000,11 @@
     "source_url": "https://www.suruga-ya.jp/search?search_word=Super-Takumar%2055mm%20F1.8",
     "zenmarket_url": "https://zenmarket.jp/pl/surugaya.aspx?q=Super-Takumar%2055mm%20F1.8",
     "buyee_url": "https://buyee.jp/item/search/query/Super-Takumar%2055mm%20F1.8?translationType=1",
-    "search_query_jp": "Super-Takumar 55mm F1.8"
+    "search_query_jp": "Super-Takumar 55mm F1.8",
+    "closed_price_min_jpy": 1500,
+    "closed_price_avg_jpy": 2200,
+    "closed_price_max_jpy": 3200,
+    "mercari_bin_avg_jpy": 3000,
+    "auction_advantage_note": "Legendarny Super-Takumar M42 z pięknym bokehem"
   }
 ]

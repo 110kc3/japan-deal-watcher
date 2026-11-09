@@ -68,6 +68,7 @@ class SniperGuideGenerator:
         md.append("")
         md.append(
             "⬅ **Nawigacja:** [Główny Dashboard Mercari (README.md)](README.md) · "
+            "[📡 Radar Licytacji (AUCTION_RADAR.md)](AUCTION_RADAR.md) · "
             "[Katalog Alternatywnych Ofert (YAHOO_AUCTIONS_DEALS.md)](YAHOO_AUCTIONS_DEALS.md) · "
             "[💰 Audyt Opłacalności (REAL_PROFITABILITY_AUDIT.md)](REAL_PROFITABILITY_AUDIT.md) · "
             "[📈 Historia Sprzedaży (MARKET_SALES_HISTORY.md)](MARKET_SALES_HISTORY.md)"
@@ -125,8 +126,8 @@ class SniperGuideGenerator:
             "Dopóki wygrasz aukcję poniżej lub równo z tą kwotą, masz **gwarantowany minimalny zysk 30%–100% ROI**!"
         )
         md.append("")
-        md.append("| Model / Wariant | Wycena w PL | Średnia Cena Końcowa (落札相場) | 🎯 Twardy Limit Snajpera | Koszt w PL przy Limicie | Gwarantowany Zysk Netto | Bateria IATA | 1-Click Linki (Ending Soon & Archiwum) |")
-        md.append("|---|---:|---:|---:|---:|---:|:---:|---|")
+        md.append("| Model / Wariant | Wycena w PL | Średnia Cena Końcowa (落札相場) | Mercari Kup Teraz | Przewaga Aukcji | 🎯 Twardy Limit Snajpera | Koszt w PL przy Limicie | Gwarantowany Zysk Netto | Bateria IATA | 1-Click Linki (Ending Soon & Archiwum) |")
+        md.append("|---|---:|---:|---:|---:|---:|---:|---:|:---:|---|")
 
         # Group deals by category
         categories: Dict[str, List[Dict[str, Any]]] = {}
@@ -184,15 +185,34 @@ class SniperGuideGenerator:
                         guar_margin = round(est_pl - landed_at_cap, 2)
                         guar_roi = round((guar_margin / landed_at_cap * 100.0), 1) if landed_at_cap > 0 else 0.0
 
-                # Typical market clearing range
-                low_clearing = int(price_curr * 0.9 // 100 * 100)
-                high_clearing = int(max_bid * 0.95 // 100 * 100)
-                clearing_range_str = f"{low_clearing:,} – {high_clearing:,} JPY"
+                # Empirical Yahoo closing price range
+                if "closed_price_min_jpy" in it and "closed_price_max_jpy" in it:
+                    clearing_range_str = f"**{it['closed_price_min_jpy']:,} – {it['closed_price_max_jpy']:,} JPY**<br><small>(Śr: {it.get('closed_price_avg_jpy', 0):,} JPY)</small>"
+                else:
+                    low_clearing = int(price_curr * 0.9 // 100 * 100)
+                    high_clearing = int(max_bid * 0.95 // 100 * 100)
+                    clearing_range_str = f"{low_clearing:,} – {high_clearing:,} JPY"
+
+                # Mercari Buy-It-Now Benchmark & Arbitrage Discount
+                mercari_bin = it.get("mercari_bin_avg_jpy", int(price_curr * 1.25 // 100 * 100))
+                mercari_str = f"~{mercari_bin:,} JPY"
+                yahoo_avg = it.get("closed_price_avg_jpy", int(price_curr))
+                if mercari_bin > 0 and yahoo_avg > 0:
+                    diff_jpy = mercari_bin - yahoo_avg
+                    diff_pct = round((diff_jpy / mercari_bin * 100.0), 1)
+                    if diff_pct > 0:
+                        arbitrage_str = f"<strong style='color:#10b981;'>-{diff_pct:.0f}%</strong><br><small>(-{diff_jpy:,} JPY)</small>"
+                    else:
+                        arbitrage_str = "Równy"
+                else:
+                    arbitrage_str = "–"
 
                 # URLs
                 encoded_q = urllib.parse.quote(query)
                 # Ending soon ZenMarket (sorted by end time asc)
                 zen_ending_soon = f"https://zenmarket.jp/pl/yahoo.aspx?q={encoded_q}&sort=end&order=asc"
+                # Lowest bid ZenMarket (sorted by price asc)
+                zen_lowest_bid = f"https://zenmarket.jp/pl/yahoo.aspx?q={encoded_q}&sort=price&order=asc"
                 # Buyee ending soon
                 buyee_ending_soon = f"https://buyee.jp/item/search/query/{encoded_q}?translationType=1&sort=end&order=a"
                 # Yahoo Japan Closed Search (historical sales)
@@ -205,7 +225,7 @@ class SniperGuideGenerator:
 
                 links_str = (
                     f"[⏰ Kończące się (ZenMarket)]({zen_ending_soon})<br>"
-                    f"[🛒 Kończące się (Buyee)]({buyee_ending_soon})<br>"
+                    f"[💰 Od 1 JPY]({zen_lowest_bid}) · [🛒 Buyee]({buyee_ending_soon})<br>"
                     f"[📊 Archiwum Cen Yahoo]({yahoo_closed}) · [Aucfan]({aucfan_url})"
                 )
 
@@ -216,6 +236,8 @@ class SniperGuideGenerator:
                     f"| **{sanitize_md(it.get('model', ''))}**<br><small>{sanitize_md(it.get('color', ''))}</small> | "
                     f"**{est_pl:.2f} zł** | "
                     f"{clearing_range_str} | "
+                    f"{mercari_str} | "
+                    f"{arbitrage_str} | "
                     f"**`{max_bid:,} JPY`** | "
                     f"~{landed_at_cap:.2f} zł | "
                     f"{margin_str} | "

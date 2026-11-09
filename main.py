@@ -12,6 +12,7 @@ from watcher.config import (
     YAHOO_MD_FILE,
     SNIPER_GUIDE_MD_FILE,
     MARKET_SALES_MD_FILE,
+    AUCTION_RADAR_MD_FILE,
     BASE_DIR
 )
 from watcher.currency import get_live_rates
@@ -20,6 +21,7 @@ from watcher.consolidation import ConsolidationTracker
 from watcher.markdown_generator import MarkdownGenerator
 from watcher.alternative_generator import AlternativeDealsGenerator
 from watcher.sniper_guide_generator import SniperGuideGenerator
+from watcher.auction_radar import AuctionRadarGenerator
 from watcher.history_tracker import HistoryTracker
 from watcher.history_generator import HistoryGenerator
 
@@ -107,6 +109,29 @@ def main():
         with open(SNIPER_GUIDE_MD_FILE, "w", encoding="utf-8") as f:
             f.write(sniper_guide_content)
         print(f"📄 Successfully generated and updated {SNIPER_GUIDE_MD_FILE} (Tactical Sniping Guide)")
+
+        # 7b. Generate AUCTION_RADAR.md (Live Auction Radar & Real Closing Price Intelligence)
+        radar_generator = AuctionRadarGenerator(
+            raw_deals=yahoo_deals,
+            timeline_status=timeline,
+            rate=rate_jpy,
+            rate_eur=rate_eur,
+            is_live_rate=is_live_jpy
+        )
+        radar_content = radar_generator.generate()
+        with open(AUCTION_RADAR_MD_FILE, "w", encoding="utf-8") as f:
+            f.write(radar_content)
+        print(f"📄 Successfully generated and updated {AUCTION_RADAR_MD_FILE} (Live Auction Radar)")
+
+        # Save copy of radar to Obsidian vault
+        obsidian_radar_path = Path("/home/borg/docker/obsidian/vault/20-reports/adhoc/2026-11-09-yahoo-auctions-radar.md")
+        if obsidian_radar_path.parent.exists():
+            try:
+                with open(obsidian_radar_path, "w", encoding="utf-8") as f:
+                    f.write(radar_content)
+                print(f"📑 Copied auction radar to Obsidian: {obsidian_radar_path.name}")
+            except Exception as e:
+                print(f"[WARN] Obsidian copy skipped: {e}")
 
     # 8. Record Price History and Generate MARKET_SALES_HISTORY.md
     history_tracker = HistoryTracker()

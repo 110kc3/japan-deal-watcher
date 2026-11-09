@@ -383,6 +383,7 @@ def check_markdown_dashboards(base_dir: Path = BASE_DIR) -> Tuple[bool, List[str
         base_dir / "README.md",
         base_dir / "YAHOO_AUCTIONS_DEALS.md",
         base_dir / "AUCTION_SNIPING_GUIDE.md",
+        base_dir / "AUCTION_RADAR.md",
         base_dir / "REAL_PROFITABILITY_AUDIT.md",
         base_dir / "MARKET_SALES_HISTORY.md"
     ]
