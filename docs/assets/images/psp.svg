@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06231d" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0.05" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.4" />
+    </filter>
+  </defs>
+  <!-- Background Card -->
+  <rect width="400" height="260" rx="16" fill="url(#bg)" />
+  <rect width="400" height="260" rx="16" fill="url(#glow)" stroke="#334155" stroke-width="1.5" />
+  
+  <!-- Icon Graphics Group -->
+  <g filter="url(#shadow)" transform="translate(200.0, 109.2)">
+    
+  <rect x="-115" y="-50" width="230" height="100" rx="25" fill="#1e293b" stroke="#10b981" stroke-width="3" />
+  <rect x="-60" y="-38" width="120" height="76" rx="4" fill="#064e3b" opacity="0.3" stroke="#10b981" stroke-width="1.5" />
+  <!-- D-Pad -->
+  <circle cx="-88" cy="-8" r="14" fill="#0f172a" />
+  <rect x="-91" y="-18" width="6" height="20" rx="2" fill="#94a3b8" />
+  <rect x="-98" y="-11" width="20" height="6" rx="2" fill="#94a3b8" />
+  <!-- Stick -->
+  <circle cx="-88" cy="22" r="10" fill="#0f172a" stroke="#64748b" stroke-width="1" />
+  <!-- Buttons -->
+  <circle cx="88" cy="-18" r="4" fill="#38bdf8" />
+  <circle cx="78" cy="-8" r="4" fill="#f43f5e" />
+  <circle cx="98" cy="-8" r="4" fill="#10b981" />
+  <circle cx="88" cy="2" r="4" fill="#eab308" />
+  <!-- UMD Ring Hint -->
+  <circle cx="0" cy="0" r="28" fill="none" stroke="#10b981" stroke-width="1" stroke-dasharray="4,4" opacity="0.4" />
+
+  </g>
+  
+  <!-- Labels -->
+  <text x="200.0" y="213.2" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="20" fill="#f8fafc" letter-spacing="0.5">PlayStation Portable</text>
+  <text x="200.0" y="239.20000000000002" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="500" font-size="13" fill="#94a3b8">PSP-2000 & PSP-3000 Series</text>
+</svg>

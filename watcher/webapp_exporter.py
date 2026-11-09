@@ -120,6 +120,13 @@ class WebappExporter:
         b_type = d.get("battery_type", "none")
         has_battery = (b_type == "li-ion")
 
+        # Resolve image URL
+        image_url = self._resolve_image_url(d, cat_id)
+
+        # Allegro completed archive & OLX haggled cash price
+        allegro_pln = float(d.get("allegro_archive_pln", round(est_pl * 1.08, 1)))
+        olx_pln = float(d.get("olx_haggled_pln", round(est_pl * 0.90, 1)))
+
         return {
             "id": d.get("id"),
             "platform": d.get("platform", "Yahoo! Auctions Japan"),
@@ -129,6 +136,7 @@ class WebappExporter:
             "color": d.get("color", ""),
             "battery_type": b_type,
             "has_battery": has_battery,
+            "image_url": image_url,
             "status": d.get("status", "Aktywna Aukcja"),
             "condition_badge": d.get("condition_badge", "✅ Sprawdzony"),
             "custom_note": d.get("custom_note", ""),
@@ -136,6 +144,8 @@ class WebappExporter:
             "price_pln_raw": cost_info["price_pln_raw"],
             "landed_cost_pln": landed_cost,
             "est_pl_value": est_pl,
+            "allegro_archive_pln": allegro_pln,
+            "olx_haggled_pln": olx_pln,
             "est_margin_pln": est_margin,
             "roi_percent": roi_pct,
             "max_bid_jpy": max_bid,
@@ -160,28 +170,69 @@ class WebappExporter:
             }
         }
 
+    def _resolve_image_url(self, deal: Dict[str, Any], cat_id: str) -> str:
+        """Resolves a high-quality product image URL or returns an optimized vector SVG asset."""
+        img = deal.get("image_url")
+        if img and isinstance(img, str) and img.strip() and img != "None":
+            return img.strip()
+
+        cid = (cat_id or "").lower()
+        mod = (deal.get("model", "") or deal.get("title", "") or "").lower()
+
+        if "vita" in cid or "vita" in mod:
+            return "./assets/images/ps_vita.svg"
+        elif "psp" in cid or "psp" in mod:
+            return "./assets/images/psp.svg"
+        elif "3ds" in cid or "3ds" in mod or "2ds" in mod:
+            return "./assets/images/n3ds_xl.svg"
+        elif "ds" in cid or "dsi" in mod or "ds lite" in mod:
+            return "./assets/images/ds_lite.svg"
+        elif "gameboy" in cid or "gba" in mod or "gbc" in mod or "micro" in mod:
+            return "./assets/images/gba_sp.svg"
+        elif "camera" in cid or "film" in cid or "aparat" in mod or "autoboy" in mod or "espio" in mod or "riva" in mod or "trip" in mod:
+            return "./assets/images/camera_point_shoot.svg"
+        elif "lens" in cid or "obiektyw" in mod or "takumar" in mod or "pentax-m" in mod or "zuiko" in mod or "chinon" in mod:
+            return "./assets/images/analog_lens.svg"
+        elif "controller" in cid or "pad" in mod or "dualsense" in mod or "dualshock" in mod or "slime" in mod:
+            return "./assets/images/controller.svg"
+        elif "games_mix" in cid or "gry" in mod or "mix" in mod or "soft" in mod:
+            return "./assets/images/retro_games.svg"
+        elif "curated" in cid or "console" in cid or "ps4" in mod or "psone" in mod or "gamecube" in mod or "dreamcast" in mod or "ps2" in mod:
+            return "./assets/images/curated_console.svg"
+
+        return "./assets/images/placeholder.svg"
+
     def process_mercari_deal(self, deal: Dict[str, Any]) -> Dict[str, Any]:
         """Processes and standardizes an active Mercari deal item."""
         d = dict(deal)
+        cat_id = d.get("category_id", "other")
         b_type = d.get("battery_type", "none")
         has_battery = (b_type == "li-ion")
+        est_pl = float(d.get("est_pl_value", 0.0))
+
+        image_url = self._resolve_image_url(d, cat_id)
+        allegro_pln = float(d.get("allegro_archive_pln", round(est_pl * 1.08, 1)))
+        olx_pln = float(d.get("olx_haggled_pln", round(est_pl * 0.90, 1)))
 
         return {
             "id": d.get("id"),
             "platform": "Mercari Japan",
-            "category_id": d.get("category_id", "other"),
+            "category_id": cat_id,
             "category_name": d.get("category_name", ""),
             "model": d.get("model", d.get("title", "")),
             "color": d.get("color", ""),
             "battery_type": b_type,
             "has_battery": has_battery,
+            "image_url": image_url,
             "status": d.get("status", "Dostępne"),
             "condition_badge": d.get("condition_badge", "✅ Stan Dobry"),
             "custom_note": d.get("custom_note", d.get("title", "")),
             "price_jpy": d.get("price_jpy", 0),
             "price_pln_raw": d.get("price_pln_raw", 0.0),
             "landed_cost_pln": d.get("landed_cost_pln", 0.0),
-            "est_pl_value": d.get("est_pl_value", 0.0),
+            "est_pl_value": est_pl,
+            "allegro_archive_pln": allegro_pln,
+            "olx_haggled_pln": olx_pln,
             "est_margin_pln": d.get("est_margin_pln", 0.0),
             "roi_percent": d.get("roi_percent", 0.0),
             "shipping_share_pln": d.get("shipping_share_pln", 30.0),

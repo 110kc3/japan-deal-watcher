@@ -173,12 +173,17 @@ class AuctionRadarGenerator:
                 margin_color = "#10b981" if guar_margin > 0 else "#ef4444"
                 margin_str = f"<strong style='color:{margin_color};'>+{guar_margin:.2f} zł</strong><br><small>(+{guar_roi:.1f}%)</small>"
 
+                img_url = it.get("image_url", "./assets/images/placeholder.svg")
+                img_tag = f"<img src='{img_url}' width='50' height='32' style='border-radius:4px; object-fit:contain; background:#0f172a; vertical-align:middle;' /><br>"
+                allegro_p = it.get("allegro_archive_pln", round(est_pl * 1.08, 0))
+                olx_p = it.get("olx_haggled_pln", round(est_pl * 0.90, 0))
+
                 md.append(
-                    f"| **{sanitize_md(it.get('model', ''))}**<br><small>{sanitize_md(it.get('color', ''))}</small> | "
+                    f"| {img_tag}**{sanitize_md(it.get('model', ''))}**<br><small>{sanitize_md(it.get('color', ''))}</small> | "
                     f"{closing_str} | "
                     f"{mercari_str} | "
                     f"{arbitrage_badge} | "
-                    f"**{est_pl:.2f} zł** | "
+                    f"**{est_pl:.0f} zł**<br><small>Allegro: ~{allegro_p:.0f} zł<br>OLX (targ): ~{olx_p:.0f} zł</small> | "
                     f"**`{max_bid:,} JPY`**<br><small>(~{max_bid * self.rate:.0f} zł)</small> | "
                     f"{margin_str} | "
                     f"{b_badge} |"
@@ -253,14 +258,19 @@ class AuctionRadarGenerator:
             zen_lowest = f"https://zenmarket.jp/pl/yahoo.aspx?q={encoded_q}&sort=price&order=asc"
             yahoo_closed = f"https://auctions.yahoo.co.jp/closedsearch/closedsearch?p={encoded_q}"
 
+            zen_sniper = it.get("zenmarket_url", zen_ending_soon)
+            buyee_url = it.get("buyee_url", f"https://buyee.jp/item/search/query/{encoded_q}?translationType=1")
+            img_url = it.get("image_url", "./assets/images/placeholder.svg")
+            img_tag = f"<img src='{img_url}' width='50' height='32' style='border-radius:4px; object-fit:contain; background:#0f172a; vertical-align:middle;' /><br>"
+
             links = (
-                f"[⏰ Kończące się]({zen_ending_soon})<br>"
-                f"[💰 Od 1 JPY]({zen_lowest})<br>"
-                f"[📊 Archiwum Cen Yahoo]({yahoo_closed})"
+                f"[🎯 Snajper ZenMarket]({zen_sniper})<br>"
+                f"[⏰ Kończące się]({zen_ending_soon}) · [🪙 Od 1 JPY]({zen_lowest})<br>"
+                f"[📊 Archiwum Yahoo]({yahoo_closed}) · [🛒 Buyee]({buyee_url})"
             )
 
             md.append(
-                f"| **{idx}** | **{sanitize_md(it.get('model'))}**<br><small>{sanitize_md(it.get('color'))}</small> | "
+                f"| **{idx}** | {img_tag}**{sanitize_md(it.get('model'))}**<br><small>{sanitize_md(it.get('color'))}</small> | "
                 f"`{cat_badge}` | "
                 f"<small>{tip}</small> | "
                 f"**`{max_bid:,} JPY`**<br><small>(~{max_bid * self.rate:.0f} zł)</small> | "

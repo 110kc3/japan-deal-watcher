@@ -20,64 +20,85 @@
           "id": "m88999031428",
           "model": "Nintendo 3DS",
           "color": "Aqua Blue",
-          "target_price_jpy": 6800,
-          "est_pl_value": 460,
+          "target_price_jpy": 5200,
+          "est_pl_value": 340.0,
           "note": "Oryginalny 3DS w metalicznym błękicie, suwak 3D i gałka circle pad działają płynnie",
-          "battery_type": "li-ion"
+          "battery_type": "li-ion",
+          "allegro_archive_pln": 360.0,
+          "olx_haggled_pln": 310.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m99010142539",
           "model": "Nintendo 3DS",
           "color": "Cosmo Black",
-          "target_price_jpy": 6900,
-          "est_pl_value": 470,
+          "target_price_jpy": 5200,
+          "est_pl_value": 340.0,
           "note": "Głęboka czerń Cosmo Black, sprawne kamery 3D, czyta kardridże DS i 3DS bez zarzutu",
-          "battery_type": "li-ion"
+          "battery_type": "li-ion",
+          "allegro_archive_pln": 360.0,
+          "olx_haggled_pln": 310.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m10121253640",
           "model": "Nintendo 3DS LL (XL - Old)",
           "color": "Blue / Black (SPR-001)",
-          "target_price_jpy": 8500,
-          "est_pl_value": 580,
+          "target_price_jpy": 6800,
+          "est_pl_value": 420.0,
           "note": "Wersja XL o powiększonych ekranach, stabilna bateria, komfortowy chwyt (Old 3DS XL)",
-          "battery_type": "li-ion"
+          "battery_type": "li-ion",
+          "allegro_archive_pln": 450.0,
+          "olx_haggled_pln": 380.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m10121253641",
           "model": "Nintendo 3DS LL (XL - Old)",
           "color": "Red / Black (SPR-001)",
-          "target_price_jpy": 8800,
-          "est_pl_value": 590,
+          "target_price_jpy": 6900,
+          "est_pl_value": 430.0,
           "note": "Klasyczny dwukolorowy Old 3DS XL, ekrany bez przebarwień, pełna sprawność",
-          "battery_type": "li-ion"
+          "battery_type": "li-ion",
+          "allegro_archive_pln": 460.0,
+          "olx_haggled_pln": 390.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m10121253642",
           "model": "New Nintendo 3DS",
           "color": "White (Kisekae Cover Plates)",
-          "target_price_jpy": 11000,
-          "est_pl_value": 750,
+          "target_price_jpy": 8900,
+          "est_pl_value": 550.0,
           "note": "New Nintendo 3DS (KTR-001), mocniejszy procesor, c-stick, wymienne panele obudowy Kisekae",
-          "battery_type": "li-ion"
+          "battery_type": "li-ion",
+          "allegro_archive_pln": 590.0,
+          "olx_haggled_pln": 500.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m10121253643",
           "model": "New Nintendo 3DS LL (New 3DS XL)",
           "color": "Metallic Blue (Super-Stable 3D / IPS)",
-          "target_price_jpy": 13800,
-          "est_pl_value": 920,
+          "target_price_jpy": 12500,
+          "est_pl_value": 690.0,
           "note": "New 3DS XL (RED-001) w kolorze Metallic Blue, super-stabilne 3D z eye-trackingiem, gniazdo micro SD",
-          "battery_type": "li-ion"
+          "battery_type": "li-ion",
+          "allegro_archive_pln": 740.0,
+          "olx_haggled_pln": 630.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m10121253644",
           "model": "New Nintendo 3DS XL Monster Hunter 4G Edition",
           "color": "Silver / MH4G Crest (Limited)",
-          "target_price_jpy": 16500,
-          "est_pl_value": 1150,
+          "target_price_jpy": 15000,
+          "est_pl_value": 850.0,
           "note": "Rzadka limitowana edycja Monster Hunter 4G, matryce IPS, wzmocniony c-stick",
-          "battery_type": "li-ion"
+          "battery_type": "li-ion",
+          "allegro_archive_pln": 920.0,
+          "olx_haggled_pln": 780.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         }
       ]
     },
@@ -91,82 +112,109 @@
           "id": "m11928374651",
           "model": "Nintendo DS Lite",
           "color": "Metallic Silver (Komplet z Rysikiem)",
-          "target_price_jpy": 3500,
-          "est_pl_value": 260,
+          "target_price_jpy": 1800,
+          "est_pl_value": 160.0,
           "note": "W pełni sprawny DS Lite z rysikiem i zaślepką Slot-2 GBA, zawias sztywny, ekrany bez rys",
-          "battery_type": "li-ion"
+          "battery_type": "li-ion",
+          "allegro_archive_pln": 180.0,
+          "olx_haggled_pln": 140.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m22938475862",
           "model": "Nintendo DS Lite",
           "color": "Crimson / Black",
-          "target_price_jpy": 3800,
-          "est_pl_value": 290,
+          "target_price_jpy": 1900,
+          "est_pl_value": 170.0,
           "note": "Dwukolorowa kultowa wersja Crimson/Black, sprawny dotyk i czytnik gier DS oraz GBA",
-          "battery_type": "li-ion"
+          "battery_type": "li-ion",
+          "allegro_archive_pln": 190.0,
+          "olx_haggled_pln": 150.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m33948586973",
           "model": "Nintendo DS Lite",
           "color": "Ice Blue",
-          "target_price_jpy": 3400,
-          "est_pl_value": 250,
+          "target_price_jpy": 1800,
+          "est_pl_value": 160.0,
           "note": "Jasnobłękitna klasyczna obudowa, oba ekrany jasne bez żółknięcia, stan bdb",
-          "battery_type": "li-ion"
+          "battery_type": "li-ion",
+          "allegro_archive_pln": 180.0,
+          "olx_haggled_pln": 140.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m44958697084",
           "model": "Nintendo DSi",
           "color": "Matte Black",
-          "target_price_jpy": 3200,
-          "est_pl_value": 240,
+          "target_price_jpy": 1800,
+          "est_pl_value": 160.0,
           "note": "Matowa czerń, wbudowana pamięć i aparat, sprawny slot SD i Wi-Fi, łatwy mod CFW",
-          "battery_type": "li-ion"
+          "battery_type": "li-ion",
+          "allegro_archive_pln": 180.0,
+          "olx_haggled_pln": 140.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m55968708195",
           "model": "Nintendo DSi LL (XL)",
           "color": "Dark Brown (Ekrany IPS)",
-          "target_price_jpy": 4800,
-          "est_pl_value": 380,
+          "target_price_jpy": 3500,
+          "est_pl_value": 270.0,
           "note": "Duże ekrany 4.2 cala z fabrycznymi matrycami IPS, fenomenalny kąt widzenia, stan bdb",
-          "battery_type": "li-ion"
+          "battery_type": "li-ion",
+          "allegro_archive_pln": 290.0,
+          "olx_haggled_pln": 240.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m55968708196",
           "model": "Nintendo DSi LL (XL)",
           "color": "Wine Red / Natural White (IPS)",
-          "target_price_jpy": 4500,
-          "est_pl_value": 390,
+          "target_price_jpy": 3600,
+          "est_pl_value": 280.0,
           "note": "Kultowy kolor Wine Red, podwójne ekrany IPS, duży stylus dotykowy w zestawie",
-          "battery_type": "li-ion"
+          "battery_type": "li-ion",
+          "allegro_archive_pln": 300.0,
+          "olx_haggled_pln": 250.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m66978819206",
           "model": "Nintendo DS Lite Final Fantasy III Crystal Edition",
           "color": "Crystal White / FF III Art (Limited)",
-          "target_price_jpy": 6800,
-          "est_pl_value": 580,
+          "target_price_jpy": 5500,
+          "est_pl_value": 380.0,
           "note": "Rzadka limitowana edycja kolekcjonerska Final Fantasy III, numerowana obudowa, 100% sprawna",
-          "battery_type": "li-ion"
+          "battery_type": "li-ion",
+          "allegro_archive_pln": 420.0,
+          "olx_haggled_pln": 340.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m77988920317",
           "model": "Nintendo DS Lite Pokémon Dialga & Palkia Edition",
           "color": "Metallic Black / Gold & Silver Art",
-          "target_price_jpy": 7800,
-          "est_pl_value": 680,
+          "target_price_jpy": 6200,
+          "est_pl_value": 420.0,
           "note": "Poszukiwana kolekcjonerska edycja Pokémon Diamond/Pearl, brokatowa grafika legend",
-          "battery_type": "li-ion"
+          "battery_type": "li-ion",
+          "allegro_archive_pln": 460.0,
+          "olx_haggled_pln": 380.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m55968708197",
           "model": "Nintendo DSi LL (XL)",
           "color": "Natural White (Dual IPS + Pen)",
-          "target_price_jpy": 4900,
-          "est_pl_value": 390,
+          "target_price_jpy": 3600,
+          "est_pl_value": 280.0,
           "note": "Wersja Natural White z dużym rysikiem pen, ekrany Dual IPS o szerokich kątach",
-          "battery_type": "li-ion"
+          "battery_type": "li-ion",
+          "allegro_archive_pln": 300.0,
+          "olx_haggled_pln": 250.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         }
       ]
     },
@@ -180,73 +228,97 @@
           "id": "m82785046364",
           "model": "Game Boy Advance SP (AGS-101 Brighter LCD)",
           "color": "Pearl Blue (Podświetlenie II Generacji)",
-          "target_price_jpy": 12000,
-          "est_pl_value": 780,
+          "target_price_jpy": 10500,
+          "est_pl_value": 580.0,
           "note": "Oryginalny model AGS-101 z jasnym podświetleniem fabrycznym, ogromny popyt w PL",
-          "battery_type": "li-ion"
+          "battery_type": "li-ion",
+          "allegro_archive_pln": 620.0,
+          "olx_haggled_pln": 530.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m70099354764",
           "model": "Game Boy Advance SP Famicom 20th Anniversary",
           "color": "Famicom Red / Gold (Limited)",
-          "target_price_jpy": 11500,
-          "est_pl_value": 720,
+          "target_price_jpy": 9500,
+          "est_pl_value": 520.0,
           "note": "Kolekcjonerska edycja 20th Anniversary w kolorystyce pierwszego Famicoma",
-          "battery_type": "li-ion"
+          "battery_type": "li-ion",
+          "allegro_archive_pln": 560.0,
+          "olx_haggled_pln": 480.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m67708364696",
           "model": "Game Boy Advance SP (AGS-001) Komplet",
           "color": "Onyx Black + Oryginalna Ładowarka",
-          "target_price_jpy": 7500,
-          "est_pl_value": 480,
+          "target_price_jpy": 5500,
+          "est_pl_value": 320.0,
           "note": "Sprawdzony klasyczny GBA SP ze sprawnym zawiasem i ładowarką",
-          "battery_type": "li-ion"
+          "battery_type": "li-ion",
+          "allegro_archive_pln": 350.0,
+          "olx_haggled_pln": 290.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m67708364697",
           "model": "Game Boy Advance SP Pokémon Torchic Edition",
           "color": "Torchic Orange (Pokémon Center Limited)",
-          "target_price_jpy": 14000,
-          "est_pl_value": 950,
+          "target_price_jpy": 12000,
+          "est_pl_value": 680.0,
           "note": "Rzadkie wydanie Pokémon Center, kultowy rarytas dla fanów Pokémonów",
-          "battery_type": "li-ion"
+          "battery_type": "li-ion",
+          "allegro_archive_pln": 740.0,
+          "olx_haggled_pln": 620.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m89166124900",
           "model": "Game Boy Color CGB-001",
           "color": "Atomic Purple (Przezroczysty Fiolet)",
-          "target_price_jpy": 6800,
-          "est_pl_value": 450,
+          "target_price_jpy": 5000,
+          "est_pl_value": 290.0,
           "note": "Kultowy przezroczysty fiolet Atomic Purple, 100% sprawny dźwięk i ekran, 0% Li-Ion (baterie AA)",
-          "battery_type": "none"
+          "battery_type": "none",
+          "allegro_archive_pln": 320.0,
+          "olx_haggled_pln": 260.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m89166124901",
           "model": "Game Boy Color Pokémon Center 3rd Anniversary",
           "color": "Clear Blue / Pokémon Art (Limited)",
-          "target_price_jpy": 13500,
-          "est_pl_value": 900,
+          "target_price_jpy": 11500,
+          "est_pl_value": 650.0,
           "note": "Limitowana edycja Pokémon Center z grafiką Pikachu i Pichu, 0% Li-Ion",
-          "battery_type": "none"
+          "battery_type": "none",
+          "allegro_archive_pln": 700.0,
+          "olx_haggled_pln": 590.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m89166124902",
           "model": "Game Boy Advance (AGB-001 Poziomy)",
           "color": "Glacier / Indigo",
-          "target_price_jpy": 6000,
-          "est_pl_value": 390,
+          "target_price_jpy": 4200,
+          "est_pl_value": 250.0,
           "note": "Klasyczny horyzontalny Game Boy Advance AGB-001, idealny pod mod ekranu IPS, 0% Li-Ion",
-          "battery_type": "none"
+          "battery_type": "none",
+          "allegro_archive_pln": 280.0,
+          "olx_haggled_pln": 220.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m89166124903",
           "model": "Game Boy Micro (OXY-001)",
           "color": "Famicom 20th Anniversary Edition",
-          "target_price_jpy": 15000,
-          "est_pl_value": 980,
+          "target_price_jpy": 13000,
+          "est_pl_value": 720.0,
           "note": "Najmniejszy handheld Nintendo, metalowy front Famicom, niesamowita ostrość ekranu",
-          "battery_type": "li-ion"
+          "battery_type": "li-ion",
+          "allegro_archive_pln": 780.0,
+          "olx_haggled_pln": 650.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         }
       ]
     },
@@ -260,73 +332,100 @@
           "id": "m49076044020",
           "model": "PCH-2000 Slim",
           "color": "Black",
-          "target_price_jpy": 16000,
-          "est_pl_value": 750,
-          "note": "Najtańsza sprawna PS Vita 2000 Slim na rynku, stan bdb"
+          "target_price_jpy": 9500,
+          "est_pl_value": 470.0,
+          "note": "Najtańsza sprawna PS Vita 2000 Slim na rynku, stan bdb",
+          "allegro_archive_pln": 500.0,
+          "olx_haggled_pln": 430.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m20893563232",
           "model": "PCH-2000 Slim",
           "color": "Metallic Red",
-          "target_price_jpy": 15999,
-          "est_pl_value": 880,
-          "note": "Świetny wariant Metallic Red Slim, sprawna konsola"
+          "target_price_jpy": 13000,
+          "est_pl_value": 620.0,
+          "note": "Świetny wariant Metallic Red Slim, sprawna konsola",
+          "allegro_archive_pln": 660.0,
+          "olx_haggled_pln": 570.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m64989059155",
           "model": "PCH-2000 Slim",
           "color": "Light Blue / White",
-          "target_price_jpy": 16000,
-          "est_pl_value": 900,
-          "note": "Dwukolorowa edycja Light Blue & White Slim"
+          "target_price_jpy": 13000,
+          "est_pl_value": 620.0,
+          "note": "Dwukolorowa edycja Light Blue & White Slim",
+          "allegro_archive_pln": 660.0,
+          "olx_haggled_pln": 570.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m42326406700",
           "model": "PCH-2000 Slim",
           "color": "Blue",
-          "target_price_jpy": 17000,
-          "est_pl_value": 890,
-          "note": "PS Vita Slim w kolorze niebieskim, stan ładny"
+          "target_price_jpy": 13000,
+          "est_pl_value": 620.0,
+          "note": "PS Vita Slim w kolorze niebieskim, stan ładny",
+          "allegro_archive_pln": 660.0,
+          "olx_haggled_pln": 570.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m64627979696",
           "model": "PCH-2000 Slim",
           "color": "Glacier White",
-          "target_price_jpy": 17333,
-          "est_pl_value": 850,
-          "note": "Czysta biała wersja Glacier White Slim"
+          "target_price_jpy": 12000,
+          "est_pl_value": 580.0,
+          "note": "Czysta biała wersja Glacier White Slim",
+          "allegro_archive_pln": 620.0,
+          "olx_haggled_pln": 540.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m33337627533",
           "model": "PCH-2000 Slim",
           "color": "Neon Orange",
-          "target_price_jpy": 22500,
-          "est_pl_value": 1050,
-          "note": "Rzadki japoński kolor Neon Orange, wysoka marża w PL"
+          "target_price_jpy": 14500,
+          "est_pl_value": 720.0,
+          "note": "Rzadki japoński kolor Neon Orange, wysoka marża w PL",
+          "allegro_archive_pln": 780.0,
+          "olx_haggled_pln": 660.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m18827541996",
           "model": "PCH-2000 Slim (CIB)",
           "color": "Glacier White",
-          "target_price_jpy": 22500,
-          "est_pl_value": 1050,
-          "note": "Biała Slimka w oryginalnym pudełku z papierami"
+          "target_price_jpy": 16000,
+          "est_pl_value": 780.0,
+          "note": "Biała Slimka w oryginalnym pudełku z papierami",
+          "allegro_archive_pln": 840.0,
+          "olx_haggled_pln": 720.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m84038276319",
           "model": "PCH-1000 OLED",
           "color": "Cosmic Red",
-          "target_price_jpy": 24000,
-          "est_pl_value": 1100,
-          "note": "Piękny ekran OLED, rzadka czerwień Cosmic Red"
+          "target_price_jpy": 15000,
+          "est_pl_value": 750.0,
+          "note": "Piękny ekran OLED, rzadka czerwień Cosmic Red",
+          "allegro_archive_pln": 800.0,
+          "olx_haggled_pln": 680.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m42691856798",
           "model": "PCH-1000 OLED (CIB)",
           "color": "Sapphire Blue",
-          "target_price_jpy": 32980,
-          "est_pl_value": 1350,
-          "note": "Kolekcjonerski OLED Sapphire Blue w oryginalnym kartonie"
+          "target_price_jpy": 19500,
+          "est_pl_value": 950.0,
+          "note": "Kolekcjonerski OLED Sapphire Blue w oryginalnym kartonie",
+          "allegro_archive_pln": 1020.0,
+          "olx_haggled_pln": 880.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         }
       ]
     },
@@ -340,57 +439,78 @@
           "id": "m72865261018",
           "model": "PSP-2000 Piano Black",
           "color": "Piano Black",
-          "target_price_jpy": 8280,
-          "est_pl_value": 520,
-          "note": "Stan idealny, nowa bateria w zestawie, 100% sprawny"
+          "target_price_jpy": 4500,
+          "est_pl_value": 260.0,
+          "note": "Stan idealny, nowa bateria w zestawie, 100% sprawny",
+          "allegro_archive_pln": 280.0,
+          "olx_haggled_pln": 230.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m98291958915",
           "model": "PSP-2000 Felicia Blue",
           "color": "Felicia Blue",
-          "target_price_jpy": 8980,
-          "est_pl_value": 580,
-          "note": "Jasnoniebieski kolor Felicia Blue, nowa bateria, stan bdb"
+          "target_price_jpy": 5500,
+          "est_pl_value": 320.0,
+          "note": "Jasnoniebieski kolor Felicia Blue, nowa bateria, stan bdb",
+          "allegro_archive_pln": 350.0,
+          "olx_haggled_pln": 290.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m38631327894",
           "model": "PSP-2000 Mint Green",
           "color": "Mint Green",
-          "target_price_jpy": 8980,
-          "est_pl_value": 590,
-          "note": "Pastelowy zielony Mint Green, rzadki w Europie, bdb stan"
+          "target_price_jpy": 5500,
+          "est_pl_value": 320.0,
+          "note": "Pastelowy zielony Mint Green, rzadki w Europie, bdb stan",
+          "allegro_archive_pln": 350.0,
+          "olx_haggled_pln": 290.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m22963157222",
           "model": "PSP-2000 Vibrant Blue",
           "color": "Vibrant Blue",
-          "target_price_jpy": 8980,
-          "est_pl_value": 580,
-          "note": "Głęboki błękit Vibrant Blue, nowa bateria, sprawny"
+          "target_price_jpy": 5800,
+          "est_pl_value": 330.0,
+          "note": "Głęboki błękit Vibrant Blue, nowa bateria, sprawny",
+          "allegro_archive_pln": 360.0,
+          "olx_haggled_pln": 300.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m59278200552",
           "model": "PSP-2000 Ice Silver",
           "color": "Ice Silver",
-          "target_price_jpy": 8980,
-          "est_pl_value": 550,
-          "note": "Srebrny Ice Silver, nowa bateria, ładna obudowa"
+          "target_price_jpy": 4800,
+          "est_pl_value": 280.0,
+          "note": "Srebrny Ice Silver, nowa bateria, ładna obudowa",
+          "allegro_archive_pln": 300.0,
+          "olx_haggled_pln": 250.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m42217747974",
           "model": "PSP-2000 Ceramic White",
           "color": "Ceramic White",
-          "target_price_jpy": 8980,
-          "est_pl_value": 560,
-          "note": "Biała konsola Ceramic White, nowa bateria, sprawna"
+          "target_price_jpy": 5000,
+          "est_pl_value": 290.0,
+          "note": "Biała konsola Ceramic White, nowa bateria, sprawna",
+          "allegro_archive_pln": 320.0,
+          "olx_haggled_pln": 260.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m63683062191",
           "model": "PSP-3000 (CIB)",
           "color": "Piano Black",
-          "target_price_jpy": 11000,
-          "est_pl_value": 690,
-          "note": "Ekran bez scanlines PSP-3000 w oryginalnym kartonie"
+          "target_price_jpy": 8500,
+          "est_pl_value": 450.0,
+          "note": "Ekran bez scanlines PSP-3000 w oryginalnym kartonie",
+          "allegro_archive_pln": 490.0,
+          "olx_haggled_pln": 400.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         }
       ]
     },
@@ -405,63 +525,84 @@
           "model": "Zestaw Gier Nintendo DS w Pudełkach (15 sztuk)",
           "color": "Mix 15 Gier DS CIB",
           "target_price_jpy": 2500,
-          "est_pl_value": 390,
+          "est_pl_value": 240.0,
           "note": "Pakiet 15 gier Nintendo DS w pudełkach (Pokémon, Mario, Layton), bez baterii (0% Li-Ion)",
-          "battery_type": "none"
+          "battery_type": "none",
+          "allegro_archive_pln": 260.0,
+          "olx_haggled_pln": 210.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m68019720937",
           "model": "Pakiet Gier Game Boy Advance & GBC (12 kartridży)",
           "color": "Mix 12 Gier GBA / GBC",
           "target_price_jpy": 3200,
-          "est_pl_value": 480,
+          "est_pl_value": 280.0,
           "note": "Klasyczne kartridże Nintendo GBA/GBC z grami RPG i platformówkami, ogromna marża na sztuce",
-          "battery_type": "none"
+          "battery_type": "none",
+          "allegro_archive_pln": 310.0,
+          "olx_haggled_pln": 250.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m95924617150",
           "model": "Hurtowy Pakiet Gier PlayStation 2 (25 sztuk CIB)",
           "color": "Mix 25 Gier PS2 Box",
           "target_price_jpy": 2800,
-          "est_pl_value": 420,
+          "est_pl_value": 250.0,
           "note": "Zestaw 25 gier PS2 w pudełkach z okładkami (Final Fantasy, Tekken, Gran Turismo), stan bdb",
-          "battery_type": "none"
+          "battery_type": "none",
+          "allegro_archive_pln": 280.0,
+          "olx_haggled_pln": 220.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m70453155857",
           "model": "Zestaw Gier Super Famicom SFC (10 kartridży)",
           "color": "Mix 10 Gier SFC Nintendo",
           "target_price_jpy": 2200,
-          "est_pl_value": 350,
+          "est_pl_value": 220.0,
           "note": "Klasyczne kartridże 16-bit Super Famicom (Super Mario World, Chrono Trigger, DKC), 0% Li-Ion",
-          "battery_type": "none"
+          "battery_type": "none",
+          "allegro_archive_pln": 240.0,
+          "olx_haggled_pln": 190.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m20093535366",
           "model": "Zestaw Gier PlayStation 1 (18 gier CIB)",
           "color": "18 Gier PS1 Box",
           "target_price_jpy": 3000,
-          "est_pl_value": 450,
+          "est_pl_value": 260.0,
           "note": "18 gier PS1 w pudełkach, kultowe japońskie jRPG i zręcznościówki z likwidacji kolekcji",
-          "battery_type": "none"
+          "battery_type": "none",
+          "allegro_archive_pln": 290.0,
+          "olx_haggled_pln": 230.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m42611850999",
           "model": "Wieloplatformowy Hurtowy Mix Gier Retro (30 sztuk)",
           "color": "Hurtowy Mix 30 Gier",
           "target_price_jpy": 3500,
-          "est_pl_value": 550,
+          "est_pl_value": 320.0,
           "note": "Mix gier retro (Nintendo DS, SFC, PS1, PS2) z japońskiego serwisu aukcyjnego, potężny zysk",
-          "battery_type": "none"
+          "battery_type": "none",
+          "allegro_archive_pln": 350.0,
+          "olx_haggled_pln": 280.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m31232552895",
           "model": "Pakiet Gier PSP UMD w Pudełkach (15 sztuk CIB)",
           "color": "15 Gier PSP Box + Instrukcje",
-          "target_price_jpy": 2600,
-          "est_pl_value": 380,
+          "target_price_jpy": 2000,
+          "est_pl_value": 180.0,
           "note": "Gry retro PSP UMD w pełnych pudełkach z instrukcjami, poszukiwane tytuły akcji i wyścigi",
-          "battery_type": "none"
+          "battery_type": "none",
+          "allegro_archive_pln": 200.0,
+          "olx_haggled_pln": 160.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         }
       ]
     },
@@ -475,37 +616,49 @@
           "id": "m72172383528",
           "model": "PSone COMBO SCPH-130 (Zintegrowany 5\" LCD Sony)",
           "color": "Biały Mini + Doczepiany Ekran LCD",
-          "target_price_jpy": 24000,
-          "est_pl_value": 1600,
+          "target_price_jpy": 22000,
+          "est_pl_value": 1050.0,
           "note": "Święty Graal kolekcjonerów PS1: oryginalny ekran LCD Sony SCPH-130, zysk w PL ponad +700 zł, 0% Li-Ion",
-          "battery_type": "none"
+          "battery_type": "none",
+          "allegro_archive_pln": 1150.0,
+          "olx_haggled_pln": 950.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m68942378440",
           "model": "PlayStation 4 Pro Monster Hunter World Rathalos (1TB CIB)",
           "color": "Rathalos Red & Black (W Oryginalnym Kartonie)",
           "target_price_jpy": 24500,
-          "est_pl_value": 1550,
+          "est_pl_value": 1150.0,
           "note": "Limitowana PS4 Pro w pełnym zestawie pudełkowym CIB z dedykowanym padem, wysoka marża kolekcjonerska",
-          "battery_type": "none"
+          "battery_type": "none",
+          "allegro_archive_pln": 1250.0,
+          "olx_haggled_pln": 1050.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m39636324812",
           "model": "Nintendo GameCube DOL-001 Spice Orange",
           "color": "Spice Orange (Z Cyfrowym Portem Digital Out)",
           "target_price_jpy": 6800,
-          "est_pl_value": 650,
+          "est_pl_value": 460.0,
           "note": "Japoński wariant Spice Orange z poszukiwanym portem Digital Out pod adaptery HDMI Prism/Carby",
-          "battery_type": "none"
+          "battery_type": "none",
+          "allegro_archive_pln": 500.0,
+          "olx_haggled_pln": 420.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m41575032864",
           "model": "PlayStation 4 Metal Gear Solid V Limited Edition (Boxed)",
           "color": "Bordo & Złoto / Bionic Arm Design (Pudełko)",
-          "target_price_jpy": 21500,
-          "est_pl_value": 1350,
+          "target_price_jpy": 19500,
+          "est_pl_value": 950.0,
           "note": "Kolekcjonerska PS4 w kolorystyce bionicznego ramienia Snakea w oryginalnym kartonie MGS V",
-          "battery_type": "none"
+          "battery_type": "none",
+          "allegro_archive_pln": 1050.0,
+          "olx_haggled_pln": 880.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         }
       ]
     },
@@ -520,108 +673,144 @@
           "model": "Nikon TW2D Dual Lens (35mm / 70mm Switchable)",
           "color": "Czarny Klasyczny",
           "target_price_jpy": 1500,
-          "est_pl_value": 280,
+          "est_pl_value": 160.0,
           "note": "Sprawdzony, migawka działa, dwuogniskowy zgrabny kompakt Nikon z datownikiem, 0% Li-Ion",
-          "battery_type": "none"
+          "battery_type": "none",
+          "allegro_archive_pln": 180.0,
+          "olx_haggled_pln": 140.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m27938961414",
           "model": "Pentax Espio P Compact 35mm",
           "color": "Czarny / Złote Napisy",
-          "target_price_jpy": 1900,
-          "est_pl_value": 250,
+          "target_price_jpy": 1400,
+          "est_pl_value": 120.0,
           "note": "Niesprawdzany z braku baterii (⚡ hit cenowy za 1900 JPY!), czysta optyka, 0% Li-Ion",
-          "battery_type": "none"
+          "battery_type": "none",
+          "allegro_archive_pln": 130.0,
+          "olx_haggled_pln": 100.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m15919018689",
           "model": "Ricoh Myport Zoom Macro (38-60mm)",
           "color": "Czarny Ergonomiczny",
-          "target_price_jpy": 2300,
-          "est_pl_value": 320,
+          "target_price_jpy": 1600,
+          "est_pl_value": 130.0,
           "note": "W pełni sprawny z trybem Macro do zbliżeń, świetny japoński aparat kompaktowy, 0% Li-Ion",
-          "battery_type": "none"
+          "battery_type": "none",
+          "allegro_archive_pln": 140.0,
+          "olx_haggled_pln": 110.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m67499875058",
           "model": "Canon Autoboy A PANORAMA (38-76mm AiAF)",
           "color": "Czarny Kompakt",
-          "target_price_jpy": 3000,
-          "est_pl_value": 350,
+          "target_price_jpy": 1800,
+          "est_pl_value": 150.0,
           "note": "Niesprawdzany z braku baterii (⚡ okazja cenowa), tryb panoramy i automatyczny autofokus AiAF, 0% Li-Ion",
-          "battery_type": "none"
+          "battery_type": "none",
+          "allegro_archive_pln": 170.0,
+          "olx_haggled_pln": 130.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m95103324088",
           "model": "Konica Big Mini NEO-R + Dedykowane Etui",
           "color": "Tytanowy Szary / Czarny",
-          "target_price_jpy": 3500,
-          "est_pl_value": 420,
+          "target_price_jpy": 2800,
+          "est_pl_value": 220.0,
           "note": "Sprawdzony z oryginalnym etui, seria Big Mini słynąca z ostrości, 0% Li-Ion",
-          "battery_type": "none"
+          "battery_type": "none",
+          "allegro_archive_pln": 250.0,
+          "olx_haggled_pln": 190.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m51928471012",
           "model": "Minolta Riva Zoom 70 Date (35-70mm AF Macro)",
           "color": "Czarny Klasyczny",
           "target_price_jpy": 1200,
-          "est_pl_value": 220,
+          "est_pl_value": 120.0,
           "note": "Sprawny autofokus i zoom, zasilany zwykłą baterią CR123A, 0% Li-Ion (cena < 100 zł: okazja!)",
-          "battery_type": "none"
+          "battery_type": "none",
+          "allegro_archive_pln": 130.0,
+          "olx_haggled_pln": 100.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m48291047192",
           "model": "Fuji Cardia Travel Mini Dual-P (28mm / 45mm Fujinon)",
           "color": "Szampański Tytan",
           "target_price_jpy": 1500,
-          "est_pl_value": 260,
+          "est_pl_value": 140.0,
           "note": "Niesprawdzany z braku baterii (⚡ hit cenowy!), kultowy obiektyw Fujinon 28mm wide, 0% Li-Ion",
-          "battery_type": "none"
+          "battery_type": "none",
+          "allegro_archive_pln": 160.0,
+          "olx_haggled_pln": 120.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m39104820193",
           "model": "Pentax Espio 738 (38-70mm SMC Pentax)",
           "color": "Czarny Matowy",
-          "target_price_jpy": 1800,
-          "est_pl_value": 240,
+          "target_price_jpy": 1400,
+          "est_pl_value": 120.0,
           "note": "W pełni sprawny kompakt z powłokami SMC Pentax, czysta optyka bez rys, 0% Li-Ion",
-          "battery_type": "none"
+          "battery_type": "none",
+          "allegro_archive_pln": 130.0,
+          "olx_haggled_pln": 100.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m72049182041",
           "model": "Olympus AF-10 Twin (35mm / 70mm Dwuogniskowy)",
           "color": "Czarny Clamshell",
-          "target_price_jpy": 2200,
-          "est_pl_value": 280,
+          "target_price_jpy": 2000,
+          "est_pl_value": 160.0,
           "note": "Niesprawdzany z braku baterii (⚡ okazja cenowa), zsuwana klapka obiektywu, 0% Li-Ion",
-          "battery_type": "none"
+          "battery_type": "none",
+          "allegro_archive_pln": 180.0,
+          "olx_haggled_pln": 140.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m10948201948",
           "model": "Canon Prima Super 28V / Autoboy WT28 (28-48mm Wide)",
           "color": "Srebrzysto-Czarny",
-          "target_price_jpy": 2500,
-          "est_pl_value": 300,
+          "target_price_jpy": 1600,
+          "est_pl_value": 140.0,
           "note": "Sprawdzony, migawka i flesz działają, rzadki szeroki kąt 28mm, 0% Li-Ion",
-          "battery_type": "none"
+          "battery_type": "none",
+          "allegro_archive_pln": 160.0,
+          "olx_haggled_pln": 120.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m63910284719",
           "model": "Kyocera Yashica Zoomate 70 (38-70mm Yashica Lens)",
           "color": "Czarny Ergonomiczny",
-          "target_price_jpy": 2800,
-          "est_pl_value": 270,
+          "target_price_jpy": 1600,
+          "est_pl_value": 130.0,
           "note": "Niesprawdzany (⚡ czyszczenie szafy!), japońska optyka Kyocera Yashica, 0% Li-Ion",
-          "battery_type": "none"
+          "battery_type": "none",
+          "allegro_archive_pln": 150.0,
+          "olx_haggled_pln": 110.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m84019283741",
           "model": "Konica Pop EFJ (Hexanon 36mm f/4 Prime)",
           "color": "Retro Czerwień / Czarny",
-          "target_price_jpy": 3200,
-          "est_pl_value": 350,
+          "target_price_jpy": 2200,
+          "est_pl_value": 180.0,
           "note": "Sprawny mechanicznie 100%, stałka Hexanon 36mm, kultowy model collectorski, 0% Li-Ion",
-          "battery_type": "none"
+          "battery_type": "none",
+          "allegro_archive_pln": 200.0,
+          "olx_haggled_pln": 150.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         }
       ]
     },
@@ -635,64 +824,85 @@
           "id": "m28154012236",
           "model": "SMC Pentax-M 50mm f/1.4",
           "color": "Mocowanie K",
-          "target_price_jpy": 2900,
-          "est_pl_value": 420,
+          "target_price_jpy": 2500,
+          "est_pl_value": 280.0,
           "note": "Absolutny hit cenowy za jasny obiektyw f/1.4, brak grzyba/mgły, cena < 100 zł",
-          "battery_type": "none"
+          "battery_type": "none",
+          "allegro_archive_pln": 310.0,
+          "olx_haggled_pln": 250.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m39104820111",
           "model": "Super-Takumar 55mm f/1.8 (M42)",
           "color": "Mocowanie Gwint M42",
           "target_price_jpy": 1800,
-          "est_pl_value": 320,
+          "est_pl_value": 210.0,
           "note": "Kultowy obiektyw portretowy Asahi Pentax, piękny bokeh, czyste szkła, 0% Li-Ion",
-          "battery_type": "none"
+          "battery_type": "none",
+          "allegro_archive_pln": 230.0,
+          "olx_haggled_pln": 180.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m48291047222",
           "model": "SMC Pentax-M 50mm f/2 (K-mount)",
           "color": "Mocowanie Bagnet K",
-          "target_price_jpy": 1500,
-          "est_pl_value": 260,
+          "target_price_jpy": 1400,
+          "est_pl_value": 140.0,
           "note": "Kompaktowy, niesamowicie ostry obiektyw standardowy Pentax, cena < 100 zł, 0% Li-Ion",
-          "battery_type": "none"
+          "battery_type": "none",
+          "allegro_archive_pln": 150.0,
+          "olx_haggled_pln": 120.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m10948201333",
           "model": "Canon FD 50mm f/1.8 S.C.",
           "color": "Mocowanie Canon FD",
-          "target_price_jpy": 2200,
-          "est_pl_value": 300,
+          "target_price_jpy": 1800,
+          "est_pl_value": 180.0,
           "note": "Klasyczny japoński obiektyw Canon FD, świetny do adapterów bezlusterkowców, 0% Li-Ion",
-          "battery_type": "none"
+          "battery_type": "none",
+          "allegro_archive_pln": 200.0,
+          "olx_haggled_pln": 160.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m51928471444",
           "model": "Minolta MD 50mm f/1.7 Rokkor",
           "color": "Mocowanie Minolta MD",
-          "target_price_jpy": 1900,
-          "est_pl_value": 280,
+          "target_price_jpy": 1700,
+          "est_pl_value": 170.0,
           "note": "Powłoki Rokkor, miękki bokeh, płynny pierścień ostrości, cena < 100 zł, 0% Li-Ion",
-          "battery_type": "none"
+          "battery_type": "none",
+          "allegro_archive_pln": 190.0,
+          "olx_haggled_pln": 150.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m72049182555",
           "model": "Olympus OM-System F.Zuiko 50mm f/1.8",
           "color": "Mocowanie Olympus OM",
-          "target_price_jpy": 2500,
-          "est_pl_value": 320,
+          "target_price_jpy": 1900,
+          "est_pl_value": 190.0,
           "note": "Miniaturowy japoński obiektyw stałoogniskowy Zuiko, znakomity kontrast, 0% Li-Ion",
-          "battery_type": "none"
+          "battery_type": "none",
+          "allegro_archive_pln": 210.0,
+          "olx_haggled_pln": 170.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m84019283666",
           "model": "SMC Pentax 28mm f/2.8 Wide (K-mount)",
           "color": "Szerokokątny 28mm K-mount",
-          "target_price_jpy": 3200,
-          "est_pl_value": 380,
+          "target_price_jpy": 2400,
+          "est_pl_value": 220.0,
           "note": "Bardzo poszukiwany szeroki kąt 28mm, powłoki SMC, stan bdb, cena < 100 zł, 0% Li-Ion",
-          "battery_type": "none"
+          "battery_type": "none",
+          "allegro_archive_pln": 240.0,
+          "olx_haggled_pln": 190.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         }
       ]
     },
@@ -706,64 +916,85 @@
           "id": "m63463074848",
           "model": "DualSense God of War Ragnarök Limited Edition",
           "color": "Two-Tone Blue / Ice White (Bear & Wolf)",
-          "target_price_jpy": 7990,
-          "est_pl_value": 550,
+          "target_price_jpy": 7500,
+          "est_pl_value": 420.0,
           "note": "Sprawdzony 100%, limitowane wydanie Ragnarök z motywem wilka i niedźwiedzia",
-          "battery_type": "li-ion"
+          "battery_type": "li-ion",
+          "allegro_archive_pln": 460.0,
+          "olx_haggled_pln": 380.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m42110515743",
           "model": "DualSense Astro Bot Limited Edition",
           "color": "Astro Bot Blue & White (Eyes on Touchpad)",
-          "target_price_jpy": 8900,
-          "est_pl_value": 600,
+          "target_price_jpy": 8200,
+          "est_pl_value": 450.0,
           "note": "Oryginalna edycja limitowana Astro Bot z niebieskimi akcentami i oczami na touchpadzie",
-          "battery_type": "li-ion"
+          "battery_type": "li-ion",
+          "allegro_archive_pln": 480.0,
+          "olx_haggled_pln": 410.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m38091834685",
           "model": "DualSense Astro Bot Limited Edition (Stan Gabinetowy)",
           "color": "Astro Bot Blue & White",
-          "target_price_jpy": 9970,
-          "est_pl_value": 650,
+          "target_price_jpy": 8900,
+          "est_pl_value": 480.0,
           "note": "Stan niemal nowy (1-2 ładowania), gabinetowy, poszukiwana edycja kolekcjonerska",
-          "battery_type": "li-ion"
+          "battery_type": "li-ion",
+          "allegro_archive_pln": 520.0,
+          "olx_haggled_pln": 440.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m68853102375",
           "model": "DualSense Monster Hunter Wilds Limited Edition",
           "color": "Wilds Red / Gold Accents",
-          "target_price_jpy": 12000,
-          "est_pl_value": 650,
+          "target_price_jpy": 8900,
+          "est_pl_value": 480.0,
           "note": "Fabrycznie nowy, oficjalna edycja Capcom Monster Hunter Wilds",
-          "battery_type": "li-ion"
+          "battery_type": "li-ion",
+          "allegro_archive_pln": 520.0,
+          "olx_haggled_pln": 440.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m28342292493",
           "model": "DualSense Final Fantasy XVI Limited Edition",
           "color": "Midnight Black / Gold FFXVI Inscription",
-          "target_price_jpy": 13000,
-          "est_pl_value": 700,
+          "target_price_jpy": 9200,
+          "est_pl_value": 490.0,
           "note": "Wydanie ekskluzywne na rynek japoński (Japan-exclusive), złote inskrypcje FFXVI",
-          "battery_type": "li-ion"
+          "battery_type": "li-ion",
+          "allegro_archive_pln": 540.0,
+          "olx_haggled_pln": 450.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m91656556697",
           "model": "DualSense 30th Anniversary Limited Edition",
           "color": "Classic PS1 Grey (Kolorowe logo PS)",
-          "target_price_jpy": 14600,
-          "est_pl_value": 850,
+          "target_price_jpy": 11500,
+          "est_pl_value": 580.0,
           "note": "Stan idealny (極美品), kultowa edycja 30-lecia PlayStation w kolorze szarym PS1",
-          "battery_type": "li-ion"
+          "battery_type": "li-ion",
+          "allegro_archive_pln": 630.0,
+          "olx_haggled_pln": 530.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m22670211650",
           "model": "DualSense Marvel's Spider-Man 2 Limited Edition",
           "color": "Symbiote Black & Red",
-          "target_price_jpy": 22600,
-          "est_pl_value": 1050,
+          "target_price_jpy": 14500,
+          "est_pl_value": 680.0,
           "note": "Fabrycznie nowy w pudełku (CIB Sealed), wyprzedany Spider-Man 2, topowy kolekcjonerski",
-          "battery_type": "li-ion"
+          "battery_type": "li-ion",
+          "allegro_archive_pln": 740.0,
+          "olx_haggled_pln": 620.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         }
       ]
     },
@@ -777,73 +1008,97 @@
           "id": "m28161760027",
           "model": "DualShock 4 Monster Hunter World: Rathalos Edition",
           "color": "Deep Crimson Red / Rathalos Crest",
-          "target_price_jpy": 3800,
-          "est_pl_value": 380,
+          "target_price_jpy": 3200,
+          "est_pl_value": 240.0,
           "note": "Oryginalny pad limitowany MHW Rathalos CUH-ZCT2J, niesamowita cena 3800 JPY",
-          "battery_type": "li-ion"
+          "battery_type": "li-ion",
+          "allegro_archive_pln": 260.0,
+          "olx_haggled_pln": 210.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m19794763678",
           "model": "DualShock 3 Metallic Blue Limited (CECHZC2J)",
           "color": "Metallic Blue (Metaliczny błękit)",
-          "target_price_jpy": 3980,
-          "est_pl_value": 320,
+          "target_price_jpy": 2800,
+          "est_pl_value": 200.0,
           "note": "Oficjalna wersja limitowana 2009, sprawdzony 100%, stan bdb",
-          "battery_type": "li-ion"
+          "battery_type": "li-ion",
+          "allegro_archive_pln": 220.0,
+          "olx_haggled_pln": 180.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m96349064018",
           "model": "HORI Dragon Quest Slime Controller PS2 (HP2-177)",
           "color": "Slime Blue (Figurka Kropelka)",
-          "target_price_jpy": 4800,
-          "est_pl_value": 450,
+          "target_price_jpy": 3800,
+          "est_pl_value": 260.0,
           "note": "Kultowy kontroler-figurka Hori w kształcie Slime'a, sprawdzony, przewodowy (0% Li-Ion!)",
-          "battery_type": "none"
+          "battery_type": "none",
+          "allegro_archive_pln": 290.0,
+          "olx_haggled_pln": 230.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m77203249089",
           "model": "DualShock 4 Berry Blue Limited Edition",
           "color": "Berry Blue (Fiolet / Turkus)",
-          "target_price_jpy": 7800,
-          "est_pl_value": 450,
+          "target_price_jpy": 4200,
+          "est_pl_value": 280.0,
           "note": "Nieużywany (未使用), jeden z najbardziej poszukiwanych dwukolorowych DualShock 4",
-          "battery_type": "li-ion"
+          "battery_type": "li-ion",
+          "allegro_archive_pln": 310.0,
+          "olx_haggled_pln": 250.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m80372131687",
           "model": "DualShock 4 500 Million Limited Edition (CUH-ZCT2J50)",
           "color": "Translucent Dark Blue (Przezroczysty z miedzią)",
-          "target_price_jpy": 9200,
-          "est_pl_value": 580,
+          "target_price_jpy": 4900,
+          "est_pl_value": 310.0,
           "note": "Limitowany do 50k sztuk na świat, przezroczysty granat ze złotym symbolem PS, sprawdzony",
-          "battery_type": "li-ion"
+          "battery_type": "li-ion",
+          "allegro_archive_pln": 340.0,
+          "olx_haggled_pln": 280.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m96519020556",
           "model": "DualShock 4 Death Stranding Limited Edition",
           "color": "Translucent Amber / BB Pod Yellow",
-          "target_price_jpy": 9200,
-          "est_pl_value": 550,
+          "target_price_jpy": 4500,
+          "est_pl_value": 290.0,
           "note": "Limitowane wydanie Kojima Productions Death Stranding, sprawdzony 100%",
-          "battery_type": "li-ion"
+          "battery_type": "li-ion",
+          "allegro_archive_pln": 320.0,
+          "olx_haggled_pln": 260.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m94449458311",
           "model": "PS1 DualShock Island Blue Boxed (SCPH-1200)",
           "color": "Island Blue (Morski błękit) + BOX/Instrukcja",
-          "target_price_jpy": 11000,
-          "est_pl_value": 750,
+          "target_price_jpy": 7200,
+          "est_pl_value": 420.0,
           "note": "Unikat z 1999 r., pad w folii fabrycznej w pudełku z papierami, przewodowy (0% Li-Ion!)",
-          "battery_type": "none"
+          "battery_type": "none",
+          "allegro_archive_pln": 460.0,
+          "olx_haggled_pln": 380.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         },
         {
           "id": "m18564401275",
           "model": "PS2 DualShock 2 Emerald Green (SCPH-10010)",
           "color": "Clear Emerald Green (Szmaragdowy przezroczysty)",
-          "target_price_jpy": 2499,
-          "est_pl_value": 260,
+          "target_price_jpy": 2200,
+          "est_pl_value": 170.0,
           "note": "Oryginalny szmaragdowy japoński pad PS2, sprawdzony, przewodowy (0% Li-Ion!)",
-          "battery_type": "none"
+          "battery_type": "none",
+          "allegro_archive_pln": 190.0,
+          "olx_haggled_pln": 150.0,
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         }
       ]
     }

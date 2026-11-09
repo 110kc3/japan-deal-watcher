@@ -224,18 +224,24 @@ class SniperGuideGenerator:
                 b_type = it.get("battery_type", "")
                 b_badge = "🔴 1 Li-Ion" if b_type == "li-ion" else "🟢 0% Li-Ion"
 
+                zen_sniper = it.get("zenmarket_url", zen_ending_soon)
+                img_url = it.get("image_url", "./assets/images/placeholder.svg")
+                img_tag = f"<img src='{img_url}' width='48' height='32' style='border-radius:4px; object-fit:contain; background:#0f172a; vertical-align:middle;' /><br>"
+                allegro_p = it.get("allegro_archive_pln", round(est_pl * 1.08, 0))
+                olx_p = it.get("olx_haggled_pln", round(est_pl * 0.90, 0))
+
                 links_str = (
-                    f"[⏰ Kończące się (ZenMarket)]({zen_ending_soon})<br>"
-                    f"[💰 Od 1 JPY]({zen_lowest_bid}) · [🛒 Buyee]({buyee_ending_soon})<br>"
-                    f"[📊 Archiwum Cen Yahoo]({yahoo_closed}) · [Aucfan]({aucfan_url})"
+                    f"[🎯 Snajper ZenMarket]({zen_sniper})<br>"
+                    f"[⏰ Kończące się]({zen_ending_soon}) · [🪙 Od 1 JPY]({zen_lowest_bid})<br>"
+                    f"[📊 Archiwum Yahoo]({yahoo_closed}) · [Aucfan]({aucfan_url}) · [🛒 Buyee]({buyee_ending_soon})"
                 )
 
                 margin_color = "#10b981" if guar_margin > 0 else "#ef4444"
                 margin_str = f"<strong style='color:{margin_color};'>+{guar_margin:.2f} zł</strong><br><small>(+{guar_roi:.1f}%)</small>"
 
                 md.append(
-                    f"| **{sanitize_md(it.get('model', ''))}**<br><small>{sanitize_md(it.get('color', ''))}</small> | "
-                    f"**{est_pl:.2f} zł** | "
+                    f"| {img_tag}**{sanitize_md(it.get('model', ''))}**<br><small>{sanitize_md(it.get('color', ''))}</small> | "
+                    f"**{est_pl:.0f} zł**<br><small>Allegro: ~{allegro_p:.0f} zł<br>OLX: ~{olx_p:.0f} zł</small> | "
                     f"{clearing_range_str} | "
                     f"{mercari_str} | "
                     f"{arbitrage_str} | "

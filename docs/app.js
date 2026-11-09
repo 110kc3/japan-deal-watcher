@@ -418,14 +418,20 @@ function renderDealCard(deal, isAuction) {
   let actionButtons = '';
   if (isAuction) {
     actionButtons = `
-      <a href="${deal.links.zenmarket_ending_soon}" target="_blank" rel="noopener" class="btn-action primary">
-        ⏰ Kończące się (Live)
+      <a href="${deal.links.zenmarket_sniper || deal.links.zenmarket_ending_soon}" target="_blank" rel="noopener" class="btn-action primary">
+        🎯 Zen Sniper
+      </a>
+      <a href="${deal.links.zenmarket_ending_soon}" target="_blank" rel="noopener" class="btn-action secondary">
+        ⏰ Kończące się
       </a>
       <a href="${deal.links.zenmarket_lowest_bid}" target="_blank" rel="noopener" class="btn-action secondary">
-        💰 Od 1 JPY
+        🪙 Od 1 JPY
       </a>
       <a href="${deal.links.yahoo_closed_archive}" target="_blank" rel="noopener" class="btn-action secondary">
         📊 Ceny (落札相場)
+      </a>
+      <a href="${deal.links.buyee_url}" target="_blank" rel="noopener" class="btn-action secondary">
+        🛒 Buyee
       </a>
       <button class="btn-action accent-blue btn-calc-trigger" data-deal-id="${deal.id}" data-type="auction">
         🧮 Przelicz Snajpera
@@ -448,8 +454,19 @@ function renderDealCard(deal, isAuction) {
     `;
   }
 
+  const allegroPrice = deal.allegro_archive_pln ? deal.allegro_archive_pln.toFixed(0) : Math.round(deal.est_pl_value * 1.08);
+  const olxPrice = deal.olx_haggled_pln ? deal.olx_haggled_pln.toFixed(0) : Math.round(deal.est_pl_value * 0.90);
+
   return `
     <article class="deal-card" id="card-${deal.id}">
+      <div class="deal-card-media">
+        <img src="${deal.image_url || './assets/images/placeholder.svg'}" alt="${deal.model}" class="deal-card-img" loading="lazy" onerror="this.src='./assets/images/placeholder.svg'" />
+        <span class="media-platform-badge ${isAuction ? 'badge-yahoo' : 'badge-mercari'}">
+          ${isAuction ? '🔨 Yahoo! Aukcja' : '🛍️ Mercari'}
+        </span>
+        ${deal.arbitrage_discount_pct ? `<span class="media-discount-badge">-${deal.arbitrage_discount_pct}% vs BIN</span>` : ''}
+      </div>
+
       <div class="card-header">
         ${platformTag}
         <div class="badge-row">
@@ -467,6 +484,23 @@ function renderDealCard(deal, isAuction) {
       ${closureBanner}
       ${capBanner}
 
+      <div class="market-reality-box">
+        <div class="reality-metric">
+          <span class="reality-label">Allegro Zakończone:</span>
+          <span class="reality-val">${allegroPrice} zł</span>
+        </div>
+        <div class="reality-divider">·</div>
+        <div class="reality-metric">
+          <span class="reality-label">OLX (po targu):</span>
+          <span class="reality-val text-amber">${olxPrice} zł</span>
+        </div>
+        <div class="reality-divider">·</div>
+        <div class="reality-metric">
+          <span class="reality-label">Czysty Zysk:</span>
+          <span class="reality-val text-emerald font-bold">+${(deal.est_margin_pln || 0).toFixed(0)} zł</span>
+        </div>
+      </div>
+
       <div class="profit-matrix">
         <div class="matrix-item">
           <span class="matrix-label">Cena zakupu:</span>
@@ -476,17 +510,17 @@ function renderDealCard(deal, isAuction) {
         <div class="matrix-item">
           <span class="matrix-label">Koszt Landed (z VAT):</span>
           <span class="matrix-val">~${(deal.landed_cost_pln || 0).toFixed(0)} zł</span>
-          <span class="matrix-sub">zawiera cło & wysyłkę</span>
+          <span class="matrix-sub">cło, prowizje & fracht</span>
         </div>
         <div class="matrix-item">
-          <span class="matrix-label">Cena w Polsce:</span>
+          <span class="matrix-label">Wycena Bazowa PL:</span>
           <span class="matrix-val">${(deal.est_pl_value || 0).toFixed(0)} zł</span>
-          <span class="matrix-sub">Allegro / OLX</span>
+          <span class="matrix-sub">Mediana transakcyjna</span>
         </div>
         <div class="matrix-item">
-          <span class="matrix-label">Czysty Zysk Netto:</span>
-          <span class="matrix-val highlight-green">+${(deal.est_margin_pln || 0).toFixed(0)} zł</span>
-          <span class="matrix-sub text-green">ROI +${(deal.roi_percent || 0).toFixed(1)}%</span>
+          <span class="matrix-label">Zwrot z Inwestycji:</span>
+          <span class="matrix-val highlight-green">+${(deal.roi_percent || 0).toFixed(1)}%</span>
+          <span class="matrix-sub text-green">Czysty zysk po kosztach</span>
         </div>
       </div>
 

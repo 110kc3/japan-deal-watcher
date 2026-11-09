@@ -1,10 +1,10 @@
 {
   "metadata": {
     "created_at": "2026-11-08 18:17 UTC",
-    "last_updated": "2026-11-09 15:57 UTC",
-    "total_tracked_items": 173,
+    "last_updated": "2026-11-09 16:41 UTC",
+    "total_tracked_items": 199,
     "total_sales_recorded": 49,
-    "total_price_changes": 29
+    "total_price_changes": 83
   },
   "items": {
     "m49076044020": {
@@ -17,7 +17,7 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 18700.0,
       "current_price_pln": 463.8,
       "landed_cost_pln": 605.11,
@@ -58,7 +58,7 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 15999.0,
       "current_price_pln": 397.29,
       "landed_cost_pln": 583.1,
@@ -87,7 +87,7 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 16000.0,
       "current_price_pln": 397.31,
       "landed_cost_pln": 583.12,
@@ -116,7 +116,7 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 14900.0,
       "current_price_pln": 369.55,
       "landed_cost_pln": 523.44,
@@ -169,7 +169,7 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 17333.0,
       "current_price_pln": 430.41,
       "landed_cost_pln": 625.0,
@@ -198,7 +198,7 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 21800.0,
       "current_price_pln": 541.34,
       "landed_cost_pln": 765.33,
@@ -227,7 +227,7 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 22400.0,
       "current_price_pln": 556.24,
       "landed_cost_pln": 708.78,
@@ -262,7 +262,7 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 24000.0,
       "current_price_pln": 595.97,
       "landed_cost_pln": 834.43,
@@ -291,7 +291,7 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 32980.0,
       "current_price_pln": 818.96,
       "landed_cost_pln": 1116.51,
@@ -320,7 +320,7 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 7880.0,
       "current_price_pln": 195.68,
       "landed_cost_pln": 328.02,
@@ -355,9 +355,9 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 8980.0,
-      "current_price_pln": 222.99,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 5500.0,
+      "current_price_pln": 136.41,
       "landed_cost_pln": 356.29,
       "est_pl_value": 580.0,
       "est_margin_pln": 223.71,
@@ -371,6 +371,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 8980.0,
           "price_pln": 222.99
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 5500.0,
+          "price_pln": 136.41,
+          "previous_price_jpy": 8980.0
         }
       ]
     },
@@ -384,7 +390,7 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 8580.0,
       "current_price_pln": 213.06,
       "landed_cost_pln": 350.0,
@@ -419,7 +425,7 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 8580.0,
       "current_price_pln": 213.06,
       "landed_cost_pln": 350.0,
@@ -454,7 +460,7 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 8380.0,
       "current_price_pln": 207.84,
       "landed_cost_pln": 350.0,
@@ -495,7 +501,7 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 8580.0,
       "current_price_pln": 213.06,
       "landed_cost_pln": 350.0,
@@ -530,7 +536,7 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 10000.0,
       "current_price_pln": 248.02,
       "landed_cost_pln": 404.04,
@@ -739,7 +745,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 1000.0,
       "current_price_pln": 24.83,
       "landed_cost_pln": 92.96,
@@ -768,7 +774,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 3000.0,
       "current_price_pln": 74.5,
       "landed_cost_pln": 155.8,
@@ -797,7 +803,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 1980.0,
       "current_price_pln": 49.11,
       "landed_cost_pln": 126.89,
@@ -832,7 +838,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 1900.0,
       "current_price_pln": 47.12,
       "landed_cost_pln": 127.53,
@@ -873,7 +879,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 2500.0,
       "current_price_pln": 62.08,
       "landed_cost_pln": 143.22,
@@ -908,7 +914,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 2620.0,
       "current_price_pln": 65.06,
       "landed_cost_pln": 143.86,
@@ -937,7 +943,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 4899.0,
       "current_price_pln": 121.65,
       "landed_cost_pln": 215.44,
@@ -966,7 +972,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 5000.0,
       "current_price_pln": 124.16,
       "landed_cost_pln": 275.54,
@@ -1372,7 +1378,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 9300.0,
       "current_price_pln": 230.94,
       "landed_cost_pln": 379.0,
@@ -1459,7 +1465,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 9500.0,
       "current_price_pln": 235.9,
       "landed_cost_pln": 385.27,
@@ -1488,7 +1494,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 10000.0,
       "current_price_pln": 248.32,
       "landed_cost_pln": 432.39,
@@ -1523,7 +1529,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 10800.0,
       "current_price_pln": 268.19,
       "landed_cost_pln": 429.26,
@@ -1558,9 +1564,9 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 3500.0,
-      "current_price_pln": 86.91,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 1800.0,
+      "current_price_pln": 44.64,
       "landed_cost_pln": 184.14,
       "est_pl_value": 260.0,
       "est_margin_pln": 75.86,
@@ -1574,6 +1580,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 3500.0,
           "price_pln": 86.91
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 1800.0,
+          "price_pln": 44.64,
+          "previous_price_jpy": 3500.0
         }
       ]
     },
@@ -1587,9 +1599,9 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 3800.0,
-      "current_price_pln": 94.36,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 1900.0,
+      "current_price_pln": 47.12,
       "landed_cost_pln": 193.57,
       "est_pl_value": 290.0,
       "est_margin_pln": 96.43,
@@ -1603,6 +1615,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 3800.0,
           "price_pln": 94.36
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 1900.0,
+          "price_pln": 47.12,
+          "previous_price_jpy": 3800.0
         }
       ]
     },
@@ -1616,9 +1634,9 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 3400.0,
-      "current_price_pln": 84.43,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 1800.0,
+      "current_price_pln": 44.64,
       "landed_cost_pln": 181.01,
       "est_pl_value": 250.0,
       "est_margin_pln": 68.99,
@@ -1632,6 +1650,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 3400.0,
           "price_pln": 84.43
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 1800.0,
+          "price_pln": 44.64,
+          "previous_price_jpy": 3400.0
         }
       ]
     },
@@ -1645,9 +1669,9 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 3200.0,
-      "current_price_pln": 79.46,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 1800.0,
+      "current_price_pln": 44.64,
       "landed_cost_pln": 174.72,
       "est_pl_value": 240.0,
       "est_margin_pln": 65.28,
@@ -1661,6 +1685,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 3200.0,
           "price_pln": 79.46
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 1800.0,
+          "price_pln": 44.64,
+          "previous_price_jpy": 3200.0
         }
       ]
     },
@@ -1674,9 +1704,9 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 4800.0,
-      "current_price_pln": 119.19,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 3500.0,
+      "current_price_pln": 86.81,
       "landed_cost_pln": 224.98,
       "est_pl_value": 380.0,
       "est_margin_pln": 155.02,
@@ -1690,6 +1720,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 4800.0,
           "price_pln": 119.19
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 3500.0,
+          "price_pln": 86.81,
+          "previous_price_jpy": 4800.0
         }
       ]
     },
@@ -1703,9 +1739,9 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 6800.0,
-      "current_price_pln": 168.86,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 5500.0,
+      "current_price_pln": 136.41,
       "landed_cost_pln": 287.81,
       "est_pl_value": 580.0,
       "est_margin_pln": 292.19,
@@ -1719,6 +1755,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 6800.0,
           "price_pln": 168.86
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 5500.0,
+          "price_pln": 136.41,
+          "previous_price_jpy": 6800.0
         }
       ]
     },
@@ -1732,9 +1774,9 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 7800.0,
-      "current_price_pln": 193.69,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 6200.0,
+      "current_price_pln": 153.77,
       "landed_cost_pln": 319.22,
       "est_pl_value": 680.0,
       "est_margin_pln": 360.78,
@@ -1748,6 +1790,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 7800.0,
           "price_pln": 193.69
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 6200.0,
+          "price_pln": 153.77,
+          "previous_price_jpy": 7800.0
         }
       ]
     },
@@ -1761,9 +1809,9 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 6800.0,
-      "current_price_pln": 168.86,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 5200.0,
+      "current_price_pln": 128.97,
       "landed_cost_pln": 287.81,
       "est_pl_value": 460.0,
       "est_margin_pln": 172.19,
@@ -1777,6 +1825,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 6800.0,
           "price_pln": 168.86
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 5200.0,
+          "price_pln": 128.97,
+          "previous_price_jpy": 6800.0
         }
       ]
     },
@@ -1790,9 +1844,9 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 6900.0,
-      "current_price_pln": 171.34,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 5200.0,
+      "current_price_pln": 128.97,
       "landed_cost_pln": 290.95,
       "est_pl_value": 470.0,
       "est_margin_pln": 179.05,
@@ -1806,6 +1860,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 6900.0,
           "price_pln": 171.34
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 5200.0,
+          "price_pln": 128.97,
+          "previous_price_jpy": 6900.0
         }
       ]
     },
@@ -1819,9 +1879,9 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 8500.0,
-      "current_price_pln": 211.07,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 6800.0,
+      "current_price_pln": 168.65,
       "landed_cost_pln": 353.77,
       "est_pl_value": 590.0,
       "est_margin_pln": 236.23,
@@ -1841,6 +1901,12 @@
           "price_jpy": 8500.0,
           "price_pln": 211.07,
           "previous_price_jpy": 8900.0
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 6800.0,
+          "price_pln": 168.65,
+          "previous_price_jpy": 8500.0
         }
       ]
     },
@@ -1854,7 +1920,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 2900.0,
       "current_price_pln": 72.01,
       "landed_cost_pln": 158.97,
@@ -1883,7 +1949,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 1800.0,
       "current_price_pln": 44.7,
       "landed_cost_pln": 124.42,
@@ -1912,9 +1978,9 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 1500.0,
-      "current_price_pln": 37.25,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 1400.0,
+      "current_price_pln": 34.72,
       "landed_cost_pln": 115.0,
       "est_pl_value": 260.0,
       "est_margin_pln": 145.0,
@@ -1928,6 +1994,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 1500.0,
           "price_pln": 37.25
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 1400.0,
+          "price_pln": 34.72,
+          "previous_price_jpy": 1500.0
         }
       ]
     },
@@ -1941,9 +2013,9 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 2200.0,
-      "current_price_pln": 54.63,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 1800.0,
+      "current_price_pln": 44.64,
       "landed_cost_pln": 136.99,
       "est_pl_value": 300.0,
       "est_margin_pln": 163.01,
@@ -1957,6 +2029,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 2200.0,
           "price_pln": 54.63
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 1800.0,
+          "price_pln": 44.64,
+          "previous_price_jpy": 2200.0
         }
       ]
     },
@@ -1970,9 +2048,9 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 1900.0,
-      "current_price_pln": 47.18,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 1700.0,
+      "current_price_pln": 42.16,
       "landed_cost_pln": 127.56,
       "est_pl_value": 280.0,
       "est_margin_pln": 152.44,
@@ -1986,6 +2064,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 1900.0,
           "price_pln": 47.18
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 1700.0,
+          "price_pln": 42.16,
+          "previous_price_jpy": 1900.0
         }
       ]
     },
@@ -1999,9 +2083,9 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 2500.0,
-      "current_price_pln": 62.08,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 1900.0,
+      "current_price_pln": 47.12,
       "landed_cost_pln": 146.41,
       "est_pl_value": 320.0,
       "est_margin_pln": 173.59,
@@ -2015,6 +2099,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 2500.0,
           "price_pln": 62.08
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 1900.0,
+          "price_pln": 47.12,
+          "previous_price_jpy": 2500.0
         }
       ]
     },
@@ -2028,9 +2118,9 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 3200.0,
-      "current_price_pln": 79.46,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 2400.0,
+      "current_price_pln": 59.52,
       "landed_cost_pln": 168.4,
       "est_pl_value": 380.0,
       "est_margin_pln": 211.6,
@@ -2044,6 +2134,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 3200.0,
           "price_pln": 79.46
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 2400.0,
+          "price_pln": 59.52,
+          "previous_price_jpy": 3200.0
         }
       ]
     },
@@ -2057,7 +2153,7 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 7990.0,
       "current_price_pln": 198.41,
       "landed_cost_pln": 325.2,
@@ -2086,7 +2182,7 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 8900.0,
       "current_price_pln": 221.0,
       "landed_cost_pln": 353.77,
@@ -2115,7 +2211,7 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 9970.0,
       "current_price_pln": 247.58,
       "landed_cost_pln": 387.4,
@@ -2144,7 +2240,7 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 12000.0,
       "current_price_pln": 297.98,
       "landed_cost_pln": 451.15,
@@ -2173,7 +2269,7 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 13000.0,
       "current_price_pln": 322.82,
       "landed_cost_pln": 482.57,
@@ -2202,7 +2298,7 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 14600.0,
       "current_price_pln": 362.55,
       "landed_cost_pln": 532.83,
@@ -2231,7 +2327,7 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 22600.0,
       "current_price_pln": 561.2,
       "landed_cost_pln": 784.13,
@@ -2260,7 +2356,7 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 3800.0,
       "current_price_pln": 94.36,
       "landed_cost_pln": 193.57,
@@ -2289,7 +2385,7 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 3880.0,
       "current_price_pln": 96.35,
       "landed_cost_pln": 199.22,
@@ -2324,7 +2420,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 4600.0,
       "current_price_pln": 114.23,
       "landed_cost_pln": 224.98,
@@ -2359,7 +2455,7 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 7400.0,
       "current_price_pln": 183.76,
       "landed_cost_pln": 306.66,
@@ -2388,7 +2484,7 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 9200.0,
       "current_price_pln": 228.45,
       "landed_cost_pln": 363.2,
@@ -2417,7 +2513,7 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 9000.0,
       "current_price_pln": 223.22,
       "landed_cost_pln": 363.2,
@@ -2452,7 +2548,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 11000.0,
       "current_price_pln": 273.15,
       "landed_cost_pln": 419.74,
@@ -2481,7 +2577,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 2499.0,
       "current_price_pln": 62.06,
       "landed_cost_pln": 152.72,
@@ -2510,7 +2606,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 25800.0,
       "current_price_pln": 640.67,
       "landed_cost_pln": 922.61,
@@ -2864,7 +2960,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 1500.0,
       "current_price_pln": 37.25,
       "landed_cost_pln": 115.0,
@@ -2893,7 +2989,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 1200.0,
       "current_price_pln": 29.8,
       "landed_cost_pln": 127.56,
@@ -2928,7 +3024,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 2300.0,
       "current_price_pln": 57.11,
       "landed_cost_pln": 140.13,
@@ -2957,7 +3053,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 2500.0,
       "current_price_pln": 62.01,
       "landed_cost_pln": 162.13,
@@ -2992,7 +3088,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 3500.0,
       "current_price_pln": 86.91,
       "landed_cost_pln": 177.82,
@@ -3021,7 +3117,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 1200.0,
       "current_price_pln": 29.8,
       "landed_cost_pln": 105.58,
@@ -3050,7 +3146,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 1500.0,
       "current_price_pln": 37.25,
       "landed_cost_pln": 115.0,
@@ -3079,9 +3175,9 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 1800.0,
-      "current_price_pln": 44.7,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 1400.0,
+      "current_price_pln": 34.72,
       "landed_cost_pln": 124.42,
       "est_pl_value": 240.0,
       "est_margin_pln": 115.58,
@@ -3095,6 +3191,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 1800.0,
           "price_pln": 44.7
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 1400.0,
+          "price_pln": 34.72,
+          "previous_price_jpy": 1800.0
         }
       ]
     },
@@ -3108,9 +3210,9 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 2200.0,
-      "current_price_pln": 54.63,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 2000.0,
+      "current_price_pln": 49.6,
       "landed_cost_pln": 136.99,
       "est_pl_value": 280.0,
       "est_margin_pln": 143.01,
@@ -3124,6 +3226,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 2200.0,
           "price_pln": 54.63
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 2000.0,
+          "price_pln": 49.6,
+          "previous_price_jpy": 2200.0
         }
       ]
     },
@@ -3137,9 +3245,9 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 2500.0,
-      "current_price_pln": 62.08,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 1600.0,
+      "current_price_pln": 39.68,
       "landed_cost_pln": 146.41,
       "est_pl_value": 300.0,
       "est_margin_pln": 153.59,
@@ -3153,6 +3261,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 2500.0,
           "price_pln": 62.08
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 1600.0,
+          "price_pln": 39.68,
+          "previous_price_jpy": 2500.0
         }
       ]
     },
@@ -3166,9 +3280,9 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 2800.0,
-      "current_price_pln": 69.53,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 1600.0,
+      "current_price_pln": 39.68,
       "landed_cost_pln": 155.83,
       "est_pl_value": 270.0,
       "est_margin_pln": 114.17,
@@ -3182,6 +3296,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 2800.0,
           "price_pln": 69.53
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 1600.0,
+          "price_pln": 39.68,
+          "previous_price_jpy": 2800.0
         }
       ]
     },
@@ -3195,9 +3315,9 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 3200.0,
-      "current_price_pln": 79.46,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 2200.0,
+      "current_price_pln": 54.56,
       "landed_cost_pln": 168.4,
       "est_pl_value": 350.0,
       "est_margin_pln": 181.6,
@@ -3211,6 +3331,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 3200.0,
           "price_pln": 79.46
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 2200.0,
+          "price_pln": 54.56,
+          "previous_price_jpy": 3200.0
         }
       ]
     },
@@ -3224,9 +3350,9 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 13500.0,
-      "current_price_pln": 335.23,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 13000.0,
+      "current_price_pln": 322.43,
       "landed_cost_pln": 0.0,
       "est_pl_value": 890.0,
       "est_margin_pln": 890.0,
@@ -3240,6 +3366,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 13500.0,
           "price_pln": 335.23
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 13000.0,
+          "price_pln": 322.43,
+          "previous_price_jpy": 13500.0
         }
       ]
     },
@@ -3253,9 +3385,9 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 12800.0,
-      "current_price_pln": 317.85,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 12500.0,
+      "current_price_pln": 310.03,
       "landed_cost_pln": 0.0,
       "est_pl_value": 850.0,
       "est_margin_pln": 850.0,
@@ -3269,6 +3401,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 12800.0,
           "price_pln": 317.85
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 12500.0,
+          "price_pln": 310.03,
+          "previous_price_jpy": 12800.0
         }
       ]
     },
@@ -3282,9 +3420,9 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 14000.0,
-      "current_price_pln": 347.65,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 13000.0,
+      "current_price_pln": 322.43,
       "landed_cost_pln": 0.0,
       "est_pl_value": 880.0,
       "est_margin_pln": 880.0,
@@ -3298,6 +3436,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 14000.0,
           "price_pln": 347.65
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 13000.0,
+          "price_pln": 322.43,
+          "previous_price_jpy": 14000.0
         }
       ]
     },
@@ -3311,9 +3455,9 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 13000.0,
-      "current_price_pln": 322.82,
+      "last_seen": "2026-11-09 16:24 UTC",
+      "current_price_jpy": 12000.0,
+      "current_price_pln": 297.62,
       "landed_cost_pln": 0.0,
       "est_pl_value": 850.0,
       "est_margin_pln": 850.0,
@@ -3327,6 +3471,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 13000.0,
           "price_pln": 322.82
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 12000.0,
+          "price_pln": 297.62,
+          "previous_price_jpy": 13000.0
         }
       ]
     },
@@ -3340,9 +3490,9 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 18500.0,
-      "current_price_pln": 459.39,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 14500.0,
+      "current_price_pln": 359.63,
       "landed_cost_pln": 0.0,
       "est_pl_value": 1050.0,
       "est_margin_pln": 1050.0,
@@ -3356,6 +3506,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 18500.0,
           "price_pln": 459.39
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 14500.0,
+          "price_pln": 359.63,
+          "previous_price_jpy": 18500.0
         }
       ]
     },
@@ -3456,7 +3612,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 3500.0,
       "current_price_pln": 86.91,
       "landed_cost_pln": 0.0,
@@ -3485,7 +3641,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 3200.0,
       "current_price_pln": 79.46,
       "landed_cost_pln": 0.0,
@@ -3520,7 +3676,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 3600.0,
       "current_price_pln": 89.4,
       "landed_cost_pln": 0.0,
@@ -3555,7 +3711,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 6800.0,
       "current_price_pln": 168.86,
       "landed_cost_pln": 0.0,
@@ -3758,9 +3914,9 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 24000.0,
-      "current_price_pln": 595.97,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 22000.0,
+      "current_price_pln": 545.64,
       "landed_cost_pln": 0.0,
       "est_pl_value": 1600.0,
       "est_margin_pln": 1600.0,
@@ -3774,6 +3930,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 24000.0,
           "price_pln": 595.97
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 22000.0,
+          "price_pln": 545.64,
+          "previous_price_jpy": 24000.0
         }
       ]
     },
@@ -3903,9 +4065,9 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 19800.0,
-      "current_price_pln": 491.67,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 19500.0,
+      "current_price_pln": 483.64,
       "landed_cost_pln": 0.0,
       "est_pl_value": 1350.0,
       "est_margin_pln": 1350.0,
@@ -3919,6 +4081,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 19800.0,
           "price_pln": 491.67
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 19500.0,
+          "price_pln": 483.64,
+          "previous_price_jpy": 19800.0
         }
       ]
     },
@@ -3932,7 +4100,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 24500.0,
       "current_price_pln": 608.38,
       "landed_cost_pln": 0.0,
@@ -3961,9 +4129,9 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 13800.0,
-      "current_price_pln": 342.68,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 11500.0,
+      "current_price_pln": 285.22,
       "landed_cost_pln": 0.0,
       "est_pl_value": 850.0,
       "est_margin_pln": 850.0,
@@ -3977,6 +4145,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 13800.0,
           "price_pln": 342.68
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 11500.0,
+          "price_pln": 285.22,
+          "previous_price_jpy": 13800.0
         }
       ]
     },
@@ -3990,9 +4164,9 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 8500.0,
-      "current_price_pln": 211.07,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 8200.0,
+      "current_price_pln": 203.38,
       "landed_cost_pln": 0.0,
       "est_pl_value": 600.0,
       "est_margin_pln": 600.0,
@@ -4006,6 +4180,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 8500.0,
           "price_pln": 211.07
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 8200.0,
+          "price_pln": 203.38,
+          "previous_price_jpy": 8500.0
         }
       ]
     },
@@ -4019,9 +4199,9 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 8200.0,
-      "current_price_pln": 203.62,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 4900.0,
+      "current_price_pln": 121.53,
       "landed_cost_pln": 0.0,
       "est_pl_value": 580.0,
       "est_margin_pln": 580.0,
@@ -4035,6 +4215,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 8200.0,
           "price_pln": 203.62
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 4900.0,
+          "price_pln": 121.53,
+          "previous_price_jpy": 8200.0
         }
       ]
     },
@@ -4048,9 +4234,9 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 4200.0,
-      "current_price_pln": 104.29,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 3800.0,
+      "current_price_pln": 94.25,
       "landed_cost_pln": 0.0,
       "est_pl_value": 450.0,
       "est_margin_pln": 450.0,
@@ -4064,6 +4250,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 4200.0,
           "price_pln": 104.29
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 3800.0,
+          "price_pln": 94.25,
+          "previous_price_jpy": 4200.0
         }
       ]
     },
@@ -4077,9 +4269,9 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 3500.0,
-      "current_price_pln": 86.91,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 3200.0,
+      "current_price_pln": 79.37,
       "landed_cost_pln": 0.0,
       "est_pl_value": 380.0,
       "est_margin_pln": 380.0,
@@ -4093,6 +4285,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 3500.0,
           "price_pln": 86.91
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 3200.0,
+          "price_pln": 79.37,
+          "previous_price_jpy": 3500.0
         }
       ]
     },
@@ -4106,7 +4304,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 1000.0,
       "current_price_pln": 24.83,
       "landed_cost_pln": 0.0,
@@ -4135,7 +4333,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:24 UTC",
       "current_price_jpy": 1200.0,
       "current_price_pln": 29.8,
       "landed_cost_pln": 0.0,
@@ -4164,7 +4362,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 3800.0,
       "current_price_pln": 94.36,
       "landed_cost_pln": 0.0,
@@ -4193,9 +4391,9 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 1500.0,
-      "current_price_pln": 37.25,
+      "last_seen": "2026-11-09 16:24 UTC",
+      "current_price_jpy": 1200.0,
+      "current_price_pln": 29.76,
       "landed_cost_pln": 0.0,
       "est_pl_value": 250.0,
       "est_margin_pln": 250.0,
@@ -4209,6 +4407,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 1500.0,
           "price_pln": 37.25
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 1200.0,
+          "price_pln": 29.76,
+          "previous_price_jpy": 1500.0
         }
       ]
     },
@@ -4222,7 +4426,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 2000.0,
       "current_price_pln": 49.66,
       "landed_cost_pln": 0.0,
@@ -4251,7 +4455,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 1200.0,
       "current_price_pln": 29.8,
       "landed_cost_pln": 0.0,
@@ -4280,9 +4484,9 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 2500.0,
-      "current_price_pln": 62.08,
+      "last_seen": "2026-11-09 16:24 UTC",
+      "current_price_jpy": 1400.0,
+      "current_price_pln": 34.72,
       "landed_cost_pln": 0.0,
       "est_pl_value": 300.0,
       "est_margin_pln": 300.0,
@@ -4296,6 +4500,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 2500.0,
           "price_pln": 62.08
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 1400.0,
+          "price_pln": 34.72,
+          "previous_price_jpy": 2500.0
         }
       ]
     },
@@ -4309,7 +4519,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 2800.0,
       "current_price_pln": 69.53,
       "landed_cost_pln": 0.0,
@@ -4338,7 +4548,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 2500.0,
       "current_price_pln": 62.08,
       "landed_cost_pln": 0.0,
@@ -4367,9 +4577,9 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 1800.0,
-      "current_price_pln": 44.7,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 1400.0,
+      "current_price_pln": 34.72,
       "landed_cost_pln": 0.0,
       "est_pl_value": 260.0,
       "est_margin_pln": 260.0,
@@ -4383,6 +4593,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 1800.0,
           "price_pln": 44.7
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 1400.0,
+          "price_pln": 34.72,
+          "previous_price_jpy": 1800.0
         }
       ]
     },
@@ -4396,7 +4612,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 2200.0,
       "current_price_pln": 54.63,
       "landed_cost_pln": 0.0,
@@ -4425,9 +4641,9 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 2200.0,
-      "current_price_pln": 54.63,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 1400.0,
+      "current_price_pln": 34.72,
       "landed_cost_pln": 0.0,
       "est_pl_value": 260.0,
       "est_margin_pln": 260.0,
@@ -4441,6 +4657,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 2200.0,
           "price_pln": 54.63
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 1400.0,
+          "price_pln": 34.72,
+          "previous_price_jpy": 2200.0
         }
       ]
     },
@@ -4454,9 +4676,9 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 2600.0,
-      "current_price_pln": 64.56,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 1600.0,
+      "current_price_pln": 39.68,
       "landed_cost_pln": 0.0,
       "est_pl_value": 290.0,
       "est_margin_pln": 290.0,
@@ -4470,6 +4692,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 2600.0,
           "price_pln": 64.56
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 1600.0,
+          "price_pln": 39.68,
+          "previous_price_jpy": 2600.0
         }
       ]
     },
@@ -4512,7 +4740,7 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 5500.0,
       "current_price_pln": 136.58,
       "landed_cost_pln": 0.0,
@@ -4541,7 +4769,7 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 18:17 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 5200.0,
       "current_price_pln": 129.13,
       "landed_cost_pln": 0.0,
@@ -4570,9 +4798,9 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 19:47 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 4500.0,
-      "current_price_pln": 111.74,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 3600.0,
+      "current_price_pln": 89.29,
       "landed_cost_pln": 215.55,
       "est_pl_value": 390.0,
       "est_margin_pln": 174.45,
@@ -4586,6 +4814,12 @@
           "timestamp": "2026-11-08 19:47 UTC",
           "price_jpy": 4500.0,
           "price_pln": 111.74
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 3600.0,
+          "price_pln": 89.29,
+          "previous_price_jpy": 4500.0
         }
       ]
     },
@@ -4599,9 +4833,9 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 19:47 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 8800.0,
-      "current_price_pln": 218.52,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 6900.0,
+      "current_price_pln": 171.13,
       "landed_cost_pln": 350.63,
       "est_pl_value": 590.0,
       "est_margin_pln": 239.37,
@@ -4615,6 +4849,12 @@
           "timestamp": "2026-11-08 19:47 UTC",
           "price_jpy": 8800.0,
           "price_pln": 218.52
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 6900.0,
+          "price_pln": 171.13,
+          "previous_price_jpy": 8800.0
         }
       ]
     },
@@ -4628,9 +4868,9 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 19:47 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 11000.0,
-      "current_price_pln": 273.15,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 8900.0,
+      "current_price_pln": 220.74,
       "landed_cost_pln": 419.74,
       "est_pl_value": 750.0,
       "est_margin_pln": 330.26,
@@ -4644,6 +4884,12 @@
           "timestamp": "2026-11-08 19:47 UTC",
           "price_jpy": 11000.0,
           "price_pln": 273.15
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 8900.0,
+          "price_pln": 220.74,
+          "previous_price_jpy": 11000.0
         }
       ]
     },
@@ -4657,9 +4903,9 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 19:47 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 13800.0,
-      "current_price_pln": 342.68,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 12500.0,
+      "current_price_pln": 310.03,
       "landed_cost_pln": 507.7,
       "est_pl_value": 920.0,
       "est_margin_pln": 412.3,
@@ -4673,6 +4919,12 @@
           "timestamp": "2026-11-08 19:47 UTC",
           "price_jpy": 13800.0,
           "price_pln": 342.68
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 12500.0,
+          "price_pln": 310.03,
+          "previous_price_jpy": 13800.0
         }
       ]
     },
@@ -4686,7 +4938,7 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 19:47 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 3600.0,
       "current_price_pln": 89.4,
       "landed_cost_pln": 0.0,
@@ -4715,7 +4967,7 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 19:47 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 6800.0,
       "current_price_pln": 168.86,
       "landed_cost_pln": 0.0,
@@ -4744,7 +4996,7 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 19:47 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 8900.0,
       "current_price_pln": 221.0,
       "landed_cost_pln": 0.0,
@@ -4773,7 +5025,7 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 19:47 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 12500.0,
       "current_price_pln": 310.4,
       "landed_cost_pln": 0.0,
@@ -4802,9 +5054,9 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 20:53 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 16500.0,
-      "current_price_pln": 409.73,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 15000.0,
+      "current_price_pln": 372.03,
       "landed_cost_pln": 592.51,
       "est_pl_value": 1150.0,
       "est_margin_pln": 557.49,
@@ -4818,6 +5070,12 @@
           "timestamp": "2026-11-08 20:53 UTC",
           "price_jpy": 16500.0,
           "price_pln": 409.73
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 15000.0,
+          "price_pln": 372.03,
+          "previous_price_jpy": 16500.0
         }
       ]
     },
@@ -4831,9 +5089,9 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 20:53 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 4900.0,
-      "current_price_pln": 121.68,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 3600.0,
+      "current_price_pln": 89.29,
       "landed_cost_pln": 228.13,
       "est_pl_value": 390.0,
       "est_margin_pln": 161.87,
@@ -4847,6 +5105,12 @@
           "timestamp": "2026-11-08 20:53 UTC",
           "price_jpy": 4900.0,
           "price_pln": 121.68
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 3600.0,
+          "price_pln": 89.29,
+          "previous_price_jpy": 4900.0
         }
       ]
     },
@@ -4860,9 +5124,9 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 20:53 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 14000.0,
-      "current_price_pln": 347.65,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 12000.0,
+      "current_price_pln": 297.62,
       "landed_cost_pln": 507.66,
       "est_pl_value": 950.0,
       "est_margin_pln": 442.34,
@@ -4876,6 +5140,12 @@
           "timestamp": "2026-11-08 20:53 UTC",
           "price_jpy": 14000.0,
           "price_pln": 347.65
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 12000.0,
+          "price_pln": 297.62,
+          "previous_price_jpy": 14000.0
         }
       ]
     },
@@ -4889,9 +5159,9 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 20:53 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 13500.0,
-      "current_price_pln": 335.23,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 11500.0,
+      "current_price_pln": 285.22,
       "landed_cost_pln": 491.94,
       "est_pl_value": 900.0,
       "est_margin_pln": 408.06,
@@ -4905,6 +5175,12 @@
           "timestamp": "2026-11-08 20:53 UTC",
           "price_jpy": 13500.0,
           "price_pln": 335.23
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 11500.0,
+          "price_pln": 285.22,
+          "previous_price_jpy": 13500.0
         }
       ]
     },
@@ -4918,9 +5194,9 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 20:53 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 6000.0,
-      "current_price_pln": 148.99,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 4200.0,
+      "current_price_pln": 104.17,
       "landed_cost_pln": 256.35,
       "est_pl_value": 390.0,
       "est_margin_pln": 133.65,
@@ -4934,6 +5210,12 @@
           "timestamp": "2026-11-08 20:53 UTC",
           "price_jpy": 6000.0,
           "price_pln": 148.99
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 4200.0,
+          "price_pln": 104.17,
+          "previous_price_jpy": 6000.0
         }
       ]
     },
@@ -4947,9 +5229,9 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 20:53 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 15000.0,
-      "current_price_pln": 372.48,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 13000.0,
+      "current_price_pln": 322.43,
       "landed_cost_pln": 539.06,
       "est_pl_value": 980.0,
       "est_margin_pln": 440.94,
@@ -4963,6 +5245,12 @@
           "timestamp": "2026-11-08 20:53 UTC",
           "price_jpy": 15000.0,
           "price_pln": 372.48
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 13000.0,
+          "price_pln": 322.43,
+          "previous_price_jpy": 15000.0
         }
       ]
     },
@@ -4976,7 +5264,7 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 20:53 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 24500.0,
       "current_price_pln": 608.38,
       "landed_cost_pln": 888.08,
@@ -5005,9 +5293,9 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 20:53 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 21500.0,
-      "current_price_pln": 533.89,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 19500.0,
+      "current_price_pln": 483.64,
       "landed_cost_pln": 793.85,
       "est_pl_value": 1350.0,
       "est_margin_pln": 556.15,
@@ -5021,6 +5309,12 @@
           "timestamp": "2026-11-08 20:53 UTC",
           "price_jpy": 21500.0,
           "price_pln": 533.89
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 19500.0,
+          "price_pln": 483.64,
+          "previous_price_jpy": 21500.0
         }
       ]
     },
@@ -5034,9 +5328,9 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 20:53 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 9800.0,
-      "current_price_pln": 243.35,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 9500.0,
+      "current_price_pln": 235.62,
       "landed_cost_pln": 0.0,
       "est_pl_value": 720.0,
       "est_margin_pln": 720.0,
@@ -5050,6 +5344,12 @@
           "timestamp": "2026-11-08 20:53 UTC",
           "price_jpy": 9800.0,
           "price_pln": 243.35
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 9500.0,
+          "price_pln": 235.62,
+          "previous_price_jpy": 9800.0
         }
       ]
     },
@@ -5063,7 +5363,7 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 20:53 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
+      "last_seen": "2026-11-09 16:41 UTC",
       "current_price_jpy": 10500.0,
       "current_price_pln": 260.74,
       "landed_cost_pln": 0.0,
@@ -5092,9 +5392,9 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 20:53 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 5800.0,
-      "current_price_pln": 144.03,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 5000.0,
+      "current_price_pln": 124.01,
       "landed_cost_pln": 0.0,
       "est_pl_value": 450.0,
       "est_margin_pln": 450.0,
@@ -5108,6 +5408,12 @@
           "timestamp": "2026-11-08 20:53 UTC",
           "price_jpy": 5800.0,
           "price_pln": 144.03
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 5000.0,
+          "price_pln": 124.01,
+          "previous_price_jpy": 5800.0
         }
       ]
     },
@@ -5121,9 +5427,9 @@
       "battery_type": "none",
       "first_seen": "2026-11-08 20:53 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 4500.0,
-      "current_price_pln": 111.74,
+      "last_seen": "2026-11-09 16:24 UTC",
+      "current_price_jpy": 4200.0,
+      "current_price_pln": 104.17,
       "landed_cost_pln": 0.0,
       "est_pl_value": 390.0,
       "est_margin_pln": 390.0,
@@ -5137,6 +5443,12 @@
           "timestamp": "2026-11-08 20:53 UTC",
           "price_jpy": 4500.0,
           "price_pln": 111.74
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 4200.0,
+          "price_pln": 104.17,
+          "previous_price_jpy": 4500.0
         }
       ]
     },
@@ -5150,9 +5462,9 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 20:53 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 7500.0,
-      "current_price_pln": 186.24,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 5800.0,
+      "current_price_pln": 143.85,
       "landed_cost_pln": 0.0,
       "est_pl_value": 490.0,
       "est_margin_pln": 490.0,
@@ -5166,6 +5478,12 @@
           "timestamp": "2026-11-08 20:53 UTC",
           "price_jpy": 7500.0,
           "price_pln": 186.24
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 5800.0,
+          "price_pln": 143.85,
+          "previous_price_jpy": 7500.0
         }
       ]
     },
@@ -5179,9 +5497,9 @@
       "battery_type": "li-ion",
       "first_seen": "2026-11-08 20:53 UTC",
       "first_seen_date": "2026-11-08",
-      "last_seen": "2026-11-09 15:57 UTC",
-      "current_price_jpy": 11800.0,
-      "current_price_pln": 293.02,
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 10500.0,
+      "current_price_pln": 260.42,
       "landed_cost_pln": 0.0,
       "est_pl_value": 820.0,
       "est_margin_pln": 820.0,
@@ -5195,6 +5513,766 @@
           "timestamp": "2026-11-08 20:53 UTC",
           "price_jpy": 11800.0,
           "price_pln": 293.02
+        },
+        {
+          "timestamp": "2026-11-09 16:24 UTC",
+          "price_jpy": 10500.0,
+          "price_pln": 260.42,
+          "previous_price_jpy": 11800.0
+        }
+      ]
+    },
+    "n3ds_cosmo_black": {
+      "id": "n3ds_cosmo_black",
+      "model": "Nintendo 3DS (CTR-001)",
+      "color": "Cosmo Black",
+      "category_id": "nintendo_3ds_handhelds",
+      "category_name": "Nintendo 3DS & New 3DS (Królowie Płynności: New 3DS XL, New 3DS, 3DS LL)",
+      "platform": "Yahoo! Auctions Japan",
+      "battery_type": "li-ion",
+      "first_seen": "2026-11-09 16:38 UTC",
+      "first_seen_date": "2026-11-09",
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 5200.0,
+      "current_price_pln": 128.97,
+      "landed_cost_pln": 0.0,
+      "est_pl_value": 340.0,
+      "est_margin_pln": 340.0,
+      "roi_percent": 0.0,
+      "status": "Aktywna Aukcja",
+      "is_active": true,
+      "is_sold": false,
+      "sold_at": null,
+      "price_history": [
+        {
+          "timestamp": "2026-11-09 16:38 UTC",
+          "price_jpy": 5200.0,
+          "price_pln": 128.97
+        }
+      ]
+    },
+    "n2ds_xl_turquoise": {
+      "id": "n2ds_xl_turquoise",
+      "model": "New Nintendo 2DS LL (New 2DS XL)",
+      "color": "Black x Turquoise (JAN-001)",
+      "category_id": "nintendo_3ds_handhelds",
+      "category_name": "Nintendo 3DS & New 3DS (Królowie Płynności: New 3DS XL, New 3DS, 3DS LL)",
+      "platform": "Yahoo! Auctions Japan",
+      "battery_type": "li-ion",
+      "first_seen": "2026-11-09 16:38 UTC",
+      "first_seen_date": "2026-11-09",
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 11000.0,
+      "current_price_pln": 272.82,
+      "landed_cost_pln": 0.0,
+      "est_pl_value": 620.0,
+      "est_margin_pln": 620.0,
+      "roi_percent": 0.0,
+      "status": "Aktywna Aukcja",
+      "is_active": true,
+      "is_sold": false,
+      "sold_at": null,
+      "price_history": [
+        {
+          "timestamp": "2026-11-09 16:38 UTC",
+          "price_jpy": 11000.0,
+          "price_pln": 272.82
+        }
+      ]
+    },
+    "new_n3ds_xl_sfc": {
+      "id": "new_n3ds_xl_sfc",
+      "model": "New Nintendo 3DS LL Super Famicom Edition",
+      "color": "Super Famicom Edition (Kolekcjonerska)",
+      "category_id": "nintendo_3ds_handhelds",
+      "category_name": "Nintendo 3DS & New 3DS (Królowie Płynności: New 3DS XL, New 3DS, 3DS LL)",
+      "platform": "Yahoo! Auctions Japan",
+      "battery_type": "li-ion",
+      "first_seen": "2026-11-09 16:38 UTC",
+      "first_seen_date": "2026-11-09",
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 28000.0,
+      "current_price_pln": 694.46,
+      "landed_cost_pln": 0.0,
+      "est_pl_value": 1400.0,
+      "est_margin_pln": 1400.0,
+      "roi_percent": 0.0,
+      "status": "Aktywna Aukcja",
+      "is_active": true,
+      "is_sold": false,
+      "sold_at": null,
+      "price_history": [
+        {
+          "timestamp": "2026-11-09 16:38 UTC",
+          "price_jpy": 28000.0,
+          "price_pln": 694.46
+        }
+      ]
+    },
+    "ndsi_ll_dark_brown": {
+      "id": "ndsi_ll_dark_brown",
+      "model": "Nintendo DSi LL (XL)",
+      "color": "Dark Brown (Podwójny IPS)",
+      "category_id": "nintendo_ds_handhelds",
+      "category_name": "Nintendo DS & DSi (DSi LL Dual IPS, DS Lite, Edycje Kolekcjonerskie)",
+      "platform": "Yahoo! Auctions Japan",
+      "battery_type": "li-ion",
+      "first_seen": "2026-11-09 16:38 UTC",
+      "first_seen_date": "2026-11-09",
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 3500.0,
+      "current_price_pln": 86.81,
+      "landed_cost_pln": 0.0,
+      "est_pl_value": 270.0,
+      "est_margin_pln": 270.0,
+      "roi_percent": 0.0,
+      "status": "Aktywna Aukcja",
+      "is_active": true,
+      "is_sold": false,
+      "sold_at": null,
+      "price_history": [
+        {
+          "timestamp": "2026-11-09 16:38 UTC",
+          "price_jpy": 3500.0,
+          "price_pln": 86.81
+        }
+      ]
+    },
+    "gameboy_micro_famicom": {
+      "id": "gameboy_micro_famicom",
+      "model": "Game Boy Micro (OXY-001)",
+      "color": "Famicom 20th Anniversary Edition",
+      "category_id": "gameboy_advance_retro",
+      "category_name": "Nintendo Game Boy (GBA SP AGS-101 Brighter, GBA, GBC & Micro)",
+      "platform": "Yahoo! Auctions Japan",
+      "battery_type": "li-ion",
+      "first_seen": "2026-11-09 16:38 UTC",
+      "first_seen_date": "2026-11-09",
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 13000.0,
+      "current_price_pln": 322.43,
+      "landed_cost_pln": 0.0,
+      "est_pl_value": 720.0,
+      "est_margin_pln": 720.0,
+      "roi_percent": 0.0,
+      "status": "Aktywna Aukcja",
+      "is_active": true,
+      "is_sold": false,
+      "sold_at": null,
+      "price_history": [
+        {
+          "timestamp": "2026-11-09 16:38 UTC",
+          "price_jpy": 13000.0,
+          "price_pln": 322.43
+        }
+      ]
+    },
+    "vita1000_crystal_white": {
+      "id": "vita1000_crystal_white",
+      "model": "PCH-1000 OLED",
+      "color": "Crystal White (ZA02)",
+      "category_id": "ps_vita",
+      "category_name": "PlayStation Vita (Special Editions & Colors)",
+      "platform": "Yahoo! Auctions Japan",
+      "battery_type": "li-ion",
+      "first_seen": "2026-11-09 16:38 UTC",
+      "first_seen_date": "2026-11-09",
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 12000.0,
+      "current_price_pln": 297.62,
+      "landed_cost_pln": 0.0,
+      "est_pl_value": 580.0,
+      "est_margin_pln": 580.0,
+      "roi_percent": 0.0,
+      "status": "Aktywna Aukcja",
+      "is_active": true,
+      "is_sold": false,
+      "sold_at": null,
+      "price_history": [
+        {
+          "timestamp": "2026-11-09 16:38 UTC",
+          "price_jpy": 12000.0,
+          "price_pln": 297.62
+        }
+      ]
+    },
+    "psp3000_blossom_pink": {
+      "id": "psp3000_blossom_pink",
+      "model": "PSP-3000 Blossom Pink",
+      "color": "Blossom Pink (Kwiat Wiśni)",
+      "category_id": "psp_handheld",
+      "category_name": "Sony PlayStation Portable (PSP-2000 / PSP-3000)",
+      "platform": "Yahoo! Auctions Japan",
+      "battery_type": "li-ion",
+      "first_seen": "2026-11-09 16:38 UTC",
+      "first_seen_date": "2026-11-09",
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 5500.0,
+      "current_price_pln": 136.41,
+      "landed_cost_pln": 0.0,
+      "est_pl_value": 330.0,
+      "est_margin_pln": 330.0,
+      "roi_percent": 0.0,
+      "status": "Aktywna Aukcja",
+      "is_active": true,
+      "is_sold": false,
+      "sold_at": null,
+      "price_history": [
+        {
+          "timestamp": "2026-11-09 16:38 UTC",
+          "price_jpy": 5500.0,
+          "price_pln": 136.41
+        }
+      ]
+    },
+    "chinon_50_17_k": {
+      "id": "chinon_50_17_k",
+      "model": "Auto-Chinon 50mm f/1.7 Multi-Coated",
+      "color": "Mocowanie Pentax K",
+      "category_id": "analog_lenses",
+      "category_name": "Japońskie Obiektywy Manualne (0% Baterii)",
+      "platform": "Yahoo! Auctions Japan",
+      "battery_type": "none",
+      "first_seen": "2026-11-09 16:38 UTC",
+      "first_seen_date": "2026-11-09",
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 1500.0,
+      "current_price_pln": 37.2,
+      "landed_cost_pln": 0.0,
+      "est_pl_value": 160.0,
+      "est_margin_pln": 160.0,
+      "roi_percent": 0.0,
+      "status": "Aktywna Aukcja",
+      "is_active": true,
+      "is_sold": false,
+      "sold_at": null,
+      "price_history": [
+        {
+          "timestamp": "2026-11-09 16:38 UTC",
+          "price_jpy": 1500.0,
+          "price_pln": 37.2
+        }
+      ]
+    },
+    "olympus_trip_35": {
+      "id": "olympus_trip_35",
+      "model": "Olympus Trip 35",
+      "color": "Srebrno-Czarny Klasyk (40mm f/2.8 Zuiko)",
+      "category_id": "film_cameras_point_shoot",
+      "category_name": "Aparaty Analogowe Typu Małpka (35mm Point & Shoot)",
+      "platform": "Yahoo! Auctions Japan",
+      "battery_type": "none",
+      "first_seen": "2026-11-09 16:38 UTC",
+      "first_seen_date": "2026-11-09",
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 2500.0,
+      "current_price_pln": 62.01,
+      "landed_cost_pln": 0.0,
+      "est_pl_value": 260.0,
+      "est_margin_pln": 260.0,
+      "roi_percent": 0.0,
+      "status": "Aktywna Aukcja",
+      "is_active": true,
+      "is_sold": false,
+      "sold_at": null,
+      "price_history": [
+        {
+          "timestamp": "2026-11-09 16:38 UTC",
+          "price_jpy": 2500.0,
+          "price_pln": 62.01
+        }
+      ]
+    },
+    "n3ds_flare_red": {
+      "id": "n3ds_flare_red",
+      "model": "Nintendo 3DS (CTR-001)",
+      "color": "Flare Red (Głęboka Czerwień)",
+      "category_id": "nintendo_3ds_handhelds",
+      "category_name": "Nintendo 3DS & New 3DS (Królowie Płynności: New 3DS XL, New 3DS, 3DS LL)",
+      "platform": "Yahoo! Auctions Japan",
+      "battery_type": "li-ion",
+      "first_seen": "2026-11-09 16:38 UTC",
+      "first_seen_date": "2026-11-09",
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 5200.0,
+      "current_price_pln": 128.97,
+      "landed_cost_pln": 0.0,
+      "est_pl_value": 340.0,
+      "est_margin_pln": 340.0,
+      "roi_percent": 0.0,
+      "status": "Aktywna Aukcja",
+      "is_active": true,
+      "is_sold": false,
+      "sold_at": null,
+      "price_history": [
+        {
+          "timestamp": "2026-11-09 16:38 UTC",
+          "price_jpy": 5200.0,
+          "price_pln": 128.97
+        }
+      ]
+    },
+    "n3ds_xl_silver_black": {
+      "id": "n3ds_xl_silver_black",
+      "model": "Nintendo 3DS LL (Old 3DS XL)",
+      "color": "Silver x Black (SPR-001)",
+      "category_id": "nintendo_3ds_handhelds",
+      "category_name": "Nintendo 3DS & New 3DS (Królowie Płynności: New 3DS XL, New 3DS, 3DS LL)",
+      "platform": "Yahoo! Auctions Japan",
+      "battery_type": "li-ion",
+      "first_seen": "2026-11-09 16:38 UTC",
+      "first_seen_date": "2026-11-09",
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 6800.0,
+      "current_price_pln": 168.65,
+      "landed_cost_pln": 0.0,
+      "est_pl_value": 420.0,
+      "est_margin_pln": 420.0,
+      "roi_percent": 0.0,
+      "status": "Aktywna Aukcja",
+      "is_active": true,
+      "is_sold": false,
+      "sold_at": null,
+      "price_history": [
+        {
+          "timestamp": "2026-11-09 16:38 UTC",
+          "price_jpy": 6800.0,
+          "price_pln": 168.65
+        }
+      ]
+    },
+    "n2ds_doorstop_blue": {
+      "id": "n2ds_doorstop_blue",
+      "model": "Nintendo 2DS (Klin / Doorstop)",
+      "color": "Electric Blue (FTR-001)",
+      "category_id": "nintendo_3ds_handhelds",
+      "category_name": "Nintendo 3DS & New 3DS (Królowie Płynności: New 3DS XL, New 3DS, 3DS LL)",
+      "platform": "Yahoo! Auctions Japan",
+      "battery_type": "li-ion",
+      "first_seen": "2026-11-09 16:38 UTC",
+      "first_seen_date": "2026-11-09",
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 4800.0,
+      "current_price_pln": 119.05,
+      "landed_cost_pln": 0.0,
+      "est_pl_value": 310.0,
+      "est_margin_pln": 310.0,
+      "roi_percent": 0.0,
+      "status": "Aktywna Aukcja",
+      "is_active": true,
+      "is_sold": false,
+      "sold_at": null,
+      "price_history": [
+        {
+          "timestamp": "2026-11-09 16:38 UTC",
+          "price_jpy": 4800.0,
+          "price_pln": 119.05
+        }
+      ]
+    },
+    "nds_lite_enamel_navy": {
+      "id": "nds_lite_enamel_navy",
+      "model": "Nintendo DS Lite (USG-001)",
+      "color": "Enamel Navy (Granatowy Lakier)",
+      "category_id": "nintendo_ds_handhelds",
+      "category_name": "Nintendo DS & DSi (DSi LL Dual IPS, DS Lite, Edycje Kolekcjonerskie)",
+      "platform": "Yahoo! Auctions Japan",
+      "battery_type": "li-ion",
+      "first_seen": "2026-11-09 16:38 UTC",
+      "first_seen_date": "2026-11-09",
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 1500.0,
+      "current_price_pln": 37.2,
+      "landed_cost_pln": 0.0,
+      "est_pl_value": 160.0,
+      "est_margin_pln": 160.0,
+      "roi_percent": 0.0,
+      "status": "Aktywna Aukcja",
+      "is_active": true,
+      "is_sold": false,
+      "sold_at": null,
+      "price_history": [
+        {
+          "timestamp": "2026-11-09 16:38 UTC",
+          "price_jpy": 1500.0,
+          "price_pln": 37.2
+        }
+      ]
+    },
+    "ndsi_ll_natural_white": {
+      "id": "ndsi_ll_natural_white",
+      "model": "Nintendo DSi LL (XL)",
+      "color": "Natural White (Dual IPS + Rysik)",
+      "category_id": "nintendo_ds_handhelds",
+      "category_name": "Nintendo DS & DSi (DSi LL Dual IPS, DS Lite, Edycje Kolekcjonerskie)",
+      "platform": "Yahoo! Auctions Japan",
+      "battery_type": "li-ion",
+      "first_seen": "2026-11-09 16:38 UTC",
+      "first_seen_date": "2026-11-09",
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 3600.0,
+      "current_price_pln": 89.29,
+      "landed_cost_pln": 0.0,
+      "est_pl_value": 280.0,
+      "est_margin_pln": 280.0,
+      "roi_percent": 0.0,
+      "status": "Aktywna Aukcja",
+      "is_active": true,
+      "is_sold": false,
+      "sold_at": null,
+      "price_history": [
+        {
+          "timestamp": "2026-11-09 16:38 UTC",
+          "price_jpy": 3600.0,
+          "price_pln": 89.29
+        }
+      ]
+    },
+    "gba_sp_tribal": {
+      "id": "gba_sp_tribal",
+      "model": "Game Boy Advance SP Tribal Edition",
+      "color": "Srebrny z czarnym tatuażem Tribal",
+      "category_id": "gameboy_advance_retro",
+      "category_name": "Nintendo Game Boy (GBA SP AGS-101 Brighter, GBA, GBC & Micro)",
+      "platform": "Yahoo! Auctions Japan",
+      "battery_type": "li-ion",
+      "first_seen": "2026-11-09 16:38 UTC",
+      "first_seen_date": "2026-11-09",
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 5500.0,
+      "current_price_pln": 136.41,
+      "landed_cost_pln": 0.0,
+      "est_pl_value": 330.0,
+      "est_margin_pln": 330.0,
+      "roi_percent": 0.0,
+      "status": "Aktywna Aukcja",
+      "is_active": true,
+      "is_sold": false,
+      "sold_at": null,
+      "price_history": [
+        {
+          "timestamp": "2026-11-09 16:38 UTC",
+          "price_jpy": 5500.0,
+          "price_pln": 136.41
+        }
+      ]
+    },
+    "gameboy_micro_silver": {
+      "id": "gameboy_micro_silver",
+      "model": "Game Boy Micro (OXY-001)",
+      "color": "Silver Aluminum",
+      "category_id": "gameboy_advance_retro",
+      "category_name": "Nintendo Game Boy (GBA SP AGS-101 Brighter, GBA, GBC & Micro)",
+      "platform": "Yahoo! Auctions Japan",
+      "battery_type": "li-ion",
+      "first_seen": "2026-11-09 16:38 UTC",
+      "first_seen_date": "2026-11-09",
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 12000.0,
+      "current_price_pln": 297.62,
+      "landed_cost_pln": 0.0,
+      "est_pl_value": 680.0,
+      "est_margin_pln": 680.0,
+      "roi_percent": 0.0,
+      "status": "Aktywna Aukcja",
+      "is_active": true,
+      "is_sold": false,
+      "sold_at": null,
+      "price_history": [
+        {
+          "timestamp": "2026-11-09 16:38 UTC",
+          "price_jpy": 12000.0,
+          "price_pln": 297.62
+        }
+      ]
+    },
+    "vita2000_silver": {
+      "id": "vita2000_silver",
+      "model": "PCH-2000 Slim",
+      "color": "Silver (ZA25)",
+      "category_id": "ps_vita",
+      "category_name": "PlayStation Vita (Special Editions & Colors)",
+      "platform": "Yahoo! Auctions Japan",
+      "battery_type": "li-ion",
+      "first_seen": "2026-11-09 16:38 UTC",
+      "first_seen_date": "2026-11-09",
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 13500.0,
+      "current_price_pln": 334.83,
+      "landed_cost_pln": 0.0,
+      "est_pl_value": 640.0,
+      "est_margin_pln": 640.0,
+      "roi_percent": 0.0,
+      "status": "Aktywna Aukcja",
+      "is_active": true,
+      "is_sold": false,
+      "sold_at": null,
+      "price_history": [
+        {
+          "timestamp": "2026-11-09 16:38 UTC",
+          "price_jpy": 13500.0,
+          "price_pln": 334.83
+        }
+      ]
+    },
+    "vita2000_khaki_black": {
+      "id": "vita2000_khaki_black",
+      "model": "PCH-2000 Slim",
+      "color": "Khaki / Black (ZA16)",
+      "category_id": "ps_vita",
+      "category_name": "PlayStation Vita (Special Editions & Colors)",
+      "platform": "Yahoo! Auctions Japan",
+      "battery_type": "li-ion",
+      "first_seen": "2026-11-09 16:38 UTC",
+      "first_seen_date": "2026-11-09",
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 12800.0,
+      "current_price_pln": 317.47,
+      "landed_cost_pln": 0.0,
+      "est_pl_value": 610.0,
+      "est_margin_pln": 610.0,
+      "roi_percent": 0.0,
+      "status": "Aktywna Aukcja",
+      "is_active": true,
+      "is_sold": false,
+      "sold_at": null,
+      "price_history": [
+        {
+          "timestamp": "2026-11-09 16:38 UTC",
+          "price_jpy": 12800.0,
+          "price_pln": 317.47
+        }
+      ]
+    },
+    "psp3000_radiant_red": {
+      "id": "psp3000_radiant_red",
+      "model": "PSP-3000 Radiant Red",
+      "color": "Radiant Red (Karminowa Czerwień)",
+      "category_id": "psp_handheld",
+      "category_name": "Sony PlayStation Portable (PSP-2000 / PSP-3000)",
+      "platform": "Yahoo! Auctions Japan",
+      "battery_type": "li-ion",
+      "first_seen": "2026-11-09 16:38 UTC",
+      "first_seen_date": "2026-11-09",
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 5800.0,
+      "current_price_pln": 143.85,
+      "landed_cost_pln": 0.0,
+      "est_pl_value": 330.0,
+      "est_margin_pln": 330.0,
+      "roi_percent": 0.0,
+      "status": "Aktywna Aukcja",
+      "is_active": true,
+      "is_sold": false,
+      "sold_at": null,
+      "price_history": [
+        {
+          "timestamp": "2026-11-09 16:38 UTC",
+          "price_jpy": 5800.0,
+          "price_pln": 143.85
+        }
+      ]
+    },
+    "psp3000_spirited_green": {
+      "id": "psp3000_spirited_green",
+      "model": "PSP-3000 Spirited Green",
+      "color": "Spirited Green (Metaliczna Zieleń)",
+      "category_id": "psp_handheld",
+      "category_name": "Sony PlayStation Portable (PSP-2000 / PSP-3000)",
+      "platform": "Yahoo! Auctions Japan",
+      "battery_type": "li-ion",
+      "first_seen": "2026-11-09 16:38 UTC",
+      "first_seen_date": "2026-11-09",
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 6000.0,
+      "current_price_pln": 148.81,
+      "landed_cost_pln": 0.0,
+      "est_pl_value": 340.0,
+      "est_margin_pln": 340.0,
+      "roi_percent": 0.0,
+      "status": "Aktywna Aukcja",
+      "is_active": true,
+      "is_sold": false,
+      "sold_at": null,
+      "price_history": [
+        {
+          "timestamp": "2026-11-09 16:38 UTC",
+          "price_jpy": 6000.0,
+          "price_pln": 148.81
+        }
+      ]
+    },
+    "ps2_toys_blue_scph39000": {
+      "id": "ps2_toys_blue_scph39000",
+      "model": "PlayStation 2 Toy's Blue (SCPH-39000)",
+      "color": "Lazurowy Półprzezroczysty (Limited)",
+      "category_id": "high_margin_curated_consoles",
+      "category_name": "Wyselekcjonowane Konsole Stacjonarne (Tylko Wysoki Zysk > 400-750 zł)",
+      "platform": "Yahoo! Auctions Japan",
+      "battery_type": "none",
+      "first_seen": "2026-11-09 16:38 UTC",
+      "first_seen_date": "2026-11-09",
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 9800.0,
+      "current_price_pln": 243.06,
+      "landed_cost_pln": 0.0,
+      "est_pl_value": 520.0,
+      "est_margin_pln": 520.0,
+      "roi_percent": 0.0,
+      "status": "Aktywna Aukcja",
+      "is_active": true,
+      "is_sold": false,
+      "sold_at": null,
+      "price_history": [
+        {
+          "timestamp": "2026-11-09 16:38 UTC",
+          "price_jpy": 9800.0,
+          "price_pln": 243.06
+        }
+      ]
+    },
+    "sega_dreamcast_hkt3000": {
+      "id": "sega_dreamcast_hkt3000",
+      "model": "Sega Dreamcast HKT-3000",
+      "color": "Biały Japoński (Kompatybilny z MIL-CD)",
+      "category_id": "high_margin_curated_consoles",
+      "category_name": "Wyselekcjonowane Konsole Stacjonarne (Tylko Wysoki Zysk > 400-750 zł)",
+      "platform": "Yahoo! Auctions Japan",
+      "battery_type": "none",
+      "first_seen": "2026-11-09 16:38 UTC",
+      "first_seen_date": "2026-11-09",
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 6500.0,
+      "current_price_pln": 161.21,
+      "landed_cost_pln": 0.0,
+      "est_pl_value": 420.0,
+      "est_margin_pln": 420.0,
+      "roi_percent": 0.0,
+      "status": "Aktywna Aukcja",
+      "is_active": true,
+      "is_sold": false,
+      "sold_at": null,
+      "price_history": [
+        {
+          "timestamp": "2026-11-09 16:38 UTC",
+          "price_jpy": 6500.0,
+          "price_pln": 161.21
+        }
+      ]
+    },
+    "zuiko_50_18_om": {
+      "id": "zuiko_50_18_om",
+      "model": "Olympus OM-System F.Zuiko 50mm f/1.8",
+      "color": "Mocowanie Olympus OM",
+      "category_id": "analog_lenses",
+      "category_name": "Japońskie Obiektywy Manualne (0% Baterii)",
+      "platform": "Yahoo! Auctions Japan",
+      "battery_type": "none",
+      "first_seen": "2026-11-09 16:38 UTC",
+      "first_seen_date": "2026-11-09",
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 1800.0,
+      "current_price_pln": 44.64,
+      "landed_cost_pln": 0.0,
+      "est_pl_value": 190.0,
+      "est_margin_pln": 190.0,
+      "roi_percent": 0.0,
+      "status": "Aktywna Aukcja",
+      "is_active": true,
+      "is_sold": false,
+      "sold_at": null,
+      "price_history": [
+        {
+          "timestamp": "2026-11-09 16:38 UTC",
+          "price_jpy": 1800.0,
+          "price_pln": 44.64
+        }
+      ]
+    },
+    "canon_fd_50_18": {
+      "id": "canon_fd_50_18",
+      "model": "Canon FD 50mm f/1.8 S.C.",
+      "color": "Mocowanie Canon FD Breech-Lock",
+      "category_id": "analog_lenses",
+      "category_name": "Japońskie Obiektywy Manualne (0% Baterii)",
+      "platform": "Yahoo! Auctions Japan",
+      "battery_type": "none",
+      "first_seen": "2026-11-09 16:38 UTC",
+      "first_seen_date": "2026-11-09",
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 1600.0,
+      "current_price_pln": 39.68,
+      "landed_cost_pln": 0.0,
+      "est_pl_value": 180.0,
+      "est_margin_pln": 180.0,
+      "roi_percent": 0.0,
+      "status": "Aktywna Aukcja",
+      "is_active": true,
+      "is_sold": false,
+      "sold_at": null,
+      "price_history": [
+        {
+          "timestamp": "2026-11-09 16:38 UTC",
+          "price_jpy": 1600.0,
+          "price_pln": 39.68
+        }
+      ]
+    },
+    "canon_sureshot_tele": {
+      "id": "canon_sureshot_tele",
+      "model": "Canon Autoboy Tele 6 / Sure Shot Tele",
+      "color": "Czarny (Dwuogniskowy 35mm / 60mm)",
+      "category_id": "film_cameras_point_shoot",
+      "category_name": "Aparaty Analogowe Typu Małpka (35mm Point & Shoot)",
+      "platform": "Yahoo! Auctions Japan",
+      "battery_type": "none",
+      "first_seen": "2026-11-09 16:38 UTC",
+      "first_seen_date": "2026-11-09",
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 1800.0,
+      "current_price_pln": 44.64,
+      "landed_cost_pln": 0.0,
+      "est_pl_value": 160.0,
+      "est_margin_pln": 160.0,
+      "roi_percent": 0.0,
+      "status": "Aktywna Aukcja",
+      "is_active": true,
+      "is_sold": false,
+      "sold_at": null,
+      "price_history": [
+        {
+          "timestamp": "2026-11-09 16:38 UTC",
+          "price_jpy": 1800.0,
+          "price_pln": 44.64
+        }
+      ]
+    },
+    "ds4_sunset_orange": {
+      "id": "ds4_sunset_orange",
+      "model": "DualShock 4 Sunset Orange Limited Edition",
+      "color": "Sunset Orange (Pomarańczowo-Granatowy)",
+      "category_id": "ps_retro_limited_controllers",
+      "category_name": "Limitowane Kontrolery PS1-PS4 (DualShock Retro & Collector)",
+      "platform": "Yahoo! Auctions Japan",
+      "battery_type": "li-ion",
+      "first_seen": "2026-11-09 16:38 UTC",
+      "first_seen_date": "2026-11-09",
+      "last_seen": "2026-11-09 16:41 UTC",
+      "current_price_jpy": 3800.0,
+      "current_price_pln": 94.25,
+      "landed_cost_pln": 0.0,
+      "est_pl_value": 270.0,
+      "est_margin_pln": 270.0,
+      "roi_percent": 0.0,
+      "status": "Aktywna Aukcja",
+      "is_active": true,
+      "is_sold": false,
+      "sold_at": null,
+      "price_history": [
+        {
+          "timestamp": "2026-11-09 16:38 UTC",
+          "price_jpy": 3800.0,
+          "price_pln": 94.25
         }
       ]
     }

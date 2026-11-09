@@ -1,5 +1,6 @@
 """Generator module for YAHOO_AUCTIONS_DEALS.md (Alternative Japanese Marketplaces)."""
 
+import urllib.parse
 from datetime import datetime
 from .deal_analyzer import DealAnalyzer
 from .config import (
@@ -70,24 +71,31 @@ class AlternativeDealsGenerator:
         zen_url = deal.get("zenmarket_url", "")
         buyee_url = deal.get("buyee_url", "")
         src_url = deal.get("source_url", "")
+        query = deal.get("search_query_jp", deal.get("model", ""))
+        encoded_q = urllib.parse.quote(query)
+
+        zen_ending_soon = f"https://zenmarket.jp/pl/yahoo.aspx?q={encoded_q}&sort=end&order=asc"
+        zen_lowest_bid = f"https://zenmarket.jp/pl/yahoo.aspx?q={encoded_q}&sort=price&order=asc"
+        yahoo_closed = f"https://auctions.yahoo.co.jp/closedsearch/closedsearch?p={encoded_q}"
 
         if "Surugaya" in platform:
             links = [
                 f"[🛒 Surugaya w ZenMarket (Live)]({zen_url})",
-                f"[🛒 Licytuj Buyee (Live)]({buyee_url})" if buyee_url else "",
+                f"[🛒 Buyee]({buyee_url})" if buyee_url else "",
                 f"[🇯🇵 Surugaya Direct]({src_url})"
             ]
         elif "Hard-Off" in platform:
             links = [
-                f"[🛒 Hard-Off w ZenMarket (Live)]({zen_url})",
-                f"[🛒 Licytuj Buyee (Live)]({buyee_url})" if buyee_url else "",
+                f"[🛒 Hard-Off w ZenMarket]({zen_url})",
+                f"[🛒 Buyee]({buyee_url})" if buyee_url else "",
                 f"[🇯🇵 Hard-Off Direct]({src_url})"
             ]
         else:
             links = [
-                f"[🎯 Snajper ZenMarket (Live Aukcje)]({zen_url})",
-                f"[🛒 Licytuj Buyee (Live)]({buyee_url})" if buyee_url else "",
-                f"[🇯🇵 Szukaj na Yahoo JP]({src_url})"
+                f"[🎯 Snajper ZenMarket (Live Aukcje)]({zen_url})" if zen_url else f"[🎯 Snajper ZenMarket (Live Aukcje)]({zen_ending_soon})",
+                f"[⏰ Kończące się]({zen_ending_soon}) · [🪙 Od 1 JPY]({zen_lowest_bid})",
+                f"[📊 Archiwum Yahoo]({yahoo_closed}) · [🛒 Buyee]({buyee_url})" if buyee_url else f"[📊 Archiwum Yahoo]({yahoo_closed})",
+                f"[🇯🇵 Yahoo JP Direct]({src_url})" if src_url else ""
             ]
         return "<br>".join([link for link in links if link])
 
@@ -259,21 +267,26 @@ class AlternativeDealsGenerator:
 
                 links_str = self.format_deal_links(it)
 
+                img_url = it.get("image_url", "./assets/images/placeholder.svg")
+                img_tag = f"<img src='{img_url}' width='55' height='36' style='border-radius:4px; object-fit:contain; background:#0f172a; vertical-align:middle;' /><br>"
+                allegro_p = it.get("allegro_archive_pln", round(it["est_pl_value"] * 1.08, 0))
+                olx_p = it.get("olx_haggled_pln", round(it["est_pl_value"] * 0.90, 0))
+
                 if is_ended:
-                    model_col = f"~~**{clean_model}**~~<br><small>~~{clean_color}~~<br>*~~{clean_note}~~*</small>"
+                    model_col = f"{img_tag}~~**{clean_model}**~~<br><small>~~{clean_color}~~<br>*~~{clean_note}~~*</small>"
                     plat_col = f"~~`{it.get('platform', 'Yahoo')}`~~"
                     price_col = f"~~**{it['price_jpy']:,} JPY**~~<br>(~~~{it['price_pln_raw']:.2f} zł~~)"
                     landed_col = f"~~~{it['landed_cost_pln']:.2f} zł~~"
-                    pl_col = f"~~**{it['est_pl_value']:.2f} zł**~~"
+                    pl_col = f"~~**{it['est_pl_value']:.2f} zł**~~<br><small>~~Allegro: ~{allegro_p:.0f} zł~~<br>~~OLX: ~{olx_p:.0f} zł~~</small>"
                     margin_col = f"~~{margin_str}~~"
                     ai_col = f"~~{ai_badge}~~"
                     links_col = f"~~{links_str}~~"
                 else:
-                    model_col = f"**{clean_model}**<br><small>{clean_color}<br>*{clean_note}*</small>"
+                    model_col = f"{img_tag}**{clean_model}**<br><small>{clean_color}<br>*{clean_note}*</small>"
                     plat_col = f"`{it.get('platform', 'Yahoo')}`"
                     price_col = f"**{it['price_jpy']:,} JPY**<br>(~{it['price_pln_raw']:.2f} zł)"
                     landed_col = f"~{it['landed_cost_pln']:.2f} zł"
-                    pl_col = f"**{it['est_pl_value']:.2f} zł**"
+                    pl_col = f"**{it['est_pl_value']:.2f} zł**<br><small>Allegro: ~{allegro_p:.0f} zł<br>OLX (targ): ~{olx_p:.0f} zł</small>"
                     margin_col = margin_str
                     ai_col = ai_badge
                     links_col = links_str
