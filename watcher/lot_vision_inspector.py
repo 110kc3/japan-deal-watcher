@@ -9,6 +9,7 @@ import re
 from typing import Dict, List, Any, Optional
 
 # Polish market value reference catalog for Japanese games identified in lot photos (Allegro Archiwum / OLX medians)
+# Rigorously discounted for NTSC-J / 100% Japanese language barrier where applicable!
 RETRO_GAME_KNOWLEDGE_BASE = {
     # --- NINTENDO DS GEMS ---
     "pokemon_heartgold": {
@@ -17,9 +18,11 @@ RETRO_GAME_KNOWLEDGE_BASE = {
         "platform": "Nintendo DS",
         "format": "Cartridge Loose / CIB",
         "rarity": "⭐⭐⭐⭐⭐ Top Skarb",
-        "est_pl_value_loose": 240.0,
-        "est_pl_value_cib": 480.0,
+        "est_pl_value_loose": 95.0,
+        "est_pl_value_cib": 190.0,
         "region_free": True,
+        "language_barrier": "high",
+        "language_note": "100% japoński tekst. W Polsce kupowane do transferu stworków do Pokémon HOME lub jako autentyczny kartridż na półkę.",
         "keywords": ["ハートゴールド", "heartgold", "ホウオウ", "ho-oh", "gold"]
     },
     "pokemon_soulsilver": {
@@ -28,9 +31,11 @@ RETRO_GAME_KNOWLEDGE_BASE = {
         "platform": "Nintendo DS",
         "format": "Cartridge Loose / CIB",
         "rarity": "⭐⭐⭐⭐⭐ Top Skarb",
-        "est_pl_value_loose": 240.0,
-        "est_pl_value_cib": 480.0,
+        "est_pl_value_loose": 95.0,
+        "est_pl_value_cib": 190.0,
         "region_free": True,
+        "language_barrier": "high",
+        "language_note": "100% japoński tekst. Rygorystyczna wycena NTSC-J (wersje PAL warte 300+ zł).",
         "keywords": ["ソウルシルバー", "soulsilver", "ルギア", "lugia", "silver"]
     },
     "pokemon_platinum": {
@@ -39,9 +44,11 @@ RETRO_GAME_KNOWLEDGE_BASE = {
         "platform": "Nintendo DS",
         "format": "Cartridge Loose / CIB",
         "rarity": "⭐⭐⭐⭐ Skarb",
-        "est_pl_value_loose": 190.0,
-        "est_pl_value_cib": 360.0,
+        "est_pl_value_loose": 75.0,
+        "est_pl_value_cib": 150.0,
         "region_free": True,
+        "language_barrier": "high",
+        "language_note": "Wersja japońska, duża podaż z importu.",
         "keywords": ["プラチナ", "platinum", "ギラティナ", "giratina"]
     },
     "pokemon_black_white": {
@@ -50,9 +57,11 @@ RETRO_GAME_KNOWLEDGE_BASE = {
         "platform": "Nintendo DS",
         "format": "Cartridge Loose / CIB",
         "rarity": "⭐⭐⭐ Bardzo Dobry",
-        "est_pl_value_loose": 140.0,
-        "est_pl_value_cib": 240.0,
+        "est_pl_value_loose": 60.0,
+        "est_pl_value_cib": 110.0,
         "region_free": True,
+        "language_barrier": "high",
+        "language_note": "Tekst w 100% po japońsku.",
         "keywords": ["ブラック", "ホワイト", "black", "white", "レシラム", "ゼクロム"]
     },
     "pokemon_black2_white2": {
@@ -61,9 +70,11 @@ RETRO_GAME_KNOWLEDGE_BASE = {
         "platform": "Nintendo DS",
         "format": "Cartridge Loose / CIB",
         "rarity": "⭐⭐⭐⭐ Skarb",
-        "est_pl_value_loose": 230.0,
-        "est_pl_value_cib": 420.0,
+        "est_pl_value_loose": 85.0,
+        "est_pl_value_cib": 160.0,
         "region_free": True,
+        "language_barrier": "high",
+        "language_note": "Druga generacja DS Pokémon – japoński tekst ogranicza grono odbiorców w Polsce.",
         "keywords": ["ブラック2", "ホワイト2", "black 2", "white 2", "b2", "w2"]
     },
     "chrono_trigger_ds": {
@@ -72,9 +83,11 @@ RETRO_GAME_KNOWLEDGE_BASE = {
         "platform": "Nintendo DS",
         "format": "Cartridge Loose / CIB",
         "rarity": "⭐⭐⭐⭐ Rzadki RPG",
-        "est_pl_value_loose": 180.0,
-        "est_pl_value_cib": 290.0,
+        "est_pl_value_loose": 60.0,
+        "est_pl_value_cib": 120.0,
         "region_free": True,
+        "language_barrier": "high",
+        "language_note": "Kultowy RPG, ale w japońskim wydaniu kanji uniemożliwia czytanie fabuły 99% polskich graczy.",
         "keywords": ["クロノトリガー", "chrono trigger"]
     },
     "zelda_phantom_hourglass": {
@@ -83,9 +96,11 @@ RETRO_GAME_KNOWLEDGE_BASE = {
         "platform": "Nintendo DS",
         "format": "CIB Boxed",
         "rarity": "⭐⭐⭐ Klasyk",
-        "est_pl_value_loose": 80.0,
-        "est_pl_value_cib": 140.0,
+        "est_pl_value_loose": 35.0,
+        "est_pl_value_cib": 55.0,
         "region_free": True,
+        "language_barrier": "medium",
+        "language_note": "Zagadki sterowane dotykiem są częściowo intuicyjne, ale dialogi i wskazówki po japońsku.",
         "keywords": ["夢幻の砂時計", "phantom hourglass", "ゼルダ"]
     },
     "zelda_spirit_tracks": {
@@ -94,10 +109,38 @@ RETRO_GAME_KNOWLEDGE_BASE = {
         "platform": "Nintendo DS",
         "format": "CIB Boxed",
         "rarity": "⭐⭐⭐⭐ Rzadki Klasyk",
-        "est_pl_value_loose": 110.0,
-        "est_pl_value_cib": 170.0,
+        "est_pl_value_loose": 40.0,
+        "est_pl_value_cib": 65.0,
         "region_free": True,
+        "language_barrier": "medium",
+        "language_note": "Złota obwoluta ozdobna na półkę, w grze tekst po japońsku.",
         "keywords": ["大地の汽笛", "spirit tracks"]
+    },
+    "zelda_ocarina_3d": {
+        "title": "The Legend of Zelda: Ocarina of Time 3D",
+        "jp_title": "ゼルダの伝説 時のオカリナ 3D",
+        "platform": "Nintendo 3DS",
+        "format": "CIB Boxed",
+        "rarity": "⭐⭐⭐ Klasyk 3D",
+        "est_pl_value_loose": 40.0,
+        "est_pl_value_cib": 60.0,
+        "region_free": False,
+        "language_barrier": "medium",
+        "language_note": "Kultowa Zelda 3DS. Blokada regionalna 3DS wymaga japońskiej konsoli lub CFW.",
+        "keywords": ["時のオカリナ 3d", "ocarina of time 3d", "時のオカリナ"]
+    },
+    "mario_ds_bundle": {
+        "title": "New Super Mario Bros / Mario 64 DS",
+        "jp_title": "New スーパーマリオブラザーズ / マリオ64DS",
+        "platform": "Nintendo DS",
+        "format": "CIB Boxed",
+        "rarity": "⭐⭐⭐ Super Płynne",
+        "est_pl_value_loose": 30.0,
+        "est_pl_value_cib": 50.0,
+        "region_free": True,
+        "language_barrier": "low",
+        "language_note": "Znikoma bariera językowa (czysta zręcznościówka / platformówka). Łatwa sprzedaż w PL.",
+        "keywords": ["スーパーマリオブラザーズ", "マリオ64", "mario 64", "mario bros", "マリオカート"]
     },
     "castlevania_dawn_of_sorrow": {
         "title": "Castlevania: Dawn of Sorrow",
@@ -105,9 +148,11 @@ RETRO_GAME_KNOWLEDGE_BASE = {
         "platform": "Nintendo DS",
         "format": "Cartridge Loose / CIB",
         "rarity": "⭐⭐⭐⭐⭐ Top Skarb",
-        "est_pl_value_loose": 210.0,
-        "est_pl_value_cib": 380.0,
+        "est_pl_value_loose": 70.0,
+        "est_pl_value_cib": 140.0,
         "region_free": True,
+        "language_barrier": "medium",
+        "language_note": "Genialna metroidvania. Dialogi po japońsku, ale rdzeń rozgrywki zręcznościowy.",
         "keywords": ["悪魔城ドラキュラ", "蒼月の十字架", "castlevania"]
     },
     "dragon_quest_ix": {
@@ -115,10 +160,12 @@ RETRO_GAME_KNOWLEDGE_BASE = {
         "jp_title": "ドラゴンクエストIX 星空の守り人",
         "platform": "Nintendo DS",
         "format": "CIB Boxed",
-        "rarity": "⭐⭐⭐ Kultowy RPG",
-        "est_pl_value_loose": 50.0,
-        "est_pl_value_cib": 110.0,
+        "rarity": "⭐⭐ Masowy RPG w Japonii",
+        "est_pl_value_loose": 20.0,
+        "est_pl_value_cib": 35.0,
         "region_free": True,
+        "language_barrier": "high",
+        "language_note": "Sprzedany w Japonii w 4 mln sztuk, masowy filler. W Polsce prawie zerowy popyt na wersję kanji.",
         "keywords": ["ドラゴンクエストix", "星空の守り人", "dq9"]
     },
 
@@ -129,9 +176,11 @@ RETRO_GAME_KNOWLEDGE_BASE = {
         "platform": "Game Boy Advance",
         "format": "Cartridge Loose",
         "rarity": "⭐⭐⭐⭐⭐ Top Skarb",
-        "est_pl_value_loose": 210.0,
-        "est_pl_value_cib": 550.0,
+        "est_pl_value_loose": 95.0,
+        "est_pl_value_cib": 230.0,
         "region_free": True,
+        "language_barrier": "high",
+        "language_note": "Wersja PAL warta 350+ zł, ale japońska na OLX schodzi w przedziale 80-110 zł (często jako baza do transferu).",
         "keywords": ["エメラルド", "emerald", "レックウザ", "rayquaza"]
     },
     "pokemon_firered_leafgreen": {
@@ -140,10 +189,25 @@ RETRO_GAME_KNOWLEDGE_BASE = {
         "platform": "Game Boy Advance",
         "format": "Cartridge Loose",
         "rarity": "⭐⭐⭐⭐ Skarb",
-        "est_pl_value_loose": 160.0,
-        "est_pl_value_cib": 420.0,
+        "est_pl_value_loose": 75.0,
+        "est_pl_value_cib": 180.0,
         "region_free": True,
+        "language_barrier": "high",
+        "language_note": "Kultowy remake Kanto. W Japonii tani i powszechny, w PL sprzedaje się do kolekcji.",
         "keywords": ["ファイアレッド", "リーフグリーン", "firered", "leafgreen"]
+    },
+    "pokemon_ruby_sapphire": {
+        "title": "Pokémon Ruby / Sapphire",
+        "jp_title": "ポケットモンスター ルビー / サファイア",
+        "platform": "Game Boy Advance",
+        "format": "Cartridge Loose",
+        "rarity": "⭐⭐⭐ Klasyk",
+        "est_pl_value_loose": 55.0,
+        "est_pl_value_cib": 130.0,
+        "region_free": True,
+        "language_barrier": "high",
+        "language_note": "Półprzezroczyste kartridże. Bardzo wysoka podaż w Japonii.",
+        "keywords": ["ルビー", "サファイア", "ruby", "sapphire", "グラードン", "カイオーガ"]
     },
     "zelda_minish_cap_gba": {
         "title": "The Legend of Zelda: The Minish Cap",
@@ -151,9 +215,11 @@ RETRO_GAME_KNOWLEDGE_BASE = {
         "platform": "Game Boy Advance",
         "format": "Cartridge Loose",
         "rarity": "⭐⭐⭐⭐⭐ Top Skarb",
-        "est_pl_value_loose": 180.0,
-        "est_pl_value_cib": 450.0,
+        "est_pl_value_loose": 70.0,
+        "est_pl_value_cib": 160.0,
         "region_free": True,
+        "language_barrier": "medium",
+        "language_note": "Jedna z najpiękniejszych Zeld 2D. Wersja JAP loose realnie 60-80 zł na polskim rynku.",
         "keywords": ["ふしぎのぼうし", "minish cap"]
     },
     "metroid_fusion_gba": {
@@ -162,9 +228,11 @@ RETRO_GAME_KNOWLEDGE_BASE = {
         "platform": "Game Boy Advance",
         "format": "Cartridge Loose",
         "rarity": "⭐⭐⭐⭐ Skarb",
-        "est_pl_value_loose": 170.0,
-        "est_pl_value_cib": 390.0,
+        "est_pl_value_loose": 80.0,
+        "est_pl_value_cib": 170.0,
         "region_free": True,
+        "language_barrier": "low",
+        "language_note": "Czysty survival action/platformer – bariera językowa znikoma, bardzo pożądany w PL.",
         "keywords": ["メトロイドフュージョン", "metroid fusion"]
     },
 
@@ -174,10 +242,12 @@ RETRO_GAME_KNOWLEDGE_BASE = {
         "jp_title": "ペルソナ3 ポータブル",
         "platform": "Sony PSP",
         "format": "CIB UMD Boxed",
-        "rarity": "⭐⭐⭐⭐ Skarb",
-        "est_pl_value_loose": 90.0,
-        "est_pl_value_cib": 170.0,
+        "rarity": "⭐⭐⭐⭐ Skarb Półkowy",
+        "est_pl_value_loose": 35.0,
+        "est_pl_value_cib": 65.0,
         "region_free": True,
+        "language_barrier": "high",
+        "language_note": "Visual novel / RPG z tonami tekstu. Angielski PAL wart 300 zł, japoński tylko 55-75 zł na półkę.",
         "keywords": ["ペルソナ3", "p3p", "persona 3"]
     },
     "crisis_core_ff7_psp": {
@@ -185,10 +255,12 @@ RETRO_GAME_KNOWLEDGE_BASE = {
         "jp_title": "クライシス コア -ファイナルファンタジーVII-",
         "platform": "Sony PSP",
         "format": "CIB UMD Boxed",
-        "rarity": "⭐⭐⭐ Klasyk",
-        "est_pl_value_loose": 35.0,
-        "est_pl_value_cib": 70.0,
+        "rarity": "⭐⭐⭐ Klasyk Masowy",
+        "est_pl_value_loose": 15.0,
+        "est_pl_value_cib": 30.0,
         "region_free": True,
+        "language_barrier": "high",
+        "language_note": "W Japonii sprzedawany w milionach sztuk za grosze, w PL popularny tylko jako ozdoba.",
         "keywords": ["クライシス コア", "crisis core", "ff7"]
     },
     "monster_hunter_p3rd_psp": {
@@ -196,10 +268,12 @@ RETRO_GAME_KNOWLEDGE_BASE = {
         "jp_title": "モンスターハンターポータブル 3rd",
         "platform": "Sony PSP",
         "format": "CIB UMD Boxed",
-        "rarity": "⭐⭐ Popularny",
-        "est_pl_value_loose": 20.0,
-        "est_pl_value_cib": 45.0,
+        "rarity": "⭐⭐ Masowa Produkcja JP",
+        "est_pl_value_loose": 10.0,
+        "est_pl_value_cib": 25.0,
         "region_free": True,
+        "language_barrier": "medium",
+        "language_note": "Najpowszechniejsza gra PSP w Japonii, w pakietach danshari traktowana niemal jak masówka.",
         "keywords": ["モンスターハンターポータブル 3rd", "mhp3rd"]
     },
     "persona_4_golden_vita": {
@@ -207,11 +281,41 @@ RETRO_GAME_KNOWLEDGE_BASE = {
         "jp_title": "ペルソナ4 ザ・ゴールデン",
         "platform": "PS Vita",
         "format": "CIB Boxed",
-        "rarity": "⭐⭐⭐⭐ Skarb",
-        "est_pl_value_loose": 80.0,
-        "est_pl_value_cib": 140.0,
+        "rarity": "⭐⭐⭐⭐ Skarb Półkowy",
+        "est_pl_value_loose": 35.0,
+        "est_pl_value_cib": 60.0,
         "region_free": True,
+        "language_barrier": "high",
+        "language_note": "Wyłącznie japoński dubbing i napisy – bez znajomości języka gra jest niegrywalna.",
         "keywords": ["ペルソナ4", "p4g", "persona 4"]
+    },
+
+    # --- SONY PLAYSTATION 1 & 2 CLASSICS ---
+    "final_fantasy_vii_ps1": {
+        "title": "Final Fantasy VII / VIII / IX (PS1 JPN)",
+        "jp_title": "ファイナルファンタジー VII / VIII / IX",
+        "platform": "PlayStation 1",
+        "format": "CIB Jewel Case",
+        "rarity": "⭐⭐⭐⭐ Ikona Kolekcjonerska",
+        "est_pl_value_loose": 25.0,
+        "est_pl_value_cib": 55.0,
+        "region_free": False,
+        "language_barrier": "high",
+        "language_note": "Białe obwoluty z grafikami Yoshitaki Amano to dzieła sztuki na półkę, ale gra w kanji.",
+        "keywords": ["ファイナルファンタジーvii", "ファイナルファンタジーviii", "ファイナルファンタジーix", "ffvii", "ffviii", "ffix"]
+    },
+    "biohazard_ps1": {
+        "title": "Biohazard 2 & 3 (Resident Evil PS1 JPN)",
+        "jp_title": "バイオハザード 2 & 3",
+        "platform": "PlayStation 1",
+        "format": "CIB Boxed",
+        "rarity": "⭐⭐⭐⭐ Skarb Survival Horror",
+        "est_pl_value_loose": 30.0,
+        "est_pl_value_cib": 60.0,
+        "region_free": False,
+        "language_barrier": "medium",
+        "language_note": "Wersje japońskie mają oryginalny angielski voice-acting, co ułatwia rozgrywkę w Polsce.",
+        "keywords": ["バイオハザード2", "バイオハザード3", "バイオハザード", "biohazard"]
     }
 }
 
@@ -340,6 +444,10 @@ class LotVisionInspector:
                 val = game["est_pl_value_loose"]
                 if "cib" in raw_text or "箱" in raw_text or "pudełk" in raw_text:
                     val = game["est_pl_value_cib"]
+                clean_title = game["title"].split("(")[0].strip()
+                allegro_search = f"https://allegro.pl/kategoria/gry?string={clean_title.replace(' ', '+')}+Japonia"
+                olx_search = f"https://www.olx.pl/oferty/q-{clean_title.lower().replace(' ', '-')}-japonia/"
+
                 spotted_gems.append({
                     "id": key,
                     "title": game["title"],
@@ -348,9 +456,13 @@ class LotVisionInspector:
                     "format": game["format"],
                     "rarity": game["rarity"],
                     "est_pl_value": val,
-                    "allegro_archive_pln": round(val * 1.10, 0),
-                    "olx_haggled_pln": round(val * 0.90, 0),
-                    "region_free": game["region_free"]
+                    "allegro_archive_pln": round(val * 1.12, 0),
+                    "olx_haggled_pln": round(val * 0.88, 0),
+                    "region_free": game["region_free"],
+                    "language_barrier": game.get("language_barrier", "high"),
+                    "language_note": game.get("language_note", ""),
+                    "allegro_search_url": allegro_search,
+                    "olx_search_url": olx_search
                 })
                 spotted_value += val
 
@@ -358,7 +470,7 @@ class LotVisionInspector:
         count_match = re.search(r'(\d+)\s*(?:gier|sztuk|本|点|タイトル)', raw_text)
         item_count = int(count_match.group(1)) if count_match else 30
         filler_count = max(0, item_count - len(spotted_gems))
-        filler_val = filler_count * 15.0  # conservative 15 PLN per filler Japanese title
+        filler_val = filler_count * 6.0  # strictly conservative 6 PLN per filler Japanese title (wholesale / mix pricing)
 
         danshari_info = cls.detect_danshari_type(raw_text)
 
@@ -385,7 +497,7 @@ class LotVisionInspector:
         break_even_str = ""
         if spotted_gems:
             top_gem = max(spotted_gems, key=lambda x: x["est_pl_value"])
-            break_even_str = f"Break-Even: Samodzielna sprzedaż gry '{top_gem['title']}' (~{top_gem['est_pl_value']:.0f} zł) pokrywa większość kosztów całego kartonu!"
+            break_even_str = f"Break-Even: Samodzielna sprzedaż perełki '{top_gem['title']}' (~{top_gem['est_pl_value']:.0f} zł po surowej wycenie NTSC-J) pokrywa znaczną część kosztów całego kartonu!"
 
         return {
             "inspected": True,
@@ -400,12 +512,12 @@ class LotVisionInspector:
             "battery_hazard_detected": battery_hazard,
             "battery_notes": battery_notes,
             "break_even_gem": break_even_str,
-            "inspection_summary": f"Zidentyfikowano {len(spotted_gems)} kluczowych tytułów w kartonie ({item_count} gier). Szacowana wartość samych perełek: ~{spotted_value:.0f} zł."
+            "inspection_summary": f"Zidentyfikowano {len(spotted_gems)} kluczowych tytułów w kartonie ({item_count} gier). Szacowana wartość samych perełek po surowej wycenie NTSC-J: ~{spotted_value:.0f} zł."
         }
 
     @classmethod
     def format_inspection_markdown(cls, inspection: Dict[str, Any]) -> str:
-        """Formats the visual inspection result into clean GitHub Markdown."""
+        """Formats the visual inspection result into clean GitHub Markdown with direct search links."""
         if not inspection:
             return ""
 
@@ -419,11 +531,14 @@ class LotVisionInspector:
 
         gems = inspection.get("top_gems", [])
         if gems:
-            md.append("> \n> **💎 Wykryte Skarby w Kartonie (Rozpoznane Grzbiety i Kartridże):**")
+            md.append("> \n> **💎 Wykryte Skarby w Kartonie (Rygorystyczna Wycena NTSC-J):**")
             for g in gems:
+                barrier_icon = "⚠️ Tekst JP" if g.get("language_barrier") == "high" else ("🇯🇵 Dialogi JP" if g.get("language_barrier") == "medium" else "🌐 Brak Bariery")
+                al_link = f"[Allegro Archiwum]({g.get('allegro_search_url', '#')})"
+                olx_link = f"[OLX]({g.get('olx_search_url', '#')})"
                 md.append(
                     f"> - **{g['title']}** ({g['platform']}) – {g['rarity']} · "
                     f"Wycena PL: **~{g['est_pl_value']:.0f} zł** "
-                    f"<small>(Allegro: ~{g.get('allegro_archive_pln', 0):.0f} zł, OLX: ~{g.get('olx_haggled_pln', 0):.0f} zł)</small>"
+                    f"<small>({al_link} · {olx_link} | {barrier_icon})</small>"
                 )
         return "\n".join(md)

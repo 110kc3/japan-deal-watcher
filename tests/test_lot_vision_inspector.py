@@ -41,7 +41,7 @@ class TestLotVisionInspector(unittest.TestCase):
         self.assertTrue(any("Platinum" in t for t in titles))
         self.assertTrue(any("Zelda" in t for t in titles))
 
-        self.assertGreater(inspection["spotted_gems_value_pln"], 400.0)
+        self.assertGreater(inspection["spotted_gems_value_pln"], 180.0)
         self.assertIn("Break-Even", inspection["break_even_gem"])
         self.assertFalse(inspection["battery_hazard_detected"])
 

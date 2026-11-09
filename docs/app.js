@@ -414,13 +414,25 @@ function renderDealCard(deal, isAuction) {
     `;
   }
 
-  // Action Buttons
+  // Action Buttons with 1-Click Polish Market Verification & Snipers
   let actionButtons = '';
+  const allegroBtn = deal.links && deal.links.allegro_search
+    ? `<a href="${deal.links.allegro_search}" target="_blank" rel="noopener" class="btn-action allegro-btn">🇵🇱 Allegro Ceny</a>`
+    : '';
+  const olxBtn = deal.links && deal.links.olx_search
+    ? `<a href="${deal.links.olx_search}" target="_blank" rel="noopener" class="btn-action olx-btn">🇵🇱 OLX Oferty</a>`
+    : '';
+
   if (isAuction) {
     actionButtons = `
       <a href="${deal.links.zenmarket_sniper || deal.links.zenmarket_ending_soon}" target="_blank" rel="noopener" class="btn-action primary">
-        🎯 Zen Sniper
+        🎯 Licytuj w ZenMarket
       </a>
+      <a href="${deal.links.yahoo_direct || deal.links.yahoo_closed_archive}" target="_blank" rel="noopener" class="btn-action secondary">
+        🇯🇵 Yahoo Aukcja
+      </a>
+      ${allegroBtn}
+      ${olxBtn}
       <a href="${deal.links.zenmarket_ending_soon}" target="_blank" rel="noopener" class="btn-action secondary">
         ⏰ Kończące się
       </a>
@@ -428,10 +440,7 @@ function renderDealCard(deal, isAuction) {
         🪙 Od 1 JPY
       </a>
       <a href="${deal.links.yahoo_closed_archive}" target="_blank" rel="noopener" class="btn-action secondary">
-        📊 Ceny (落札相場)
-      </a>
-      <a href="${deal.links.buyee_url}" target="_blank" rel="noopener" class="btn-action secondary">
-        🛒 Buyee
+        📊 Archiwum Yahoo
       </a>
       <button class="btn-action accent-blue btn-calc-trigger" data-deal-id="${deal.id}" data-type="auction">
         🧮 Przelicz Snajpera
@@ -442,9 +451,14 @@ function renderDealCard(deal, isAuction) {
     `;
   } else {
     actionButtons = `
-      <a href="${deal.links.zenmarket_buy}" target="_blank" rel="noopener" class="btn-action primary full-width">
-        🛒 Kup Teraz w ZenMarket
+      <a href="${deal.links.zenmarket_buy}" target="_blank" rel="noopener" class="btn-action primary">
+        🛒 Kup w ZenMarket
       </a>
+      <a href="${deal.links.mercari_direct}" target="_blank" rel="noopener" class="btn-action secondary">
+        🇯🇵 Mercari Direct
+      </a>
+      ${allegroBtn}
+      ${olxBtn}
       <button class="btn-action accent-blue btn-calc-trigger" data-deal-id="${deal.id}" data-type="mercari">
         🧮 Sprawdź Koszty Landed
       </button>
@@ -459,12 +473,36 @@ function renderDealCard(deal, isAuction) {
   if (deal.photo_inspection && deal.photo_inspection.inspected) {
     const pi = deal.photo_inspection;
     const gems = pi.top_gems || [];
-    const gemsHtml = gems.map(g => `
-      <div class="gem-badge-row">
-        <span class="gem-title">💎 ${g.title} (${g.platform})</span>
-        <span class="gem-val">~${g.est_pl_value} zł</span>
-      </div>
-    `).join('');
+    const gemsHtml = gems.map(g => {
+      const barrierBadge = g.language_barrier === 'high' 
+        ? '<span class="pill-badge" style="background:rgba(239,68,68,0.2); color:#fca5a5; font-size:0.62rem;" title="100% JP Tekst">⚠️ Tekst JP</span>'
+        : (g.language_barrier === 'medium' 
+            ? '<span class="pill-badge" style="background:rgba(245,158,11,0.2); color:#fcd34d; font-size:0.62rem;">🇯🇵 Dialogi JP</span>'
+            : '<span class="pill-badge" style="background:rgba(16,185,129,0.2); color:#6ee7b7; font-size:0.62rem;">🌐 Brak Bariery</span>');
+      
+      const alUrl = g.allegro_search_url || `https://allegro.pl/listing?string=${encodeURIComponent(g.title)}+Japonia`;
+      const olxUrl = g.olx_search_url || `https://www.olx.pl/oferty/q-${encodeURIComponent(g.title.toLowerCase().replace(/ /g, '-'))}-japonia/`;
+
+      return `
+        <div class="gem-badge-row">
+          <div class="gem-info-col">
+            <span class="gem-title">💎 ${g.title} (${g.platform})</span>
+            <div style="display:flex; gap:4px; align-items:center; margin-top:2px;">
+              ${barrierBadge}
+              <span style="font-size:0.62rem; color:#94a3b8;">${g.rarity || ''}</span>
+            </div>
+            ${g.language_note ? `<small class="gem-note">${g.language_note}</small>` : ''}
+          </div>
+          <div class="gem-price-col">
+            <span class="gem-val">~${g.est_pl_value} zł</span>
+            <div class="gem-links">
+              <a href="${alUrl}" target="_blank" rel="noopener" class="gem-link-badge">Allegro ↗</a>
+              <a href="${olxUrl}" target="_blank" rel="noopener" class="gem-link-badge">OLX ↗</a>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join('');
 
     const breakEvenHtml = pi.break_even_gem
       ? `<div class="inspection-breakeven">💡 ${pi.break_even_gem}</div>`
@@ -482,7 +520,7 @@ function renderDealCard(deal, isAuction) {
         <div class="inspection-details">
           <div class="inspection-battery">${pi.battery_notes || '🟢 0% Li-Ion'}</div>
           ${breakEvenHtml}
-          ${gemsHtml ? `<div class="inspection-gems-list"><strong>Wykryte Skarby w Kartonie:</strong>${gemsHtml}</div>` : ''}
+          ${gemsHtml ? `<div class="inspection-gems-list"><strong>Wykryte Skarby w Kartonie (Rygorystyczna Wycena NTSC-J):</strong>${gemsHtml}</div>` : ''}
         </div>
       </div>
     `;
@@ -490,6 +528,7 @@ function renderDealCard(deal, isAuction) {
 
   const allegroPrice = deal.allegro_archive_pln ? deal.allegro_archive_pln.toFixed(0) : Math.round(deal.est_pl_value * 1.08);
   const olxPrice = deal.olx_haggled_pln ? deal.olx_haggled_pln.toFixed(0) : Math.round(deal.est_pl_value * 0.90);
+  const isJapaneseGame = (deal.category_id && (deal.category_id.includes('game') || deal.category_id.includes('danshari') || deal.category_id.includes('retro_games'))) || Boolean(deal.photo_inspection);
 
   return `
     <article class="deal-card" id="card-${deal.id}">
@@ -512,6 +551,7 @@ function renderDealCard(deal, isAuction) {
       <div class="card-main">
         <h4 class="card-title">${deal.model}</h4>
         ${deal.color ? `<div class="card-color">${deal.color}</div>` : ''}
+        ${isJapaneseGame ? `<div class="ntsc-j-badge">🇯🇵 <strong>Rygorystyczna Wycena NTSC-J:</strong> Wycena uwzględnia barierę językową (gry w kanji w PL są o 50-70% tańsze niż wersje europejskie).</div>` : ''}
         ${deal.custom_note ? `<p class="card-note">${deal.custom_note}</p>` : ''}
       </div>
 
@@ -537,22 +577,22 @@ function renderDealCard(deal, isAuction) {
 
       <div class="profit-matrix">
         <div class="matrix-item">
-          <span class="matrix-label">Cena zakupu:</span>
+          <span class="matrix-label">1. Zakup w Japonii:</span>
           <span class="matrix-val">${(deal.price_jpy || 0).toLocaleString()} JPY</span>
           <span class="matrix-sub">~${(deal.price_pln_raw || 0).toFixed(0)} zł</span>
         </div>
         <div class="matrix-item">
-          <span class="matrix-label">Koszt Landed (z VAT):</span>
+          <span class="matrix-label">2. Koszt Landed (z VAT):</span>
           <span class="matrix-val">~${(deal.landed_cost_pln || 0).toFixed(0)} zł</span>
           <span class="matrix-sub">cło, prowizje & fracht</span>
         </div>
         <div class="matrix-item">
-          <span class="matrix-label">Wycena Bazowa PL:</span>
+          <span class="matrix-label">3. Sprzedaż w PL:</span>
           <span class="matrix-val">${(deal.est_pl_value || 0).toFixed(0)} zł</span>
-          <span class="matrix-sub">Mediana transakcyjna</span>
+          <span class="matrix-sub">Rygorystyczna wycena</span>
         </div>
         <div class="matrix-item">
-          <span class="matrix-label">Zwrot z Inwestycji:</span>
+          <span class="matrix-label">4. Zwrot z Inwestycji:</span>
           <span class="matrix-val highlight-green">+${(deal.roi_percent || 0).toFixed(1)}%</span>
           <span class="matrix-sub text-green">Czysty zysk po kosztach</span>
         </div>

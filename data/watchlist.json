@@ -525,84 +525,84 @@
           "model": "Zestaw Gier Nintendo DS w Pudełkach (15 sztuk)",
           "color": "Mix 15 Gier DS CIB",
           "target_price_jpy": 2500,
-          "est_pl_value": 240.0,
+          "est_pl_value": 140.0,
           "note": "Pakiet 15 gier Nintendo DS w pudełkach (Pokémon, Mario, Layton), bez baterii (0% Li-Ion)",
           "battery_type": "none",
-          "allegro_archive_pln": 260.0,
-          "olx_haggled_pln": 210.0,
-          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
+          "allegro_archive_pln": 160.0,
+          "olx_haggled_pln": 120.0,
+          "valuation_basis": "Surowa wycena NTSC-J: hurtowa masówka gier japońskich (5-10 zł / szt.)"
         },
         {
           "id": "m68019720937",
           "model": "Pakiet Gier Game Boy Advance & GBC (12 kartridży)",
           "color": "Mix 12 Gier GBA / GBC",
           "target_price_jpy": 3200,
-          "est_pl_value": 280.0,
+          "est_pl_value": 160.0,
           "note": "Klasyczne kartridże Nintendo GBA/GBC z grami RPG i platformówkami, ogromna marża na sztuce",
           "battery_type": "none",
-          "allegro_archive_pln": 310.0,
-          "olx_haggled_pln": 250.0,
-          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
+          "allegro_archive_pln": 180.0,
+          "olx_haggled_pln": 140.0,
+          "valuation_basis": "Surowa wycena NTSC-J: hurtowa masówka gier japońskich (5-10 zł / szt.)"
         },
         {
           "id": "m95924617150",
           "model": "Hurtowy Pakiet Gier PlayStation 2 (25 sztuk CIB)",
           "color": "Mix 25 Gier PS2 Box",
           "target_price_jpy": 2800,
-          "est_pl_value": 250.0,
+          "est_pl_value": 150.0,
           "note": "Zestaw 25 gier PS2 w pudełkach z okładkami (Final Fantasy, Tekken, Gran Turismo), stan bdb",
           "battery_type": "none",
-          "allegro_archive_pln": 280.0,
-          "olx_haggled_pln": 220.0,
-          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
+          "allegro_archive_pln": 170.0,
+          "olx_haggled_pln": 130.0,
+          "valuation_basis": "Surowa wycena NTSC-J: hurtowa masówka gier japońskich (5-10 zł / szt.)"
         },
         {
           "id": "m70453155857",
           "model": "Zestaw Gier Super Famicom SFC (10 kartridży)",
           "color": "Mix 10 Gier SFC Nintendo",
           "target_price_jpy": 2200,
-          "est_pl_value": 220.0,
+          "est_pl_value": 130.0,
           "note": "Klasyczne kartridże 16-bit Super Famicom (Super Mario World, Chrono Trigger, DKC), 0% Li-Ion",
           "battery_type": "none",
-          "allegro_archive_pln": 240.0,
-          "olx_haggled_pln": 190.0,
-          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
+          "allegro_archive_pln": 150.0,
+          "olx_haggled_pln": 110.0,
+          "valuation_basis": "Surowa wycena NTSC-J: hurtowa masówka gier japońskich (5-10 zł / szt.)"
         },
         {
           "id": "m20093535366",
           "model": "Zestaw Gier PlayStation 1 (18 gier CIB)",
           "color": "18 Gier PS1 Box",
           "target_price_jpy": 3000,
-          "est_pl_value": 260.0,
+          "est_pl_value": 150.0,
           "note": "18 gier PS1 w pudełkach, kultowe japońskie jRPG i zręcznościówki z likwidacji kolekcji",
           "battery_type": "none",
-          "allegro_archive_pln": 290.0,
-          "olx_haggled_pln": 230.0,
-          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
+          "allegro_archive_pln": 170.0,
+          "olx_haggled_pln": 130.0,
+          "valuation_basis": "Surowa wycena NTSC-J: hurtowa masówka gier japońskich (5-10 zł / szt.)"
         },
         {
           "id": "m42611850999",
           "model": "Wieloplatformowy Hurtowy Mix Gier Retro (30 sztuk)",
           "color": "Hurtowy Mix 30 Gier",
           "target_price_jpy": 3500,
-          "est_pl_value": 320.0,
+          "est_pl_value": 180.0,
           "note": "Mix gier retro (Nintendo DS, SFC, PS1, PS2) z japońskiego serwisu aukcyjnego, potężny zysk",
           "battery_type": "none",
-          "allegro_archive_pln": 350.0,
-          "olx_haggled_pln": 280.0,
-          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
+          "allegro_archive_pln": 210.0,
+          "olx_haggled_pln": 160.0,
+          "valuation_basis": "Surowa wycena NTSC-J: hurtowa masówka gier japońskich (5-10 zł / szt.)"
         },
         {
           "id": "m31232552895",
           "model": "Pakiet Gier PSP UMD w Pudełkach (15 sztuk CIB)",
           "color": "15 Gier PSP Box + Instrukcje",
           "target_price_jpy": 2000,
-          "est_pl_value": 180.0,
+          "est_pl_value": 120.0,
           "note": "Gry retro PSP UMD w pełnych pudełkach z instrukcjami, poszukiwane tytuły akcji i wyścigi",
           "battery_type": "none",
-          "allegro_archive_pln": 200.0,
-          "olx_haggled_pln": 160.0,
-          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
+          "allegro_archive_pln": 140.0,
+          "olx_haggled_pln": 100.0,
+          "valuation_basis": "Surowa wycena NTSC-J: hurtowa masówka gier japońskich (5-10 zł / szt.)"
         }
       ]
     },
@@ -668,6 +668,32 @@
       "battery_type": "none",
       "target_pln_resale": 500,
       "tracked_items": [
+        {
+          "id": "mju_2_prime_black",
+          "model": "Olympus [mju:]-II (μ-II 35mm f/2.8 Prime - Czarny Weatherproof)",
+          "color": "Czarny Weatherproof (Oryginał 35mm f/2.8)",
+          "target_price_jpy": 3800,
+          "est_pl_value": 850.0,
+          "allegro_archive_pln": 920.0,
+          "olx_haggled_pln": 780.0,
+          "note": "Święty Graal analogowych kompaktów 35mm (obiektyw 35mm f/2.8) – niesprawdzany z braku baterii CR123A (⚡ okazja poniżej 100 zł!). W Polsce sprawny wart 850-1000 zł!",
+          "battery_type": "none",
+          "image_url": "./assets/images/camera_point_shoot.svg",
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
+        },
+        {
+          "id": "pentax_pc35af_manual",
+          "model": "Pentax PC35AF (Oryginalny Naciąg Ręczny Thumbwheel - Bez silnika M)",
+          "color": "Czarny z Czerwonym Paskiem / Clamshell",
+          "target_price_jpy": 3200,
+          "est_pl_value": 420.0,
+          "allegro_archive_pln": 460.0,
+          "olx_haggled_pln": 380.0,
+          "note": "Kultowy streetowy kompakt Pentax 35mm f/2.8 z manualnym naciągiem kciukowym (wersja bez awaryjnego silnika PC35AF-M!). W Polsce bardzo poszukiwany za 400-500 zł.",
+          "battery_type": "none",
+          "image_url": "./assets/images/camera_point_shoot.svg",
+          "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
+        },
         {
           "id": "m67087305139",
           "model": "Nikon TW2D Dual Lens (35mm / 70mm Switchable)",
@@ -1113,48 +1139,52 @@
           "model": "【断捨離】Karton 50 Gier Nintendo DS & 3DS (Likwidacja Pokoju / Wyprzedaż)",
           "color": "Mix 50 Gier",
           "target_price_jpy": 4800,
-          "est_pl_value": 680.0,
-          "allegro_archive_pln": 750.0,
-          "olx_haggled_pln": 620.0,
-          "note": "Aukcja Danshari – zidentyfikowano Pokémon HeartGold, Platinum oraz Zelda Phantom Hourglass!",
+          "est_pl_value": 380.0,
+          "allegro_archive_pln": 420.0,
+          "olx_haggled_pln": 340.0,
+          "note": "Karton 50 gier DS/3DS po surowej wycenie NTSC-J – odnaleziono Pokémon HeartGold i Platinum (wartość NTSC-J w PL: ~95 zł i ~75 zł)",
           "battery_type": "none",
-          "image_url": "./assets/images/mystery_lot.svg"
+          "image_url": "./assets/images/mystery_lot.svg",
+          "valuation_basis": "Surowa wycena NTSC-J: uwzględnia barierę językową i polskie realia rynkowe gier japońskich"
         },
         {
           "id": "danshari_gba_gb_40",
           "model": "【実家整理】Karton 40 Kartridży Game Boy & GBA (Strych / Pamiątki z Dzieciństwa)",
           "color": "Mix 40 Kartridży",
           "target_price_jpy": 4500,
-          "est_pl_value": 620.0,
-          "allegro_archive_pln": 690.0,
-          "olx_haggled_pln": 560.0,
-          "note": "Pamiątki z dzieciństwa – widoczny szmaragdowy Pokémon Emerald oraz Zelda Minish Cap!",
+          "est_pl_value": 390.0,
+          "allegro_archive_pln": 440.0,
+          "olx_haggled_pln": 350.0,
+          "note": "Karton 40 kartridży GBA/GB – odnaleziono Pokémon Emerald i Metroid Fusion (wycena NTSC-J w PL: ~95 zł i ~80 zł)",
           "battery_type": "none",
-          "image_url": "./assets/images/mystery_lot.svg"
+          "image_url": "./assets/images/mystery_lot.svg",
+          "valuation_basis": "Surowa wycena NTSC-J: uwzględnia barierę językową i polskie realia rynkowe gier japońskich"
         },
         {
           "id": "danshari_psp_umd_60",
           "model": "【引退品】Zestaw 60 Gier Sony PSP UMD (Kolekcja Gracza / まとめ売り)",
           "color": "Mix 60 Gier UMD",
           "target_price_jpy": 3900,
-          "est_pl_value": 490.0,
-          "allegro_archive_pln": 550.0,
-          "olx_haggled_pln": 440.0,
-          "note": "Kolekcja gracza PSP – rozpoznano Persona 3 Portable, Crisis Core FF7 i Monster Hunter!",
+          "est_pl_value": 320.0,
+          "allegro_archive_pln": 360.0,
+          "olx_haggled_pln": 280.0,
+          "note": "Zestaw 60 gier PSP UMD – Persona 3 Portable i Crisis Core w japońskich wydaniach (wycena NTSC-J: ~65 zł i ~30 zł)",
           "battery_type": "none",
-          "image_url": "./assets/images/mystery_lot.svg"
+          "image_url": "./assets/images/mystery_lot.svg",
+          "valuation_basis": "Surowa wycena NTSC-J: uwzględnia barierę językową i polskie realia rynkowe gier japońskich"
         },
         {
           "id": "danshari_pokemon_15",
           "model": "【断捨離】Zestaw 15 Kartridży Pokémon (DS / GBA / GBC - Wyprzedaż Prywatna)",
           "color": "Lot 15 Kartridży",
           "target_price_jpy": 6800,
-          "est_pl_value": 580.0,
-          "allegro_archive_pln": 650.0,
-          "olx_haggled_pln": 520.0,
-          "note": "Zestaw 15 gier Pokémon bez pudełek – rozpoznano SoulSilver, FireRed, Ruby, Diamond!",
+          "est_pl_value": 490.0,
+          "allegro_archive_pln": 550.0,
+          "olx_haggled_pln": 440.0,
+          "note": "Pakiet 15 kartridży Pokémon – autentyczne japońskie nośniki do transferu stworków (SoulSilver, FireRed, Ruby)",
           "battery_type": "none",
-          "image_url": "./assets/images/mystery_lot.svg"
+          "image_url": "./assets/images/mystery_lot.svg",
+          "valuation_basis": "Surowa wycena NTSC-J: uwzględnia barierę językową i polskie realia rynkowe gier japońskich"
         }
       ]
     }

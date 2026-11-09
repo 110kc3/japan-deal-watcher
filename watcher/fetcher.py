@@ -78,6 +78,17 @@ def classify_condition(text, item_condition="", custom_note=""):
                 "matched_flag": trap
             }
 
+    # Exclusion check: Pentax PC35AF-M (user explicitly wants PC35AF manual thumbwheel, NOT motorized PC35AF-M)
+    if any(unwanted in cleaned for unwanted in ["pc35af-m", "pc35afm", "pc35af m"]):
+        return {
+            "is_broken": True,
+            "is_untested": False,
+            "is_working": False,
+            "condition_type": "broken",
+            "condition_badge": "❌ Wykluczone: Model PC35AF-M (wymagany manualny PC35AF)",
+            "matched_flag": "pc35af-m"
+        }
+
     # If item is explicitly stated as untested because seller lacks cables/charger, prioritize untested
     is_explicit_untested = any(w in cleaned for w in [
         "動作未確認", "未確認", "充電器がない為動作未確認", "手元に電源コードやケーブル類がないため", "コードがないため", "確認していません"
@@ -150,6 +161,7 @@ def classify_condition(text, item_condition="", custom_note=""):
 class DealFetcher:
     def __init__(self, rate=DEFAULT_JPY_PLN_RATE, rate_eur=DEFAULT_EUR_PLN_RATE, enable_mercapi=True):
         self.rate = float(rate)
+        self.rate_jpy = float(rate)
         self.rate_eur = float(rate_eur)
         self.headers = {"User-Agent": USER_AGENT}
         self.enable_mercapi = enable_mercapi and _HAS_MERCAPI

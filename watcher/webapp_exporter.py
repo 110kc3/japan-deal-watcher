@@ -172,7 +172,9 @@ class WebappExporter:
                 "zenmarket_sniper": d.get("zenmarket_url", f"https://zenmarket.jp/pl/yahoo.aspx?q={encoded_q}"),
                 "buyee_url": d.get("buyee_url", f"https://buyee.jp/item/search/query/{encoded_q}?translationType=1"),
                 "yahoo_closed_archive": f"https://auctions.yahoo.co.jp/closedsearch/closedsearch?p={encoded_q}",
-                "yahoo_direct": d.get("source_url", f"https://auctions.yahoo.co.jp/search/search?p={encoded_q}")
+                "yahoo_direct": d.get("source_url", f"https://auctions.yahoo.co.jp/search/search?p={encoded_q}"),
+                "allegro_search": f"https://allegro.pl/listing?string={urllib.parse.quote(d.get('model', '').split('(')[0].replace('【断捨離】', '').replace('【実家整理】', '').replace('【引退品】', '').replace('【倉庫整理】', '').replace('【処分】', '').replace('【大処分】', '').replace('【福袋】', '').strip()[:40])}",
+                "olx_search": f"https://www.olx.pl/oferty/q-{urllib.parse.quote(d.get('model', '').split('(')[0].replace('【断捨離】', '').replace('【実家整理】', '').replace('【引退品】', '').replace('【倉庫整理】', '').replace('【処分】', '').replace('【大処分】', '').replace('【福袋】', '').strip()[:40].lower().replace(' ', '-'))}/"
             }
         }
 
@@ -197,7 +199,7 @@ class WebappExporter:
             return "./assets/images/ds_lite.svg"
         elif "gameboy" in cid or "gba" in mod or "gbc" in mod or "micro" in mod:
             return "./assets/images/gba_sp.svg"
-        elif "camera" in cid or "film" in cid or "aparat" in mod or "autoboy" in mod or "espio" in mod or "riva" in mod or "trip" in mod:
+        elif "camera" in cid or "film" in cid or "aparat" in mod or "autoboy" in mod or "espio" in mod or "riva" in mod or "trip" in mod or "mju" in mod or "pc35af" in mod:
             return "./assets/images/camera_point_shoot.svg"
         elif "lens" in cid or "obiektyw" in mod or "takumar" in mod or "pentax-m" in mod or "zuiko" in mod or "chinon" in mod:
             return "./assets/images/analog_lens.svg"
@@ -253,7 +255,9 @@ class WebappExporter:
             ),
             "links": {
                 "zenmarket_buy": d.get("zenmarket_url", f"https://zenmarket.jp/pl/mercariproduct.aspx?itemCode={d.get('id')}"),
-                "mercari_direct": d.get("mercari_url", f"https://jp.mercari.com/item/{d.get('id')}")
+                "mercari_direct": d.get("mercari_url", f"https://jp.mercari.com/item/{d.get('id')}"),
+                "allegro_search": f"https://allegro.pl/listing?string={urllib.parse.quote(str(d.get('model', d.get('title', ''))).split('(')[0].strip()[:40])}",
+                "olx_search": f"https://www.olx.pl/oferty/q-{urllib.parse.quote(str(d.get('model', d.get('title', ''))).split('(')[0].strip()[:40].lower().replace(' ', '-'))}/"
             }
         }
 

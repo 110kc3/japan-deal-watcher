@@ -99,31 +99,53 @@ class MysteryLotsGenerator:
             "3. **Likwidacje mieszkań i przeprowadzek (`引越し処分` / `遺品整理`):** Priorytetem jest natychmiastowe opróżnienie lokalu przed zdaniem kluczy landlordowi.\n\n"
             "> [!IMPORTANT]\n"
             "> **Rachunek Ekonomiczny Ukrytego Skarbu (Break-Even Rule):**\n"
-            "> W typowym kartonie 40–60 gier (kupionym za 3,500 – 5,000 JPY, czyli ~180–240 zł z opłatami i cłem) **wystarczy obecność 1 lub 2 kluczowych tytułów** "
-            ">(np. *Pokémon*, *Zelda*, *Castlevania*, *Chrono Trigger*), aby w 100% odzyskać wyłożony kapitał! Cała reszta kartonu (35–50 sprawnych gier) stanowi **czysty zysk netto (ROI często przekraczające 150%–250%)**."
+            "> W typowym kartonie 40–60 gier (kupionym za 3,500 – 5,000 JPY, czyli ~180–220 zł z opłatami i cłem) **wystarczy obecność 1 lub 2 kluczowych tytułów** "
+            ">(np. *Pokémon HeartGold* ~95 zł + *Platinum* ~75 zł), aby w 70–100% odzyskać wyłożony kapitał! Cała reszta kartonu (35–50 sprawnych gier) stanowi **czysty zysk netto**."
         )
         md.append("")
         md.append("---")
         md.append("")
 
-        # Section 2: Visual Inspection Cheatsheet
+        # Section 2: NTSC-J Language Reality & Strict Polish Resale Penalty
+        md.append("## ⚠️ Rygorystyczny Filtr Bariery Językowej NTSC-J na Rynku Polskim")
+        md.append("")
+        md.append(
+            "> [!WARNING]\n"
+            "> **Gry w 100% po japońsku (NTSC-J) NIE sprzedają się w cenach wydań europejskich (PAL)!**\n"
+            "> 99% polskich graczy nie zna kanji ani katakany. Wyceny w naszym algorytmie zostały **surowo obcięte o 50% do 75%** względem cen PAL:\n"
+            "> 1. **Gry fabularne / RPG z dużą ilością tekstu (np. Chrono Trigger, Dragon Quest, Persona, Ace Attorney):**\n"
+            ">    - Gracz w Polsce w to nie zagra. Kupują je wyłącznie skrajni kolekcjonerzy na półkę lub modderzy.\n"
+            ">    - *Cena w PL:* Kartridż loose: **35–70 zł** (podczas gdy PAL kosztuje 200–350 zł!). CIB: **70–140 zł**.\n"
+            "> 2. **Gry Pokémon (NTSC-J):**\n"
+            ">    - Mają specjalny status: gracze kupują je do transferu Pokémonów do Pokémon HOME / Banku lub jako pewny oryginał (PAL na OLX to w 90% chińskie podróbki).\n"
+            ">    - *Cena w PL:* Kartridż loose: **75–95 zł** (PAL loose: 300–450 zł!). Boxed CIB: **170–240 zł** (PAL CIB: 500–800 zł).\n"
+            "> 3. **Gry platformowe, bijatyki i arcade (Mario, Mario Kart, Smash, Metroid):**\n"
+            ">    - Niski próg wejścia, brak bariery językowej w samej rozgrywce. Sprzedają się szybko za **30–60 zł**.\n"
+            "> 4. **Japońska masówka (Sports, Pachinko, Mahjong, Visual Novels, Quizy):**\n"
+            ">    - Wyceniana surowo na **5–8 zł za sztukę** w pakietach hurtowych."
+        )
+        md.append("")
+        md.append("---")
+        md.append("")
+
+        # Section 3: Visual Inspection Cheatsheet
         md.append("## 🔍 Przewodnik Inspekcji Wizualnej Zdjęć (Jak Rozpoznawać Skarby)")
         md.append("")
         md.append(
             "Gdy oferta ma tytuł w stylu *„Stare gry różne z szafy まとめ”*, jedyną drogą weryfikacji jest **dokładna analiza zdjęć**:\n\n"
-            "| Platforma | Cechy Wizualne Grzbietu / Kartridża | Jak Wypatrzyć Skarb na Zdjęciu? | Przykładowy Skarb (Wycena w PL) |\n"
+            "| Platforma | Cechy Wizualne Grzbietu / Kartridża | Jak Wypatrzyć Skarb na Zdjęciu? | Surowa Wycena NTSC-J w PL |\n"
             "|---|---|---|---|\n"
-            "| **Nintendo DS** | Grube, czarne pudełka (grubsze niż europejskie!), białe grzbiety z czarną typografią kanji | Szukaj charakterystycznych logotypów na dole grzbietu: pomarańczowo-żółty napis Pocket Monsters (`ポケットモンスター`) lub złote logo Zelda (`ゼルダ`) | **Pokémon HeartGold / SoulSilver** (220–260 zł loose, 450–550 zł CIB) |\n"
-            "| **Game Boy Advance** | Ciemnoszary plastik kartridża, wgłębienie na górze z napisem `Nintendo GAME BOY ADVANCE` | Rarytasy mają unikalne kolory obudów: **przezroczysty szmaragd** (*Pokémon Emerald*), **ognisty czerwony** (*FireRed*), **szafirowy błękit** (*Sapphire*) | **Pokémon Emerald GBA** (210–260 zł) · **Zelda Minish Cap** (180–220 zł) |\n"
-            "| **Sony PSP** | Podłużne białe pudełka z logo `PSP PlayStation Portable` u góry grzbietu | Szukaj charakterystycznych ilustracji anime na boku (Atlus: niebieski grzbiet *Persona 3 Portable*, Square Enix: srebrno-czarny *Crisis Core FF7*) | **Persona 3 Portable** (160–210 zł) · **Silent Hill Origins** (140–190 zł) |\n"
-            "| **Nintendo 3DS** | Cieńsze, białe plastikowe pudełka z logo 3DS po prawej stronie | Szukaj złotych trójkątów Triforce (*Zelda Ocarina 3D*) lub logotypów *Monster Hunter 4G / XX* | **Fire Emblem Awakening** (130–180 zł) · **Zelda A Link Between Worlds** (120–160 zł) |\n"
-            "| **PS1 / PS2** | Podwójne grube jewel cases (PS1) lub czarne pudełka DVD (PS2) | Loga Squaresoft (czarne litery na białym tle: *Final Fantasy VII/VIII/IX*, *Chrono Cross*) lub Capcom (*Biohazard/Resident Evil*) | **Biohazard 2/3 PS1** (120–160 zł) · **Silent Hill 2 PS2** (110–150 zł) |"
+            "| **Nintendo DS** | Grube, czarne pudełka (grubsze niż europejskie!), białe grzbiety z czarną typografią kanji | Szukaj charakterystycznych logotypów na dole grzbietu: pomarańczowo-żółty napis Pocket Monsters (`ポケットモンスター`) lub złote logo Zelda (`ゼルダ`) | **Pokémon HeartGold / SoulSilver** (~95 zł loose, ~190 zł CIB) · **Chrono Trigger DS** (~60 zł) |\n"
+            "| **Game Boy Advance** | Ciemnoszary plastik kartridża, wgłębienie na górze z napisem `Nintendo GAME BOY ADVANCE` | Rarytasy mają unikalne kolory obudów: **przezroczysty szmaragd** (*Pokémon Emerald*), **ognisty czerwony** (*FireRed*), **szafirowy błękit** (*Sapphire*) | **Pokémon Emerald GBA** (~95 zł) · **Zelda Minish Cap** (~70 zł) · **Metroid Fusion** (~80 zł) |\n"
+            "| **Sony PSP** | Podłużne białe pudełka z logo `PSP PlayStation Portable` u góry grzbietu | Szukaj charakterystycznych ilustracji anime na boku (Atlus: niebieski grzbiet *Persona 3 Portable*, Square Enix: srebrno-czarny *Crisis Core FF7*) | **Persona 3 Portable** (~65 zł CIB) · **Crisis Core FF7** (~30 zł CIB) |\n"
+            "| **Nintendo 3DS** | Cieńsze, białe plastikowe pudełka z logo 3DS po prawej stronie | Szukaj złotych trójkątów Triforce (*Zelda Ocarina 3D*) lub logotypów *Monster Hunter 4G / XX* | **Zelda Ocarina 3D** (~60 zł) · **Monster Hunter 4G** (~35 zł) |\n"
+            "| **PS1 / PS2** | Podwójne grube jewel cases (PS1) lub czarne pudełka DVD (PS2) | Loga Squaresoft (czarne litery na białym tle: *Final Fantasy VII/VIII/IX*, *Chrono Cross*) lub Capcom (*Biohazard/Resident Evil*) | **Biohazard 2/3 PS1** (~60 zł) · **Final Fantasy VII PS1** (~55 zł) |"
         )
         md.append("")
         md.append("---")
         md.append("")
 
-        # Section 3: Japońskie Słowa Klucze (Złoty Słownik)
+        # Section 4: Japońskie Słowa Klucze (Złoty Słownik)
         md.append("## 📚 Złoty Słownik Japońskich Ofert Typu Różności")
         md.append("")
         md.append("| Japońskie Hasło | Rōmaji | Polski Odpowiednik | Dlaczego Warto Szukać? |\n|---|---|---|---|")
@@ -194,11 +216,29 @@ class MysteryLotsGenerator:
             yahoo_closed = f"https://auctions.yahoo.co.jp/closedsearch/closedsearch?p={encoded_q}"
             aucfan_url = f"https://aucfan.com/search1/q-{encoded_q}/s-mix/"
 
+            # Polish comparison searches
+            clean_search_kw = "gry " + d.get("category_id", "").replace("_", " ")
+            if "ds" in d.get("model", "").lower():
+                clean_search_kw = "gry nintendo ds"
+            elif "gba" in d.get("model", "").lower():
+                clean_search_kw = "gry gba game boy"
+            elif "psp" in d.get("model", "").lower():
+                clean_search_kw = "gry psp umd"
+            elif "ps1" in d.get("model", "").lower() or "ps2" in d.get("model", "").lower():
+                clean_search_kw = "gry playstation retro"
+            elif "pokemon" in d.get("model", "").lower():
+                clean_search_kw = "pokemon japonia gry"
+
+            encoded_pl = urllib.parse.quote(clean_search_kw)
+            allegro_search = f"https://allegro.pl/kategoria/gry?string={encoded_pl}"
+            olx_search = f"https://www.olx.pl/oferty/q-{clean_search_kw.replace(' ', '-')}/"
+
             links_cell = (
                 f"[🎯 Snajper ZenMarket]({zen_sniper})<br>"
                 f"[⏰ Kończące się]({zen_ending_soon}) · [🪙 Od 1 JPY]({zen_lowest_bid})<br>"
                 f"[📊 Archiwum Yahoo]({yahoo_closed}) · [Aucfan]({aucfan_url})<br>"
-                f"[🛒 Buyee]({buyee_url})"
+                f"[🛒 Buyee]({buyee_url})<br>"
+                f"<small>🇵🇱 [Allegro Sprzedane]({allegro_search}) · [OLX]({olx_search})</small>"
             )
 
             md.append(

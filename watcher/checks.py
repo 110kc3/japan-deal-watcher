@@ -99,7 +99,7 @@ def is_camera_item(item: Dict[str, Any]) -> bool:
         return True
     if any(k in cat_name for k in ["aparat", "camera", "małpka", "point & shoot"]):
         return True
-    if any(k in model for k in ["autoboy", "mju", "espio", "big mini", "c35", "trip 35", "riva zoom", "cardia"]):
+    if any(k in model for k in ["autoboy", "mju", "espio", "big mini", "c35", "pc35af", "trip 35", "riva zoom", "cardia"]):
         return True
     if "aparat" in note:
         return True
@@ -231,6 +231,10 @@ def check_defects(text: str, custom_note: str = "", item_condition: str = "") ->
     for trap in TRAP_KEYWORDS:
         if trap in cleaned:
             return False, f"Wykryto pułapkę oferty (niepełny towar / tylko pudełko): '{trap}'"
+
+    # Exclusion check: Pentax PC35AF-M (user explicitly requires manual winder PC35AF without motorized M)
+    if any(unwanted in cleaned for unwanted in ["pc35af-m", "pc35afm", "pc35af m"]):
+        return False, "Wykluczono wersję PC35AF-M (silnik elektryczny) – preferowany model oryginalny PC35AF z ręcznym naciągiem"
 
     return True, "Brak uszkodzeń i defektów"
 

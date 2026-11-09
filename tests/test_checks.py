@@ -243,6 +243,23 @@ class TestChecks(unittest.TestCase):
         ok, errs = check_markdown_dashboards(BASE_DIR)
         self.assertTrue(ok, f"Błędy dashboardów: {errs}")
 
+    def test_pentax_pc35af_exclusion_and_mju2(self):
+        # 1. Manual Pentax PC35AF passes
+        ok_manual, _ = check_defects("Pentax PC35AF 35mm f/2.8 czysty naciąg ręczny")
+        self.assertTrue(ok_manual)
+
+        # 2. Motorized Pentax PC35AF-M is strictly excluded ("ale bez pc35afm")
+        ok_motor, msg_motor = check_defects("Pentax PC35AF-M z silnikiem elektrycznym")
+        self.assertFalse(ok_motor)
+        self.assertIn("PC35AF-M", msg_motor)
+
+        ok_motor2, _ = check_defects("PENTAX PC35AFM film camera")
+        self.assertFalse(ok_motor2)
+
+        # 3. Olympus mju II is recognized as camera
+        mju_deal = {"category_id": "film_cameras_point_shoot", "model": "Olympus [mju:]-II 35mm f/2.8"}
+        self.assertTrue(is_camera_item(mju_deal))
+
     def test_run_full_system_audit(self):
         audit = run_full_system_audit()
         self.assertTrue(audit["success"])
