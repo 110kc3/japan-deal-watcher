@@ -3,7 +3,7 @@
 > **Katalog Alternatywnych Ofert z Yahoo! Japan Auctions (ヤフオク!), Surugaya (駿河屋) i Hard-Off Net Mall**  
 > *Dedykowane źródło licytacji z niskim progiem wejścia, hurtowych lotów gier retro oraz rzadkich wydań konsol i aparatów analogowych.*
 
-![Platforms](https://img.shields.io/badge/Platforms-Yahoo!%20Auctions%20%7C%20Surugaya%20%7C%20Hard--Off-orange) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-08%2023:57%20UTC-blue) ![Exchange Rate](https://img.shields.io/badge/NBP%20Live-100%20JPY%20%E2%89%88%202.48%20PLN-success) ![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-59%20Days%20Left-orange) ![Deal Checks](https://img.shields.io/badge/Deal%20Checks-10%20Rules%20PASS-brightgreen) ![Camera Cap](https://img.shields.io/badge/Camera%20Cap-Max%20100%20PLN-orange) ![Lens Cap](https://img.shields.io/badge/Lens%20Cap-Max%20100%20PLN-orange) ![Sniper Bidding](https://img.shields.io/badge/ZenMarket-Automated%20Sniper-brightgreen)
+![Platforms](https://img.shields.io/badge/Platforms-Yahoo!%20Auctions%20%7C%20Surugaya%20%7C%20Hard--Off-orange) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-09%2000:57%20UTC-blue) ![Exchange Rate](https://img.shields.io/badge/NBP%20Live-100%20JPY%20%E2%89%88%202.48%20PLN-success) ![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-58%20Days%20Left-orange) ![Deal Checks](https://img.shields.io/badge/Deal%20Checks-10%20Rules%20PASS-brightgreen) ![Camera Cap](https://img.shields.io/badge/Camera%20Cap-Max%20100%20PLN-orange) ![Lens Cap](https://img.shields.io/badge/Lens%20Cap-Max%20100%20PLN-orange) ![Sniper Bidding](https://img.shields.io/badge/ZenMarket-Automated%20Sniper-brightgreen)
 
 ⬅ **Nawigacja:** [Wróć do Głównego Dashboardu Mercari (README.md)](README.md) · [🎯 Poradnik Snajpera i Ceny Końcowe (AUCTION_SNIPING_GUIDE.md)](AUCTION_SNIPING_GUIDE.md) · [💰 Audyt Opłacalności (REAL_PROFITABILITY_AUDIT.md)](REAL_PROFITABILITY_AUDIT.md) · [📈 Historia Sprzedaży (MARKET_SALES_HISTORY.md)](MARKET_SALES_HISTORY.md)
 
@@ -43,13 +43,13 @@ Mercari Japan jest znakomite do natychmiastowych zakupów („Kup Teraz”), ale
 
 ## 📦 60-Day Warehouse Consolidation Timeline
 
-Wszystkie przedmioty wygrane na Yahoo! Auctions oraz kupione w Surugaya trafiają do wspólnego magazynu **ZenMarket w Osace**. Masz **59 dni darmowego przechowywania** na połączenie ich z ofertami z Mercari w 1 bezpieczną paczkę.
+Wszystkie przedmioty wygrane na Yahoo! Auctions oraz kupione w Surugaya trafiają do wspólnego magazynu **ZenMarket w Osace**. Masz **58 dni darmowego przechowywania** na połączenie ich z ofertami z Mercari w 1 bezpieczną paczkę.
 
 | Parametr | Wartość | Uwagi |
 |---|---|---|
 | **Start Konsolidacji** | `2026-11-07` | Początek bieżącego 60-dniowego cyklu |
 | **Termin Wysyłki (Deadline)** | **`2027-01-06`** | Przed tą datą należy zlecić zapakowanie kartonu |
-| **Pozostały Czas** | **`59 dni`** | 🟢 Safe (Ideal consolidation window) |
+| **Pozostały Czas** | **`58 dni`** | 🟢 Safe (Ideal consolidation window) |
 | **Limit Baterii IATA** | **Maks. 2 Li-Ion na paczkę** | Konsole stacjonarne, gry UMD, aparaty na baterie AA/CR123 = **0% Li-Ion (Bez limitu!)** |
 
 > [!TIP]
