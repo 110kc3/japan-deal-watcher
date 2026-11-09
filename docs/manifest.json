@@ -1,0 +1,61 @@
+{
+  "name": "AgyDeal – Japan Auction & Deal Radar",
+  "short_name": "AgyDeal",
+  "description": "Radar licytacji Yahoo! Japan Auctions i okazji Mercari z kalkulatorem zysku w PLN i limitem IATA",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#10b981",
+  "orientation": "portrait-primary",
+  "lang": "pl-PL",
+  "icons": [
+    {
+      "src": "./icons/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Radar Licytacji Yahoo",
+      "short_name": "Aukcje",
+      "description": "Przeglądaj najgorętsze licytacje na Yahoo Japan",
+      "url": "./index.html?tab=auctions",
+      "icons": [{ "src": "./icons/icon-192.svg", "sizes": "192x192" }]
+    },
+    {
+      "name": "Kalkulator Snajpera",
+      "short_name": "Kalkulator",
+      "description": "Przelicz opłacalność oferty w PLN",
+      "url": "./index.html?action=calc",
+      "icons": [{ "src": "./icons/icon-192.svg", "sizes": "192x192" }]
+    },
+    {
+      "name": "Paczka Konsolidacyjna",
+      "short_name": "Koszyk",
+      "description": "Sprawdź licznik baterii Li-Ion i zysk paczki",
+      "url": "./index.html?action=cart",
+      "icons": [{ "src": "./icons/icon-192.svg", "sizes": "192x192" }]
+    }
+  ],
+  "categories": ["shopping", "finance", "business"]
+}

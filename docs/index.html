@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>AgyDeal – Japan Deal & Auction Sniping Radar</title>
+  <meta name="description" content="Mobilny radar okazji i licytacji z Yahoo! Japan Auctions i Mercari z kalkulatorem zysku w PLN i limitem IATA.">
+  
+  <!-- PWA & Android Meta Tags -->
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#10b981">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="AgyDeal">
+  
+  <!-- Icons -->
+  <link rel="icon" type="image/svg+xml" href="./icons/icon-192.svg">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Header / App Bar -->
+  <header class="app-header">
+    <div class="header-content">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 192 192" width="28" height="28">
+            <circle cx="96" cy="96" r="68" fill="none" stroke="#10b981" stroke-width="6"/>
+            <circle cx="96" cy="96" r="32" fill="none" stroke="#06b6d4" stroke-width="6"/>
+            <circle cx="96" cy="96" r="14" fill="#10b981"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">AgyDeal 🇯🇵</span>
+          <span class="brand-sub">Japan Sniping Radar</span>
+        </div>
+      </div>
+      
+      <div class="header-actions">
+        <button id="installPwaBtn" class="btn-install" style="display: none;" title="Zainstaluj na Androidzie">
+          📱 <span>Zainstaluj</span>
+        </button>
+        <button id="openCartBtn" class="btn-cart-toggle" title="Koszyk konsolidacyjny">
+          🛒 <span id="cartBadgeCount" class="badge-count">0</span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Live Currency & Warehouse Ticker -->
+    <div class="live-ticker">
+      <div class="ticker-chip" title="Kurs NBP JPY/PLN">
+        <span class="chip-label">💱 100 JPY:</span>
+        <strong id="tickerJpyRate">2.48 zł</strong>
+      </div>
+      <div class="ticker-chip" title="Darmowe magazynowanie w Osace">
+        <span class="chip-label">⏳ Magazyn:</span>
+        <strong id="tickerStorageDays" class="text-amber">58 dni</strong>
+      </div>
+      <div class="ticker-chip" title="Średnia zrealizowana stopa zwrotu">
+        <span class="chip-label">📈 ROI:</span>
+        <strong class="text-green">+82.8%</strong>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation View Tabs -->
+  <nav class="view-tabs">
+    <button class="view-tab active" data-view="auctions">
+      📡 <span>Licytacje Yahoo</span>
+      <span class="tab-badge" id="auctionsCountBadge">42</span>
+    </button>
+    <button class="view-tab" data-view="mercari">
+      ⚡ <span>Kup Teraz (Mercari)</span>
+      <span class="tab-badge" id="mercariCountBadge">40</span>
+    </button>
+    <button class="view-tab" data-view="calculator">
+      🧮 <span>Kalkulator</span>
+    </button>
+  </nav>
+
+  <!-- Search & Category Filters -->
+  <section class="controls-panel">
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="Szukaj konsoli, gry, aparatu, koloru..." autocomplete="off">
+      <button id="clearSearchBtn" class="btn-clear" style="display: none;">✕</button>
+    </div>
+
+    <!-- Scrollable Category Filter Pills -->
+    <div class="category-pills" id="categoryPills">
+      <button class="pill active" data-cat="all">Wszystkie (<span id="totalDealsPill">82</span>)</button>
+      <button class="pill" data-cat="nintendo_3ds_handhelds">🕹️ 3DS / New 3DS</button>
+      <button class="pill" data-cat="nintendo_ds_handhelds">🎮 DSi LL / DS Lite</button>
+      <button class="pill" data-cat="gameboy_advance_retro">👾 GBA SP & Retro</button>
+      <button class="pill" data-cat="ps_vita">✨ PS Vita Slim/OLED</button>
+      <button class="pill" data-cat="psp_handheld">⚡ PSP-3000</button>
+      <button class="pill" data-cat="retro_games_mix">📦 Pakiety Gier (0% Bat.)</button>
+      <button class="pill" data-cat="high_margin_curated_consoles">💎 Stacjonarne Curated</button>
+      <button class="pill" data-cat="film_cameras_point_shoot">📷 Aparaty (≤100 zł)</button>
+      <button class="pill" data-cat="analog_lenses">🔍 Obiektywy (≤100 zł)</button>
+      <button class="pill" data-cat="ps5_limited_controllers">🎮 Pady PS5</button>
+      <button class="pill" data-cat="ps_retro_limited_controllers">🎯 Pady Retro</button>
+    </div>
+
+    <!-- Quick Filter Toggles & Sorting -->
+    <div class="sub-filters">
+      <label class="toggle-pill">
+        <input type="checkbox" id="batteryZeroOnlyToggle">
+        <span>🟢 Tylko 0% Baterii (Bez limitu IATA)</span>
+      </label>
+
+      <div class="sort-wrapper">
+        <span class="sort-label">Sortuj:</span>
+        <select id="sortSelect">
+          <option value="margin_desc">Zysk Netto w PL (najwyższy)</option>
+          <option value="roi_desc">Stopa Zwrotu ROI % (najwyższa)</option>
+          <option value="price_asc">Cena w Japonii (najniższa)</option>
+          <option value="discount_desc">Dyskonto Yahoo vs Mercari</option>
+          <option value="cap_desc">Limit Snajpera (najwyższy)</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Feed Container -->
+  <main class="feed-container" id="feedContainer">
+    <!-- Deal Cards populated dynamically by app.js -->
+    <div class="loading-state" id="loadingState">
+      <div class="spinner"></div>
+      <p>Ładowanie najgorętszych licytacji z Japonii...</p>
+    </div>
+  </main>
+
+  <!-- Floating Sticky Bottom Bar: Cart Summary & Quick Actions -->
+  <aside class="sticky-cart-bar" id="stickyCartBar" style="display: none;">
+    <div class="cart-bar-content" id="cartBarTrigger">
+      <div class="cart-bar-left">
+        <span class="cart-icon">🛒</span>
+        <div>
+          <strong id="barCartCount">0 sztuk</strong> w paczce
+          <div class="bar-battery-status" id="barBatteryText">Li-Ion: 0/2</div>
+        </div>
+      </div>
+      <div class="cart-bar-right">
+        <div class="bar-profit-label">Łączny Zysk:</div>
+        <strong id="barCartProfit" class="bar-profit-val">+0 zł</strong>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MODAL: Interactive Sniping Calculator -->
+  <div class="modal-backdrop" id="calcModal" style="display: none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-box">
+          <span class="modal-icon">🧮</span>
+          <h3>Kalkulator Snajpera & Opłacalności</h3>
+        </div>
+        <button class="btn-close-modal" id="closeCalcBtn">✕</button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="calc-item-banner" id="calcItemBanner">
+          <strong id="calcItemTitle">Wybierz przedmiot do kalkulacji</strong>
+          <small id="calcItemSub">lub wprowadź własne parametry licytacji</small>
+        </div>
+
+        <div class="form-group">
+          <div class="label-row">
+            <label for="calcBidInput">Twoja Maksymalna Oferta (JPY):</label>
+            <span class="sub-val" id="calcBidPlnPreview">~0 zł</span>
+          </div>
+          <div class="input-range-wrap">
+            <input type="number" id="calcBidInput" min="100" max="100000" step="100" value="12000">
+            <input type="range" id="calcBidRange" min="500" max="50000" step="500" value="12000">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="label-row">
+            <label for="calcResaleInput">Szacowana Wycena w PL (Allegro/OLX zł):</label>
+          </div>
+          <input type="number" id="calcResaleInput" min="50" max="5000" step="10" value="750">
+        </div>
+
+        <div class="form-group">
+          <label for="calcCatSelect">Kategoria Towaru (Waga i Udział w Paczce):</label>
+          <select id="calcCatSelect">
+            <option value="nintendo_3ds_handhelds">Nintendo 3DS / New 3DS (Udział: 30 zł)</option>
+            <option value="nintendo_ds_handhelds">Nintendo DSi / DS Lite (Udział: 30 zł)</option>
+            <option value="gameboy_advance_retro">Game Boy Advance & Retro (Udział: 25 zł)</option>
+            <option value="ps_vita">PlayStation Vita (Udział: 35 zł)</option>
+            <option value="psp_handheld">Sony PSP-3000 (Udział: 30 zł)</option>
+            <option value="retro_games_mix">Pakiety Gier Retro 0% Bat. (Udział: 20 zł)</option>
+            <option value="high_margin_curated_consoles">Wyselekcjonowane Stacjonarne (Udział: 65 zł)</option>
+            <option value="film_cameras_point_shoot">Aparaty Kompaktowe 35mm (Udział: 25 zł)</option>
+            <option value="analog_lenses">Obiektywy Manualne (Udział: 25 zł)</option>
+            <option value="ps5_limited_controllers">Kontrolery PS5 (Udział: 30 zł)</option>
+          </select>
+        </div>
+
+        <!-- Live Breakdown Table -->
+        <div class="cost-breakdown-card">
+          <div class="breakdown-row">
+            <span>Cena zakupu JPY (po kursie NBP):</span>
+            <strong id="resRawPln">0.00 zł</strong>
+          </div>
+          <div class="breakdown-row">
+            <span>Prowizja ZenMarket (800 JPY + 2 EUR):</span>
+            <strong id="resZenFee">~28.60 zł</strong>
+          </div>
+          <div class="breakdown-row">
+            <span>Opłata depozytowa karty/PayPal (3.5%):</span>
+            <strong id="resDepositFee">0.00 zł</strong>
+          </div>
+          <div class="breakdown-row">
+            <span>Udział w przesyłce lotniczej (Polska):</span>
+            <strong id="resShippingShare">30.00 zł</strong>
+          </div>
+          <div class="breakdown-row">
+            <span>Podatek VAT (23%):</span>
+            <strong id="resVatPln">0.00 zł</strong>
+          </div>
+          <div class="breakdown-divider"></div>
+          <div class="breakdown-row highlight">
+            <span>Łączny Koszt Sprowadzenia (Landed):</span>
+            <strong id="resTotalLanded">0.00 zł</strong>
+          </div>
+          <div class="breakdown-row profit-row">
+            <span>Twój Czysty Zysk Netto:</span>
+            <strong id="resNetProfit" class="text-green">+0.00 zł</strong>
+          </div>
+          <div class="breakdown-row roi-row">
+            <span>Stopa Zwrotu (ROI %):</span>
+            <strong id="resRoiPct" class="text-green">+0.0%</strong>
+          </div>
+        </div>
+
+        <div class="calc-verdict-banner" id="calcVerdictBanner">
+          <strong id="calcVerdictText">Analiza opłacalności...</strong>
+        </div>
+      </div>
+      
+      <div class="modal-footer">
+        <button class="btn-secondary" id="closeCalcBtnBottom">Zamknij</button>
+        <button class="btn-primary" id="calcAddCartBtn">➕ Dodaj kalkulację do koszyka</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: Parcel Consolidation Basket & IATA Battery Meter -->
+  <div class="modal-backdrop" id="cartModal" style="display: none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-box">
+          <span class="modal-icon">📦</span>
+          <h3>Paczka Konsolidacyjna ZenMarket</h3>
+        </div>
+        <button class="btn-close-modal" id="closeCartBtn">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- IATA Battery Meter Widget -->
+        <div class="iata-meter-card">
+          <div class="iata-header">
+            <strong>Licznik Baterii IATA (Maks 2x Li-Ion na paczkę):</strong>
+            <span id="iataCountLabel" class="iata-badge safe">0 / 2 baterii</span>
+          </div>
+          <div class="iata-progress-bar">
+            <div id="iataProgressFill" class="iata-fill safe" style="width: 0%;"></div>
+          </div>
+          <p class="iata-hint" id="iataHintText">
+            🟢 Bezpiecznie: Możesz dodać do 2 urządzeń z baterią Li-Ion do tej przesyłki lotniczej.
+          </p>
+        </div>
+
+        <!-- Cart Summary Stats -->
+        <div class="cart-stats-grid">
+          <div class="stat-box">
+            <span class="stat-label">Przedmiotów:</span>
+            <strong id="cartStatItems">0 szt.</strong>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">Koszt Landed (z VAT):</span>
+            <strong id="cartStatLanded">0 zł</strong>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">Wycena w Polsce:</span>
+            <strong id="cartStatResale">0 zł</strong>
+          </div>
+          <div class="stat-box profit">
+            <span class="stat-label">Zysk z Paczki:</span>
+            <strong id="cartStatProfit" class="text-green">+0 zł</strong>
+          </div>
+        </div>
+
+        <!-- Cart Items List -->
+        <div class="cart-items-list" id="cartItemsList">
+          <div class="empty-cart-hint">
+            <p>Twój koszyk konsolidacyjny jest pusty.</p>
+            <small>Kliknij <strong>➕ Koszyk</strong> na wybranej ofercie z radaru, aby zaplanować paczkę!</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn-danger-outline" id="clearCartBtn">Wyczyść koszyk</button>
+        <button class="btn-secondary" id="closeCartBtnBottom">Wróć do radaru</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Navigation Tab Bar (Mobile App Ergonomics) -->
+  <nav class="bottom-nav-bar">
+    <button class="nav-item active" data-nav="auctions">
+      <span class="nav-icon">📡</span>
+      <span class="nav-text">Radar Yahoo</span>
+    </button>
+    <button class="nav-item" data-nav="mercari">
+      <span class="nav-icon">⚡</span>
+      <span class="nav-text">Kup Teraz</span>
+    </button>
+    <button class="nav-item" data-nav="calc">
+      <span class="nav-icon">🧮</span>
+      <span class="nav-text">Snajper Calc</span>
+    </button>
+    <button class="nav-item" data-nav="cart">
+      <span class="nav-icon">📦</span>
+      <span class="nav-text">Paczka</span>
+    </button>
+  </nav>
+
+  <!-- Scripts -->
+  <script src="./app.js"></script>
+</body>
+</html>

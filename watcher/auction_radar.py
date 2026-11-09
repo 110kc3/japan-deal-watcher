@@ -63,7 +63,8 @@ class AuctionRadarGenerator:
         )
         md.append("")
         md.append(
-            "⬅ **Nawigacja:** [Główny Dashboard Mercari (README.md)](README.md) · "
+            "⬅ **Nawigacja:** [📱 **Aplikacja Android / PWA (Live)**](https://110kc3.github.io/japan-deal-watcher/) · "
+            "[Główny Dashboard Mercari (README.md)](README.md) · "
             "[🎯 Poradnik Snajpera i Limity (AUCTION_SNIPING_GUIDE.md)](AUCTION_SNIPING_GUIDE.md) · "
             "[🔨 Katalog Alternatywnych Ofert (YAHOO_AUCTIONS_DEALS.md)](YAHOO_AUCTIONS_DEALS.md) · "
             "[📈 Historia Sprzedaży (MARKET_SALES_HISTORY.md)](MARKET_SALES_HISTORY.md) · "

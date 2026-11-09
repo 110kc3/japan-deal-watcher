@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <radialGradient id="radarPulse" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- Background with subtle rounded corners -->
+  <rect width="192" height="192" rx="42" fill="url(#bgGrad)"/>
+  <rect width="186" height="186" x="3" y="3" rx="39" fill="none" stroke="#1e293b" stroke-width="2"/>
+  
+  <!-- Radar pulse circle -->
+  <circle cx="96" cy="96" r="68" fill="url(#radarPulse)"/>
+  <circle cx="96" cy="96" r="68" fill="none" stroke="#10b981" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.6"/>
+  <circle cx="96" cy="96" r="44" fill="none" stroke="#06b6d4" stroke-width="1.5" opacity="0.8"/>
+  <circle cx="96" cy="96" r="20" fill="none" stroke="#10b981" stroke-width="2"/>
+  
+  <!-- Crosshairs -->
+  <line x1="96" y1="20" x2="96" y2="40" stroke="#10b981" stroke-width="3" stroke-linecap="round"/>
+  <line x1="96" y1="152" x2="96" y2="172" stroke="#10b981" stroke-width="3" stroke-linecap="round"/>
+  <line x1="20" y1="96" x2="40" y2="96" stroke="#10b981" stroke-width="3" stroke-linecap="round"/>
+  <line x1="152" y1="96" x2="172" y2="96" stroke="#10b981" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- Central Handheld / Sniping Icon -->
+  <path d="M 68 76 L 124 76 Q 130 76 130 82 L 130 114 Q 130 120 124 120 L 68 120 Q 62 120 62 114 L 62 82 Q 62 76 68 76 Z" fill="#1e293b" stroke="url(#accentGrad)" stroke-width="3"/>
+  <!-- Screen -->
+  <rect x="76" y="82" width="40" height="26" rx="4" fill="#0f172a" stroke="#06b6d4" stroke-width="1.5"/>
+  <!-- D-Pad -->
+  <path d="M 67 95 L 71 95 M 69 93 L 69 97" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
+  <!-- Action Buttons -->
+  <circle cx="123" cy="93" r="1.5" fill="#10b981"/>
+  <circle cx="125" cy="97" r="1.5" fill="#06b6d4"/>
+  <!-- Yen Symbol on Screen -->
+  <text x="96" y="100" font-family="system-ui, sans-serif" font-weight="900" font-size="14" fill="#10b981" text-anchor="middle">¥</text>
+  
+  <!-- Red Japanese Seal Dot -->
+  <circle cx="146" cy="46" r="8" fill="#ef4444"/>
+  <circle cx="146" cy="46" r="4" fill="#ffffff" opacity="0.3"/>
+</svg>

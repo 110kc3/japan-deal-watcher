@@ -13,6 +13,7 @@ from watcher.config import (
     SNIPER_GUIDE_MD_FILE,
     MARKET_SALES_MD_FILE,
     AUCTION_RADAR_MD_FILE,
+    DOCS_DATA_FILE,
     BASE_DIR
 )
 from watcher.currency import get_live_rates
@@ -22,6 +23,7 @@ from watcher.markdown_generator import MarkdownGenerator
 from watcher.alternative_generator import AlternativeDealsGenerator
 from watcher.sniper_guide_generator import SniperGuideGenerator
 from watcher.auction_radar import AuctionRadarGenerator
+from watcher.webapp_exporter import WebappExporter
 from watcher.history_tracker import HistoryTracker
 from watcher.history_generator import HistoryGenerator
 
@@ -159,6 +161,24 @@ def main():
             print(f"📑 Copied sales history report to Obsidian: {obsidian_sales_path.name}")
         except Exception as e:
             print(f"[WARN] Obsidian copy skipped: {e}")
+
+    # 9. Export Web App Data Feed (Android PWA on GitHub Pages)
+    yahoo_deals_list = []
+    if YAHOO_DEALS_FILE.exists():
+        with open(YAHOO_DEALS_FILE, "r", encoding="utf-8") as f:
+            yahoo_deals_list = json.load(f)
+
+    webapp_exporter = WebappExporter(
+        rate_jpy=rate_jpy,
+        rate_eur=rate_eur,
+        is_live_rate=is_live_jpy,
+        timeline_status=timeline,
+        mercari_deals=deals,
+        yahoo_deals=yahoo_deals_list,
+        history_stats=scan_stats
+    )
+    webapp_res = webapp_exporter.export(output_file=DOCS_DATA_FILE)
+    print(f"📱 Webapp Exporter: Synced Android PWA data feed ({webapp_res['auctions_count']} auctions, {webapp_res['mercari_count']} Mercari deals)")
 
     print("=" * 60)
 
