@@ -3,7 +3,7 @@
 > **Rzeczywiste Dane Sprzedaży z Japońskich Rynków (Mercari Japan & Yahoo! Japan Auctions)**  
 > *Rejestr zamkniętych ofert, tempo wyprzedawania towaru (Days on Market), analiza poziomów cenowych (落札相場) oraz sygnały popytowe dla importera.*
 
-![Closed Sales](https://img.shields.io/badge/Closed%20Sales-45-brightgreen) ![Active Listings](https://img.shields.io/badge/Active%20Tracked-128-blue) ![Avg Realized ROI](https://img.shields.io/badge/Avg%20Realized%20ROI-+83.2%25-orange) ![Total Realized Profit](https://img.shields.io/badge/Realized%20Profit-+10429%20PLN-brightgreen) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-09%2001:57%20UTC-purple)
+![Closed Sales](https://img.shields.io/badge/Closed%20Sales-46-brightgreen) ![Active Listings](https://img.shields.io/badge/Active%20Tracked-127-blue) ![Avg Realized ROI](https://img.shields.io/badge/Avg%20Realized%20ROI-+83.8%25-orange) ![Total Realized Profit](https://img.shields.io/badge/Realized%20Profit-+10842%20PLN-brightgreen) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-09%2002:59%20UTC-purple)
 
 ⬅ **Nawigacja:** [Główny Dashboard Mercari (README.md)](README.md) · [Katalog Alternatywnych Ofert (YAHOO_AUCTIONS_DEALS.md)](YAHOO_AUCTIONS_DEALS.md) · [🎯 Poradnik Snajpera (AUCTION_SNIPING_GUIDE.md)](AUCTION_SNIPING_GUIDE.md) · [💰 Audyt Opłacalności (REAL_PROFITABILITY_AUDIT.md)](REAL_PROFITABILITY_AUDIT.md)
 
@@ -21,13 +21,13 @@
 
 | Metryka Rynkowa | Wartość | Komentarz Analityczny |
 |---|---:|---|
-| **Łącznie Zarejestrowanych Transakcji** | **`45 ofert`** | Zamknięte lub wyprzedane pozycje z monitorowanej bazy |
-| **Aktywne Oferty w Monitoringu** | **`128 ofert`** | Dostępne obecnie do natychmiastowego zakupu / licytacji |
-| **Średnia Cena Sprzedaży w Japonii** | **`7,881 JPY`** (~195.70 zł) | Średni kapitał zakupu na 1 pozycję |
-| **Średni Koszt Landed w Polsce (z VAT)** | **`~322.47 zł`** | Zawiera wysyłkę w paczce zbiorczej, 2 EUR, 800 JPY i 23% VAT |
-| **Średni Zysk Netto na Sztuce** | **`<strong style='color:#10b981;'>+231.75 zł</strong>`** | Czysty zysk po odliczeniu wszystkich kosztów sprowadzenia |
-| **Średnia Zrealizowana Stopa Zwrotu** | **`<strong style='color:#10b981;'>+83.2% ROI</strong>`** | Ponad 2-krotny zwrot z każdej zainwestowanej złotówki |
-| **Łączny Potencjał Zysku Sprzedanych Pozycji** | **`<strong style='color:#10b981;'>+10,428.75 zł</strong>`** | Sumaryczny wygenerowany zysk ze wszystkich zarejestrowanych transakcji |
+| **Łącznie Zarejestrowanych Transakcji** | **`46 ofert`** | Zamknięte lub wyprzedane pozycje z monitorowanej bazy |
+| **Aktywne Oferty w Monitoringu** | **`127 ofert`** | Dostępne obecnie do natychmiastowego zakupu / licytacji |
+| **Średnia Cena Sprzedaży w Japonii** | **`7,916 JPY`** (~196.58 zł) | Średni kapitał zakupu na 1 pozycję |
+| **Średni Koszt Landed w Polsce (z VAT)** | **`~323.42 zł`** | Zawiera wysyłkę w paczce zbiorczej, 2 EUR, 800 JPY i 23% VAT |
+| **Średni Zysk Netto na Sztuce** | **`<strong style='color:#10b981;'>+235.71 zł</strong>`** | Czysty zysk po odliczeniu wszystkich kosztów sprowadzenia |
+| **Średnia Zrealizowana Stopa Zwrotu** | **`<strong style='color:#10b981;'>+83.8% ROI</strong>`** | Ponad 2-krotny zwrot z każdej zainwestowanej złotówki |
+| **Łączny Potencjał Zysku Sprzedanych Pozycji** | **`<strong style='color:#10b981;'>+10,842.46 zł</strong>`** | Sumaryczny wygenerowany zysk ze wszystkich zarejestrowanych transakcji |
 
 ---
 
@@ -40,7 +40,7 @@ Poniższa tabela przedstawia tempo rotacji i wolumen sprzedaży w podziale na ka
 | **Nintendo DS & 3DS (DS Lite, DSi, 3DS & Edycje Limitowane)** | **14 szt.** | 6,714 JPY | <strong style='color:#10b981;'>+204.17 zł</strong> | <strong style='color:#10b981;'>+67.7%</strong> | ~1.0 dni | `🔥 Ekstremalny (< 24h)` |
 | **Aparaty Analogowe Typu Małpka (35mm Point & Shoot)** | **8 szt.** | 2,338 JPY | <strong style='color:#10b981;'>+151.19 zł</strong> | <strong style='color:#10b981;'>+106.7%</strong> | ~1.0 dni | `🔥 Ekstremalny (< 24h)` |
 | **Japońskie Obiektywy Manualne (0% Baterii)** | **6 szt.** | 2,183 JPY | <strong style='color:#10b981;'>+173.54 zł</strong> | <strong style='color:#10b981;'>+127.7%</strong> | ~1.0 dni | `🔥 Ekstremalny (< 24h)` |
-| **Nintendo Game Boy (GBA SP AGS-101 Brighter, GBA, GBC & Micro)** | **4 szt.** | 12,125 JPY | <strong style='color:#10b981;'>+356.25 zł</strong> | <strong style='color:#10b981;'>+76.0%</strong> | ~1.0 dni | `🔥 Ekstremalny (< 24h)` |
+| **Nintendo Game Boy (GBA SP AGS-101 Brighter, GBA, GBC & Micro)** | **5 szt.** | 11,600 JPY | <strong style='color:#10b981;'>+367.74 zł</strong> | <strong style='color:#10b981;'>+83.4%</strong> | ~1.0 dni | `🔥 Ekstremalny (< 24h)` |
 | **Sony PlayStation Portable Go (PSP-N1000 - 16GB Flash)** | **2 szt.** | 22,650 JPY | <strong style='color:#10b981;'>+129.30 zł</strong> | <strong style='color:#10b981;'>+16.5%</strong> | ~1.0 dni | `🔥 Ekstremalny (< 24h)` |
 | **Pakiety Gier Retro PSP (Mix UMD まとめ)** | **2 szt.** | 2,360 JPY | <strong style='color:#10b981;'>+164.31 zł</strong> | <strong style='color:#10b981;'>+119.7%</strong> | ~1.0 dni | `🔥 Ekstremalny (< 24h)` |
 | **Limitowane Kontrolery PS5 DualSense (Edycje Specjalne)** | **2 szt.** | 11,295 JPY | <strong style='color:#10b981;'>+270.99 zł</strong> | <strong style='color:#10b981;'>+64.3%</strong> | ~1.0 dni | `🔥 Ekstremalny (< 24h)` |
@@ -67,7 +67,7 @@ Na podstawie analizy tysięcy aukcji i zakończonych ofert z Mercari wyznaczyli�
 
 ---
 
-## 📋 Kompletny Rejestr Zamkniętych i Sprzedanych Ofert (45 Pozycji)
+## 📋 Kompletny Rejestr Zamkniętych i Sprzedanych Ofert (46 Pozycji)
 
 Poniższy dziennik zawiera każdą ofertę z bazy, która zakończyła się transakcją, została wykupiona lub wygasła. Pozwala to śledzić dokładne japońskie ceny końcowe:
 
@@ -79,6 +79,7 @@ Poniższy dziennik zawiera każdą ofertę z bazy, która zakończyła się tran
 | **Game Boy Advance SP Pokémon Torchic Edition**<br><small>Torchic Orange (Pokémon Center Limited)</small> | Nintendo Game Boy (GBA SP AGS-101 Brighter, GBA, GBC & Micro) | **14,000 JPY**<br>(~347.65 zł) | ~507.66 zł | **950.00 zł** | <strong style='color:#10b981;'>+442.34 zł</strong><br><small>(+87.1%)</small> | `⚡ Błyskawiczna (< 24h)` | `Zakończone / 404` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m67708364697) |
 | **Game Boy Micro (OXY-001)**<br><small>Famicom 20th Anniversary Edition</small> | Nintendo Game Boy (GBA SP AGS-101 Brighter, GBA, GBC & Micro) | **15,000 JPY**<br>(~372.48 zł) | ~539.06 zł | **980.00 zł** | <strong style='color:#10b981;'>+440.94 zł</strong><br><small>(+81.8%)</small> | `⚡ Błyskawiczna (< 24h)` | `Zakończone / 404` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m89166124903) |
 | **PlayStation 3 Slim Final Fantasy XIII Lightning Edition**<br><small>Ceramic White + Różowa Grafika Lightning</small> | Limitowane Konsole PlayStation PS1-PS5 (Edycje Specjalne) | **23,880 JPY**<br>(~592.99 zł) | ~862.29 zł | **1300.00 zł** | <strong style='color:#10b981;'>+437.71 zł</strong><br><small>(+50.8%)</small> | `⚡ Błyskawiczna (< 24h)` | `Wykluczone: Uszkodzone (Broken)` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m28511520235) |
+| **Game Boy Advance SP (AGS-101 Brighter LCD)**<br><small>Pearl Blue (Podświetlenie II Generacji)</small> | Nintendo Game Boy (GBA SP AGS-101 Brighter, GBA, GBC & Micro) | **9,500 JPY**<br>(~235.90 zł) | ~366.29 zł | **780.00 zł** | <strong style='color:#10b981;'>+413.71 zł</strong><br><small>(+112.9%)</small> | `🔥 Błyskawiczna (< 24h)` | `W trakcie transakcji` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m82785046364) |
 | **New Nintendo 3DS LL (New 3DS XL)**<br><small>Metallic Blue (Super-Stable 3D / IPS)</small> | Nintendo DS & 3DS (DS Lite, DSi, 3DS & Edycje Limitowane) | **13,800 JPY**<br>(~342.68 zł) | ~507.70 zł | **920.00 zł** | <strong style='color:#10b981;'>+412.30 zł</strong><br><small>(+81.2%)</small> | `⚡ Błyskawiczna (< 24h)` | `Zakończone / 404` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m10121253643) |
 | **Game Boy Color Pokémon Center 3rd Anniversary**<br><small>Clear Blue / Pokémon Art (Limited)</small> | Nintendo Game Boy (GBA SP AGS-101 Brighter, GBA, GBC & Micro) | **13,500 JPY**<br>(~335.23 zł) | ~491.94 zł | **900.00 zł** | <strong style='color:#10b981;'>+408.06 zł</strong><br><small>(+82.9%)</small> | `⚡ Błyskawiczna (< 24h)` | `Zakończone / 404` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m89166124901) |
 | **Nintendo DS Lite Pokémon Dialga & Palkia Edition**<br><small>Metallic Black / Gold & Silver Art</small> | Nintendo DS & 3DS (DS Lite, DSi, 3DS & Edycje Limitowane) | **7,800 JPY**<br>(~193.69 zł) | ~319.22 zł | **680.00 zł** | <strong style='color:#10b981;'>+360.78 zł</strong><br><small>(+113.0%)</small> | `⚡ Błyskawiczna (< 24h)` | `Zakończone / 404` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m77988920317) |
@@ -133,4 +134,4 @@ flowchart TD
 ```
 
 ---
-*Raport wygenerowany automatycznie przez silnik HistoryTracker & HistoryGenerator. Ostatnia synchronizacja: 2026-11-09 01:57 UTC.*
+*Raport wygenerowany automatycznie przez silnik HistoryTracker & HistoryGenerator. Ostatnia synchronizacja: 2026-11-09 02:59 UTC.*
