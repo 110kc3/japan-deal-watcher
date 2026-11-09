@@ -111,10 +111,17 @@
         <input type="checkbox" id="batteryZeroOnlyToggle">
         <span>🟢 Tylko 0% Baterii (Bez limitu IATA)</span>
       </label>
+      <label class="toggle-pill">
+        <input type="checkbox" id="sureDealsOnlyToggle">
+        <span>🔥 Tylko Pewny Arbitraż (S-Tier & A-Tier)</span>
+      </label>
 
       <div class="sort-wrapper">
         <span class="sort-label">Sortuj:</span>
         <select id="sortSelect">
+          <option value="time_asc" selected>⏳ Kończące się (Najmniej czasu – Prawdziwe ceny)</option>
+          <option value="verdict_desc">💎 Rekomendacja (S-Tier / Najwyższy zysk)</option>
+          <option value="pred_margin_desc">🔮 Zysk przy Prognozie Końcowej (najwyższy)</option>
           <option value="margin_desc">Zysk Netto w PL (najwyższy)</option>
           <option value="roi_desc">Stopa Zwrotu ROI % (najwyższa)</option>
           <option value="price_asc">Cena w Japonii (najniższa)</option>

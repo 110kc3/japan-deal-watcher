@@ -9,8 +9,9 @@ const state = {
   currentView: 'auctions', // 'auctions' | 'mercari'
   selectedCategory: 'all',
   batteryZeroOnly: false,
+  sureDealsOnly: false,
   searchQuery: '',
-  sortOrder: 'margin_desc',
+  sortOrder: 'time_asc',
   cart: [],
   activeCalcDeal: null,
   deferredPrompt: null
@@ -27,6 +28,7 @@ const elements = {
   searchInput: document.getElementById('searchInput'),
   clearSearchBtn: document.getElementById('clearSearchBtn'),
   batteryZeroOnlyToggle: document.getElementById('batteryZeroOnlyToggle'),
+  sureDealsOnlyToggle: document.getElementById('sureDealsOnlyToggle'),
   sortSelect: document.getElementById('sortSelect'),
   
   // Ticker
@@ -239,6 +241,14 @@ function setupEventListeners() {
     renderDeals();
   });
 
+  // Sure Deals (S-Tier & A-Tier) Only Toggle
+  if (elements.sureDealsOnlyToggle) {
+    elements.sureDealsOnlyToggle.addEventListener('change', (e) => {
+      state.sureDealsOnly = e.target.checked;
+      renderDeals();
+    });
+  }
+
   // Sort Order Select
   elements.sortSelect.addEventListener('change', (e) => {
     state.sortOrder = e.target.value;
@@ -327,6 +337,11 @@ function renderDeals() {
     deals = deals.filter((d) => !d.has_battery);
   }
 
+  // 2b. Filter by Sure Deals (S-Tier & A-Tier only)
+  if (state.sureDealsOnly) {
+    deals = deals.filter((d) => d.verdict_code === 'S_TIER_SURE_ARBITRAGE' || d.verdict_code === 'A_TIER_SOLID_DEAL');
+  }
+
   // 3. Filter by Search Query
   if (state.searchQuery) {
     const q = state.searchQuery;
@@ -363,6 +378,31 @@ function renderDeals() {
 function sortDealsList(list, order) {
   const items = [...list];
   switch (order) {
+    case 'time_asc':
+      return items.sort((a, b) => {
+        const timeA = (a.time_remaining_minutes !== undefined && a.time_remaining_minutes !== null) ? a.time_remaining_minutes : 999999;
+        const timeB = (b.time_remaining_minutes !== undefined && b.time_remaining_minutes !== null) ? b.time_remaining_minutes : 999999;
+        if (timeA !== timeB) {
+          return timeA - timeB;
+        }
+        return (b.est_margin_pln || 0) - (a.est_margin_pln || 0);
+      });
+    case 'verdict_desc':
+      const tierWeight = {
+        'S_TIER_SURE_ARBITRAGE': 5,
+        'A_TIER_SOLID_DEAL': 4,
+        'MERCARI_INSTANT_BUY': 3,
+        'B_TIER_MARGINAL': 2,
+        'C_TIER_OVERHEATED': 1
+      };
+      return items.sort((a, b) => {
+        const wA = tierWeight[a.verdict_code] || 0;
+        const wB = tierWeight[b.verdict_code] || 0;
+        if (wB !== wA) return wB - wA;
+        return (b.expected_margin_pln || b.est_margin_pln || 0) - (a.expected_margin_pln || a.est_margin_pln || 0);
+      });
+    case 'pred_margin_desc':
+      return items.sort((a, b) => (b.expected_margin_pln || b.est_margin_pln || 0) - (a.expected_margin_pln || a.est_margin_pln || 0));
     case 'margin_desc':
       return items.sort((a, b) => (b.est_margin_pln || 0) - (a.est_margin_pln || 0));
     case 'roi_desc':
@@ -388,6 +428,103 @@ function renderDealCard(deal, isAuction) {
   const platformTag = isAuction
     ? `<span class="platform-tag">Yahoo! Aukcje</span>`
     : `<span class="platform-tag mercari">Mercari</span>`;
+
+  // Remaining Time & Price Authenticity Ribbon
+  let timeRibbon = '';
+  if (isAuction) {
+    const mins = (deal.time_remaining_minutes !== undefined && deal.time_remaining_minutes !== null) ? deal.time_remaining_minutes : 9999;
+    const formatted = deal.time_remaining_formatted || `${mins} min`;
+    let timeClass = 'time-ribbon-normal';
+    let icon = '⏳';
+    let stageTitle = 'Wczesna oferta (cena wzrośnie)';
+
+    if (mins <= 60) {
+      timeClass = 'time-ribbon-urgent';
+      icon = '🔥';
+      stageTitle = 'Faza Końcowa – Prawdziwa cena rynkowa!';
+    } else if (mins <= 360) {
+      timeClass = 'time-ribbon-soon';
+      icon = '⚡';
+      stageTitle = 'Ostatnie godziny – Walka snajperów';
+    } else if (mins <= 1440) {
+      timeClass = 'time-ribbon-medium';
+      icon = '⏰';
+      stageTitle = 'Średnia faza – Wzrost przed końcem';
+    }
+
+    timeRibbon = `
+      <div class="time-ribbon ${timeClass}">
+        <div class="time-ribbon-left">
+          <span class="time-ribbon-icon">${icon}</span>
+          <span class="time-ribbon-val">Koniec za: <strong>${formatted}</strong></span>
+        </div>
+        <div class="time-ribbon-right">
+          <span class="time-ribbon-stage">${deal.price_stage_note || stageTitle}</span>
+        </div>
+      </div>
+    `;
+  } else {
+    timeRibbon = `
+      <div class="time-ribbon time-ribbon-mercari">
+        <div class="time-ribbon-left">
+          <span class="time-ribbon-icon">🛍️</span>
+          <span class="time-ribbon-val"><strong>Kup Teraz (Stała Cena)</strong></span>
+        </div>
+        <div class="time-ribbon-right">
+          <span class="time-ribbon-stage">Cena 100% potwierdzona – bez licytacji</span>
+        </div>
+      </div>
+    `;
+  }
+
+  // Condition-Aware Prediction & Market Deal Recommendation Box
+  let predictionBox = '';
+  if (isAuction && deal.predicted_closure_jpy) {
+    const gapText = deal.closure_gap_jpy > 0
+      ? `+${deal.closure_gap_jpy.toLocaleString()} JPY (+${deal.closure_gap_pct}%)`
+      : 'Cena końcowa osiągnięta';
+    const gapColor = deal.closure_gap_jpy > 0 ? '#f59e0b' : '#10b981';
+    const profitColor = (deal.expected_margin_pln >= 80) ? '#10b981' : ((deal.expected_margin_pln >= 25) ? '#f59e0b' : '#ef4444');
+
+    predictionBox = `
+      <div class="prediction-box">
+        <div class="prediction-header">
+          <div class="prediction-title">
+            <span class="prediction-icon">🔮</span>
+            <div class="prediction-title-text">
+              <span class="pred-sublabel">Oczekiwana Cena Końcowa (落札相場):</span>
+              <strong class="prediction-price">${deal.predicted_closure_jpy.toLocaleString()} JPY <small>(~${(deal.predicted_closure_pln || 0).toFixed(0)} zł)</small></strong>
+            </div>
+          </div>
+          <span class="prediction-gap" style="color:${gapColor}; font-weight:600; font-size:0.75rem;">${gapText}</span>
+        </div>
+
+        <div class="prediction-stats-row">
+          <div class="pred-stat-col">
+            <span class="pred-stat-label">Stan / Klasa:</span>
+            <span class="pred-stat-val" style="color:${deal.condition_badge_color || '#e2e8f0'}; font-weight:600;">
+              ${deal.condition_short_label || 'B. Dobry'}
+            </span>
+          </div>
+          <div class="pred-stat-col">
+            <span class="pred-stat-label">Zysk przy Prognozie:</span>
+            <span class="pred-stat-val" style="color:${profitColor}; font-weight:700;">
+              +${(deal.expected_margin_pln || 0).toFixed(0)} zł (+${(deal.expected_roi_pct || 0).toFixed(0)}%)
+            </span>
+          </div>
+          <div class="pred-stat-col">
+            <span class="pred-stat-label">Limit Snajpera:</span>
+            <span class="pred-stat-val text-amber font-bold">${(deal.max_sniper_bid_jpy || deal.max_bid_jpy || 0).toLocaleString()} JPY</span>
+          </div>
+        </div>
+
+        <div class="prediction-verdict ${deal.verdict_badge_class || 'verdict-b-tier'}">
+          <div class="verdict-tag">${deal.verdict_label || 'ANALIZA RYNKOWA'}</div>
+          <p class="verdict-msg">${deal.recommendation_text || ''}</p>
+        </div>
+      </div>
+    `;
+  }
 
   // Closure Price Banner for Auctions
   let closureBanner = '';
@@ -547,6 +684,7 @@ function renderDealCard(deal, isAuction) {
           ${isAuction ? '🔨 Yahoo! Aukcja' : '🛍️ Mercari'}
         </span>
         ${deal.arbitrage_discount_pct ? `<span class="media-discount-badge">-${deal.arbitrage_discount_pct}% vs BIN</span>` : ''}
+        ${isAuction && deal.time_remaining_formatted ? `<span class="media-time-badge ${deal.time_remaining_minutes <= 60 ? 'urgent' : ''}">⏳ ${deal.time_remaining_formatted}</span>` : ''}
       </div>
 
       <div class="card-header">
@@ -554,8 +692,12 @@ function renderDealCard(deal, isAuction) {
         <div class="badge-row">
           ${batteryBadge}
           <span class="pill-badge" style="background:#1e293b; color:#94a3b8;">${deal.condition_badge || 'Sprawny'}</span>
+          ${deal.condition_short_label ? `<span class="pill-badge" style="background:rgba(255,255,255,0.06); color:${deal.condition_badge_color || '#38bdf8'}; font-weight:700; border:1px solid ${deal.condition_badge_color || '#38bdf8'}40;">${deal.condition_short_label}</span>` : ''}
         </div>
       </div>
+
+      ${timeRibbon}
+      ${predictionBox}
 
       <div class="card-main">
         <h4 class="card-title">${deal.model}</h4>

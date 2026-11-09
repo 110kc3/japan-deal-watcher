@@ -12,6 +12,7 @@ from .config import (
 )
 from .costs import calculate_landed_cost, calculate_max_sniper_bid
 from .checks import is_camera_item, is_lens_item
+from .closure_predictor import AuctionClosurePredictor, ConditionGrade
 
 
 def sanitize_md(text: Any) -> str:
@@ -93,102 +94,117 @@ class AuctionRadarGenerator:
         md.append("---")
         md.append("")
 
-        # Section 2: Real Closure Price Matrix (落札相場) vs Mercari vs Polish Resale
-        md.append("## 📊 Matryca Arbitrażu: Rzeczywiste Ceny Końcowe Yahoo (落札相場) vs Mercari vs Polska")
+        # Section 2: Condition-Aware Closure Price Matrix & Prediction Engine (落札相場)
+        md.append("## 📊 Matryca Arbitrażu: Rzeczywiste Ceny Końcowe Yahoo (落札相場) i Predykcja Stanów Wizualnych")
         md.append("")
         md.append(
-            "Poniższa tabela zestawia **rzeczywiste dane transakcyjne z zakończonych aukcji na Yahoo Japan** "
-            "(zakresy cen zamknięcia dla sprawnych egzemplarzy), ceny Buy-It-Now z Mercari, wycenę rynkową w Polsce "
-            "oraz wyliczony **Twardy Limit Snajpera (Hard Sniping Cap)** z gwarantowanym zyskiem w PLN."
+            "Ceny na Yahoo! Auctions zależą bezpośrednio od **stanu technicznego i wizualnego**. "
+            "Poniższy silnik analityczny klasyfikuje oferty do 5 standardowych klas stanu (od *Box CIB* po *Danshari Junk*), "
+            "porównuje je z historyczną bazą sprzedaży (`落札相場`) i **prognozuje ostateczną cenę zamknięcia danej licytacji**. "
+            "Dzięki temu wiesz z góry, czy licytacja okaże się prawdziwą okazją, czy w ostatnich minutach zostanie przepłacona przez konkurencję."
         )
         md.append("")
-        md.append("| Model / Przedmiot | Rzeczywista Cena Zamknięcia Yahoo (落札相場) | Mercari Kup Teraz (BIN) | Przewaga Yahoo | Cena w Polsce (Allegro/OLX) | 🎯 Twardy Limit Snajpera | Zysk Netto przy Limicie | Bateria IATA |")
-        md.append("|---|:---:|:---:|:---:|---:|:---:|---:|:---:|")
+        md.append("> [!IMPORTANT]")
+        md.append("> **Zasada 4 Poziomów Rekomendacji Rynkowej (Market Deal Verdict):**  ")
+        md.append("> - 🔥 **S-TIER (Pewny Arbitraż):** Prognozowana cena końcowa zostawia **> 120 zł zysku** i **> 30% ROI** przy twardym limicie snajpera. Absolutny priorytet zakupowy!  ")
+        md.append("> - ⚡ **A-TIER (Solidna Okazja):** Oczekiwane zamknięcie poniżej limitu opłacalności, marża **60–120 zł** (ROI > 18%).  ")
+        md.append("> - ⚖️ **B-TIER (Na Styku Opłacalności):** Cena rynkowa. Kupuj wyłącznie ze sztywnym limitem snajpera (nie licytuj ręcznie).  ")
+        md.append("> - ⚠️ **C-TIER (Ryzyko Przepłacenia):** Licytacja w walce snajperów przekroczy próg opłacalności w Polsce – nie bierz w niej udziału!")
+        md.append("")
 
-        # Sort items by category then est_margin
-        categories: Dict[str, List[Dict[str, Any]]] = {}
-        for d in self.raw_deals:
-            cid = d.get("category_id", "other")
-            if cid not in categories:
-                categories[cid] = []
-            categories[cid].append(d)
+        # Sort ALL items by remaining time ascending (ending soonest first – true prices)
+        sorted_deals = sorted(
+            self.raw_deals,
+            key=lambda x: (
+                x.get("time_remaining_minutes") if x.get("time_remaining_minutes") is not None else 999999,
+                -x.get("est_pl_value", 0)
+            )
+        )
 
-        for cat_id, items in categories.items():
-            for it in items:
-                est_pl = float(it.get("est_pl_value", 0))
-                price_curr = float(it.get("price_jpy", 0))
+        # Precompute predictions for all deals
+        predictions = [AuctionClosurePredictor.predict_closure(it, self.rate, self.rate_eur) for it in sorted_deals]
 
-                # ROI hurdle
-                if "games_mix" in cat_id or est_pl <= 500:
-                    target_roi = 40.0
-                elif est_pl >= 1200:
-                    target_roi = 28.0
-                else:
-                    target_roi = 32.0
+        # Top Spotlight: S-Tier and A-Tier Confirmed Deals
+        spotlight = [
+            (it, pred) for it, pred in zip(sorted_deals, predictions)
+            if pred["verdict_code"] in ["S_TIER_SURE_ARBITRAGE", "A_TIER_SOLID_DEAL"]
+        ]
 
-                cap_info = calculate_max_sniper_bid(
-                    est_pl_value=est_pl,
-                    category_id=cat_id,
-                    target_roi_pct=target_roi,
-                    rate_jpy=self.rate,
-                    rate_eur=self.rate_eur,
-                )
-                max_bid = cap_info["max_bid_jpy"]
-                guar_margin = cap_info["guaranteed_margin_pln"]
-                guar_roi = cap_info["guaranteed_roi_pct"]
-
-                # Camera & Lens strict caps <= 100 PLN
-                if is_camera_item(it) or cat_id == "film_cameras_point_shoot":
-                    max_cam_jpy = int((MAX_CAMERA_PRICE_PLN / self.rate) // 100 * 100)
-                    if max_bid > max_cam_jpy:
-                        max_bid = max_cam_jpy
-                        recalc = calculate_landed_cost(max_bid, cat_id, self.rate, self.rate_eur)
-                        guar_margin = round(est_pl - recalc["landed_cost_pln"], 2)
-                        guar_roi = round((guar_margin / recalc["landed_cost_pln"] * 100.0), 1)
-
-                if is_lens_item(it) or cat_id == "analog_lenses":
-                    max_lens_jpy = int((MAX_LENS_PRICE_PLN / self.rate) // 100 * 100)
-                    if max_bid > max_lens_jpy:
-                        max_bid = max_lens_jpy
-                        recalc = calculate_landed_cost(max_bid, cat_id, self.rate, self.rate_eur)
-                        guar_margin = round(est_pl - recalc["landed_cost_pln"], 2)
-                        guar_roi = round((guar_margin / recalc["landed_cost_pln"] * 100.0), 1)
-
-                # Real closing range
-                c_min = it.get("closed_price_min_jpy", int(price_curr * 0.85))
-                c_max = it.get("closed_price_max_jpy", int(price_curr * 1.15))
-                c_avg = it.get("closed_price_avg_jpy", int(price_curr))
-                closing_str = f"**{c_min:,} – {c_max:,} JPY**<br><small>(~{c_avg * self.rate:.0f} zł | śr: {c_avg:,} JPY)</small>"
-
-                mercari_avg = it.get("mercari_bin_avg_jpy", int(c_avg * 1.3))
-                mercari_str = f"~{mercari_avg:,} JPY<br><small>(~{mercari_avg * self.rate:.0f} zł)</small>"
-
-                diff_jpy = mercari_avg - c_avg
-                diff_pln = diff_jpy * self.rate
-                diff_pct = round((diff_jpy / mercari_avg * 100.0), 0) if mercari_avg > 0 else 0
-                arbitrage_badge = f"<strong style='color:#10b981;'>-{diff_pct:.0f}% taniej</strong><br><small>(zyskujesz +{diff_pln:.0f} zł)</small>"
-
-                b_type = it.get("battery_type", "")
-                b_badge = "🔴 1 Li-Ion" if b_type == "li-ion" else "🟢 0% Li-Ion"
-
-                margin_color = "#10b981" if guar_margin > 0 else "#ef4444"
-                margin_str = f"<strong style='color:{margin_color};'>+{guar_margin:.2f} zł</strong><br><small>(+{guar_roi:.1f}%)</small>"
-
-                img_url = it.get("image_url", "./assets/images/placeholder.svg")
-                img_tag = f"<img src='{img_url}' width='50' height='32' style='border-radius:4px; object-fit:contain; background:#0f172a; vertical-align:middle;' /><br>"
-                allegro_p = it.get("allegro_archive_pln", round(est_pl * 1.08, 0))
-                olx_p = it.get("olx_haggled_pln", round(est_pl * 0.90, 0))
-
+        if spotlight:
+            md.append("### 🏆 Potwierdzone Okazje Rynkowe (S-Tier & A-Tier – Kupuj Ze Snajperem)")
+            md.append("")
+            md.append("| Model / Przedmiot | ⏳ Czas | Stan | Aktualna Oferta | 🔮 Prognoza Zamknięcia | Cena w PL | Czysty Zysk przy Prognozie | 🎯 Rekomendacja Snajpera |")
+            md.append("|---|:---:|:---:|---:|---:|---:|---:|---|")
+            for it, pred in spotlight[:10]:
+                time_m = it.get("time_remaining_minutes", 9999)
+                time_fmt = it.get("time_remaining_formatted", f"{time_m} min")
+                time_tag = f"<strong style='color:#ef4444;'>🔥 {time_fmt}</strong>" if time_m <= 60 else f"<strong>{time_fmt}</strong>"
+                cond_tag = f"<span style='color:{pred['condition_badge_color']}; font-weight:600;'>{pred['condition_short_label']}</span>"
+                profit_tag = f"<strong style='color:#10b981;'>+{pred['expected_margin_pln']:.0f} zł</strong><br><small>(+{pred['expected_roi_pct']:.0f}%)</small>"
+                pred_tag = f"**{pred['predicted_closure_jpy']:,} JPY**<br><small>(~{pred['predicted_closure_pln']:.0f} zł)</small>"
+                
                 md.append(
-                    f"| {img_tag}**{sanitize_md(it.get('model', ''))}**<br><small>{sanitize_md(it.get('color', ''))}</small> | "
-                    f"{closing_str} | "
-                    f"{mercari_str} | "
-                    f"{arbitrage_badge} | "
-                    f"**{est_pl:.0f} zł**<br><small>Allegro: ~{allegro_p:.0f} zł<br>OLX (targ): ~{olx_p:.0f} zł</small> | "
-                    f"**`{max_bid:,} JPY`**<br><small>(~{max_bid * self.rate:.0f} zł)</small> | "
-                    f"{margin_str} | "
-                    f"{b_badge} |"
+                    f"| **{sanitize_md(it.get('model', ''))}** | "
+                    f"{time_tag} | "
+                    f"{cond_tag} | "
+                    f"{it.get('price_jpy', 0):,} JPY | "
+                    f"{pred_tag} | "
+                    f"**{it.get('est_pl_value', 0):.0f} zł** | "
+                    f"{profit_tag} | "
+                    f"`{pred['verdict_label']}`<br><small>{pred['recommendation_text']}</small> |"
                 )
+            md.append("")
+            md.append("---")
+            md.append("")
+
+        # Master Table
+        md.append("### 📊 Kompletna Matryca Licytacji: Stan, Prognoza Końcowa i Werdykt Rynkowy")
+        md.append("")
+        md.append("| Model / Przedmiot | ⏳ Czas | Stan Wizualny | Aktualna Oferta | 🔮 Prognoza Zamknięcia | Cena w PL | Zysk przy Prognozie | 🎯 Werdykt i Limit Snajpera | Bateria |")
+        md.append("|---|:---:|:---:|---:|---:|---:|---:|:---:|:---:|")
+
+        for it, pred in zip(sorted_deals, predictions):
+            est_pl = float(it.get("est_pl_value", 0))
+            price_curr = float(it.get("price_jpy", 0))
+
+            b_type = it.get("battery_type", "")
+            b_badge = "🔴 1 Li-Ion" if b_type == "li-ion" else "🟢 0% Li-Ion"
+
+            img_url = it.get("image_url", "./assets/images/placeholder.svg")
+            img_tag = f"<img src='{img_url}' width='50' height='32' style='border-radius:4px; object-fit:contain; background:#0f172a; vertical-align:middle;' /><br>"
+            allegro_p = it.get("allegro_archive_pln", round(est_pl * 1.08, 0))
+            olx_p = it.get("olx_haggled_pln", round(est_pl * 0.90, 0))
+
+            # Remaining time badge
+            time_m = it.get("time_remaining_minutes", 9999)
+            time_fmt = it.get("time_remaining_formatted", f"{time_m} min")
+            if time_m <= 60:
+                time_badge = f"<strong style='color:#ef4444;'>🔥 {time_fmt}</strong><br><small style='color:#fca5a5;'>Faza końcowa</small>"
+            elif time_m <= 360:
+                time_badge = f"<strong style='color:#f59e0b;'>⚡ {time_fmt}</strong><br><small style='color:#fcd34d;'>Ostatnie godziny</small>"
+            elif time_m <= 1440:
+                time_badge = f"<span style='color:#3b82f6;'>⏳ {time_fmt}</span><br><small>Średnia faza</small>"
+            else:
+                time_badge = f"<span style='color:#94a3b8;'>🕒 {time_fmt}</span><br><small>Wczesna oferta</small>"
+
+            cond_badge = f"<span style='color:{pred['condition_badge_color']}; font-weight:600;'>{pred['condition_short_label']}</span><br><small style='color:#94a3b8;'>{pred['condition_features'][0] if pred['condition_features'] else ''}</small>"
+            pred_badge = f"**{pred['predicted_closure_jpy']:,} JPY**<br><small>(~{pred['predicted_closure_pln']:.0f} zł)</small>"
+            profit_color = "#10b981" if pred["expected_margin_pln"] >= 60 else ("#f59e0b" if pred["expected_margin_pln"] >= 25 else "#ef4444")
+            profit_badge = f"<strong style='color:{profit_color};'>+{pred['expected_margin_pln']:.0f} zł</strong><br><small>(+{pred['expected_roi_pct']:.0f}%)</small>"
+
+            verdict_badge = f"**{pred['verdict_label']}**<br><small>Limit: `{pred['max_sniper_bid_jpy']:,} JPY`</small>"
+
+            md.append(
+                f"| {img_tag}**{sanitize_md(it.get('model', ''))}**<br><small>{sanitize_md(it.get('color', ''))}</small> | "
+                f"{time_badge} | "
+                f"{cond_badge} | "
+                f"**{price_curr:,.0f} JPY**<br><small>(~{price_curr * self.rate:.0f} zł)</small> | "
+                f"{pred_badge} | "
+                f"**{est_pl:.0f} zł**<br><small>Allegro: ~{allegro_p:.0f} zł<br>OLX: ~{olx_p:.0f} zł</small> | "
+                f"{profit_badge} | "
+                f"{verdict_badge} | "
+                f"{b_badge} |"
+            )
 
         md.append("")
         md.append("---")

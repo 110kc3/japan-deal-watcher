@@ -1382,3 +1382,255 @@ body {
   background: rgba(35, 229, 219, 0.25);
   color: #fff;
 }
+
+/* ==========================================================================
+   Remaining Time & Price Authenticity Ribbon
+   ========================================================================== */
+.time-ribbon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  margin: 6px 12px 10px 12px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  gap: 8px;
+  border: 1px solid transparent;
+}
+
+.time-ribbon-urgent {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.22), rgba(245, 158, 11, 0.15));
+  border-color: rgba(239, 68, 68, 0.55);
+  color: #fca5a5;
+  box-shadow: 0 0 14px rgba(239, 68, 68, 0.25);
+}
+.time-ribbon-urgent .time-ribbon-val strong {
+  color: #f87171;
+  font-size: 0.85rem;
+}
+.time-ribbon-urgent .time-ribbon-stage {
+  color: #fef08a;
+  font-weight: 700;
+}
+
+.time-ribbon-soon {
+  background: rgba(245, 158, 11, 0.14);
+  border-color: rgba(245, 158, 11, 0.4);
+  color: #fcd34d;
+}
+.time-ribbon-soon .time-ribbon-val strong {
+  color: #fbbf24;
+}
+
+.time-ribbon-medium {
+  background: rgba(59, 130, 246, 0.12);
+  border-color: rgba(59, 130, 246, 0.3);
+  color: #93c5fd;
+}
+
+.time-ribbon-normal {
+  background: rgba(148, 163, 184, 0.08);
+  border-color: rgba(148, 163, 184, 0.2);
+  color: #cbd5e1;
+}
+
+.time-ribbon-mercari {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.35);
+  color: #6ee7b7;
+}
+
+.time-ribbon-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.time-ribbon-right {
+  text-align: right;
+  font-size: 0.7rem;
+  white-space: nowrap;
+}
+
+.media-time-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(15, 23, 42, 0.88);
+  color: #e2e8f0;
+  backdrop-filter: blur(4px);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  z-index: 2;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.media-time-badge.urgent {
+  background: rgba(220, 38, 38, 0.95);
+  color: #ffffff;
+  border-color: #f87171;
+  animation: pulse-urgent 1.5s infinite;
+}
+
+@keyframes pulse-urgent {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 6px rgba(239, 68, 68, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+  }
+}
+
+/* ==========================================================================
+   Condition-Aware Prediction Box & Market Deal Verdict
+   ========================================================================== */
+.prediction-box {
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin: 8px 12px;
+  backdrop-filter: blur(6px);
+}
+
+.prediction-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  gap: 8px;
+}
+
+.prediction-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.prediction-icon {
+  font-size: 1.15rem;
+}
+
+.prediction-title-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.pred-sublabel {
+  font-size: 0.65rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.prediction-price {
+  font-size: 0.95rem;
+  color: #38bdf8;
+  font-weight: 700;
+}
+.prediction-price small {
+  font-size: 0.75rem;
+  color: #cbd5e1;
+  font-weight: normal;
+}
+
+.prediction-stats-row {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr 1fr;
+  gap: 6px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pred-stat-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pred-stat-label {
+  font-size: 0.62rem;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.pred-stat-val {
+  font-size: 0.75rem;
+}
+
+.prediction-verdict {
+  margin-top: 8px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  border: 1px solid transparent;
+}
+
+.verdict-tag {
+  font-weight: 700;
+  font-size: 0.75rem;
+  margin-bottom: 2px;
+  letter-spacing: 0.02em;
+}
+
+.verdict-msg {
+  font-size: 0.68rem;
+  line-height: 1.3;
+  margin: 0;
+  opacity: 0.92;
+}
+
+/* Verdict Tiers */
+.verdict-s-tier {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.22), rgba(245, 158, 11, 0.18));
+  border-color: rgba(239, 68, 68, 0.55);
+  color: #fef08a;
+}
+.verdict-s-tier .verdict-tag {
+  color: #ef4444;
+}
+
+.verdict-a-tier {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.45);
+  color: #d1fae5;
+}
+.verdict-a-tier .verdict-tag {
+  color: #10b981;
+}
+
+.verdict-b-tier {
+  background: rgba(59, 130, 246, 0.12);
+  border-color: rgba(59, 130, 246, 0.35);
+  color: #dbeafe;
+}
+.verdict-b-tier .verdict-tag {
+  color: #60a5fa;
+}
+
+.verdict-c-tier {
+  background: rgba(148, 163, 184, 0.12);
+  border-color: rgba(148, 163, 184, 0.3);
+  color: #cbd5e1;
+}
+.verdict-c-tier .verdict-tag {
+  color: #f87171;
+}
+
+.verdict-mercari {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.35);
+  color: #6ee7b7;
+}

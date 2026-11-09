@@ -93,6 +93,13 @@ class TestWebappExporter(unittest.TestCase):
         self.assertGreater(processed["max_bid_jpy"], 0)
         self.assertIn("zenmarket_ending_soon", processed["links"])
         self.assertIn("yahoo_closed_archive", processed["links"])
+        self.assertIn("time_remaining_minutes", processed)
+        self.assertIn("time_remaining_formatted", processed)
+        self.assertIn("price_stage_note", processed)
+        self.assertIn("predicted_closure_jpy", processed)
+        self.assertIn("condition_grade", processed)
+        self.assertIn("verdict_label", processed)
+        self.assertIn("recommendation_text", processed)
 
     def test_camera_cap_enforcement(self):
         exporter = WebappExporter(
@@ -183,6 +190,34 @@ class TestWebappExporter(unittest.TestCase):
         self.assertIn("allegro_search", links)
         self.assertIn("olx_search", links)
         self.assertEqual(links["olx_search"], "https://www.olx.pl/oferty/q-gry-nintendo-ds-zestaw/")
+
+    def test_auctions_sorted_by_remaining_time_ascending(self):
+        """Verifies that exported auctions are pre-sorted by remaining time ascending (least time first)."""
+        deals = [
+            {"id": "deal_3", "model": "Deal 3", "price_jpy": 3000, "est_pl_value": 300, "time_remaining_minutes": 1400},
+            {"id": "deal_1", "model": "Deal 1", "price_jpy": 1000, "est_pl_value": 300, "time_remaining_minutes": 18},
+            {"id": "deal_2", "model": "Deal 2", "price_jpy": 2000, "est_pl_value": 300, "time_remaining_minutes": 95},
+        ]
+        with tempfile.TemporaryDirectory() as tmpdir:
+            out_file = Path(tmpdir) / "deals.json"
+            exporter = WebappExporter(
+                rate_jpy=0.024802,
+                rate_eur=4.3873,
+                is_live_rate=True,
+                yahoo_deals=deals
+            )
+            exporter.export(output_file=out_file)
+            with open(out_file, "r", encoding="utf-8") as f:
+                data = json.load(f)
+
+            auctions = data["auctions"]
+            self.assertEqual(len(auctions), 3)
+            self.assertEqual(auctions[0]["id"], "deal_1")
+            self.assertEqual(auctions[0]["time_remaining_minutes"], 18)
+            self.assertEqual(auctions[1]["id"], "deal_2")
+            self.assertEqual(auctions[1]["time_remaining_minutes"], 95)
+            self.assertEqual(auctions[2]["id"], "deal_3")
+            self.assertEqual(auctions[2]["time_remaining_minutes"], 1400)
 
 
 if __name__ == "__main__":

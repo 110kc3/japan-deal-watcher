@@ -25,6 +25,7 @@ from .config import (
 from .costs import calculate_landed_cost, calculate_max_sniper_bid
 from .checks import is_camera_item, is_lens_item
 from .lot_vision_inspector import LotVisionInspector
+from .closure_predictor import AuctionClosurePredictor
 
 
 def clean_polish_market_queries(deal: Dict[str, Any]) -> Tuple[str, str]:
@@ -314,6 +315,26 @@ class WebappExporter:
         allegro_pln = float(d.get("allegro_archive_pln", round(est_pl * 1.08, 1)))
         olx_pln = float(d.get("olx_haggled_pln", round(est_pl * 0.90, 1)))
 
+        time_rem = d.get("time_remaining_minutes")
+        if time_rem is None:
+            time_rem = 120
+        time_formatted = d.get("time_remaining_formatted") or (f"{time_rem} min" if time_rem < 60 else f"{time_rem // 60}h")
+        ends_at = d.get("ends_at", "")
+        price_stage_note = d.get("price_stage_note", "")
+        if not price_stage_note:
+            if time_rem <= 60:
+                price_stage_note = "🔥 Faza Końcowa (<60m) – Prawdziwa cena rynkowa (落札相場)!"
+            elif time_rem <= 360:
+                price_stage_note = "⚡ Ostatnie godziny (1-6h) – Walka snajperów w toku"
+            elif time_rem <= 1440:
+                price_stage_note = "⏳ Średnia faza (6-24h) – Oferty wzrosną pod koniec"
+            else:
+                price_stage_note = "🕒 Wczesna faza (1-2 dni) – Startowa oferta, wzrośnie pod koniec"
+        is_ending_soon = bool(d.get("is_ending_soon", time_rem <= 120))
+
+        # Closure price prediction & condition grading (落札相場)
+        pred = AuctionClosurePredictor.predict_closure(d, self.rate_jpy, self.rate_eur)
+
         return {
             "id": d.get("id"),
             "platform": d.get("platform", "Yahoo! Auctions Japan"),
@@ -327,6 +348,30 @@ class WebappExporter:
             "status": d.get("status", "Aktywna Aukcja"),
             "condition_badge": d.get("condition_badge", "✅ Sprawdzony"),
             "custom_note": d.get("custom_note", ""),
+            "time_remaining_minutes": time_rem,
+            "time_remaining_formatted": time_formatted,
+            "ends_at": ends_at,
+            "price_stage_note": price_stage_note,
+            "is_ending_soon": is_ending_soon,
+            "predicted_closure_jpy": pred["predicted_closure_jpy"],
+            "predicted_closure_min_jpy": pred["predicted_closure_min_jpy"],
+            "predicted_closure_max_jpy": pred["predicted_closure_max_jpy"],
+            "predicted_closure_pln": pred["predicted_closure_pln"],
+            "closure_gap_jpy": pred["closure_gap_jpy"],
+            "closure_gap_pct": pred["closure_gap_pct"],
+            "expected_landed_cost_pln": pred["expected_landed_cost_pln"],
+            "expected_margin_pln": pred["expected_margin_pln"],
+            "expected_roi_pct": pred["expected_roi_pct"],
+            "condition_grade": pred["condition_grade"],
+            "condition_label": pred["condition_label"],
+            "condition_short_label": pred["condition_short_label"],
+            "condition_badge_color": pred["condition_badge_color"],
+            "condition_features": pred["condition_features"],
+            "condition_desc": pred["condition_desc"],
+            "verdict_code": pred["verdict_code"],
+            "verdict_label": pred["verdict_label"],
+            "verdict_badge_class": pred["verdict_badge_class"],
+            "recommendation_text": pred["recommendation_text"],
             "price_jpy": price_jpy,
             "price_pln_raw": cost_info["price_pln_raw"],
             "landed_cost_pln": landed_cost,
@@ -446,6 +491,30 @@ class WebappExporter:
             "status": d.get("status", "Dostępne"),
             "condition_badge": d.get("condition_badge", "✅ Stan Dobry"),
             "custom_note": d.get("custom_note", d.get("title", "")),
+            "time_remaining_minutes": 0,
+            "time_remaining_formatted": "Kup Teraz (Stała cena)",
+            "ends_at": "Natychmiastowy zakup (Kup Teraz)",
+            "price_stage_note": "✅ Cena stała (Kup Teraz) – Prawdziwa cena bez licytacji",
+            "is_ending_soon": False,
+            "predicted_closure_jpy": d.get("price_jpy", 0),
+            "predicted_closure_min_jpy": d.get("price_jpy", 0),
+            "predicted_closure_max_jpy": d.get("price_jpy", 0),
+            "predicted_closure_pln": d.get("price_pln_raw", 0.0),
+            "closure_gap_jpy": 0,
+            "closure_gap_pct": 0.0,
+            "expected_landed_cost_pln": d.get("landed_cost_pln", 0.0),
+            "expected_margin_pln": d.get("est_margin_pln", 0.0),
+            "expected_roi_pct": d.get("roi_percent", 0.0),
+            "condition_grade": "MERCARI_BIN",
+            "condition_label": "🛍️ Kup Teraz (Cena Stała)",
+            "condition_short_label": "Kup Teraz",
+            "condition_badge_color": "#10b981",
+            "condition_features": ["Natychmiastowy zakup", "Gwarancja stałej ceny"],
+            "condition_desc": "Przedmiot z ceną Kup Teraz – brak licytacji, cena ostateczna",
+            "verdict_code": "MERCARI_INSTANT_BUY",
+            "verdict_label": "🛍️ KUP TERAZ: STAŁA CENA",
+            "verdict_badge_class": "verdict-mercari",
+            "recommendation_text": "Cena ostateczna. Kupuj bez ryzyka podbicia ceny przez snajperów.",
             "price_jpy": d.get("price_jpy", 0),
             "price_pln_raw": d.get("price_pln_raw", 0.0),
             "landed_cost_pln": d.get("landed_cost_pln", 0.0),
@@ -482,6 +551,14 @@ class WebappExporter:
 
         # Process Yahoo Auctions
         processed_auctions = [self.process_yahoo_deal(d) for d in self.raw_yahoo]
+
+        # Sort Yahoo Auctions by remaining time ascending by default (ending soonest first – true prices)
+        processed_auctions.sort(
+            key=lambda x: (
+                x.get("time_remaining_minutes") if x.get("time_remaining_minutes") is not None else 999999,
+                -x.get("est_margin_pln", 0)
+            )
+        )
 
         # Process Mercari Deals (only active / available)
         active_mercari = [
