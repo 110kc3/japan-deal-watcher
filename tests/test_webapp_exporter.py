@@ -91,6 +91,7 @@ class TestWebappExporter(unittest.TestCase):
         self.assertGreater(processed["landed_cost_pln"], 0)
         self.assertGreater(processed["est_margin_pln"], 0)
         self.assertGreater(processed["max_bid_jpy"], 0)
+        self.assertIn("primary_url", processed["links"])
         self.assertIn("zenmarket_ending_soon", processed["links"])
         self.assertIn("yahoo_closed_archive", processed["links"])
         self.assertIn("time_remaining_minutes", processed)
@@ -184,6 +185,7 @@ class TestWebappExporter(unittest.TestCase):
             self.assertNotIn("danshari_ds_3ds_50", url, f"Link {link_name} leaked internal proxy ID")
 
         # Verify search query stream presence
+        self.assertIn("primary_url", links)
         self.assertIn("zenmarket_search_mercari", links)
         self.assertIn("mercari_live_search", links)
         self.assertIn("zenmarket_yahoo_search", links)

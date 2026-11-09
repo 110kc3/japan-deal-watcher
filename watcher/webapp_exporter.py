@@ -398,7 +398,8 @@ class WebappExporter:
                 else None
             ),
             "links": {
-                "zenmarket_sniper": d.get("zenmarket_url", f"https://zenmarket.jp/pl/yahoo.aspx?q={encoded_q}"),
+                "primary_url": d.get("zenmarket_url", f"https://zenmarket.jp/pl/yahoo.aspx?q={encoded_q}&sort=price&order=asc"),
+                "zenmarket_sniper": d.get("zenmarket_url", f"https://zenmarket.jp/pl/yahoo.aspx?q={encoded_q}&sort=price&order=asc"),
                 "zenmarket_ending_soon": f"https://zenmarket.jp/pl/yahoo.aspx?q={encoded_q}&sort=end&order=asc",
                 "zenmarket_lowest_bid": f"https://zenmarket.jp/pl/yahoo.aspx?q={encoded_q}&sort=price&order=asc",
                 "zenmarket_mercari_stream": f"https://zenmarket.jp/pl/mercari.aspx?q={encoded_q}",
@@ -532,8 +533,10 @@ class WebappExporter:
                 else None
             ),
             "links": {
+                "primary_url": zen_buy,
                 "zenmarket_buy": zen_buy,
                 "mercari_direct": merc_direct,
+                "buyee_url": f"https://buyee.jp/mercari/search?keyword={encoded_q}",
                 "zenmarket_search_mercari": f"https://zenmarket.jp/pl/mercari.aspx?q={encoded_q}",
                 "mercari_live_search": f"https://jp.mercari.com/search?keyword={encoded_q}&status=on_sale",
                 "zenmarket_yahoo_search": f"https://zenmarket.jp/pl/yahoo.aspx?q={encoded_q}",

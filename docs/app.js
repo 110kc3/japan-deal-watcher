@@ -551,66 +551,127 @@ function renderDealCard(deal, isAuction) {
     `;
   }
 
-  // Action Buttons with 1-Click Polish Market Verification & Snipers
+  // Primary Direct URL (ZenMarket works in PL/EEA without VPN)
+  const primaryUrl = (deal.links && (deal.links.primary_url || deal.links.zenmarket_sniper || deal.links.zenmarket_buy || deal.links.zenmarket_url)) || '#';
+
+  // Action Buttons with Clean 3-Tier Mobile Hierarchy (Solves button clutter & geoblocks)
   let actionButtons = '';
   const allegroBtn = deal.links && deal.links.allegro_search
-    ? `<a href="${deal.links.allegro_search}" target="_blank" rel="noopener" class="btn-action allegro-btn">🇵🇱 Allegro Ceny</a>`
+    ? `<a href="${deal.links.allegro_search}" target="_blank" rel="noopener" class="pill-btn allegro-pill" title="Sprawdź archiwalne ceny sprzedaży na Allegro w PL">🇵🇱 Allegro</a>`
     : '';
   const olxBtn = deal.links && deal.links.olx_search
-    ? `<a href="${deal.links.olx_search}" target="_blank" rel="noopener" class="btn-action olx-btn">🇵🇱 OLX Oferty</a>`
+    ? `<a href="${deal.links.olx_search}" target="_blank" rel="noopener" class="pill-btn olx-pill" title="Sprawdź ogłoszenia na OLX w Polsce po targu">🇵🇱 OLX</a>`
     : '';
 
   if (isAuction) {
     actionButtons = `
-      <a href="${deal.links.zenmarket_sniper || deal.links.zenmarket_ending_soon}" target="_blank" rel="noopener" class="btn-action primary">
-        🎯 Licytuj w ZenMarket
-      </a>
-      <a href="${deal.links.yahoo_direct || deal.links.yahoo_closed_archive}" target="_blank" rel="noopener" class="btn-action secondary">
-        🇯🇵 Yahoo Aukcja
-      </a>
-      ${allegroBtn}
-      ${olxBtn}
-      <a href="${deal.links.zenmarket_ending_soon}" target="_blank" rel="noopener" class="btn-action secondary">
-        ⏰ Kończące się
-      </a>
-      <a href="${deal.links.zenmarket_lowest_bid}" target="_blank" rel="noopener" class="btn-action secondary">
-        🪙 Od 1 JPY
-      </a>
-      <a href="${deal.links.yahoo_closed_archive}" target="_blank" rel="noopener" class="btn-action secondary">
-        📊 Archiwum Yahoo
-      </a>
-      <button class="btn-action accent-blue btn-calc-trigger" data-deal-id="${deal.id}" data-type="auction">
-        🧮 Przelicz Snajpera
-      </button>
-      <button class="btn-action secondary full-width btn-add-cart" data-deal-id="${deal.id}" data-type="auction">
-        ➕ Dodaj do paczki konsolidacyjnej
-      </button>
+      <div class="card-action-tiers">
+        <!-- Tier 1: Main High-Contrast CTAs -->
+        <div class="card-main-ctas">
+          <a href="${primaryUrl}" target="_blank" rel="noopener" class="btn-action primary-cta" title="Licytuj bezpośrednio przez ZenMarket (Działa w Polsce i UE bez VPN)">
+            <span class="cta-text">🎯 Licytuj w ZenMarket</span>
+            <span class="cta-vpn-badge">Działa w PL</span>
+          </a>
+          <button class="btn-action secondary-cta btn-add-cart" data-deal-id="${deal.id}" data-type="auction" title="Dodaj do wspólnej paczki morskiej/lotniczej">
+            ➕ Do paczki
+          </button>
+        </div>
+
+        <!-- Tier 2: Polish Market Verification & Sniping Calculator -->
+        <div class="card-pills-row">
+          ${allegroBtn}
+          ${olxBtn}
+          <button class="pill-btn calc-pill btn-calc-trigger" data-deal-id="${deal.id}" data-type="auction" title="Przelicz koszty landed, cło i twardy limit snajpera">
+            🧮 Snajper
+          </button>
+        </div>
+
+        <!-- Tier 3: Collapsible Advanced Research & Proxy Links -->
+        <details class="extra-tools-drawer">
+          <summary class="extra-tools-summary">
+            <span class="summary-label">⚙️ Więcej linków i archiwa (落札相場)</span>
+            <span class="summary-chevron">▾</span>
+          </summary>
+          <div class="extra-tools-grid">
+            <a href="${deal.links.zenmarket_ending_soon}" target="_blank" rel="noopener" class="tool-sublink">
+              ⏰ Kończące się (ZenMarket)
+            </a>
+            <a href="${deal.links.zenmarket_lowest_bid}" target="_blank" rel="noopener" class="tool-sublink">
+              🪙 Od 1 JPY (ZenMarket)
+            </a>
+            ${deal.links.buyee_url ? `
+              <a href="${deal.links.buyee_url}" target="_blank" rel="noopener" class="tool-sublink">
+                🌐 Buyee Proxy (Alternatywa)
+              </a>
+            ` : ''}
+            <a href="${deal.links.yahoo_closed_archive}" target="_blank" rel="noopener" class="tool-sublink">
+              📊 Archiwum Yahoo (落札相場)
+            </a>
+            <a href="${deal.links.yahoo_direct}" target="_blank" rel="noopener" class="tool-sublink vpn-warn-link" title="Bezpośredni link do Yahoo Japan – blokowany w UE bez japońskiego VPN">
+              🇯🇵 Yahoo Direct <span class="tag-vpn-alert">⚠️ Wymaga VPN w UE</span>
+            </a>
+          </div>
+        </details>
+      </div>
     `;
   } else {
-    const zenStreamBtn = deal.links && deal.links.zenmarket_search_mercari
-      ? `<a href="${deal.links.zenmarket_search_mercari}" target="_blank" rel="noopener" class="btn-action secondary">🔍 Strumień Mercari</a>`
-      : '';
-    const mercLiveBtn = deal.links && deal.links.mercari_live_search
-      ? `<a href="${deal.links.mercari_live_search}" target="_blank" rel="noopener" class="btn-action secondary">🇯🇵 Mercari Live</a>`
-      : '';
-
     actionButtons = `
-      <a href="${deal.links.zenmarket_buy}" target="_blank" rel="noopener" class="btn-action primary">
-        🛒 Kup w ZenMarket
-      </a>
-      <a href="${deal.links.mercari_direct}" target="_blank" rel="noopener" class="btn-action secondary">
-        🇯🇵 Mercari Direct
-      </a>
-      ${zenStreamBtn}
-      ${mercLiveBtn}
-      ${allegroBtn}
-      ${olxBtn}
-      <button class="btn-action accent-blue btn-calc-trigger" data-deal-id="${deal.id}" data-type="mercari">
-        🧮 Sprawdź Koszty Landed
-      </button>
-      <button class="btn-action secondary btn-add-cart" data-deal-id="${deal.id}" data-type="mercari">
-        ➕ Do paczki
-      </button>
+      <div class="card-action-tiers">
+        <!-- Tier 1: Main High-Contrast CTAs -->
+        <div class="card-main-ctas">
+          <a href="${primaryUrl}" target="_blank" rel="noopener" class="btn-action primary-cta mercari-primary" title="Kup teraz bezpośrednio przez ZenMarket (Działa w Polsce i UE)">
+            <span class="cta-text">🛒 Kup w ZenMarket</span>
+            <span class="cta-vpn-badge">Działa w PL</span>
+          </a>
+          <button class="btn-action secondary-cta btn-add-cart" data-deal-id="${deal.id}" data-type="mercari" title="Dodaj do wspólnej paczki morskiej/lotniczej">
+            ➕ Do paczki
+          </button>
+        </div>
+
+        <!-- Tier 2: Polish Market Verification & Calculator -->
+        <div class="card-pills-row">
+          ${allegroBtn}
+          ${olxBtn}
+          <button class="pill-btn calc-pill btn-calc-trigger" data-deal-id="${deal.id}" data-type="mercari" title="Przelicz koszty landed, cło i marżę">
+            🧮 Koszty
+          </button>
+        </div>
+
+        <!-- Tier 3: Collapsible Advanced Research & Proxy Links -->
+        <details class="extra-tools-drawer">
+          <summary class="extra-tools-summary">
+            <span class="summary-label">⚙️ Więcej linków i wyszukiwarki</span>
+            <span class="summary-chevron">▾</span>
+          </summary>
+          <div class="extra-tools-grid">
+            ${deal.links && deal.links.zenmarket_search_mercari ? `
+              <a href="${deal.links.zenmarket_search_mercari}" target="_blank" rel="noopener" class="tool-sublink">
+                🔍 Strumień Mercari (ZenMarket)
+              </a>
+            ` : ''}
+            ${deal.links && deal.links.buyee_url ? `
+              <a href="${deal.links.buyee_url}" target="_blank" rel="noopener" class="tool-sublink">
+                🌐 Buyee Proxy (Alternatywa)
+              </a>
+            ` : ''}
+            ${deal.links && deal.links.mercari_live_search ? `
+              <a href="${deal.links.mercari_live_search}" target="_blank" rel="noopener" class="tool-sublink">
+                🇯🇵 Mercari Live Direct
+              </a>
+            ` : ''}
+            ${deal.links && deal.links.mercari_direct ? `
+              <a href="${deal.links.mercari_direct}" target="_blank" rel="noopener" class="tool-sublink">
+                🏷️ Mercari Oferta Direct
+              </a>
+            ` : ''}
+            ${deal.links && deal.links.zenmarket_yahoo_search ? `
+              <a href="${deal.links.zenmarket_yahoo_search}" target="_blank" rel="noopener" class="tool-sublink">
+                🔨 Szukaj na Yahoo Aukcjach
+              </a>
+            ` : ''}
+          </div>
+        </details>
+      </div>
     `;
   }
 
@@ -678,14 +739,15 @@ function renderDealCard(deal, isAuction) {
 
   return `
     <article class="deal-card" id="card-${deal.id}">
-      <div class="deal-card-media">
+      <a href="${primaryUrl}" target="_blank" rel="noopener" class="deal-card-media deal-card-media-link" title="Otwórz ofertę w ZenMarket (Działa w PL bez VPN)">
         <img src="${deal.image_url || './assets/images/placeholder.svg'}" alt="${deal.model}" class="deal-card-img" loading="lazy" onerror="this.src='./assets/images/placeholder.svg'" />
         <span class="media-platform-badge ${isAuction ? 'badge-yahoo' : 'badge-mercari'}">
           ${isAuction ? '🔨 Yahoo! Aukcja' : '🛍️ Mercari'}
         </span>
         ${deal.arbitrage_discount_pct ? `<span class="media-discount-badge">-${deal.arbitrage_discount_pct}% vs BIN</span>` : ''}
         ${isAuction && deal.time_remaining_formatted ? `<span class="media-time-badge ${deal.time_remaining_minutes <= 60 ? 'urgent' : ''}">⏳ ${deal.time_remaining_formatted}</span>` : ''}
-      </div>
+        <span class="media-hover-hint">↗ Otwórz w ZenMarket</span>
+      </a>
 
       <div class="card-header">
         ${platformTag}
@@ -700,7 +762,12 @@ function renderDealCard(deal, isAuction) {
       ${predictionBox}
 
       <div class="card-main">
-        <h4 class="card-title">${deal.model}</h4>
+        <h4 class="card-title">
+          <a href="${primaryUrl}" target="_blank" rel="noopener" class="card-title-link" title="Otwórz ofertę w ZenMarket">
+            <span class="title-text">${deal.model}</span>
+            <span class="title-icon">↗</span>
+          </a>
+        </h4>
         ${deal.color ? `<div class="card-color">${deal.color}</div>` : ''}
         ${isJapaneseGame ? `<div class="ntsc-j-badge">🇯🇵 <strong>Rygorystyczna Wycena NTSC-J:</strong> Wycena uwzględnia barierę językową (gry w kanji w PL są o 50-70% tańsze niż wersje europejskie).</div>` : ''}
         ${deal.custom_note ? `<p class="card-note">${deal.custom_note}</p>` : ''}

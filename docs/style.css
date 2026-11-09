@@ -390,7 +390,7 @@ body {
   border-color: var(--accent-green-border);
 }
 
-/* Card Visual Media Thumbnail */
+/* Card Visual Media Thumbnail & 1-Click Link */
 .deal-card-media {
   position: relative;
   width: 100%;
@@ -402,18 +402,56 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.deal-card-media:focus-visible {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.3);
 }
 
 .deal-card-img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   user-select: none;
 }
 
+.deal-card-media:hover .deal-card-img,
 .deal-card:hover .deal-card-img {
-  transform: scale(1.04);
+  transform: scale(1.05);
+}
+
+.media-hover-hint {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  color: #38bdf8;
+  font-size: 0.68rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.deal-card-media:hover .media-hover-hint,
+.deal-card:hover .media-hover-hint {
+  background: rgba(14, 165, 233, 0.95);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 8px rgba(14, 165, 233, 0.4);
 }
 
 .media-platform-badge {
@@ -553,6 +591,33 @@ body {
   font-weight: 800;
   color: var(--text-main);
   line-height: 1.3;
+  margin: 0;
+}
+
+.card-title-link {
+  color: var(--text-main);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  transition: color 0.15s ease;
+}
+
+.card-title-link:hover {
+  color: var(--accent-blue);
+}
+
+.card-title-link .title-icon {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  opacity: 0.7;
+  transition: transform 0.15s ease, color 0.15s ease, opacity 0.15s ease;
+}
+
+.card-title-link:hover .title-icon {
+  color: var(--accent-blue);
+  opacity: 1;
+  transform: translate(2px, -2px);
 }
 
 .card-color {
@@ -645,12 +710,32 @@ body {
   color: #fff;
 }
 
-/* Action Buttons Grid */
+/* ==========================================================================
+   Clean 3-Tier Mobile Card Actions Hierarchy
+   Tier 1: High-Contrast CTAs (Bid/Buy in ZenMarket + Add to Parcel)
+   Tier 2: Quick Polish Market Verification Pills (Allegro, OLX, Snajper)
+   Tier 3: Collapsible Drawer (Secondary Tools & Yahoo Archives)
+   ========================================================================== */
 .card-actions {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 8px;
   margin-top: 4px;
+}
+
+.card-action-tiers {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+/* Tier 1: Main High-Contrast Action CTAs */
+.card-main-ctas {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  align-items: stretch;
 }
 
 .btn-action {
@@ -660,42 +745,291 @@ body {
   justify-content: center;
   gap: 6px;
   border-radius: 10px;
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   font-weight: 700;
   text-decoration: none;
   cursor: pointer;
   border: 1px solid transparent;
-  padding: 6px 8px;
+  padding: 8px 12px;
   text-align: center;
   transition: all 0.15s ease;
 }
 
-.btn-action.primary {
+.primary-cta {
   background: linear-gradient(135deg, #10b981, #059669);
-  color: #0f172a;
-  box-shadow: 0 2px 4px rgba(16, 185, 129, 0.25);
+  color: #0f172a !important;
+  font-weight: 800;
+  font-size: 0.84rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.3);
+  text-decoration: none;
+  transition: all 0.15s ease;
+  min-height: 44px;
 }
-.btn-action.primary:active {
+
+.primary-cta.mercari-primary {
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  box-shadow: 0 2px 6px rgba(14, 165, 233, 0.3);
+  color: #ffffff !important;
+}
+
+.primary-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.45);
+}
+
+.primary-cta.mercari-primary:hover {
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.45);
+}
+
+.primary-cta:active {
   transform: scale(0.98);
 }
 
-.btn-action.secondary {
-  background: var(--bg-elevated);
-  border-color: var(--border-color);
-  color: var(--text-main);
-}
-.btn-action.secondary:active {
-  background: var(--border-color);
+.cta-text {
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
 
-.btn-action.accent-blue {
+.cta-vpn-badge {
+  font-size: 0.62rem;
+  background: rgba(15, 23, 42, 0.35);
+  color: #ffffff;
+  padding: 2px 6px;
+  border-radius: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+
+.secondary-cta {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+  min-height: 44px;
+}
+
+.secondary-cta:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+.secondary-cta:active {
+  transform: scale(0.97);
+}
+
+/* Tier 2: Compact Market Verification Pills */
+.card-pills-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 6px;
+}
+
+.pill-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+  text-align: center;
+  white-space: nowrap;
+  min-height: 32px;
+}
+
+.allegro-pill {
+  background: rgba(255, 90, 0, 0.12);
+  border-color: rgba(255, 90, 0, 0.3);
+  color: #ff8a4c;
+}
+
+.allegro-pill:hover {
+  background: rgba(255, 90, 0, 0.22);
+  border-color: #ff5a00;
+  color: #ffffff;
+}
+
+.olx-pill {
+  background: rgba(35, 229, 219, 0.12);
+  border-color: rgba(35, 229, 219, 0.3);
+  color: #23e5db;
+}
+
+.olx-pill:hover {
+  background: rgba(35, 229, 219, 0.22);
+  border-color: #23e5db;
+  color: #ffffff;
+}
+
+.calc-pill {
   background: rgba(56, 189, 248, 0.12);
   border-color: rgba(56, 189, 248, 0.3);
   color: var(--accent-blue);
 }
 
-.btn-action.full-width {
-  grid-column: span 2;
+.calc-pill:hover {
+  background: rgba(56, 189, 248, 0.22);
+  border-color: var(--accent-blue);
+  color: #ffffff;
+}
+
+/* Tier 3: Collapsible Drawer for Advanced Research */
+.extra-tools-drawer {
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(51, 65, 85, 0.5);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.extra-tools-drawer[open] {
+  border-color: rgba(56, 189, 248, 0.4);
+  background: rgba(15, 23, 42, 0.85);
+}
+
+.extra-tools-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  list-style: none;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.extra-tools-summary::-webkit-details-marker {
+  display: none;
+}
+
+.extra-tools-summary:hover {
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.extra-tools-drawer[open] .summary-chevron {
+  transform: rotate(180deg);
+}
+
+.summary-chevron {
+  transition: transform 0.2s ease;
+  font-size: 0.75rem;
+}
+
+.extra-tools-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px 10px;
+  border-top: 1px solid rgba(51, 65, 85, 0.4);
+  animation: fadeIn 0.2s ease-out;
+}
+
+.tool-sublink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 8px;
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(51, 65, 85, 0.4);
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-main);
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.tool-sublink:hover {
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.4);
+  color: #38bdf8;
+}
+
+.vpn-warn-link {
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+.vpn-warn-link:hover {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.6);
+  color: #fbbf24;
+}
+
+.tag-vpn-alert {
+  font-size: 0.6rem;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: rgba(245, 158, 11, 0.2);
+  color: #f59e0b;
+  font-weight: 700;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+}
+
+/* Informative Geoblock & ZenMarket Proxy Notice */
+.proxy-notice-card {
+  margin: 10px 16px 14px 16px;
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: 12px;
+  padding: 10px 14px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.proxy-notice-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.notice-icon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.notice-text {
+  font-size: 0.75rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+.notice-text strong {
+  color: #38bdf8;
+  display: block;
+  margin-bottom: 3px;
+  font-size: 0.8rem;
+}
+
+.notice-text em {
+  color: #34d399;
+  font-style: normal;
+  font-weight: 600;
 }
 
 /* ==========================================================================
