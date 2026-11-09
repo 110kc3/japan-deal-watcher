@@ -3,7 +3,7 @@
 > **Rzeczywiste Dane Sprzedaży z Japońskich Rynków (Mercari Japan & Yahoo! Japan Auctions)**  
 > *Rejestr zamkniętych ofert, tempo wyprzedawania towaru (Days on Market), analiza poziomów cenowych (落札相場) oraz sygnały popytowe dla importera.*
 
-![Closed Sales](https://img.shields.io/badge/Closed%20Sales-46-brightgreen) ![Active Listings](https://img.shields.io/badge/Active%20Tracked-127-blue) ![Avg Realized ROI](https://img.shields.io/badge/Avg%20Realized%20ROI-+83.8%25-orange) ![Total Realized Profit](https://img.shields.io/badge/Realized%20Profit-+10842%20PLN-brightgreen) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-09%2004:57%20UTC-purple)
+![Closed Sales](https://img.shields.io/badge/Closed%20Sales-46-brightgreen) ![Active Listings](https://img.shields.io/badge/Active%20Tracked-127-blue) ![Avg Realized ROI](https://img.shields.io/badge/Avg%20Realized%20ROI-+83.8%25-orange) ![Total Realized Profit](https://img.shields.io/badge/Realized%20Profit-+10842%20PLN-brightgreen) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-09%2005:57%20UTC-purple)
 
 ⬅ **Nawigacja:** [Główny Dashboard Mercari (README.md)](README.md) · [Katalog Alternatywnych Ofert (YAHOO_AUCTIONS_DEALS.md)](YAHOO_AUCTIONS_DEALS.md) · [🎯 Poradnik Snajpera (AUCTION_SNIPING_GUIDE.md)](AUCTION_SNIPING_GUIDE.md) · [💰 Audyt Opłacalności (REAL_PROFITABILITY_AUDIT.md)](REAL_PROFITABILITY_AUDIT.md)
 
@@ -134,4 +134,4 @@ flowchart TD
 ```
 
 ---
-*Raport wygenerowany automatycznie przez silnik HistoryTracker & HistoryGenerator. Ostatnia synchronizacja: 2026-11-09 04:57 UTC.*
+*Raport wygenerowany automatycznie przez silnik HistoryTracker & HistoryGenerator. Ostatnia synchronizacja: 2026-11-09 05:57 UTC.*
