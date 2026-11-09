@@ -3,7 +3,7 @@
 > **Automated Private Deal Watcher for Retro Consoles, Handhelds, UMD Bundles & Analog Lenses**  
 > *Live tracking Mercari Japan, Yahoo Auctions & ZenMarket consolidation timeline.*
 
-![Status](https://img.shields.io/badge/Watcher-Active-brightgreen) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-09%2001:57%20UTC-blue) ![Exchange Rate](https://img.shields.io/badge/NBP%20Live-100%20JPY%20%E2%89%88%202.48%20PLN-success) ![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-58%20Days%20Left-orange) ![Deal Checks](https://img.shields.io/badge/Deal%20Checks-10%20Rules%20PASS-brightgreen) ![Camera Cap](https://img.shields.io/badge/Camera%20Cap-Max%20100%20PLN-orange) ![Lens Cap](https://img.shields.io/badge/Lens%20Cap-Max%20100%20PLN-orange) ![Update Cycle](https://img.shields.io/badge/Cycle-Hourly%20(1h)-purple)
+![Status](https://img.shields.io/badge/Watcher-Active-brightgreen) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-09%2002:30%20UTC-blue) ![Exchange Rate](https://img.shields.io/badge/NBP%20Live-100%20JPY%20%E2%89%88%202.48%20PLN-success) ![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-58%20Days%20Left-orange) ![Deal Checks](https://img.shields.io/badge/Deal%20Checks-10%20Rules%20PASS-brightgreen) ![Camera Cap](https://img.shields.io/badge/Camera%20Cap-Max%20100%20PLN-orange) ![Lens Cap](https://img.shields.io/badge/Lens%20Cap-Max%20100%20PLN-orange) ![Update Cycle](https://img.shields.io/badge/Cycle-Hourly%20(1h)-purple)
 
 > 🧭 **Szybka Nawigacja:** [🔨 Yahoo Aukcje (YAHOO_AUCTIONS_DEALS.md)](YAHOO_AUCTIONS_DEALS.md) · [🎯 Poradnik Snajpera (AUCTION_SNIPING_GUIDE.md)](AUCTION_SNIPING_GUIDE.md) · [💰 Audyt Opłacalności (REAL_PROFITABILITY_AUDIT.md)](REAL_PROFITABILITY_AUDIT.md) · [📈 Historia Sprzedaży (MARKET_SALES_HISTORY.md)](MARKET_SALES_HISTORY.md)
 
@@ -99,15 +99,15 @@ ZenMarket zapewnia **60 dni darmowego przechowywania** w Osace na połączenie o
 
 | Model / Wariant | Stan / Weryfikacja | Cena JPY (PLN) | Koszt w PL (z VAT) | Cena w Polsce | Potencjalny Zysk | Werdykt AI | Status | Linki |
 |---|:---:|---:|---:|---:|---:|:---:|:---:|---|
-| **Game Boy Advance SP (AGS-101 Brighter LCD)**<br><small>Pearl Blue (Podświetlenie II Generacji)<br>*Oryginalny model AGS-101 z jasnym podświetleniem fabrycznym, ogromny popyt w PL*</small> | ✅ <strong>Sprawdzony</strong><br><small style='color:#10b981;'>Sprawny 100%</small> | **9,500 JPY**<br>(~235.90 zł) | ~366.29 zł | **780.00 zł** | <strong style='color:#10b981;'>+413.71 zł</strong><br><small>(+112.9%)</small> | 🌟 <strong>S-TIER</strong><br><small>90.5/100</small> | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m82785046364)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m82785046364) |
 | **Game Boy Advance SP Famicom 20th Anniversary**<br><small>Famicom Red / Gold (Limited)<br>*Kolekcjonerska edycja 20th Anniversary w kolorystyce pierwszego Famicoma*</small> | ✅ <strong>Sprawdzony</strong><br><small style='color:#10b981;'>Sprawny 100%</small> | **11,000 JPY**<br>(~273.15 zł) | ~413.42 zł | **720.00 zł** | <strong style='color:#10b981;'>+306.58 zł</strong><br><small>(+74.2%)</small> | 🌟 <strong>S-TIER</strong><br><small>86.2/100</small> | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m70099354764)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m70099354764) |
-| **Game Boy Advance SP (AGS-001) Komplet**<br><small>Onyx Black + Oryginalna Ładowarka<br>*Sprawdzony klasyczny GBA SP ze sprawnym zawiasem i ładowarką*</small> | ✅ <strong>Sprawdzony</strong><br><small style='color:#10b981;'>Sprawny 100%</small> | **10,900 JPY**<br>(~270.67 zł) | ~410.28 zł | **480.00 zł** | <strong style='color:#10b981;'>+69.72 zł</strong><br><small>(+17.0%)</small> | ⏱️ <strong>C-TIER</strong><br><small>36.0/100</small> | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m67708364696)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m67708364696) |
+| **Game Boy Advance SP (AGS-001) Komplet**<br><small>Onyx Black + Oryginalna Ładowarka<br>*Sprawdzony klasyczny GBA SP ze sprawnym zawiasem i ładowarką*</small> | ✅ <strong>Sprawdzony</strong><br><small style='color:#10b981;'>Sprawny 100%</small> | **10,800 JPY**<br>(~268.19 zł) | ~407.14 zł | **480.00 zł** | <strong style='color:#10b981;'>+72.86 zł</strong><br><small>(+17.9%)</small> | ⏱️ <strong>C-TIER</strong><br><small>36.7/100</small> | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m67708364696)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m67708364696) |
 | **Game Boy Color CGB-001**<br><small>Atomic Purple (Przezroczysty Fiolet)<br>*Kultowy przezroczysty fiolet Atomic Purple, 100% sprawny dźwięk i ekran, 0% Li-Ion (baterie AA)*</small> | ✅ <strong>Sprawdzony</strong><br><small style='color:#10b981;'>Sprawny 100%</small> | **9,300 JPY**<br>(~230.94 zł) | ~360.02 zł | **450.00 zł** | <strong style='color:#10b981;'>+89.98 zł</strong><br><small>(+25.0%)</small> | ⏱️ <strong>C-TIER</strong><br><small>49.0/100</small> | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m89166124900)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m89166124900) |
 
-<details><summary>📁 Zakończone / Sprzedane w tej kategorii (4 ofert - kliknij, aby rozwinąć)</summary>
+<details><summary>📁 Zakończone / Sprzedane w tej kategorii (5 ofert - kliknij, aby rozwinąć)</summary>
 
 | Model / Wariant | Stan / Weryfikacja | Cena JPY (PLN) | Koszt w PL (z VAT) | Cena w Polsce | Potencjalny Zysk | Werdykt AI | Status | Linki |
 |---|:---:|---:|---:|---:|---:|:---:|:---:|---|
+| ~~**Game Boy Advance SP (AGS-101 Brighter LCD)**~~<br><small>~~Pearl Blue (Podświetlenie II Generacji)~~</small> | ~~✅ Stan Dobry~~ | ~~**9,500 JPY**~~<br>(~~~235.90 zł~~) | ~~~366.29 zł~~ | ~~**780.00 zł**~~ | ~~<strong style='color:#10b981;'>+413.71 zł</strong><br><small>(+112.9%)</small>~~ | ~~⚪ N/A~~ | ~~❌ Zakończone / Sprzedane~~ | ~~[🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m82785046364)~~ |
 | ~~**Game Boy Advance SP Pokémon Torchic Edition**~~<br><small>~~Torchic Orange (Pokémon Center Limited)~~</small> | ~~✅ Stan Dobry~~ | ~~**14,000 JPY**~~<br>(~~~347.65 zł~~) | ~~~507.66 zł~~ | ~~**950.00 zł**~~ | ~~<strong style='color:#10b981;'>+442.34 zł</strong><br><small>(+87.1%)</small>~~ | ~~⚪ N/A~~ | ~~❌ Zakończone / Sprzedane~~ | ~~[🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m67708364697)~~ |
 | ~~**Game Boy Color Pokémon Center 3rd Anniversary**~~<br><small>~~Clear Blue / Pokémon Art (Limited)~~</small> | ~~✅ Stan Dobry~~ | ~~**13,500 JPY**~~<br>(~~~335.23 zł~~) | ~~~491.94 zł~~ | ~~**900.00 zł**~~ | ~~<strong style='color:#10b981;'>+408.06 zł</strong><br><small>(+82.9%)</small>~~ | ~~⚪ N/A~~ | ~~❌ Zakończone / Sprzedane~~ | ~~[🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m89166124901)~~ |
 | ~~**Game Boy Advance (AGB-001 Poziomy)**~~<br><small>~~Glacier / Indigo~~</small> | ~~✅ Stan Dobry~~ | ~~**6,000 JPY**~~<br>(~~~148.99 zł~~) | ~~~256.35 zł~~ | ~~**390.00 zł**~~ | ~~<strong style='color:#10b981;'>+133.65 zł</strong><br><small>(+52.1%)</small>~~ | ~~⚪ N/A~~ | ~~❌ Zakończone / Sprzedane~~ | ~~[🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m89166124902)~~ |
@@ -171,7 +171,7 @@ ZenMarket zapewnia **60 dni darmowego przechowywania** w Osace na połączenie o
 
 | Model / Wariant | Stan / Weryfikacja | Cena JPY (PLN) | Koszt w PL (z VAT) | Cena w Polsce | Potencjalny Zysk | Werdykt AI | Status | Linki |
 |---|:---:|---:|---:|---:|---:|:---:|:---:|---|
-| ~~**Zestaw Gier Super Famicom SFC (10 kartridży)**~~<br><small>~~Mix 10 Gier SFC Nintendo~~</small> | ~~✅ Stan Dobry~~ | ~~**2,100 JPY**~~<br>(~~~52.15 zł~~) | ~~~127.53 zł~~ | ~~**350.00 zł**~~ | ~~<strong style='color:#10b981;'>+222.47 zł</strong><br><small>(+174.4%)</small>~~ | ~~⚪ N/A~~ | ~~🚫 Wykluczone (Uszkodzone)~~ | ~~[🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m70453155857)~~ |
+| ~~**Zestaw Gier Super Famicom SFC (10 kartridży)**~~<br><small>~~Mix 10 Gier SFC Nintendo~~</small> | ~~✅ Stan Dobry~~ | ~~**2,000 JPY**~~<br>(~~~49.66 zł~~) | ~~~124.37 zł~~ | ~~**350.00 zł**~~ | ~~<strong style='color:#10b981;'>+225.63 zł</strong><br><small>(+181.4%)</small>~~ | ~~⚪ N/A~~ | ~~🚫 Wykluczone (Uszkodzone)~~ | ~~[🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m70453155857)~~ |
 | ~~**Wieloplatformowy Hurtowy Mix Gier Retro (30 sztuk)**~~<br><small>~~Hurtowy Mix 30 Gier~~</small> | ~~✅ Stan Dobry~~ | ~~**2,620 JPY**~~<br>(~~~65.06 zł~~) | ~~~143.86 zł~~ | ~~**550.00 zł**~~ | ~~<strong style='color:#10b981;'>+406.14 zł</strong><br><small>(+282.3%)</small>~~ | ~~⚪ N/A~~ | ~~🚫 Wykluczone (Uszkodzone)~~ | ~~[🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m42611850999)~~ |
 
 </details>
@@ -292,13 +292,13 @@ Zamiast wysyłać każdy przedmiot osobno (gdzie minimalny koszt paczki kuriersk
 
 | Skład Paczki Konsolidacyjnej | Baterie Li-Ion | Koszt Zakupu (JPY) | Koszt w PL (z VAT) | Wartość w Polsce | Szacowany Zysk Netto |
 |---|:---:|---:|---:|---:|---:|
-| 1× **Game Boy Advance SP (AGS-101 Brighter LCD)** (Pearl Blue (Podświetlenie II Generacji)) | 1 (Slot Li-Ion) | 9,500 JPY (~235.90 zł) | ~366.29 zł | ~780.00 zł | **+413.71 zł** |
 | 1× **PCH-2000 Slim** (Blue) | 1 (Slot Li-Ion) | 14,600 JPY (~362.55 zł) | ~539.16 zł | ~890.00 zł | **+350.84 zł** |
+| 1× **Game Boy Advance SP Famicom 20th Anniversary** (Famicom Red / Gold (Limited)) | 1 (Slot Li-Ion) | 11,000 JPY (~273.15 zł) | ~413.42 zł | ~720.00 zł | **+306.58 zł** |
 | 1× **Nintendo GameCube DOL-001 Spice Orange** (Spice Orange (Z Cyfrowym Portem Digital Out)) | 0 (Bez limitu) | 5,000 JPY (~124.16 zł) | ~275.54 zł | ~650.00 zł | **+374.46 zł** |
 | 1× **PSone COMBO SCPH-130 (Zintegrowany 5" LCD Sony)** (Biały Mini + Doczepiany Ekran LCD) | 0 (Bez limitu) | 25,800 JPY (~640.67 zł) | ~928.93 zł | ~1600.00 zł | **+671.07 zł** |
 | 1× **Pakiet Gier Game Boy Advance & GBC (12 kartridży)** (Mix 12 Gier GBA / GBC) | 0 (Bez limitu) | 3,000 JPY (~74.50 zł) | ~155.80 zł | ~480.00 zł | **+324.20 zł** |
 | 1× **PS1 DualShock Island Blue Boxed (SCPH-1200)** (Island Blue (Morski błękit) + BOX/Instrukcja) | 0 (Bez limitu) | 11,000 JPY (~273.15 zł) | ~419.74 zł | ~750.00 zł | **+330.26 zł** |
-| **ŁĄCZNIE W 1 KARTONIE (6 poz.)** | **2 / 2 Li-Ion (100% OK)** | **68,900 JPY** | **~2685.46 zł** | **~5150.00 zł** | **<strong style='color:#10b981;'>+2464.54 zł (+91.8%)</strong>** |
+| **ŁĄCZNIE W 1 KARTONIE (6 poz.)** | **2 / 2 Li-Ion (100% OK)** | **70,400 JPY** | **~2732.59 zł** | **~5090.00 zł** | **<strong style='color:#10b981;'>+2357.41 zł (+86.3%)</strong>** |
 
 > 💰 **Czysta oszczędność na konsolidacji: ~485 zł w kieszeni!** (6 przesyłek osobno = ~660 zł vs 1 paczka EMS = ~175 zł).
 
@@ -325,4 +325,4 @@ Po zakupieniu przedmiotu w panelu ZenMarket kliknij *Order Photos* i wklej:
 - **Lokalne uruchomienie:** `python3 main.py` w repozytorium.
 
 ---
-*Dashboard automatically maintained by GitHub Actions & Antigravity Agent. Last updated: 2026-11-09 01:57 UTC.*
+*Dashboard automatically maintained by GitHub Actions & Antigravity Agent. Last updated: 2026-11-09 02:30 UTC.*
