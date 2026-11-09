@@ -170,9 +170,46 @@ class DealFetcher:
         title = fallback_info.get("note", "Przedmiot Mercari") if fallback_info else "Przedmiot Mercari"
         price_jpy = fallback_info.get("target_price_jpy", 0) if fallback_info else 0
         status = "Active"
-        image_url = None
-        raw_description = ""
+        image_url = fallback_info.get("image_url") if fallback_info else None
+        raw_description = fallback_info.get("note", "") if fallback_info else ""
         item_condition = ""
+
+        if not str(item_id).startswith("m"):
+            # Non-Mercari tracked item (e.g. curated proxy stream or test lot)
+            cost_info = calculate_landed_cost(
+                price_jpy=price_jpy,
+                category_id=category_id,
+                rate_jpy=self.rate_jpy,
+                rate_eur=self.rate_eur
+            )
+            est_pl = float(fallback_info.get("est_pl_value", 0)) if fallback_info else 0.0
+            margin = round(est_pl - cost_info["landed_cost_pln"], 2)
+            roi = round((margin / cost_info["landed_cost_pln"] * 100.0), 1) if cost_info["landed_cost_pln"] > 0 else 0.0
+            return {
+                "id": item_id,
+                "title": fallback_info.get("model", title) if fallback_info else title,
+                "price_jpy": price_jpy,
+                "price_pln_raw": cost_info["price_pln_raw"],
+                "landed_cost_pln": cost_info["landed_cost_pln"],
+                "est_pl_value": est_pl,
+                "est_margin_pln": margin,
+                "roi_percent": roi,
+                "status": "Dostępne",
+                "image_url": image_url,
+                "description": raw_description,
+                "condition_type": "confirmed_working",
+                "condition_badge": "🟢 0% Li-Ion (Zero Baterii)",
+                "is_broken": False,
+                "is_untested": False,
+                "shipping_share_pln": cost_info["shipping_share_pln"],
+                "vat_pln": cost_info["vat_pln"],
+                "zenmarket_fee_pln": cost_info["zenmarket_fee_pln"],
+                "zenmarket_url": fallback_info.get("zenmarket_url", f"https://zenmarket.jp/pl/yahoo.aspx?q={item_id}") if fallback_info else "",
+                "mercari_url": fallback_info.get("source_url", "") if fallback_info else "",
+                "category_id": category_id,
+                "battery_type": fallback_info.get("battery_type", "none") if fallback_info else "none",
+                "photo_inspection": fallback_info.get("photo_inspection") if fallback_info else None
+            }
 
         checked_via_mercapi = False
 

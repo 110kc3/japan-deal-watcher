@@ -28,6 +28,7 @@ class DealAnalyzer:
         "ps_vita": 1.20,                # High Polish demand for colorful Vitas
         "ps_vita_handhelds": 1.20,      # Alias
         "retro_games_mix": 1.25,        # High volume, zero Li-Ion, huge margin (DS, GBA, PS1/PS2, SFC)
+        "danshari_mystery_lots": 1.35,  # Top #1 Arbitrage Potential: Mystery Lots, Danshari & Hidden Gems
         "high_margin_curated_consoles": 1.15, # Curated PSone Combo & rare CIB consoles (>400-750 PLN profit)
         "film_cameras_point_shoot": 1.25, # Huge youth/hipster market in PL, instant turnover, 0% Li-Ion
         "analog_lenses": 1.15,          # Fast sale to photo enthusiasts, 0% Li-Ion

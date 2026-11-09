@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-11-09 16:43 UTC",
+    "generated_at": "2026-11-09 17:00 UTC",
     "app_title": "AgyDeal – Japan Deal & Auction Sniping Radar",
     "app_version": "2.0.0",
     "exchange_rates": {
@@ -22,15 +22,15 @@
       "start_date": "2026-11-07"
     },
     "sales_history_summary": {
-      "new_sales": 0,
+      "new_sales": 4,
       "price_changes": 0,
-      "total_tracked": 199,
-      "total_sales": 49
+      "total_tracked": 207,
+      "total_sales": 53
     },
     "counts": {
-      "yahoo_auctions": 63,
+      "yahoo_auctions": 71,
       "mercari_deals": 40,
-      "total_active": 103
+      "total_active": 111
     }
   },
   "categories": [
@@ -38,7 +38,7 @@
       "id": "all",
       "name": "Wszystkie Okazje",
       "icon": "🌐",
-      "count": 103
+      "count": 111
     },
     {
       "id": "nintendo_3ds_handhelds",
@@ -74,6 +74,12 @@
       "id": "retro_games_mix",
       "name": "Pakiety Gier Retro (0% Baterii)",
       "icon": "📦",
+      "battery": false
+    },
+    {
+      "id": "danshari_mystery_lots",
+      "name": "Pakiety Różności (Danshari / Skarby)",
+      "icon": "🎁",
       "battery": false
     },
     {
@@ -141,6 +147,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 84.79,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=New%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20LL%20%E6%9C%AC%E4%BD%93&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=New%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20LL%20%E6%9C%AC%E4%BD%93&sort=price&order=asc",
@@ -183,6 +190,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 64.25,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=New%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20%E6%9C%AC%E4%BD%93%20KTR&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=New%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20%E6%9C%AC%E4%BD%93%20KTR&sort=price&order=asc",
@@ -225,6 +233,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 52.27,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20LL%20%E6%9C%AC%E4%BD%93&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20LL%20%E6%9C%AC%E4%BD%93&sort=price&order=asc",
@@ -267,6 +276,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 43.14,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20%E3%82%A2%E3%82%AF%E3%82%A2%E3%83%96%E3%83%AB%E3%83%BC&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20%E3%82%A2%E3%82%AF%E3%82%A2%E3%83%96%E3%83%AB%E3%83%BC&sort=price&order=asc",
@@ -309,6 +319,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 43.14,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20%E3%82%B3%E3%82%B9%E3%83%A2%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20%E3%82%B3%E3%82%B9%E3%83%A2%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF&sort=price&order=asc",
@@ -351,6 +362,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 76.23,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=New%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC2DS%20LL%20%E6%9C%AC%E4%BD%93&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=New%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC2DS%20LL%20%E6%9C%AC%E4%BD%93&sort=price&order=asc",
@@ -393,6 +405,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 173.21,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=New%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20LL%20%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E3%83%95%E3%82%A1%E3%83%9F%E3%82%B3%E3%83%B3&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=New%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20LL%20%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E3%83%95%E3%82%A1%E3%83%9F%E3%82%B3%E3%83%B3&sort=price&order=asc",
@@ -435,6 +448,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 34.02,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=DSi%20LL%20%E6%9C%AC%E4%BD%93&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=DSi%20LL%20%E6%9C%AC%E4%BD%93&sort=price&order=asc",
@@ -477,6 +491,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 33.45,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=DSi%20LL%20%E3%83%80%E3%83%BC%E3%82%AF%E3%83%96%E3%83%A9%E3%82%A6%E3%83%B3&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=DSi%20LL%20%E3%83%80%E3%83%BC%E3%82%AF%E3%83%96%E3%83%A9%E3%82%A6%E3%83%B3&sort=price&order=asc",
@@ -519,6 +534,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 21.47,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=DS%E3%83%A9%E3%82%A4%E3%83%88%20%E6%9C%AC%E4%BD%93%20%E5%8B%95%E4%BD%9C%E7%A2%BA%E8%AA%8D%E6%B8%88%E3%81%BF&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=DS%E3%83%A9%E3%82%A4%E3%83%88%20%E6%9C%AC%E4%BD%93%20%E5%8B%95%E4%BD%9C%E7%A2%BA%E8%AA%8D%E6%B8%88%E3%81%BF&sort=price&order=asc",
@@ -561,6 +577,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 22.61,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=DS%E3%83%A9%E3%82%A4%E3%83%88%20%E3%82%AF%E3%83%AA%E3%83%A0%E3%82%BE%E3%83%B3&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=DS%E3%83%A9%E3%82%A4%E3%83%88%20%E3%82%AF%E3%83%AA%E3%83%A0%E3%82%BE%E3%83%B3&sort=price&order=asc",
@@ -603,6 +620,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 44.85,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=DS%E3%83%A9%E3%82%A4%E3%83%88%20%E3%83%95%E3%82%A1%E3%82%A4%E3%83%8A%E3%83%AB%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BCIII&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=DS%E3%83%A9%E3%82%A4%E3%83%88%20%E3%83%95%E3%82%A1%E3%82%A4%E3%83%8A%E3%83%AB%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BCIII&sort=price&order=asc",
@@ -645,6 +663,7 @@
       "shipping_share_pln": 25.0,
       "vat_pln": 72.23,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%9C%E3%83%BC%E3%82%A4%E3%82%A2%E3%83%89%E3%83%90%E3%83%B3%E3%82%B9SP%20AGS-101&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%9C%E3%83%BC%E3%82%A4%E3%82%A2%E3%83%89%E3%83%90%E3%83%B3%E3%82%B9SP%20AGS-101&sort=price&order=asc",
@@ -687,6 +706,7 @@
       "shipping_share_pln": 25.0,
       "vat_pln": 66.52,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%9C%E3%83%BC%E3%82%A4%E3%82%A2%E3%83%89%E3%83%90%E3%83%B3%E3%82%B9SP%20%E3%83%95%E3%82%A1%E3%83%9F%E3%82%B3%E3%83%B3%E3%82%AB%E3%83%A9%E3%83%BC&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%9C%E3%83%BC%E3%82%A4%E3%82%A2%E3%83%89%E3%83%90%E3%83%B3%E3%82%B9SP%20%E3%83%95%E3%82%A1%E3%83%9F%E3%82%B3%E3%83%B3%E3%82%AB%E3%83%A9%E3%83%BC&sort=price&order=asc",
@@ -729,6 +749,7 @@
       "shipping_share_pln": 25.0,
       "vat_pln": 40.85,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%9C%E3%83%BC%E3%82%A4%E3%82%AB%E3%83%A9%E3%83%BC%20%E3%82%AF%E3%83%AA%E3%82%A2%E3%83%91%E3%83%BC%E3%83%97%E3%83%AB&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%9C%E3%83%BC%E3%82%A4%E3%82%AB%E3%83%A9%E3%83%BC%20%E3%82%AF%E3%83%AA%E3%82%A2%E3%83%91%E3%83%BC%E3%83%97%E3%83%AB&sort=price&order=asc",
@@ -771,6 +792,7 @@
       "shipping_share_pln": 25.0,
       "vat_pln": 86.49,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%9C%E3%83%BC%E3%82%A4%E3%83%9F%E3%82%AF%E3%83%AD%20%E3%83%95%E3%82%A1%E3%83%9F%E3%82%B3%E3%83%B3&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%9C%E3%83%BC%E3%82%A4%E3%83%9F%E3%82%AF%E3%83%AD%20%E3%83%95%E3%82%A1%E3%83%9F%E3%82%B3%E3%83%B3&sort=price&order=asc",
@@ -813,6 +835,7 @@
       "shipping_share_pln": 35.0,
       "vat_pln": 88.79,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=PS%E3%83%B4%E3%82%A3%E3%83%BC%E3%82%BF%202000%20%E3%82%A2%E3%82%AF%E3%82%A2%E3%83%96%E3%83%AB%E3%83%BC&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=PS%E3%83%B4%E3%82%A3%E3%83%BC%E3%82%BF%202000%20%E3%82%A2%E3%82%AF%E3%82%A2%E3%83%96%E3%83%AB%E3%83%BC&sort=price&order=asc",
@@ -855,6 +878,7 @@
       "shipping_share_pln": 35.0,
       "vat_pln": 85.94,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=PS%E3%83%B4%E3%82%A3%E3%83%BC%E3%82%BF%201000%20%E3%82%B5%E3%83%95%E3%82%A1%E3%82%A4%E3%82%A2%E3%83%96%E3%83%AB%E3%83%BC&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=PS%E3%83%B4%E3%82%A3%E3%83%BC%E3%82%BF%201000%20%E3%82%B5%E3%83%95%E3%82%A1%E3%82%A4%E3%82%A2%E3%83%96%E3%83%AB%E3%83%BC&sort=price&order=asc",
@@ -897,6 +921,7 @@
       "shipping_share_pln": 35.0,
       "vat_pln": 88.79,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=PS%E3%83%B4%E3%82%A3%E3%83%BC%E3%82%BF%202000%20%E3%83%A1%E3%82%BF%E3%83%AA%E3%83%83%E3%82%AF%E3%83%AC%E3%83%83%E3%83%89&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=PS%E3%83%B4%E3%82%A3%E3%83%BC%E3%82%BF%202000%20%E3%83%A1%E3%82%BF%E3%83%AA%E3%83%83%E3%82%AF%E3%83%AC%E3%83%83%E3%83%89&sort=price&order=asc",
@@ -939,6 +964,7 @@
       "shipping_share_pln": 35.0,
       "vat_pln": 97.35,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=PS%E3%83%B4%E3%82%A3%E3%83%BC%E3%82%BF%202000%20%E3%83%8D%E3%82%AA%E3%83%B3%E3%82%AA%E3%83%AC%E3%83%B3%E3%82%B8&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=PS%E3%83%B4%E3%82%A3%E3%83%BC%E3%82%BF%202000%20%E3%83%8D%E3%82%AA%E3%83%B3%E3%82%AA%E3%83%AC%E3%83%B3%E3%82%B8&sort=price&order=asc",
@@ -981,6 +1007,7 @@
       "shipping_share_pln": 35.0,
       "vat_pln": 83.08,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=PS%E3%83%B4%E3%82%A3%E3%83%BC%E3%82%BF%201000%20%E3%82%AF%E3%83%AA%E3%82%B9%E3%82%BF%E3%83%AB%E3%83%9B%E3%83%AF%E3%82%A4%E3%83%88&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=PS%E3%83%B4%E3%82%A3%E3%83%BC%E3%82%BF%201000%20%E3%82%AF%E3%83%AA%E3%82%B9%E3%82%BF%E3%83%AB%E3%83%9B%E3%83%AF%E3%82%A4%E3%83%88&sort=price&order=asc",
@@ -1023,6 +1050,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 46.57,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=PSP-3000%20%E3%83%90%E3%82%A4%E3%83%96%E3%83%A9%E3%83%B3%E3%83%88%E3%83%96%E3%83%AB%E3%83%BC&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=PSP-3000%20%E3%83%90%E3%82%A4%E3%83%96%E3%83%A9%E3%83%B3%E3%83%88%E3%83%96%E3%83%AB%E3%83%BC&sort=price&order=asc",
@@ -1065,6 +1093,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 73.38,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=PSP-3000%20%E3%83%A2%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%8F%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%9D%E3%83%BC%E3%82%BF%E3%83%96%E3%83%AB3rd&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=PSP-3000%20%E3%83%A2%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%8F%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%9D%E3%83%BC%E3%82%BF%E3%83%96%E3%83%AB3rd&sort=price&order=asc",
@@ -1107,6 +1136,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 44.85,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=PSP-3000%20%E3%83%96%E3%83%AD%E3%83%83%E3%82%B5%E3%83%A0%E3%83%94%E3%83%B3%E3%82%AF&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=PSP-3000%20%E3%83%96%E3%83%AD%E3%83%83%E3%82%B5%E3%83%A0%E3%83%94%E3%83%B3%E3%82%AF&sort=price&order=asc",
@@ -1149,6 +1179,21 @@
       "shipping_share_pln": 20.0,
       "vat_pln": 31.15,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": {
+        "inspected": true,
+        "inspection_badge": "🔍 Inspekcja Zdjęcia (AI Vision)",
+        "total_items_spotted": 50,
+        "lot_type": "bulk_lot",
+        "lot_type_name": "Pakiet Zbiorczy (まとめ売り)",
+        "top_gems": [],
+        "spotted_gems_value_pln": 0.0,
+        "estimated_total_lot_value_pln": 750.0,
+        "filler_count": 50,
+        "battery_hazard_detected": false,
+        "battery_notes": "🟢 100% Czyste Gry (0% Li-Ion / Brak baterii - bez ograniczeń IATA w paczce lotniczej)",
+        "break_even_gem": "",
+        "inspection_summary": "Zidentyfikowano 0 kluczowych tytułów w kartonie (50 gier). Szacowana wartość samych perełek: ~0 zł."
+      },
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88%20%E3%81%BE%E3%81%A8%E3%82%81%E5%A3%B2%E3%82%8A%2050%E6%9C%AC&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88%20%E3%81%BE%E3%81%A8%E3%82%81%E5%A3%B2%E3%82%8A%2050%E6%9C%AC&sort=price&order=asc",
@@ -1191,6 +1236,21 @@
       "shipping_share_pln": 20.0,
       "vat_pln": 29.44,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": {
+        "inspected": true,
+        "inspection_badge": "🔍 Inspekcja Zdjęcia (AI Vision)",
+        "total_items_spotted": 30,
+        "lot_type": "bulk_lot",
+        "lot_type_name": "Pakiet Zbiorczy (まとめ売り)",
+        "top_gems": [],
+        "spotted_gems_value_pln": 0.0,
+        "estimated_total_lot_value_pln": 450.0,
+        "filler_count": 30,
+        "battery_hazard_detected": false,
+        "battery_notes": "🟢 100% Czyste Gry (0% Li-Ion / Brak baterii - bez ograniczeń IATA w paczce lotniczej)",
+        "break_even_gem": "",
+        "inspection_summary": "Zidentyfikowano 0 kluczowych tytułów w kartonie (30 gier). Szacowana wartość samych perełek: ~0 zł."
+      },
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=DS%203DS%20%E3%82%BD%E3%83%95%E3%83%88%20%E3%81%BE%E3%81%A8%E3%82%81%E5%A3%B2%E3%82%8A&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=DS%203DS%20%E3%82%BD%E3%83%95%E3%83%88%20%E3%81%BE%E3%81%A8%E3%82%81%E5%A3%B2%E3%82%8A&sort=price&order=asc",
@@ -1233,6 +1293,21 @@
       "shipping_share_pln": 20.0,
       "vat_pln": 31.72,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": {
+        "inspected": true,
+        "inspection_badge": "🔍 Inspekcja Zdjęcia (AI Vision)",
+        "total_items_spotted": 40,
+        "lot_type": "bulk_lot",
+        "lot_type_name": "Pakiet Zbiorczy (まとめ売り)",
+        "top_gems": [],
+        "spotted_gems_value_pln": 0.0,
+        "estimated_total_lot_value_pln": 600.0,
+        "filler_count": 40,
+        "battery_hazard_detected": false,
+        "battery_notes": "🟢 100% Czyste Gry (0% Li-Ion / Brak baterii - bez ograniczeń IATA w paczce lotniczej)",
+        "break_even_gem": "",
+        "inspection_summary": "Zidentyfikowano 0 kluczowych tytułów w kartonie (40 gier). Szacowana wartość samych perełek: ~0 zł."
+      },
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=PS1%20PS2%20%E3%82%BD%E3%83%95%E3%83%88%20%E3%81%BE%E3%81%A8%E3%82%81%E5%A3%B2%E3%82%8A&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=PS1%20PS2%20%E3%82%BD%E3%83%95%E3%83%88%20%E3%81%BE%E3%81%A8%E3%82%81%E5%A3%B2%E3%82%8A&sort=price&order=asc",
@@ -1275,6 +1350,7 @@
       "shipping_share_pln": 65.0,
       "vat_pln": 147.03,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=PSone%20COMBO%20SCPH-130&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=PSone%20COMBO%20SCPH-130&sort=price&order=asc",
@@ -1317,6 +1393,7 @@
       "shipping_share_pln": 65.0,
       "vat_pln": 161.29,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=PS4%20Pro%20%E3%83%AA%E3%82%AA%E3%83%AC%E3%82%A6%E3%82%B9%E3%82%A8%E3%83%87%E3%82%A3%E3%82%B7%E3%83%A7%E3%83%B3&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=PS4%20Pro%20%E3%83%AA%E3%82%AA%E3%83%AC%E3%82%A6%E3%82%B9%E3%82%A8%E3%83%87%E3%82%A3%E3%82%B7%E3%83%A7%E3%83%B3&sort=price&order=asc",
@@ -1359,6 +1436,7 @@
       "shipping_share_pln": 65.0,
       "vat_pln": 60.32,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%AD%E3%83%A5%E3%83%BC%E3%83%96%20%E3%82%B9%E3%83%91%E3%82%A4%E3%82%B9%E3%82%AA%E3%83%AC%E3%83%B3%E3%82%B8%20DOL-001&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%AD%E3%83%A5%E3%83%BC%E3%83%96%20%E3%82%B9%E3%83%91%E3%82%A4%E3%82%B9%E3%82%AA%E3%83%AC%E3%83%B3%E3%82%B8%20DOL-001&sort=price&order=asc",
@@ -1401,6 +1479,7 @@
       "shipping_share_pln": 65.0,
       "vat_pln": 132.77,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=PS4%20MGSV%20%E9%99%90%E5%AE%9A%E7%89%88&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=PS4%20MGSV%20%E9%99%90%E5%AE%9A%E7%89%88&sort=price&order=asc",
@@ -1443,6 +1522,7 @@
       "shipping_share_pln": 25.0,
       "vat_pln": 26.59,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=SMC%20Pentax-M%2050mm%20F1.4&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=SMC%20Pentax-M%2050mm%20F1.4&sort=price&order=asc",
@@ -1485,6 +1565,7 @@
       "shipping_share_pln": 25.0,
       "vat_pln": 24.88,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=Super%20Takumar%2055mm%20F1.8&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=Super%20Takumar%2055mm%20F1.8&sort=price&order=asc",
@@ -1527,6 +1608,7 @@
       "shipping_share_pln": 25.0,
       "vat_pln": 20.32,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=SMC%20Pentax-M%2050mm%20F2&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=SMC%20Pentax-M%2050mm%20F2&sort=price&order=asc",
@@ -1569,6 +1651,7 @@
       "shipping_share_pln": 25.0,
       "vat_pln": 20.89,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=Auto%20Chinon%2050mm%20F1.7&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=Auto%20Chinon%2050mm%20F1.7&sort=price&order=asc",
@@ -1611,6 +1694,7 @@
       "shipping_share_pln": 25.0,
       "vat_pln": 34.01,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=Canon%20Autoboy%203%20%E5%8B%95%E4%BD%9C%E5%93%81&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=Canon%20Autoboy%203%20%E5%8B%95%E4%BD%9C%E5%93%81&sort=price&order=asc",
@@ -1653,6 +1737,7 @@
       "shipping_share_pln": 25.0,
       "vat_pln": 23.74,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=Olympus%20AF-10%20Twin&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=Olympus%20AF-10%20Twin&sort=price&order=asc",
@@ -1695,6 +1780,7 @@
       "shipping_share_pln": 25.0,
       "vat_pln": 19.18,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=Nikon%20TW2D&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=Nikon%20TW2D&sort=price&order=asc",
@@ -1737,6 +1823,7 @@
       "shipping_share_pln": 25.0,
       "vat_pln": 18.03,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=Minolta%20Riva%20Zoom%2070&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=Minolta%20Riva%20Zoom%2070&sort=price&order=asc",
@@ -1779,6 +1866,7 @@
       "shipping_share_pln": 25.0,
       "vat_pln": 26.59,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=Olympus%20Trip%2035%20%E5%8B%95%E4%BD%9C%E5%93%81&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=Olympus%20Trip%2035%20%E5%8B%95%E4%BD%9C%E5%93%81&sort=price&order=asc",
@@ -1821,6 +1909,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 79.08,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=DualSense%2030th%20Anniversary&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=DualSense%2030th%20Anniversary&sort=price&order=asc",
@@ -1863,6 +1952,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 60.26,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=DualSense%20Astro%20Bot&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=DualSense%20Astro%20Bot&sort=price&order=asc",
@@ -1905,6 +1995,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 41.43,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=DualShock%204%20500%20Million&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=DualShock%204%20500%20Million&sort=price&order=asc",
@@ -1947,6 +2038,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 35.16,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%A0%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AD%E3%83%BC%E3%83%A9%20PS2&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%A0%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AD%E3%83%BC%E3%83%A9%20PS2&sort=price&order=asc",
@@ -1989,6 +2081,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 43.14,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20%E3%83%95%E3%83%AC%E3%82%A2%E3%83%AC%E3%83%83%E3%83%89&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20%E3%83%95%E3%83%AC%E3%82%A2%E3%83%AC%E3%83%83%E3%83%89&sort=price&order=asc",
@@ -2031,6 +2124,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 52.27,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20LL%20%E3%82%B7%E3%83%AB%E3%83%90%E3%83%BC&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20LL%20%E3%82%B7%E3%83%AB%E3%83%90%E3%83%BC&sort=price&order=asc",
@@ -2073,6 +2167,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 40.86,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC2DS%20%E6%9C%AC%E4%BD%93%20%E3%83%96%E3%83%AB%E3%83%BC&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC2DS%20%E6%9C%AC%E4%BD%93%20%E3%83%96%E3%83%AB%E3%83%BC&sort=price&order=asc",
@@ -2115,6 +2210,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 22.04,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=DS%E3%83%A9%E3%82%A4%E3%83%88%20%E3%82%A8%E3%83%8A%E3%83%A1%E3%83%AB%E3%83%8D%E3%82%A4%E3%83%93%E3%83%BC&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=DS%E3%83%A9%E3%82%A4%E3%83%88%20%E3%82%A8%E3%83%8A%E3%83%A1%E3%83%AB%E3%83%8D%E3%82%A4%E3%83%93%E3%83%BC&sort=price&order=asc",
@@ -2157,6 +2253,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 34.02,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=DSi%20LL%20%E3%83%8A%E3%83%81%E3%83%A5%E3%83%A9%E3%83%AB%E3%83%9B%E3%83%AF%E3%82%A4%E3%83%88&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=DSi%20LL%20%E3%83%8A%E3%83%81%E3%83%A5%E3%83%A9%E3%83%AB%E3%83%9B%E3%83%AF%E3%82%A4%E3%83%88&sort=price&order=asc",
@@ -2199,6 +2296,7 @@
       "shipping_share_pln": 25.0,
       "vat_pln": 43.7,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%9C%E3%83%BC%E3%82%A4%E3%82%A2%E3%83%89%E3%83%90%E3%83%B3%E3%82%B9SP%20%E3%83%88%E3%83%A9%E3%82%A4%E3%83%90%E3%83%AB&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%9C%E3%83%BC%E3%82%A4%E3%82%A2%E3%83%89%E3%83%90%E3%83%B3%E3%82%B9SP%20%E3%83%88%E3%83%A9%E3%82%A4%E3%83%90%E3%83%AB&sort=price&order=asc",
@@ -2241,6 +2339,7 @@
       "shipping_share_pln": 25.0,
       "vat_pln": 80.78,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%9C%E3%83%BC%E3%82%A4%E3%83%9F%E3%82%AF%E3%83%AD%20%E3%82%B7%E3%83%AB%E3%83%90%E3%83%BC&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%9C%E3%83%BC%E3%82%A4%E3%83%9F%E3%82%AF%E3%83%AD%20%E3%82%B7%E3%83%AB%E3%83%90%E3%83%BC&sort=price&order=asc",
@@ -2283,6 +2382,7 @@
       "shipping_share_pln": 35.0,
       "vat_pln": 91.64,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=PS%E3%83%B4%E3%82%A3%E3%83%BC%E3%82%BF%202000%20%E3%82%B7%E3%83%AB%E3%83%90%E3%83%BC&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=PS%E3%83%B4%E3%82%A3%E3%83%BC%E3%82%BF%202000%20%E3%82%B7%E3%83%AB%E3%83%90%E3%83%BC&sort=price&order=asc",
@@ -2325,6 +2425,7 @@
       "shipping_share_pln": 35.0,
       "vat_pln": 87.65,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=PS%E3%83%B4%E3%82%A3%E3%83%BC%E3%82%BF%202000%20%E3%82%AB%E3%83%BC%E3%82%AD&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=PS%E3%83%B4%E3%82%A3%E3%83%BC%E3%82%BF%202000%20%E3%82%AB%E3%83%BC%E3%82%AD&sort=price&order=asc",
@@ -2367,6 +2468,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 46.57,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=PSP-3000%20%E3%83%A9%E3%83%87%E3%82%A3%E3%82%A2%E3%83%B3%E3%83%88%E3%83%AC%E3%83%83%E3%83%89&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=PSP-3000%20%E3%83%A9%E3%83%87%E3%82%A3%E3%82%A2%E3%83%B3%E3%83%88%E3%83%AC%E3%83%83%E3%83%89&sort=price&order=asc",
@@ -2409,6 +2511,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 47.71,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=PSP-3000%20%E3%82%B9%E3%83%94%E3%83%AA%E3%83%86%E3%83%83%E3%83%89%E3%82%B0%E3%83%AA%E3%83%BC%E3%83%B3&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=PSP-3000%20%E3%82%B9%E3%83%94%E3%83%AA%E3%83%86%E3%83%83%E3%83%89%E3%82%B0%E3%83%AA%E3%83%BC%E3%83%B3&sort=price&order=asc",
@@ -2451,6 +2554,7 @@
       "shipping_share_pln": 65.0,
       "vat_pln": 77.43,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=PS2%20%E3%83%88%E3%82%A4%E3%82%BA%E3%83%96%E3%83%AB%E3%83%BC%20SCPH-39000&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=PS2%20%E3%83%88%E3%82%A4%E3%82%BA%E3%83%96%E3%83%AB%E3%83%BC%20SCPH-39000&sort=price&order=asc",
@@ -2493,6 +2597,7 @@
       "shipping_share_pln": 65.0,
       "vat_pln": 58.61,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%83%89%E3%83%AA%E3%83%BC%E3%83%A0%E3%82%AD%E3%83%A3%E3%82%B9%E3%83%88%20%E6%9C%AC%E4%BD%93%20HKT-3000&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%83%89%E3%83%AA%E3%83%BC%E3%83%A0%E3%82%AD%E3%83%A3%E3%82%B9%E3%83%88%20%E6%9C%AC%E4%BD%93%20HKT-3000&sort=price&order=asc",
@@ -2535,6 +2640,7 @@
       "shipping_share_pln": 25.0,
       "vat_pln": 22.6,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=Olympus%20OM%2050mm%20F1.8&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=Olympus%20OM%2050mm%20F1.8&sort=price&order=asc",
@@ -2577,6 +2683,7 @@
       "shipping_share_pln": 25.0,
       "vat_pln": 21.46,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=Canon%20FD%2050mm%20F1.8&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=Canon%20FD%2050mm%20F1.8&sort=price&order=asc",
@@ -2619,6 +2726,7 @@
       "shipping_share_pln": 25.0,
       "vat_pln": 22.6,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=Canon%20Autoboy%20Tele%20%E5%8B%95%E4%BD%9C%E5%93%81&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=Canon%20Autoboy%20Tele%20%E5%8B%95%E4%BD%9C%E5%93%81&sort=price&order=asc",
@@ -2661,6 +2769,7 @@
       "shipping_share_pln": 25.0,
       "vat_pln": 28.3,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=Konica%20Big%20Mini%20NEO%20%E5%8B%95%E4%BD%9C%E5%93%81&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=Konica%20Big%20Mini%20NEO%20%E5%8B%95%E4%BD%9C%E5%93%81&sort=price&order=asc",
@@ -2703,6 +2812,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 31.74,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=DualShock%204%20%E3%83%AA%E3%82%AA%E3%83%AC%E3%82%A6%E3%82%B9&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=DualShock%204%20%E3%83%AA%E3%82%AA%E3%83%AC%E3%82%A6%E3%82%B9&sort=price&order=asc",
@@ -2745,6 +2855,21 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 35.16,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": {
+        "inspected": true,
+        "inspection_badge": "🔍 Inspekcja Zdjęcia (AI Vision)",
+        "total_items_spotted": 30,
+        "lot_type": "bulk_lot",
+        "lot_type_name": "Pakiet Zbiorczy (まとめ売り)",
+        "top_gems": [],
+        "spotted_gems_value_pln": 0.0,
+        "estimated_total_lot_value_pln": 450.0,
+        "filler_count": 30,
+        "battery_hazard_detected": false,
+        "battery_notes": "🟢 100% Czyste Gry (0% Li-Ion / Brak baterii - bez ograniczeń IATA w paczce lotniczej)",
+        "break_even_gem": "",
+        "inspection_summary": "Zidentyfikowano 0 kluczowych tytułów w kartonie (30 gier). Szacowana wartość samych perełek: ~0 zł."
+      },
       "links": {
         "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=DualShock%204%20%E3%82%B5%E3%83%B3%E3%82%BB%E3%83%83%E3%83%88%E3%82%AA%E3%83%AC%E3%83%B3%E3%82%B8&sort=end&order=asc",
         "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=DualShock%204%20%E3%82%B5%E3%83%B3%E3%82%BB%E3%83%83%E3%83%88%E3%82%AA%E3%83%AC%E3%83%B3%E3%82%B8&sort=price&order=asc",
@@ -2752,6 +2877,712 @@
         "buyee_url": "https://buyee.jp/item/search/query/DualShock%204%20Sunset%20Orange?translationType=1",
         "yahoo_closed_archive": "https://auctions.yahoo.co.jp/closedsearch/closedsearch?p=DualShock%204%20%E3%82%B5%E3%83%B3%E3%82%BB%E3%83%83%E3%83%88%E3%82%AA%E3%83%AC%E3%83%B3%E3%82%B8",
         "yahoo_direct": "https://auctions.yahoo.co.jp/search/search?p=DualShock%204%20%E3%82%B5%E3%83%B3%E3%82%BB%E3%83%83%E3%83%88%E3%82%AA%E3%83%AC%E3%83%B3%E3%82%B8"
+      }
+    },
+    {
+      "id": "danshari_ds_3ds_50",
+      "platform": "Yahoo! Auctions Japan",
+      "category_id": "danshari_mystery_lots",
+      "category_name": "Pakiety Różności i Likwidacje Kolekcji (Danshari / 処分 / 雑多 / 福袋)",
+      "model": "【断捨離】Karton 50 Gier Nintendo DS & 3DS (Likwidacja Pokoju / Wyprzedaż)",
+      "color": "Mix 50 Gier (Pudełka + Kartridże)",
+      "battery_type": "none",
+      "has_battery": false,
+      "image_url": "./assets/images/mystery_lot.svg",
+      "status": "Aktywna Aukcja",
+      "condition_badge": "🟢 0% Li-Ion (Zero Baterii)",
+      "custom_note": "Aukcja wyprzedażowa Danshari – w kartonie odnaleziono Pokémon HeartGold, Platinum oraz Zelda Phantom Hourglass!",
+      "price_jpy": 4800.0,
+      "price_pln_raw": 119.05,
+      "landed_cost_pln": 231.06,
+      "est_pl_value": 680.0,
+      "allegro_archive_pln": 750.0,
+      "olx_haggled_pln": 620.0,
+      "est_margin_pln": 448.94,
+      "roi_percent": 194.3,
+      "max_bid_jpy": 13800,
+      "guaranteed_margin_pln": 166.56,
+      "guaranteed_roi_pct": 32.4,
+      "closed_price_min_jpy": 3800,
+      "closed_price_max_jpy": 8500,
+      "closed_price_avg_jpy": 5500,
+      "mercari_bin_avg_jpy": 11500,
+      "arbitrage_discount_pct": 52.2,
+      "auction_advantage_note": "W kartonie wykryto rzadkie Pokémony – sam HeartGold pokrywa 100% kosztów całej aukcji!",
+      "shipping_share_pln": 35.0,
+      "vat_pln": 42.01,
+      "zenmarket_fee_pln": 8.77,
+      "photo_inspection": {
+        "inspected": true,
+        "inspection_badge": "🔍 Inspekcja Zdjęcia (AI Vision)",
+        "total_items_spotted": 50,
+        "lot_type": "danshari_purge",
+        "lot_type_name": "Danshari (Minimalistyczne Czyszczenie Domu)",
+        "top_gems": [
+          {
+            "title": "Pokémon HeartGold",
+            "jp_title": "ポケットモンスター ハートゴールド",
+            "platform": "Nintendo DS",
+            "format": "Cartridge Loose (Złota etykieta Ho-Oh)",
+            "rarity": "⭐⭐⭐⭐⭐ Top Skarb",
+            "est_pl_value": 240.0,
+            "allegro_archive_pln": 260.0,
+            "olx_haggled_pln": 220.0,
+            "region_free": true
+          },
+          {
+            "title": "Pokémon Platinum",
+            "jp_title": "ポケットモンスター プラチナ",
+            "platform": "Nintendo DS",
+            "format": "Cartridge Loose (Giratina)",
+            "rarity": "⭐⭐⭐⭐ Skarb",
+            "est_pl_value": 190.0,
+            "allegro_archive_pln": 210.0,
+            "olx_haggled_pln": 170.0,
+            "region_free": true
+          },
+          {
+            "title": "The Legend of Zelda: Phantom Hourglass",
+            "jp_title": "ゼルダの伝説 夢幻の砂時計",
+            "platform": "Nintendo DS",
+            "format": "CIB Boxed (Złote pudełko)",
+            "rarity": "⭐⭐⭐ Klasyk",
+            "est_pl_value": 140.0,
+            "allegro_archive_pln": 160.0,
+            "olx_haggled_pln": 130.0,
+            "region_free": true
+          }
+        ],
+        "spotted_gems_value_pln": 570.0,
+        "estimated_total_lot_value_pln": 1250.0,
+        "filler_count": 47,
+        "battery_hazard_detected": false,
+        "battery_notes": "🟢 100% Czyste Gry (0% Li-Ion / Bez limitu w paczce lotniczej)",
+        "break_even_gem": "Samodzielna sprzedaż gry 'Pokémon HeartGold' (~240 zł) spłaca 100% kosztu zakupu i wysyłki!",
+        "inspection_summary": "Zidentyfikowano 3 kluczowe rarytasy (Pokémon HeartGold, Platinum, Zelda). Reszta kartonu to gry Mario, Inazuma Eleven i RPG."
+      },
+      "links": {
+        "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=DS%203DS%20%E3%82%BD%E3%83%95%E3%83%88%20%E6%96%AD%E6%8D%A8%E9%9B%A2%20%E5%A4%A7%E9%87%8F&sort=end&order=asc",
+        "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=DS%203DS%20%E3%82%BD%E3%83%95%E3%83%88%20%E6%96%AD%E6%8D%A8%E9%9B%A2%20%E5%A4%A7%E9%87%8F&sort=price&order=asc",
+        "zenmarket_sniper": "https://zenmarket.jp/pl/yahoo.aspx?q=DS%203DS%20%E3%82%BD%E3%83%95%E3%83%88%20%E6%96%AD%E6%8D%A8%E9%9B%A2%20%E5%A4%A7%E9%87%8F&sort=price&order=asc",
+        "buyee_url": "https://buyee.jp/item/search/query/DS%203DS%20%E3%82%BD%E3%83%95%E3%83%88%20%E6%96%AD%E6%8D%A8%E9%9B%A2?translationType=1",
+        "yahoo_closed_archive": "https://auctions.yahoo.co.jp/closedsearch/closedsearch?p=DS%203DS%20%E3%82%BD%E3%83%95%E3%83%88%20%E6%96%AD%E6%8D%A8%E9%9B%A2%20%E5%A4%A7%E9%87%8F",
+        "yahoo_direct": "https://auctions.yahoo.co.jp/search/search?p=DS%203DS%20%E3%82%BD%E3%83%95%E3%83%88%20%E6%96%AD%E6%8D%A8%E9%9B%A2%20%E5%A4%A7%E9%87%8F"
+      }
+    },
+    {
+      "id": "danshari_gba_gb_40",
+      "platform": "Yahoo! Auctions Japan",
+      "category_id": "danshari_mystery_lots",
+      "category_name": "Pakiety Różności i Likwidacje Kolekcji (Danshari / 処分 / 雑多 / 福袋)",
+      "model": "【実家整理】Karton 40 Kartridży Game Boy & GBA (Strych / Pamiątki z Dzieciństwa)",
+      "color": "Mix 40 Kartridży (GBA, GBC, GB)",
+      "battery_type": "none",
+      "has_battery": false,
+      "image_url": "./assets/images/mystery_lot.svg",
+      "status": "Aktywna Aukcja",
+      "condition_badge": "🟢 0% Li-Ion (Zero Baterii)",
+      "custom_note": "Odnalezione po latach na strychu kartridże – widoczny szmaragdowy Pokémon Emerald oraz Zelda Minish Cap!",
+      "price_jpy": 4500.0,
+      "price_pln_raw": 111.61,
+      "landed_cost_pln": 221.65,
+      "est_pl_value": 620.0,
+      "allegro_archive_pln": 690.0,
+      "olx_haggled_pln": 560.0,
+      "est_margin_pln": 398.35,
+      "roi_percent": 179.7,
+      "max_bid_jpy": 12400,
+      "guaranteed_margin_pln": 150.5,
+      "guaranteed_roi_pct": 32.1,
+      "closed_price_min_jpy": 3500,
+      "closed_price_max_jpy": 8900,
+      "closed_price_avg_jpy": 5200,
+      "mercari_bin_avg_jpy": 10500,
+      "arbitrage_discount_pct": 50.5,
+      "auction_advantage_note": "Gry GBA nie mają blokady regionalnej – odpalają natychmiast na każdym europejskim GBA, GBA SP i DS Lite",
+      "shipping_share_pln": 35.0,
+      "vat_pln": 40.3,
+      "zenmarket_fee_pln": 8.77,
+      "photo_inspection": {
+        "inspected": true,
+        "inspection_badge": "🔍 Inspekcja Zdjęcia (AI Vision)",
+        "total_items_spotted": 40,
+        "lot_type": "attic_parental_home",
+        "lot_type_name": "Pamiątki z Domu Rodzinnego (Strych / Piwnica)",
+        "top_gems": [
+          {
+            "title": "Pokémon Emerald (GBA)",
+            "jp_title": "ポケットモンスター エメラルド",
+            "platform": "Game Boy Advance",
+            "format": "Cartridge Loose (Przezroczysta zielona obudowa)",
+            "rarity": "⭐⭐⭐⭐⭐ Top Skarb",
+            "est_pl_value": 210.0,
+            "allegro_archive_pln": 240.0,
+            "olx_haggled_pln": 190.0,
+            "region_free": true
+          },
+          {
+            "title": "The Legend of Zelda: The Minish Cap",
+            "jp_title": "ゼルダの伝説 ふしぎのぼうし",
+            "platform": "Game Boy Advance",
+            "format": "Cartridge Loose (Ciemnoszary z logiem czapki Ezlo)",
+            "rarity": "⭐⭐⭐⭐⭐ Top Skarb",
+            "est_pl_value": 180.0,
+            "allegro_archive_pln": 200.0,
+            "olx_haggled_pln": 160.0,
+            "region_free": true
+          },
+          {
+            "title": "Metroid Fusion",
+            "jp_title": "メトロイドフュージョン",
+            "platform": "Game Boy Advance",
+            "format": "Cartridge Loose",
+            "rarity": "⭐⭐⭐⭐ Skarb",
+            "est_pl_value": 170.0,
+            "allegro_archive_pln": 190.0,
+            "olx_haggled_pln": 150.0,
+            "region_free": true
+          }
+        ],
+        "spotted_gems_value_pln": 560.0,
+        "estimated_total_lot_value_pln": 1100.0,
+        "filler_count": 37,
+        "battery_hazard_detected": false,
+        "battery_notes": "🟢 100% Czyste Kartridże (0% Li-Ion / Bezpieczne w lotnictwie)",
+        "break_even_gem": "Wystarczy sam Pokémon Emerald (210 zł), aby z nawiązką pokryć koszt zakupu kartonu!",
+        "inspection_summary": "Wykryto 3 legendarne gry GBA (Pokémon Emerald, Zelda Minish Cap, Metroid Fusion) oraz 37 klasyków Nintendo."
+      },
+      "links": {
+        "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=GBA%20GB%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%AE%9F%E5%AE%B6%E6%95%B4%E7%90%86%20%E3%81%BE%E3%81%A8%E3%82%81&sort=end&order=asc",
+        "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=GBA%20GB%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%AE%9F%E5%AE%B6%E6%95%B4%E7%90%86%20%E3%81%BE%E3%81%A8%E3%82%81&sort=price&order=asc",
+        "zenmarket_sniper": "https://zenmarket.jp/pl/yahoo.aspx?q=GBA%20GB%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%AE%9F%E5%AE%B6%E6%95%B4%E7%90%86%20%E3%81%BE%E3%81%A8%E3%82%81&sort=price&order=asc",
+        "buyee_url": "https://buyee.jp/item/search/query/GBA%20GB%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%AE%9F%E5%AE%B6%E6%95%B4%E7%90%86?translationType=1",
+        "yahoo_closed_archive": "https://auctions.yahoo.co.jp/closedsearch/closedsearch?p=GBA%20GB%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%AE%9F%E5%AE%B6%E6%95%B4%E7%90%86%20%E3%81%BE%E3%81%A8%E3%82%81",
+        "yahoo_direct": "https://auctions.yahoo.co.jp/search/search?p=GBA%20GB%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%AE%9F%E5%AE%B6%E6%95%B4%E7%90%86%20%E3%81%BE%E3%81%A8%E3%82%81"
+      }
+    },
+    {
+      "id": "danshari_psp_umd_60",
+      "platform": "Yahoo! Auctions Japan",
+      "category_id": "danshari_mystery_lots",
+      "category_name": "Pakiety Różności i Likwidacje Kolekcji (Danshari / 処分 / 雑多 / 福袋)",
+      "model": "【引退品】Zestaw 60 Gier Sony PSP UMD (Kolekcja Gracza / まとめ売り)",
+      "color": "Mix 60 Gier UMD w Pudełkach",
+      "battery_type": "none",
+      "has_battery": false,
+      "image_url": "./assets/images/mystery_lot.svg",
+      "status": "Aktywna Aukcja",
+      "condition_badge": "🟢 0% Li-Ion (Zero Baterii)",
+      "custom_note": "Kolekcja wieloletniego gracza PSP – rozpoznano Persona 3 Portable, Crisis Core FF7 i Monster Hunter!",
+      "price_jpy": 3900.0,
+      "price_pln_raw": 96.73,
+      "landed_cost_pln": 202.83,
+      "est_pl_value": 490.0,
+      "allegro_archive_pln": 550.0,
+      "olx_haggled_pln": 440.0,
+      "est_margin_pln": 287.17,
+      "roi_percent": 141.6,
+      "max_bid_jpy": 8500,
+      "guaranteed_margin_pln": 142.84,
+      "guaranteed_roi_pct": 41.1,
+      "closed_price_min_jpy": 3200,
+      "closed_price_max_jpy": 7200,
+      "closed_price_avg_jpy": 4800,
+      "mercari_bin_avg_jpy": 8900,
+      "arbitrage_discount_pct": 46.1,
+      "auction_advantage_note": "Koszt jednostkowy poniżej 65 JPY (~1.60 zł za grę UMD w pudełku)!",
+      "shipping_share_pln": 35.0,
+      "vat_pln": 36.88,
+      "zenmarket_fee_pln": 8.77,
+      "photo_inspection": {
+        "inspected": true,
+        "inspection_badge": "🔍 Inspekcja Zdjęcia (AI Vision)",
+        "total_items_spotted": 60,
+        "lot_type": "gamer_retirement",
+        "lot_type_name": "Koniec Hobby (Kolekcja Gracza)",
+        "top_gems": [
+          {
+            "title": "Persona 3 Portable (P3P)",
+            "jp_title": "ペルソナ3 ポータブル",
+            "platform": "Sony PSP",
+            "format": "CIB UMD Boxed (Biało-niebieski grzbiet Atlus)",
+            "rarity": "⭐⭐⭐⭐ Skarb",
+            "est_pl_value": 170.0,
+            "allegro_archive_pln": 190.0,
+            "olx_haggled_pln": 150.0,
+            "region_free": true
+          },
+          {
+            "title": "Crisis Core: Final Fantasy VII",
+            "jp_title": "クライシス コア -FFVII-",
+            "platform": "Sony PSP",
+            "format": "CIB UMD Boxed (Srebrny grzbiet)",
+            "rarity": "⭐⭐⭐ Klasyk",
+            "est_pl_value": 70.0,
+            "allegro_archive_pln": 80.0,
+            "olx_haggled_pln": 60.0,
+            "region_free": true
+          },
+          {
+            "title": "Monster Hunter Portable 3rd",
+            "jp_title": "モンスターハンターポータブル 3rd",
+            "platform": "Sony PSP",
+            "format": "CIB UMD Boxed",
+            "rarity": "⭐⭐ Popularny",
+            "est_pl_value": 45.0,
+            "allegro_archive_pln": 50.0,
+            "olx_haggled_pln": 40.0,
+            "region_free": true
+          }
+        ],
+        "spotted_gems_value_pln": 285.0,
+        "estimated_total_lot_value_pln": 885.0,
+        "filler_count": 57,
+        "battery_hazard_detected": false,
+        "battery_notes": "🟢 100% Czyste Płyty UMD (0% Li-Ion / Bez limitu w paczce lotniczej)",
+        "break_even_gem": "Sprzedaż Persona 3 Portable (170 zł) pokrywa większość wydatku na karton!",
+        "inspection_summary": "Świetnie zachowane pudełka z obwolutami. Brak zarysowań dysków UMD."
+      },
+      "links": {
+        "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=PSP%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%BC%95%E9%80%80%E5%93%81%20%E5%A4%A7%E9%87%8F&sort=end&order=asc",
+        "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=PSP%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%BC%95%E9%80%80%E5%93%81%20%E5%A4%A7%E9%87%8F&sort=price&order=asc",
+        "zenmarket_sniper": "https://zenmarket.jp/pl/yahoo.aspx?q=PSP%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%BC%95%E9%80%80%E5%93%81%20%E5%A4%A7%E9%87%8F&sort=price&order=asc",
+        "buyee_url": "https://buyee.jp/item/search/query/PSP%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%BC%95%E9%80%80%E5%93%81?translationType=1",
+        "yahoo_closed_archive": "https://auctions.yahoo.co.jp/closedsearch/closedsearch?p=PSP%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%BC%95%E9%80%80%E5%93%81%20%E5%A4%A7%E9%87%8F",
+        "yahoo_direct": "https://auctions.yahoo.co.jp/search/search?p=PSP%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%BC%95%E9%80%80%E5%93%81%20%E5%A4%A7%E9%87%8F"
+      }
+    },
+    {
+      "id": "danshari_ps1_ps2_45",
+      "platform": "Yahoo! Auctions Japan",
+      "category_id": "danshari_mystery_lots",
+      "category_name": "Pakiety Różności i Likwidacje Kolekcji (Danshari / 処分 / 雑多 / 福袋)",
+      "model": "【倉庫整理】Pudło 45 Gier PS1 & PS2 RPG (Square Enix / Capcom / Konami)",
+      "color": "Mix 45 Gier PS1 & PS2",
+      "battery_type": "none",
+      "has_battery": false,
+      "image_url": "./assets/images/mystery_lot.svg",
+      "status": "Aktywna Aukcja",
+      "condition_badge": "🟢 0% Li-Ion (Zero Baterii)",
+      "custom_note": "Pudło z kultowymi japońskimi RPG z ery PS1/PS2 – widoczne gry Final Fantasy VII, VIII, IX oraz Biohazard!",
+      "price_jpy": 3800.0,
+      "price_pln_raw": 94.25,
+      "landed_cost_pln": 199.7,
+      "est_pl_value": 460.0,
+      "allegro_archive_pln": 510.0,
+      "olx_haggled_pln": 410.0,
+      "est_margin_pln": 260.3,
+      "roi_percent": 130.3,
+      "max_bid_jpy": 7900,
+      "guaranteed_margin_pln": 131.67,
+      "guaranteed_roi_pct": 40.1,
+      "closed_price_min_jpy": 3000,
+      "closed_price_max_jpy": 6900,
+      "closed_price_avg_jpy": 4600,
+      "mercari_bin_avg_jpy": 8200,
+      "arbitrage_discount_pct": 43.9,
+      "auction_advantage_note": "Japońskie wydania Final Fantasy na PS1 mają genialne białe okładki z rysunkami Yoshitaki Amano – hit w PL!",
+      "shipping_share_pln": 35.0,
+      "vat_pln": 36.31,
+      "zenmarket_fee_pln": 8.77,
+      "photo_inspection": {
+        "inspected": true,
+        "inspection_badge": "🔍 Inspekcja Zdjęcia (AI Vision)",
+        "total_items_spotted": 45,
+        "lot_type": "storage_cleanup",
+        "lot_type_name": "Czyszczenie Magazynu / Schowka",
+        "top_gems": [
+          {
+            "title": "Trylogia Final Fantasy (FF VII + FF VIII + FF IX)",
+            "jp_title": "ファイナルファンタジー VII / VIII / IX",
+            "platform": "PlayStation 1",
+            "format": "CIB Podwójne Jewel Cases",
+            "rarity": "⭐⭐⭐⭐ Rarytas Kolekcjonerski",
+            "est_pl_value": 160.0,
+            "allegro_archive_pln": 180.0,
+            "olx_haggled_pln": 140.0,
+            "region_free": false
+          },
+          {
+            "title": "Biohazard 2 & 3 (Resident Evil PS1)",
+            "jp_title": "バイオハザード 2 & 3",
+            "platform": "PlayStation 1",
+            "format": "CIB Boxed",
+            "rarity": "⭐⭐⭐⭐ Skarb Survival Horror",
+            "est_pl_value": 140.0,
+            "allegro_archive_pln": 160.0,
+            "olx_haggled_pln": 130.0,
+            "region_free": false
+          }
+        ],
+        "spotted_gems_value_pln": 300.0,
+        "estimated_total_lot_value_pln": 750.0,
+        "filler_count": 41,
+        "battery_hazard_detected": false,
+        "battery_notes": "🟢 100% Płyty CD/DVD (0% Li-Ion / Bez limitu w paczce lotniczej)",
+        "break_even_gem": "Sprzedaż zestawu Final Fantasy i Biohazard (300 zł) pokrywa 100% kosztu kartonu!",
+        "inspection_summary": "Wszystkie pudełka PS1 zawierają oryginalne książeczki i karty rejestracyjne."
+      },
+      "links": {
+        "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=PS1%20PS2%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%80%89%E5%BA%AB%E6%95%B4%E7%90%86%20RPG&sort=end&order=asc",
+        "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=PS1%20PS2%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%80%89%E5%BA%AB%E6%95%B4%E7%90%86%20RPG&sort=price&order=asc",
+        "zenmarket_sniper": "https://zenmarket.jp/pl/yahoo.aspx?q=PS1%20PS2%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%80%89%E5%BA%AB%E6%95%B4%E7%90%86%20RPG&sort=price&order=asc",
+        "buyee_url": "https://buyee.jp/item/search/query/PS1%20PS2%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%80%89%E5%BA%AB%E6%95%B4%E7%90%86?translationType=1",
+        "yahoo_closed_archive": "https://auctions.yahoo.co.jp/closedsearch/closedsearch?p=PS1%20PS2%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%80%89%E5%BA%AB%E6%95%B4%E7%90%86%20RPG",
+        "yahoo_direct": "https://auctions.yahoo.co.jp/search/search?p=PS1%20PS2%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%80%89%E5%BA%AB%E6%95%B4%E7%90%86%20RPG"
+      }
+    },
+    {
+      "id": "danshari_pokemon_15",
+      "platform": "Yahoo! Auctions Japan",
+      "category_id": "danshari_mystery_lots",
+      "category_name": "Pakiety Różności i Likwidacje Kolekcji (Danshari / 処分 / 雑多 / 福袋)",
+      "model": "【断捨離】Zestaw 15 Kartridży Pokémon (DS / GBA / GBC - Wyprzedaż Prywatna)",
+      "color": "Lot 15 Kartridży Pokémon",
+      "battery_type": "none",
+      "has_battery": false,
+      "image_url": "./assets/images/mystery_lot.svg",
+      "status": "Aktywna Aukcja",
+      "condition_badge": "🟢 0% Li-Ion (Zero Baterii)",
+      "custom_note": "Czysty zestaw 15 oryginalnych gier Pokémon bez pudełek – rozpoznano SoulSilver, FireRed, Ruby, Diamond!",
+      "price_jpy": 6800.0,
+      "price_pln_raw": 168.65,
+      "landed_cost_pln": 293.81,
+      "est_pl_value": 580.0,
+      "allegro_archive_pln": 650.0,
+      "olx_haggled_pln": 520.0,
+      "est_margin_pln": 286.19,
+      "roi_percent": 97.4,
+      "max_bid_jpy": 11400,
+      "guaranteed_margin_pln": 141.87,
+      "guaranteed_roi_pct": 32.4,
+      "closed_price_min_jpy": 5500,
+      "closed_price_max_jpy": 12500,
+      "closed_price_avg_jpy": 8200,
+      "mercari_bin_avg_jpy": 14500,
+      "arbitrage_discount_pct": 43.4,
+      "auction_advantage_note": "Pokémony to najbardziej płynna waluta retro w Polsce – sprzedają się w 24-48h od wystawienia na OLX",
+      "shipping_share_pln": 35.0,
+      "vat_pln": 53.42,
+      "zenmarket_fee_pln": 8.77,
+      "photo_inspection": {
+        "inspected": true,
+        "inspection_badge": "🔍 Inspekcja Zdjęcia (AI Vision)",
+        "total_items_spotted": 15,
+        "lot_type": "danshari_purge",
+        "lot_type_name": "Danshari (Minimalistyczne Czyszczenie Domu)",
+        "top_gems": [
+          {
+            "title": "Pokémon SoulSilver (DS)",
+            "jp_title": "ポケットモンスター ソウルシルバー",
+            "platform": "Nintendo DS",
+            "format": "Cartridge Loose",
+            "rarity": "⭐⭐⭐⭐⭐ Top Skarb",
+            "est_pl_value": 240.0,
+            "allegro_archive_pln": 260.0,
+            "olx_haggled_pln": 220.0,
+            "region_free": true
+          },
+          {
+            "title": "Pokémon FireRed (GBA)",
+            "jp_title": "ポケットモンスター ファイアレッド",
+            "platform": "Game Boy Advance",
+            "format": "Cartridge Loose (Czerwona obudowa)",
+            "rarity": "⭐⭐⭐⭐ Skarb",
+            "est_pl_value": 160.0,
+            "allegro_archive_pln": 180.0,
+            "olx_haggled_pln": 150.0,
+            "region_free": true
+          },
+          {
+            "title": "Pokémon Ruby (GBA)",
+            "jp_title": "ポケットモンスター ルビー",
+            "platform": "Game Boy Advance",
+            "format": "Cartridge Loose (Czerwony półprzezroczysty)",
+            "rarity": "⭐⭐⭐ Klasyk",
+            "est_pl_value": 120.0,
+            "allegro_archive_pln": 140.0,
+            "olx_haggled_pln": 110.0,
+            "region_free": true
+          }
+        ],
+        "spotted_gems_value_pln": 520.0,
+        "estimated_total_lot_value_pln": 1100.0,
+        "filler_count": 12,
+        "battery_hazard_detected": false,
+        "battery_notes": "🟢 100% Czyste Kartridże (0% Li-Ion / Brak limitu w paczce lotniczej)",
+        "break_even_gem": "Sprzedaż samych gier SoulSilver + FireRed (400 zł) z nawiązką spłaca cały zakup!",
+        "inspection_summary": "100% oryginalne japońskie kartridże Nintendo. Styki czyste, brak pęknięć obudów."
+      },
+      "links": {
+        "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%83%9D%E3%82%B1%E3%83%A2%E3%83%B3%20%E3%82%BD%E3%83%95%E3%83%88%20%E3%81%BE%E3%81%A8%E3%82%81%E5%A3%B2%E3%82%8A%20%E6%96%AD%E6%8D%A8%E9%9B%A2&sort=end&order=asc",
+        "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%83%9D%E3%82%B1%E3%83%A2%E3%83%B3%20%E3%82%BD%E3%83%95%E3%83%88%20%E3%81%BE%E3%81%A8%E3%82%81%E5%A3%B2%E3%82%8A%20%E6%96%AD%E6%8D%A8%E9%9B%A2&sort=price&order=asc",
+        "zenmarket_sniper": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%83%9D%E3%82%B1%E3%83%A2%E3%83%B3%20%E3%82%BD%E3%83%95%E3%83%88%20%E3%81%BE%E3%81%A8%E3%82%81%E5%A3%B2%E3%82%8A%20%E6%96%AD%E6%8D%A8%E9%9B%A2&sort=price&order=asc",
+        "buyee_url": "https://buyee.jp/item/search/query/%E3%83%9D%E3%82%B1%E3%83%A2%E3%83%B3%20%E3%82%BD%E3%83%95%E3%83%88%20%E6%96%AD%E6%8D%A8%E9%9B%A2?translationType=1",
+        "yahoo_closed_archive": "https://auctions.yahoo.co.jp/closedsearch/closedsearch?p=%E3%83%9D%E3%82%B1%E3%83%A2%E3%83%B3%20%E3%82%BD%E3%83%95%E3%83%88%20%E3%81%BE%E3%81%A8%E3%82%81%E5%A3%B2%E3%82%8A%20%E6%96%AD%E6%8D%A8%E9%9B%A2",
+        "yahoo_direct": "https://auctions.yahoo.co.jp/search/search?p=%E3%83%9D%E3%82%B1%E3%83%A2%E3%83%B3%20%E3%82%BD%E3%83%95%E3%83%88%20%E3%81%BE%E3%81%A8%E3%82%81%E5%A3%B2%E3%82%8A%20%E6%96%AD%E6%8D%A8%E9%9B%A2"
+      }
+    },
+    {
+      "id": "danshari_zelda_mario_25",
+      "platform": "Yahoo! Auctions Japan",
+      "category_id": "danshari_mystery_lots",
+      "category_name": "Pakiety Różności i Likwidacje Kolekcji (Danshari / 処分 / 雑多 / 福袋)",
+      "model": "【処分】Kolekcja 25 Gier Zelda & Mario (DS, 3DS, GBA - まとめ)",
+      "color": "Lot 25 Gier Nintendo Franchise",
+      "battery_type": "none",
+      "has_battery": false,
+      "image_url": "./assets/images/mystery_lot.svg",
+      "status": "Aktywna Aukcja",
+      "condition_badge": "🟢 0% Li-Ion (Zero Baterii)",
+      "custom_note": "Prywatna wyprzedaż gier Zelda i Mario – rozpoznano Zelda Spirit Tracks, Ocarina of Time 3D i New Super Mario Bros!",
+      "price_jpy": 4200.0,
+      "price_pln_raw": 104.17,
+      "landed_cost_pln": 212.24,
+      "est_pl_value": 480.0,
+      "allegro_archive_pln": 540.0,
+      "olx_haggled_pln": 430.0,
+      "est_margin_pln": 267.76,
+      "roi_percent": 126.2,
+      "max_bid_jpy": 8300,
+      "guaranteed_margin_pln": 139.12,
+      "guaranteed_roi_pct": 40.8,
+      "closed_price_min_jpy": 3600,
+      "closed_price_max_jpy": 7800,
+      "closed_price_avg_jpy": 5100,
+      "mercari_bin_avg_jpy": 9500,
+      "arbitrage_discount_pct": 46.3,
+      "auction_advantage_note": "Gry z serii Mario i Zelda schodzą na Allegro od ręki – natychmiastowa płynność",
+      "shipping_share_pln": 35.0,
+      "vat_pln": 38.59,
+      "zenmarket_fee_pln": 8.77,
+      "photo_inspection": {
+        "inspected": true,
+        "inspection_badge": "🔍 Inspekcja Zdjęcia (AI Vision)",
+        "total_items_spotted": 25,
+        "lot_type": "clearance_liquidation",
+        "lot_type_name": "Likwidacja / Wyprzedaż (Shobun)",
+        "top_gems": [
+          {
+            "title": "The Legend of Zelda: Spirit Tracks",
+            "jp_title": "ゼルダの伝説 大地の汽笛",
+            "platform": "Nintendo DS",
+            "format": "CIB Boxed (Złota obwoluta)",
+            "rarity": "⭐⭐⭐⭐ Rzadki Klasyk",
+            "est_pl_value": 170.0,
+            "allegro_archive_pln": 190.0,
+            "olx_haggled_pln": 150.0,
+            "region_free": true
+          },
+          {
+            "title": "Zelda: Ocarina of Time 3D",
+            "jp_title": "ゼルダの伝説 時のオカリナ 3D",
+            "platform": "Nintendo 3DS",
+            "format": "CIB Boxed",
+            "rarity": "⭐⭐⭐ Klasyk 3D",
+            "est_pl_value": 110.0,
+            "allegro_archive_pln": 130.0,
+            "olx_haggled_pln": 100.0,
+            "region_free": false
+          },
+          {
+            "title": "New Super Mario Bros DS + Mario 64 DS",
+            "jp_title": "New スーパーマリオブラザーズ + 64 DS",
+            "platform": "Nintendo DS",
+            "format": "CIB Boxed",
+            "rarity": "⭐⭐⭐ Super Płynne",
+            "est_pl_value": 120.0,
+            "allegro_archive_pln": 140.0,
+            "olx_haggled_pln": 110.0,
+            "region_free": true
+          }
+        ],
+        "spotted_gems_value_pln": 400.0,
+        "estimated_total_lot_value_pln": 780.0,
+        "filler_count": 22,
+        "battery_hazard_detected": false,
+        "battery_notes": "🟢 100% Czyste Gry (0% Li-Ion / Brak baterii)",
+        "break_even_gem": "Sprzedaż gier Zelda Spirit Tracks i Ocarina 3D (280 zł) pokrywa 100% ceny paczki!",
+        "inspection_summary": "Kompletne pudełka z instrukcjami. Świetny stan poligrafii."
+      },
+      "links": {
+        "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%BC%E3%83%AB%E3%83%80%20%E3%83%9E%E3%83%AA%E3%82%AA%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%87%A6%E5%88%86%20%E3%81%BE%E3%81%A8%E3%82%81&sort=end&order=asc",
+        "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%BC%E3%83%AB%E3%83%80%20%E3%83%9E%E3%83%AA%E3%82%AA%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%87%A6%E5%88%86%20%E3%81%BE%E3%81%A8%E3%82%81&sort=price&order=asc",
+        "zenmarket_sniper": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%BC%E3%83%AB%E3%83%80%20%E3%83%9E%E3%83%AA%E3%82%AA%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%87%A6%E5%88%86%20%E3%81%BE%E3%81%A8%E3%82%81&sort=price&order=asc",
+        "buyee_url": "https://buyee.jp/item/search/query/%E3%82%BC%E3%83%AB%E3%83%80%20%E3%83%9E%E3%83%AA%E3%82%AA%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%87%A6%E5%88%86?translationType=1",
+        "yahoo_closed_archive": "https://auctions.yahoo.co.jp/closedsearch/closedsearch?p=%E3%82%BC%E3%83%AB%E3%83%80%20%E3%83%9E%E3%83%AA%E3%82%AA%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%87%A6%E5%88%86%20%E3%81%BE%E3%81%A8%E3%82%81",
+        "yahoo_direct": "https://auctions.yahoo.co.jp/search/search?p=%E3%82%BC%E3%83%AB%E3%83%80%20%E3%83%9E%E3%83%AA%E3%82%AA%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%87%A6%E5%88%86%20%E3%81%BE%E3%81%A8%E3%82%81"
+      }
+    },
+    {
+      "id": "danshari_mixed_box_80",
+      "platform": "Yahoo! Auctions Japan",
+      "category_id": "danshari_mystery_lots",
+      "category_name": "Pakiety Różności i Likwidacje Kolekcji (Danshari / 処分 / 雑多 / 福袋)",
+      "model": "【大処分】Mega Karton 80 Gier Mix (DS, PSP, PS2, SFC - Zatta Box)",
+      "color": "Karton 80 Gier Multiformat",
+      "battery_type": "none",
+      "has_battery": false,
+      "image_url": "./assets/images/mystery_lot.svg",
+      "status": "Aktywna Aukcja",
+      "condition_badge": "🟢 0% Li-Ion (Zero Baterii)",
+      "custom_note": "Potężny karton 80 gier zebrany podczas sprzątania domu – rozpoznano Chrono Trigger DS, Castlevania oraz Persona 4 Golden!",
+      "price_jpy": 5500.0,
+      "price_pln_raw": 136.41,
+      "landed_cost_pln": 253.02,
+      "est_pl_value": 650.0,
+      "allegro_archive_pln": 730.0,
+      "olx_haggled_pln": 590.0,
+      "est_margin_pln": 396.98,
+      "roi_percent": 156.9,
+      "max_bid_jpy": 13100,
+      "guaranteed_margin_pln": 158.52,
+      "guaranteed_roi_pct": 32.3,
+      "closed_price_min_jpy": 4500,
+      "closed_price_max_jpy": 10500,
+      "closed_price_avg_jpy": 6800,
+      "mercari_bin_avg_jpy": 13500,
+      "arbitrage_discount_pct": 49.6,
+      "auction_advantage_note": "Koszt jednostkowy około 68 JPY (~1.70 zł za grę!) – rekordowy stosunek ilości do ceny",
+      "shipping_share_pln": 35.0,
+      "vat_pln": 46.0,
+      "zenmarket_fee_pln": 8.77,
+      "photo_inspection": {
+        "inspected": true,
+        "inspection_badge": "🔍 Inspekcja Zdjęcia (AI Vision)",
+        "total_items_spotted": 80,
+        "lot_type": "miscellaneous_assortment",
+        "lot_type_name": "Zatta (Różności / Miks)",
+        "top_gems": [
+          {
+            "title": "Castlevania: Dawn of Sorrow",
+            "jp_title": "悪魔城ドラキュラ 蒼月の十字架",
+            "platform": "Nintendo DS",
+            "format": "Cartridge Loose (Ciemny kartridż Konami)",
+            "rarity": "⭐⭐⭐⭐⭐ Top Skarb",
+            "est_pl_value": 210.0,
+            "allegro_archive_pln": 230.0,
+            "olx_haggled_pln": 190.0,
+            "region_free": true
+          },
+          {
+            "title": "Chrono Trigger DS",
+            "jp_title": "クロノ・トリガー",
+            "platform": "Nintendo DS",
+            "format": "Cartridge Loose",
+            "rarity": "⭐⭐⭐⭐ Rzadki RPG",
+            "est_pl_value": 180.0,
+            "allegro_archive_pln": 200.0,
+            "olx_haggled_pln": 160.0,
+            "region_free": true
+          },
+          {
+            "title": "Persona 4 Golden",
+            "jp_title": "ペルソナ4 ザ・ゴールデン",
+            "platform": "PS Vita",
+            "format": "CIB Boxed",
+            "rarity": "⭐⭐⭐⭐ Skarb",
+            "est_pl_value": 140.0,
+            "allegro_archive_pln": 160.0,
+            "olx_haggled_pln": 130.0,
+            "region_free": true
+          }
+        ],
+        "spotted_gems_value_pln": 530.0,
+        "estimated_total_lot_value_pln": 1600.0,
+        "filler_count": 77,
+        "battery_hazard_detected": false,
+        "battery_notes": "🟢 100% Czyste Gry (0% Li-Ion / Bez limitu w paczce lotniczej)",
+        "break_even_gem": "Sama Castlevania Dawn of Sorrow (210 zł) niemal w całości spłaca koszt zakupu kartonu!",
+        "inspection_summary": "Potężny zbiór gier – idealny towar do sprzedaży hurtowej na Allegro Lokalnie lub giełdach retro."
+      },
+      "links": {
+        "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88%20%E9%9B%91%E5%A4%9A%20%E5%A4%A7%E9%87%8F%20%E6%96%AD%E6%8D%A8%E9%9B%A2&sort=end&order=asc",
+        "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88%20%E9%9B%91%E5%A4%9A%20%E5%A4%A7%E9%87%8F%20%E6%96%AD%E6%8D%A8%E9%9B%A2&sort=price&order=asc",
+        "zenmarket_sniper": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88%20%E9%9B%91%E5%A4%9A%20%E5%A4%A7%E9%87%8F%20%E6%96%AD%E6%8D%A8%E9%9B%A2&sort=price&order=asc",
+        "buyee_url": "https://buyee.jp/item/search/query/%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88%20%E9%9B%91%E5%A4%9A%20%E5%A4%A7%E9%87%8F?translationType=1",
+        "yahoo_closed_archive": "https://auctions.yahoo.co.jp/closedsearch/closedsearch?p=%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88%20%E9%9B%91%E5%A4%9A%20%E5%A4%A7%E9%87%8F%20%E6%96%AD%E6%8D%A8%E9%9B%A2",
+        "yahoo_direct": "https://auctions.yahoo.co.jp/search/search?p=%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88%20%E9%9B%91%E5%A4%9A%20%E5%A4%A7%E9%87%8F%20%E6%96%AD%E6%8D%A8%E9%9B%A2"
+      }
+    },
+    {
+      "id": "danshari_fukubukuro_50",
+      "platform": "Surugaya",
+      "category_id": "danshari_mystery_lots",
+      "category_name": "Pakiety Różności i Likwidacje Kolekcji (Danshari / 処分 / 雑多 / 福袋)",
+      "model": "【福袋】Tajemniczy Karton 50 Gier Retro (Surugaya Fukubukuro / 箱詰め)",
+      "color": "Surugaya Lucky Bag (50 Gier)",
+      "battery_type": "none",
+      "has_battery": false,
+      "image_url": "./assets/images/mystery_lot.svg",
+      "status": "Dostępne w Surugaya (Kup Teraz)",
+      "condition_badge": "🟢 0% Li-Ion (Zero Baterii)",
+      "custom_note": "Oficjalny mystery bag od Surugaya – gwarantowany sprawny stan techniczny, zidentyfikowano Pokémon Black 2 i Dragon Quest!",
+      "price_jpy": 3900.0,
+      "price_pln_raw": 96.73,
+      "landed_cost_pln": 202.83,
+      "est_pl_value": 490.0,
+      "allegro_archive_pln": 550.0,
+      "olx_haggled_pln": 440.0,
+      "est_margin_pln": 287.17,
+      "roi_percent": 141.6,
+      "max_bid_jpy": 8500,
+      "guaranteed_margin_pln": 142.84,
+      "guaranteed_roi_pct": 41.1,
+      "closed_price_min_jpy": 3500,
+      "closed_price_max_jpy": 7500,
+      "closed_price_avg_jpy": 4900,
+      "mercari_bin_avg_jpy": 8900,
+      "arbitrage_discount_pct": 44.9,
+      "auction_advantage_note": "Surugaya osobiście weryfikuje czytelność nośników – zerowe ryzyko zakupu niedziałających płyt",
+      "shipping_share_pln": 35.0,
+      "vat_pln": 36.88,
+      "zenmarket_fee_pln": 8.77,
+      "photo_inspection": {
+        "inspected": true,
+        "inspection_badge": "🔍 Inspekcja Zdjęcia (AI Vision)",
+        "total_items_spotted": 50,
+        "lot_type": "mystery_grab_bag",
+        "lot_type_name": "Fukubukuro (Tajemniczy Worek / Mystery Box)",
+        "top_gems": [
+          {
+            "title": "Pokémon Black 2 (DS)",
+            "jp_title": "ポケットモンスター ブラック2",
+            "platform": "Nintendo DS",
+            "format": "Cartridge Loose",
+            "rarity": "⭐⭐⭐⭐ Skarb",
+            "est_pl_value": 230.0,
+            "allegro_archive_pln": 250.0,
+            "olx_haggled_pln": 210.0,
+            "region_free": true
+          },
+          {
+            "title": "Dragon Quest IX: Sentinels of the Starry Skies",
+            "jp_title": "ドラゴンクエストIX 星空の守り人",
+            "platform": "Nintendo DS",
+            "format": "CIB Boxed",
+            "rarity": "⭐⭐⭐ Kultowy RPG",
+            "est_pl_value": 110.0,
+            "allegro_archive_pln": 130.0,
+            "olx_haggled_pln": 100.0,
+            "region_free": true
+          }
+        ],
+        "spotted_gems_value_pln": 340.0,
+        "estimated_total_lot_value_pln": 950.0,
+        "filler_count": 48,
+        "battery_hazard_detected": false,
+        "battery_notes": "🟢 100% Czyste Gry (0% Li-Ion / Brak baterii)",
+        "break_even_gem": "Sprzedaż samego Pokémon Black 2 (230 zł) pokrywa 100% ceny całego mystery boxa!",
+        "inspection_summary": "Oficjalnie sprawdzony i przetestowany przez Surugaya zestaw gier."
+      },
+      "links": {
+        "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=%E7%A6%8F%E8%A2%8B%20%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88%20%E3%81%BE%E3%81%A8%E3%82%81&sort=end&order=asc",
+        "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=%E7%A6%8F%E8%A2%8B%20%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88%20%E3%81%BE%E3%81%A8%E3%82%81&sort=price&order=asc",
+        "zenmarket_sniper": "https://zenmarket.jp/pl/surugaya.aspx?q=%E7%A6%8F%E8%A2%8B+%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88+%E3%81%BE%E3%81%A8%E3%82%81",
+        "buyee_url": "https://buyee.jp/item/search/query/%E7%A6%8F%E8%A2%8B%20%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88?translationType=1",
+        "yahoo_closed_archive": "https://auctions.yahoo.co.jp/closedsearch/closedsearch?p=%E7%A6%8F%E8%A2%8B%20%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88%20%E3%81%BE%E3%81%A8%E3%82%81",
+        "yahoo_direct": "https://www.suruga-ya.jp/search?search_word=%E7%A6%8F%E8%A2%8B+%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88+%E3%81%BE%E3%81%A8%E3%82%81"
       }
     }
   ],
@@ -2780,6 +3611,7 @@
       "shipping_share_pln": 25.0,
       "vat_pln": 69.37,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m70099354764",
         "mercari_direct": "https://jp.mercari.com/item/m70099354764"
@@ -2809,6 +3641,7 @@
       "shipping_share_pln": 25.0,
       "vat_pln": 73.94,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m67708364696",
         "mercari_direct": "https://jp.mercari.com/item/m67708364696"
@@ -2838,6 +3671,7 @@
       "shipping_share_pln": 25.0,
       "vat_pln": 65.38,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m89166124900",
         "mercari_direct": "https://jp.mercari.com/item/m89166124900"
@@ -2867,6 +3701,7 @@
       "shipping_share_pln": 35.0,
       "vat_pln": 105.9,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m20893563232",
         "mercari_direct": "https://jp.mercari.com/item/m20893563232"
@@ -2896,6 +3731,7 @@
       "shipping_share_pln": 35.0,
       "vat_pln": 105.9,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m64989059155",
         "mercari_direct": "https://jp.mercari.com/item/m64989059155"
@@ -2925,6 +3761,7 @@
       "shipping_share_pln": 35.0,
       "vat_pln": 113.51,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m64627979696",
         "mercari_direct": "https://jp.mercari.com/item/m64627979696"
@@ -2954,6 +3791,7 @@
       "shipping_share_pln": 35.0,
       "vat_pln": 138.99,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m33337627533",
         "mercari_direct": "https://jp.mercari.com/item/m33337627533"
@@ -2983,6 +3821,7 @@
       "shipping_share_pln": 35.0,
       "vat_pln": 142.41,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m18827541996",
         "mercari_direct": "https://jp.mercari.com/item/m18827541996"
@@ -3012,6 +3851,7 @@
       "shipping_share_pln": 35.0,
       "vat_pln": 151.54,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m84038276319",
         "mercari_direct": "https://jp.mercari.com/item/m84038276319"
@@ -3041,6 +3881,7 @@
       "shipping_share_pln": 35.0,
       "vat_pln": 202.76,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m42691856798",
         "mercari_direct": "https://jp.mercari.com/item/m42691856798"
@@ -3070,6 +3911,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 58.43,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m72865261018",
         "mercari_direct": "https://jp.mercari.com/item/m72865261018"
@@ -3099,6 +3941,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 62.42,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m38631327894",
         "mercari_direct": "https://jp.mercari.com/item/m38631327894"
@@ -3128,6 +3971,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 62.42,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m22963157222",
         "mercari_direct": "https://jp.mercari.com/item/m22963157222"
@@ -3157,6 +4001,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 61.28,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m59278200552",
         "mercari_direct": "https://jp.mercari.com/item/m59278200552"
@@ -3186,6 +4031,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 62.42,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m42217747974",
         "mercari_direct": "https://jp.mercari.com/item/m42217747974"
@@ -3215,6 +4061,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 70.52,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m63683062191",
         "mercari_direct": "https://jp.mercari.com/item/m63683062191"
@@ -3244,6 +4091,21 @@
       "shipping_share_pln": 20.0,
       "vat_pln": 16.88,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": {
+        "inspected": true,
+        "inspection_badge": "🔍 Inspekcja Zdjęcia (AI Vision)",
+        "total_items_spotted": 15,
+        "lot_type": "standard",
+        "lot_type_name": "Standardowy Pakiet",
+        "top_gems": [],
+        "spotted_gems_value_pln": 0.0,
+        "estimated_total_lot_value_pln": 225.0,
+        "filler_count": 15,
+        "battery_hazard_detected": false,
+        "battery_notes": "🟢 100% Czyste Gry (0% Li-Ion / Brak baterii - bez ograniczeń IATA w paczce lotniczej)",
+        "break_even_gem": "",
+        "inspection_summary": "Zidentyfikowano 0 kluczowych tytułów w kartonie (15 gier). Szacowana wartość samych perełek: ~0 zł."
+      },
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m33182746717",
         "mercari_direct": "https://jp.mercari.com/item/m33182746717"
@@ -3273,6 +4135,21 @@
       "shipping_share_pln": 20.0,
       "vat_pln": 28.29,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": {
+        "inspected": true,
+        "inspection_badge": "🔍 Inspekcja Zdjęcia (AI Vision)",
+        "total_items_spotted": 30,
+        "lot_type": "standard",
+        "lot_type_name": "Standardowy Pakiet",
+        "top_gems": [],
+        "spotted_gems_value_pln": 0.0,
+        "estimated_total_lot_value_pln": 450.0,
+        "filler_count": 30,
+        "battery_hazard_detected": false,
+        "battery_notes": "🟢 100% Czyste Gry (0% Li-Ion / Brak baterii - bez ograniczeń IATA w paczce lotniczej)",
+        "break_even_gem": "",
+        "inspection_summary": "Zidentyfikowano 0 kluczowych tytułów w kartonie (30 gier). Szacowana wartość samych perełek: ~0 zł."
+      },
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m68019720937",
         "mercari_direct": "https://jp.mercari.com/item/m68019720937"
@@ -3302,6 +4179,21 @@
       "shipping_share_pln": 20.0,
       "vat_pln": 22.48,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": {
+        "inspected": true,
+        "inspection_badge": "🔍 Inspekcja Zdjęcia (AI Vision)",
+        "total_items_spotted": 25,
+        "lot_type": "standard",
+        "lot_type_name": "Standardowy Pakiet",
+        "top_gems": [],
+        "spotted_gems_value_pln": 0.0,
+        "estimated_total_lot_value_pln": 375.0,
+        "filler_count": 25,
+        "battery_hazard_detected": false,
+        "battery_notes": "🟢 100% Czyste Gry (0% Li-Ion / Brak baterii - bez ograniczeń IATA w paczce lotniczej)",
+        "break_even_gem": "",
+        "inspection_summary": "Zidentyfikowano 0 kluczowych tytułów w kartonie (25 gier). Szacowana wartość samych perełek: ~0 zł."
+      },
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m95924617150",
         "mercari_direct": "https://jp.mercari.com/item/m95924617150"
@@ -3331,6 +4223,21 @@
       "shipping_share_pln": 20.0,
       "vat_pln": 25.44,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": {
+        "inspected": true,
+        "inspection_badge": "🔍 Inspekcja Zdjęcia (AI Vision)",
+        "total_items_spotted": 18,
+        "lot_type": "standard",
+        "lot_type_name": "Standardowy Pakiet",
+        "top_gems": [],
+        "spotted_gems_value_pln": 0.0,
+        "estimated_total_lot_value_pln": 270.0,
+        "filler_count": 18,
+        "battery_hazard_detected": false,
+        "battery_notes": "🟢 100% Czyste Gry (0% Li-Ion / Brak baterii - bez ograniczeń IATA w paczce lotniczej)",
+        "break_even_gem": "",
+        "inspection_summary": "Zidentyfikowano 0 kluczowych tytułów w kartonie (18 gier). Szacowana wartość samych perełek: ~0 zł."
+      },
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m20093535366",
         "mercari_direct": "https://jp.mercari.com/item/m20093535366"
@@ -3360,6 +4267,21 @@
       "shipping_share_pln": 20.0,
       "vat_pln": 39.13,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": {
+        "inspected": true,
+        "inspection_badge": "🔍 Inspekcja Zdjęcia (AI Vision)",
+        "total_items_spotted": 15,
+        "lot_type": "standard",
+        "lot_type_name": "Standardowy Pakiet",
+        "top_gems": [],
+        "spotted_gems_value_pln": 0.0,
+        "estimated_total_lot_value_pln": 225.0,
+        "filler_count": 15,
+        "battery_hazard_detected": false,
+        "battery_notes": "🟢 100% Czyste Gry (0% Li-Ion / Brak baterii - bez ograniczeń IATA w paczce lotniczej)",
+        "break_even_gem": "",
+        "inspection_summary": "Zidentyfikowano 0 kluczowych tytułów w kartonie (15 gier). Szacowana wartość samych perełek: ~0 zł."
+      },
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m31232552895",
         "mercari_direct": "https://jp.mercari.com/item/m31232552895"
@@ -3389,6 +4311,7 @@
       "shipping_share_pln": 65.0,
       "vat_pln": 168.71,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m72172383528",
         "mercari_direct": "https://jp.mercari.com/item/m72172383528"
@@ -3418,6 +4341,7 @@
       "shipping_share_pln": 65.0,
       "vat_pln": 50.05,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m39636324812",
         "mercari_direct": "https://jp.mercari.com/item/m39636324812"
@@ -3447,6 +4371,7 @@
       "shipping_share_pln": 25.0,
       "vat_pln": 20.89,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m67087305139",
         "mercari_direct": "https://jp.mercari.com/item/m67087305139"
@@ -3476,6 +4401,7 @@
       "shipping_share_pln": 25.0,
       "vat_pln": 19.18,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m27938961414",
         "mercari_direct": "https://jp.mercari.com/item/m27938961414"
@@ -3505,6 +4431,7 @@
       "shipping_share_pln": 25.0,
       "vat_pln": 26.59,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m67499875058",
         "mercari_direct": "https://jp.mercari.com/item/m67499875058"
@@ -3534,6 +4461,7 @@
       "shipping_share_pln": 25.0,
       "vat_pln": 28.87,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m28154012236",
         "mercari_direct": "https://jp.mercari.com/item/m28154012236"
@@ -3563,6 +4491,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 64.25,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m42110515743",
         "mercari_direct": "https://jp.mercari.com/item/m42110515743"
@@ -3592,6 +4521,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 70.35,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m38091834685",
         "mercari_direct": "https://jp.mercari.com/item/m38091834685"
@@ -3621,6 +4551,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 81.93,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m68853102375",
         "mercari_direct": "https://jp.mercari.com/item/m68853102375"
@@ -3650,6 +4581,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 87.64,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m28342292493",
         "mercari_direct": "https://jp.mercari.com/item/m28342292493"
@@ -3679,6 +4611,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 142.4,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m22670211650",
         "mercari_direct": "https://jp.mercari.com/item/m22670211650"
@@ -3708,6 +4641,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 35.16,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m28161760027",
         "mercari_direct": "https://jp.mercari.com/item/m28161760027"
@@ -3737,6 +4671,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 35.61,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m19794763678",
         "mercari_direct": "https://jp.mercari.com/item/m19794763678"
@@ -3766,6 +4701,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 39.72,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m96349064018",
         "mercari_direct": "https://jp.mercari.com/item/m96349064018"
@@ -3795,6 +4731,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 55.69,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m77203249089",
         "mercari_direct": "https://jp.mercari.com/item/m77203249089"
@@ -3824,6 +4761,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 65.96,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m80372131687",
         "mercari_direct": "https://jp.mercari.com/item/m80372131687"
@@ -3853,6 +4791,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 64.82,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m96519020556",
         "mercari_direct": "https://jp.mercari.com/item/m96519020556"
@@ -3882,6 +4821,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 76.23,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m94449458311",
         "mercari_direct": "https://jp.mercari.com/item/m94449458311"
@@ -3911,6 +4851,7 @@
       "shipping_share_pln": 30.0,
       "vat_pln": 27.74,
       "zenmarket_fee_pln": 8.77,
+      "photo_inspection": null,
       "links": {
         "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m18564401275",
         "mercari_direct": "https://jp.mercari.com/item/m18564401275"

@@ -96,7 +96,7 @@ class MarkdownGenerator:
                   "![Android PWA](https://img.shields.io/badge/Android%20App-PWA%20Live-brightgreen)")
         md.append("")
         # Sleek Quick Navigation Bar
-        md.append("> 🧭 **Szybka Nawigacja:** [📱 **Aplikacja Android / PWA (Live)**](https://110kc3.github.io/japan-deal-watcher/) · [📡 Radar Licytacji (AUCTION_RADAR.md)](AUCTION_RADAR.md) · [🔨 Yahoo Aukcje (YAHOO_AUCTIONS_DEALS.md)](YAHOO_AUCTIONS_DEALS.md) · [🎯 Poradnik Snajpera (AUCTION_SNIPING_GUIDE.md)](AUCTION_SNIPING_GUIDE.md) · [💰 Audyt Opłacalności (REAL_PROFITABILITY_AUDIT.md)](REAL_PROFITABILITY_AUDIT.md) · [📈 Historia Sprzedaży (MARKET_SALES_HISTORY.md)](MARKET_SALES_HISTORY.md)")
+        md.append("> 🧭 **Szybka Nawigacja:** [📱 **Aplikacja Android / PWA (Live)**](https://110kc3.github.io/japan-deal-watcher/) · [📦 **Pakiety Różności & Danshari (MYSTERY_LOTS_ANALYSIS.md)**](MYSTERY_LOTS_ANALYSIS.md) · [📡 Radar Licytacji (AUCTION_RADAR.md)](AUCTION_RADAR.md) · [🔨 Yahoo Aukcje (YAHOO_AUCTIONS_DEALS.md)](YAHOO_AUCTIONS_DEALS.md) · [🎯 Poradnik Snajpera (AUCTION_SNIPING_GUIDE.md)](AUCTION_SNIPING_GUIDE.md) · [📊 Audyt Rynku PL (POLAND_REAL_SALES_AUDIT.md)](POLAND_REAL_SALES_AUDIT.md) · [📈 Historia Sprzedaży (MARKET_SALES_HISTORY.md)](MARKET_SALES_HISTORY.md)")
         md.append("")
         md.append("---")
         md.append("")

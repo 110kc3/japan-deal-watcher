@@ -22,6 +22,7 @@ from .config import (
 )
 from .costs import calculate_landed_cost, calculate_max_sniper_bid
 from .checks import is_camera_item, is_lens_item
+from .lot_vision_inspector import LotVisionInspector
 
 
 class WebappExporter:
@@ -160,6 +161,11 @@ class WebappExporter:
             "shipping_share_pln": cost_info["shipping_share_pln"],
             "vat_pln": cost_info["vat_pln"],
             "zenmarket_fee_pln": cost_info["zenmarket_fee_pln"],
+            "photo_inspection": d.get("photo_inspection") or (
+                LotVisionInspector.inspect_lot_photo_contents(d)
+                if ("danshari" in cat_id or "mystery" in cat_id or "retro_games" in cat_id or LotVisionInspector.detect_danshari_type(" ".join([d.get("model", ""), d.get("search_query_jp", "")]))["is_mystery_lot"])
+                else None
+            ),
             "links": {
                 "zenmarket_ending_soon": f"https://zenmarket.jp/pl/yahoo.aspx?q={encoded_q}&sort=end&order=asc",
                 "zenmarket_lowest_bid": f"https://zenmarket.jp/pl/yahoo.aspx?q={encoded_q}&sort=price&order=asc",
@@ -179,7 +185,9 @@ class WebappExporter:
         cid = (cat_id or "").lower()
         mod = (deal.get("model", "") or deal.get("title", "") or "").lower()
 
-        if "vita" in cid or "vita" in mod:
+        if "danshari" in cid or "mystery" in cid or "rozno" in cid or "断捨離" in mod or "処分" in mod or "雑多" in mod or "福袋" in mod:
+            return "./assets/images/mystery_lot.svg"
+        elif "vita" in cid or "vita" in mod:
             return "./assets/images/ps_vita.svg"
         elif "psp" in cid or "psp" in mod:
             return "./assets/images/psp.svg"
@@ -238,6 +246,11 @@ class WebappExporter:
             "shipping_share_pln": d.get("shipping_share_pln", 30.0),
             "vat_pln": d.get("vat_pln", 0.0),
             "zenmarket_fee_pln": d.get("zenmarket_fee_pln", 0.0),
+            "photo_inspection": d.get("photo_inspection") or (
+                LotVisionInspector.inspect_lot_photo_contents(d)
+                if ("danshari" in cat_id or "mystery" in cat_id or "retro_games" in cat_id or LotVisionInspector.detect_danshari_type(" ".join([d.get("model", ""), d.get("custom_note", "")]))["is_mystery_lot"])
+                else None
+            ),
             "links": {
                 "zenmarket_buy": d.get("zenmarket_url", f"https://zenmarket.jp/pl/mercariproduct.aspx?itemCode={d.get('id')}"),
                 "mercari_direct": d.get("mercari_url", f"https://jp.mercari.com/item/{d.get('id')}")
@@ -269,6 +282,7 @@ class WebappExporter:
             {"id": "ps_vita", "name": "PlayStation Vita (Slim/OLED)", "icon": "✨", "battery": True},
             {"id": "psp_handheld", "name": "Sony PSP Handhelds", "icon": "⚡", "battery": True},
             {"id": "retro_games_mix", "name": "Pakiety Gier Retro (0% Baterii)", "icon": "📦", "battery": False},
+            {"id": "danshari_mystery_lots", "name": "Pakiety Różności (Danshari / Skarby)", "icon": "🎁", "battery": False},
             {"id": "high_margin_curated_consoles", "name": "Wyselekcjonowane Stacjonarne", "icon": "💎", "battery": False},
             {"id": "ps5_limited_controllers", "name": "Kontrolery Limitowane PS5", "icon": "🎮", "battery": True},
             {"id": "ps_retro_limited_controllers", "name": "Kontrolery Retro PS1-PS4", "icon": "🎯", "battery": False},

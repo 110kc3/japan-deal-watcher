@@ -135,7 +135,7 @@ class AlternativeDealsGenerator:
                   "![Lens Cap](https://img.shields.io/badge/Lens%20Cap-Max%20100%20PLN-orange) "
                   "![Sniper Bidding](https://img.shields.io/badge/ZenMarket-Automated%20Sniper-brightgreen)")
         md.append("")
-        md.append("⬅ **Nawigacja:** [📱 **Aplikacja Android / PWA (Live)**](https://110kc3.github.io/japan-deal-watcher/) · [Wróć do Głównego Dashboardu Mercari (README.md)](README.md) · [📡 Radar Licytacji (AUCTION_RADAR.md)](AUCTION_RADAR.md) · [🎯 Poradnik Snajpera i Ceny Końcowe (AUCTION_SNIPING_GUIDE.md)](AUCTION_SNIPING_GUIDE.md) · [💰 Audyt Opłacalności (REAL_PROFITABILITY_AUDIT.md)](REAL_PROFITABILITY_AUDIT.md) · [📈 Historia Sprzedaży (MARKET_SALES_HISTORY.md)](MARKET_SALES_HISTORY.md)")
+        md.append("⬅ **Nawigacja:** [📱 **Aplikacja Android / PWA (Live)**](https://110kc3.github.io/japan-deal-watcher/) · [Wróć do Głównego Dashboardu Mercari (README.md)](README.md) · [📦 **Pakiety Różności & Danshari (MYSTERY_LOTS_ANALYSIS.md)**](MYSTERY_LOTS_ANALYSIS.md) · [📡 Radar Licytacji (AUCTION_RADAR.md)](AUCTION_RADAR.md) · [🎯 Poradnik Snajpera i Ceny Końcowe (AUCTION_SNIPING_GUIDE.md)](AUCTION_SNIPING_GUIDE.md) · [💰 Audyt Opłacalności (REAL_PROFITABILITY_AUDIT.md)](REAL_PROFITABILITY_AUDIT.md) · [📈 Historia Sprzedaży (MARKET_SALES_HISTORY.md)](MARKET_SALES_HISTORY.md)")
         md.append("")
         md.append("---")
         md.append("")

@@ -3,9 +3,9 @@
 > **Automated Private Deal Watcher for Retro Consoles, Handhelds, UMD Bundles & Analog Lenses**  
 > *Live tracking Mercari Japan, Yahoo Auctions & ZenMarket consolidation timeline.*
 
-![Status](https://img.shields.io/badge/Watcher-Active-brightgreen) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-09%2016:43%20UTC-blue) ![Exchange Rate](https://img.shields.io/badge/NBP%20Live-100%20JPY%20%E2%89%88%202.48%20PLN-success) ![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-58%20Days%20Left-orange) ![Deal Checks](https://img.shields.io/badge/Deal%20Checks-10%20Rules%20PASS-brightgreen) ![Camera Cap](https://img.shields.io/badge/Camera%20Cap-Max%20100%20PLN-orange) ![Lens Cap](https://img.shields.io/badge/Lens%20Cap-Max%20100%20PLN-orange) ![Update Cycle](https://img.shields.io/badge/Cycle-Hourly%20(1h)-purple) ![Android PWA](https://img.shields.io/badge/Android%20App-PWA%20Live-brightgreen)
+![Status](https://img.shields.io/badge/Watcher-Active-brightgreen) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-09%2017:00%20UTC-blue) ![Exchange Rate](https://img.shields.io/badge/NBP%20Live-100%20JPY%20%E2%89%88%202.48%20PLN-success) ![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-58%20Days%20Left-orange) ![Deal Checks](https://img.shields.io/badge/Deal%20Checks-10%20Rules%20PASS-brightgreen) ![Camera Cap](https://img.shields.io/badge/Camera%20Cap-Max%20100%20PLN-orange) ![Lens Cap](https://img.shields.io/badge/Lens%20Cap-Max%20100%20PLN-orange) ![Update Cycle](https://img.shields.io/badge/Cycle-Hourly%20(1h)-purple) ![Android PWA](https://img.shields.io/badge/Android%20App-PWA%20Live-brightgreen)
 
-> 🧭 **Szybka Nawigacja:** [📱 **Aplikacja Android / PWA (Live)**](https://110kc3.github.io/japan-deal-watcher/) · [📡 Radar Licytacji (AUCTION_RADAR.md)](AUCTION_RADAR.md) · [🔨 Yahoo Aukcje (YAHOO_AUCTIONS_DEALS.md)](YAHOO_AUCTIONS_DEALS.md) · [🎯 Poradnik Snajpera (AUCTION_SNIPING_GUIDE.md)](AUCTION_SNIPING_GUIDE.md) · [💰 Audyt Opłacalności (REAL_PROFITABILITY_AUDIT.md)](REAL_PROFITABILITY_AUDIT.md) · [📈 Historia Sprzedaży (MARKET_SALES_HISTORY.md)](MARKET_SALES_HISTORY.md)
+> 🧭 **Szybka Nawigacja:** [📱 **Aplikacja Android / PWA (Live)**](https://110kc3.github.io/japan-deal-watcher/) · [📦 **Pakiety Różności & Danshari (MYSTERY_LOTS_ANALYSIS.md)**](MYSTERY_LOTS_ANALYSIS.md) · [📡 Radar Licytacji (AUCTION_RADAR.md)](AUCTION_RADAR.md) · [🔨 Yahoo Aukcje (YAHOO_AUCTIONS_DEALS.md)](YAHOO_AUCTIONS_DEALS.md) · [🎯 Poradnik Snajpera (AUCTION_SNIPING_GUIDE.md)](AUCTION_SNIPING_GUIDE.md) · [📊 Audyt Rynku PL (POLAND_REAL_SALES_AUDIT.md)](POLAND_REAL_SALES_AUDIT.md) · [📈 Historia Sprzedaży (MARKET_SALES_HISTORY.md)](MARKET_SALES_HISTORY.md)
 
 ---
 
@@ -293,6 +293,24 @@ ZenMarket zapewnia **60 dni darmowego przechowywania** w Osace na połączenie o
 
 ---
 
+## Pakiety Różności i Likwidacje Kolekcji (Danshari / 処分 / 雑多 / 福袋)
+> **Typ zasilania / IATA:** 🟢 No-Battery / Dry Cell (Brak limitu w paczce)
+
+*Brak nowych aktywnych ofert w tej chwili (wszystkie pozycje wyprzedane lub w trakcie transakcji).*
+
+<details><summary>📁 Zakończone / Sprzedane w tej kategorii (4 ofert - kliknij, aby rozwinąć)</summary>
+
+| Model / Wariant | Stan / Weryfikacja | Cena JPY (PLN) | Koszt w PL (z VAT) | Cena w Polsce | Potencjalny Zysk | Werdykt AI | Status | Linki |
+|---|:---:|---:|---:|---:|---:|:---:|:---:|---|
+| ~~**【断捨離】Karton 50 Gier Nintendo DS & 3DS (Likwidacja Pokoju / Wyprzedaż)**~~<br><small>~~Mix 50 Gier~~</small> | ~~✅ Stan Dobry~~ | ~~**4,800 JPY**~~<br>(~~~119.05 zł~~) | ~~~231.06 zł~~ | ~~**680.00 zł**~~ | ~~<strong style='color:#10b981;'>+448.94 zł</strong><br><small>(+194.3%)</small>~~ | ~~⚪ N/A~~ | ~~❌ Zakończone / Sprzedane~~ | ~~[🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=danshari_ds_3ds_50)~~ |
+| ~~**【実家整理】Karton 40 Kartridży Game Boy & GBA (Strych / Pamiątki z Dzieciństwa)**~~<br><small>~~Mix 40 Kartridży~~</small> | ~~✅ Stan Dobry~~ | ~~**4,500 JPY**~~<br>(~~~111.61 zł~~) | ~~~221.65 zł~~ | ~~**620.00 zł**~~ | ~~<strong style='color:#10b981;'>+398.35 zł</strong><br><small>(+179.7%)</small>~~ | ~~⚪ N/A~~ | ~~❌ Zakończone / Sprzedane~~ | ~~[🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=danshari_gba_gb_40)~~ |
+| ~~**【引退品】Zestaw 60 Gier Sony PSP UMD (Kolekcja Gracza / まとめ売り)**~~<br><small>~~Mix 60 Gier UMD~~</small> | ~~✅ Stan Dobry~~ | ~~**3,900 JPY**~~<br>(~~~96.73 zł~~) | ~~~202.83 zł~~ | ~~**490.00 zł**~~ | ~~<strong style='color:#10b981;'>+287.17 zł</strong><br><small>(+141.6%)</small>~~ | ~~⚪ N/A~~ | ~~❌ Zakończone / Sprzedane~~ | ~~[🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=danshari_psp_umd_60)~~ |
+| ~~**【断捨離】Zestaw 15 Kartridży Pokémon (DS / GBA / GBC - Wyprzedaż Prywatna)**~~<br><small>~~Lot 15 Kartridży~~</small> | ~~✅ Stan Dobry~~ | ~~**6,800 JPY**~~<br>(~~~168.65 zł~~) | ~~~293.81 zł~~ | ~~**580.00 zł**~~ | ~~<strong style='color:#10b981;'>+286.19 zł</strong><br><small>(+97.4%)</small>~~ | ~~⚪ N/A~~ | ~~❌ Zakończone / Sprzedane~~ | ~~[🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=danshari_pokemon_15)~~ |
+
+</details>
+
+---
+
 ## 💡 Optymalny Koszyk Konsolidacyjny (Wysyłka Zbiorcza)
 
 Zamiast wysyłać każdy przedmiot osobno (gdzie minimalny koszt paczki kurierskiej to ~110 zł), algorytm dobrał optymalny zestaw 6 pozycji, dokładnie przestrzegając limitu IATA (maks. 2 akumulatory Li-Ion):
@@ -332,4 +350,4 @@ Po zakupieniu przedmiotu w panelu ZenMarket kliknij *Order Photos* i wklej:
 - **Lokalne uruchomienie:** `python3 main.py` w repozytorium.
 
 ---
-*Dashboard automatically maintained by GitHub Actions & Antigravity Agent. Last updated: 2026-11-09 16:43 UTC.*
+*Dashboard automatically maintained by GitHub Actions & Antigravity Agent. Last updated: 2026-11-09 17:00 UTC.*

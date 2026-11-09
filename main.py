@@ -13,6 +13,7 @@ from watcher.config import (
     SNIPER_GUIDE_MD_FILE,
     MARKET_SALES_MD_FILE,
     AUCTION_RADAR_MD_FILE,
+    MYSTERY_LOTS_MD_FILE,
     DOCS_DATA_FILE,
     BASE_DIR
 )
@@ -23,6 +24,7 @@ from watcher.markdown_generator import MarkdownGenerator
 from watcher.alternative_generator import AlternativeDealsGenerator
 from watcher.sniper_guide_generator import SniperGuideGenerator
 from watcher.auction_radar import AuctionRadarGenerator
+from watcher.mystery_lots_generator import MysteryLotsGenerator
 from watcher.webapp_exporter import WebappExporter
 from watcher.history_tracker import HistoryTracker
 from watcher.history_generator import HistoryGenerator
@@ -124,6 +126,29 @@ def main():
         with open(AUCTION_RADAR_MD_FILE, "w", encoding="utf-8") as f:
             f.write(radar_content)
         print(f"📄 Successfully generated and updated {AUCTION_RADAR_MD_FILE} (Live Auction Radar)")
+
+        # 7c. Generate MYSTERY_LOTS_ANALYSIS.md (Danshari & Mystery Lots Photo Intelligence)
+        mystery_gen = MysteryLotsGenerator(
+            raw_deals=yahoo_deals,
+            timeline_status=timeline,
+            rate=rate_jpy,
+            rate_eur=rate_eur,
+            is_live_rate=is_live_jpy
+        )
+        mystery_content = mystery_gen.generate()
+        with open(MYSTERY_LOTS_MD_FILE, "w", encoding="utf-8") as f:
+            f.write(mystery_content)
+        print(f"📄 Successfully generated and updated {MYSTERY_LOTS_MD_FILE} (Danshari & Mystery Lots)")
+
+        # Save copy to Obsidian vault
+        obsidian_mystery_path = Path("/home/borg/docker/obsidian/vault/20-reports/adhoc/2026-11-09-mystery-lots-analysis.md")
+        if obsidian_mystery_path.parent.exists():
+            try:
+                with open(obsidian_mystery_path, "w", encoding="utf-8") as f:
+                    f.write(mystery_content)
+                print(f"📑 Copied mystery lots report to Obsidian: {obsidian_mystery_path.name}")
+            except Exception as e:
+                print(f"[WARN] Obsidian copy skipped: {e}")
 
         # Save copy of radar to Obsidian vault
         obsidian_radar_path = Path("/home/borg/docker/obsidian/vault/20-reports/adhoc/2026-11-09-yahoo-auctions-radar.md")

@@ -13,6 +13,7 @@ YAHOO_MD_FILE = BASE_DIR / "YAHOO_AUCTIONS_DEALS.md"
 SNIPER_GUIDE_MD_FILE = BASE_DIR / "AUCTION_SNIPING_GUIDE.md"
 MARKET_SALES_MD_FILE = BASE_DIR / "MARKET_SALES_HISTORY.md"
 AUCTION_RADAR_MD_FILE = BASE_DIR / "AUCTION_RADAR.md"
+MYSTERY_LOTS_MD_FILE = BASE_DIR / "MYSTERY_LOTS_ANALYSIS.md"
 DOCS_DIR = BASE_DIR / "docs"
 DOCS_DATA_FILE = DOCS_DIR / "data" / "deals.json"
 
@@ -49,6 +50,7 @@ CATEGORY_SHIPPING_SHARES = {
     "ps_vita_handhelds": 35.0,        # Alias
     "psp_handheld": 30.0,             # ~190g handheld
     "retro_games_mix": 20.0,          # ~150-300g mixed retro game lots (0% Li-Ion)
+    "danshari_mystery_lots": 35.0,    # ~1.0-2.5kg Danshari / Mystery lots / Box assortment (0% Li-Ion)
     "high_margin_curated_consoles": 65.0, # ~1.2-4.0kg PSone Combo / PS4 Pro Rathalos CIB
     # Legacy & peripheral categories
     "psp_games_mix": 20.0,            # Legacy alias

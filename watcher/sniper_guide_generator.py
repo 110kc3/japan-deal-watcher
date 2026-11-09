@@ -69,6 +69,7 @@ class SniperGuideGenerator:
         md.append(
             "⬅ **Nawigacja:** [📱 **Aplikacja Android / PWA (Live)**](https://110kc3.github.io/japan-deal-watcher/) · "
             "[Główny Dashboard Mercari (README.md)](README.md) · "
+            "[📦 **Pakiety Różności & Danshari (MYSTERY_LOTS_ANALYSIS.md)**](MYSTERY_LOTS_ANALYSIS.md) · "
             "[📡 Radar Licytacji (AUCTION_RADAR.md)](AUCTION_RADAR.md) · "
             "[Katalog Alternatywnych Ofert (YAHOO_AUCTIONS_DEALS.md)](YAHOO_AUCTIONS_DEALS.md) · "
             "[💰 Audyt Opłacalności (REAL_PROFITABILITY_AUDIT.md)](REAL_PROFITABILITY_AUDIT.md) · "

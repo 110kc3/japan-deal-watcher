@@ -1101,6 +1101,62 @@
           "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji"
         }
       ]
+    },
+    {
+      "id": "danshari_mystery_lots",
+      "name": "Pakiety Różności i Likwidacje Kolekcji (Danshari / 処分 / 雑多 / 福袋)",
+      "battery_type": "none",
+      "target_pln_resale": 650,
+      "tracked_items": [
+        {
+          "id": "danshari_ds_3ds_50",
+          "model": "【断捨離】Karton 50 Gier Nintendo DS & 3DS (Likwidacja Pokoju / Wyprzedaż)",
+          "color": "Mix 50 Gier",
+          "target_price_jpy": 4800,
+          "est_pl_value": 680.0,
+          "allegro_archive_pln": 750.0,
+          "olx_haggled_pln": 620.0,
+          "note": "Aukcja Danshari – zidentyfikowano Pokémon HeartGold, Platinum oraz Zelda Phantom Hourglass!",
+          "battery_type": "none",
+          "image_url": "./assets/images/mystery_lot.svg"
+        },
+        {
+          "id": "danshari_gba_gb_40",
+          "model": "【実家整理】Karton 40 Kartridży Game Boy & GBA (Strych / Pamiątki z Dzieciństwa)",
+          "color": "Mix 40 Kartridży",
+          "target_price_jpy": 4500,
+          "est_pl_value": 620.0,
+          "allegro_archive_pln": 690.0,
+          "olx_haggled_pln": 560.0,
+          "note": "Pamiątki z dzieciństwa – widoczny szmaragdowy Pokémon Emerald oraz Zelda Minish Cap!",
+          "battery_type": "none",
+          "image_url": "./assets/images/mystery_lot.svg"
+        },
+        {
+          "id": "danshari_psp_umd_60",
+          "model": "【引退品】Zestaw 60 Gier Sony PSP UMD (Kolekcja Gracza / まとめ売り)",
+          "color": "Mix 60 Gier UMD",
+          "target_price_jpy": 3900,
+          "est_pl_value": 490.0,
+          "allegro_archive_pln": 550.0,
+          "olx_haggled_pln": 440.0,
+          "note": "Kolekcja gracza PSP – rozpoznano Persona 3 Portable, Crisis Core FF7 i Monster Hunter!",
+          "battery_type": "none",
+          "image_url": "./assets/images/mystery_lot.svg"
+        },
+        {
+          "id": "danshari_pokemon_15",
+          "model": "【断捨離】Zestaw 15 Kartridży Pokémon (DS / GBA / GBC - Wyprzedaż Prywatna)",
+          "color": "Lot 15 Kartridży",
+          "target_price_jpy": 6800,
+          "est_pl_value": 580.0,
+          "allegro_archive_pln": 650.0,
+          "olx_haggled_pln": 520.0,
+          "note": "Zestaw 15 gier Pokémon bez pudełek – rozpoznano SoulSilver, FireRed, Ruby, Diamond!",
+          "battery_type": "none",
+          "image_url": "./assets/images/mystery_lot.svg"
+        }
+      ]
     }
   ]
 }

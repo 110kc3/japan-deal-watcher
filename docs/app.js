@@ -454,6 +454,40 @@ function renderDealCard(deal, isAuction) {
     `;
   }
 
+  // AI Vision Photo Inspection Section (Danshari & Mystery Lots)
+  let inspectionSection = '';
+  if (deal.photo_inspection && deal.photo_inspection.inspected) {
+    const pi = deal.photo_inspection;
+    const gems = pi.top_gems || [];
+    const gemsHtml = gems.map(g => `
+      <div class="gem-badge-row">
+        <span class="gem-title">💎 ${g.title} (${g.platform})</span>
+        <span class="gem-val">~${g.est_pl_value} zł</span>
+      </div>
+    `).join('');
+
+    const breakEvenHtml = pi.break_even_gem
+      ? `<div class="inspection-breakeven">💡 ${pi.break_even_gem}</div>`
+      : '';
+
+    inspectionSection = `
+      <div class="inspection-box">
+        <div class="inspection-header" onclick="this.parentElement.classList.toggle('expanded')">
+          <div class="inspection-title">
+            <span class="inspection-icon">🔍</span>
+            <span><strong>Inspekcja Zdjęcia AI:</strong> ${pi.lot_type_name || 'Pakiet'} (${pi.total_items_spotted || 0} szt.)</span>
+          </div>
+          <span class="inspection-chevron">▼</span>
+        </div>
+        <div class="inspection-details">
+          <div class="inspection-battery">${pi.battery_notes || '🟢 0% Li-Ion'}</div>
+          ${breakEvenHtml}
+          ${gemsHtml ? `<div class="inspection-gems-list"><strong>Wykryte Skarby w Kartonie:</strong>${gemsHtml}</div>` : ''}
+        </div>
+      </div>
+    `;
+  }
+
   const allegroPrice = deal.allegro_archive_pln ? deal.allegro_archive_pln.toFixed(0) : Math.round(deal.est_pl_value * 1.08);
   const olxPrice = deal.olx_haggled_pln ? deal.olx_haggled_pln.toFixed(0) : Math.round(deal.est_pl_value * 0.90);
 
@@ -523,6 +557,8 @@ function renderDealCard(deal, isAuction) {
           <span class="matrix-sub text-green">Czysty zysk po kosztach</span>
         </div>
       </div>
+
+      ${inspectionSection}
 
       <div class="card-actions">
         ${actionButtons}
