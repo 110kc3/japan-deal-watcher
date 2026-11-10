@@ -1,9 +1,17 @@
 #!/usr/bin/env python3
 """Main entrypoint for Japan Deal Watcher."""
 
-import json
 import sys
+import os
 from pathlib import Path
+
+# Auto-reexec with repository virtualenv if not already running in it
+_REPO_DIR = Path(__file__).resolve().parent
+_VENV_PYTHON = _REPO_DIR / ".venv" / "bin" / "python"
+if _VENV_PYTHON.exists() and Path(sys.executable).resolve() != _VENV_PYTHON.resolve():
+    os.execv(str(_VENV_PYTHON), [str(_VENV_PYTHON)] + sys.argv)
+
+import json
 
 from watcher.config import (
     WATCHLIST_FILE,

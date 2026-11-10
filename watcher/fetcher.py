@@ -310,8 +310,9 @@ class DealFetcher:
 
                         is_sold = bool(
                             re.search(r'<meta[^>]*robots[^>]*noindex', html, re.IGNORECASE) or
-                            "売り切れ" in html or
-                            "item-status:sold-out" in html
+                            "売り切れました" in html or
+                            "item-status:sold-out" in html or
+                            "item:status:sold-out" in html
                         )
 
                         if p_match:

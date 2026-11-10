@@ -811,6 +811,17 @@ body {
   box-shadow: 0 4px 12px rgba(14, 165, 233, 0.45);
 }
 
+.primary-cta.cta-ended {
+  background: linear-gradient(135deg, #475569, #334155);
+  box-shadow: 0 2px 6px rgba(71, 85, 105, 0.3);
+  color: #f1f5f9 !important;
+}
+
+.primary-cta.cta-ended:hover {
+  background: linear-gradient(135deg, #64748b, #475569);
+  box-shadow: 0 4px 12px rgba(71, 85, 105, 0.45);
+}
+
 .primary-cta:active {
   transform: scale(0.98);
 }
@@ -860,10 +871,70 @@ body {
   transform: scale(0.97);
 }
 
+/* Direct Active Auctions Search Banner on Auction Cards */
+.card-active-stream-banner {
+  width: 100%;
+}
+
+.active-auctions-search-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 12px;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  border-radius: 9px;
+  color: #34d399;
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 600;
+  transition: all 0.15s ease;
+  box-sizing: border-box;
+}
+
+.active-auctions-search-link:hover {
+  background: rgba(16, 185, 129, 0.18);
+  border-color: #10b981;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.active-auctions-search-link .active-pulse-dot {
+  font-size: 0.65rem;
+  margin-right: 6px;
+  display: inline-block;
+  animation: pulse 1.5s infinite;
+}
+
+.active-auctions-search-link .active-link-title {
+  flex: 1;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.active-auctions-search-link .active-link-title strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.active-auctions-search-link .active-link-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  background: rgba(16, 185, 129, 0.22);
+  color: #6ee7b7;
+  padding: 2px 7px;
+  border-radius: 12px;
+  margin-left: 6px;
+  white-space: nowrap;
+}
+
 /* Tier 2: Compact Market Verification Pills */
 .card-pills-row {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
   gap: 6px;
 }
 
@@ -917,6 +988,18 @@ body {
 .calc-pill:hover {
   background: rgba(56, 189, 248, 0.22);
   border-color: var(--accent-blue);
+  color: #ffffff;
+}
+
+.stream-pill {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.35);
+  color: #34d399;
+}
+
+.stream-pill:hover {
+  background: rgba(16, 185, 129, 0.22);
+  border-color: #10b981;
   color: #ffffff;
 }
 

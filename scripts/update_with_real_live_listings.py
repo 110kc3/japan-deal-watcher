@@ -92,6 +92,9 @@ def fetch_jauce_auctions(query: str):
     items = []
     for match in pattern.finditer(html):
         aid, img, title, bid, time_left = match.groups()
+        # Enforce standard Yahoo Japan auction ID format: letter prefix + digits (reject numeric-only IDs)
+        if not (aid and aid[0].isalpha() and aid[1:].isdigit()):
+            continue
         bid_val = int(bid.replace(",", ""))
         full_img = img if img.startswith("http") else ("https:" + img if img.startswith("//") else img)
         items.append({

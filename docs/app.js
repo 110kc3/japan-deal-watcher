@@ -185,10 +185,19 @@ function setupPwaInstallPrompt() {
   });
 }
 
+// Get safe CDN image URL (bypasses Yahoo Japan European 403 geoblock via secure proxy)
+function getSafeImageUrl(url) {
+  if (!url) return './assets/images/placeholder.svg';
+  if (url.startsWith('https://auc-pctr.c.yimg.jp')) {
+    return 'https://www.jauce.com/read_yafile/' + url;
+  }
+  return url;
+}
+
 // Fetch compiled data feed from ./data/deals.json
 async function fetchDealsData() {
   try {
-    const response = await fetch('./data/deals.json?v=' + Date.now());
+    const response = await fetch('./data/deals.json?v=' + Date.now(), { cache: 'no-store' });
     if (!response.ok) throw new Error('Network response not ok: ' + response.status);
     const data = await response.json();
     state.data = data;
@@ -874,6 +883,7 @@ function renderDealCard(deal, isAuction) {
 
   // Primary Direct URL (ZenMarket works in PL/EEA without VPN)
   const primaryUrl = (deal.links && (deal.links.primary_url || deal.links.zenmarket_sniper || deal.links.zenmarket_buy || deal.links.zenmarket_url)) || '#';
+  const endingSoonUrl = (deal.links && deal.links.zenmarket_ending_soon) || primaryUrl;
 
   // Action Buttons with Clean 3-Tier Mobile Hierarchy (Solves button clutter & geoblocks)
   let actionButtons = '';
@@ -883,11 +893,22 @@ function renderDealCard(deal, isAuction) {
   const olxBtn = deal.links && deal.links.olx_search
     ? `<a href="${deal.links.olx_search}" target="_blank" rel="noopener" class="pill-btn olx-pill" title="Sprawdź ogłoszenia na OLX w Polsce po targu">🇵🇱 OLX</a>`
     : '';
+  const streamPill = (deal.links && deal.links.zenmarket_ending_soon)
+    ? `<a href="${deal.links.zenmarket_ending_soon}" target="_blank" rel="noopener" class="pill-btn stream-pill" title="Live stream kończących się licytacji ${deal.model} w ZenMarket (natychmiastowy dostęp w 1-klik)">⚡ Live Stream</a>`
+    : '';
 
   const isAuctionEnded = isAuction && liveTiming && liveTiming.isEnded;
   const auctionTargetUrl = (isAuctionEnded && deal.links && deal.links.zenmarket_ending_soon)
     ? deal.links.zenmarket_ending_soon
     : primaryUrl;
+  const cardMainUrl = isAuction
+    ? (isAuctionEnded ? endingSoonUrl : primaryUrl)
+    : primaryUrl;
+  const auctionBuyNowUrl = (isAuctionEnded && deal.links && deal.links.zenmarket_ending_soon)
+    ? deal.links.zenmarket_ending_soon
+    : ((deal.links && (deal.links.zenmarket_buy_now || deal.links.zenmarket_buy)) || primaryUrl);
+  const mercariBuyUrl = (deal.links && (deal.links.zenmarket_buy || deal.links.primary_url)) || primaryUrl;
+
   const ctaText = isAuctionEnded
     ? '⏰ Szukaj trwających w ZenMarket'
     : (isAuction ? '🎯 Licytuj w ZenMarket' : '🛒 Kup w ZenMarket');
@@ -902,7 +923,7 @@ function renderDealCard(deal, isAuction) {
             <span class="cta-vpn-badge">${isAuctionEnded ? 'Nowe oferty' : 'Licytacja'}</span>
           </a>
           ${deal.buy_now_price_jpy ? `
-            <a href="${primaryUrl}" target="_blank" rel="noopener" class="btn-action buy-now-cta" title="Kup natychmiast bez licytacji w ZenMarket (Cena 即決: ${deal.buy_now_price_jpy.toLocaleString()} JPY ~${deal.buy_now_price_pln ? deal.buy_now_price_pln.toFixed(2) : ''} zł)">
+            <a href="${auctionBuyNowUrl}" target="_blank" rel="noopener" class="btn-action buy-now-cta" title="${isAuctionEnded ? 'Aukcja zakończona – szukaj ofert Kup Teraz tego modelu w ZenMarket' : 'Kup natychmiast bez licytacji w ZenMarket (Cena 即決: ' + deal.buy_now_price_jpy.toLocaleString() + ' JPY' + (deal.buy_now_price_pln ? ' ~' + deal.buy_now_price_pln.toFixed(2) + ' zł' : '') + ')'}">
               <span class="cta-text">⚡ Kup Teraz (${deal.buy_now_price_jpy.toLocaleString()} JPY)</span>
               <span class="cta-vpn-badge">即決</span>
             </a>
@@ -912,6 +933,17 @@ function renderDealCard(deal, isAuction) {
           </button>
         </div>
 
+        <!-- Prominent Direct Active Auctions Stream Link (Never leads to a dead page) -->
+        ${deal.links && deal.links.zenmarket_ending_soon ? `
+          <div class="card-active-stream-banner">
+            <a href="${deal.links.zenmarket_ending_soon}" target="_blank" rel="noopener" class="active-auctions-search-link" title="Szukaj wszystkich trwających licytacji ${deal.model} w ZenMarket (posortowane od kończących się najszybciej)">
+              <span class="active-pulse-dot">🔴</span>
+              <span class="active-link-title">Aktywne licytacje: <strong>${deal.model}</strong></span>
+              <span class="active-link-badge">ZenMarket ↗</span>
+            </a>
+          </div>
+        ` : ''}
+
         <!-- Tier 2: Polish Market Verification & Sniping Calculator -->
         <div class="card-pills-row">
           ${allegroBtn}
@@ -919,6 +951,7 @@ function renderDealCard(deal, isAuction) {
           <button class="pill-btn calc-pill btn-calc-trigger" data-deal-id="${deal.id}" data-type="auction" title="Przelicz koszty landed, cło i twardy limit snajpera">
             🧮 Snajper
           </button>
+          ${streamPill}
         </div>
 
         <!-- Tier 3: Collapsible Advanced Research & Proxy Links -->
@@ -954,8 +987,8 @@ function renderDealCard(deal, isAuction) {
       <div class="card-action-tiers">
         <!-- Tier 1: Main High-Contrast CTAs (Direct Buy Now) -->
         <div class="card-main-ctas">
-          <a href="${primaryUrl}" target="_blank" rel="noopener" class="btn-action primary-cta mercari-primary" title="Kup teraz bezpośrednio przez ZenMarket (Działa w Polsce i UE bez VPN)">
-            <span class="cta-text">🛒 Kup w ZenMarket</span>
+          <a href="${mercariBuyUrl}" target="_blank" rel="noopener" class="btn-action primary-cta mercari-primary buy-now-cta" title="Kup teraz bezpośrednio przez ZenMarket (Działa w Polsce i UE bez VPN)">
+            <span class="cta-text">🛒 Kup Teraz w ZenMarket</span>
             <span class="cta-vpn-badge">Kup Teraz</span>
           </a>
           <button class="btn-action secondary-cta btn-add-cart" data-deal-id="${deal.id}" data-type="mercari" title="Dodaj do wspólnej paczki morskiej/lotniczej">
@@ -1068,9 +1101,9 @@ function renderDealCard(deal, isAuction) {
   const isJapaneseGame = (deal.category_id && (deal.category_id.includes('game') || deal.category_id.includes('danshari') || deal.category_id.includes('retro_games'))) || Boolean(deal.photo_inspection);
 
   return `
-    <article class="deal-card ${isAuction && liveTiming && liveTiming.isEnded ? 'deal-card-ended' : ''}" id="card-${deal.id}" data-ends-at="${deal.ends_at_iso || ''}" data-is-auction="${isAuction ? '1' : '0'}" data-is-ended="${isAuction && liveTiming && liveTiming.isEnded ? '1' : '0'}">
-      <a href="${primaryUrl}" target="_blank" rel="noopener" class="deal-card-media deal-card-media-link" title="Otwórz ofertę w ZenMarket (Działa w PL bez VPN)">
-        <img src="${deal.image_url || './assets/images/placeholder.svg'}" alt="${deal.model}" class="deal-card-img" loading="lazy" onerror="this.src='./assets/images/placeholder.svg'" />
+    <article class="deal-card ${isAuction && liveTiming && liveTiming.isEnded ? 'deal-card-ended' : ''}" id="card-${deal.id}" data-ends-at="${deal.ends_at_iso || ''}" data-is-auction="${isAuction ? '1' : '0'}" data-is-ended="${isAuction && liveTiming && liveTiming.isEnded ? '1' : '0'}" data-ending-soon-url="${endingSoonUrl}">
+      <a href="${cardMainUrl}" target="_blank" rel="noopener" class="deal-card-media deal-card-media-link" title="${isAuctionEnded ? 'Aukcja zakończona – szukaj aktywnych ofert tego modelu w ZenMarket' : 'Otwórz ofertę w ZenMarket (Działa w PL bez VPN)'}">
+        <img src="${getSafeImageUrl(deal.image_url)}" alt="${deal.model}" class="deal-card-img" loading="lazy" onerror="this.src='./assets/images/placeholder.svg'" />
         <span class="media-platform-badge ${isAuction ? 'badge-yahoo' : 'badge-mercari'}">
           ${isAuction ? '🔨 Yahoo! Aukcja' : '🛍️ Mercari'}
         </span>
@@ -1095,7 +1128,7 @@ function renderDealCard(deal, isAuction) {
 
       <div class="card-main">
         <h4 class="card-title">
-          <a href="${primaryUrl}" target="_blank" rel="noopener" class="card-title-link" title="Otwórz ofertę w ZenMarket">
+          <a href="${cardMainUrl}" target="_blank" rel="noopener" class="card-title-link" title="${isAuctionEnded ? 'Aukcja zakończona – szukaj aktywnych ofert tego modelu w ZenMarket' : 'Otwórz ofertę w ZenMarket'}">
             <span class="title-text">${deal.model}</span>
             <span class="title-icon">↗</span>
           </a>
@@ -1793,6 +1826,38 @@ function initLiveCountdownTicker() {
       const iconEl = ribbon ? ribbon.querySelector('.time-ribbon-icon') : null;
 
       if (diffMs <= 0) {
+        // Auction finished: swap all links immediately to active search so clicking never leads to a dead page
+        card.setAttribute('data-is-ended', '1');
+        card.classList.add('deal-card-ended');
+        const endingSoonUrl = card.getAttribute('data-ending-soon-url');
+        if (endingSoonUrl) {
+          const mediaLink = card.querySelector('.deal-card-media-link');
+          if (mediaLink) {
+            mediaLink.href = endingSoonUrl;
+            mediaLink.title = 'Aukcja zakończona – szukaj aktywnych ofert tego modelu w ZenMarket';
+          }
+          const titleLink = card.querySelector('.card-title-link');
+          if (titleLink) {
+            titleLink.href = endingSoonUrl;
+            titleLink.title = 'Aukcja zakończona – szukaj aktywnych ofert tego modelu w ZenMarket';
+          }
+          const primaryCta = card.querySelector('.primary-cta');
+          if (primaryCta) {
+            primaryCta.href = endingSoonUrl;
+            primaryCta.classList.add('cta-ended');
+            primaryCta.title = 'Aukcja zakończona – otwórz trwające licytacje tego modelu w ZenMarket';
+            const ctaTextEl = primaryCta.querySelector('.cta-text');
+            if (ctaTextEl) ctaTextEl.textContent = '⏰ Szukaj trwających w ZenMarket';
+            const vpnBadge = primaryCta.querySelector('.cta-vpn-badge');
+            if (vpnBadge) vpnBadge.textContent = 'Nowe oferty';
+          }
+          const buyNowCta = card.querySelector('.buy-now-cta');
+          if (buyNowCta) {
+            buyNowCta.href = endingSoonUrl;
+            buyNowCta.title = 'Aukcja zakończona – szukaj ofert tego modelu w ZenMarket';
+          }
+        }
+
         // Auction finished: remove it completely from the app (User requested: no old auctions on the app)
         if (!card._removing) {
           card._removing = true;

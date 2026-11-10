@@ -1,22 +1,25 @@
 // Service Worker for AgyDeal Japan Auction & Deal Radar PWA
-const CACHE_NAME = 'agydeal-v2.0.0';
+const CACHE_NAME = 'agydeal-v2.2.0';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
   './style.css',
+  './style.css?v=2.2.0',
   './app.js',
+  './app.js?v=2.2.0',
   './manifest.json',
   './icons/icon-192.svg',
-  './icons/icon-512.svg',
-  './data/deals.json'
+  './icons/icon-512.svg'
+  // Pre-caching skips deals.json to guarantee 100% fresh auction & deal data
 ];
 
 self.addEventListener('install', (event) => {
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      console.log('[SW] Pre-caching static assets');
+      console.log('[SW] Pre-caching static assets (v2.2.0, skipping deals.json)');
       return cache.addAll(ASSETS_TO_CACHE);
-    }).then(() => self.skipWaiting())
+    })
   );
 });
 
@@ -35,16 +38,27 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Network-first with cache fallback for data, cache-first for static assets
+// Immediate skip waiting on message
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
+});
+
+// Network-first with cache: 'no-store' for live deals, Stale-While-Revalidate for static assets
 self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
 
-  // For data/deals.json, always try network first for live auction rates
+  // For data/deals.json, NEVER serve stale data: network-first with cache: 'no-store'
   if (url.pathname.endsWith('deals.json')) {
     event.respondWith(
-      fetch(event.request)
+      fetch(new Request(event.request.url, {
+        method: event.request.method,
+        headers: event.request.headers,
+        cache: 'no-store'
+      }))
         .then((response) => {
-          if (response.status === 200) {
+          if (response && response.status === 200) {
             const copy = response.clone();
             caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
           }

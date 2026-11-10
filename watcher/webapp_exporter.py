@@ -281,7 +281,12 @@ class WebappExporter:
         """Resolves a high-quality product image URL or returns an optimized vector SVG asset."""
         img = deal.get("image_url")
         if img and isinstance(img, str) and img.strip() and img != "None":
-            return img.strip()
+            img_clean = img.strip()
+            # Yahoo Japan CDN (auc-pctr.c.yimg.jp) geoblocks European/Polish IP addresses (HTTP 403).
+            # Route through Jauce's high-speed CDN reverse proxy so images load cleanly in Poland and the EEA.
+            if img_clean.startswith("https://auc-pctr.c.yimg.jp"):
+                return f"https://www.jauce.com/read_yafile/{img_clean}"
+            return img_clean
 
         cid = (cat_id or "").lower()
         mod = (deal.get("model", "") or deal.get("title", "") or "").lower()
