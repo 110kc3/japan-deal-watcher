@@ -3,7 +3,7 @@
 > **Radar Aktywnych Licytacji, Baza Rzeczywistych Cen Końcowych (落札相場) i Arbitraż Yahoo vs Mercari**  
 > *Dedykowane narzędzie analityczne: gdzie aukcje miażdżą oferty Kup Teraz, jakie są realne ceny zamknięcia i które licytacje natychmiast wrzucić na celownik.*
 
-![Auction Radar](https://img.shields.io/badge/Auction%20Radar-Active-brightgreen) ![Watched Targets](https://img.shields.io/badge/Watched%20Targets-73%20Models-blue) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-10%2004:32%20UTC-purple) ![Exchange Rate](https://img.shields.io/badge/NBP%20Live-100%20JPY%20%E2%89%88%202.48%20PLN-success) ![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-57%20Days%20Left-orange) ![Max Li-Ion](https://img.shields.io/badge/IATA%20Limit-Max%202%20Li--Ion-red)
+![Auction Radar](https://img.shields.io/badge/Auction%20Radar-Active-brightgreen) ![Watched Targets](https://img.shields.io/badge/Watched%20Targets-73%20Models-blue) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-10%2005:57%20UTC-purple) ![Exchange Rate](https://img.shields.io/badge/NBP%20Live-100%20JPY%20%E2%89%88%202.48%20PLN-success) ![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-57%20Days%20Left-orange) ![Max Li-Ion](https://img.shields.io/badge/IATA%20Limit-Max%202%20Li--Ion-red)
 
 ⬅ **Nawigacja:** [📱 **Aplikacja Android / PWA (Live)**](https://110kc3.github.io/japan-deal-watcher/) · [Główny Dashboard Mercari (README.md)](README.md) · [📦 **Pakiety Różności & Danshari (MYSTERY_LOTS_ANALYSIS.md)**](MYSTERY_LOTS_ANALYSIS.md) · [🎯 Poradnik Snajpera i Limity (AUCTION_SNIPING_GUIDE.md)](AUCTION_SNIPING_GUIDE.md) · [🔨 Katalog Alternatywnych Ofert (YAHOO_AUCTIONS_DEALS.md)](YAHOO_AUCTIONS_DEALS.md) · [📈 Historia Sprzedaży (MARKET_SALES_HISTORY.md)](MARKET_SALES_HISTORY.md) · [💰 Audyt Opłacalności (REAL_PROFITABILITY_AUDIT.md)](REAL_PROFITABILITY_AUDIT.md)
 
@@ -190,4 +190,4 @@ Wybierz kategorię i kliknij odpowiedni filtr, aby natychmiast załadować w pan
    - Dopełniaj każdą paczkę przedmiotami o zerowej zawartości baterii (**Pakiety Gier Retro, GameCube, Aparaty Analogowe, Obiektywy**), aby rozbić koszt wysyłki na 5–8 przedmiotów!
 
 ---
-*Dashboard generated automatically by AuctionRadar & HistoryTracker. Last synchronization: 2026-11-10 04:32 UTC.*
+*Dashboard generated automatically by AuctionRadar & HistoryTracker. Last synchronization: 2026-11-10 05:57 UTC.*
