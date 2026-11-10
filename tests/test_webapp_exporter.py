@@ -268,6 +268,28 @@ class TestWebappExporter(unittest.TestCase):
             self.assertEqual(auctions[2]["id"], "deal_3")
             self.assertEqual(auctions[2]["time_remaining_minutes"], 1400)
 
+    def test_ended_auctions_filtered_out(self):
+        """Verifies that auctions ending in the past are excluded from the exported feed."""
+        deals = [
+            {"id": "deal_live", "model": "Live Deal", "price_jpy": 1000, "est_pl_value": 300, "time_remaining_minutes": 30},
+            {"id": "deal_ended", "model": "Ended Deal", "price_jpy": 2000, "est_pl_value": 300, "ends_at": "2026-11-09 10:00 UTC", "time_remaining_minutes": 0},
+        ]
+        with tempfile.TemporaryDirectory() as tmpdir:
+            out_file = Path(tmpdir) / "deals.json"
+            exporter = WebappExporter(
+                rate_jpy=0.024802,
+                rate_eur=4.3873,
+                is_live_rate=True,
+                yahoo_deals=deals
+            )
+            exporter.export(output_file=out_file)
+            with open(out_file, "r", encoding="utf-8") as f:
+                data = json.load(f)
+
+            auctions = data["auctions"]
+            self.assertEqual(len(auctions), 1)
+            self.assertEqual(auctions[0]["id"], "deal_live")
+
 
 if __name__ == "__main__":
     unittest.main()

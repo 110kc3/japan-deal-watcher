@@ -217,7 +217,16 @@ function renderAppHeader(meta) {
     elements.tickerStorageDays.textContent = `${storage.days_remaining} dni`;
   }
   const counts = meta.counts || {};
-  elements.auctionsCountBadge.textContent = counts.yahoo_auctions || 0;
+  const now = Date.now();
+  const liveAuctionsCount = (state.data && state.data.auctions)
+    ? state.data.auctions.filter((d) => {
+        if (!d.ends_at_iso) return (d.time_remaining_minutes !== undefined && d.time_remaining_minutes !== null) ? d.time_remaining_minutes > 0 : true;
+        const endsMs = new Date(d.ends_at_iso).getTime();
+        return !isNaN(endsMs) && (endsMs > now);
+      }).length
+    : (counts.yahoo_auctions || 0);
+
+  elements.auctionsCountBadge.textContent = liveAuctionsCount;
   elements.mercariCountBadge.textContent = counts.mercari_deals || 0;
   if (elements.streamsCountBadge) {
     elements.streamsCountBadge.textContent = counts.search_streams || (state.data && state.data.search_streams ? state.data.search_streams.length : 22);
@@ -419,6 +428,18 @@ function renderDeals() {
     return;
   }
 
+  // 0. Auto-remove ended/expired auctions (User requirement: no old auctions on the app)
+  if (isAuctions) {
+    const now = Date.now();
+    deals = deals.filter((d) => {
+      if (!d.ends_at_iso) {
+        return (d.time_remaining_minutes !== undefined && d.time_remaining_minutes !== null) ? d.time_remaining_minutes > 0 : true;
+      }
+      const endsMs = new Date(d.ends_at_iso).getTime();
+      return !isNaN(endsMs) && (endsMs > now);
+    });
+  }
+
   // 1. Filter by Category
   if (state.selectedCategory !== 'all') {
     deals = deals.filter((d) => d.category_id === state.selectedCategory);
@@ -464,6 +485,11 @@ function renderDeals() {
 
   // Attach card event listeners
   attachCardEvents();
+
+  // Instantly sync live countdowns to newly rendered DOM nodes
+  if (typeof window.updateLiveCountdowns === 'function') {
+    window.updateLiveCountdowns();
+  }
 }
 
 // Sort deals list helper
@@ -471,12 +497,26 @@ function sortDealsList(list, order) {
   const items = [...list];
   switch (order) {
     case 'time_asc':
+      const now = Date.now();
       return items.sort((a, b) => {
-        const timeA = a.ends_at_iso ? new Date(a.ends_at_iso).getTime() : ((a.time_remaining_minutes !== undefined && a.time_remaining_minutes !== null) ? (Date.now() + a.time_remaining_minutes * 60000) : Infinity);
-        const timeB = b.ends_at_iso ? new Date(b.ends_at_iso).getTime() : ((b.time_remaining_minutes !== undefined && b.time_remaining_minutes !== null) ? (Date.now() + b.time_remaining_minutes * 60000) : Infinity);
-        if (timeA !== timeB) {
-          return timeA - timeB;
+        const timeA = a.ends_at_iso ? new Date(a.ends_at_iso).getTime() : ((a.time_remaining_minutes !== undefined && a.time_remaining_minutes !== null) ? (now + a.time_remaining_minutes * 60000) : Infinity);
+        const timeB = b.ends_at_iso ? new Date(b.ends_at_iso).getTime() : ((b.time_remaining_minutes !== undefined && b.time_remaining_minutes !== null) ? (now + b.time_remaining_minutes * 60000) : Infinity);
+        const isEndedA = timeA <= now;
+        const isEndedB = timeB <= now;
+
+        // Active auctions ALWAYS come first before ended ones!
+        if (isEndedA !== isEndedB) {
+          return isEndedA ? 1 : -1;
         }
+
+        // Both active: ending soonest comes first
+        if (!isEndedA) {
+          if (timeA !== timeB) return timeA - timeB;
+        } else {
+          // Both ended: most recently ended comes first
+          if (timeA !== timeB) return timeB - timeA;
+        }
+
         return (b.est_margin_pln || 0) - (a.est_margin_pln || 0);
       });
     case 'verdict_desc':
@@ -612,6 +652,102 @@ function renderSearchStreamCard(stream) {
   `;
 }
 
+// Dynamic Auction Timing & Timezone Localization Engine
+function getAuctionLiveTiming(deal) {
+  const now = Date.now();
+  let endsAtMs = null;
+  if (deal.ends_at_iso) {
+    const parsed = new Date(deal.ends_at_iso).getTime();
+    if (!isNaN(parsed)) endsAtMs = parsed;
+  }
+
+  if (endsAtMs === null) {
+    const mins = (deal.time_remaining_minutes !== undefined && deal.time_remaining_minutes !== null) ? deal.time_remaining_minutes : 9999;
+    return {
+      isEnded: mins <= 0,
+      diffMs: mins * 60000,
+      minsRemaining: mins,
+      formattedCountdown: deal.time_remaining_formatted || `${mins} min`,
+      badgeFormatted: deal.time_remaining_formatted || `${mins} min`,
+      timeClass: mins <= 60 ? 'time-ribbon-urgent' : (mins <= 360 ? 'time-ribbon-soon' : 'time-ribbon-normal'),
+      icon: mins <= 60 ? '🔥' : (mins <= 360 ? '⚡' : '⏳'),
+      stageTitle: deal.price_stage_note || (mins <= 60 ? 'Faza Końcowa – Prawdziwa cena rynkowa!' : 'W toku'),
+      clockFormatted: deal.ends_at_formatted ? `⏰ ${deal.ends_at_formatted}` : ''
+    };
+  }
+
+  const diffMs = endsAtMs - now;
+  const isEnded = diffMs <= 0;
+  const totalSeconds = Math.max(0, Math.floor(diffMs / 1000));
+  const minsRemaining = Math.max(0, Math.floor(diffMs / 60000));
+
+  let formattedCountdown = '';
+  let badgeFormatted = '';
+  let timeClass = 'time-ribbon-normal';
+  let icon = '⏳';
+  let stageTitle = deal.price_stage_note || 'Średnia faza – Wzrost przed końcem';
+
+  if (isEnded) {
+    formattedCountdown = 'Zakończona';
+    badgeFormatted = 'Zakończona';
+    timeClass = 'time-ribbon-ended';
+    icon = '🏁';
+    stageTitle = 'Aukcja zakończona (落札終了)';
+  } else if (diffMs < 300000) { // < 5 minutes: show dynamic minutes and seconds
+    const m = Math.floor(totalSeconds / 60);
+    const s = totalSeconds % 60;
+    formattedCountdown = `${m}m ${s < 10 ? '0' : ''}${s}s`;
+    badgeFormatted = formattedCountdown;
+    timeClass = 'time-ribbon-urgent live-pulse';
+    icon = '🔥';
+    stageTitle = 'Ostatnie sekundy – Snajper na żywo!';
+  } else if (minsRemaining <= 60) {
+    formattedCountdown = `${minsRemaining} min`;
+    badgeFormatted = `${minsRemaining} min`;
+    timeClass = 'time-ribbon-urgent';
+    icon = '🔥';
+    stageTitle = 'Faza Końcowa – Prawdziwa cena rynkowa!';
+  } else if (minsRemaining <= 360) {
+    const h = Math.floor(minsRemaining / 60);
+    const m = minsRemaining % 60;
+    formattedCountdown = m > 0 ? `${h}h ${m}m` : `${h}h`;
+    badgeFormatted = formattedCountdown;
+    timeClass = 'time-ribbon-soon';
+    icon = '⚡';
+    stageTitle = 'Ostatnie godziny – Walka snajperów';
+  } else if (minsRemaining <= 1440) {
+    const h = Math.floor(minsRemaining / 60);
+    const m = minsRemaining % 60;
+    formattedCountdown = m > 0 ? `${h}h ${m}m` : `${h}h`;
+    badgeFormatted = formattedCountdown;
+    timeClass = 'time-ribbon-medium';
+    icon = '⏰';
+    stageTitle = 'Średnia faza – Wzrost przed końcem';
+  } else {
+    const d = Math.floor(minsRemaining / 1440);
+    const remH = Math.floor((minsRemaining % 1440) / 60);
+    formattedCountdown = remH > 0 ? `${d}d ${remH}h` : `${d}d`;
+    badgeFormatted = formattedCountdown;
+    timeClass = 'time-ribbon-normal';
+    icon = '🕒';
+    stageTitle = 'Wczesna faza – Startowa oferta';
+  }
+
+  const clockFormatted = deal.ends_at_formatted ? `⏰ ${deal.ends_at_formatted}` : (deal.ends_at_pl ? `⏰ Dziś o ${deal.ends_at_pl} PL` : '');
+
+  return {
+    isEnded,
+    diffMs,
+    minsRemaining,
+    formattedCountdown,
+    badgeFormatted,
+    timeClass,
+    icon,
+    stageTitle,
+    clockFormatted
+  };
+}
+
 // HTML Card Generator
 function renderDealCard(deal, isAuction) {
   const isZeroBattery = !deal.has_battery;
@@ -623,42 +759,22 @@ function renderDealCard(deal, isAuction) {
     ? `<span class="platform-tag">Yahoo! Aukcje</span>`
     : `<span class="platform-tag mercari">Mercari</span>`;
 
-  // Remaining Time & Price Authenticity Ribbon
+  // Dynamic Remaining Time & Price Authenticity Ribbon
   let timeRibbon = '';
+  let liveTiming = null;
   if (isAuction) {
-    const mins = (deal.time_remaining_minutes !== undefined && deal.time_remaining_minutes !== null) ? deal.time_remaining_minutes : 9999;
-    const formatted = deal.time_remaining_formatted || `${mins} min`;
-    let timeClass = 'time-ribbon-normal';
-    let icon = '⏳';
-    let stageTitle = 'Wczesna oferta (cena wzrośnie)';
-
-    if (mins <= 60) {
-      timeClass = 'time-ribbon-urgent';
-      icon = '🔥';
-      stageTitle = 'Faza Końcowa – Prawdziwa cena rynkowa!';
-    } else if (mins <= 360) {
-      timeClass = 'time-ribbon-soon';
-      icon = '⚡';
-      stageTitle = 'Ostatnie godziny – Walka snajperów';
-    } else if (mins <= 1440) {
-      timeClass = 'time-ribbon-medium';
-      icon = '⏰';
-      stageTitle = 'Średnia faza – Wzrost przed końcem';
-    }
-
-    const clockFormatted = deal.ends_at_formatted ? `⏰ ${deal.ends_at_formatted}` : (deal.ends_at_pl ? `⏰ Dziś o ${deal.ends_at_pl} PL` : '');
-
+    liveTiming = getAuctionLiveTiming(deal);
     timeRibbon = `
-      <div class="time-ribbon ${timeClass}" data-ends-at="${deal.ends_at_iso || ''}">
+      <div class="time-ribbon ${liveTiming.timeClass}" data-ends-at="${deal.ends_at_iso || ''}">
         <div class="time-ribbon-left">
-          <span class="time-ribbon-icon">${icon}</span>
+          <span class="time-ribbon-icon">${liveTiming.icon}</span>
           <div class="time-ribbon-col">
-            <span class="time-ribbon-val">Koniec za: <strong class="auction-countdown-text">${formatted}</strong></span>
-            ${clockFormatted ? `<span class="time-ribbon-clock">${clockFormatted}</span>` : ''}
+            <span class="time-ribbon-val">Koniec za: <strong class="auction-countdown-text">${liveTiming.formattedCountdown}</strong></span>
+            ${liveTiming.clockFormatted ? `<span class="time-ribbon-clock">${liveTiming.clockFormatted}</span>` : ''}
           </div>
         </div>
         <div class="time-ribbon-right">
-          <span class="time-ribbon-stage">${deal.price_stage_note || stageTitle}</span>
+          <span class="time-ribbon-stage">${liveTiming.stageTitle}</span>
         </div>
       </div>
     `;
@@ -762,13 +878,17 @@ function renderDealCard(deal, isAuction) {
     ? `<a href="${deal.links.olx_search}" target="_blank" rel="noopener" class="pill-btn olx-pill" title="Sprawdź ogłoszenia na OLX w Polsce po targu">🇵🇱 OLX</a>`
     : '';
 
+  const ctaText = (isAuction && liveTiming && liveTiming.isEnded)
+    ? '🏛️ Sprawdź w ZenMarket'
+    : (isAuction ? '🎯 Licytuj w ZenMarket' : '🛒 Kup w ZenMarket');
+
   if (isAuction) {
     actionButtons = `
       <div class="card-action-tiers">
         <!-- Tier 1: Main High-Contrast CTAs -->
         <div class="card-main-ctas">
-          <a href="${primaryUrl}" target="_blank" rel="noopener" class="btn-action primary-cta" title="Licytuj bezpośrednio przez ZenMarket (Działa w Polsce i UE bez VPN)">
-            <span class="cta-text">🎯 Licytuj w ZenMarket</span>
+          <a href="${primaryUrl}" target="_blank" rel="noopener" class="btn-action primary-cta ${liveTiming && liveTiming.isEnded ? 'cta-ended' : ''}" title="Licytuj bezpośrednio przez ZenMarket (Działa w Polsce i UE bez VPN)">
+            <span class="cta-text">${ctaText}</span>
             <span class="cta-vpn-badge">Działa w PL</span>
           </a>
           <button class="btn-action secondary-cta btn-add-cart" data-deal-id="${deal.id}" data-type="auction" title="Dodaj do wspólnej paczki morskiej/lotniczej">
@@ -937,14 +1057,14 @@ function renderDealCard(deal, isAuction) {
   const isJapaneseGame = (deal.category_id && (deal.category_id.includes('game') || deal.category_id.includes('danshari') || deal.category_id.includes('retro_games'))) || Boolean(deal.photo_inspection);
 
   return `
-    <article class="deal-card" id="card-${deal.id}" data-ends-at="${deal.ends_at_iso || ''}" data-is-auction="${isAuction ? '1' : '0'}">
+    <article class="deal-card ${isAuction && liveTiming && liveTiming.isEnded ? 'deal-card-ended' : ''}" id="card-${deal.id}" data-ends-at="${deal.ends_at_iso || ''}" data-is-auction="${isAuction ? '1' : '0'}" data-is-ended="${isAuction && liveTiming && liveTiming.isEnded ? '1' : '0'}">
       <a href="${primaryUrl}" target="_blank" rel="noopener" class="deal-card-media deal-card-media-link" title="Otwórz ofertę w ZenMarket (Działa w PL bez VPN)">
         <img src="${deal.image_url || './assets/images/placeholder.svg'}" alt="${deal.model}" class="deal-card-img" loading="lazy" onerror="this.src='./assets/images/placeholder.svg'" />
         <span class="media-platform-badge ${isAuction ? 'badge-yahoo' : 'badge-mercari'}">
           ${isAuction ? '🔨 Yahoo! Aukcja' : '🛍️ Mercari'}
         </span>
         ${deal.arbitrage_discount_pct ? `<span class="media-discount-badge">-${deal.arbitrage_discount_pct}% vs BIN</span>` : ''}
-        ${isAuction && deal.time_remaining_formatted ? `<span class="media-time-badge ${deal.time_remaining_minutes <= 60 ? 'urgent' : ''}" data-ends-at="${deal.ends_at_iso || ''}">⏳ <span class="badge-countdown-text">${deal.time_remaining_formatted}</span>${deal.ends_at_pl ? ' (' + deal.ends_at_pl + ')' : ''}</span>` : ''}
+        ${isAuction && liveTiming ? `<span class="media-time-badge ${liveTiming.minsRemaining <= 60 && !liveTiming.isEnded ? 'urgent' : ''} ${liveTiming.isEnded ? 'badge-ended' : ''}" data-ends-at="${deal.ends_at_iso || ''}">⏳ <span class="badge-countdown-text">${liveTiming.badgeFormatted}</span>${deal.ends_at_pl ? ' (' + deal.ends_at_pl + ')' : ''}</span>` : ''}
         <span class="media-hover-hint">↗ Otwórz w ZenMarket</span>
       </a>
 
@@ -955,6 +1075,7 @@ function renderDealCard(deal, isAuction) {
           <span class="pill-badge pill-weight" title="Szacowana waga przedmiotu">⚖️ ${deal.weight_formatted || (deal.est_weight_g ? deal.est_weight_g + ' g' : '~300 g')}</span>
           <span class="pill-badge" style="background:#1e293b; color:#94a3b8;">${deal.condition_badge || 'Sprawny'}</span>
           ${deal.condition_short_label ? `<span class="pill-badge" style="background:rgba(255,255,255,0.06); color:${deal.condition_badge_color || '#38bdf8'}; font-weight:700; border:1px solid ${deal.condition_badge_color || '#38bdf8'}40;">${deal.condition_short_label}</span>` : ''}
+          ${isAuction && liveTiming && liveTiming.isEnded ? `<span class="pill-badge" style="background:rgba(239,68,68,0.2); color:#fca5a5; border:1px solid rgba(239,68,68,0.4); font-weight:700;">🏁 Zakończona</span>` : ''}
         </div>
       </div>
 
@@ -1636,10 +1757,11 @@ function showToast(message) {
   }, 2400);
 }
 
-// Live Real-Time Countdown Ticker for Yahoo Auctions
+// Live Real-Time Countdown Ticker for Yahoo Auctions (1-second high-precision ticker)
 function initLiveCountdownTicker() {
   function updateCountdowns() {
     const cards = document.querySelectorAll('.deal-card[data-is-auction="1"][data-ends-at]');
+    if (!cards || cards.length === 0) return;
     const now = Date.now();
 
     cards.forEach((card) => {
@@ -1649,32 +1771,54 @@ function initLiveCountdownTicker() {
       if (isNaN(endsAt)) return;
 
       const diffMs = endsAt - now;
-      const minsRemaining = Math.round(diffMs / 60000);
+      const totalSecs = Math.max(0, Math.floor(diffMs / 1000));
+      const minsRemaining = Math.max(0, Math.floor(diffMs / 60000));
 
       const ribbon = card.querySelector('.time-ribbon');
       const ribbonText = card.querySelector('.auction-countdown-text');
       const badgeText = card.querySelector('.badge-countdown-text');
       const mediaBadge = card.querySelector('.media-time-badge');
+      const stageEl = ribbon ? ribbon.querySelector('.time-ribbon-stage') : null;
+      const iconEl = ribbon ? ribbon.querySelector('.time-ribbon-icon') : null;
 
       if (diffMs <= 0) {
-        if (ribbonText) ribbonText.textContent = 'Zakończona';
-        if (badgeText) badgeText.textContent = 'Zakończona';
-        if (ribbon) {
-          ribbon.className = 'time-ribbon time-ribbon-normal';
-          const stageEl = ribbon.querySelector('.time-ribbon-stage');
-          if (stageEl) stageEl.textContent = 'Aukcja zakończona';
-        }
-        if (mediaBadge) {
-          mediaBadge.classList.remove('urgent');
+        // Auction finished: remove it completely from the app (User requested: no old auctions on the app)
+        if (!card._removing) {
+          card._removing = true;
+          card.style.transition = 'opacity 0.4s ease, transform 0.4s ease, max-height 0.4s ease, margin 0.4s ease, padding 0.4s ease';
+          card.style.opacity = '0';
+          card.style.transform = 'scale(0.92)';
+          card.style.maxHeight = card.offsetHeight + 'px';
+          setTimeout(() => {
+            card.style.maxHeight = '0px';
+            card.style.margin = '0px';
+            card.style.padding = '0px';
+            card.style.overflow = 'hidden';
+            setTimeout(() => {
+              card.remove();
+              // Update live counter badge
+              if (elements.auctionsCountBadge) {
+                const remaining = document.querySelectorAll('.deal-card[data-is-auction="1"]').length;
+                elements.auctionsCountBadge.textContent = remaining;
+              }
+              if (document.querySelectorAll('.deal-card').length === 0) {
+                renderDeals();
+              }
+            }, 300);
+          }, 100);
         }
         return;
       }
 
-      // Format remaining time
+      // Format remaining time (seconds precision under 5m)
       let formatted = '';
-      if (minsRemaining < 60) {
-        formatted = `${Math.max(1, minsRemaining)} min`;
-      } else if (minsRemaining < 1440) {
+      if (diffMs < 300000) {
+        const m = Math.floor(totalSecs / 60);
+        const s = totalSecs % 60;
+        formatted = `${m}m ${s < 10 ? '0' : ''}${s}s`;
+      } else if (minsRemaining <= 60) {
+        formatted = `${minsRemaining} min`;
+      } else if (minsRemaining <= 1440) {
         const h = Math.floor(minsRemaining / 60);
         const m = minsRemaining % 60;
         formatted = m > 0 ? `${h}h ${m}m` : `${h}h`;
@@ -1690,22 +1834,22 @@ function initLiveCountdownTicker() {
       // Update urgency classes dynamically
       if (ribbon) {
         if (minsRemaining <= 60) {
-          if (!ribbon.classList.contains('time-ribbon-urgent')) {
-            ribbon.className = 'time-ribbon time-ribbon-urgent';
-            const iconEl = ribbon.querySelector('.time-ribbon-icon');
-            if (iconEl) iconEl.textContent = '🔥';
-            const stageEl = ribbon.querySelector('.time-ribbon-stage');
-            if (stageEl) stageEl.textContent = 'Faza Końcowa – Prawdziwa cena rynkowa!';
+          const targetClass = diffMs < 300000 ? 'time-ribbon time-ribbon-urgent live-pulse' : 'time-ribbon time-ribbon-urgent';
+          if (ribbon.className !== targetClass) {
+            ribbon.className = targetClass;
+          }
+          if (iconEl && iconEl.textContent !== '🔥') iconEl.textContent = '🔥';
+          if (stageEl) {
+            stageEl.textContent = diffMs < 300000 ? 'Ostatnie sekundy – Snajper na żywo!' : 'Faza Końcowa – Prawdziwa cena rynkowa!';
           }
           if (mediaBadge && !mediaBadge.classList.contains('urgent')) {
             mediaBadge.classList.add('urgent');
+            mediaBadge.classList.remove('badge-ended');
           }
         } else if (minsRemaining <= 360) {
           if (!ribbon.classList.contains('time-ribbon-soon')) {
             ribbon.className = 'time-ribbon time-ribbon-soon';
-            const iconEl = ribbon.querySelector('.time-ribbon-icon');
             if (iconEl) iconEl.textContent = '⚡';
-            const stageEl = ribbon.querySelector('.time-ribbon-stage');
             if (stageEl) stageEl.textContent = 'Ostatnie godziny – Walka snajperów';
           }
         }
@@ -1713,9 +1857,11 @@ function initLiveCountdownTicker() {
     });
   }
 
-  // Update immediately and then every 15 seconds
+  // Run immediately and every 1 second
   updateCountdowns();
-  setInterval(updateCountdowns, 15000);
+  if (window._countdownInterval) clearInterval(window._countdownInterval);
+  window._countdownInterval = setInterval(updateCountdowns, 1000);
+  window.updateLiveCountdowns = updateCountdowns;
 }
 
 // Global scope export for inline onclick

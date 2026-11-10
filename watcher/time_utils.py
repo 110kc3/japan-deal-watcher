@@ -6,6 +6,8 @@ from typing import Dict, Any, Optional
 
 def format_time_remaining(minutes: int) -> str:
     """Formats remaining minutes into human-readable Polish notation."""
+    if minutes <= 0:
+        return "Zakończona"
     if minutes < 60:
         return f"{minutes} min"
     hours = minutes // 60
@@ -56,12 +58,15 @@ def calculate_auction_timing(
 
     # If ends_at was missing or in the past, anchor target_end_dt dynamically from minutes
     if target_end_dt is None:
-        minutes = int(raw_minutes) if raw_minutes is not None and int(raw_minutes) > 0 else 120
-        target_end_dt = now_utc + timedelta(minutes=minutes)
+        if raw_minutes is not None and int(raw_minutes) <= 0:
+            target_end_dt = now_utc - timedelta(minutes=1)
+        else:
+            minutes = int(raw_minutes) if raw_minutes is not None and int(raw_minutes) > 0 else 120
+            target_end_dt = now_utc + timedelta(minutes=minutes)
 
     # Compute exact remaining minutes from now_utc
     diff_seconds = (target_end_dt - now_utc).total_seconds()
-    minutes_rem = max(1, int(round(diff_seconds / 60.0)))
+    minutes_rem = max(0, int(round(diff_seconds / 60.0)))
 
     # Formatting representations
     ends_at_utc_str = target_end_dt.strftime("%Y-%m-%d %H:%M UTC")
@@ -89,7 +94,10 @@ def calculate_auction_timing(
 
     time_formatted = format_time_remaining(minutes_rem)
 
-    if minutes_rem <= 60:
+    if minutes_rem == 0:
+        price_stage_note = "Aukcja zakończona (落札終了)"
+        is_ending_soon = False
+    elif minutes_rem <= 60:
         price_stage_note = "🔥 Faza Końcowa (<60m) – Prawdziwa cena rynkowa (落札相場)!"
         is_ending_soon = True
     elif minutes_rem <= 360:

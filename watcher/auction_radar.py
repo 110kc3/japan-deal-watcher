@@ -1,7 +1,7 @@
 """Generator module for AUCTION_RADAR.md (Live Auction Radar, Real Closing Prices & Arbitrage Radar)."""
 
 import urllib.parse
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import List, Dict, Any
 
 from .config import (
@@ -113,9 +113,16 @@ class AuctionRadarGenerator:
         md.append("> - ⚠️ **C-TIER (Ryzyko Przepłacenia):** Licytacja w walce snajperów przekroczy próg opłacalności w Polsce – nie bierz w niej udziału!")
         md.append("")
 
-        # Sort ALL items by remaining time ascending (ending soonest first – true prices)
+        # Sort ALL active items by remaining time ascending (ending soonest first – true prices, exclude ended)
+        now_utc = datetime.now(timezone.utc)
+        active_deals = []
+        for it in self.raw_deals:
+            timing = calculate_auction_timing(it, now_utc)
+            if timing["time_remaining_minutes"] > 0:
+                active_deals.append(it)
+
         sorted_deals = sorted(
-            self.raw_deals,
+            active_deals,
             key=lambda x: (
                 x.get("time_remaining_minutes") if x.get("time_remaining_minutes") is not None else 999999,
                 -x.get("est_pl_value", 0)

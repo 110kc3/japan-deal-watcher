@@ -4,7 +4,7 @@ import json
 import re
 import unicodedata
 import urllib.parse
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import List, Dict, Any, Optional, Tuple
 
@@ -421,8 +421,27 @@ class WebappExporter:
         # Process Yahoo Auctions
         processed_auctions = [self.process_yahoo_deal(d) for d in self.raw_yahoo]
 
+        # Filter out auctions that have already ended (User requirement: remove old/done auctions)
+        now_utc = datetime.now(timezone.utc)
+        active_auctions = []
+        for a in processed_auctions:
+            ends_iso = a.get("ends_at_iso")
+            is_active = True
+            if ends_iso:
+                try:
+                    ends_dt = datetime.fromisoformat(ends_iso.replace("Z", "+00:00"))
+                    if (ends_dt - now_utc).total_seconds() <= 0:
+                        is_active = False
+                except ValueError:
+                    pass
+            elif a.get("time_remaining_minutes", 0) <= 0:
+                is_active = False
+
+            if is_active:
+                active_auctions.append(a)
+
         # Sort Yahoo Auctions by remaining time ascending by default (ending soonest first – true prices)
-        processed_auctions.sort(
+        active_auctions.sort(
             key=lambda x: (
                 x.get("time_remaining_minutes") if x.get("time_remaining_minutes") is not None else 999999,
                 -x.get("est_margin_pln", 0)
@@ -440,7 +459,7 @@ class WebappExporter:
 
         # Categories catalogue with metadata
         categories = [
-            {"id": "all", "name": "Wszystkie Okazje", "icon": "🌐", "count": len(processed_auctions) + len(active_mercari)},
+            {"id": "all", "name": "Wszystkie Okazje", "icon": "🌐", "count": len(active_auctions) + len(active_mercari)},
             {"id": "nintendo_3ds_handhelds", "name": "Nintendo 3DS & New 3DS", "icon": "🕹️", "battery": True},
             {"id": "nintendo_ds_handhelds", "name": "Nintendo DSi LL & DS Lite", "icon": "🎮", "battery": True},
             {"id": "gameboy_advance_retro", "name": "Game Boy Advance & Retro", "icon": "👾", "battery": True},
@@ -487,14 +506,14 @@ class WebappExporter:
                 },
                 "sales_history_summary": self.history_stats,
                 "counts": {
-                    "yahoo_auctions": len(processed_auctions),
+                    "yahoo_auctions": len(active_auctions),
                     "mercari_deals": len(active_mercari),
                     "search_streams": len(search_streams),
-                    "total_active": len(processed_auctions) + len(active_mercari)
+                    "total_active": len(active_auctions) + len(active_mercari)
                 }
             },
             "categories": categories,
-            "auctions": processed_auctions,
+            "auctions": active_auctions,
             "mercari_deals": active_mercari,
             "search_streams": search_streams
         }
@@ -502,10 +521,10 @@ class WebappExporter:
         with open(target_path, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2, ensure_ascii=False)
 
-        print(f"📱 Webapp Exporter: Saved {len(processed_auctions)} auctions, {len(active_mercari)} Mercari deals, and {len(search_streams)} search streams to {target_path}")
+        print(f"📱 Webapp Exporter: Saved {len(active_auctions)} auctions, {len(active_mercari)} Mercari deals, and {len(search_streams)} search streams to {target_path}")
         return {
             "target_path": str(target_path),
-            "auctions_count": len(processed_auctions),
+            "auctions_count": len(active_auctions),
             "mercari_count": len(active_mercari),
             "search_streams_count": len(search_streams)
         }
