@@ -147,6 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupEventListeners();
   fetchDealsData();
   handleUrlShortcuts();
+  initLiveCountdownTicker();
 });
 
 // Register PWA Service Worker
@@ -471,8 +472,8 @@ function sortDealsList(list, order) {
   switch (order) {
     case 'time_asc':
       return items.sort((a, b) => {
-        const timeA = (a.time_remaining_minutes !== undefined && a.time_remaining_minutes !== null) ? a.time_remaining_minutes : 999999;
-        const timeB = (b.time_remaining_minutes !== undefined && b.time_remaining_minutes !== null) ? b.time_remaining_minutes : 999999;
+        const timeA = a.ends_at_iso ? new Date(a.ends_at_iso).getTime() : ((a.time_remaining_minutes !== undefined && a.time_remaining_minutes !== null) ? (Date.now() + a.time_remaining_minutes * 60000) : Infinity);
+        const timeB = b.ends_at_iso ? new Date(b.ends_at_iso).getTime() : ((b.time_remaining_minutes !== undefined && b.time_remaining_minutes !== null) ? (Date.now() + b.time_remaining_minutes * 60000) : Infinity);
         if (timeA !== timeB) {
           return timeA - timeB;
         }
@@ -645,11 +646,16 @@ function renderDealCard(deal, isAuction) {
       stageTitle = 'Średnia faza – Wzrost przed końcem';
     }
 
+    const clockFormatted = deal.ends_at_formatted ? `⏰ ${deal.ends_at_formatted}` : (deal.ends_at_pl ? `⏰ Dziś o ${deal.ends_at_pl} PL` : '');
+
     timeRibbon = `
-      <div class="time-ribbon ${timeClass}">
+      <div class="time-ribbon ${timeClass}" data-ends-at="${deal.ends_at_iso || ''}">
         <div class="time-ribbon-left">
           <span class="time-ribbon-icon">${icon}</span>
-          <span class="time-ribbon-val">Koniec za: <strong>${formatted}</strong></span>
+          <div class="time-ribbon-col">
+            <span class="time-ribbon-val">Koniec za: <strong class="auction-countdown-text">${formatted}</strong></span>
+            ${clockFormatted ? `<span class="time-ribbon-clock">${clockFormatted}</span>` : ''}
+          </div>
         </div>
         <div class="time-ribbon-right">
           <span class="time-ribbon-stage">${deal.price_stage_note || stageTitle}</span>
@@ -931,14 +937,14 @@ function renderDealCard(deal, isAuction) {
   const isJapaneseGame = (deal.category_id && (deal.category_id.includes('game') || deal.category_id.includes('danshari') || deal.category_id.includes('retro_games'))) || Boolean(deal.photo_inspection);
 
   return `
-    <article class="deal-card" id="card-${deal.id}">
+    <article class="deal-card" id="card-${deal.id}" data-ends-at="${deal.ends_at_iso || ''}" data-is-auction="${isAuction ? '1' : '0'}">
       <a href="${primaryUrl}" target="_blank" rel="noopener" class="deal-card-media deal-card-media-link" title="Otwórz ofertę w ZenMarket (Działa w PL bez VPN)">
         <img src="${deal.image_url || './assets/images/placeholder.svg'}" alt="${deal.model}" class="deal-card-img" loading="lazy" onerror="this.src='./assets/images/placeholder.svg'" />
         <span class="media-platform-badge ${isAuction ? 'badge-yahoo' : 'badge-mercari'}">
           ${isAuction ? '🔨 Yahoo! Aukcja' : '🛍️ Mercari'}
         </span>
         ${deal.arbitrage_discount_pct ? `<span class="media-discount-badge">-${deal.arbitrage_discount_pct}% vs BIN</span>` : ''}
-        ${isAuction && deal.time_remaining_formatted ? `<span class="media-time-badge ${deal.time_remaining_minutes <= 60 ? 'urgent' : ''}">⏳ ${deal.time_remaining_formatted}</span>` : ''}
+        ${isAuction && deal.time_remaining_formatted ? `<span class="media-time-badge ${deal.time_remaining_minutes <= 60 ? 'urgent' : ''}" data-ends-at="${deal.ends_at_iso || ''}">⏳ <span class="badge-countdown-text">${deal.time_remaining_formatted}</span>${deal.ends_at_pl ? ' (' + deal.ends_at_pl + ')' : ''}</span>` : ''}
         <span class="media-hover-hint">↗ Otwórz w ZenMarket</span>
       </a>
 
@@ -1628,6 +1634,88 @@ function showToast(message) {
   toast._timeout = setTimeout(() => {
     toast.style.opacity = '0';
   }, 2400);
+}
+
+// Live Real-Time Countdown Ticker for Yahoo Auctions
+function initLiveCountdownTicker() {
+  function updateCountdowns() {
+    const cards = document.querySelectorAll('.deal-card[data-is-auction="1"][data-ends-at]');
+    const now = Date.now();
+
+    cards.forEach((card) => {
+      const endsAtStr = card.getAttribute('data-ends-at');
+      if (!endsAtStr) return;
+      const endsAt = new Date(endsAtStr).getTime();
+      if (isNaN(endsAt)) return;
+
+      const diffMs = endsAt - now;
+      const minsRemaining = Math.round(diffMs / 60000);
+
+      const ribbon = card.querySelector('.time-ribbon');
+      const ribbonText = card.querySelector('.auction-countdown-text');
+      const badgeText = card.querySelector('.badge-countdown-text');
+      const mediaBadge = card.querySelector('.media-time-badge');
+
+      if (diffMs <= 0) {
+        if (ribbonText) ribbonText.textContent = 'Zakończona';
+        if (badgeText) badgeText.textContent = 'Zakończona';
+        if (ribbon) {
+          ribbon.className = 'time-ribbon time-ribbon-normal';
+          const stageEl = ribbon.querySelector('.time-ribbon-stage');
+          if (stageEl) stageEl.textContent = 'Aukcja zakończona';
+        }
+        if (mediaBadge) {
+          mediaBadge.classList.remove('urgent');
+        }
+        return;
+      }
+
+      // Format remaining time
+      let formatted = '';
+      if (minsRemaining < 60) {
+        formatted = `${Math.max(1, minsRemaining)} min`;
+      } else if (minsRemaining < 1440) {
+        const h = Math.floor(minsRemaining / 60);
+        const m = minsRemaining % 60;
+        formatted = m > 0 ? `${h}h ${m}m` : `${h}h`;
+      } else {
+        const d = Math.floor(minsRemaining / 1440);
+        const remH = Math.floor((minsRemaining % 1440) / 60);
+        formatted = remH > 0 ? `${d}d ${remH}h` : `${d}d`;
+      }
+
+      if (ribbonText) ribbonText.textContent = formatted;
+      if (badgeText) badgeText.textContent = formatted;
+
+      // Update urgency classes dynamically
+      if (ribbon) {
+        if (minsRemaining <= 60) {
+          if (!ribbon.classList.contains('time-ribbon-urgent')) {
+            ribbon.className = 'time-ribbon time-ribbon-urgent';
+            const iconEl = ribbon.querySelector('.time-ribbon-icon');
+            if (iconEl) iconEl.textContent = '🔥';
+            const stageEl = ribbon.querySelector('.time-ribbon-stage');
+            if (stageEl) stageEl.textContent = 'Faza Końcowa – Prawdziwa cena rynkowa!';
+          }
+          if (mediaBadge && !mediaBadge.classList.contains('urgent')) {
+            mediaBadge.classList.add('urgent');
+          }
+        } else if (minsRemaining <= 360) {
+          if (!ribbon.classList.contains('time-ribbon-soon')) {
+            ribbon.className = 'time-ribbon time-ribbon-soon';
+            const iconEl = ribbon.querySelector('.time-ribbon-icon');
+            if (iconEl) iconEl.textContent = '⚡';
+            const stageEl = ribbon.querySelector('.time-ribbon-stage');
+            if (stageEl) stageEl.textContent = 'Ostatnie godziny – Walka snajperów';
+          }
+        }
+      }
+    });
+  }
+
+  // Update immediately and then every 15 seconds
+  updateCountdowns();
+  setInterval(updateCountdowns, 15000);
 }
 
 // Global scope export for inline onclick

@@ -13,6 +13,7 @@ from .config import (
 from .costs import calculate_landed_cost, calculate_max_sniper_bid
 from .checks import is_camera_item, is_lens_item
 from .closure_predictor import AuctionClosurePredictor, ConditionGrade
+from .time_utils import calculate_auction_timing
 
 
 def sanitize_md(text: Any) -> str:
@@ -136,9 +137,11 @@ class AuctionRadarGenerator:
             md.append("| Model / Przedmiot | ⏳ Czas | Stan | Aktualna Oferta | 🔮 Prognoza Zamknięcia | Cena w PL | Czysty Zysk przy Prognozie | 🎯 Rekomendacja Snajpera |")
             md.append("|---|:---:|:---:|---:|---:|---:|---:|---|")
             for it, pred in spotlight[:10]:
-                time_m = it.get("time_remaining_minutes", 9999)
-                time_fmt = it.get("time_remaining_formatted", f"{time_m} min")
-                time_tag = f"<strong style='color:#ef4444;'>🔥 {time_fmt}</strong>" if time_m <= 60 else f"<strong>{time_fmt}</strong>"
+                timing = calculate_auction_timing(it)
+                time_m = timing["time_remaining_minutes"]
+                time_fmt = timing["time_remaining_formatted"]
+                clock_badge = timing["ends_at_formatted"]
+                time_tag = f"<strong style='color:#ef4444;'>🔥 {time_fmt}</strong><br><small style='color:#fca5a5;'>⏰ {clock_badge}</small>" if time_m <= 60 else f"<strong>{time_fmt}</strong><br><small>⏰ {clock_badge}</small>"
                 cond_tag = f"<span style='color:{pred['condition_badge_color']}; font-weight:600;'>{pred['condition_short_label']}</span>"
                 profit_tag = f"<strong style='color:#10b981;'>+{pred['expected_margin_pln']:.0f} zł</strong><br><small>(+{pred['expected_roi_pct']:.0f}%)</small>"
                 pred_tag = f"**{pred['predicted_closure_jpy']:,} JPY**<br><small>(~{pred['predicted_closure_pln']:.0f} zł)</small>"
@@ -175,17 +178,19 @@ class AuctionRadarGenerator:
             allegro_p = it.get("allegro_archive_pln", round(est_pl * 1.08, 0))
             olx_p = it.get("olx_haggled_pln", round(est_pl * 0.90, 0))
 
-            # Remaining time badge
-            time_m = it.get("time_remaining_minutes", 9999)
-            time_fmt = it.get("time_remaining_formatted", f"{time_m} min")
+            # Remaining time badge with precise clock end hour
+            timing = calculate_auction_timing(it)
+            time_m = timing["time_remaining_minutes"]
+            time_fmt = timing["time_remaining_formatted"]
+            clock_badge = timing["ends_at_formatted"]
             if time_m <= 60:
-                time_badge = f"<strong style='color:#ef4444;'>🔥 {time_fmt}</strong><br><small style='color:#fca5a5;'>Faza końcowa</small>"
+                time_badge = f"<strong style='color:#ef4444;'>🔥 {time_fmt}</strong><br><small style='color:#fca5a5;'>⏰ {clock_badge}</small>"
             elif time_m <= 360:
-                time_badge = f"<strong style='color:#f59e0b;'>⚡ {time_fmt}</strong><br><small style='color:#fcd34d;'>Ostatnie godziny</small>"
+                time_badge = f"<strong style='color:#f59e0b;'>⚡ {time_fmt}</strong><br><small style='color:#fcd34d;'>⏰ {clock_badge}</small>"
             elif time_m <= 1440:
-                time_badge = f"<span style='color:#3b82f6;'>⏳ {time_fmt}</span><br><small>Średnia faza</small>"
+                time_badge = f"<span style='color:#3b82f6;'>⏳ {time_fmt}</span><br><small>⏰ {clock_badge}</small>"
             else:
-                time_badge = f"<span style='color:#94a3b8;'>🕒 {time_fmt}</span><br><small>Wczesna oferta</small>"
+                time_badge = f"<span style='color:#94a3b8;'>🕒 {time_fmt}</span><br><small>⏰ {clock_badge}</small>"
 
             cond_badge = f"<span style='color:{pred['condition_badge_color']}; font-weight:600;'>{pred['condition_short_label']}</span><br><small style='color:#94a3b8;'>{pred['condition_features'][0] if pred['condition_features'] else ''}</small>"
             pred_badge = f"**{pred['predicted_closure_jpy']:,} JPY**<br><small>(~{pred['predicted_closure_pln']:.0f} zł)</small>"

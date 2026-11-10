@@ -1778,8 +1778,30 @@ body {
 .time-ribbon-left {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   min-width: 0;
+}
+
+.time-ribbon-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.time-ribbon-clock {
+  font-size: 0.68rem;
+  color: #94a3b8;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.time-ribbon-urgent .time-ribbon-clock {
+  color: #fca5a5;
+}
+
+.time-ribbon-soon .time-ribbon-clock {
+  color: #fde68a;
 }
 
 .time-ribbon-right {

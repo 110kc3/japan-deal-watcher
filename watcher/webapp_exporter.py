@@ -33,6 +33,7 @@ from .lot_vision_inspector import LotVisionInspector
 from .closure_predictor import AuctionClosurePredictor
 from .search_streams import generate_search_streams
 from .consolidation import resolve_item_weight
+from .time_utils import calculate_auction_timing, format_time_remaining
 
 
 from .market_queries import clean_polish_market_queries
@@ -144,22 +145,18 @@ class WebappExporter:
         allegro_pln = float(d.get("allegro_archive_pln", round(est_pl * 1.08, 1)))
         olx_pln = float(d.get("olx_haggled_pln", round(est_pl * 0.90, 1)))
 
-        time_rem = d.get("time_remaining_minutes")
-        if time_rem is None:
-            time_rem = 120
-        time_formatted = d.get("time_remaining_formatted") or (f"{time_rem} min" if time_rem < 60 else f"{time_rem // 60}h")
-        ends_at = d.get("ends_at", "")
-        price_stage_note = d.get("price_stage_note", "")
-        if not price_stage_note:
-            if time_rem <= 60:
-                price_stage_note = "🔥 Faza Końcowa (<60m) – Prawdziwa cena rynkowa (落札相場)!"
-            elif time_rem <= 360:
-                price_stage_note = "⚡ Ostatnie godziny (1-6h) – Walka snajperów w toku"
-            elif time_rem <= 1440:
-                price_stage_note = "⏳ Średnia faza (6-24h) – Oferty wzrosną pod koniec"
-            else:
-                price_stage_note = "🕒 Wczesna faza (1-2 dni) – Startowa oferta, wzrośnie pod koniec"
-        is_ending_soon = bool(d.get("is_ending_soon", time_rem <= 120))
+        # Synchronized auction timing (UTC, Polish time CET, and Japanese time JST)
+        timing = calculate_auction_timing(d)
+        time_rem = timing["time_remaining_minutes"]
+        time_formatted = timing["time_remaining_formatted"]
+        ends_at = timing["ends_at"]
+        ends_at_iso = timing["ends_at_iso"]
+        ends_at_pl = timing["ends_at_pl"]
+        ends_at_jst = timing["ends_at_jst"]
+        ends_at_formatted = timing["ends_at_formatted"]
+        ends_at_pl_short = timing["ends_at_pl_short"]
+        price_stage_note = timing["price_stage_note"]
+        is_ending_soon = timing["is_ending_soon"]
 
         # Closure price prediction & condition grading (落札相場)
         pred = AuctionClosurePredictor.predict_closure(d, self.rate_jpy, self.rate_eur)
@@ -203,6 +200,11 @@ class WebappExporter:
             "time_remaining_minutes": time_rem,
             "time_remaining_formatted": time_formatted,
             "ends_at": ends_at,
+            "ends_at_iso": ends_at_iso,
+            "ends_at_pl": ends_at_pl,
+            "ends_at_jst": ends_at_jst,
+            "ends_at_formatted": ends_at_formatted,
+            "ends_at_pl_short": ends_at_pl_short,
             "price_stage_note": price_stage_note,
             "is_ending_soon": is_ending_soon,
             "predicted_closure_jpy": pred["predicted_closure_jpy"],
@@ -354,6 +356,11 @@ class WebappExporter:
             "time_remaining_minutes": 0,
             "time_remaining_formatted": "Kup Teraz (Stała cena)",
             "ends_at": "Natychmiastowy zakup (Kup Teraz)",
+            "ends_at_iso": None,
+            "ends_at_pl": "Stała cena",
+            "ends_at_jst": "即決",
+            "ends_at_formatted": "Kup Teraz (Brak licytacji)",
+            "ends_at_pl_short": "Kup Teraz",
             "price_stage_note": "✅ Cena stała (Kup Teraz) – Prawdziwa cena bez licytacji",
             "is_ending_soon": False,
             "predicted_closure_jpy": d.get("price_jpy", 0),

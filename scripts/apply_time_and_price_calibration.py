@@ -1,5 +1,5 @@
 import json
-from datetime import datetime, timedelta
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 import sys
 
@@ -9,6 +9,7 @@ sys.path.insert(0, str(REPO_DIR))
 from watcher.config import DEFAULT_JPY_PLN_RATE, DEFAULT_EUR_PLN_RATE, MAX_CAMERA_PRICE_PLN, MAX_LENS_PRICE_PLN
 from watcher.costs import calculate_landed_cost
 from watcher.checks import is_camera_item, is_lens_item
+from watcher.time_utils import calculate_auction_timing, format_time_remaining
 
 YAHOO_FILE = REPO_DIR / "data" / "yahoo_deals.json"
 
@@ -74,37 +75,23 @@ remaining_deals = [d for d in deals if d["id"] not in handled_actual_ids]
 for i, d in enumerate(remaining_deals):
     d["time_remaining_minutes"] = t3_and_4_times[i]
 
-def format_time_remaining(minutes: int) -> str:
-    if minutes < 60:
-        return f"{minutes} min"
-    hours = minutes // 60
-    rem_m = minutes % 60
-    if hours < 24:
-        return f"{hours}h {rem_m:02d}m" if rem_m > 0 else f"{hours}h"
-    days = hours // 24
-    rem_h = hours % 24
-    return f"{days}d {rem_h}h" if rem_h > 0 else f"{days}d"
-
-base_time = datetime(2026, 11, 9, 20, 0) # 20:00 UTC
+now_utc = datetime.now(timezone.utc)
 
 for d in deals:
     m = d["time_remaining_minutes"]
-    d["time_remaining_formatted"] = format_time_remaining(m)
-    end_dt = base_time + timedelta(minutes=m)
-    d["ends_at"] = end_dt.strftime("%Y-%m-%d %H:%M UTC")
-    
-    if m <= 60:
-        d["price_stage_note"] = "🔥 Faza Końcowa (<60m) – Prawdziwa cena rynkowa (落札相場)!"
-        d["is_ending_soon"] = True
-    elif m <= 360:
-        d["price_stage_note"] = "⚡ Ostatnie godziny (1-6h) – Walka snajperów w toku"
-        d["is_ending_soon"] = (m <= 120)
-    elif m <= 1440:
-        d["price_stage_note"] = "⏳ Średnia faza (6-24h) – Oferty wzrosną pod koniec"
-        d["is_ending_soon"] = False
-    else:
-        d["price_stage_note"] = "🕒 Wczesna faza (1-2 dni) – Startowa oferta, wzrośnie pod koniec"
-        d["is_ending_soon"] = False
+    # Clear old stale ends_at to force re-anchoring to current timeline
+    d["ends_at"] = None
+    timing = calculate_auction_timing(d, now_utc)
+    d["time_remaining_minutes"] = timing["time_remaining_minutes"]
+    d["time_remaining_formatted"] = timing["time_remaining_formatted"]
+    d["ends_at"] = timing["ends_at"]
+    d["ends_at_iso"] = timing["ends_at_iso"]
+    d["ends_at_pl"] = timing["ends_at_pl"]
+    d["ends_at_jst"] = timing["ends_at_jst"]
+    d["ends_at_formatted"] = timing["ends_at_formatted"]
+    d["ends_at_pl_short"] = timing["ends_at_pl_short"]
+    d["price_stage_note"] = timing["price_stage_note"]
+    d["is_ending_soon"] = timing["is_ending_soon"]
 
 # Sort the master list by remaining time ascending!
 deals.sort(key=lambda x: (x.get("time_remaining_minutes", 999999), -x.get("est_pl_value", 0)))
