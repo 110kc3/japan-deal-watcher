@@ -224,7 +224,7 @@ function getActiveAuctionsCount() {
       if (isNaN(endsMs) || endsMs <= now) return false;
     }
     const timing = getAuctionLiveTiming(d);
-    return !timing.isEnded && timing.diffMs > 0 && timing.minsRemaining > 0;
+    return !timing.isEnded && timing.diffMs > 0;
   }).length;
 }
 
@@ -397,6 +397,10 @@ function handleUrlShortcuts() {
     state.currentView = 'mercari';
     syncTopTabs('mercari');
     syncBottomNav('mercari');
+  } else if (tab === 'search_streams' || tab === 'streams') {
+    state.currentView = 'search_streams';
+    syncTopTabs('search_streams');
+    syncBottomNav('search_streams');
   }
   if (action === 'calc') {
     setTimeout(openCalculator, 300);
@@ -412,8 +416,12 @@ function handleUrlShortcuts() {
 function renderDeals() {
   if (!state.data) return;
 
+  const sureToggleWrapper = document.getElementById('sureDealsOnlyToggle')?.closest('label');
+
   // View 1: Search Streams & Tactical Price Guides
   if (state.currentView === 'search_streams') {
+    if (sureToggleWrapper) sureToggleWrapper.style.display = 'none';
+
     let streams = state.data.search_streams || [];
 
     // Filter by Category
@@ -428,7 +436,7 @@ function renderDeals() {
 
     // Filter by Search Query
     if (state.searchQuery) {
-      const q = state.searchQuery;
+      const q = state.searchQuery.toLowerCase();
       streams = streams.filter((s) => {
         const title = (s.model || '').toLowerCase();
         const note = (s.sniping_tip || '').toLowerCase();
@@ -436,6 +444,9 @@ function renderDeals() {
         return title.includes(q) || note.includes(q) || cat.includes(q);
       });
     }
+
+    // Sort Streams
+    streams = sortStreamsList(streams, state.sortOrder);
 
     if (streams.length === 0) {
       elements.feedContainer.innerHTML = `
@@ -450,6 +461,8 @@ function renderDeals() {
     elements.feedContainer.innerHTML = streams.map((stream) => renderSearchStreamCard(stream)).join('');
     return;
   }
+
+  if (sureToggleWrapper) sureToggleWrapper.style.display = 'inline-flex';
 
   // View 2 & 3: Specific Auction Listings (Yahoo) & Specific BIN Listings (Mercari)
   const isAuctions = state.currentView === 'auctions';
@@ -468,18 +481,29 @@ function renderDeals() {
   if (isAuctions) {
     const now = Date.now();
     deals = deals.filter((d) => {
+      if (d.time_remaining_formatted === 'Zakończona' || d.status === 'closed' || d.status === 'ended') {
+        return false;
+      }
       if (d.time_remaining_minutes !== undefined && d.time_remaining_minutes !== null && d.time_remaining_minutes <= 0) {
         return false;
       }
-      if (d.time_remaining_formatted === 'Zakończona') {
+      if (d.ends_at_iso) {
+        const endsMs = new Date(d.ends_at_iso).getTime();
+        if (isNaN(endsMs) || endsMs <= now) {
+          return false;
+        }
+      }
+      const timing = getAuctionLiveTiming(d);
+      if (timing.isEnded || timing.diffMs <= 0) {
         return false;
       }
-      if (!d.ends_at_iso) {
-        return true;
-      }
-      const endsMs = new Date(d.ends_at_iso).getTime();
-      return !isNaN(endsMs) && (endsMs > now);
+      return true;
     });
+
+    // Keep active auctions badge count in sync
+    if (elements.auctionsCountBadge) {
+      elements.auctionsCountBadge.textContent = deals.length;
+    }
   }
 
   // 1. Filter by Category
@@ -499,7 +523,7 @@ function renderDeals() {
 
   // 3. Filter by Search Query
   if (state.searchQuery) {
-    const q = state.searchQuery;
+    const q = state.searchQuery.toLowerCase();
     deals = deals.filter((d) => {
       const title = (d.model || '').toLowerCase();
       const color = (d.color || '').toLowerCase();
@@ -534,6 +558,33 @@ function renderDeals() {
   }
 }
 
+// Sort streams list helper
+function sortStreamsList(list, order) {
+  const items = [...list];
+  switch (order) {
+    case 'margin_desc':
+    case 'pred_margin_desc':
+    case 'verdict_desc':
+      return items.sort((a, b) => {
+        const valA = parseInt((a.est_profit_pln || '').replace(/[^0-9]/g, '')) || 0;
+        const valB = parseInt((b.est_profit_pln || '').replace(/[^0-9]/g, '')) || 0;
+        return valB - valA;
+      });
+    case 'roi_desc':
+      return items.sort((a, b) => {
+        const valA = parseInt((a.roi_pct || '').replace(/[^0-9]/g, '')) || 0;
+        const valB = parseInt((b.roi_pct || '').replace(/[^0-9]/g, '')) || 0;
+        return valB - valA;
+      });
+    case 'price_asc':
+      return items.sort((a, b) => (a.target_start_jpy || 0) - (b.target_start_jpy || 0));
+    case 'cap_desc':
+      return items.sort((a, b) => (b.hard_cap_jpy || 0) - (a.hard_cap_jpy || 0));
+    default:
+      return items;
+  }
+}
+
 // Sort deals list helper
 function sortDealsList(list, order) {
   const items = [...list];
@@ -543,22 +594,7 @@ function sortDealsList(list, order) {
       return items.sort((a, b) => {
         const timeA = a.ends_at_iso ? new Date(a.ends_at_iso).getTime() : ((a.time_remaining_minutes !== undefined && a.time_remaining_minutes !== null) ? (now + a.time_remaining_minutes * 60000) : Infinity);
         const timeB = b.ends_at_iso ? new Date(b.ends_at_iso).getTime() : ((b.time_remaining_minutes !== undefined && b.time_remaining_minutes !== null) ? (now + b.time_remaining_minutes * 60000) : Infinity);
-        const isEndedA = timeA <= now;
-        const isEndedB = timeB <= now;
-
-        // Active auctions ALWAYS come first before ended ones!
-        if (isEndedA !== isEndedB) {
-          return isEndedA ? 1 : -1;
-        }
-
-        // Both active: ending soonest comes first
-        if (!isEndedA) {
-          if (timeA !== timeB) return timeA - timeB;
-        } else {
-          // Both ended: most recently ended comes first
-          if (timeA !== timeB) return timeB - timeA;
-        }
-
+        if (timeA !== timeB) return timeA - timeB;
         return (b.est_margin_pln || 0) - (a.est_margin_pln || 0);
       });
     case 'verdict_desc':
@@ -600,6 +636,13 @@ function renderSearchStreamCard(stream) {
   const batteryBadge = isZeroBattery
     ? `<span class="pill-badge battery-zero" title="Brak baterii litowej – dozwolona nielimitowana wysyłka lotnicza">🟢 0% Baterii (Brak limitu IATA)</span>`
     : `<span class="pill-badge battery-liion" title="Zawiera akumulator Li-Ion – limit maks. 2 sztuki na paczkę lotniczą">⚡ Bateria Li-Ion (Maks 2/paczka)</span>`;
+
+  const zenEarliest = (stream.links && stream.links.zenmarket_ending_earliest) || (stream.links && stream.links.primary_url) || '#';
+  const zenLowest = (stream.links && stream.links.zenmarket_lowest_bid) || zenEarliest;
+  const buyeeEarliest = (stream.links && stream.links.buyee_ending_earliest) || '';
+  const yahooArchive = (stream.links && stream.links.yahoo_closed_archive) || '';
+  const allegroLink = (stream.links && stream.links.allegro_search) || '';
+  const olxLink = (stream.links && stream.links.olx_search) || '';
 
   return `
     <article class="deal-card stream-card" id="stream-${stream.id}">
@@ -665,29 +708,37 @@ function renderSearchStreamCard(stream) {
       <div class="card-action-tiers stream-actions-wrap">
         <!-- Tier 1: Main High-Contrast CTAs -->
         <div class="card-main-ctas">
-          <a href="${stream.links.zenmarket_ending_earliest}" target="_blank" rel="noopener" class="btn-action primary-cta" title="Zobacz trwające aukcje posortowane od najmniej czasu do końca (ZenMarket działa w PL bez VPN)">
+          <a href="${zenEarliest}" target="_blank" rel="noopener" class="btn-action primary-cta" title="Zobacz trwające aukcje posortowane od najmniej czasu do końca (ZenMarket działa w PL bez VPN)">
             <span class="cta-text">⏰ Najszybciej Kończące się (ZenMarket)</span>
             <span class="cta-vpn-badge">Prawdziwe Ceny</span>
           </a>
-          <a href="${stream.links.zenmarket_lowest_bid}" target="_blank" rel="noopener" class="btn-action secondary-cta" title="Najtańsze oferty od 1 JPY">
+          <a href="${zenLowest}" target="_blank" rel="noopener" class="btn-action secondary-cta" title="Najtańsze oferty od 1 JPY">
             <span class="cta-text">🪙 Od 1 JPY / Najtańsze</span>
           </a>
         </div>
 
         <!-- Tier 2: Auxiliary Research & Direct Archives -->
         <div class="card-pills-row">
-          <a href="${stream.links.buyee_ending_earliest}" target="_blank" rel="noopener" class="pill-btn" title="Aukcje tego modelu kończące się na Buyee">
-            🌐 Buyee Kończące się
-          </a>
-          <a href="${stream.links.yahoo_closed_archive}" target="_blank" rel="noopener" class="pill-btn" title="Archiwum zakończonych licytacji na Yahoo (落札相場)">
-            📊 Archiwum Zamkniętych (落札相場)
-          </a>
-          <a href="${stream.links.allegro_search}" target="_blank" rel="noopener" class="pill-btn allegro-pill" title="Sprawdź ceny sprzedaży na Allegro w PL">
-            🇵🇱 Allegro
-          </a>
-          <a href="${stream.links.olx_search}" target="_blank" rel="noopener" class="pill-btn olx-pill" title="Sprawdź ogłoszenia na OLX w PL">
-            🇵🇱 OLX
-          </a>
+          ${buyeeEarliest ? `
+            <a href="${buyeeEarliest}" target="_blank" rel="noopener" class="pill-btn" title="Aukcje tego modelu kończące się na Buyee">
+              🌐 Buyee Kończące się
+            </a>
+          ` : ''}
+          ${yahooArchive ? `
+            <a href="${yahooArchive}" target="_blank" rel="noopener" class="pill-btn" title="Archiwum zakończonych licytacji na Yahoo (落札相場)">
+              📊 Archiwum Zamkniętych (落札相場)
+            </a>
+          ` : ''}
+          ${allegroLink ? `
+            <a href="${allegroLink}" target="_blank" rel="noopener" class="pill-btn allegro-pill" title="Sprawdź ceny sprzedaży na Allegro w PL">
+              🇵🇱 Allegro
+            </a>
+          ` : ''}
+          ${olxLink ? `
+            <a href="${olxLink}" target="_blank" rel="noopener" class="pill-btn olx-pill" title="Sprawdź ogłoszenia na OLX w PL">
+              🇵🇱 OLX
+            </a>
+          ` : ''}
         </div>
       </div>
     </article>
@@ -927,20 +978,22 @@ function renderDealCard(deal, isAuction) {
   const isAuctionEnded = isAuction && liveTiming && liveTiming.isEnded;
   const auctionTargetUrl = (isAuctionEnded && deal.links && deal.links.zenmarket_ending_soon)
     ? deal.links.zenmarket_ending_soon
-    : primaryUrl;
-  const cardMainUrl = isAuction
-    ? (isAuctionEnded ? endingSoonUrl : primaryUrl)
-    : primaryUrl;
+    : ((deal.links && (deal.links.zenmarket_auction || deal.links.zenmarket_sniper || deal.links.primary_url)) || primaryUrl);
   const auctionBuyNowUrl = (isAuctionEnded && deal.links && deal.links.zenmarket_ending_soon)
     ? deal.links.zenmarket_ending_soon
     : ((deal.links && (deal.links.zenmarket_buy_now || deal.links.zenmarket_buy)) || primaryUrl);
-  const mercariBuyUrl = (deal.links && (deal.links.zenmarket_buy || deal.links.primary_url)) || primaryUrl;
+  const mid = deal.mercari_id || deal.item_id || deal.id;
+  const mercariBuyUrl = (deal.links && deal.links.zenmarket_buy) || `https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=${mid}`;
+  const cardMainUrl = isAuction
+    ? (isAuctionEnded ? endingSoonUrl : auctionTargetUrl)
+    : mercariBuyUrl;
 
   const ctaText = isAuctionEnded
     ? '⏰ Szukaj trwających w ZenMarket'
-    : (isAuction ? '🎯 Licytuj w ZenMarket' : '🛒 Kup w ZenMarket');
+    : (isAuction ? '🎯 Licytuj w ZenMarket' : '🛒 Kup Teraz w ZenMarket');
 
   if (isAuction) {
+    const hasBuyNow = (deal.has_buy_now === true && typeof deal.buy_now_price_jpy === 'number' && deal.buy_now_price_jpy > 0);
     actionButtons = `
       <div class="card-action-tiers">
         <!-- Tier 1: Main High-Contrast CTAs (Direct Auction Bidding & Buy Now) -->
@@ -949,7 +1002,7 @@ function renderDealCard(deal, isAuction) {
             <span class="cta-text">${ctaText}</span>
             <span class="cta-vpn-badge">${isAuctionEnded ? 'Nowe oferty' : 'Licytacja'}</span>
           </a>
-          ${deal.buy_now_price_jpy ? `
+          ${hasBuyNow ? `
             <a href="${auctionBuyNowUrl}" target="_blank" rel="noopener" class="btn-action buy-now-cta" title="${isAuctionEnded ? 'Aukcja zakończona – szukaj ofert Kup Teraz tego modelu w ZenMarket' : 'Kup natychmiast bez licytacji w ZenMarket (Cena 即決: ' + deal.buy_now_price_jpy.toLocaleString() + ' JPY' + (deal.buy_now_price_pln ? ' ~' + deal.buy_now_price_pln.toFixed(2) + ' zł' : '') + ')'}">
               <span class="cta-text">⚡ Kup Teraz (${deal.buy_now_price_jpy.toLocaleString()} JPY)</span>
               <span class="cta-vpn-badge">即決</span>
@@ -1831,87 +1884,68 @@ function showToast(message) {
 // Live Real-Time Countdown Ticker for Yahoo Auctions (1-second high-precision ticker)
 function initLiveCountdownTicker() {
   function updateCountdowns() {
-    const cards = document.querySelectorAll('.deal-card[data-is-auction="1"][data-ends-at]');
+    const cards = document.querySelectorAll('.deal-card[data-is-auction="1"]');
     if (!cards || cards.length === 0) return;
     const now = Date.now();
 
     cards.forEach((card) => {
-      const endsAtStr = card.getAttribute('data-ends-at');
-      if (!endsAtStr) return;
-      const endsAt = new Date(endsAtStr).getTime();
-      if (isNaN(endsAt)) return;
+      if (card._removing) return;
 
-      const diffMs = endsAt - now;
+      const endsAtStr = card.getAttribute('data-ends-at');
+      const endsAt = endsAtStr ? new Date(endsAtStr).getTime() : NaN;
+      const diffMs = !isNaN(endsAt) ? endsAt - now : -1;
+
+      // When an auction timer expires (diffMs <= 0):
+      // Automatically remove the card from the DOM with smooth fade-out and update #auctionsCountBadge!
+      if (diffMs <= 0) {
+        card.setAttribute('data-is-ended', '1');
+
+        // Remove from memory state so filters and sorting won't restore it
+        const dealId = card.id ? card.id.replace('card-', '') : null;
+        if (dealId && state.data && Array.isArray(state.data.auctions)) {
+          state.data.auctions = state.data.auctions.filter(a => String(a.id) !== String(dealId));
+        }
+
+        // Immediately update active count badge
+        if (elements.auctionsCountBadge) {
+          const liveRemaining = document.querySelectorAll('.deal-card[data-is-auction="1"]:not([data-is-ended="1"])').length;
+          elements.auctionsCountBadge.textContent = liveRemaining;
+        }
+
+        // Trigger smooth fade-out transition and remove from DOM
+        card._removing = true;
+        card.classList.add('deal-card-fade-out');
+
+        setTimeout(() => {
+          card.remove();
+
+          // Recount active cards after DOM removal
+          if (elements.auctionsCountBadge) {
+            const remaining = document.querySelectorAll('.deal-card[data-is-auction="1"]').length;
+            elements.auctionsCountBadge.textContent = remaining;
+          }
+
+          if (state.currentView === 'auctions' && document.querySelectorAll('.deal-card[data-is-auction="1"]').length === 0) {
+            elements.feedContainer.innerHTML = `
+              <div class="empty-cart-hint">
+                <p>Brak aktywnych licytacji w tym momencie.</p>
+                <small>Wszystkie bieżące licytacje zostały zakończone. Sprawdź sekcję Kup Teraz (Mercari) lub przejdź do Strumieni Snajpera!</small>
+              </div>
+            `;
+          }
+        }, 450);
+
+        return;
+      }
+
       const totalSecs = Math.max(0, Math.floor(diffMs / 1000));
       const minsRemaining = Math.max(0, Math.floor(diffMs / 60000));
-
       const ribbon = card.querySelector('.time-ribbon');
       const ribbonText = card.querySelector('.auction-countdown-text');
       const badgeText = card.querySelector('.badge-countdown-text');
       const mediaBadge = card.querySelector('.media-time-badge');
       const stageEl = ribbon ? ribbon.querySelector('.time-ribbon-stage') : null;
       const iconEl = ribbon ? ribbon.querySelector('.time-ribbon-icon') : null;
-
-      if (diffMs <= 0) {
-        // Auction finished: swap all links immediately to active search so clicking never leads to a dead page
-        card.setAttribute('data-is-ended', '1');
-        card.classList.add('deal-card-ended');
-        const endingSoonUrl = card.getAttribute('data-ending-soon-url');
-        if (endingSoonUrl) {
-          const mediaLink = card.querySelector('.deal-card-media-link');
-          if (mediaLink) {
-            mediaLink.href = endingSoonUrl;
-            mediaLink.title = 'Aukcja zakończona – szukaj aktywnych ofert tego modelu w ZenMarket';
-          }
-          const titleLink = card.querySelector('.card-title-link');
-          if (titleLink) {
-            titleLink.href = endingSoonUrl;
-            titleLink.title = 'Aukcja zakończona – szukaj aktywnych ofert tego modelu w ZenMarket';
-          }
-          const primaryCta = card.querySelector('.primary-cta');
-          if (primaryCta) {
-            primaryCta.href = endingSoonUrl;
-            primaryCta.classList.add('cta-ended');
-            primaryCta.title = 'Aukcja zakończona – otwórz trwające licytacje tego modelu w ZenMarket';
-            const ctaTextEl = primaryCta.querySelector('.cta-text');
-            if (ctaTextEl) ctaTextEl.textContent = '⏰ Szukaj trwających w ZenMarket';
-            const vpnBadge = primaryCta.querySelector('.cta-vpn-badge');
-            if (vpnBadge) vpnBadge.textContent = 'Nowe oferty';
-          }
-          const buyNowCta = card.querySelector('.buy-now-cta');
-          if (buyNowCta) {
-            buyNowCta.href = endingSoonUrl;
-            buyNowCta.title = 'Aukcja zakończona – szukaj ofert tego modelu w ZenMarket';
-          }
-        }
-
-        // Auction finished: remove it completely from the app (User requested: no old auctions on the app)
-        if (!card._removing) {
-          card._removing = true;
-          card.style.transition = 'opacity 0.4s ease, transform 0.4s ease, max-height 0.4s ease, margin 0.4s ease, padding 0.4s ease';
-          card.style.opacity = '0';
-          card.style.transform = 'scale(0.92)';
-          card.style.maxHeight = card.offsetHeight + 'px';
-          setTimeout(() => {
-            card.style.maxHeight = '0px';
-            card.style.margin = '0px';
-            card.style.padding = '0px';
-            card.style.overflow = 'hidden';
-            setTimeout(() => {
-              card.remove();
-              // Update live counter badge
-              if (elements.auctionsCountBadge) {
-                const remaining = document.querySelectorAll('.deal-card[data-is-auction="1"]').length;
-                elements.auctionsCountBadge.textContent = remaining;
-              }
-              if (document.querySelectorAll('.deal-card').length === 0) {
-                renderDeals();
-              }
-            }, 300);
-          }, 100);
-        }
-        return;
-      }
 
       // Format remaining time (seconds precision under 5m)
       let formatted = '';
