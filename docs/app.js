@@ -432,8 +432,14 @@ function renderDeals() {
   if (isAuctions) {
     const now = Date.now();
     deals = deals.filter((d) => {
+      if (d.time_remaining_minutes !== undefined && d.time_remaining_minutes !== null && d.time_remaining_minutes <= 0) {
+        return false;
+      }
+      if (d.time_remaining_formatted === 'Zakończona') {
+        return false;
+      }
       if (!d.ends_at_iso) {
-        return (d.time_remaining_minutes !== undefined && d.time_remaining_minutes !== null) ? d.time_remaining_minutes > 0 : true;
+        return true;
       }
       const endsMs = new Date(d.ends_at_iso).getTime();
       return !isNaN(endsMs) && (endsMs > now);

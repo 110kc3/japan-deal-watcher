@@ -427,15 +427,15 @@ class WebappExporter:
         for a in processed_auctions:
             ends_iso = a.get("ends_at_iso")
             is_active = True
-            if ends_iso:
+            if a.get("time_remaining_minutes", 0) <= 0 or a.get("time_remaining_formatted") == "Zakończona":
+                is_active = False
+            elif ends_iso:
                 try:
                     ends_dt = datetime.fromisoformat(ends_iso.replace("Z", "+00:00"))
                     if (ends_dt - now_utc).total_seconds() <= 0:
                         is_active = False
                 except ValueError:
                     pass
-            elif a.get("time_remaining_minutes", 0) <= 0:
-                is_active = False
 
             if is_active:
                 active_auctions.append(a)

@@ -118,7 +118,7 @@ class AuctionRadarGenerator:
         active_deals = []
         for it in self.raw_deals:
             timing = calculate_auction_timing(it, now_utc)
-            if timing["time_remaining_minutes"] > 0:
+            if timing["time_remaining_minutes"] > 0 and timing["time_remaining_formatted"] != "Zakończona":
                 active_deals.append(it)
 
         sorted_deals = sorted(
