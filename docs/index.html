@@ -162,12 +162,15 @@
       <div class="cart-bar-left">
         <span class="cart-icon">🛒</span>
         <div>
-          <strong id="barCartCount">0 sztuk</strong> w paczce
+          <div class="bar-cart-top-row">
+            <strong id="barCartCount">0 sztuk</strong> w paczce
+            <span class="bar-weight-chip" id="barWeightText">⚖️ 0.00 kg</span>
+          </div>
           <div class="bar-battery-status" id="barBatteryText">Li-Ion: 0/2</div>
         </div>
       </div>
       <div class="cart-bar-right">
-        <div class="bar-profit-label">Łączny Zysk:</div>
+        <div class="bar-profit-label">Cena, która zostaje:</div>
         <strong id="barCartProfit" class="bar-profit-val">+0 zł</strong>
       </div>
     </div>
@@ -299,6 +302,56 @@
           </p>
         </div>
 
+        <!-- Package Weight & AVIA Limit Meter Widget -->
+        <div class="weight-meter-card">
+          <div class="weight-header">
+            <div>
+              <strong>⚖️ Waga Paczki & Limit AVIA Small Packet:</strong>
+              <div class="weight-sub-breakdown">Zawartość: <span id="weightNetVal">0</span> g + Karton & folia: <span id="weightBufferVal">300</span> g</div>
+            </div>
+            <span id="packageWeightLabel" class="weight-badge safe">0 g / 2,000 g (0.00 kg)</span>
+          </div>
+          <div class="weight-progress-bar">
+            <div id="weightProgressFill" class="weight-fill safe" style="width: 0%;"></div>
+          </div>
+          <p class="weight-hint" id="weightHintText">
+            🟢 <strong>WAGA W NORMIE AVIA:</strong> Możesz nadać tanią paczkę lotniczą AVIA Small Packet do 2,000 g.
+          </p>
+        </div>
+
+        <!-- Shipping Method Selector & Pricing Tiers -->
+        <div class="shipping-selector-card">
+          <div class="shipping-header">
+            <strong>✈️ Metoda Wysyłki z Japonii (wg wagi paczki):</strong>
+            <span class="shipping-rec-badge" id="shippingRecBadge">Zalecana: AVIA</span>
+          </div>
+          <div class="shipping-tiers-grid" id="shippingTiersGrid">
+            <!-- Dynamic shipping tier options (AVIA, EMS, Surface) -->
+          </div>
+        </div>
+
+        <!-- Residual Net Profit Card: The Real Money Left in Your Pocket -->
+        <div class="residual-profit-card">
+          <div class="residual-header">
+            <span class="residual-icon">💰</span>
+            <div>
+              <strong>Cena, która Ci zostaje (Czysty zysk po wysyłce):</strong>
+              <small>Rzeczywista kwota w kieszeni po odliczeniu wysyłki wg wagi, VAT i prowizji</small>
+            </div>
+          </div>
+          <div class="residual-profit-val-row">
+            <div class="residual-main-val" id="residualProfitVal">+0 zł</div>
+            <div class="residual-roi-chip" id="residualRoiChip">ROI: 0%</div>
+          </div>
+          <div class="residual-details-table">
+            <div class="res-row"><span>Suma sprzedaży w PL (Allegro/OLX):</span><strong id="resSumResale">0 zł</strong></div>
+            <div class="res-row"><span>Zakup w JP + prowizje ZenMarket:</span><strong id="resSumPurchase">0 zł</strong></div>
+            <div class="res-row"><span>Rzeczywista wysyłka wg wagi (<span id="resMethodName">AVIA</span>):</span><strong id="resShippingCost">0 zł</strong></div>
+            <div class="res-row"><span>VAT (23%) + opłata depozytu (3.5%):</span><strong id="resTaxCost">0 zł</strong></div>
+            <div class="res-row savings-row"><span>🎉 Oszczędność dzięki paczce zbiorczej:</span><strong id="resSavingsVal" class="text-green">+0 zł</strong></div>
+          </div>
+        </div>
+
         <!-- Cart Summary Stats -->
         <div class="cart-stats-grid">
           <div class="stat-box">
@@ -314,7 +367,7 @@
             <strong id="cartStatResale">0 zł</strong>
           </div>
           <div class="stat-box profit">
-            <span class="stat-label">Zysk z Paczki:</span>
+            <span class="stat-label">Cena, która zostaje:</span>
             <strong id="cartStatProfit" class="text-green">+0 zł</strong>
           </div>
         </div>

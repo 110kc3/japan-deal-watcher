@@ -13,12 +13,35 @@ const state = {
   searchQuery: '',
   sortOrder: 'time_asc',
   cart: [],
+  selectedShippingMethod: null, // null = auto recommended ('avia_small_packet' | 'ems_express' | 'surface_sea')
   activeCalcDeal: null,
   deferredPrompt: null
 };
 
 // LocalStorage Cart Key
 const CART_STORAGE_KEY = 'agydeal_cart_v2';
+
+// Weight and Logistics Configurations
+const CATEGORY_WEIGHTS = {
+  nintendo_3ds_handhelds: 320,
+  nintendo_ds_handhelds: 280,
+  gameboy_advance_retro: 200,
+  ps_vita: 290,
+  ps_vita_handhelds: 290,
+  psp_handheld: 260,
+  retro_games_mix: 350,
+  danshari_mystery_lots: 1800,
+  high_margin_curated_consoles: 2500,
+  film_cameras_point_shoot: 260,
+  analog_lenses: 280,
+  ps5_limited_controllers: 380,
+  ps_retro_limited_controllers: 320,
+  ps1_consoles: 950,
+  retro_consoles_no_battery: 2200,
+  nintendo_retro: 400
+};
+const OUTER_BOX_BUFFER_WEIGHT_G = 300;
+const AVIA_MAX_WEIGHT_G = 2000;
 
 // DOM Elements
 const elements = {
@@ -43,6 +66,7 @@ const elements = {
   cartBadgeCount: document.getElementById('cartBadgeCount'),
   stickyCartBar: document.getElementById('stickyCartBar'),
   barCartCount: document.getElementById('barCartCount'),
+  barWeightText: document.getElementById('barWeightText'),
   barBatteryText: document.getElementById('barBatteryText'),
   barCartProfit: document.getElementById('barCartProfit'),
   openCartBtn: document.getElementById('openCartBtn'),
@@ -74,7 +98,7 @@ const elements = {
   calcVerdictBanner: document.getElementById('calcVerdictBanner'),
   calcVerdictText: document.getElementById('calcVerdictText'),
 
-  // Cart Modal
+  // Cart Modal & Battery Meter
   cartModal: document.getElementById('cartModal'),
   closeCartBtn: document.getElementById('closeCartBtn'),
   closeCartBtnBottom: document.getElementById('closeCartBtnBottom'),
@@ -83,6 +107,29 @@ const elements = {
   iataCountLabel: document.getElementById('iataCountLabel'),
   iataProgressFill: document.getElementById('iataProgressFill'),
   iataHintText: document.getElementById('iataHintText'),
+
+  // Package Weight Meter & Limits
+  packageWeightLabel: document.getElementById('packageWeightLabel'),
+  weightProgressFill: document.getElementById('weightProgressFill'),
+  weightHintText: document.getElementById('weightHintText'),
+  weightNetVal: document.getElementById('weightNetVal'),
+  weightBufferVal: document.getElementById('weightBufferVal'),
+
+  // Shipping Selector
+  shippingRecBadge: document.getElementById('shippingRecBadge'),
+  shippingTiersGrid: document.getElementById('shippingTiersGrid'),
+
+  // Residual Profit ("Cena, która zostaje")
+  residualProfitVal: document.getElementById('residualProfitVal'),
+  residualRoiChip: document.getElementById('residualRoiChip'),
+  resSumResale: document.getElementById('resSumResale'),
+  resSumPurchase: document.getElementById('resSumPurchase'),
+  resMethodName: document.getElementById('resMethodName'),
+  resShippingCost: document.getElementById('resShippingCost'),
+  resTaxCost: document.getElementById('resTaxCost'),
+  resSavingsVal: document.getElementById('resSavingsVal'),
+
+  // Stats Grid
   cartStatItems: document.getElementById('cartStatItems'),
   cartStatLanded: document.getElementById('cartStatLanded'),
   cartStatResale: document.getElementById('cartStatResale'),
@@ -899,6 +946,7 @@ function renderDealCard(deal, isAuction) {
         ${platformTag}
         <div class="badge-row">
           ${batteryBadge}
+          <span class="pill-badge pill-weight" title="Szacowana waga przedmiotu">⚖️ ${deal.weight_formatted || (deal.est_weight_g ? deal.est_weight_g + ' g' : '~300 g')}</span>
           <span class="pill-badge" style="background:#1e293b; color:#94a3b8;">${deal.condition_badge || 'Sprawny'}</span>
           ${deal.condition_short_label ? `<span class="pill-badge" style="background:rgba(255,255,255,0.06); color:${deal.condition_badge_color || '#38bdf8'}; font-weight:700; border:1px solid ${deal.condition_badge_color || '#38bdf8'}40;">${deal.condition_short_label}</span>` : ''}
         </div>
@@ -1106,11 +1154,16 @@ function addCalculationToCart() {
   const resalePln = parseFloat(elements.calcResaleInput.value) || 0;
   const title = state.activeCalcDeal ? state.activeCalcDeal.model : `Własny Snajper (${bidJpy} JPY)`;
   const hasBattery = state.activeCalcDeal ? state.activeCalcDeal.has_battery : true;
+  const catId = elements.calcCatSelect ? elements.calcCatSelect.value : (state.activeCalcDeal ? state.activeCalcDeal.category_id : 'nintendo_3ds_handhelds');
+  const weightG = state.activeCalcDeal && state.activeCalcDeal.est_weight_g ? state.activeCalcDeal.est_weight_g : (CATEGORY_WEIGHTS[catId] || 300);
 
   const item = {
     id: 'calc_' + Date.now(),
     model: title,
+    category_id: catId,
     price_jpy: bidJpy,
+    est_weight_g: weightG,
+    weight_formatted: weightG < 1000 ? `~${weightG} g` : `~${(weightG / 1000).toFixed(1)} kg`,
     landed_cost_pln: parseFloat(elements.resTotalLanded.textContent) || 0,
     est_pl_value: resalePln,
     est_margin_pln: parseFloat(elements.resNetProfit.textContent) || 0,
@@ -1123,8 +1176,193 @@ function addCalculationToCart() {
 }
 
 // ==========================================================================
-// Parcel Consolidation Basket & IATA Battery Meter
+// Parcel Consolidation Basket, Package Weight Analysis & Residual Profit
 // ==========================================================================
+function getItemWeight(item) {
+  if (item && item.est_weight_g && Number(item.est_weight_g) > 0) {
+    return Number(item.est_weight_g);
+  }
+  const cat = (item && item.category_id) || '';
+  if (cat && CATEGORY_WEIGHTS[cat]) {
+    return CATEGORY_WEIGHTS[cat];
+  }
+  const name = (item && (item.model || item.name || '')).toLowerCase();
+  if (name.includes('3ds ll') || name.includes('new 3ds')) return 320;
+  if (name.includes('ds lite')) return 220;
+  if (name.includes('dsi ll')) return 315;
+  if (name.includes('vita')) return 290;
+  if (name.includes('psp')) return 260;
+  if (name.includes('danshari') || name.includes('mystery') || name.includes('karton')) return 1800;
+  if (name.includes('ps4') || name.includes('ps1')) return 1500;
+  return 300;
+}
+
+function calculateCartPackageWeight(cartItems) {
+  if (!cartItems || cartItems.length === 0) {
+    return {
+      itemCount: 0,
+      netWeightG: 0,
+      boxBufferG: 0,
+      totalWeightG: 0,
+      totalWeightKg: '0.00',
+      isAviaEligible: true,
+      aviaRemainingG: AVIA_MAX_WEIGHT_G,
+      aviaOverweightG: 0,
+      weightPct: 0
+    };
+  }
+  const netWeightG = cartItems.reduce((sum, it) => sum + getItemWeight(it), 0);
+  const boxBufferG = OUTER_BOX_BUFFER_WEIGHT_G;
+  const totalWeightG = netWeightG + boxBufferG;
+  const isAviaEligible = totalWeightG <= AVIA_MAX_WEIGHT_G;
+  const aviaRemainingG = isAviaEligible ? Math.max(0, AVIA_MAX_WEIGHT_G - totalWeightG) : 0;
+  const aviaOverweightG = isAviaEligible ? 0 : totalWeightG - AVIA_MAX_WEIGHT_G;
+  const weightPct = Math.min(100, Math.round((totalWeightG / AVIA_MAX_WEIGHT_G) * 100));
+
+  return {
+    itemCount: cartItems.length,
+    netWeightG,
+    boxBufferG,
+    totalWeightG,
+    totalWeightKg: (totalWeightG / 1000).toFixed(2),
+    isAviaEligible,
+    aviaRemainingG,
+    aviaOverweightG,
+    weightPct
+  };
+}
+
+function calculateShippingOptions(weightG, rateJpy) {
+  rateJpy = rateJpy || (state.data && state.data.meta && state.data.meta.exchange_rates ? state.data.meta.exchange_rates.rate_jpy : 0.024832);
+
+  // AVIA Small Packet (Air Economy, max 2000g)
+  let aviaAvailable = weightG <= 2000 && weightG > 0;
+  let aviaJpy = 0;
+  if (aviaAvailable) {
+    if (weightG <= 100) aviaJpy = 1200;
+    else aviaJpy = 1200 + Math.ceil((weightG - 100) / 100) * 150;
+  }
+  const aviaPln = aviaAvailable ? Math.round(aviaJpy * rateJpy * 100) / 100 : null;
+
+  // EMS Express Air (up to 30kg)
+  let emsJpy = 0;
+  if (weightG > 0) {
+    if (weightG <= 500) emsJpy = 3900;
+    else if (weightG <= 2000) emsJpy = 3900 + Math.ceil((weightG - 500) / 250) * 350;
+    else emsJpy = 6000 + Math.ceil((weightG - 2000) / 500) * 700;
+  }
+  const emsPln = weightG > 0 ? Math.round(emsJpy * rateJpy * 100) / 100 : 0;
+
+  // Surface Sea Mail (up to 30kg)
+  let surfJpy = 0;
+  if (weightG > 0) {
+    if (weightG <= 1000) surfJpy = 3300;
+    else surfJpy = 3300 + Math.ceil((weightG - 1000) / 1000) * 450;
+  }
+  const surfPln = weightG > 0 ? Math.round(surfJpy * rateJpy * 100) / 100 : 0;
+
+  let recId = 'avia_small_packet';
+  if (!aviaAvailable) {
+    recId = weightG <= 4000 ? 'ems_express' : 'surface_sea';
+  }
+
+  return {
+    avia_small_packet: {
+      id: 'avia_small_packet',
+      name: '✈️ AVIA Small Packet',
+      badge: 'Ekonomiczna lotnicza (7-14 dni)',
+      isAvailable: aviaAvailable,
+      costJpy: aviaJpy,
+      costPln: aviaPln,
+      unavailText: 'Niedostępna (>2,000 g)'
+    },
+    ems_express: {
+      id: 'ems_express',
+      name: '🚀 EMS Express Air',
+      badge: 'Ekspres (3-6 dni, pełne ubezpieczenie)',
+      isAvailable: true,
+      costJpy: emsJpy,
+      costPln: emsPln
+    },
+    surface_sea: {
+      id: 'surface_sea',
+      name: '🚢 Surface Mail (Morska)',
+      badge: 'Ekonomiczna (>3 kg, 60-90 dni)',
+      isAvailable: true,
+      costJpy: surfJpy,
+      costPln: surfPln
+    },
+    recommendedId: recId
+  };
+}
+
+function computeResidualProfitDetails(cartItems) {
+  const count = cartItems ? cartItems.length : 0;
+  const rateJpy = state.data && state.data.meta && state.data.meta.exchange_rates ? state.data.meta.exchange_rates.rate_jpy : 0.024832;
+  const rateEur = state.data && state.data.meta && state.data.meta.exchange_rates ? state.data.meta.exchange_rates.rate_eur : 4.35;
+
+  const weightInfo = calculateCartPackageWeight(cartItems);
+  const shippingInfo = calculateShippingOptions(weightInfo.totalWeightG, rateJpy);
+
+  let chosenMethodKey = state.selectedShippingMethod || shippingInfo.recommendedId;
+  let chosenOpt = shippingInfo[chosenMethodKey];
+  if (!chosenOpt || !chosenOpt.isAvailable) {
+    chosenMethodKey = shippingInfo.recommendedId;
+    chosenOpt = shippingInfo[chosenMethodKey];
+  }
+  const chosenShippingPln = chosenOpt && chosenOpt.costPln ? chosenOpt.costPln : 0;
+
+  const totalPurchaseJpy = cartItems.reduce((sum, it) => sum + (Number(it.price_jpy) || 0), 0);
+  const totalPurchasePln = totalPurchaseJpy * rateJpy;
+  const domesticZenPln = count * 800 * rateJpy;
+  const handlingZenPln = count * 2.0 * rateEur;
+  const totalZenFeesPln = domesticZenPln + handlingZenPln;
+  const totalBasePurchasePln = totalPurchasePln + totalZenFeesPln;
+
+  const totalResalePln = cartItems.reduce((sum, it) => sum + (Number(it.est_pl_value) || 0), 0);
+
+  const subtotalGoodsFreight = count > 0 ? (totalBasePurchasePln + chosenShippingPln) : 0;
+  const depositFeePln = subtotalGoodsFreight * 0.035;
+  const vatPln = subtotalGoodsFreight * 0.23;
+
+  const totalLandedPln = count > 0 ? (subtotalGoodsFreight + depositFeePln + vatPln) : 0;
+  const residualProfitPln = count > 0 ? (totalResalePln - totalLandedPln) : 0;
+  const residualRoiPct = totalLandedPln > 0 ? (residualProfitPln / totalLandedPln * 100) : 0;
+
+  // Individual shipping comparison (~110 PLN per item in separate packages)
+  const individualShippingPln = count * 110;
+  const consolidationSavingsPln = Math.max(0, individualShippingPln - chosenShippingPln);
+
+  return {
+    count,
+    rateJpy,
+    rateEur,
+    weightInfo,
+    shippingInfo,
+    chosenMethodKey,
+    chosenOpt,
+    chosenShippingPln,
+    totalPurchaseJpy,
+    totalPurchasePln,
+    totalZenFeesPln,
+    totalBasePurchasePln,
+    totalResalePln,
+    depositFeePln,
+    vatPln,
+    totalLandedPln,
+    residualProfitPln,
+    residualRoiPct,
+    individualShippingPln,
+    consolidationSavingsPln
+  };
+}
+
+function selectShippingMethod(methodId) {
+  state.selectedShippingMethod = methodId;
+  renderCartModal();
+  updateCartBadge();
+}
+
 function loadSavedCart() {
   try {
     const raw = localStorage.getItem(CART_STORAGE_KEY);
@@ -1152,9 +1390,17 @@ function addToCart(deal) {
     return;
   }
 
-  state.cart.push(deal);
+  // Ensure weight fields are preserved
+  const w = getItemWeight(deal);
+  const cartDeal = {
+    ...deal,
+    est_weight_g: w,
+    weight_formatted: w < 1000 ? `~${w} g` : `~${(w / 1000).toFixed(1)} kg`
+  };
+
+  state.cart.push(cartDeal);
   saveCart();
-  showToast(`Dodano "${deal.model}" do paczki konsolidacyjnej!`);
+  showToast(`Dodano "${deal.model}" (⚖️ ~${w}g) do paczki konsolidacyjnej!`);
 }
 
 function removeFromCart(id) {
@@ -1166,6 +1412,7 @@ function removeFromCart(id) {
 function clearCart() {
   if (confirm('Czy na pewno chcesz wyczyścić cały koszyk konsolidacyjny?')) {
     state.cart = [];
+    state.selectedShippingMethod = null;
     saveCart();
     renderCartModal();
   }
@@ -1173,17 +1420,23 @@ function clearCart() {
 
 function updateCartBadge() {
   const count = state.cart.length;
-  elements.cartBadgeCount.textContent = count;
+  if (elements.cartBadgeCount) elements.cartBadgeCount.textContent = count;
 
   if (count > 0) {
     elements.stickyCartBar.style.display = 'block';
-    const totalProfit = state.cart.reduce((sum, it) => sum + (it.est_margin_pln || 0), 0);
+    const details = computeResidualProfitDetails(state.cart);
     const batteryCount = state.cart.filter((it) => it.has_battery).length;
 
-    elements.barCartCount.textContent = `${count} szt.`;
-    elements.barCartProfit.textContent = `+${totalProfit.toFixed(0)} zł`;
-    elements.barBatteryText.textContent = `Li-Ion: ${batteryCount}/2`;
-    elements.barBatteryText.style.color = batteryCount <= 2 ? '#10b981' : '#ef4444';
+    if (elements.barCartCount) elements.barCartCount.textContent = `${count} szt.`;
+    if (elements.barWeightText) elements.barWeightText.textContent = `⚖️ ${details.weightInfo.totalWeightKg} kg`;
+    if (elements.barCartProfit) {
+      elements.barCartProfit.textContent = `${details.residualProfitPln >= 0 ? '+' : ''}${details.residualProfitPln.toFixed(0)} zł`;
+      elements.barCartProfit.style.color = details.residualProfitPln >= 0 ? '#10b981' : '#ef4444';
+    }
+    if (elements.barBatteryText) {
+      elements.barBatteryText.textContent = `Li-Ion: ${batteryCount}/2`;
+      elements.barBatteryText.style.color = batteryCount <= 2 ? '#10b981' : '#ef4444';
+    }
   } else {
     elements.stickyCartBar.style.display = 'none';
   }
@@ -1201,34 +1454,115 @@ function closeCart() {
 function renderCartModal() {
   const count = state.cart.length;
   const batteryCount = state.cart.filter((it) => it.has_battery).length;
-  const totalLanded = state.cart.reduce((sum, it) => sum + (it.landed_cost_pln || 0), 0);
-  const totalResale = state.cart.reduce((sum, it) => sum + (it.est_pl_value || 0), 0);
-  const totalProfit = totalResale - totalLanded;
+  const details = computeResidualProfitDetails(state.cart);
+  const w = details.weightInfo;
 
   // IATA Progress Bar
-  elements.iataCountLabel.textContent = `${batteryCount} / 2 baterii`;
-  const pct = Math.min((batteryCount / 2) * 100, 100);
-  elements.iataProgressFill.style.width = `${pct}%`;
+  if (elements.iataCountLabel) elements.iataCountLabel.textContent = `${batteryCount} / 2 baterii`;
+  const iataPct = Math.min((batteryCount / 2) * 100, 100);
+  if (elements.iataProgressFill) elements.iataProgressFill.style.width = `${iataPct}%`;
 
   if (batteryCount <= 1) {
-    elements.iataCountLabel.className = 'iata-badge safe';
-    elements.iataProgressFill.className = 'iata-fill safe';
-    elements.iataHintText.innerHTML = `🟢 <strong>BEZPIECZNIE:</strong> Pozostało wolnych slotów na baterie: <strong>${2 - batteryCount}</strong>. Możesz dobrać kolejnego handhelda.`;
+    if (elements.iataCountLabel) elements.iataCountLabel.className = 'iata-badge safe';
+    if (elements.iataProgressFill) elements.iataProgressFill.className = 'iata-fill safe';
+    if (elements.iataHintText) elements.iataHintText.innerHTML = `🟢 <strong>BEZPIECZNIE:</strong> Pozostało wolnych slotów na baterie: <strong>${2 - batteryCount}</strong>. Możesz dobrać kolejnego handhelda.`;
   } else if (batteryCount === 2) {
-    elements.iataCountLabel.className = 'iata-badge warning';
-    elements.iataProgressFill.className = 'iata-fill warning';
-    elements.iataHintText.innerHTML = `🟡 <strong>MAKSYMALNY LIMIT IATA OSIĄGNIĘTY (2/2):</strong> Paczka ma komplet ogniw Li-Ion. Dobieraj tylko gry retro, GameCube, obiektywy lub aparaty (0% Li-Ion)!`;
+    if (elements.iataCountLabel) elements.iataCountLabel.className = 'iata-badge warning';
+    if (elements.iataProgressFill) elements.iataProgressFill.className = 'iata-fill warning';
+    if (elements.iataHintText) elements.iataHintText.innerHTML = `🟡 <strong>MAKSYMALNY LIMIT IATA OSIĄGNIĘTY (2/2):</strong> Paczka ma komplet ogniw Li-Ion. Dobieraj tylko gry retro, GameCube, obiektywy lub aparaty (0% Li-Ion)!`;
   } else {
-    elements.iataCountLabel.className = 'iata-badge danger';
-    elements.iataProgressFill.className = 'iata-fill danger';
-    elements.iataHintText.innerHTML = `🔴 <strong>ALARM IATA! (${batteryCount}/2):</strong> Przekroczono dopuszczalny limit linii lotniczych! Usuń urządzenia z baterią lub zgłoś do ZenMarketu usunięcie baterii (Dry Shipping).`;
+    if (elements.iataCountLabel) elements.iataCountLabel.className = 'iata-badge danger';
+    if (elements.iataProgressFill) elements.iataProgressFill.className = 'iata-fill danger';
+    if (elements.iataHintText) elements.iataHintText.innerHTML = `🔴 <strong>ALARM IATA! (${batteryCount}/2):</strong> Przekroczono dopuszczalny limit linii lotniczych! Usuń urządzenia z baterią lub zgłoś do ZenMarketu usunięcie baterii (Dry Shipping).`;
   }
 
-  // Summary Stats
-  elements.cartStatItems.textContent = `${count} szt.`;
-  elements.cartStatLanded.textContent = `~${totalLanded.toFixed(0)} zł`;
-  elements.cartStatResale.textContent = `${totalResale.toFixed(0)} zł`;
-  elements.cartStatProfit.textContent = `+${totalProfit.toFixed(0)} zł`;
+  // Package Weight Meter Widget
+  if (elements.weightNetVal) elements.weightNetVal.textContent = w.netWeightG;
+  if (elements.weightBufferVal) elements.weightBufferVal.textContent = w.boxBufferG;
+  if (elements.packageWeightLabel) {
+    elements.packageWeightLabel.textContent = `${w.totalWeightG} g / 2,000 g (${w.totalWeightKg} kg)`;
+  }
+  if (elements.weightProgressFill) {
+    elements.weightProgressFill.style.width = `${w.weightPct}%`;
+  }
+
+  if (w.totalWeightG <= 1600) {
+    if (elements.packageWeightLabel) elements.packageWeightLabel.className = 'weight-badge safe';
+    if (elements.weightProgressFill) elements.weightProgressFill.className = 'weight-fill safe';
+    if (elements.weightHintText) {
+      elements.weightHintText.innerHTML = count === 0
+        ? `🟢 <strong>WAGA W NORMIE AVIA:</strong> Możesz nadać tanią paczkę lotniczą AVIA Small Packet do 2,000 g.`
+        : `🟢 <strong>WAGA W NORMIE AVIA (${w.totalWeightG} g):</strong> Zostało jeszcze <strong>${w.aviaRemainingG} g wolnego miejsca</strong> do limitu taniej paczki lotniczej AVIA (2 kg). Możesz śmiało dobrać handhelda lub gry!`;
+    }
+  } else if (w.totalWeightG <= 2000) {
+    if (elements.packageWeightLabel) elements.packageWeightLabel.className = 'weight-badge warning';
+    if (elements.weightProgressFill) elements.weightProgressFill.className = 'weight-fill warning';
+    if (elements.weightHintText) {
+      elements.weightHintText.innerHTML = `🟡 <strong>BLISKO LIMITU AVIA (${w.totalWeightG} g):</strong> Pozostało tylko <strong>${w.aviaRemainingG} g</strong>. Dodanie przedmiotu powyżej ${w.aviaRemainingG} g przeniesie paczkę na wyższą taryfę (EMS Air lub Morską)!`;
+    }
+  } else {
+    if (elements.packageWeightLabel) elements.packageWeightLabel.className = 'weight-badge danger';
+    if (elements.weightProgressFill) elements.weightProgressFill.className = 'weight-fill danger';
+    if (elements.weightHintText) {
+      elements.weightHintText.innerHTML = `⚠️ <strong>PRZEKROCZONO LIMIT AVIA (${w.totalWeightG} g / +${w.aviaOverweightG} g):</strong> Paczka waży ponad 2 kg – taryfa AVIA Small Packet jest niedostępna. Rekomendujemy ekspresowy <strong>EMS Air</strong> lub tanią <strong>Morską Surface</strong>!`;
+    }
+  }
+
+  // Shipping Selector Grid
+  if (elements.shippingRecBadge) {
+    const recOpt = details.shippingInfo[details.shippingInfo.recommendedId];
+    elements.shippingRecBadge.textContent = `Zalecana: ${recOpt ? recOpt.name : 'AVIA'}`;
+  }
+  if (elements.shippingTiersGrid) {
+    const tiers = ['avia_small_packet', 'ems_express', 'surface_sea'];
+    elements.shippingTiersGrid.innerHTML = tiers.map((tierKey) => {
+      const opt = details.shippingInfo[tierKey];
+      if (!opt) return '';
+      const isSelected = tierKey === details.chosenMethodKey;
+      const isAvail = opt.isAvailable;
+      const priceTxt = isAvail && opt.costPln !== null ? `~${opt.costPln.toFixed(0)} zł` : 'Niedostępna';
+
+      return `
+        <div class="shipping-tier-card ${isSelected ? 'selected' : ''} ${!isAvail ? 'disabled' : ''}" 
+             onclick="${isAvail ? `selectShippingMethod('${opt.id}')` : ''}"
+             title="${isAvail ? `Wybierz ${opt.name}` : opt.unavailText || ''}">
+          <div class="tier-top">
+            <strong class="tier-name">${opt.name}</strong>
+            <span class="tier-price">${priceTxt}</span>
+          </div>
+          <div class="tier-sub">${opt.badge}</div>
+          ${!isAvail && opt.unavailText ? `<div class="tier-warn">⚠️ ${opt.unavailText}</div>` : ''}
+        </div>
+      `;
+    }).join('');
+  }
+
+  // Residual Net Profit Card ("Cena, która Ci zostaje")
+  if (elements.residualProfitVal) {
+    elements.residualProfitVal.textContent = `${details.residualProfitPln >= 0 ? '+' : ''}${details.residualProfitPln.toFixed(0)} zł`;
+    elements.residualProfitVal.style.color = details.residualProfitPln >= 0 ? '#34d399' : '#ef4444';
+  }
+  if (elements.residualRoiChip) {
+    elements.residualRoiChip.textContent = `ROI: ${details.residualRoiPct >= 0 ? '+' : ''}${details.residualRoiPct.toFixed(1)}%`;
+    elements.residualRoiChip.style.color = details.residualRoiPct >= 0 ? '#10b981' : '#ef4444';
+  }
+  if (elements.resSumResale) elements.resSumResale.textContent = `+${details.totalResalePln.toFixed(0)} zł`;
+  if (elements.resSumPurchase) elements.resSumPurchase.textContent = `-${details.totalBasePurchasePln.toFixed(0)} zł`;
+  if (elements.resMethodName) elements.resMethodName.textContent = details.chosenOpt.name;
+  if (elements.resShippingCost) elements.resShippingCost.textContent = `-${details.chosenShippingPln.toFixed(0)} zł`;
+  if (elements.resTaxCost) elements.resTaxCost.textContent = `-${(details.vatPln + details.depositFeePln).toFixed(0)} zł`;
+  if (elements.resSavingsVal) {
+    elements.resSavingsVal.textContent = count > 1 ? `+${details.consolidationSavingsPln.toFixed(0)} zł` : '0 zł (1 sztuka)';
+  }
+
+  // Summary Stats Grid
+  if (elements.cartStatItems) elements.cartStatItems.textContent = `${count} szt.`;
+  if (elements.cartStatLanded) elements.cartStatLanded.textContent = `~${details.totalLandedPln.toFixed(0)} zł`;
+  if (elements.cartStatResale) elements.cartStatResale.textContent = `${details.totalResalePln.toFixed(0)} zł`;
+  if (elements.cartStatProfit) {
+    elements.cartStatProfit.textContent = `${details.residualProfitPln >= 0 ? '+' : ''}${details.residualProfitPln.toFixed(0)} zł`;
+    elements.cartStatProfit.className = details.residualProfitPln >= 0 ? 'text-green' : 'text-red';
+  }
 
   // List Items
   if (count === 0) {
@@ -1241,21 +1575,25 @@ function renderCartModal() {
     return;
   }
 
-  elements.cartItemsList.innerHTML = state.cart.map((item) => `
-    <div class="cart-item-row">
-      <div class="cart-item-info">
-        <strong class="cart-item-title">${item.model}</strong>
-        <span class="cart-item-sub">
-          Landed: ~${(item.landed_cost_pln || 0).toFixed(0)} zł | Resale: ${(item.est_pl_value || 0).toFixed(0)} zł | 
-          ${item.has_battery ? '<span class="text-amber">🔴 Li-Ion</span>' : '<span class="text-green">🟢 0% Baterii</span>'}
-        </span>
+  elements.cartItemsList.innerHTML = state.cart.map((item) => {
+    const itemWeight = getItemWeight(item);
+    return `
+      <div class="cart-item-row">
+        <div class="cart-item-info">
+          <strong class="cart-item-title">${item.model}</strong>
+          <span class="cart-item-sub">
+            Landed: ~${(item.landed_cost_pln || 0).toFixed(0)} zł | Resale: ${(item.est_pl_value || 0).toFixed(0)} zł | 
+            <span class="text-sky font-semibold">⚖️ ~${itemWeight}g</span> | 
+            ${item.has_battery ? '<span class="text-amber">🔴 Li-Ion</span>' : '<span class="text-green">🟢 0% Baterii</span>'}
+          </span>
+        </div>
+        <div class="cart-item-right">
+          <strong class="text-green">+${(item.est_margin_pln || 0).toFixed(0)} zł</strong>
+          <button class="btn-remove-item" onclick="removeFromCart('${item.id}')" title="Usuń z koszyka">✕</button>
+        </div>
       </div>
-      <div class="cart-item-right">
-        <strong class="text-green">+${(item.est_margin_pln || 0).toFixed(0)} zł</strong>
-        <button class="btn-remove-item" onclick="removeFromCart('${item.id}')" title="Usuń z koszyka">✕</button>
-      </div>
-    </div>
-  `).join('');
+    `;
+  }).join('');
 }
 
 // Global Toast Alert Helper
@@ -1294,3 +1632,4 @@ function showToast(message) {
 
 // Global scope export for inline onclick
 window.removeFromCart = removeFromCart;
+window.selectShippingMethod = selectShippingMethod;

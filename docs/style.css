@@ -2137,3 +2137,291 @@ body {
 .stream-actions-wrap {
   margin-top: 2px;
 }
+
+/* ==========================================================================
+   Package Weight Meter, Shipping Selector & Residual Profit Styles
+   ========================================================================== */
+.bar-cart-top-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.bar-weight-chip {
+  font-size: 0.70rem;
+  font-weight: 700;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 1px 6px;
+  border-radius: 6px;
+  margin-left: 4px;
+}
+
+.pill-badge.pill-weight {
+  background: rgba(56, 189, 248, 0.12);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  font-weight: 700;
+}
+
+.weight-meter-card {
+  background: var(--bg-app);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.weight-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 0.82rem;
+}
+
+.weight-sub-breakdown {
+  font-size: 0.70rem;
+  color: var(--text-dim);
+  margin-top: 2px;
+}
+
+.weight-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+.weight-badge.safe {
+  background: var(--accent-green-bg);
+  color: var(--accent-green);
+  border: 1px solid var(--accent-green-border);
+}
+.weight-badge.warning {
+  background: var(--accent-amber-bg);
+  color: var(--accent-amber);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+.weight-badge.danger {
+  background: var(--accent-red-bg);
+  color: var(--accent-red);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.weight-progress-bar {
+  height: 8px;
+  background: var(--bg-elevated);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.weight-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+.weight-fill.safe { background: var(--accent-green); }
+.weight-fill.warning { background: var(--accent-amber); }
+.weight-fill.danger { background: var(--accent-red); }
+
+.weight-hint {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  line-height: 1.35;
+  margin: 0;
+}
+
+/* Shipping Selector Card */
+.shipping-selector-card {
+  background: var(--bg-app);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.shipping-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.82rem;
+}
+
+.shipping-rec-badge {
+  font-size: 0.70rem;
+  font-weight: 700;
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.shipping-tiers-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+@media (min-width: 600px) {
+  .shipping-tiers-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.shipping-tier-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.shipping-tier-card:hover {
+  border-color: rgba(56, 189, 248, 0.4);
+  transform: translateY(-1px);
+}
+
+.shipping-tier-card.selected {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: var(--accent-green);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+}
+
+.shipping-tier-card.disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  border-style: dashed;
+}
+
+.tier-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
+}
+
+.tier-name {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.tier-price {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--accent-green);
+}
+
+.shipping-tier-card.disabled .tier-price {
+  color: var(--text-dim);
+  font-size: 0.75rem;
+}
+
+.tier-sub {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  line-height: 1.25;
+}
+
+.tier-warn {
+  font-size: 0.65rem;
+  color: #f87171;
+  font-weight: 600;
+}
+
+/* Residual Profit Card: The Real Money Left in Your Pocket */
+.residual-profit-card {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(15, 23, 42, 0.85));
+  border: 1.5px solid var(--accent-green-border);
+  border-radius: 14px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.12);
+}
+
+.residual-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.residual-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.residual-header strong {
+  font-size: 0.90rem;
+  color: #f8fafc;
+  display: block;
+}
+
+.residual-header small {
+  font-size: 0.70rem;
+  color: var(--text-muted);
+}
+
+.residual-profit-val-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 4px 0;
+}
+
+.residual-main-val {
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: #34d399;
+  letter-spacing: -0.02em;
+}
+
+.residual-roi-chip {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  padding: 3px 10px;
+  border-radius: 12px;
+}
+
+.residual-details-table {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 0.78rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 8px;
+}
+
+.res-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-muted);
+}
+
+.res-row strong {
+  color: #e2e8f0;
+}
+
+.res-row.savings-row {
+  margin-top: 4px;
+  padding-top: 6px;
+  border-top: 1px dashed rgba(16, 185, 129, 0.3);
+  color: #6ee7b7;
+  font-weight: 600;
+}
+

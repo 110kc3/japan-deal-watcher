@@ -101,6 +101,10 @@ class TestWebappExporter(unittest.TestCase):
         self.assertIn("condition_grade", processed)
         self.assertIn("verdict_label", processed)
         self.assertIn("recommendation_text", processed)
+        self.assertIn("est_weight_g", processed)
+        self.assertIn("weight_formatted", processed)
+        self.assertEqual(processed["est_weight_g"], 320)
+        self.assertEqual(processed["weight_formatted"], "~320 g")
 
     def test_camera_cap_enforcement(self):
         exporter = WebappExporter(
@@ -131,6 +135,9 @@ class TestWebappExporter(unittest.TestCase):
                 data = json.load(f)
 
             self.assertIn("meta", data)
+            self.assertIn("shipping_methods", data["meta"])
+            self.assertIn("weight_config", data["meta"])
+            self.assertIn("avia_small_packet", data["meta"]["shipping_methods"])
             self.assertIn("categories", data)
             self.assertIn("auctions", data)
             self.assertIn("mercari_deals", data)
@@ -140,6 +147,7 @@ class TestWebappExporter(unittest.TestCase):
             # Only the 1 active Mercari deal should be included (excluding 404)
             self.assertEqual(len(data["mercari_deals"]), 1)
             self.assertEqual(data["mercari_deals"][0]["id"], "m1234567890")
+            self.assertIn("est_weight_g", data["mercari_deals"][0])
             self.assertGreaterEqual(len(data["search_streams"]), 20)
 
     def test_specific_auction_links_and_search_streams(self):

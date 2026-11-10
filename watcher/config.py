@@ -66,6 +66,65 @@ CATEGORY_SHIPPING_SHARES = {
 }
 DEFAULT_SHIPPING_SHARE_PLN = 30.0
 
+# Item estimated physical net weights (grams)
+CATEGORY_ESTIMATED_WEIGHTS_G = {
+    "nintendo_3ds_handhelds": 320,        # New 3DS XL ~330g, Old 3DS ~235g + sleeve
+    "nintendo_ds_handhelds": 280,         # DS Lite ~218g, DSi LL ~314g
+    "gameboy_advance_retro": 200,         # GBA SP ~142g, GBC ~138g
+    "ps_vita": 290,                       # PS Vita 1000/2000 ~220-260g + sleeve
+    "ps_vita_handhelds": 290,             # Alias
+    "psp_handheld": 260,                  # PSP-3000 ~189g + charger
+    "retro_games_mix": 350,               # Bundle of retro game cartridges/boxes
+    "danshari_mystery_lots": 1800,        # Large mystery cardboard box / bulk lot
+    "high_margin_curated_consoles": 2500, # PSone Combo + LCD ~1.8kg, PS4 Pro ~3.8kg
+    "film_cameras_point_shoot": 260,      # Compact 35mm camera ~200g + pouch
+    "analog_lenses": 280,                 # Manual prime lens ~200g + metal caps
+    "ps5_limited_controllers": 380,       # DualSense ~280g + retail packaging
+    "ps_retro_limited_controllers": 320,  # DualShock controller
+    "ps1_consoles": 950,                  # PSone ~550g, PS1 fat ~1.2kg
+    "retro_consoles_no_battery": 2200,    # Home console unit
+    "nintendo_retro": 400,                # Game Boy / Famicom compact
+    "nintendo_ds_consoles": 280,
+    "ps_limited_consoles": 2800,
+}
+DEFAULT_ITEM_WEIGHT_G = 300
+OUTER_BOX_BUFFER_WEIGHT_G = 300  # Sturdy cardboard outer shipping box + bubble wrap / cushioning
+AVIA_MAX_WEIGHT_G = 2000         # 2.0 kg hard ceiling for AVIA Small Packet
+
+# International Shipping Rates (Japan to Poland via ZenMarket)
+# AVIA Small Packet (Air Economy): max 2,000g, 7-14 days
+# EMS Express Air (Japan Post): up to 30kg, 3-6 days, express
+# Surface Mail (Sea / Morska): up to 30kg, 60-90 days, lowest cost per kg for heavy parcels
+SHIPPING_METHODS = {
+    "avia_small_packet": {
+        "id": "avia_small_packet",
+        "name": "✈️ AVIA Small Packet",
+        "description": "Ekonomiczna poczta lotnicza (7-14 dni). Najbardziej opłacalna do 2,000 g.",
+        "max_weight_g": 2000,
+        "base_jpy": 1200,      # Up to 100g
+        "step_weight_g": 100,
+        "step_jpy": 150
+    },
+    "ems_express": {
+        "id": "ems_express",
+        "name": "🚀 EMS Express Air",
+        "description": "Ekspresowa przesyłka lotnicza Japan Post (3-6 dni) z pełnym śledzeniem i ubezpieczeniem.",
+        "max_weight_g": 30000,
+        "base_jpy": 3900,      # Up to 500g
+        "step_weight_g": 500,
+        "step_jpy": 700
+    },
+    "surface_sea": {
+        "id": "surface_sea",
+        "name": "🚢 Surface Mail (Morska)",
+        "description": "Przesyłka kontenerowa drogą morską (60-90 dni). Tani transport dla ciężkich paczek (>3 kg).",
+        "max_weight_g": 30000,
+        "base_jpy": 3300,      # Up to 1,000g
+        "step_weight_g": 1000,
+        "step_jpy": 450
+    }
+}
+
 # HTTP Request headers
 USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "

@@ -20,13 +20,19 @@ from .config import (
     ZENMARKET_FEE_JPY,
     ZENMARKET_FEE_EUR,
     ZENMARKET_DEPOSIT_FEE_RATE,
-    VAT_RATE
+    VAT_RATE,
+    OUTER_BOX_BUFFER_WEIGHT_G,
+    AVIA_MAX_WEIGHT_G,
+    DEFAULT_ITEM_WEIGHT_G,
+    CATEGORY_ESTIMATED_WEIGHTS_G,
+    SHIPPING_METHODS
 )
 from .costs import calculate_landed_cost, calculate_max_sniper_bid
 from .checks import is_camera_item, is_lens_item
 from .lot_vision_inspector import LotVisionInspector
 from .closure_predictor import AuctionClosurePredictor
 from .search_streams import generate_search_streams
+from .consolidation import resolve_item_weight
 
 
 from .market_queries import clean_polish_market_queries
@@ -172,6 +178,10 @@ class WebappExporter:
         if not yahoo_direct or "search/search" in yahoo_direct:
             yahoo_direct = f"https://page.auctions.yahoo.co.jp/jp/auction/{aid}" if aid else f"https://auctions.yahoo.co.jp/search/search?p={encoded_q}"
 
+        # Weight estimation
+        weight_g = resolve_item_weight(d)
+        weight_formatted = f"~{weight_g} g" if weight_g < 1000 else f"~{weight_g / 1000.0:.1f} kg"
+
         return {
             "id": d.get("id"),
             "auction_id": aid,
@@ -182,6 +192,8 @@ class WebappExporter:
             "color": d.get("color", ""),
             "battery_type": b_type,
             "has_battery": has_battery,
+            "est_weight_g": weight_g,
+            "weight_formatted": weight_formatted,
             "image_url": image_url,
             "status": d.get("status", "Aktywna Aukcja"),
             "condition_badge": d.get("condition_badge", "✅ Sprawdzony"),
@@ -318,6 +330,10 @@ class WebappExporter:
         if not merc_direct or not is_real_mercari:
             merc_direct = f"https://jp.mercari.com/search?keyword={encoded_q}&status=on_sale" if not is_real_mercari else f"https://jp.mercari.com/item/{iid}"
 
+        # Weight estimation
+        weight_g = resolve_item_weight(d)
+        weight_formatted = f"~{weight_g} g" if weight_g < 1000 else f"~{weight_g / 1000.0:.1f} kg"
+
         return {
             "id": d.get("id"),
             "platform": "Mercari Japan",
@@ -327,6 +343,8 @@ class WebappExporter:
             "color": d.get("color", ""),
             "battery_type": b_type,
             "has_battery": has_battery,
+            "est_weight_g": weight_g,
+            "weight_formatted": weight_formatted,
             "image_url": image_url,
             "status": d.get("status", "Dostępne"),
             "condition_badge": d.get("condition_badge", "✅ Stan Dobry"),
@@ -450,6 +468,13 @@ class WebappExporter:
                     "days_remaining": self.timeline.get("days_remaining", 58),
                     "deadline": self.timeline.get("deadline", "2027-01-06"),
                     "start_date": self.timeline.get("start_date", "2026-11-07")
+                },
+                "shipping_methods": SHIPPING_METHODS,
+                "weight_config": {
+                    "outer_box_buffer_g": OUTER_BOX_BUFFER_WEIGHT_G,
+                    "avia_max_weight_g": AVIA_MAX_WEIGHT_G,
+                    "default_item_weight_g": DEFAULT_ITEM_WEIGHT_G,
+                    "category_weights": CATEGORY_ESTIMATED_WEIGHTS_G
                 },
                 "sales_history_summary": self.history_stats,
                 "counts": {
