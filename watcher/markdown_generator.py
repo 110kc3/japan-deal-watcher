@@ -71,7 +71,13 @@ class MarkdownGenerator:
         optimal_basket = self.analyzer.get_optimal_consolidation_basket()
 
         # Filter top snipes (highest margin/ROI, must be available)
-        valid_deals = [d for d in self.deals if "404" not in d.get("status", "") and "Zakończone" not in d.get("status", "")]
+        valid_deals = [
+            d for d in self.deals
+            if "404" not in d.get("status", "")
+            and "Zakończone" not in d.get("status", "")
+            and "Wykluczone" not in d.get("status", "")
+            and not d.get("is_broken", False)
+        ]
         sorted_deals = sorted(valid_deals, key=lambda x: x.get("est_margin_pln", 0), reverse=True)
         top_snipes = sorted_deals[:3]
 

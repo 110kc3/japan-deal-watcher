@@ -79,7 +79,9 @@ def classify_condition(text, item_condition="", custom_note=""):
             }
 
     # Exclusion check: Pentax PC35AF-M (user explicitly wants PC35AF manual thumbwheel, NOT motorized PC35AF-M)
-    if any(unwanted in cleaned for unwanted in ["pc35af-m", "pc35afm", "pc35af m"]):
+    # Ignore Polish descriptions like "bez silnika PC35AF-M"
+    pc35_check = re.sub(r'bez\s+[^.\n]*?pc35af[- ]?m?', '', cleaned, flags=re.IGNORECASE)
+    if any(unwanted in pc35_check for unwanted in ["pc35af-m", "pc35afm", "pc35af m"]):
         return {
             "is_broken": True,
             "is_untested": False,

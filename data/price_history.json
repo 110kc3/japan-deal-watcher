@@ -4,7 +4,7 @@
     "last_updated": "2026-11-10 13:40 UTC",
     "total_tracked_items": 266,
     "total_sales_recorded": 100,
-    "total_price_changes": 296
+    "total_price_changes": 297
   },
   "items": {
     "m49076044020": {
@@ -3270,6 +3270,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 1500.0,
           "price_pln": 37.25
+        },
+        {
+          "timestamp": "2026-11-10 13:57 UTC",
+          "price_jpy": 1400.0,
+          "price_pln": 34.62,
+          "previous_price_jpy": 1500.0
         }
       ]
     },
