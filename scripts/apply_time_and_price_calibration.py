@@ -52,7 +52,11 @@ t3_and_4_times = [
     1470, 1510, 1560, 1620, 1680, 1740, 1800, 1860, 1920, 1980, 2040, 2100, 2160, 2220, 2280, 2340, 2400, 2460, 2520, 2580, 2640, 2700, 2740, 2780, 2810, 2830, 2850, 2865, 2875, 2880
 ]
 
-deal_by_id = {d["id"]: d for d in deals}
+deal_by_id = {}
+for d in deals:
+    deal_by_id[d["id"]] = d
+    if d.get("slug_id"):
+        deal_by_id[d["slug_id"]] = d
 
 for did, minutes, price in t1_specs:
     d = deal_by_id[did]
@@ -64,8 +68,9 @@ for did, minutes, price in t2_specs:
     d["time_remaining_minutes"] = minutes
     d["price_jpy"] = price
 
-handled_ids = {did for did, _, _ in t1_specs} | {did for did, _, _ in t2_specs}
-remaining_deals = [d for d in deals if d["id"] not in handled_ids]
+handled_keys = {did for did, _, _ in t1_specs} | {did for did, _, _ in t2_specs}
+handled_actual_ids = {deal_by_id[did]["id"] for did in handled_keys if did in deal_by_id}
+remaining_deals = [d for d in deals if d["id"] not in handled_actual_ids]
 for i, d in enumerate(remaining_deals):
     d["time_remaining_minutes"] = t3_and_4_times[i]
 

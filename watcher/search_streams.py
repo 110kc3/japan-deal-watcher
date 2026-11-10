@@ -1,0 +1,504 @@
+"""Search Streams and Price Guides Generator.
+
+Provides structured search streams with concise price guides, expected closing ranges (落札相場),
+hard sniper caps, and 1-click links to the earliest ending auctions on ZenMarket and Buyee.
+"""
+
+import urllib.parse
+from typing import List, Dict, Any
+from .config import DEFAULT_JPY_PLN_RATE, DEFAULT_EUR_PLN_RATE, MAX_CAMERA_PRICE_PLN, MAX_LENS_PRICE_PLN
+from .market_queries import clean_polish_market_queries
+
+
+SEARCH_STREAM_DEFINITIONS = [
+    # 1. Cameras (Point & Shoot 35mm - STRICT <= 100 zł cap)
+    {
+        "id": "stream_olympus_mju_2",
+        "model": "Olympus [mju:]-II (μ-II 35mm f/2.8 Prime)",
+        "category_id": "film_cameras_point_shoot",
+        "category_name": "Aparaty Kompaktowe 35mm (≤ 100 zł)",
+        "icon": "📷",
+        "battery_type": "none",
+        "has_battery": False,
+        "image_url": "./assets/images/camera_point_shoot.svg",
+        "search_query_jp": "オリンパス ミューII -zoom",
+        "target_start_jpy": 1,
+        "expected_closed_range_jpy": "18,000 – 26,000 JPY",
+        "expected_closed_range_pln": "~450 – 650 zł",
+        "hard_cap_jpy": 3800,
+        "hard_cap_label": "3,800 JPY (Twardy limit aparatu ≤ 100 zł)",
+        "poland_resale_range": "850 – 1,150 zł",
+        "est_profit_pln": "+450 – 680 zł",
+        "roi_pct": "+180%",
+        "sniping_tip": "Szukaj wyłącznie wersji ze stałym obiektywem 35mm f/2.8 (bez napisu ZOOM)! Sprawdź czy obiektyw wysuwa się płynnie bez zacięć przy rozsuwaniu klapki clamshell."
+    },
+    {
+        "id": "stream_pentax_pc35af",
+        "model": "Pentax PC35AF (Manual Thumbwheel 35mm f/2.8)",
+        "category_id": "film_cameras_point_shoot",
+        "category_name": "Aparaty Kompaktowe 35mm (≤ 100 zł)",
+        "icon": "📷",
+        "battery_type": "none",
+        "has_battery": False,
+        "image_url": "./assets/images/camera_point_shoot.svg",
+        "search_query_jp": "PENTAX PC35AF -PC35AF-M -PC35AFM -オートデート",
+        "target_start_jpy": 1,
+        "expected_closed_range_jpy": "5,500 – 8,500 JPY",
+        "expected_closed_range_pln": "~140 – 210 zł",
+        "hard_cap_jpy": 3800,
+        "hard_cap_label": "3,800 JPY (Twardy limit aparatu ≤ 100 zł)",
+        "poland_resale_range": "450 – 620 zł",
+        "est_profit_pln": "+220 – 350 zł",
+        "roi_pct": "+120%",
+        "sniping_tip": "Ściśle odrzucaj wersję PC35AF-M (z zawodnym silnikiem na spodzie)! Kupuj tylko oryginalny wariant z ręcznym naciągiem rolkowym (thumbwheel)."
+    },
+    {
+        "id": "stream_canon_autoboy_3",
+        "model": "Canon Autoboy 3 Quartz Date (38mm f/2.8 Prime)",
+        "category_id": "film_cameras_point_shoot",
+        "category_name": "Aparaty Kompaktowe 35mm (≤ 100 zł)",
+        "icon": "📷",
+        "battery_type": "none",
+        "has_battery": False,
+        "image_url": "./assets/images/camera_point_shoot.svg",
+        "search_query_jp": "Canon Autoboy 3 -tele",
+        "target_start_jpy": 1,
+        "expected_closed_range_jpy": "4,000 – 6,000 JPY",
+        "expected_closed_range_pln": "~100 – 150 zł",
+        "hard_cap_jpy": 3800,
+        "hard_cap_label": "3,800 JPY (Twardy limit aparatu ≤ 100 zł)",
+        "poland_resale_range": "380 – 490 zł",
+        "est_profit_pln": "+180 – 260 zł",
+        "roi_pct": "+110%",
+        "sniping_tip": "Świetna optyka Canon 38mm f/2.8 i solidny autofocus. Zasilany baterią 2CR5. Jeden z najszybciej sprzedających się aparatów na OLX."
+    },
+    {
+        "id": "stream_konica_big_mini",
+        "model": "Konica Big Mini (BM-201 / BM-301 / NEO-R)",
+        "category_id": "film_cameras_point_shoot",
+        "category_name": "Aparaty Kompaktowe 35mm (≤ 100 zł)",
+        "icon": "📷",
+        "battery_type": "none",
+        "has_battery": False,
+        "image_url": "./assets/images/camera_point_shoot.svg",
+        "search_query_jp": "Konica Big Mini -zoom",
+        "target_start_jpy": 1,
+        "expected_closed_range_jpy": "6,000 – 9,500 JPY",
+        "expected_closed_range_pln": "~150 – 235 zł",
+        "hard_cap_jpy": 3800,
+        "hard_cap_label": "3,800 JPY (Twardy limit aparatu ≤ 100 zł)",
+        "poland_resale_range": "550 – 750 zł",
+        "est_profit_pln": "+260 – 420 zł",
+        "roi_pct": "+140%",
+        "sniping_tip": "Zawsze weryfikuj taśmę flex tylnej klapki – jej przerwanie to typowa wada Big Mini. Egzemplarze ze sprawnym ekranem LCD osiągają najwyższe ceny."
+    },
+
+    # 2. Handheld Consoles (Nintendo & PlayStation)
+    {
+        "id": "stream_new_n3ds_xl",
+        "model": "New Nintendo 3DS LL (New 3DS XL)",
+        "category_id": "nintendo_3ds_handhelds",
+        "category_name": "Nintendo 3DS & New 3DS",
+        "icon": "🕹️",
+        "battery_type": "li-ion",
+        "has_battery": True,
+        "image_url": "./assets/images/n3ds_xl.svg",
+        "search_query_jp": "Newニンテンドー3DS LL 本体",
+        "target_start_jpy": 8000,
+        "expected_closed_range_jpy": "16,500 – 21,500 JPY",
+        "expected_closed_range_pln": "~410 – 530 zł",
+        "hard_cap_jpy": 14000,
+        "hard_cap_label": "14,000 JPY (~350 zł landed)",
+        "poland_resale_range": "720 – 890 zł",
+        "est_profit_pln": "+220 – 340 zł",
+        "roi_pct": "+42%",
+        "sniping_tip": "Sprawdzaj ekrany pod kątem matryc IPS (górny lub dual IPS zwiększa wycenę w PL do 950 zł). Region lock NTSC-J zdejmuje się w 10 minut programowo."
+    },
+    {
+        "id": "stream_new_n3ds_ktr",
+        "model": "New Nintendo 3DS (Standard / Kisekae Plates)",
+        "category_id": "nintendo_3ds_handhelds",
+        "category_name": "Nintendo 3DS & New 3DS",
+        "icon": "🕹️",
+        "battery_type": "li-ion",
+        "has_battery": True,
+        "image_url": "./assets/images/n3ds_xl.svg",
+        "search_query_jp": "Newニンテンドー3DS 本体 -LL",
+        "target_start_jpy": 7000,
+        "expected_closed_range_jpy": "12,000 – 15,500 JPY",
+        "expected_closed_range_pln": "~300 – 385 zł",
+        "hard_cap_jpy": 11000,
+        "hard_cap_label": "11,000 JPY (~275 zł landed)",
+        "poland_resale_range": "550 – 690 zł",
+        "est_profit_pln": "+160 – 240 zł",
+        "roi_pct": "+38%",
+        "sniping_tip": "Wymienne panele obudowy Kisekae Cover Plates. Odrzucaj egzemplarze z pożółkłymi ekranami."
+    },
+    {
+        "id": "stream_old_n3ds_xl",
+        "model": "Nintendo 3DS LL (Old 3DS XL)",
+        "category_id": "nintendo_3ds_handhelds",
+        "category_name": "Nintendo 3DS & New 3DS",
+        "icon": "🕹️",
+        "battery_type": "li-ion",
+        "has_battery": True,
+        "image_url": "./assets/images/n3ds_xl.svg",
+        "search_query_jp": "ニンテンドー3DS LL 本体",
+        "target_start_jpy": 4500,
+        "expected_closed_range_jpy": "8,500 – 11,500 JPY",
+        "expected_closed_range_pln": "~210 – 285 zł",
+        "hard_cap_jpy": 8000,
+        "hard_cap_label": "8,000 JPY (~200 zł landed)",
+        "poland_resale_range": "420 – 520 zł",
+        "est_profit_pln": "+130 – 190 zł",
+        "roi_pct": "+45%",
+        "sniping_tip": "Najbardziej płynna budżetowa konsola 3DS w Polsce. Błyskawiczna odsprzedaż w przedziale 420-500 zł."
+    },
+    {
+        "id": "stream_ndsi_ll",
+        "model": "Nintendo DSi LL (XL) Dual IPS",
+        "category_id": "nintendo_ds_handhelds",
+        "category_name": "Nintendo DSi LL & DS Lite",
+        "icon": "🎮",
+        "battery_type": "li-ion",
+        "has_battery": True,
+        "image_url": "./assets/images/ds_lite.svg",
+        "search_query_jp": "DSi LL 本体",
+        "target_start_jpy": 3000,
+        "expected_closed_range_jpy": "5,500 – 7,800 JPY",
+        "expected_closed_range_pln": "~135 – 195 zł",
+        "hard_cap_jpy": 5500,
+        "hard_cap_label": "5,500 JPY (~140 zł landed)",
+        "poland_resale_range": "320 – 420 zł",
+        "est_profit_pln": "+120 – 180 zł",
+        "roi_pct": "+55%",
+        "sniping_tip": "Każdy egzemplarz DSi LL posiada fabrycznie podwójne matryce IPS. Najlepsza konsola do gier Nintendo DS."
+    },
+    {
+        "id": "stream_nds_lite",
+        "model": "Nintendo DS Lite (USG-001)",
+        "category_id": "nintendo_ds_handhelds",
+        "category_name": "Nintendo DSi LL & DS Lite",
+        "icon": "🎮",
+        "battery_type": "li-ion",
+        "has_battery": True,
+        "image_url": "./assets/images/ds_lite.svg",
+        "search_query_jp": "DSライト 本体",
+        "target_start_jpy": 1000,
+        "expected_closed_range_jpy": "2,500 – 4,000 JPY",
+        "expected_closed_range_pln": "~62 – 100 zł",
+        "hard_cap_jpy": 2800,
+        "hard_cap_label": "2,800 JPY (~70 zł landed)",
+        "poland_resale_range": "190 – 260 zł",
+        "est_profit_pln": "+80 – 120 zł",
+        "roi_pct": "+60%",
+        "sniping_tip": "Sprawdzaj zawias górnego ekranu – pęknięty lub luźny zawias obniża cenę w Polsce o 50%."
+    },
+    {
+        "id": "stream_gba_sp_101",
+        "model": "Game Boy Advance SP (AGS-101 Brighter LCD)",
+        "category_id": "gameboy_advance_retro",
+        "category_name": "Game Boy Advance & Retro",
+        "icon": "👾",
+        "battery_type": "li-ion",
+        "has_battery": True,
+        "image_url": "./assets/images/gba_sp.svg",
+        "search_query_jp": "ゲームボーイアドバンスSP AGS-101",
+        "target_start_jpy": 8000,
+        "expected_closed_range_jpy": "15,000 – 22,000 JPY",
+        "expected_closed_range_pln": "~370 – 550 zł",
+        "hard_cap_jpy": 14000,
+        "hard_cap_label": "14,000 JPY (~350 zł landed)",
+        "poland_resale_range": "680 – 950 zł",
+        "est_profit_pln": "+220 – 380 zł",
+        "roi_pct": "+50%",
+        "sniping_tip": "AGS-101 posiada podświetlenie z tyłu (backlight), nie z boku (frontlight). Ogromny popyt kolekcjonerski w Polsce."
+    },
+    {
+        "id": "stream_ps_vita_2000",
+        "model": "PlayStation Vita PCH-2000 Slim",
+        "category_id": "ps_vita",
+        "category_name": "PlayStation Vita (Slim/OLED)",
+        "icon": "✨",
+        "battery_type": "li-ion",
+        "has_battery": True,
+        "image_url": "./assets/images/ps_vita.svg",
+        "search_query_jp": "PSヴィータ PCH-2000 本体",
+        "target_start_jpy": 7500,
+        "expected_closed_range_jpy": "12,500 – 16,500 JPY",
+        "expected_closed_range_pln": "~310 – 410 zł",
+        "hard_cap_jpy": 12000,
+        "hard_cap_label": "12,000 JPY (~300 zł landed)",
+        "poland_resale_range": "580 – 720 zł",
+        "est_profit_pln": "+180 – 260 zł",
+        "roi_pct": "+42%",
+        "sniping_tip": "Standardowy port Micro-USB, lekka obudowa, 1GB pamięci wbudowanej. Kolory Aqua Blue, Metallic Red i Glacier White schodzą na pniu."
+    },
+    {
+        "id": "stream_ps_vita_1000",
+        "model": "PlayStation Vita PCH-1000 OLED",
+        "category_id": "ps_vita",
+        "category_name": "PlayStation Vita (Slim/OLED)",
+        "icon": "✨",
+        "battery_type": "li-ion",
+        "has_battery": True,
+        "image_url": "./assets/images/ps_vita.svg",
+        "search_query_jp": "PSヴィータ PCH-1000 本体",
+        "target_start_jpy": 6500,
+        "expected_closed_range_jpy": "10,500 – 14,000 JPY",
+        "expected_closed_range_pln": "~260 – 350 zł",
+        "hard_cap_jpy": 10500,
+        "hard_cap_label": "10,500 JPY (~260 zł landed)",
+        "poland_resale_range": "490 – 620 zł",
+        "est_profit_pln": "+150 – 220 zł",
+        "roi_pct": "+40%",
+        "sniping_tip": "Kultowy ekran OLED o perfekcyjnej czerni. Sprawdzaj stan portu ładowania (własnościowy kabel Sony 1000)."
+    },
+    {
+        "id": "stream_psp_3000",
+        "model": "Sony PSP-3000 (Carnival Colors)",
+        "category_id": "psp_handheld",
+        "category_name": "Sony PSP Handhelds",
+        "icon": "⚡",
+        "battery_type": "li-ion",
+        "has_battery": True,
+        "image_url": "./assets/images/psp.svg",
+        "search_query_jp": "PSP-3000 本体",
+        "target_start_jpy": 4000,
+        "expected_closed_range_jpy": "7,500 – 10,500 JPY",
+        "expected_closed_range_pln": "~185 – 260 zł",
+        "hard_cap_jpy": 7500,
+        "hard_cap_label": "7,500 JPY (~185 zł landed)",
+        "poland_resale_range": "380 – 490 zł",
+        "est_profit_pln": "+120 – 190 zł",
+        "roi_pct": "+45%",
+        "sniping_tip": "Ulepszony ekran z eliminacją smużenia. Żywe kolory z serii Carnival Colors (Vibrant Blue, Radiant Red, Spirited Green) mają 20% wyższą wycenę."
+    },
+
+    # 3. Mystery Lots & Retro Bundles (0% Li-Ion – Unlimited Air Shipping)
+    {
+        "id": "stream_danshari_games_mix",
+        "model": "Pakiety Różności i Likwidacje Pokoju (Danshari Mix 0% Li-Ion)",
+        "category_id": "danshari_mystery_lots",
+        "category_name": "Pakiety Różności (Danshari / Skarby)",
+        "icon": "🎁",
+        "battery_type": "none",
+        "has_battery": False,
+        "image_url": "./assets/images/mystery_lot.svg",
+        "search_query_jp": "ゲーム ソフト 断捨離 大量 まとめ売り",
+        "target_start_jpy": 3500,
+        "expected_closed_range_jpy": "9,000 – 14,000 JPY",
+        "expected_closed_range_pln": "~225 – 350 zł",
+        "hard_cap_jpy": 9500,
+        "hard_cap_label": "9,500 JPY (~240 zł landed)",
+        "poland_resale_range": "550 – 850 zł",
+        "est_profit_pln": "+220 – 420 zł",
+        "roi_pct": "+65%",
+        "sniping_tip": "Szukaj haseł: 断捨離 (danshari), 実家整理 (porządki w domu rodzinnym), 処分 (likwidacja). Kartony bez baterii – idealne wypełnienie przesyłki lotniczej bez limitu IATA."
+    },
+    {
+        "id": "stream_danshari_pokemon",
+        "model": "Zestawy Kartridży Pokémon (GBA / GBC / DS - 0% Li-Ion)",
+        "category_id": "danshari_mystery_lots",
+        "category_name": "Pakiety Różności (Danshari / Skarby)",
+        "icon": "🎁",
+        "battery_type": "none",
+        "has_battery": False,
+        "image_url": "./assets/images/mystery_lot.svg",
+        "search_query_jp": "ポケモン ソフト まとめ売り DS GBA",
+        "target_start_jpy": 4500,
+        "expected_closed_range_jpy": "10,000 – 15,500 JPY",
+        "expected_closed_range_pln": "~250 – 385 zł",
+        "hard_cap_jpy": 11000,
+        "hard_cap_label": "11,000 JPY (~275 zł landed)",
+        "poland_resale_range": "620 – 950 zł",
+        "est_profit_pln": "+260 – 480 zł",
+        "roi_pct": "+70%",
+        "sniping_tip": "Japońskie Pokémony są w 100% oryginalne (w Japonii nie ma problemu chińskich podróbek). Gry GBA i DS z serii Pokémon schodzą w 24 godziny na OLX i Allegro."
+    },
+    {
+        "id": "stream_retro_ds_cib_lot",
+        "model": "Pakiety 30-50 Gier Nintendo DS / 3DS w Pudełkach (CIB)",
+        "category_id": "retro_games_mix",
+        "category_name": "Pakiety Gier Retro (0% Baterii)",
+        "icon": "📦",
+        "battery_type": "none",
+        "has_battery": False,
+        "image_url": "./assets/images/retro_games.svg",
+        "search_query_jp": "DS 3DS ソフト 箱付き まとめ売り",
+        "target_start_jpy": 4000,
+        "expected_closed_range_jpy": "8,000 – 12,000 JPY",
+        "expected_closed_range_pln": "~200 – 300 zł",
+        "hard_cap_jpy": 8500,
+        "hard_cap_label": "8,500 JPY (~210 zł landed)",
+        "poland_resale_range": "480 – 720 zł",
+        "est_profit_pln": "+200 – 350 zł",
+        "roi_pct": "+60%",
+        "sniping_tip": "Gry w oryginalnych plastikowych pudełkach z okładkami. Sprawdzaj czy nie ma gier wymagających 100% znajomości języka (RPG tekstowe) – preferuj platformówki i zręcznościówki."
+    },
+
+    # 4. Manual Japanese Lenses (STRICT <= 100 zł cap)
+    {
+        "id": "stream_pentax_m_50_14",
+        "model": "SMC Pentax-M 50mm f/1.4 (K-mount)",
+        "category_id": "analog_lenses",
+        "category_name": "Japońskie Obiektywy Manualne (≤ 100 zł)",
+        "icon": "🔍",
+        "battery_type": "none",
+        "has_battery": False,
+        "image_url": "./assets/images/analog_lens.svg",
+        "search_query_jp": "SMC Pentax-M 50mm F1.4",
+        "target_start_jpy": 1,
+        "expected_closed_range_jpy": "3,500 – 5,200 JPY",
+        "expected_closed_range_pln": "~87 – 130 zł",
+        "hard_cap_jpy": 3800,
+        "hard_cap_label": "3,800 JPY (Twardy limit obiektywu ≤ 100 zł)",
+        "poland_resale_range": "280 – 380 zł",
+        "est_profit_pln": "+130 – 190 zł",
+        "roi_pct": "+90%",
+        "sniping_tip": "Jasny obiektyw portretowy z bagnetem Pentax K. Sprawdź czy soczewki nie mają zamglenia (haze) ani grzyba (fungus)."
+    },
+    {
+        "id": "stream_super_takumar_55_18",
+        "model": "Super-Takumar 55mm f/1.8 (M42)",
+        "category_id": "analog_lenses",
+        "category_name": "Japońskie Obiektywy Manualne (≤ 100 zł)",
+        "icon": "🔍",
+        "battery_type": "none",
+        "has_battery": False,
+        "image_url": "./assets/images/analog_lens.svg",
+        "search_query_jp": "Super Takumar 55mm F1.8",
+        "target_start_jpy": 1,
+        "expected_closed_range_jpy": "2,800 – 4,500 JPY",
+        "expected_closed_range_pln": "~70 – 110 zł",
+        "hard_cap_jpy": 3800,
+        "hard_cap_label": "3,800 JPY (Twardy limit obiektywu ≤ 100 zł)",
+        "poland_resale_range": "240 – 340 zł",
+        "est_profit_pln": "+110 – 170 zł",
+        "roi_pct": "+85%",
+        "sniping_tip": "Kultowy obiektyw M42 słynący z flary i bokeh. Żółtawy odcień soczewek od powłok torowych usuwa się naświetlaniem promieniami UV."
+    },
+
+    # 5. Limited Controllers & Home Consoles
+    {
+        "id": "stream_dualsense_astro_bot",
+        "model": "DualSense Astro Bot Limited Edition PS5",
+        "category_id": "ps5_limited_controllers",
+        "category_name": "Kontrolery Limitowane PS5",
+        "icon": "🎮",
+        "battery_type": "li-ion",
+        "has_battery": True,
+        "image_url": "./assets/images/controller.svg",
+        "search_query_jp": "DualSense Astro Bot",
+        "target_start_jpy": 11000,
+        "expected_closed_range_jpy": "15,500 – 19,000 JPY",
+        "expected_closed_range_pln": "~385 – 470 zł",
+        "hard_cap_jpy": 15500,
+        "hard_cap_label": "15,500 JPY (~385 zł landed)",
+        "poland_resale_range": "720 – 890 zł",
+        "est_profit_pln": "+200 – 320 zł",
+        "roi_pct": "+42%",
+        "sniping_tip": "Limitowany pad Astro Bot z niebieskimi uchwytami i oczami robota na touchpadzie. Nakład natychmiast wyprzedany w Europie."
+    },
+    {
+        "id": "stream_dualshock_4_500m",
+        "model": "DualShock 4 500 Million Limited Edition",
+        "category_id": "ps_retro_limited_controllers",
+        "category_name": "Kontrolery Retro PS1-PS4",
+        "icon": "🎯",
+        "battery_type": "li-ion",
+        "has_battery": True,
+        "image_url": "./assets/images/controller.svg",
+        "search_query_jp": "DualShock 4 500 Million",
+        "target_start_jpy": 4000,
+        "expected_closed_range_jpy": "6,800 – 9,500 JPY",
+        "expected_closed_range_pln": "~170 – 235 zł",
+        "hard_cap_jpy": 7000,
+        "hard_cap_label": "7,000 JPY (~175 zł landed)",
+        "poland_resale_range": "380 – 520 zł",
+        "est_profit_pln": "+140 – 220 zł",
+        "roi_pct": "+50%",
+        "sniping_tip": "Półprzezroczysta granatowa obudowa z miedzianym logo PS. Wyjątkowy rarytas kolekcjonerski."
+    },
+    {
+        "id": "stream_psone_combo_lcd",
+        "model": "PSone COMBO SCPH-130 (Zintegrowany 5\" LCD Sony)",
+        "category_id": "high_margin_curated_consoles",
+        "category_name": "Wyselekcjonowane Stacjonarne",
+        "icon": "💎",
+        "battery_type": "none",
+        "has_battery": False,
+        "image_url": "./assets/images/curated_console.svg",
+        "search_query_jp": "PSone COMBO SCPH-130",
+        "target_start_jpy": 8000,
+        "expected_closed_range_jpy": "15,500 – 21,000 JPY",
+        "expected_closed_range_pln": "~385 – 520 zł",
+        "hard_cap_jpy": 14000,
+        "hard_cap_label": "14,000 JPY (~350 zł landed)",
+        "poland_resale_range": "780 – 990 zł",
+        "est_profit_pln": "+250 – 400 zł",
+        "roi_pct": "+48%",
+        "sniping_tip": "Oryginalny 5-calowy ekran LCD Sony przykręcany do białego PSone. Sprawdź czy w zestawie jest zasilacz SCPH-10130 i brak pęknięć zawiasu ekranu."
+    },
+    {
+        "id": "stream_gamecube_spice_orange",
+        "model": "Nintendo GameCube DOL-001 (Spice Orange)",
+        "category_id": "high_margin_curated_consoles",
+        "category_name": "Wyselekcjonowane Stacjonarne",
+        "icon": "💎",
+        "battery_type": "none",
+        "has_battery": False,
+        "image_url": "./assets/images/curated_console.svg",
+        "search_query_jp": "ゲームキューブ 本体 オレンジ DOL-001",
+        "target_start_jpy": 4000,
+        "expected_closed_range_jpy": "8,000 – 11,500 JPY",
+        "expected_closed_range_pln": "~200 – 285 zł",
+        "hard_cap_jpy": 8500,
+        "hard_cap_label": "8,500 JPY (~210 zł landed)",
+        "poland_resale_range": "460 – 590 zł",
+        "est_profit_pln": "+150 – 230 zł",
+        "roi_pct": "+50%",
+        "sniping_tip": "Kolor Spice Orange był wydany oficjalnie wyłącznie w Japonii. Wersja DOL-001 posiada cyfrowe wyjście wideo Digital AV Out."
+    }
+]
+
+
+def generate_search_streams(rate_jpy: float = DEFAULT_JPY_PLN_RATE, rate_eur: float = DEFAULT_EUR_PLN_RATE) -> List[Dict[str, Any]]:
+    """
+    Compiles search stream objects with dynamic links to the earliest ending auctions,
+    lowest starting bids, Buyee proxies, and Polish price archives.
+    """
+    streams = []
+    for item in SEARCH_STREAM_DEFINITIONS:
+        s = dict(item)
+        query = s.get("search_query_jp", "")
+        encoded_q = urllib.parse.quote(query)
+
+        # Polish queries for Allegro and OLX
+        clean_pl_q, clean_olx_slug = clean_polish_market_queries(s)
+        allegro_url = f"https://allegro.pl/listing?string={urllib.parse.quote(clean_pl_q)}"
+        olx_url = f"https://www.olx.pl/oferty/q-{clean_olx_slug}/"
+
+        # Calculate exact landed cost at target start price
+        start_jpy = s.get("target_start_jpy", 1)
+        start_pln_raw = round(start_jpy * rate_jpy, 2)
+        start_display = f"od {start_jpy:,} JPY (~{start_pln_raw:.2f} zł)" if start_jpy > 1 else "od 1 JPY (~0.02 zł)"
+
+        # Set calculated price guide attributes
+        s["target_start_pln"] = start_pln_raw
+        s["target_start_label"] = start_display
+
+        # Generate direct sniper stream links (ending soonest first – true prices)
+        s["links"] = {
+            "primary_url": f"https://zenmarket.jp/pl/yahoo.aspx?q={encoded_q}&sort=end&order=asc",
+            "zenmarket_ending_earliest": f"https://zenmarket.jp/pl/yahoo.aspx?q={encoded_q}&sort=end&order=asc",
+            "zenmarket_lowest_bid": f"https://zenmarket.jp/pl/yahoo.aspx?q={encoded_q}&sort=price&order=asc",
+            "buyee_ending_earliest": f"https://buyee.jp/item/search/query/{encoded_q}?translationType=1&sort=end&order=a",
+            "yahoo_closed_archive": f"https://auctions.yahoo.co.jp/closedsearch/closedsearch?p={encoded_q}",
+            "allegro_search": allegro_url,
+            "olx_search": olx_url
+        }
+
+        streams.append(s)
+
+    return streams

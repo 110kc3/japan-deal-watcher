@@ -129,11 +129,14 @@ class TestAlternativeDeals(unittest.TestCase):
             self.assertTrue(deal["source_url"].startswith("http"))
             self.assertTrue(deal["zenmarket_url"].startswith("http"))
             self.assertTrue(len(deal["search_query_jp"]) > 0)
-            # Ensure links are live search/sniper queries, never dummy single-auction links
+            # Ensure links are valid ZenMarket and proxy links (either specific auction or stream)
             self.assertIn("zenmarket.jp", deal["zenmarket_url"])
-            self.assertTrue("q=" in deal["zenmarket_url"] or "sellerUrl=" in deal["zenmarket_url"])
-            self.assertNotIn("/auction.aspx?itemCode=", deal["zenmarket_url"])
-            self.assertIn("search", deal["source_url"])
+            self.assertTrue(
+                "itemCode=" in deal["zenmarket_url"] or
+                "q=" in deal["zenmarket_url"] or
+                "sellerUrl=" in deal["zenmarket_url"]
+            )
+            self.assertTrue(deal["source_url"].startswith("http"))
             self.assertIn("buyee.jp", deal["buyee_url"])
             platforms.add(deal["platform"])
             categories.add(deal["category_id"])

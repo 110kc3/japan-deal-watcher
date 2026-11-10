@@ -6,7 +6,7 @@
 // Application State
 const state = {
   data: null,
-  currentView: 'auctions', // 'auctions' | 'mercari'
+  currentView: 'auctions', // 'auctions' | 'mercari' | 'search_streams'
   selectedCategory: 'all',
   batteryZeroOnly: false,
   sureDealsOnly: false,
@@ -36,6 +36,7 @@ const elements = {
   tickerStorageDays: document.getElementById('tickerStorageDays'),
   auctionsCountBadge: document.getElementById('auctionsCountBadge'),
   mercariCountBadge: document.getElementById('mercariCountBadge'),
+  streamsCountBadge: document.getElementById('streamsCountBadge'),
   totalDealsPill: document.getElementById('totalDealsPill'),
   
   // Cart
@@ -170,6 +171,9 @@ function renderAppHeader(meta) {
   const counts = meta.counts || {};
   elements.auctionsCountBadge.textContent = counts.yahoo_auctions || 0;
   elements.mercariCountBadge.textContent = counts.mercari_deals || 0;
+  if (elements.streamsCountBadge) {
+    elements.streamsCountBadge.textContent = counts.search_streams || (state.data && state.data.search_streams ? state.data.search_streams.length : 22);
+  }
   elements.totalDealsPill.textContent = counts.total_active || 0;
 }
 
@@ -315,6 +319,46 @@ function handleUrlShortcuts() {
 function renderDeals() {
   if (!state.data) return;
 
+  // View 1: Search Streams & Tactical Price Guides
+  if (state.currentView === 'search_streams') {
+    let streams = state.data.search_streams || [];
+
+    // Filter by Category
+    if (state.selectedCategory !== 'all') {
+      streams = streams.filter((s) => s.category_id === state.selectedCategory);
+    }
+
+    // Filter by Battery (Zero only)
+    if (state.batteryZeroOnly) {
+      streams = streams.filter((s) => !s.has_battery);
+    }
+
+    // Filter by Search Query
+    if (state.searchQuery) {
+      const q = state.searchQuery;
+      streams = streams.filter((s) => {
+        const title = (s.model || '').toLowerCase();
+        const note = (s.sniping_tip || '').toLowerCase();
+        const cat = (s.category_name || '').toLowerCase();
+        return title.includes(q) || note.includes(q) || cat.includes(q);
+      });
+    }
+
+    if (streams.length === 0) {
+      elements.feedContainer.innerHTML = `
+        <div class="empty-cart-hint">
+          <p>Brak strumieni snajpera spełniających wybrane kryteria.</p>
+          <small>Zmień filtr kategorii lub wyczyść pole wyszukiwania.</small>
+        </div>
+      `;
+      return;
+    }
+
+    elements.feedContainer.innerHTML = streams.map((stream) => renderSearchStreamCard(stream)).join('');
+    return;
+  }
+
+  // View 2 & 3: Specific Auction Listings (Yahoo) & Specific BIN Listings (Mercari)
   const isAuctions = state.currentView === 'auctions';
   let deals = isAuctions ? state.data.auctions : state.data.mercari_deals;
 
@@ -416,6 +460,108 @@ function sortDealsList(list, order) {
     default:
       return items;
   }
+}
+
+// ==========================================================================
+// Search Stream Card Generator (Category: Search Streams & Short Price Guides)
+// ==========================================================================
+function renderSearchStreamCard(stream) {
+  const isZeroBattery = !stream.has_battery;
+  const batteryBadge = isZeroBattery
+    ? `<span class="pill-badge battery-zero" title="Brak baterii litowej – dozwolona nielimitowana wysyłka lotnicza">🟢 0% Baterii (Brak limitu IATA)</span>`
+    : `<span class="pill-badge battery-liion" title="Zawiera akumulator Li-Ion – limit maks. 2 sztuki na paczkę lotniczą">⚡ Bateria Li-Ion (Maks 2/paczka)</span>`;
+
+  return `
+    <article class="deal-card stream-card" id="stream-${stream.id}">
+      <div class="stream-card-top">
+        <div class="stream-icon-badge">${stream.icon || '🔍'}</div>
+        <div class="stream-header-text">
+          <div class="stream-meta-row">
+            <span class="platform-tag" style="background:#0284c7; color:#fff;">🔍 Strumień Snajpera</span>
+            <span class="pill-badge stream-cat-tag">${stream.category_name}</span>
+            ${batteryBadge}
+          </div>
+          <h3 class="stream-title">${stream.model}</h3>
+        </div>
+      </div>
+
+      <!-- Proper Short Price Guide (4-Grid) -->
+      <div class="price-guide-grid">
+        <div class="guide-stat-box">
+          <span class="guide-stat-label">🎯 Okazja wywoławcza:</span>
+          <strong class="guide-stat-val text-amber">${stream.target_start_label || 'od 1 JPY'}</strong>
+          <small class="guide-stat-sub">Próg rozpoczęcia licytacji</small>
+        </div>
+        <div class="guide-stat-box">
+          <span class="guide-stat-label">📊 Ceny zamknięcia (落札相場):</span>
+          <strong class="guide-stat-val text-sky">${stream.expected_closed_range_jpy}</strong>
+          <small class="guide-stat-sub">${stream.expected_closed_range_pln}</small>
+        </div>
+        <div class="guide-stat-box">
+          <span class="guide-stat-label">🛑 Twardy limit opłacalności:</span>
+          <strong class="guide-stat-val text-emerald">${stream.hard_cap_label}</strong>
+          <small class="guide-stat-sub">Maksymalna oferta snajpera</small>
+        </div>
+        <div class="guide-stat-box">
+          <span class="guide-stat-label">🇵🇱 Realna wycena w Polsce:</span>
+          <strong class="guide-stat-val text-purple">${stream.poland_resale_range}</strong>
+          <small class="guide-stat-sub">Allegro / OLX po targu</small>
+        </div>
+      </div>
+
+      <!-- Reality Summary Row -->
+      <div class="stream-reality-row">
+        <div class="reality-metric">
+          <span class="reality-label">Szacowany Zysk Netto w PL:</span>
+          <strong class="reality-val text-green font-bold">${stream.est_profit_pln}</strong>
+        </div>
+        <div class="reality-divider">·</div>
+        <div class="reality-metric">
+          <span class="reality-label">Średni Zwrot z Inwestycji:</span>
+          <strong class="reality-val text-green font-bold">${stream.roi_pct}</strong>
+        </div>
+      </div>
+
+      <!-- Sniping Tip Box -->
+      <div class="stream-tip-box">
+        <span class="tip-icon">💡</span>
+        <div class="tip-body">
+          <strong>Wskazówki Snajpera & Stan Techniczny:</strong>
+          <p>${stream.sniping_tip}</p>
+        </div>
+      </div>
+
+      <!-- Direct 1-Click Action Buttons to Earliest Ending Auctions -->
+      <div class="card-action-tiers stream-actions-wrap">
+        <!-- Tier 1: Main High-Contrast CTAs -->
+        <div class="card-main-ctas">
+          <a href="${stream.links.zenmarket_ending_earliest}" target="_blank" rel="noopener" class="btn-action primary-cta" title="Zobacz trwające aukcje posortowane od najmniej czasu do końca (ZenMarket działa w PL bez VPN)">
+            <span class="cta-text">⏰ Najszybciej Kończące się (ZenMarket)</span>
+            <span class="cta-vpn-badge">Prawdziwe Ceny</span>
+          </a>
+          <a href="${stream.links.zenmarket_lowest_bid}" target="_blank" rel="noopener" class="btn-action secondary-cta" title="Najtańsze oferty od 1 JPY">
+            <span class="cta-text">🪙 Od 1 JPY / Najtańsze</span>
+          </a>
+        </div>
+
+        <!-- Tier 2: Auxiliary Research & Direct Archives -->
+        <div class="card-pills-row">
+          <a href="${stream.links.buyee_ending_earliest}" target="_blank" rel="noopener" class="pill-btn" title="Aukcje tego modelu kończące się na Buyee">
+            🌐 Buyee Kończące się
+          </a>
+          <a href="${stream.links.yahoo_closed_archive}" target="_blank" rel="noopener" class="pill-btn" title="Archiwum zakończonych licytacji na Yahoo (落札相場)">
+            📊 Archiwum Zamkniętych (落札相場)
+          </a>
+          <a href="${stream.links.allegro_search}" target="_blank" rel="noopener" class="pill-btn allegro-pill" title="Sprawdź ceny sprzedaży na Allegro w PL">
+            🇵🇱 Allegro
+          </a>
+          <a href="${stream.links.olx_search}" target="_blank" rel="noopener" class="pill-btn olx-pill" title="Sprawdź ogłoszenia na OLX w PL">
+            🇵🇱 OLX
+          </a>
+        </div>
+      </div>
+    </article>
+  `;
 }
 
 // HTML Card Generator

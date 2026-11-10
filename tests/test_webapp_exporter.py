@@ -134,11 +134,48 @@ class TestWebappExporter(unittest.TestCase):
             self.assertIn("categories", data)
             self.assertIn("auctions", data)
             self.assertIn("mercari_deals", data)
+            self.assertIn("search_streams", data)
 
             self.assertEqual(len(data["auctions"]), 2)
             # Only the 1 active Mercari deal should be included (excluding 404)
             self.assertEqual(len(data["mercari_deals"]), 1)
             self.assertEqual(data["mercari_deals"][0]["id"], "m1234567890")
+            self.assertGreaterEqual(len(data["search_streams"]), 20)
+
+    def test_specific_auction_links_and_search_streams(self):
+        """Ensures auctions link directly to specific auction listings, and search streams provide price guides."""
+        auction_item = {
+            "id": "v1173928104",
+            "auction_id": "v1173928104",
+            "model": "PCH-2000 Slim",
+            "platform": "Yahoo! Auctions Japan",
+            "category_id": "ps_vita",
+            "category_name": "PlayStation Vita",
+            "battery_type": "li-ion",
+            "price_jpy": 10200,
+            "est_pl_value": 650.0,
+            "search_query_jp": "PSヴィータ PCH-2000 本体",
+            "status": "Aktywna"
+        }
+        exporter = WebappExporter(
+            rate_jpy=0.024802,
+            rate_eur=4.3873,
+            is_live_rate=True,
+            yahoo_deals=[auction_item]
+        )
+        processed = exporter.process_yahoo_deal(auction_item)
+        links = processed["links"]
+
+        # Ensure direct auction links, not general searches
+        self.assertEqual(links["primary_url"], "https://zenmarket.jp/pl/auction.aspx?itemCode=v1173928104")
+        self.assertEqual(links["zenmarket_sniper"], "https://zenmarket.jp/pl/auction.aspx?itemCode=v1173928104")
+        self.assertEqual(links["yahoo_direct"], "https://page.auctions.yahoo.co.jp/jp/auction/v1173928104")
+        self.assertEqual(links["buyee_url"], "https://buyee.jp/item/yahoo/auction/v1173928104")
+
+        # Stream auxiliary links
+        self.assertIn("sort=end&order=asc", links["zenmarket_ending_soon"])
+        self.assertIn("sort=price&order=asc", links["zenmarket_lowest_bid"])
+        self.assertIn("closedsearch", links["yahoo_closed_archive"])
 
     def test_clean_polish_market_queries(self):
         cases = [

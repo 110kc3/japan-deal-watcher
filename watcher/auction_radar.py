@@ -240,7 +240,12 @@ class AuctionRadarGenerator:
         md.append("|:---:|---|---|---|---:|---:|---|")
 
         idx = 1
-        deals_by_id = {d.get("id"): d for d in self.raw_deals}
+        deals_by_id = {}
+        for d in self.raw_deals:
+            if d.get("id"):
+                deals_by_id[d.get("id")] = d
+            if d.get("slug_id"):
+                deals_by_id[d.get("slug_id")] = d
         for did, title, cat_badge, tip in top_targets:
             it = deals_by_id.get(did)
             if not it:
