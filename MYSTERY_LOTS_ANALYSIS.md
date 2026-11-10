@@ -3,7 +3,7 @@
 > **Katalog Tajemniczych Pakietów, Likwidacji Prywatnych Kolekcji (断捨離) i Hurtowych Kartonów Gier**  
 > *Prawdziwe 'Złote Runo' Japońskich Portali: Sprzedawcy Wystawiający Pudła bez Spisu Tytułów i Metodologia Inspekcji Wizualnej Zdjęć.*
 
-![Mystery Lots](https://img.shields.io/badge/Mystery%20Lots-Danshari%20&%20Disposal-orange) ![AI Vision](https://img.shields.io/badge/Photo%20Inspection-AI%20Spine%20Recognition-blue) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-10%2018:57%20UTC-blue) ![Exchange Rate](https://img.shields.io/badge/NBP%20Live-100%20JPY%20%E2%89%88%202.47%20PLN-success) ![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-57%20Days%20Left-orange) ![0% Li-Ion](https://img.shields.io/badge/Lithium%20Risk-0%25%20Li--Ion%20(Pure%20Games)-brightgreen)
+![Mystery Lots](https://img.shields.io/badge/Mystery%20Lots-Danshari%20&%20Disposal-orange) ![AI Vision](https://img.shields.io/badge/Photo%20Inspection-AI%20Spine%20Recognition-blue) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-10%2019:57%20UTC-blue) ![Exchange Rate](https://img.shields.io/badge/NBP%20Live-100%20JPY%20%E2%89%88%202.47%20PLN-success) ![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-57%20Days%20Left-orange) ![0% Li-Ion](https://img.shields.io/badge/Lithium%20Risk-0%25%20Li--Ion%20(Pure%20Games)-brightgreen)
 
 ⬅ **Nawigacja:** [📱 **Aplikacja Android / PWA (Live)**](https://110kc3.github.io/japan-deal-watcher/) · [Główny Dashboard Mercari (README.md)](README.md) · [🔨 Katalog Alternatywny (YAHOO_AUCTIONS_DEALS.md)](YAHOO_AUCTIONS_DEALS.md) · [📡 Radar Licytacji (AUCTION_RADAR.md)](AUCTION_RADAR.md) · [🎯 Poradnik Snajpera (AUCTION_SNIPING_GUIDE.md)](AUCTION_SNIPING_GUIDE.md) · [📊 Audyt Polskiego Rynku (POLAND_REAL_SALES_AUDIT.md)](POLAND_REAL_SALES_AUDIT.md)
 
@@ -101,4 +101,4 @@ Poniższa tabela zawiera pakiety różności i likwidacji kolekcji. Każda pozyc
 
 
 ---
-*Raport wygenerowany automatycznie dla Japan Deal Watcher. Ostatnia aktualizacja: 2026-11-10 18:57 UTC.*
+*Raport wygenerowany automatycznie dla Japan Deal Watcher. Ostatnia aktualizacja: 2026-11-10 19:57 UTC.*
