@@ -3,7 +3,7 @@
 > **Automated Private Deal Watcher for Retro Consoles, Handhelds, UMD Bundles & Analog Lenses**  
 > *Live tracking Mercari Japan, Yahoo Auctions & ZenMarket consolidation timeline.*
 
-![Status](https://img.shields.io/badge/Watcher-Active-brightgreen) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-10%2005:57%20UTC-blue) ![Exchange Rate](https://img.shields.io/badge/NBP%20Live-100%20JPY%20%E2%89%88%202.48%20PLN-success) ![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-57%20Days%20Left-orange) ![Deal Checks](https://img.shields.io/badge/Deal%20Checks-10%20Rules%20PASS-brightgreen) ![Camera Cap](https://img.shields.io/badge/Camera%20Cap-Max%20100%20PLN-orange) ![Lens Cap](https://img.shields.io/badge/Lens%20Cap-Max%20100%20PLN-orange) ![Update Cycle](https://img.shields.io/badge/Cycle-Hourly%20(1h)-purple) ![Android PWA](https://img.shields.io/badge/Android%20App-PWA%20Live-brightgreen)
+![Status](https://img.shields.io/badge/Watcher-Active-brightgreen) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-10%2006:57%20UTC-blue) ![Exchange Rate](https://img.shields.io/badge/NBP%20Live-100%20JPY%20%E2%89%88%202.48%20PLN-success) ![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-57%20Days%20Left-orange) ![Deal Checks](https://img.shields.io/badge/Deal%20Checks-10%20Rules%20PASS-brightgreen) ![Camera Cap](https://img.shields.io/badge/Camera%20Cap-Max%20100%20PLN-orange) ![Lens Cap](https://img.shields.io/badge/Lens%20Cap-Max%20100%20PLN-orange) ![Update Cycle](https://img.shields.io/badge/Cycle-Hourly%20(1h)-purple) ![Android PWA](https://img.shields.io/badge/Android%20App-PWA%20Live-brightgreen)
 
 > 🧭 **Szybka Nawigacja:** [📱 **Aplikacja Android / PWA (Live)**](https://110kc3.github.io/japan-deal-watcher/) · [📦 **Pakiety Różności & Danshari (MYSTERY_LOTS_ANALYSIS.md)**](MYSTERY_LOTS_ANALYSIS.md) · [📡 Radar Licytacji (AUCTION_RADAR.md)](AUCTION_RADAR.md) · [🔨 Yahoo Aukcje (YAHOO_AUCTIONS_DEALS.md)](YAHOO_AUCTIONS_DEALS.md) · [🎯 Poradnik Snajpera (AUCTION_SNIPING_GUIDE.md)](AUCTION_SNIPING_GUIDE.md) · [📊 Audyt Rynku PL (POLAND_REAL_SALES_AUDIT.md)](POLAND_REAL_SALES_AUDIT.md) · [📈 Historia Sprzedaży (MARKET_SALES_HISTORY.md)](MARKET_SALES_HISTORY.md)
 
@@ -133,7 +133,7 @@ ZenMarket zapewnia **60 dni darmowego przechowywania** w Osace na połączenie o
 | ~~**PCH-2000 Slim**~~<br><small>~~Neon Orange~~</small> | ~~✅ Stan Dobry~~ | ~~**21,800 JPY**~~<br>(~~~540.68 zł~~) | ~~~764.43 zł~~ | ~~**720.00 zł**~~ | ~~<strong style='color:#ef4444;'>-44.43 zł</strong><br><small>(-5.8%)</small>~~ | ~~⚪ N/A~~ | ~~❌ Zakończone / Sprzedane~~ | ~~[🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m33337627533)~~ |
 | ~~**PCH-2000 Slim (CIB)**~~<br><small>~~Glacier White~~</small> | ~~✅ Stan Dobry~~ | ~~**22,400 JPY**~~<br>(~~~555.56 zł~~) | ~~~783.25 zł~~ | ~~**780.00 zł**~~ | ~~<strong style='color:#ef4444;'>-3.25 zł</strong><br><small>(-0.4%)</small>~~ | ~~⚪ N/A~~ | ~~❌ Zakończone / Sprzedane~~ | ~~[🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m18827541996)~~ |
 | ~~**PCH-1000 OLED**~~<br><small>~~Cosmic Red~~</small> | ~~✅ Stan Dobry~~ | ~~**24,000 JPY**~~<br>(~~~595.25 zł~~) | ~~~833.46 zł~~ | ~~**750.00 zł**~~ | ~~<strong style='color:#ef4444;'>-83.46 zł</strong><br><small>(-10.0%)</small>~~ | ~~⚪ N/A~~ | ~~❌ Zakończone / Sprzedane~~ | ~~[🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m84038276319)~~ |
-| ~~**PCH-1000 OLED (CIB)**~~<br><small>~~Sapphire Blue~~</small> | ~~✅ Stan Dobry~~ | ~~**32,980 JPY**~~<br>(~~~817.97 zł~~) | ~~~1115.20 zł~~ | ~~**950.00 zł**~~ | ~~<strong style='color:#ef4444;'>-165.20 zł</strong><br><small>(-14.8%)</small>~~ | ~~⚪ N/A~~ | ~~❌ Zakończone / Sprzedane~~ | ~~[🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m42691856798)~~ |
+| ~~**PCH-1000 OLED (CIB)**~~<br><small>~~Sapphire Blue~~</small> | ~~✅ Stan Dobry~~ | ~~**30,980 JPY**~~<br>(~~~768.37 zł~~) | ~~~1052.46 zł~~ | ~~**950.00 zł**~~ | ~~<strong style='color:#ef4444;'>-102.46 zł</strong><br><small>(-9.7%)</small>~~ | ~~⚪ N/A~~ | ~~❌ Zakończone / Sprzedane~~ | ~~[🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m42691856798)~~ |
 
 </details>
 
@@ -343,4 +343,4 @@ Po zakupieniu przedmiotu w panelu ZenMarket kliknij *Order Photos* i wklej:
 - **Lokalne uruchomienie:** `python3 main.py` w repozytorium.
 
 ---
-*Dashboard automatically maintained by GitHub Actions & Antigravity Agent. Last updated: 2026-11-10 05:57 UTC.*
+*Dashboard automatically maintained by GitHub Actions & Antigravity Agent. Last updated: 2026-11-10 06:57 UTC.*
