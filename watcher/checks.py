@@ -27,6 +27,7 @@ from .config import (
     YAHOO_DEALS_FILE,
     YAHOO_MD_FILE,
     SNIPER_GUIDE_MD_FILE,
+    FINISHED_AUCTIONS_FILE,
     DOCS_DATA_FILE,
     MAX_CAMERA_PRICE_PLN,
     MAX_LENS_PRICE_PLN,
@@ -469,6 +470,120 @@ def check_link_integrity(docs_deals_file: Optional[Path] = None) -> Tuple[bool, 
     return len(errors) == 0, errors
 
 
+def check_finished_auctions_dataset(filepath: Optional[Path] = None) -> Tuple[bool, List[str]]:
+    """
+    Check 11: Finished Auctions Dataset Integrity & Pricing Audit.
+    Validates data/finished_auctions.json schema, valid IDs, realized margins,
+    and strict camera/lens <= 100 PLN rules.
+    """
+    target = filepath or FINISHED_AUCTIONS_FILE
+    if not target.exists():
+        return False, [f"Plik archiwum zakończonych aukcji nie istnieje: {target}"]
+
+    errors: List[str] = []
+    try:
+        with open(target, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except Exception as e:
+        return False, [f"Błąd odczytu {target.name}: {e}"]
+
+    if not isinstance(data, list) or len(data) == 0:
+        return False, ["Archiwum zakończonych aukcji jest puste lub nie jest listą"]
+
+    id_regex = re.compile(r"^[a-zA-Z0-9_-]+$")
+
+    for it in data:
+        aid = it.get("auction_id") or it.get("id", "")
+        if not aid or not id_regex.match(str(aid)):
+            errors.append(f"Zakończona aukcja bez poprawnego ID: '{aid}'")
+
+        if not it.get("model"):
+            errors.append(f"Aukcja {aid}: Brak nazwy modelu")
+
+        final_pln = it.get("final_price_pln", 0.0)
+        if final_pln <= 0:
+            errors.append(f"Aukcja {aid} ({it.get('model')}): Nieprawidłowa cena końcowa {final_pln} zł")
+
+        # Camera price cap rule <= 100 PLN
+        if is_camera_item(it) and final_pln > MAX_CAMERA_PRICE_PLN:
+            errors.append(f"Aparat {aid} ({it.get('model')}): Cena końcowa {final_pln:.2f} zł > 100 zł!")
+
+        # Lens price cap rule <= 100 PLN
+        if is_lens_item(it) and final_pln > MAX_LENS_PRICE_PLN:
+            errors.append(f"Obiektyw {aid} ({it.get('model')}): Cena końcowa {final_pln:.2f} zł > 100 zł!")
+
+        if not it.get("closed_at"):
+            errors.append(f"Aukcja {aid}: Brak daty zakończenia (closed_at)")
+
+    return len(errors) == 0, errors
+
+
+def check_active_auction_timing(yahoo_file: Optional[Path] = None) -> Tuple[bool, List[str]]:
+    """
+    Check 12: Active Auction Timing & Yahoo Auction ID Format.
+    Verifies that all active Yahoo auctions have valid item codes (^[a-zA-Z]\d+$)
+    and valid timing data.
+    """
+    target = yahoo_file or YAHOO_DEALS_FILE
+    if not target.exists():
+        return True, []
+
+    errors: List[str] = []
+    try:
+        with open(target, "r", encoding="utf-8") as f:
+            deals = json.load(f)
+    except Exception as e:
+        return False, [f"Błąd odczytu {target.name}: {e}"]
+
+    id_regex = re.compile(r"^[a-zA-Z]\d+$")
+
+    for d in deals:
+        aid = d.get("auction_id") or d.get("id", "")
+        if not id_regex.match(str(aid)):
+            errors.append(f"Nieprawidłowy format Yahoo Auction ID: '{aid}'")
+
+        ends_at = d.get("ends_at", "")
+        if not ends_at:
+            errors.append(f"Aukcja {aid}: Brak daty zakończenia (ends_at)")
+
+    return len(errors) == 0, errors
+
+
+def check_unproxied_geoblocked_links(docs_deals_file: Optional[Path] = None) -> Tuple[bool, List[str]]:
+    """
+    Check 13: Geoblock & Primary Action URL Resilience.
+    Verifies that inside docs/data/deals.json, all primary action URLs point
+    to ZenMarket proxy (accessible in Poland without VPN) and zero primary action
+    URLs point to geoblocked direct Yahoo endpoints.
+    """
+    target = docs_deals_file or DOCS_DATA_FILE
+    if not target.exists():
+        return True, []
+
+    errors: List[str] = []
+    try:
+        with open(target, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except Exception as e:
+        return False, [f"Błąd odczytu {target.name}: {e}"]
+
+    auctions = data.get("auctions", [])
+    for a in auctions:
+        aid = a.get("id", "")
+        links = a.get("links", {})
+        prim = links.get("primary_url", "")
+        zen = links.get("zenmarket_auction", "")
+
+        if not prim.startswith("https://zenmarket.jp/"):
+            errors.append(f"Aukcja {aid}: primary_url nie prowadzi do ZenMarket ({prim})")
+        if not zen.startswith("https://zenmarket.jp/"):
+            errors.append(f"Aukcja {aid}: zenmarket_auction nie prowadzi do ZenMarket ({zen})")
+        if "page.auctions.yahoo.co.jp" in prim:
+            errors.append(f"Aukcja {aid}: primary_url zawiera geoblowany direct link do Yahoo Auctions")
+
+    return len(errors) == 0, errors
+
+
 def run_full_system_audit(strict: bool = False) -> Dict[str, Any]:
     """
     Executes all system and deal verification checks, returning an executive audit report.
@@ -499,6 +614,21 @@ def run_full_system_audit(strict: bool = False) -> Dict[str, Any]:
     ok, errs = check_link_integrity(DOCS_DATA_FILE)
     msg = "Wszystkie linki (ZenMarket, Allegro, OLX) zweryfikowane, zero 404/błędów" if ok else "; ".join(errs)
     audit_results.append({"name": "Link & Search Stream Integrity (ZenMarket/Allegro/OLX)", "passed": ok, "message": msg, "icon": "🔗"})
+
+    # 6. Finished auctions dataset & realized margin integrity
+    ok, errs = check_finished_auctions_dataset(FINISHED_AUCTIONS_FILE)
+    msg = "Archiwum zakończonych aukcji poprawne, ceny aparatów/obiektywów <= 100 zł" if ok else "; ".join(errs)
+    audit_results.append({"name": "Finished Auctions Dataset & Realized Margin Integrity", "passed": ok, "message": msg, "icon": "🏁"})
+
+    # 7. Active auction timing & Yahoo ID validation
+    ok, errs = check_active_auction_timing(YAHOO_DEALS_FILE)
+    msg = "Wszystkie aukcje mają poprawne identyfikatory Yahoo i zdefiniowany czas" if ok else "; ".join(errs)
+    audit_results.append({"name": "Active Auction Timing & Yahoo Auction ID Integrity", "passed": ok, "message": msg, "icon": "⏱️"})
+
+    # 8. Geoblock & Primary Action URL resilience
+    ok, errs = check_unproxied_geoblocked_links(DOCS_DATA_FILE)
+    msg = "100% linków akcji skierowanych przez bezpieczny proxy ZenMarket (brak blokad geoblock)" if ok else "; ".join(errs)
+    audit_results.append({"name": "Geoblock Resilience & Primary Proxy Action Links", "passed": ok, "message": msg, "icon": "🛡️"})
 
     total_checks = len(audit_results)
     passed_checks = sum(1 for r in audit_results if r["passed"])

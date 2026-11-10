@@ -60,6 +60,7 @@ const elements = {
   auctionsCountBadge: document.getElementById('auctionsCountBadge'),
   mercariCountBadge: document.getElementById('mercariCountBadge'),
   streamsCountBadge: document.getElementById('streamsCountBadge'),
+  finishedCountBadge: document.getElementById('finishedCountBadge'),
   totalDealsPill: document.getElementById('totalDealsPill'),
   
   // Cart
@@ -267,6 +268,9 @@ function renderAppHeader(meta) {
   if (elements.streamsCountBadge) {
     elements.streamsCountBadge.textContent = counts.search_streams || (state.data && state.data.search_streams ? state.data.search_streams.length : 22);
   }
+  if (elements.finishedCountBadge) {
+    elements.finishedCountBadge.textContent = counts.finished_auctions || (state.data && state.data.finished_auctions ? state.data.finished_auctions.length : 8);
+  }
   elements.totalDealsPill.textContent = counts.total_active || 0;
 }
 
@@ -401,6 +405,10 @@ function handleUrlShortcuts() {
     state.currentView = 'search_streams';
     syncTopTabs('search_streams');
     syncBottomNav('search_streams');
+  } else if (tab === 'finished' || tab === 'finished_auctions' || tab === 'closed') {
+    state.currentView = 'finished_auctions';
+    syncTopTabs('finished_auctions');
+    syncBottomNav('finished_auctions');
   }
   if (action === 'calc') {
     setTimeout(openCalculator, 300);
@@ -459,6 +467,47 @@ function renderDeals() {
     }
 
     elements.feedContainer.innerHTML = streams.map((stream) => renderSearchStreamCard(stream)).join('');
+    return;
+  }
+
+  // View 4: Finished Auctions Archive & Realized Arbitrage Intelligence (落札相場)
+  if (state.currentView === 'finished_auctions') {
+    if (sureToggleWrapper) sureToggleWrapper.style.display = 'none';
+
+    let finished = state.data.finished_auctions || [];
+
+    // Filter by Category
+    if (state.selectedCategory !== 'all') {
+      finished = finished.filter((f) => f.category_id === state.selectedCategory);
+    }
+
+    // Filter by Battery (Zero only)
+    if (state.batteryZeroOnly) {
+      finished = finished.filter((f) => !f.battery_type || f.battery_type === 'none');
+    }
+
+    // Filter by Search Query
+    if (state.searchQuery) {
+      const q = state.searchQuery.toLowerCase();
+      finished = finished.filter((f) => {
+        const title = (f.model || '').toLowerCase();
+        const cat = (f.category_name || '').toLowerCase();
+        const col = (f.color || '').toLowerCase();
+        return title.includes(q) || cat.includes(q) || col.includes(q);
+      });
+    }
+
+    if (finished.length === 0) {
+      elements.feedContainer.innerHTML = `
+        <div class="empty-cart-hint">
+          <p>Brak zakończonych aukcji spełniających wybrane kryteria.</p>
+          <small>Zmień filtr kategorii lub wyczyść pole wyszukiwania.</small>
+        </div>
+      `;
+      return;
+    }
+
+    elements.feedContainer.innerHTML = finished.map((item) => renderFinishedAuctionCard(item)).join('');
     return;
   }
 
@@ -745,6 +794,114 @@ function renderSearchStreamCard(stream) {
   `;
 }
 
+// ==========================================================================
+// Finished Auction Card Generator (Archive & Realized Profits Intelligence)
+// ==========================================================================
+function renderFinishedAuctionCard(item) {
+  const isZeroBattery = !item.battery_type || item.battery_type === 'none';
+  const batteryBadge = isZeroBattery
+    ? `<span class="pill-badge battery-zero">🟢 0% Li-Ion</span>`
+    : `<span class="pill-badge battery-liion">🔴 1 Li-Ion</span>`;
+
+  const weightFormatted = item.package_weight_g
+    ? `~${item.package_weight_g} g`
+    : (item.weight_kg ? `~${(item.weight_kg * 1000).toFixed(0)} g` : '~300 g');
+
+  const closedDate = item.closed_at ? item.closed_at.replace('T', ' ').replace('Z', ' UTC') : 'Zakończona';
+  const zenUrl = item.zenmarket_url || `https://zenmarket.jp/pl/auction.aspx?itemCode=${item.auction_id || item.id}`;
+
+  return `
+    <article class="deal-card finished-card" data-deal-id="${item.id}">
+      <div class="card-header">
+        <div class="card-meta-top">
+          <span class="platform-tag" style="background:#475569; color:#f8fafc;">🏁 Zakończona Aukcja</span>
+          <span class="pill-badge" style="background:rgba(255,255,255,0.06); color:${item.condition_badge_color || '#8b5cf6'}; font-weight:700; border:1px solid ${item.condition_badge_color || '#8b5cf6'}40;">
+            ${item.condition_short_label || item.condition_label || 'Box CIB'}
+          </span>
+          ${batteryBadge}
+          <span class="pill-badge weight-badge">⚖️ ${weightFormatted}</span>
+        </div>
+      </div>
+
+      <div class="time-ribbon time-ribbon-finished" style="background:rgba(30, 41, 59, 0.8); border-left:3px solid #10b981;">
+        <div class="time-ribbon-left">
+          <span class="time-ribbon-icon">🏁</span>
+          <span class="time-ribbon-val"><strong>Wylicytowano: ${closedDate}</strong></span>
+        </div>
+        <div class="time-ribbon-right">
+          <span class="time-ribbon-stage" style="color:#10b981; font-weight:700;">Zrealizowany Arbitraż</span>
+        </div>
+      </div>
+
+      <div class="card-main">
+        <h4 class="card-title">
+          <a href="${zenUrl}" target="_blank" rel="noopener" class="card-title-link" title="Sprawdź historię tej licytacji w ZenMarket">
+            <span class="title-text">${item.model}</span>
+            <span class="title-icon">↗</span>
+          </a>
+        </h4>
+        ${item.color ? `<div class="card-color">${item.color}</div>` : ''}
+      </div>
+
+      <div class="market-reality-box">
+        <div class="reality-metric">
+          <span class="reality-label">Cena Wylicytowana:</span>
+          <span class="reality-val">${(item.final_price_jpy || 0).toLocaleString()} JPY</span>
+          <span class="reality-sub">~${(item.final_price_pln || 0).toFixed(0)} zł</span>
+        </div>
+        <div class="reality-divider">·</div>
+        <div class="reality-metric">
+          <span class="reality-label">Wycena w Polsce:</span>
+          <span class="reality-val text-amber">${(item.est_pl_value || 0).toFixed(0)} zł</span>
+        </div>
+        <div class="reality-divider">·</div>
+        <div class="reality-metric">
+          <span class="reality-label">Zrealizowany Zysk:</span>
+          <span class="reality-val text-emerald font-bold">+${(item.realized_margin_pln || 0).toFixed(0)} zł</span>
+        </div>
+      </div>
+
+      <div class="profit-matrix">
+        <div class="matrix-item">
+          <span class="matrix-label">1. Zakup (落札価格):</span>
+          <span class="matrix-val">${(item.final_price_jpy || 0).toLocaleString()} JPY</span>
+          <span class="matrix-sub">~${(item.final_price_pln || 0).toFixed(0)} zł</span>
+        </div>
+        <div class="matrix-item">
+          <span class="matrix-label">2. Koszt Landed (z VAT):</span>
+          <span class="matrix-val">~${(item.landed_cost_pln || 0).toFixed(0)} zł</span>
+          <span class="matrix-sub">cło, prowizje & fracht</span>
+        </div>
+        <div class="matrix-item">
+          <span class="matrix-label">3. Sprzedaż w PL:</span>
+          <span class="matrix-val">${(item.est_pl_value || 0).toFixed(0)} zł</span>
+          <span class="matrix-sub">realna wartość</span>
+        </div>
+        <div class="matrix-item">
+          <span class="matrix-label">4. Stopa Zwrotu:</span>
+          <span class="matrix-val highlight-green">+${(item.roi_percent || 0).toFixed(1)}%</span>
+          <span class="matrix-sub text-green">Czysty ROI</span>
+        </div>
+      </div>
+
+      <div class="card-actions">
+        <div class="card-main-ctas">
+          <a href="${zenUrl}" target="_blank" rel="noopener" class="btn-action primary-cta" title="Otwórz zakończoną aukcję w ZenMarket">
+            <span class="cta-text">🔍 Podgląd w ZenMarket</span>
+            <span class="cta-vpn-badge">Archiwum</span>
+          </a>
+          ${item.allegro_url ? `
+            <a href="${item.allegro_url}" target="_blank" rel="noopener" class="pill-btn allegro-pill" title="Sprawdź aktualne ceny w Polsce">🇵🇱 Allegro</a>
+          ` : ''}
+          ${item.olx_url ? `
+            <a href="${item.olx_url}" target="_blank" rel="noopener" class="pill-btn olx-pill" title="Sprawdź ogłoszenia na OLX">🇵🇱 OLX</a>
+          ` : ''}
+        </div>
+      </div>
+    </article>
+  `;
+}
+
 // Dynamic Auction Timing & Timezone Localization Engine
 function getAuctionLiveTiming(deal) {
   const now = Date.now();
@@ -934,9 +1091,9 @@ function renderDealCard(deal, isAuction) {
     `;
   }
 
-  // Closure Price Banner for Auctions
+  // Closure Price Banner for Auctions (only if no prediction box to prevent UI clutter)
   let closureBanner = '';
-  if (isAuction && deal.closed_price_min_jpy && deal.closed_price_max_jpy) {
+  if (isAuction && !predictionBox && deal.closed_price_min_jpy && deal.closed_price_max_jpy) {
     closureBanner = `
       <div class="auction-closure-banner">
         <div>
@@ -948,9 +1105,9 @@ function renderDealCard(deal, isAuction) {
     `;
   }
 
-  // Sniping Cap Banner
+  // Sniping Cap Banner (only if no prediction box to prevent UI clutter)
   let capBanner = '';
-  if (isAuction && deal.max_bid_jpy) {
+  if (isAuction && !predictionBox && deal.max_bid_jpy) {
     capBanner = `
       <div class="cap-banner">
         <span class="cap-title">🎯 Twardy Limit Snajpera:</span>
@@ -996,7 +1153,7 @@ function renderDealCard(deal, isAuction) {
     const hasBuyNow = (deal.has_buy_now === true && typeof deal.buy_now_price_jpy === 'number' && deal.buy_now_price_jpy > 0);
     actionButtons = `
       <div class="card-action-tiers">
-        <!-- Tier 1: Main High-Contrast CTAs (Direct Auction Bidding & Buy Now) -->
+        <!-- Tier 1: Main Direct Action (Accessible in Poland without VPN) -->
         <div class="card-main-ctas">
           <a href="${auctionTargetUrl}" target="_blank" rel="noopener" class="btn-action primary-cta ${isAuctionEnded ? 'cta-ended' : ''}" title="${isAuctionEnded ? 'Aukcja zakończona – otwórz trwające licytacje tego modelu w ZenMarket' : 'Licytuj na tej aukcji bezpośrednio przez ZenMarket (Działa w Polsce i UE bez VPN)'}">
             <span class="cta-text">${ctaText}</span>
@@ -1013,17 +1170,6 @@ function renderDealCard(deal, isAuction) {
           </button>
         </div>
 
-        <!-- Prominent Direct Active Auctions Stream Link (Never leads to a dead page) -->
-        ${deal.links && deal.links.zenmarket_ending_soon ? `
-          <div class="card-active-stream-banner">
-            <a href="${deal.links.zenmarket_ending_soon}" target="_blank" rel="noopener" class="active-auctions-search-link" title="Szukaj wszystkich trwających licytacji ${deal.model} w ZenMarket (posortowane od kończących się najszybciej)">
-              <span class="active-pulse-dot">🔴</span>
-              <span class="active-link-title">Aktywne licytacje: <strong>${deal.model}</strong></span>
-              <span class="active-link-badge">ZenMarket ↗</span>
-            </a>
-          </div>
-        ` : ''}
-
         <!-- Tier 2: Polish Market Verification & Sniping Calculator -->
         <div class="card-pills-row">
           ${allegroBtn}
@@ -1031,35 +1177,7 @@ function renderDealCard(deal, isAuction) {
           <button class="pill-btn calc-pill btn-calc-trigger" data-deal-id="${deal.id}" data-type="auction" title="Przelicz koszty landed, cło i twardy limit snajpera">
             🧮 Snajper
           </button>
-          ${streamPill}
         </div>
-
-        <!-- Tier 3: Collapsible Advanced Research & Proxy Links -->
-        <details class="extra-tools-drawer">
-          <summary class="extra-tools-summary">
-            <span class="summary-label">⚙️ Bezpośrednie linki, archiwa i wyszukiwarki</span>
-            <span class="summary-chevron">▾</span>
-          </summary>
-          <div class="extra-tools-grid">
-            <a href="${deal.links.yahoo_direct}" target="_blank" rel="noopener" class="tool-sublink vpn-warn-link" title="Bezpośredni link do tej aukcji na Yahoo Japan – blokowany w UE bez japońskiego VPN">
-              🇯🇵 Yahoo Direct (Aukcja) <span class="tag-vpn-alert">⚠️ VPN</span>
-            </a>
-            ${deal.links.buyee_url ? `
-              <a href="${deal.links.buyee_url}" target="_blank" rel="noopener" class="tool-sublink" title="Otwórz tę aukcję na platformie Buyee">
-                🌐 Buyee Proxy (Aukcja)
-              </a>
-            ` : ''}
-            <a href="${deal.links.zenmarket_ending_soon}" target="_blank" rel="noopener" class="tool-sublink" title="Inne kończące się aukcje tego modelu w ZenMarket">
-              ⏰ Inne kończące się (ZenMarket)
-            </a>
-            <a href="${deal.links.zenmarket_lowest_bid}" target="_blank" rel="noopener" class="tool-sublink" title="Inne oferty od 1 JPY">
-              🪙 Inne od 1 JPY (ZenMarket)
-            </a>
-            <a href="${deal.links.yahoo_closed_archive}" target="_blank" rel="noopener" class="tool-sublink" title="Archiwum zakończonych licytacji tego przedmiotu na Yahoo (落札相場)">
-              📊 Archiwum Yahoo (落札相場)
-            </a>
-          </div>
-        </details>
       </div>
     `;
   } else {
@@ -1084,36 +1202,6 @@ function renderDealCard(deal, isAuction) {
             🧮 Koszty
           </button>
         </div>
-
-        <!-- Tier 3: Collapsible Advanced Research & Proxy Links -->
-        <details class="extra-tools-drawer">
-          <summary class="extra-tools-summary">
-            <span class="summary-label">⚙️ Więcej linków i wyszukiwarki</span>
-            <span class="summary-chevron">▾</span>
-          </summary>
-          <div class="extra-tools-grid">
-            ${deal.links && deal.links.mercari_direct ? `
-              <a href="${deal.links.mercari_direct}" target="_blank" rel="noopener" class="tool-sublink" title="Bezpośrednia oferta na japońskim Mercari">
-                🏷️ Mercari Direct (Oferta)
-              </a>
-            ` : ''}
-            ${deal.links && deal.links.buyee_url ? `
-              <a href="${deal.links.buyee_url}" target="_blank" rel="noopener" class="tool-sublink" title="Otwórz tę ofertę na platformie Buyee">
-                🌐 Buyee Proxy (Oferta)
-              </a>
-            ` : ''}
-            ${deal.links && deal.links.zenmarket_search_mercari ? `
-              <a href="${deal.links.zenmarket_search_mercari}" target="_blank" rel="noopener" class="tool-sublink" title="Szukaj innych egzemplarzy na Mercari przez ZenMarket">
-                🔍 Szukaj na Mercari (ZenMarket)
-              </a>
-            ` : ''}
-            ${deal.links && deal.links.zenmarket_yahoo_search ? `
-              <a href="${deal.links.zenmarket_yahoo_search}" target="_blank" rel="noopener" class="tool-sublink" title="Zobacz licytacje tego przedmiotu na Yahoo Aukcjach">
-                🔨 Szukaj na Yahoo Aukcjach
-              </a>
-            ` : ''}
-          </div>
-        </details>
       </div>
     `;
   }

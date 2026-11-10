@@ -37,6 +37,7 @@ from watcher.mystery_lots_generator import MysteryLotsGenerator
 from watcher.webapp_exporter import WebappExporter
 from watcher.history_tracker import HistoryTracker
 from watcher.history_generator import HistoryGenerator
+from watcher.finished_auctions_tracker import FinishedAuctionsTracker
 
 def main():
     print("=" * 60)
@@ -202,6 +203,11 @@ def main():
         with open(YAHOO_DEALS_FILE, "r", encoding="utf-8") as f:
             yahoo_deals_list = json.load(f)
 
+    finished_tracker = FinishedAuctionsTracker()
+    finished_harvested = finished_tracker.harvest_from_active(yahoo_deals_list)
+    finished_stats = finished_tracker.get_stats()
+    print(f"🏁 Finished Auctions: {finished_stats['total_finished']} completed listings archived (Total Realized Profit: +{finished_stats['total_profit_pln']:.2f} zł, Avg Margin: +{finished_stats['avg_realized_margin_pln']:.2f} zł)")
+
     webapp_exporter = WebappExporter(
         rate_jpy=rate_jpy,
         rate_eur=rate_eur,
@@ -212,7 +218,7 @@ def main():
         history_stats=scan_stats
     )
     webapp_res = webapp_exporter.export(output_file=DOCS_DATA_FILE)
-    print(f"📱 Webapp Exporter: Synced Android PWA data feed ({webapp_res['auctions_count']} auctions, {webapp_res['mercari_count']} Mercari deals)")
+    print(f"📱 Webapp Exporter: Synced Android PWA data feed ({webapp_res['auctions_count']} auctions, {webapp_res['mercari_count']} Mercari deals, {finished_stats['total_finished']} finished auctions)")
 
     print("=" * 60)
 

@@ -2608,3 +2608,23 @@ body {
   font-weight: 600;
 }
 
+/* ==========================================================================
+   Finished Auctions Archive (落札相場) Styles
+   ========================================================================== */
+.tab-badge-finished {
+  background: rgba(139, 92, 246, 0.25);
+  color: #c4b5fd;
+  border: 1px solid rgba(139, 92, 246, 0.45);
+}
+
+.finished-card {
+  border-color: rgba(139, 92, 246, 0.25);
+  background: linear-gradient(180deg, rgba(30, 41, 59, 0.6) 0%, rgba(15, 23, 42, 0.8) 100%);
+}
+
+.time-ribbon-finished {
+  background: rgba(30, 41, 59, 0.85);
+  border-left: 3px solid #10b981;
+}
+
+

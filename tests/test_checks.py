@@ -12,6 +12,10 @@ from watcher.checks import (
     check_currency_health,
     check_dataset_integrity,
     check_markdown_dashboards,
+    check_link_integrity,
+    check_finished_auctions_dataset,
+    check_active_auction_timing,
+    check_unproxied_geoblocked_links,
     run_full_system_audit,
     is_camera_item,
     is_lens_item,
@@ -260,11 +264,27 @@ class TestChecks(unittest.TestCase):
         mju_deal = {"category_id": "film_cameras_point_shoot", "model": "Olympus [mju:]-II 35mm f/2.8"}
         self.assertTrue(is_camera_item(mju_deal))
 
+    def test_link_integrity(self):
+        ok, errs = check_link_integrity()
+        self.assertTrue(ok, f"Link integrity failed: {errs}")
+
+    def test_finished_auctions_dataset_check(self):
+        ok, errs = check_finished_auctions_dataset()
+        self.assertTrue(ok, f"Finished auctions dataset failed: {errs}")
+
+    def test_active_auction_timing_check(self):
+        ok, errs = check_active_auction_timing()
+        self.assertTrue(ok, f"Active auction timing failed: {errs}")
+
+    def test_unproxied_geoblocked_links_check(self):
+        ok, errs = check_unproxied_geoblocked_links()
+        self.assertTrue(ok, f"Unproxied geoblocked links check failed: {errs}")
+
     def test_run_full_system_audit(self):
         audit = run_full_system_audit()
         self.assertTrue(audit["success"])
         self.assertEqual(audit["failed_checks"], 0)
-        self.assertGreaterEqual(audit["total_checks"], 4)
+        self.assertEqual(audit["total_checks"], 8)
 
 
 if __name__ == "__main__":

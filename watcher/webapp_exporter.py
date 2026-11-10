@@ -34,8 +34,7 @@ from .closure_predictor import AuctionClosurePredictor
 from .search_streams import generate_search_streams
 from .consolidation import resolve_item_weight
 from .time_utils import calculate_auction_timing, format_time_remaining
-
-
+from .finished_auctions_tracker import FinishedAuctionsTracker
 from .market_queries import clean_polish_market_queries
 
 
@@ -440,8 +439,13 @@ class WebappExporter:
         processed_auctions = [self.process_yahoo_deal(d) for d in self.raw_yahoo]
 
         # Filter out auctions that have already ended (User requirement: remove old/done auctions)
+        # and gather data into finished auctions archive
         now_utc = datetime.now(timezone.utc)
         active_auctions = []
+        ended_auctions = []
+        finished_file = (target_path.parent / "finished_auctions.json") if output_file else None
+        finished_tracker = FinishedAuctionsTracker(filepath=finished_file)
+
         for a in processed_auctions:
             ends_iso = a.get("ends_at_iso")
             is_active = True
@@ -457,6 +461,14 @@ class WebappExporter:
 
             if is_active:
                 active_auctions.append(a)
+            else:
+                ended_auctions.append(a)
+
+        # Harvest ended auctions into historical archive
+        if ended_auctions:
+            finished_tracker.harvest_from_active(ended_auctions)
+
+        finished_auctions = finished_tracker.get_all()
 
         # Sort Yahoo Auctions by remaining time ascending by default (ending soonest first – true prices)
         active_auctions.sort(
@@ -496,7 +508,7 @@ class WebappExporter:
             "meta": {
                 "generated_at": now_str,
                 "app_title": "AgyDeal – Japan Deal & Auction Sniping Radar",
-                "app_version": "2.1.0",
+                "app_version": "2.2.2",
                 "exchange_rates": {
                     "rate_jpy": self.rate_jpy,
                     "rate_eur": self.rate_eur,
@@ -527,12 +539,14 @@ class WebappExporter:
                     "yahoo_auctions": len(active_auctions),
                     "mercari_deals": len(active_mercari),
                     "search_streams": len(search_streams),
+                    "finished_auctions": len(finished_auctions),
                     "total_active": len(active_auctions) + len(active_mercari)
                 }
             },
             "categories": categories,
             "auctions": active_auctions,
             "mercari_deals": active_mercari,
+            "finished_auctions": finished_auctions,
             "search_streams": search_streams
         }
 

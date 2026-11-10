@@ -19,7 +19,7 @@
   <link rel="apple-touch-icon" href="./icons/icon-192.png">
   
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="style.css?v=2.2.1">
+  <link rel="stylesheet" href="style.css?v=2.2.2">
 </head>
 <body>
   <!-- Header / App Bar -->
@@ -77,8 +77,12 @@
       <span class="tab-badge" id="mercariCountBadge">40</span>
     </button>
     <button class="view-tab" data-view="search_streams">
-      🔍 <span>Strumienie & Widełki Cenowe</span>
+      🔍 <span>Strumienie & Widełki</span>
       <span class="tab-badge tab-badge-streams" id="streamsCountBadge">22</span>
+    </button>
+    <button class="view-tab" data-view="finished_auctions">
+      🏁 <span>Zakończone</span>
+      <span class="tab-badge tab-badge-finished" id="finishedCountBadge">8</span>
     </button>
     <button class="view-tab" data-view="calculator">
       🧮 <span>Kalkulator</span>
@@ -136,17 +140,6 @@
       </div>
     </div>
   </section>
-
-  <!-- Geoblock & Direct Links Notice -->
-  <aside class="proxy-notice-card" aria-label="Informacja o blokadzie regionalnej Yahoo Japan">
-    <div class="proxy-notice-header">
-      <span class="notice-icon">🌐</span>
-      <div class="notice-text">
-        <strong>Dlaczego linki otwierają ZenMarket? (Yahoo! Japan blokuje bezpośredni dostęp z Europy)</strong>
-        <span>Od 2022 roku Yahoo! Japan blokuje europejskie adresy IP (błąd 403 Forbidden). ZenMarket działa jako autoryzowany pośrednik w Tokio – umożliwia natychmiastowe licytowanie i zakup bez VPN, płatność w PLN oraz konsolidację paczek. <em>Kliknij zdjęcie lub tytuł karty, by od razu przejść do oferty!</em></span>
-      </div>
-    </div>
-  </aside>
 
   <!-- Main Feed Container -->
   <main class="feed-container" id="feedContainer">
