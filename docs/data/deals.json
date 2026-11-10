@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-11-10 01:57 UTC",
+    "generated_at": "2026-11-10 02:57 UTC",
     "app_title": "AgyDeal – Japan Deal & Auction Sniping Radar",
     "app_version": "2.0.0",
     "exchange_rates": {
@@ -23,7 +23,7 @@
     },
     "sales_history_summary": {
       "new_sales": 0,
-      "price_changes": 5,
+      "price_changes": 4,
       "total_tracked": 211,
       "total_sales": 94
     },
