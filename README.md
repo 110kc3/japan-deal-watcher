@@ -3,7 +3,7 @@
 > **Automated Private Deal Watcher for Retro Consoles, Handhelds, UMD Bundles & Analog Lenses**  
 > *Live tracking Mercari Japan, Yahoo Auctions & ZenMarket consolidation timeline.*
 
-![Status](https://img.shields.io/badge/Watcher-Active-brightgreen) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-09%2023:57%20UTC-blue) ![Exchange Rate](https://img.shields.io/badge/NBP%20Live-100%20JPY%20%E2%89%88%202.48%20PLN-success) ![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-58%20Days%20Left-orange) ![Deal Checks](https://img.shields.io/badge/Deal%20Checks-10%20Rules%20PASS-brightgreen) ![Camera Cap](https://img.shields.io/badge/Camera%20Cap-Max%20100%20PLN-orange) ![Lens Cap](https://img.shields.io/badge/Lens%20Cap-Max%20100%20PLN-orange) ![Update Cycle](https://img.shields.io/badge/Cycle-Hourly%20(1h)-purple) ![Android PWA](https://img.shields.io/badge/Android%20App-PWA%20Live-brightgreen)
+![Status](https://img.shields.io/badge/Watcher-Active-brightgreen) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-10%2000:57%20UTC-blue) ![Exchange Rate](https://img.shields.io/badge/NBP%20Live-100%20JPY%20%E2%89%88%202.48%20PLN-success) ![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-57%20Days%20Left-orange) ![Deal Checks](https://img.shields.io/badge/Deal%20Checks-10%20Rules%20PASS-brightgreen) ![Camera Cap](https://img.shields.io/badge/Camera%20Cap-Max%20100%20PLN-orange) ![Lens Cap](https://img.shields.io/badge/Lens%20Cap-Max%20100%20PLN-orange) ![Update Cycle](https://img.shields.io/badge/Cycle-Hourly%20(1h)-purple) ![Android PWA](https://img.shields.io/badge/Android%20App-PWA%20Live-brightgreen)
 
 > 🧭 **Szybka Nawigacja:** [📱 **Aplikacja Android / PWA (Live)**](https://110kc3.github.io/japan-deal-watcher/) · [📦 **Pakiety Różności & Danshari (MYSTERY_LOTS_ANALYSIS.md)**](MYSTERY_LOTS_ANALYSIS.md) · [📡 Radar Licytacji (AUCTION_RADAR.md)](AUCTION_RADAR.md) · [🔨 Yahoo Aukcje (YAHOO_AUCTIONS_DEALS.md)](YAHOO_AUCTIONS_DEALS.md) · [🎯 Poradnik Snajpera (AUCTION_SNIPING_GUIDE.md)](AUCTION_SNIPING_GUIDE.md) · [📊 Audyt Rynku PL (POLAND_REAL_SALES_AUDIT.md)](POLAND_REAL_SALES_AUDIT.md) · [📈 Historia Sprzedaży (MARKET_SALES_HISTORY.md)](MARKET_SALES_HISTORY.md)
 
@@ -15,7 +15,7 @@ ZenMarket zapewnia **60 dni darmowego przechowywania** w Osace na połączenie o
 
 | Magazyn ZenMarket Osaka | Cykl & Deadline | Limit Baterii IATA | Formuła Landed Cost (PL z VAT) |
 |:---:|:---:|:---:|---|
-| **`58 dni darmowego magazynu`**<br><small>🟢 Safe (Ideal consolidation window)</small> | Start: `2026-11-07`<br>Deadline: **`2027-01-06`** | **Maks. 2 Li-Ion / paczka**<br><small>0% dla gier UMD, konsol stacjonarnych i po demontażu baterii (Dry Shipping)</small> | `(Cena JPY + 800 JPY wysyłka JP) × kurs NBP + 2 EUR + wysyłka intl + 3.5% depozyt + 23% VAT` |
+| **`57 dni darmowego magazynu`**<br><small>🟢 Safe (Ideal consolidation window)</small> | Start: `2026-11-07`<br>Deadline: **`2027-01-06`** | **Maks. 2 Li-Ion / paczka**<br><small>0% dla gier UMD, konsol stacjonarnych i po demontażu baterii (Dry Shipping)</small> | `(Cena JPY + 800 JPY wysyłka JP) × kurs NBP + 2 EUR + wysyłka intl + 3.5% depozyt + 23% VAT` |
 
 > [!TIP]
 > **Więcej niż 2 baterie?** Użyj poczty morskiej (*Japan Post Seamail* – brak limitów baterii) lub *Dry Shipping* (usunięcie baterii w magazynie ZenMarket – 1 śrubka w DS/PSP, nowa bateria na Allegro to 15–25 zł). Szczegóły: [AUCTION_SNIPING_GUIDE.md](AUCTION_SNIPING_GUIDE.md) oraz [REAL_PROFITABILITY_AUDIT.md](REAL_PROFITABILITY_AUDIT.md).
@@ -343,4 +343,4 @@ Po zakupieniu przedmiotu w panelu ZenMarket kliknij *Order Photos* i wklej:
 - **Lokalne uruchomienie:** `python3 main.py` w repozytorium.
 
 ---
-*Dashboard automatically maintained by GitHub Actions & Antigravity Agent. Last updated: 2026-11-09 23:57 UTC.*
+*Dashboard automatically maintained by GitHub Actions & Antigravity Agent. Last updated: 2026-11-10 00:57 UTC.*
