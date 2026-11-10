@@ -2916,6 +2916,12 @@
           "timestamp": "2026-11-08 18:17 UTC",
           "price_jpy": 25800.0,
           "price_pln": 640.67
+        },
+        {
+          "timestamp": "2026-11-10 14:57 UTC",
+          "price_jpy": 24980.0,
+          "price_pln": 617.73,
+          "previous_price_jpy": 25800.0
         }
       ]
     },
