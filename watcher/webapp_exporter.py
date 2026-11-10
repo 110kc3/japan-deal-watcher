@@ -164,19 +164,21 @@ class WebappExporter:
         # Closure price prediction & condition grading (落札相場)
         pred = AuctionClosurePredictor.predict_closure(d, self.rate_jpy, self.rate_eur)
 
-        # Resolve specific auction links (guarantees direct item listing, not general search)
+        # Resolve live auction stream URLs (ZenMarket works in Poland & EU without VPN, pre-sorted by ending soonest)
         aid = str(d.get("auction_id") or d.get("id") or "")
-        zen_auction = d.get("zenmarket_url")
-        if not zen_auction or "yahoo.aspx?q=" in zen_auction or "surugaya.aspx?q=" in zen_auction:
-            zen_auction = f"https://zenmarket.jp/pl/auction.aspx?itemCode={aid}" if aid else f"https://zenmarket.jp/pl/yahoo.aspx?q={encoded_q}&sort=price&order=asc"
+        zen_ending_soon = d.get("zenmarket_url")
+        if not zen_ending_soon or "auction.aspx?itemCode=" in zen_ending_soon:
+            zen_ending_soon = f"https://zenmarket.jp/pl/yahoo.aspx?q={encoded_q}&sort=end&order=asc"
+
+        zen_lowest_bid = f"https://zenmarket.jp/pl/yahoo.aspx?q={encoded_q}&sort=price&order=asc"
 
         buyee_auction = d.get("buyee_url")
-        if not buyee_auction or "search/query" in buyee_auction:
-            buyee_auction = f"https://buyee.jp/item/yahoo/auction/{aid}" if aid else f"https://buyee.jp/item/search/query/{encoded_q}?translationType=1"
+        if not buyee_auction or "/auction/" in buyee_auction:
+            buyee_auction = f"https://buyee.jp/item/search/query/{encoded_q}?translationType=1&sort=end&order=a"
 
         yahoo_direct = d.get("source_url")
-        if not yahoo_direct or "search/search" in yahoo_direct:
-            yahoo_direct = f"https://page.auctions.yahoo.co.jp/jp/auction/{aid}" if aid else f"https://auctions.yahoo.co.jp/search/search?p={encoded_q}"
+        if not yahoo_direct or "/auction/" in yahoo_direct:
+            yahoo_direct = f"https://auctions.yahoo.co.jp/search/search?p={encoded_q}&va={encoded_q}&s1=end&o1=a"
 
         # Weight estimation
         weight_g = resolve_item_weight(d)
@@ -248,14 +250,14 @@ class WebappExporter:
                 else None
             ),
             "links": {
-                "primary_url": zen_auction,
-                "zenmarket_sniper": zen_auction,
-                "zenmarket_ending_soon": f"https://zenmarket.jp/pl/yahoo.aspx?q={encoded_q}&sort=end&order=asc",
-                "zenmarket_lowest_bid": f"https://zenmarket.jp/pl/yahoo.aspx?q={encoded_q}&sort=price&order=asc",
+                "primary_url": zen_ending_soon,
+                "zenmarket_sniper": zen_ending_soon,
+                "zenmarket_ending_soon": zen_ending_soon,
+                "zenmarket_lowest_bid": zen_lowest_bid,
                 "zenmarket_mercari_stream": f"https://zenmarket.jp/pl/mercari.aspx?q={encoded_q}",
                 "mercari_live_search": f"https://jp.mercari.com/search?keyword={encoded_q}&status=on_sale",
                 "buyee_url": buyee_auction,
-                "buyee_ending_soon": f"https://buyee.jp/item/search/query/{encoded_q}?translationType=1&sort=end&order=a",
+                "buyee_ending_soon": buyee_auction,
                 "yahoo_closed_archive": f"https://auctions.yahoo.co.jp/closedsearch/closedsearch?p={encoded_q}",
                 "yahoo_direct": yahoo_direct,
                 "allegro_search": allegro_url,
@@ -320,15 +322,15 @@ class WebappExporter:
         is_real_mercari = bool(re.match(r"^m\d+$", iid))
         
         zen_buy = d.get("zenmarket_url")
-        if not zen_buy or "danshari_" in zen_buy or "pentax_pc35af_manual" in zen_buy or "mju_2_prime_black" in zen_buy:
+        if not zen_buy or not is_real_mercari or "yahoo.aspx" in zen_buy or "danshari_" in zen_buy or "pentax_pc35af_manual" in zen_buy or "mju_2_prime_black" in zen_buy or "auction.aspx" in zen_buy:
             if is_real_mercari:
                 zen_buy = f"https://zenmarket.jp/pl/mercariproduct.aspx?itemCode={iid}"
             else:
-                zen_buy = f"https://zenmarket.jp/pl/yahoo.aspx?q={encoded_q}"
+                zen_buy = f"https://zenmarket.jp/pl/mercari.aspx?q={encoded_q}"
 
         merc_direct = d.get("mercari_url")
-        if not merc_direct or not is_real_mercari:
-            merc_direct = f"https://jp.mercari.com/search?keyword={encoded_q}&status=on_sale" if not is_real_mercari else f"https://jp.mercari.com/item/{iid}"
+        if not merc_direct or not is_real_mercari or "danshari_" in merc_direct:
+            merc_direct = f"https://jp.mercari.com/item/{iid}" if is_real_mercari else f"https://jp.mercari.com/search?keyword={encoded_q}&status=on_sale"
 
         # Weight estimation
         weight_g = resolve_item_weight(d)
@@ -396,7 +398,7 @@ class WebappExporter:
                 "buyee_url": f"https://buyee.jp/mercari/search?keyword={encoded_q}",
                 "zenmarket_search_mercari": f"https://zenmarket.jp/pl/mercari.aspx?q={encoded_q}",
                 "mercari_live_search": f"https://jp.mercari.com/search?keyword={encoded_q}&status=on_sale",
-                "zenmarket_yahoo_search": f"https://zenmarket.jp/pl/yahoo.aspx?q={encoded_q}",
+                "zenmarket_yahoo_search": f"https://zenmarket.jp/pl/yahoo.aspx?q={encoded_q}&sort=end&order=asc",
                 "allegro_search": allegro_url,
                 "olx_search": olx_url
             }
