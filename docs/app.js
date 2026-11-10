@@ -187,11 +187,45 @@ function setupPwaInstallPrompt() {
 
 // Get safe CDN image URL (bypasses Yahoo Japan European 403 geoblock via secure proxy)
 function getSafeImageUrl(url) {
-  if (!url) return './assets/images/placeholder.svg';
-  if (url.startsWith('https://auc-pctr.c.yimg.jp')) {
-    return 'https://www.jauce.com/read_yafile/' + url;
+  if (!url || typeof url !== 'string') return './assets/images/placeholder.svg';
+  const trimmed = url.trim();
+  if (!trimmed) return './assets/images/placeholder.svg';
+
+  // Already safely proxied via jauce
+  if (trimmed.startsWith('https://www.jauce.com/read_yafile/')) {
+    return trimmed;
   }
-  return url;
+
+  // Geoblocked Yahoo Japan auction images: proxy through Jauce bypass
+  if (trimmed.includes('auc-pctr.c.yimg.jp')) {
+    let cleanUrl = trimmed;
+    if (cleanUrl.startsWith('//')) {
+      cleanUrl = 'https:' + cleanUrl;
+    } else if (cleanUrl.startsWith('http://')) {
+      cleanUrl = 'https://' + cleanUrl.slice(7);
+    } else if (!cleanUrl.startsWith('http')) {
+      cleanUrl = 'https://' + cleanUrl;
+    }
+    return 'https://www.jauce.com/read_yafile/' + cleanUrl;
+  }
+
+  return trimmed;
+}
+
+// Get active Yahoo auctions count (strictly filters out ended / diffMs <= 0 auctions)
+function getActiveAuctionsCount() {
+  if (!state.data || !Array.isArray(state.data.auctions)) return 0;
+  const now = Date.now();
+  return state.data.auctions.filter((d) => {
+    if (d.time_remaining_formatted === 'Zakończona' || d.status === 'closed' || d.status === 'ended') return false;
+    if (d.time_remaining_minutes !== undefined && d.time_remaining_minutes !== null && d.time_remaining_minutes <= 0) return false;
+    if (d.ends_at_iso) {
+      const endsMs = new Date(d.ends_at_iso).getTime();
+      if (isNaN(endsMs) || endsMs <= now) return false;
+    }
+    const timing = getAuctionLiveTiming(d);
+    return !timing.isEnded && timing.diffMs > 0 && timing.minsRemaining > 0;
+  }).length;
 }
 
 // Fetch compiled data feed from ./data/deals.json
@@ -226,14 +260,7 @@ function renderAppHeader(meta) {
     elements.tickerStorageDays.textContent = `${storage.days_remaining} dni`;
   }
   const counts = meta.counts || {};
-  const now = Date.now();
-  const liveAuctionsCount = (state.data && state.data.auctions)
-    ? state.data.auctions.filter((d) => {
-        if (!d.ends_at_iso) return (d.time_remaining_minutes !== undefined && d.time_remaining_minutes !== null) ? d.time_remaining_minutes > 0 : true;
-        const endsMs = new Date(d.ends_at_iso).getTime();
-        return !isNaN(endsMs) && (endsMs > now);
-      }).length
-    : (counts.yahoo_auctions || 0);
+  const liveAuctionsCount = getActiveAuctionsCount() || (counts.yahoo_auctions || 0);
 
   elements.auctionsCountBadge.textContent = liveAuctionsCount;
   elements.mercariCountBadge.textContent = counts.mercari_deals || 0;

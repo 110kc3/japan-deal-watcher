@@ -51,7 +51,8 @@ FALLBACK_QUERIES = {
     "b1168492015": "DualShock 4",
     "e1118492016": "Konica Big Mini",
     "mju_2_prime_black": "オリンパス ミューII",
-    "pentax_pc35af_manual": "PENTAX PC35AF"
+    "pentax_pc35af_manual": "PENTAX PC35AF",
+    "c1184920188": "DualSense 30th"
 }
 
 

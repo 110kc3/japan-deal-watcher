@@ -1898,6 +1898,21 @@ body {
   opacity: 1;
 }
 
+/* Smooth automatic removal for expired auctions (guarantees no old/ended auctions on screen) */
+.deal-card.deal-card-fade-out {
+  opacity: 0 !important;
+  transform: scale(0.92) !important;
+  max-height: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  overflow: hidden !important;
+  border-width: 0 !important;
+  transition: opacity 0.4s ease, transform 0.4s ease, max-height 0.4s ease, margin 0.4s ease, padding 0.4s ease, border-width 0.4s ease !important;
+  pointer-events: none !important;
+}
+
 .media-time-badge.badge-ended {
   background: rgba(30, 41, 59, 0.92) !important;
   color: #94a3b8 !important;
