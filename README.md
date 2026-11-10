@@ -3,7 +3,7 @@
 > **Automated Private Deal Watcher for Retro Consoles, Handhelds, UMD Bundles & Analog Lenses**  
 > *Live tracking Mercari Japan, Yahoo Auctions & ZenMarket consolidation timeline.*
 
-![Status](https://img.shields.io/badge/Watcher-Active-brightgreen) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-10%2013:36%20UTC-blue) ![Exchange Rate](https://img.shields.io/badge/NBP%20Live-100%20JPY%20%E2%89%88%202.47%20PLN-success) ![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-57%20Days%20Left-orange) ![Deal Checks](https://img.shields.io/badge/Deal%20Checks-10%20Rules%20PASS-brightgreen) ![Camera Cap](https://img.shields.io/badge/Camera%20Cap-Max%20100%20PLN-orange) ![Lens Cap](https://img.shields.io/badge/Lens%20Cap-Max%20100%20PLN-orange) ![Update Cycle](https://img.shields.io/badge/Cycle-Hourly%20(1h)-purple) ![Android PWA](https://img.shields.io/badge/Android%20App-PWA%20Live-brightgreen)
+![Status](https://img.shields.io/badge/Watcher-Active-brightgreen) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-10%2013:40%20UTC-blue) ![Exchange Rate](https://img.shields.io/badge/NBP%20Live-100%20JPY%20%E2%89%88%202.47%20PLN-success) ![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-57%20Days%20Left-orange) ![Deal Checks](https://img.shields.io/badge/Deal%20Checks-10%20Rules%20PASS-brightgreen) ![Camera Cap](https://img.shields.io/badge/Camera%20Cap-Max%20100%20PLN-orange) ![Lens Cap](https://img.shields.io/badge/Lens%20Cap-Max%20100%20PLN-orange) ![Update Cycle](https://img.shields.io/badge/Cycle-Hourly%20(1h)-purple) ![Android PWA](https://img.shields.io/badge/Android%20App-PWA%20Live-brightgreen)
 
 > 🧭 **Szybka Nawigacja:** [📱 **Aplikacja Android / PWA (Live)**](https://110kc3.github.io/japan-deal-watcher/) · [📦 **Pakiety Różności & Danshari (MYSTERY_LOTS_ANALYSIS.md)**](MYSTERY_LOTS_ANALYSIS.md) · [📡 Radar Licytacji (AUCTION_RADAR.md)](AUCTION_RADAR.md) · [🔨 Yahoo Aukcje (YAHOO_AUCTIONS_DEALS.md)](YAHOO_AUCTIONS_DEALS.md) · [🎯 Poradnik Snajpera (AUCTION_SNIPING_GUIDE.md)](AUCTION_SNIPING_GUIDE.md) · [📊 Audyt Rynku PL (POLAND_REAL_SALES_AUDIT.md)](POLAND_REAL_SALES_AUDIT.md) · [📈 Historia Sprzedaży (MARKET_SALES_HISTORY.md)](MARKET_SALES_HISTORY.md)
 
@@ -352,4 +352,4 @@ Po zakupieniu przedmiotu w panelu ZenMarket kliknij *Order Photos* i wklej:
 - **Lokalne uruchomienie:** `python3 main.py` w repozytorium.
 
 ---
-*Dashboard automatically maintained by GitHub Actions & Antigravity Agent. Last updated: 2026-11-10 13:36 UTC.*
+*Dashboard automatically maintained by GitHub Actions & Antigravity Agent. Last updated: 2026-11-10 13:40 UTC.*
