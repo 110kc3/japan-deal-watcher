@@ -3,7 +3,7 @@
 > **Rzeczywiste Dane Sprzedaży z Japońskich Rynków (Mercari Japan & Yahoo! Japan Auctions)**  
 > *Rejestr zamkniętych ofert, tempo wyprzedawania towaru (Days on Market), analiza poziomów cenowych (落札相場) oraz sygnały popytowe dla importera.*
 
-![Closed Sales](https://img.shields.io/badge/Closed%20Sales-177-brightgreen) ![Active Listings](https://img.shields.io/badge/Active%20Tracked-174-blue) ![Avg Realized ROI](https://img.shields.io/badge/Avg%20Realized%20ROI-+51.6%25-orange) ![Total Realized Profit](https://img.shields.io/badge/Realized%20Profit-+16705%20PLN-brightgreen) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-10%2016:36%20UTC-purple)
+![Closed Sales](https://img.shields.io/badge/Closed%20Sales-180-brightgreen) ![Active Listings](https://img.shields.io/badge/Active%20Tracked-170-blue) ![Avg Realized ROI](https://img.shields.io/badge/Avg%20Realized%20ROI-+50.5%25-orange) ![Total Realized Profit](https://img.shields.io/badge/Realized%20Profit-+16585%20PLN-brightgreen) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-10%2017:00%20UTC-purple)
 
 ⬅ **Nawigacja:** [Główny Dashboard Mercari (README.md)](README.md) · [📡 Radar Licytacji (AUCTION_RADAR.md)](AUCTION_RADAR.md) · [Katalog Alternatywnych Ofert (YAHOO_AUCTIONS_DEALS.md)](YAHOO_AUCTIONS_DEALS.md) · [🎯 Poradnik Snajpera (AUCTION_SNIPING_GUIDE.md)](AUCTION_SNIPING_GUIDE.md) · [💰 Audyt Opłacalności (REAL_PROFITABILITY_AUDIT.md)](REAL_PROFITABILITY_AUDIT.md)
 
@@ -21,13 +21,13 @@
 
 | Metryka Rynkowa | Wartość | Komentarz Analityczny |
 |---|---:|---|
-| **Łącznie Zarejestrowanych Transakcji** | **`177 ofert`** | Zamknięte lub wyprzedane pozycje z monitorowanej bazy |
-| **Aktywne Oferty w Monitoringu** | **`174 ofert`** | Dostępne obecnie do natychmiastowego zakupu / licytacji |
-| **Średnia Cena Sprzedaży w Japonii** | **`8,938 JPY`** (~221.42 zł) | Średni kapitał zakupu na 1 pozycję |
-| **Średni Koszt Landed w Polsce (z VAT)** | **`~354.55 zł`** | Zawiera wysyłkę w paczce zbiorczej, 2 EUR, 800 JPY i 23% VAT |
-| **Średni Zysk Netto na Sztuce** | **`<strong style='color:#10b981;'>+94.38 zł</strong>`** | Czysty zysk po odliczeniu wszystkich kosztów sprowadzenia |
-| **Średnia Zrealizowana Stopa Zwrotu** | **`<strong style='color:#10b981;'>+51.6% ROI</strong>`** | Ponad 2-krotny zwrot z każdej zainwestowanej złotówki |
-| **Łączny Potencjał Zysku Sprzedanych Pozycji** | **`<strong style='color:#10b981;'>+16,704.86 zł</strong>`** | Sumaryczny wygenerowany zysk ze wszystkich zarejestrowanych transakcji |
+| **Łącznie Zarejestrowanych Transakcji** | **`180 ofert`** | Zamknięte lub wyprzedane pozycje z monitorowanej bazy |
+| **Aktywne Oferty w Monitoringu** | **`170 ofert`** | Dostępne obecnie do natychmiastowego zakupu / licytacji |
+| **Średnia Cena Sprzedaży w Japonii** | **`8,941 JPY`** (~221.50 zł) | Średni kapitał zakupu na 1 pozycję |
+| **Średni Koszt Landed w Polsce (z VAT)** | **`~354.64 zł`** | Zawiera wysyłkę w paczce zbiorczej, 2 EUR, 800 JPY i 23% VAT |
+| **Średni Zysk Netto na Sztuce** | **`<strong style='color:#10b981;'>+92.14 zł</strong>`** | Czysty zysk po odliczeniu wszystkich kosztów sprowadzenia |
+| **Średnia Zrealizowana Stopa Zwrotu** | **`<strong style='color:#10b981;'>+50.5% ROI</strong>`** | Ponad 2-krotny zwrot z każdej zainwestowanej złotówki |
+| **Łączny Potencjał Zysku Sprzedanych Pozycji** | **`<strong style='color:#10b981;'>+16,585.48 zł</strong>`** | Sumaryczny wygenerowany zysk ze wszystkich zarejestrowanych transakcji |
 
 ---
 
@@ -40,15 +40,15 @@ Poniższa tabela przedstawia tempo rotacji i wolumen sprzedaży w podziale na ka
 | **Aparaty Analogowe Typu Małpka (35mm Point & Shoot)** | **26 szt.** | 2,485 JPY | <strong style='color:#10b981;'>+155.10 zł</strong> | <strong style='color:#10b981;'>+98.3%</strong> | ~1.0 dni | `🔥 Ekstremalny (< 24h)` |
 | **PlayStation Vita (Special Editions & Colors)** | **18 szt.** | 18,379 JPY | <strong style='color:#10b981;'>+53.12 zł</strong> | <strong style='color:#10b981;'>+34.7%</strong> | ~1.0 dni | `🔥 Ekstremalny (< 24h)` |
 | **Nintendo Game Boy (GBA SP AGS-101 Brighter, GBA, GBC & Micro)** | **16 szt.** | 11,550 JPY | <strong style='color:#10b981;'>+141.49 zł</strong> | <strong style='color:#10b981;'>+49.1%</strong> | ~1.0 dni | `🔥 Ekstremalny (< 24h)` |
+| **Sony PlayStation Portable (PSP-2000 / PSP-3000)** | **14 szt.** | 6,576 JPY | <strong style='color:#10b981;'>+64.05 zł</strong> | <strong style='color:#10b981;'>+53.2%</strong> | ~1.0 dni | `🔥 Ekstremalny (< 24h)` |
 | **Nintendo DS & 3DS (DS Lite, DSi, 3DS & Edycje Limitowane)** | **14 szt.** | 6,714 JPY | <strong style='color:#10b981;'>+204.17 zł</strong> | <strong style='color:#10b981;'>+67.7%</strong> | ~1.0 dni | `🔥 Ekstremalny (< 24h)` |
-| **Sony PlayStation Portable (PSP-2000 / PSP-3000)** | **13 szt.** | 6,404 JPY | <strong style='color:#10b981;'>+72.00 zł</strong> | <strong style='color:#10b981;'>+58.2%</strong> | ~1.0 dni | `🔥 Ekstremalny (< 24h)` |
 | **Japońskie Obiektywy Manualne (0% Baterii)** | **13 szt.** | 2,705 JPY | <strong style='color:#10b981;'>+97.40 zł</strong> | <strong style='color:#10b981;'>+69.7%</strong> | ~1.0 dni | `🔥 Ekstremalny (< 24h)` |
 | **Pakiety Różności i Likwidacje Kolekcji (Danshari / 処分 / 雑多 / 福袋)** | **12 szt.** | 8,593 JPY | <strong style='color:#10b981;'>+111.46 zł</strong> | <strong style='color:#10b981;'>+84.3%</strong> | ~1.0 dni | `🔥 Ekstremalny (< 24h)` |
 | **Pakiety Gier Retro (Mix Gier / まとめ売り)** | **12 szt.** | 4,572 JPY | <strong style='color:#10b981;'>+-58.76 zł</strong> | <strong style='color:#10b981;'>+-12.6%</strong> | ~1.0 dni | `🔥 Ekstremalny (< 24h)` |
+| **Limitowane Kontrolery PS1-PS4 (DualShock Retro & Collector)** | **12 szt.** | 5,688 JPY | <strong style='color:#10b981;'>+29.21 zł</strong> | <strong style='color:#10b981;'>+26.3%</strong> | ~1.0 dni | `🔥 Ekstremalny (< 24h)` |
 | **Limitowane Kontrolery PS5 DualSense (Edycje Specjalne)** | **11 szt.** | 12,894 JPY | <strong style='color:#10b981;'>+77.13 zł</strong> | <strong style='color:#10b981;'>+30.9%</strong> | ~1.0 dni | `🔥 Ekstremalny (< 24h)` |
-| **Limitowane Kontrolery PS1-PS4 (DualShock Retro & Collector)** | **11 szt.** | 5,405 JPY | <strong style='color:#10b981;'>+35.44 zł</strong> | <strong style='color:#10b981;'>+29.7%</strong> | ~1.0 dni | `🔥 Ekstremalny (< 24h)` |
 | **Nintendo DS & DSi (DSi LL Dual IPS, DS Lite, Edycje Kolekcjonerskie)** | **10 szt.** | 10,304 JPY | <strong style='color:#10b981;'>+-129.50 zł</strong> | <strong style='color:#10b981;'>+-2.1%</strong> | ~1.0 dni | `🔥 Ekstremalny (< 24h)` |
-| **Nintendo 3DS & New 3DS (Królowie Płynności: New 3DS XL, New 3DS, 3DS LL)** | **8 szt.** | 17,162 JPY | <strong style='color:#10b981;'>+-14.99 zł</strong> | <strong style='color:#10b981;'>+-1.9%</strong> | ~1.0 dni | `🔥 Ekstremalny (< 24h)` |
+| **Nintendo 3DS & New 3DS (Królowie Płynności: New 3DS XL, New 3DS, 3DS LL)** | **9 szt.** | 16,344 JPY | <strong style='color:#10b981;'>+-17.84 zł</strong> | <strong style='color:#10b981;'>+-2.9%</strong> | ~1.0 dni | `🔥 Ekstremalny (< 24h)` |
 | **Wyselekcjonowane Konsole Stacjonarne (Tylko Wysoki Zysk > 400-750 zł)** | **7 szt.** | 15,471 JPY | <strong style='color:#10b981;'>+392.06 zł</strong> | <strong style='color:#10b981;'>+99.4%</strong> | ~1.0 dni | `🔥 Ekstremalny (< 24h)` |
 | **Sony PlayStation Portable Go (PSP-N1000 - 16GB Flash)** | **2 szt.** | 22,650 JPY | <strong style='color:#10b981;'>+129.30 zł</strong> | <strong style='color:#10b981;'>+16.5%</strong> | ~1.0 dni | `🔥 Ekstremalny (< 24h)` |
 | **Pakiety Gier Retro PSP (Mix UMD まとめ)** | **2 szt.** | 2,360 JPY | <strong style='color:#10b981;'>+164.31 zł</strong> | <strong style='color:#10b981;'>+119.7%</strong> | ~1.0 dni | `🔥 Ekstremalny (< 24h)` |
@@ -71,7 +71,7 @@ Na podstawie analizy tysięcy aukcji i zakończonych ofert z Mercari wyznaczyli�
 
 ---
 
-## 📋 Kompletny Rejestr Zamkniętych i Sprzedanych Ofert (177 Pozycji)
+## 📋 Kompletny Rejestr Zamkniętych i Sprzedanych Ofert (180 Pozycji)
 
 Poniższy dziennik zawiera każdą ofertę z bazy, która zakończyła się transakcją, została wykupiona lub wygasła. Pozwala to śledzić dokładne japońskie ceny końcowe:
 
@@ -217,6 +217,9 @@ Poniższy dziennik zawiera każdą ofertę z bazy, która zakończyła się tran
 | **DualShock 4 Berry Blue Limited Edition**<br><small>Berry Blue (Fiolet / Turkus)</small> | Limitowane Kontrolery PS1-PS4 (DualShock Retro & Collector) | **7,400 JPY**<br>(~183.53 zł) | ~306.30 zł | **280.00 zł** | <strong style='color:#10b981;'>+-26.30 zł</strong><br><small>(+-8.6%)</small> | `🔥 Błyskawiczna (< 24h)` | `Zakończone / Sprzedane` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m77203249089) |
 | **PSP-2000 Ice Silver**<br><small>Ice Silver</small> | Sony PlayStation Portable (PSP-2000 / PSP-3000) | **8,980 JPY**<br>(~222.07 zł) | ~354.99 zł | **320.00 zł** | <strong style='color:#10b981;'>+-34.99 zł</strong><br><small>(+-9.9%)</small> | `⚡ Błyskawiczna (< 24h)` | `Wykluczone: Uszkodzone (Broken)` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m40996162479) |
 | **Game Boy Micro (OXY-001)**<br><small>Famicom 20th Anniversary Edition</small> | Nintendo Game Boy (GBA SP AGS-101 Brighter, GBA, GBC & Micro) | **22,000 JPY**<br>(~544.04 zł) | ~755.97 zł | **720.00 zł** | <strong style='color:#10b981;'>+-35.97 zł</strong><br><small>(+-4.8%)</small> | `🔥 Błyskawiczna (< 24h)` | `Zakończone / Sprzedane` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m20297096060) |
+| **PSP-2000 Ceramic White**<br><small>Ceramic White</small> | Sony PlayStation Portable (PSP-2000 / PSP-3000) | **8,800 JPY**<br>(~217.62 zł) | ~349.37 zł | **310.00 zł** | <strong style='color:#10b981;'>+-39.37 zł</strong><br><small>(+-11.3%)</small> | `🔥 Błyskawiczna (< 24h)` | `Zakończone / Sprzedane` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m56183618041) |
+| **DualShock 4 Death Stranding Limited Edition**<br><small>Translucent Amber / BB Pod Yellow</small> | Limitowane Kontrolery PS1-PS4 (DualShock Retro & Collector) | **8,800 JPY**<br>(~217.62 zł) | ~349.37 zł | **310.00 zł** | <strong style='color:#10b981;'>+-39.37 zł</strong><br><small>(+-11.3%)</small> | `🔥 Błyskawiczna (< 24h)` | `Zakończone / Sprzedane` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m84716631974) |
+| **Nintendo 3DS**<br><small>Flare Red</small> | Nintendo 3DS & New 3DS (Królowie Płynności: New 3DS XL, New 3DS, 3DS LL) | **9,800 JPY**<br>(~242.34 zł) | ~380.64 zł | **340.00 zł** | <strong style='color:#10b981;'>+-40.64 zł</strong><br><small>(+-10.7%)</small> | `🔥 Błyskawiczna (< 24h)` | `Zakończone / Sprzedane` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m24529531772) |
 | **PCH-2000 Slim**<br><small>Glacier White</small> | PlayStation Vita (Special Editions & Colors) | **17,333 JPY**<br>(~429.89 zł) | ~624.28 zł | **580.00 zł** | <strong style='color:#10b981;'>+-44.28 zł</strong><br><small>(+-7.1%)</small> | `🔥 Błyskawiczna (< 24h)` | `Zakończone / Sprzedane` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m64627979696) |
 | **PCH-2000 Slim**<br><small>Neon Orange</small> | PlayStation Vita (Special Editions & Colors) | **21,800 JPY**<br>(~540.68 zł) | ~764.43 zł | **720.00 zł** | <strong style='color:#10b981;'>+-44.43 zł</strong><br><small>(+-5.8%)</small> | `🔥 Błyskawiczna (< 24h)` | `Zakończone / Sprzedane` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m33337627533) |
 | **Zestaw Gier PlayStation 1 (18 gier CIB)**<br><small>18 Gier PS1 Box</small> | Pakiety Gier Retro (Mix Gier / まとめ売り) | **4,300 JPY**<br>(~106.33 zł) | ~195.93 zł | **150.00 zł** | <strong style='color:#10b981;'>+-45.93 zł</strong><br><small>(+-23.4%)</small> | `⚡ Błyskawiczna (< 24h)` | `Wykluczone: Uszkodzone (Broken)` | [🛒 ZenMarket Archiwum](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m40155029391) |
@@ -269,4 +272,4 @@ flowchart TD
 ```
 
 ---
-*Raport wygenerowany automatycznie przez silnik HistoryTracker & HistoryGenerator. Ostatnia synchronizacja: 2026-11-10 16:36 UTC.*
+*Raport wygenerowany automatycznie przez silnik HistoryTracker & HistoryGenerator. Ostatnia synchronizacja: 2026-11-10 17:00 UTC.*
