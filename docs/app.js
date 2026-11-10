@@ -884,8 +884,12 @@ function renderDealCard(deal, isAuction) {
     ? `<a href="${deal.links.olx_search}" target="_blank" rel="noopener" class="pill-btn olx-pill" title="Sprawdź ogłoszenia na OLX w Polsce po targu">🇵🇱 OLX</a>`
     : '';
 
-  const ctaText = (isAuction && liveTiming && liveTiming.isEnded)
-    ? '🏛️ Sprawdź w ZenMarket'
+  const isAuctionEnded = isAuction && liveTiming && liveTiming.isEnded;
+  const auctionTargetUrl = (isAuctionEnded && deal.links && deal.links.zenmarket_ending_soon)
+    ? deal.links.zenmarket_ending_soon
+    : primaryUrl;
+  const ctaText = isAuctionEnded
+    ? '⏰ Szukaj trwających w ZenMarket'
     : (isAuction ? '🎯 Licytuj w ZenMarket' : '🛒 Kup w ZenMarket');
 
   if (isAuction) {
@@ -893,9 +897,9 @@ function renderDealCard(deal, isAuction) {
       <div class="card-action-tiers">
         <!-- Tier 1: Main High-Contrast CTAs (Direct Auction Bidding & Buy Now) -->
         <div class="card-main-ctas">
-          <a href="${primaryUrl}" target="_blank" rel="noopener" class="btn-action primary-cta ${liveTiming && liveTiming.isEnded ? 'cta-ended' : ''}" title="Licytuj na tej aukcji bezpośrednio przez ZenMarket (Działa w Polsce i UE bez VPN)">
+          <a href="${auctionTargetUrl}" target="_blank" rel="noopener" class="btn-action primary-cta ${isAuctionEnded ? 'cta-ended' : ''}" title="${isAuctionEnded ? 'Aukcja zakończona – otwórz trwające licytacje tego modelu w ZenMarket' : 'Licytuj na tej aukcji bezpośrednio przez ZenMarket (Działa w Polsce i UE bez VPN)'}">
             <span class="cta-text">${ctaText}</span>
-            <span class="cta-vpn-badge">Licytacja</span>
+            <span class="cta-vpn-badge">${isAuctionEnded ? 'Nowe oferty' : 'Licytacja'}</span>
           </a>
           ${deal.buy_now_price_jpy ? `
             <a href="${primaryUrl}" target="_blank" rel="noopener" class="btn-action buy-now-cta" title="Kup natychmiast bez licytacji w ZenMarket (Cena 即決: ${deal.buy_now_price_jpy.toLocaleString()} JPY ~${deal.buy_now_price_pln ? deal.buy_now_price_pln.toFixed(2) : ''} zł)">

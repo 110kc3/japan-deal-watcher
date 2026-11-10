@@ -93,6 +93,8 @@ TRAP_KEYWORDS = [
 def is_camera_item(item: Dict[str, Any]) -> bool:
     """Detects whether an item belongs to the analog/compact camera category."""
     cat_id = item.get("category_id", "")
+    if any(k in cat_id for k in ["nintendo", "handheld", "game", "ps_", "ps5", "retro", "controller", "consoles", "danshari"]):
+        return False
     cat_name = item.get("category_name", "").lower()
     model = item.get("model", "").lower()
     note = item.get("custom_note", item.get("note", "")).lower()
@@ -103,7 +105,7 @@ def is_camera_item(item: Dict[str, Any]) -> bool:
         return True
     if any(k in model for k in ["autoboy", "mju", "espio", "big mini", "c35", "pc35af", "trip 35", "riva zoom", "cardia"]):
         return True
-    if "aparat" in note:
+    if "aparat" in note and "aparat analog" in note:
         return True
     return False
 
