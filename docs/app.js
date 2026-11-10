@@ -891,12 +891,18 @@ function renderDealCard(deal, isAuction) {
   if (isAuction) {
     actionButtons = `
       <div class="card-action-tiers">
-        <!-- Tier 1: Main High-Contrast CTAs -->
+        <!-- Tier 1: Main High-Contrast CTAs (Direct Auction Bidding & Buy Now) -->
         <div class="card-main-ctas">
-          <a href="${primaryUrl}" target="_blank" rel="noopener" class="btn-action primary-cta ${liveTiming && liveTiming.isEnded ? 'cta-ended' : ''}" title="Licytuj bezpośrednio przez ZenMarket (Działa w Polsce i UE bez VPN)">
+          <a href="${primaryUrl}" target="_blank" rel="noopener" class="btn-action primary-cta ${liveTiming && liveTiming.isEnded ? 'cta-ended' : ''}" title="Licytuj na tej aukcji bezpośrednio przez ZenMarket (Działa w Polsce i UE bez VPN)">
             <span class="cta-text">${ctaText}</span>
-            <span class="cta-vpn-badge">Działa w PL</span>
+            <span class="cta-vpn-badge">Licytacja</span>
           </a>
+          ${deal.buy_now_price_jpy ? `
+            <a href="${primaryUrl}" target="_blank" rel="noopener" class="btn-action buy-now-cta" title="Kup natychmiast bez licytacji w ZenMarket (Cena 即決: ${deal.buy_now_price_jpy.toLocaleString()} JPY ~${deal.buy_now_price_pln ? deal.buy_now_price_pln.toFixed(2) : ''} zł)">
+              <span class="cta-text">⚡ Kup Teraz (${deal.buy_now_price_jpy.toLocaleString()} JPY)</span>
+              <span class="cta-vpn-badge">即決</span>
+            </a>
+          ` : ''}
           <button class="btn-action secondary-cta btn-add-cart" data-deal-id="${deal.id}" data-type="auction" title="Dodaj do wspólnej paczki morskiej/lotniczej">
             ➕ Do paczki
           </button>
@@ -914,26 +920,26 @@ function renderDealCard(deal, isAuction) {
         <!-- Tier 3: Collapsible Advanced Research & Proxy Links -->
         <details class="extra-tools-drawer">
           <summary class="extra-tools-summary">
-            <span class="summary-label">⚙️ Więcej linków i archiwa (落札相場)</span>
+            <span class="summary-label">⚙️ Bezpośrednie linki, archiwa i wyszukiwarki</span>
             <span class="summary-chevron">▾</span>
           </summary>
           <div class="extra-tools-grid">
-            <a href="${deal.links.zenmarket_ending_soon}" target="_blank" rel="noopener" class="tool-sublink">
-              ⏰ Kończące się (ZenMarket)
-            </a>
-            <a href="${deal.links.zenmarket_lowest_bid}" target="_blank" rel="noopener" class="tool-sublink">
-              🪙 Od 1 JPY (ZenMarket)
+            <a href="${deal.links.yahoo_direct}" target="_blank" rel="noopener" class="tool-sublink vpn-warn-link" title="Bezpośredni link do tej aukcji na Yahoo Japan – blokowany w UE bez japońskiego VPN">
+              🇯🇵 Yahoo Direct (Aukcja) <span class="tag-vpn-alert">⚠️ VPN</span>
             </a>
             ${deal.links.buyee_url ? `
-              <a href="${deal.links.buyee_url}" target="_blank" rel="noopener" class="tool-sublink">
-                🌐 Buyee Proxy (Alternatywa)
+              <a href="${deal.links.buyee_url}" target="_blank" rel="noopener" class="tool-sublink" title="Otwórz tę aukcję na platformie Buyee">
+                🌐 Buyee Proxy (Aukcja)
               </a>
             ` : ''}
-            <a href="${deal.links.yahoo_closed_archive}" target="_blank" rel="noopener" class="tool-sublink">
-              📊 Archiwum Yahoo (落札相場)
+            <a href="${deal.links.zenmarket_ending_soon}" target="_blank" rel="noopener" class="tool-sublink" title="Inne kończące się aukcje tego modelu w ZenMarket">
+              ⏰ Inne kończące się (ZenMarket)
             </a>
-            <a href="${deal.links.yahoo_direct}" target="_blank" rel="noopener" class="tool-sublink vpn-warn-link" title="Bezpośredni link do Yahoo Japan – blokowany w UE bez japońskiego VPN">
-              🇯🇵 Yahoo Direct <span class="tag-vpn-alert">⚠️ Wymaga VPN w UE</span>
+            <a href="${deal.links.zenmarket_lowest_bid}" target="_blank" rel="noopener" class="tool-sublink" title="Inne oferty od 1 JPY">
+              🪙 Inne od 1 JPY (ZenMarket)
+            </a>
+            <a href="${deal.links.yahoo_closed_archive}" target="_blank" rel="noopener" class="tool-sublink" title="Archiwum zakończonych licytacji tego przedmiotu na Yahoo (落札相場)">
+              📊 Archiwum Yahoo (落札相場)
             </a>
           </div>
         </details>
@@ -942,11 +948,11 @@ function renderDealCard(deal, isAuction) {
   } else {
     actionButtons = `
       <div class="card-action-tiers">
-        <!-- Tier 1: Main High-Contrast CTAs -->
+        <!-- Tier 1: Main High-Contrast CTAs (Direct Buy Now) -->
         <div class="card-main-ctas">
-          <a href="${primaryUrl}" target="_blank" rel="noopener" class="btn-action primary-cta mercari-primary" title="Kup teraz bezpośrednio przez ZenMarket (Działa w Polsce i UE)">
+          <a href="${primaryUrl}" target="_blank" rel="noopener" class="btn-action primary-cta mercari-primary" title="Kup teraz bezpośrednio przez ZenMarket (Działa w Polsce i UE bez VPN)">
             <span class="cta-text">🛒 Kup w ZenMarket</span>
-            <span class="cta-vpn-badge">Działa w PL</span>
+            <span class="cta-vpn-badge">Kup Teraz</span>
           </a>
           <button class="btn-action secondary-cta btn-add-cart" data-deal-id="${deal.id}" data-type="mercari" title="Dodaj do wspólnej paczki morskiej/lotniczej">
             ➕ Do paczki
@@ -969,28 +975,23 @@ function renderDealCard(deal, isAuction) {
             <span class="summary-chevron">▾</span>
           </summary>
           <div class="extra-tools-grid">
-            ${deal.links && deal.links.zenmarket_search_mercari ? `
-              <a href="${deal.links.zenmarket_search_mercari}" target="_blank" rel="noopener" class="tool-sublink">
-                🔍 Strumień Mercari (ZenMarket)
+            ${deal.links && deal.links.mercari_direct ? `
+              <a href="${deal.links.mercari_direct}" target="_blank" rel="noopener" class="tool-sublink" title="Bezpośrednia oferta na japońskim Mercari">
+                🏷️ Mercari Direct (Oferta)
               </a>
             ` : ''}
             ${deal.links && deal.links.buyee_url ? `
-              <a href="${deal.links.buyee_url}" target="_blank" rel="noopener" class="tool-sublink">
-                🌐 Buyee Proxy (Alternatywa)
+              <a href="${deal.links.buyee_url}" target="_blank" rel="noopener" class="tool-sublink" title="Otwórz tę ofertę na platformie Buyee">
+                🌐 Buyee Proxy (Oferta)
               </a>
             ` : ''}
-            ${deal.links && deal.links.mercari_live_search ? `
-              <a href="${deal.links.mercari_live_search}" target="_blank" rel="noopener" class="tool-sublink">
-                🇯🇵 Mercari Live Direct
-              </a>
-            ` : ''}
-            ${deal.links && deal.links.mercari_direct ? `
-              <a href="${deal.links.mercari_direct}" target="_blank" rel="noopener" class="tool-sublink">
-                🏷️ Mercari Oferta Direct
+            ${deal.links && deal.links.zenmarket_search_mercari ? `
+              <a href="${deal.links.zenmarket_search_mercari}" target="_blank" rel="noopener" class="tool-sublink" title="Szukaj innych egzemplarzy na Mercari przez ZenMarket">
+                🔍 Szukaj na Mercari (ZenMarket)
               </a>
             ` : ''}
             ${deal.links && deal.links.zenmarket_yahoo_search ? `
-              <a href="${deal.links.zenmarket_yahoo_search}" target="_blank" rel="noopener" class="tool-sublink">
+              <a href="${deal.links.zenmarket_yahoo_search}" target="_blank" rel="noopener" class="tool-sublink" title="Zobacz licytacje tego przedmiotu na Yahoo Aukcjach">
                 🔨 Szukaj na Yahoo Aukcjach
               </a>
             ` : ''}

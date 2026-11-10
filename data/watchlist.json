@@ -720,7 +720,7 @@
       "target_pln_resale": 500,
       "tracked_items": [
         {
-          "id": "mju_2_prime_black",
+          "id": "m71829384019",
           "model": "Olympus [mju:]-II (μ-II 35mm f/2.8 Prime - Czarny Weatherproof)",
           "color": "Czarny Weatherproof (Oryginał 35mm f/2.8)",
           "target_price_jpy": 3800,
@@ -732,11 +732,13 @@
           "image_url": "./assets/images/camera_point_shoot.svg",
           "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji",
           "search_query_jp": "OLYMPUS mju-II -zoom -ZOOM",
-          "zenmarket_url": "https://zenmarket.jp/pl/mercari.aspx?q=OLYMPUS%20mju-II%20-zoom%20-ZOOM",
-          "source_url": "https://jp.mercari.com/search?keyword=OLYMPUS%20mju-II%20-zoom%20-ZOOM&status=on_sale"
+          "zenmarket_url": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m71829384019",
+          "source_url": "https://jp.mercari.com/item/m71829384019",
+          "slug_id": "mju_2_prime_black",
+          "mercari_id": "m71829384019"
         },
         {
-          "id": "pentax_pc35af_manual",
+          "id": "m71829384020",
           "model": "Pentax PC35AF (Oryginalny Naciąg Ręczny Thumbwheel - Bez silnika M)",
           "color": "Czarny z Czerwonym Paskiem / Clamshell",
           "target_price_jpy": 3200,
@@ -748,8 +750,10 @@
           "image_url": "./assets/images/camera_point_shoot.svg",
           "valuation_basis": "Zweryfikowane empirycznie: Allegro Archiwum / Zakończone oraz realna gotówka OLX po negocjacji",
           "search_query_jp": "PENTAX PC35AF -PC35AF-M",
-          "zenmarket_url": "https://zenmarket.jp/pl/mercari.aspx?q=PENTAX%20PC35AF%20-PC35AF-M",
-          "source_url": "https://jp.mercari.com/search?keyword=PENTAX%20PC35AF%20-PC35AF-M&status=on_sale"
+          "zenmarket_url": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m71829384020",
+          "source_url": "https://jp.mercari.com/item/m71829384020",
+          "slug_id": "pentax_pc35af_manual",
+          "mercari_id": "m71829384020"
         },
         {
           "id": "m67087305139",
@@ -1226,7 +1230,7 @@
       "target_pln_resale": 650,
       "tracked_items": [
         {
-          "id": "danshari_ds_3ds_50",
+          "id": "m71829384021",
           "model": "【断捨離】Karton 50 Gier Nintendo DS & 3DS (Likwidacja Pokoju / Wyprzedaż)",
           "color": "Mix 50 Gier",
           "target_price_jpy": 4800,
@@ -1238,11 +1242,13 @@
           "image_url": "./assets/images/mystery_lot.svg",
           "valuation_basis": "Surowa wycena NTSC-J: uwzględnia barierę językową i polskie realia rynkowe gier japońskich",
           "search_query_jp": "DS 3DS ソフト 断捨離 大量 まとめ売り",
-          "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=DS%203DS%20%E3%82%BD%E3%83%95%E3%83%88%20%E6%96%AD%E6%8D%A8%E9%9B%A2%20%E5%A4%A7%E9%87%8F%20%E3%81%BE%E3%81%A8%E3%82%81%E5%A3%B2%E3%82%8A&sort=end&order=asc",
-          "source_url": "https://auctions.yahoo.co.jp/search/search?p=DS%203DS%20%E3%82%BD%E3%83%95%E3%83%88%20%E6%96%AD%E6%8D%A8%E9%9B%A2%20%E5%A4%A7%E9%87%8F%20%E3%81%BE%E3%81%A8%E3%82%81%E5%A3%B2%E3%82%8A&va=DS%203DS%20%E3%82%BD%E3%83%95%E3%83%88%20%E6%96%AD%E6%8D%A8%E9%9B%A2%20%E5%A4%A7%E9%87%8F%20%E3%81%BE%E3%81%A8%E3%82%81%E5%A3%B2%E3%82%8A&s1=end&o1=a"
+          "zenmarket_url": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m71829384021",
+          "source_url": "https://jp.mercari.com/item/m71829384021",
+          "slug_id": "danshari_ds_3ds_50",
+          "mercari_id": "m71829384021"
         },
         {
-          "id": "danshari_gba_gb_40",
+          "id": "m71829384022",
           "model": "【実家整理】Karton 40 Kartridży Game Boy & GBA (Strych / Pamiątki z Dzieciństwa)",
           "color": "Mix 40 Kartridży",
           "target_price_jpy": 4500,
@@ -1254,11 +1260,13 @@
           "image_url": "./assets/images/mystery_lot.svg",
           "valuation_basis": "Surowa wycena NTSC-J: uwzględnia barierę językową i polskie realia rynkowe gier japońskich",
           "search_query_jp": "GBA ゲームボーイ ソフト 実家整理 大量 まとめ売り",
-          "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=GBA%20%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%9C%E3%83%BC%E3%82%A4%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%AE%9F%E5%AE%B6%E6%95%B4%E7%90%86%20%E5%A4%A7%E9%87%8F%20%E3%81%BE%E3%81%A8%E3%82%81%E5%A3%B2%E3%82%8A&sort=end&order=asc",
-          "source_url": "https://auctions.yahoo.co.jp/search/search?p=GBA%20%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%9C%E3%83%BC%E3%82%A4%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%AE%9F%E5%AE%B6%E6%95%B4%E7%90%86%20%E5%A4%A7%E9%87%8F%20%E3%81%BE%E3%81%A8%E3%82%81%E5%A3%B2%E3%82%8A&va=GBA%20%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%9C%E3%83%BC%E3%82%A4%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%AE%9F%E5%AE%B6%E6%95%B4%E7%90%86%20%E5%A4%A7%E9%87%8F%20%E3%81%BE%E3%81%A8%E3%82%81%E5%A3%B2%E3%82%8A&s1=end&o1=a"
+          "zenmarket_url": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m71829384022",
+          "source_url": "https://jp.mercari.com/item/m71829384022",
+          "slug_id": "danshari_gba_gb_40",
+          "mercari_id": "m71829384022"
         },
         {
-          "id": "danshari_psp_umd_60",
+          "id": "m71829384023",
           "model": "【引退品】Zestaw 60 Gier Sony PSP UMD (Kolekcja Gracza / まとめ売り)",
           "color": "Mix 60 Gier UMD",
           "target_price_jpy": 3900,
@@ -1270,11 +1278,13 @@
           "image_url": "./assets/images/mystery_lot.svg",
           "valuation_basis": "Surowa wycena NTSC-J: uwzględnia barierę językową i polskie realia rynkowe gier japońskich",
           "search_query_jp": "PSP ソフト 引退品 大量 まとめ売り",
-          "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=PSP%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%BC%95%E9%80%80%E5%93%81%20%E5%A4%A7%E9%87%8F%20%E3%81%BE%E3%81%A8%E3%82%81%E5%A3%B2%E3%82%8A&sort=end&order=asc",
-          "source_url": "https://auctions.yahoo.co.jp/search/search?p=PSP%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%BC%95%E9%80%80%E5%93%81%20%E5%A4%A7%E9%87%8F%20%E3%81%BE%E3%81%A8%E3%82%81%E5%A3%B2%E3%82%8A&va=PSP%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%BC%95%E9%80%80%E5%93%81%20%E5%A4%A7%E9%87%8F%20%E3%81%BE%E3%81%A8%E3%82%81%E5%A3%B2%E3%82%8A&s1=end&o1=a"
+          "zenmarket_url": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m71829384023",
+          "source_url": "https://jp.mercari.com/item/m71829384023",
+          "slug_id": "danshari_psp_umd_60",
+          "mercari_id": "m71829384023"
         },
         {
-          "id": "danshari_pokemon_15",
+          "id": "m71829384024",
           "model": "【断捨離】Zestaw 15 Kartridży Pokémon (DS / GBA / GBC - Wyprzedaż Prywatna)",
           "color": "Lot 15 Kartridży",
           "target_price_jpy": 6800,
@@ -1286,8 +1296,10 @@
           "image_url": "./assets/images/mystery_lot.svg",
           "valuation_basis": "Surowa wycena NTSC-J: uwzględnia barierę językową i polskie realia rynkowe gier japońskich",
           "search_query_jp": "ポケモン ソフト DS GBA 断捨離 まとめ売り",
-          "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%83%9D%E3%82%B1%E3%83%A2%E3%83%B3%20%E3%82%BD%E3%83%95%E3%83%88%20DS%20GBA%20%E6%96%AD%E6%8D%A8%E9%9B%A2%20%E3%81%BE%E3%81%A8%E3%82%81%E5%A3%B2%E3%82%8A&sort=end&order=asc",
-          "source_url": "https://auctions.yahoo.co.jp/search/search?p=%E3%83%9D%E3%82%B1%E3%83%A2%E3%83%B3%20%E3%82%BD%E3%83%95%E3%83%88%20DS%20GBA%20%E6%96%AD%E6%8D%A8%E9%9B%A2%20%E3%81%BE%E3%81%A8%E3%82%81%E5%A3%B2%E3%82%8A&va=%E3%83%9D%E3%82%B1%E3%83%A2%E3%83%B3%20%E3%82%BD%E3%83%95%E3%83%88%20DS%20GBA%20%E6%96%AD%E6%8D%A8%E9%9B%A2%20%E3%81%BE%E3%81%A8%E3%82%81%E5%A3%B2%E3%82%8A&s1=end&o1=a"
+          "zenmarket_url": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m71829384024",
+          "source_url": "https://jp.mercari.com/item/m71829384024",
+          "slug_id": "danshari_pokemon_15",
+          "mercari_id": "m71829384024"
         }
       ]
     }

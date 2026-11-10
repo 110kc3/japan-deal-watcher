@@ -151,7 +151,7 @@ class TestWebappExporter(unittest.TestCase):
             self.assertGreaterEqual(len(data["search_streams"]), 20)
 
     def test_specific_auction_links_and_search_streams(self):
-        """Ensures auctions link to live ZenMarket streams ending soonest and auxiliary research links."""
+        """Ensures auctions link directly to specific auction listings and auxiliary research links."""
         auction_item = {
             "id": "v1173928104",
             "auction_id": "v1173928104",
@@ -161,6 +161,7 @@ class TestWebappExporter(unittest.TestCase):
             "category_name": "PlayStation Vita",
             "battery_type": "li-ion",
             "price_jpy": 10200,
+            "buy_now_price_jpy": 12800,
             "est_pl_value": 650.0,
             "search_query_jp": "PSヴィータ PCH-2000 本体",
             "status": "Aktywna"
@@ -174,17 +175,19 @@ class TestWebappExporter(unittest.TestCase):
         processed = exporter.process_yahoo_deal(auction_item)
         links = processed["links"]
 
-        # Ensure live auction search streams sorted by ending soonest (no fake 404 auction IDs)
-        self.assertIn("zenmarket.jp/pl/yahoo.aspx?q=", links["primary_url"])
-        self.assertIn("sort=end&order=asc", links["primary_url"])
-        self.assertEqual(links["zenmarket_sniper"], links["primary_url"])
-        self.assertNotIn("auction.aspx?itemCode=", links["primary_url"])
+        # Ensure direct auction links for normal auctions and buy now
+        self.assertEqual(links["primary_url"], "https://zenmarket.jp/pl/auction.aspx?itemCode=v1173928104")
+        self.assertEqual(links["zenmarket_auction"], "https://zenmarket.jp/pl/auction.aspx?itemCode=v1173928104")
+        self.assertEqual(links["zenmarket_sniper"], "https://zenmarket.jp/pl/auction.aspx?itemCode=v1173928104")
+        self.assertEqual(links["zenmarket_buy_now"], "https://zenmarket.jp/pl/auction.aspx?itemCode=v1173928104")
+        self.assertEqual(links["buyee_url"], "https://buyee.jp/item/yahoo/auction/v1173928104")
+        self.assertEqual(links["yahoo_direct"], "https://page.auctions.yahoo.co.jp/jp/auction/v1173928104")
+        self.assertTrue(processed["has_buy_now"])
+        self.assertEqual(processed["buy_now_price_jpy"], 12800)
 
-        # Auxiliary research links
+        # Auxiliary research links in drawer
         self.assertIn("sort=end&order=asc", links["zenmarket_ending_soon"])
         self.assertIn("sort=price&order=asc", links["zenmarket_lowest_bid"])
-        self.assertIn("sort=end&order=a", links["buyee_url"])
-        self.assertIn("s1=end&o1=a", links["yahoo_direct"])
         self.assertIn("closedsearch", links["yahoo_closed_archive"])
 
     def test_clean_polish_market_queries(self):

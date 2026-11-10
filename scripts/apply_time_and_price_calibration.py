@@ -58,6 +58,8 @@ for d in deals:
     deal_by_id[d["id"]] = d
     if d.get("slug_id"):
         deal_by_id[d["slug_id"]] = d
+    if d.get("auction_id"):
+        deal_by_id[d["auction_id"]] = d
 
 for did, minutes, price in t1_specs:
     d = deal_by_id[did]

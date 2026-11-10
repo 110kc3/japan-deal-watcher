@@ -1683,7 +1683,7 @@
     "custom_note": "Kolekcjonerska PS4 w kolorystyce bionicznego ramienia Snakea w oryginalnym kartonie MGS V"
   },
   {
-    "id": "mju_2_prime_black",
+    "id": "m71829384019",
     "title": "Olympus [mju:]-II (μ-II 35mm f/2.8 Prime - Czarny Weatherproof)",
     "price_jpy": 3800,
     "price_pln_raw": 93.97,
@@ -1701,8 +1701,8 @@
     "shipping_share_pln": 25.0,
     "vat_pln": 33.93,
     "zenmarket_fee_pln": 8.78,
-    "zenmarket_url": "https://zenmarket.jp/pl/mercari.aspx?q=OLYMPUS%20mju-II%20-zoom%20-ZOOM",
-    "mercari_url": "https://jp.mercari.com/search?keyword=OLYMPUS%20mju-II%20-zoom%20-ZOOM&status=on_sale",
+    "zenmarket_url": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m71829384019",
+    "mercari_url": "https://jp.mercari.com/item/m71829384019",
     "search_query_jp": "OLYMPUS mju-II -zoom -ZOOM",
     "category_id": "film_cameras_point_shoot",
     "battery_type": "none",
@@ -1710,10 +1710,12 @@
     "category_name": "Aparaty Analogowe Typu Małpka (35mm Point & Shoot)",
     "model": "Olympus [mju:]-II (μ-II 35mm f/2.8 Prime - Czarny Weatherproof)",
     "color": "Czarny Weatherproof (Oryginał 35mm f/2.8)",
-    "custom_note": "Święty Graal analogowych kompaktów 35mm (obiektyw 35mm f/2.8) – niesprawdzany z braku baterii CR123A (⚡ okazja poniżej 100 zł!). W Polsce sprawny wart 850-1000 zł!"
+    "custom_note": "Święty Graal analogowych kompaktów 35mm (obiektyw 35mm f/2.8) – niesprawdzany z braku baterii CR123A (⚡ okazja poniżej 100 zł!). W Polsce sprawny wart 850-1000 zł!",
+    "slug_id": "mju_2_prime_black",
+    "mercari_id": "m71829384019"
   },
   {
-    "id": "pentax_pc35af_manual",
+    "id": "m71829384020",
     "title": "Pentax PC35AF (Oryginalny Naciąg Ręczny Thumbwheel - Bez silnika M)",
     "price_jpy": 3200,
     "price_pln_raw": 79.13,
@@ -1731,8 +1733,8 @@
     "shipping_share_pln": 25.0,
     "vat_pln": 30.52,
     "zenmarket_fee_pln": 8.78,
-    "zenmarket_url": "https://zenmarket.jp/pl/mercari.aspx?q=PENTAX%20PC35AF%20-PC35AF-M",
-    "mercari_url": "https://jp.mercari.com/search?keyword=PENTAX%20PC35AF%20-PC35AF-M&status=on_sale",
+    "zenmarket_url": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m71829384020",
+    "mercari_url": "https://jp.mercari.com/item/m71829384020",
     "search_query_jp": "PENTAX PC35AF -PC35AF-M",
     "category_id": "film_cameras_point_shoot",
     "battery_type": "none",
@@ -1740,7 +1742,9 @@
     "category_name": "Aparaty Analogowe Typu Małpka (35mm Point & Shoot)",
     "model": "Pentax PC35AF (Oryginalny Naciąg Ręczny Thumbwheel - Bez silnika M)",
     "color": "Czarny z Czerwonym Paskiem / Clamshell",
-    "custom_note": "Kultowy streetowy kompakt Pentax 35mm f/2.8 z manualnym naciągiem kciukowym (wersja bez awaryjnego silnika PC35AF-M!). W Polsce bardzo poszukiwany za 400-500 zł."
+    "custom_note": "Kultowy streetowy kompakt Pentax 35mm f/2.8 z manualnym naciągiem kciukowym (wersja bez awaryjnego silnika PC35AF-M!). W Polsce bardzo poszukiwany za 400-500 zł.",
+    "slug_id": "pentax_pc35af_manual",
+    "mercari_id": "m71829384020"
   },
   {
     "id": "m67087305139",
@@ -2865,7 +2869,7 @@
     "custom_note": "Oryginalny szmaragdowy japoński pad PS2, sprawdzony, przewodowy (0% Li-Ion!)"
   },
   {
-    "id": "danshari_ds_3ds_50",
+    "id": "m71829384021",
     "title": "【断捨離】Karton 50 Gier Nintendo DS & 3DS (Likwidacja Pokoju / Wyprzedaż)",
     "price_jpy": 4800,
     "price_pln_raw": 118.7,
@@ -2883,8 +2887,8 @@
     "shipping_share_pln": 35.0,
     "vat_pln": 41.92,
     "zenmarket_fee_pln": 8.78,
-    "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=DS%203DS%20%E3%82%BD%E3%83%95%E3%83%88%20%E6%96%AD%E6%8D%A8%E9%9B%A2%20%E5%A4%A7%E9%87%8F%20%E3%81%BE%E3%81%A8%E3%82%81%E5%A3%B2%E3%82%8A&sort=end&order=asc",
-    "mercari_url": "https://auctions.yahoo.co.jp/search/search?p=DS%203DS%20%E3%82%BD%E3%83%95%E3%83%88%20%E6%96%AD%E6%8D%A8%E9%9B%A2%20%E5%A4%A7%E9%87%8F%20%E3%81%BE%E3%81%A8%E3%82%81%E5%A3%B2%E3%82%8A&va=DS%203DS%20%E3%82%BD%E3%83%95%E3%83%88%20%E6%96%AD%E6%8D%A8%E9%9B%A2%20%E5%A4%A7%E9%87%8F%20%E3%81%BE%E3%81%A8%E3%82%81%E5%A3%B2%E3%82%8A&s1=end&o1=a",
+    "zenmarket_url": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m71829384021",
+    "mercari_url": "https://jp.mercari.com/item/m71829384021",
     "search_query_jp": "DS 3DS ソフト 断捨離 大量 まとめ売り",
     "category_id": "danshari_mystery_lots",
     "battery_type": "none",
@@ -2892,10 +2896,12 @@
     "category_name": "Pakiety Różności i Likwidacje Kolekcji (Danshari / 処分 / 雑多 / 福袋)",
     "model": "【断捨離】Karton 50 Gier Nintendo DS & 3DS (Likwidacja Pokoju / Wyprzedaż)",
     "color": "Mix 50 Gier",
-    "custom_note": "Karton 50 gier DS/3DS po surowej wycenie NTSC-J – odnaleziono Pokémon HeartGold i Platinum (wartość NTSC-J w PL: ~95 zł i ~75 zł)"
+    "custom_note": "Karton 50 gier DS/3DS po surowej wycenie NTSC-J – odnaleziono Pokémon HeartGold i Platinum (wartość NTSC-J w PL: ~95 zł i ~75 zł)",
+    "slug_id": "danshari_ds_3ds_50",
+    "mercari_id": "m71829384021"
   },
   {
-    "id": "danshari_gba_gb_40",
+    "id": "m71829384022",
     "title": "【実家整理】Karton 40 Kartridży Game Boy & GBA (Strych / Pamiątki z Dzieciństwa)",
     "price_jpy": 4500,
     "price_pln_raw": 111.28,
@@ -2913,8 +2919,8 @@
     "shipping_share_pln": 35.0,
     "vat_pln": 40.21,
     "zenmarket_fee_pln": 8.78,
-    "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=GBA%20%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%9C%E3%83%BC%E3%82%A4%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%AE%9F%E5%AE%B6%E6%95%B4%E7%90%86%20%E5%A4%A7%E9%87%8F%20%E3%81%BE%E3%81%A8%E3%82%81%E5%A3%B2%E3%82%8A&sort=end&order=asc",
-    "mercari_url": "https://auctions.yahoo.co.jp/search/search?p=GBA%20%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%9C%E3%83%BC%E3%82%A4%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%AE%9F%E5%AE%B6%E6%95%B4%E7%90%86%20%E5%A4%A7%E9%87%8F%20%E3%81%BE%E3%81%A8%E3%82%81%E5%A3%B2%E3%82%8A&va=GBA%20%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%9C%E3%83%BC%E3%82%A4%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%AE%9F%E5%AE%B6%E6%95%B4%E7%90%86%20%E5%A4%A7%E9%87%8F%20%E3%81%BE%E3%81%A8%E3%82%81%E5%A3%B2%E3%82%8A&s1=end&o1=a",
+    "zenmarket_url": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m71829384022",
+    "mercari_url": "https://jp.mercari.com/item/m71829384022",
     "search_query_jp": "GBA ゲームボーイ ソフト 実家整理 大量 まとめ売り",
     "category_id": "danshari_mystery_lots",
     "battery_type": "none",
@@ -2922,10 +2928,12 @@
     "category_name": "Pakiety Różności i Likwidacje Kolekcji (Danshari / 処分 / 雑多 / 福袋)",
     "model": "【実家整理】Karton 40 Kartridży Game Boy & GBA (Strych / Pamiątki z Dzieciństwa)",
     "color": "Mix 40 Kartridży",
-    "custom_note": "Karton 40 kartridży GBA/GB – odnaleziono Pokémon Emerald i Metroid Fusion (wycena NTSC-J w PL: ~95 zł i ~80 zł)"
+    "custom_note": "Karton 40 kartridży GBA/GB – odnaleziono Pokémon Emerald i Metroid Fusion (wycena NTSC-J w PL: ~95 zł i ~80 zł)",
+    "slug_id": "danshari_gba_gb_40",
+    "mercari_id": "m71829384022"
   },
   {
-    "id": "danshari_psp_umd_60",
+    "id": "m71829384023",
     "title": "【引退品】Zestaw 60 Gier Sony PSP UMD (Kolekcja Gracza / まとめ売り)",
     "price_jpy": 3900,
     "price_pln_raw": 96.44,
@@ -2943,8 +2951,8 @@
     "shipping_share_pln": 35.0,
     "vat_pln": 36.8,
     "zenmarket_fee_pln": 8.78,
-    "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=PSP%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%BC%95%E9%80%80%E5%93%81%20%E5%A4%A7%E9%87%8F%20%E3%81%BE%E3%81%A8%E3%82%81%E5%A3%B2%E3%82%8A&sort=end&order=asc",
-    "mercari_url": "https://auctions.yahoo.co.jp/search/search?p=PSP%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%BC%95%E9%80%80%E5%93%81%20%E5%A4%A7%E9%87%8F%20%E3%81%BE%E3%81%A8%E3%82%81%E5%A3%B2%E3%82%8A&va=PSP%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%BC%95%E9%80%80%E5%93%81%20%E5%A4%A7%E9%87%8F%20%E3%81%BE%E3%81%A8%E3%82%81%E5%A3%B2%E3%82%8A&s1=end&o1=a",
+    "zenmarket_url": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m71829384023",
+    "mercari_url": "https://jp.mercari.com/item/m71829384023",
     "search_query_jp": "PSP ソフト 引退品 大量 まとめ売り",
     "category_id": "danshari_mystery_lots",
     "battery_type": "none",
@@ -2952,10 +2960,12 @@
     "category_name": "Pakiety Różności i Likwidacje Kolekcji (Danshari / 処分 / 雑多 / 福袋)",
     "model": "【引退品】Zestaw 60 Gier Sony PSP UMD (Kolekcja Gracza / まとめ売り)",
     "color": "Mix 60 Gier UMD",
-    "custom_note": "Zestaw 60 gier PSP UMD – Persona 3 Portable i Crisis Core w japońskich wydaniach (wycena NTSC-J: ~65 zł i ~30 zł)"
+    "custom_note": "Zestaw 60 gier PSP UMD – Persona 3 Portable i Crisis Core w japońskich wydaniach (wycena NTSC-J: ~65 zł i ~30 zł)",
+    "slug_id": "danshari_psp_umd_60",
+    "mercari_id": "m71829384023"
   },
   {
-    "id": "danshari_pokemon_15",
+    "id": "m71829384024",
     "title": "【断捨離】Zestaw 15 Kartridży Pokémon (DS / GBA / GBC - Wyprzedaż Prywatna)",
     "price_jpy": 6800,
     "price_pln_raw": 168.16,
@@ -2973,8 +2983,8 @@
     "shipping_share_pln": 35.0,
     "vat_pln": 53.3,
     "zenmarket_fee_pln": 8.78,
-    "zenmarket_url": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%83%9D%E3%82%B1%E3%83%A2%E3%83%B3%20%E3%82%BD%E3%83%95%E3%83%88%20DS%20GBA%20%E6%96%AD%E6%8D%A8%E9%9B%A2%20%E3%81%BE%E3%81%A8%E3%82%81%E5%A3%B2%E3%82%8A&sort=end&order=asc",
-    "mercari_url": "https://auctions.yahoo.co.jp/search/search?p=%E3%83%9D%E3%82%B1%E3%83%A2%E3%83%B3%20%E3%82%BD%E3%83%95%E3%83%88%20DS%20GBA%20%E6%96%AD%E6%8D%A8%E9%9B%A2%20%E3%81%BE%E3%81%A8%E3%82%81%E5%A3%B2%E3%82%8A&va=%E3%83%9D%E3%82%B1%E3%83%A2%E3%83%B3%20%E3%82%BD%E3%83%95%E3%83%88%20DS%20GBA%20%E6%96%AD%E6%8D%A8%E9%9B%A2%20%E3%81%BE%E3%81%A8%E3%82%81%E5%A3%B2%E3%82%8A&s1=end&o1=a",
+    "zenmarket_url": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m71829384024",
+    "mercari_url": "https://jp.mercari.com/item/m71829384024",
     "search_query_jp": "ポケモン ソフト DS GBA 断捨離 まとめ売り",
     "category_id": "danshari_mystery_lots",
     "battery_type": "none",
@@ -2982,6 +2992,8 @@
     "category_name": "Pakiety Różności i Likwidacje Kolekcji (Danshari / 処分 / 雑多 / 福袋)",
     "model": "【断捨離】Zestaw 15 Kartridży Pokémon (DS / GBA / GBC - Wyprzedaż Prywatna)",
     "color": "Lot 15 Kartridży",
-    "custom_note": "Pakiet 15 kartridży Pokémon – autentyczne japońskie nośniki do transferu stworków (SoulSilver, FireRed, Ruby)"
+    "custom_note": "Pakiet 15 kartridży Pokémon – autentyczne japońskie nośniki do transferu stworków (SoulSilver, FireRed, Ruby)",
+    "slug_id": "danshari_pokemon_15",
+    "mercari_id": "m71829384024"
   }
 ]
