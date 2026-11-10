@@ -3,7 +3,7 @@
 > **Rzeczywiste Dane Sprzedaży z Japońskich Rynków (Mercari Japan & Yahoo! Japan Auctions)**  
 > *Rejestr zamkniętych ofert, tempo wyprzedawania towaru (Days on Market), analiza poziomów cenowych (落札相場) oraz sygnały popytowe dla importera.*
 
-![Closed Sales](https://img.shields.io/badge/Closed%20Sales-114-brightgreen) ![Active Listings](https://img.shields.io/badge/Active%20Tracked-231-blue) ![Avg Realized ROI](https://img.shields.io/badge/Avg%20Realized%20ROI-+67.5%25-orange) ![Total Realized Profit](https://img.shields.io/badge/Realized%20Profit-+17801%20PLN-brightgreen) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-10%2015:56%20UTC-purple)
+![Closed Sales](https://img.shields.io/badge/Closed%20Sales-114-brightgreen) ![Active Listings](https://img.shields.io/badge/Active%20Tracked-232-blue) ![Avg Realized ROI](https://img.shields.io/badge/Avg%20Realized%20ROI-+67.5%25-orange) ![Total Realized Profit](https://img.shields.io/badge/Realized%20Profit-+17801%20PLN-brightgreen) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-10%2015:59%20UTC-purple)
 
 ⬅ **Nawigacja:** [Główny Dashboard Mercari (README.md)](README.md) · [📡 Radar Licytacji (AUCTION_RADAR.md)](AUCTION_RADAR.md) · [Katalog Alternatywnych Ofert (YAHOO_AUCTIONS_DEALS.md)](YAHOO_AUCTIONS_DEALS.md) · [🎯 Poradnik Snajpera (AUCTION_SNIPING_GUIDE.md)](AUCTION_SNIPING_GUIDE.md) · [💰 Audyt Opłacalności (REAL_PROFITABILITY_AUDIT.md)](REAL_PROFITABILITY_AUDIT.md)
 
@@ -22,7 +22,7 @@
 | Metryka Rynkowa | Wartość | Komentarz Analityczny |
 |---|---:|---|
 | **Łącznie Zarejestrowanych Transakcji** | **`114 ofert`** | Zamknięte lub wyprzedane pozycje z monitorowanej bazy |
-| **Aktywne Oferty w Monitoringu** | **`231 ofert`** | Dostępne obecnie do natychmiastowego zakupu / licytacji |
+| **Aktywne Oferty w Monitoringu** | **`232 ofert`** | Dostępne obecnie do natychmiastowego zakupu / licytacji |
 | **Średnia Cena Sprzedaży w Japonii** | **`8,120 JPY`** (~201.42 zł) | Średni kapitał zakupu na 1 pozycję |
 | **Średni Koszt Landed w Polsce (z VAT)** | **`~329.73 zł`** | Zawiera wysyłkę w paczce zbiorczej, 2 EUR, 800 JPY i 23% VAT |
 | **Średni Zysk Netto na Sztuce** | **`<strong style='color:#10b981;'>+156.15 zł</strong>`** | Czysty zysk po odliczeniu wszystkich kosztów sprowadzenia |
@@ -206,4 +206,4 @@ flowchart TD
 ```
 
 ---
-*Raport wygenerowany automatycznie przez silnik HistoryTracker & HistoryGenerator. Ostatnia synchronizacja: 2026-11-10 15:56 UTC.*
+*Raport wygenerowany automatycznie przez silnik HistoryTracker & HistoryGenerator. Ostatnia synchronizacja: 2026-11-10 15:59 UTC.*
