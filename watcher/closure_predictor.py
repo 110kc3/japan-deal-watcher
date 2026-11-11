@@ -23,6 +23,7 @@ class ConditionGrade:
     GOOD_CONSOLE_ONLY = "C_GOOD_CONSOLE_ONLY"
     FLAWED_WORKING = "D_FLAWED_WORKING"
     UNTESTED_JUNK = "J_UNTESTED_JUNK"
+    UNKNOWN = "U_UNKNOWN"
 
     DETAILS = {
         MINT_BOX: {
@@ -59,6 +60,13 @@ class ConditionGrade:
             "multiplier": 0.90,
             "badge_color": "#ec4899",  # pink
             "desc": "Nietestowany pakiet hurtowy lub likwidacja szafy ze strychu (Danshari)"
+        },
+        UNKNOWN: {
+            "label": "❓ Stan Nieznany (Brak Opisu)",
+            "short_label": "Nieznany",
+            "multiplier": 0.85,
+            "badge_color": "#94a3b8",  # slate
+            "desc": "Brak deklaracji sprawności od sprzedawcy – wymaga weryfikacji przed licytacją"
         }
     }
 
@@ -76,6 +84,22 @@ class ConditionAnalyzer:
         full_text = f"{title} {model} {note} {c_badge} {cat_id}"
 
         features: List[str] = []
+
+        # 0. Empty / No condition claim: Unknown condition
+        if not (title.strip() or note.strip() or c_badge.strip()):
+            grade = ConditionGrade.UNKNOWN
+            features.append("Brak deklaracji sprzedawcy")
+            features.append("Stan techniczny nieznany")
+            meta = ConditionGrade.DETAILS[grade]
+            return {
+                "grade": grade,
+                "label": meta["label"],
+                "short_label": meta["short_label"],
+                "multiplier": meta["multiplier"],
+                "badge_color": meta["badge_color"],
+                "desc": meta["desc"],
+                "features": features
+            }
 
         # 1. Danshari / Mystery lot / Untested Wholesale
         is_lot = any(w in full_text for w in [
@@ -186,16 +210,9 @@ class AuctionClosurePredictor:
         else:
             predicted_closure = max(int(current_price_jpy), predicted_closure)
 
-        # Enforce strict <= 100 PLN cap for cameras and lenses
+        # Enforce strict <= 100 PLN cap for cameras and lenses on the buyer's maximum bid (never clamp market predictions)
         is_cam = is_camera_item(deal) or cat_id == "film_cameras_point_shoot"
         is_lens = is_lens_item(deal) or cat_id == "analog_lenses"
-        if is_cam or is_lens:
-            max_cap_pln = MAX_CAMERA_PRICE_PLN if is_cam else MAX_LENS_PRICE_PLN
-            cap_jpy = int((max_cap_pln / rate_jpy) // 100 * 100)
-            if current_price_jpy <= cap_jpy:
-                predicted_closure = min(predicted_closure, cap_jpy)
-                predicted_min = min(predicted_min, cap_jpy)
-                predicted_max = min(predicted_max, cap_jpy)
 
         # 2. Landed cost and margin at predicted closing price
         expected_landed = calculate_landed_cost(predicted_closure, cat_id, rate_jpy, rate_eur)

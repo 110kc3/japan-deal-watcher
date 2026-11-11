@@ -2,6 +2,11 @@
 
 from datetime import datetime, timezone, timedelta
 from typing import Dict, Any, Optional
+import zoneinfo
+
+
+TZ_WARSAW = zoneinfo.ZoneInfo("Europe/Warsaw")
+TZ_TOKYO = zoneinfo.ZoneInfo("Asia/Tokyo")
 
 
 def format_time_remaining(minutes: int) -> str:
@@ -24,63 +29,86 @@ def calculate_auction_timing(
     ref_time_utc: Optional[datetime] = None
 ) -> Dict[str, Any]:
     """
-    Computes precise, synchronized auction timing attributes across UTC, Polish time (CET/CEST), and Japanese time (JST).
-    Guarantees that ends_at is in the present/future and matches time_remaining_minutes down to the minute.
+    Computes precise, synchronized auction timing attributes across UTC,
+    Polish time (Europe/Warsaw, DST-aware), and Japanese time (Asia/Tokyo).
+
+    Preserves source end times and ensures expired auctions remain expired
+    without resurrecting into the future.
     """
     now_utc = ref_time_utc or datetime.now(timezone.utc)
     if now_utc.tzinfo is None:
         now_utc = now_utc.replace(tzinfo=timezone.utc)
 
-    # Timezones:
-    # Poland standard time (CET): UTC+1
-    # Japan standard time (JST): UTC+9
-    tz_pl_offset = timedelta(hours=1)
-    tz_jst_offset = timedelta(hours=9)
-    now_pl = now_utc + tz_pl_offset
+    now_pl = now_utc.astimezone(TZ_WARSAW)
 
     raw_ends_at = deal.get("ends_at")
     raw_minutes = deal.get("time_remaining_minutes")
 
-    target_end_dt = None
+    target_end_dt: Optional[datetime] = None
+    has_valid_ends_at = False
 
-    # Try parsing ends_at if present and check if it's in the future
+    # Try parsing ends_at if present
     if raw_ends_at and isinstance(raw_ends_at, str):
         clean_str = raw_ends_at.replace(" UTC", "").replace("Z", "").strip()
         for fmt in ["%Y-%m-%d %H:%M", "%Y-%m-%dT%H:%M:%S", "%Y-%m-%d %H:%M:%S", "%Y-%m-%dT%H:%M"]:
             try:
                 parsed = datetime.strptime(clean_str, fmt).replace(tzinfo=timezone.utc)
-                # If parsed is in the future (or less than 2 minutes ago), keep it
-                if (parsed - now_utc).total_seconds() > -120:
-                    target_end_dt = parsed
-                    break
+                target_end_dt = parsed
+                has_valid_ends_at = True
+                break
             except ValueError:
                 continue
 
-    # If ends_at was missing or in the past, anchor target_end_dt dynamically from minutes
-    if target_end_dt is None:
-        if raw_minutes is not None and int(raw_minutes) <= 0:
+    # If ends_at was present, we preserve it truthfully! Never overwrite past ends_at with future minutes!
+    if has_valid_ends_at and target_end_dt is not None:
+        diff_seconds = (target_end_dt - now_utc).total_seconds()
+        if diff_seconds <= 0:
+            minutes_rem = 0
+            is_ended = True
+        else:
+            minutes_rem = max(0, int(round(diff_seconds / 60.0)))
+            is_ended = False
+    elif raw_minutes is not None:
+        # No valid ends_at, but time_remaining_minutes is provided
+        try:
+            m_val = int(raw_minutes)
+        except (ValueError, TypeError):
+            m_val = 0
+        if m_val <= 0:
+            minutes_rem = 0
+            is_ended = True
             target_end_dt = now_utc - timedelta(minutes=1)
         else:
-            minutes = int(raw_minutes) if raw_minutes is not None and int(raw_minutes) > 0 else 120
-            target_end_dt = now_utc + timedelta(minutes=minutes)
-
-    # Compute exact remaining minutes from now_utc
-    diff_seconds = (target_end_dt - now_utc).total_seconds()
-    minutes_rem = max(0, int(round(diff_seconds / 60.0)))
+            minutes_rem = m_val
+            is_ended = False
+            target_end_dt = now_utc + timedelta(minutes=m_val)
+    else:
+        # Neither ends_at nor minutes provided
+        status_str = str(deal.get("status", "")).lower()
+        if "aktywna" in status_str or "active" in status_str:
+            minutes_rem = 120
+            is_ended = False
+            target_end_dt = now_utc + timedelta(minutes=120)
+        else:
+            minutes_rem = 0
+            is_ended = True
+            target_end_dt = now_utc
 
     # Formatting representations
     ends_at_utc_str = target_end_dt.strftime("%Y-%m-%d %H:%M UTC")
     ends_at_iso = target_end_dt.strftime("%Y-%m-%dT%H:%M:%SZ")
 
-    end_pl = target_end_dt + tz_pl_offset
-    end_jst = target_end_dt + tz_jst_offset
+    end_pl = target_end_dt.astimezone(TZ_WARSAW)
+    end_jst = target_end_dt.astimezone(TZ_TOKYO)
 
     pl_clock = end_pl.strftime("%H:%M")
     jst_clock = end_jst.strftime("%H:%M")
 
-    # Date relative label for Polish users
+    # Date relative label for Polish users in Europe/Warsaw
     days_diff = (end_pl.date() - now_pl.date()).days
-    if days_diff == 0:
+    if is_ended:
+        day_label = "Zakończona"
+    elif days_diff == 0:
         day_label = "Dziś"
     elif days_diff == 1:
         day_label = "Jutro"
@@ -89,8 +117,12 @@ def calculate_auction_timing(
     else:
         day_label = end_pl.strftime("%d.%m")
 
-    ends_at_formatted = f"{day_label} o {pl_clock} (PL) / {jst_clock} (JP)"
-    ends_at_pl_short = f"{day_label} {pl_clock}"
+    if is_ended:
+        ends_at_formatted = f"Aukcja zakończona o {pl_clock} (PL)"
+        ends_at_pl_short = f"Zakończona ({pl_clock})"
+    else:
+        ends_at_formatted = f"{day_label} o {pl_clock} (PL) / {jst_clock} (JP)"
+        ends_at_pl_short = f"{day_label} {pl_clock}"
 
     time_formatted = format_time_remaining(minutes_rem)
 
@@ -120,5 +152,6 @@ def calculate_auction_timing(
         "ends_at_formatted": ends_at_formatted,
         "ends_at_pl_short": ends_at_pl_short,
         "price_stage_note": deal.get("price_stage_note") or price_stage_note,
-        "is_ending_soon": is_ending_soon
+        "is_ending_soon": is_ending_soon,
+        "is_ended": is_ended
     }

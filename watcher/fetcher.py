@@ -150,12 +150,34 @@ def classify_condition(text, item_condition="", custom_note=""):
                 "matched_flag": kw
             }
 
+    # If text is empty or has no functional claims, condition is unknown (never default to working!)
+    if not (t.strip() or c.strip()):
+        return {
+            "is_broken": False,
+            "is_untested": True,
+            "is_working": None,
+            "condition_type": "unknown",
+            "condition_badge": "❓ Stan Nieznany (Brak Opisu)",
+            "matched_flag": None
+        }
+
+    # If only cosmetic grade exists without functional testing claim
+    if any(kw in cleaned for kw in ["目立った傷や汚れなし", "未使用に近い", "新品、未使用", "やや傷や汚れあり"]):
+        return {
+            "is_broken": False,
+            "is_untested": True,
+            "is_working": None,
+            "condition_type": "cosmetic_only",
+            "condition_badge": "⚠️ Tylko Stan Wizualny (Brak Testu)",
+            "matched_flag": "cosmetic_only"
+        }
+
     return {
         "is_broken": False,
-        "is_untested": False,
-        "is_working": True,
-        "condition_type": "standard_good",
-        "condition_badge": "✅ Stan Dobry",
+        "is_untested": True,
+        "is_working": None,
+        "condition_type": "unknown",
+        "condition_badge": "❓ Stan Nieznany",
         "matched_flag": None
     }
 

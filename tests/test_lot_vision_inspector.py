@@ -32,7 +32,13 @@ class TestLotVisionInspector(unittest.TestCase):
         inspection = LotVisionInspector.inspect_lot_photo_contents(sample_deal)
 
         self.assertTrue(inspection["inspected"])
+        # Truthful labelling: no image was provided, so it must be text_analysis, NOT AI Vision
+        self.assertEqual(inspection["analysis_method"], "text_analysis")
+        self.assertIn("Text Analysis", inspection["inspection_badge"])
+        self.assertNotIn("AI Vision", inspection["inspection_badge"])
+
         self.assertEqual(inspection["total_items_spotted"], 45)
+        self.assertFalse(inspection["uncertain_contents"])
         gems = inspection["top_gems"]
         self.assertGreaterEqual(len(gems), 3)
 
@@ -42,8 +48,80 @@ class TestLotVisionInspector(unittest.TestCase):
         self.assertTrue(any("Zelda" in t for t in titles))
 
         self.assertGreater(inspection["spotted_gems_value_pln"], 180.0)
+        # Filler without evidence has 0.0 confirmed PLN
+        self.assertEqual(inspection["filler_value_pln"], 0.0)
         self.assertIn("Break-Even", inspection["break_even_gem"])
         self.assertFalse(inspection["battery_hazard_detected"])
+
+        # Deductions in net proceeds calculation
+        self.assertIn("net_proceeds_pln", inspection)
+        self.assertIn("net_proceeds_breakdown", inspection)
+        self.assertLess(inspection["net_proceeds_pln"], inspection["estimated_total_lot_value_pln"])
+
+    def test_truthful_labelling_and_no_fake_30_items_filler(self):
+        """Fix F08: A text-only probe must not claim AI Vision or default to 30 items / 6 PLN filler."""
+        text_only_deal = {
+            "model": "Pokemon emerald loose cartridge",
+            "custom_note": "Single cartridge, text-only description",
+            "price_jpy": 2000,
+            "est_pl_value": 95.0
+        }
+        inspection = LotVisionInspector.inspect_lot_photo_contents(text_only_deal)
+
+        # 1. Truthful labelling
+        self.assertEqual(inspection["analysis_method"], "text_analysis")
+        self.assertIn("Text Analysis", inspection["inspection_badge"])
+        self.assertNotIn("AI Vision", inspection["inspection_badge"])
+
+        # 2. No arbitrary 30 items or fake filler
+        self.assertTrue(inspection["uncertain_contents"])
+        self.assertEqual(inspection["spotted_items_count"], 1)
+        self.assertEqual(inspection["total_items_spotted"], 1)  # only 1 confirmed item, NOT 30!
+        self.assertEqual(inspection["filler_count"], 0)
+        self.assertEqual(inspection["filler_value_pln"], 0.0)
+
+        # 3. Net proceeds includes deductions (failure rate, unsold allowance, handling, selling fees)
+        self.assertIn("net_proceeds_pln", inspection)
+        breakdown = inspection["net_proceeds_breakdown"]
+        self.assertGreater(breakdown["failure_deduction_pln"], 0)
+        self.assertGreater(breakdown["unsold_deduction_pln"], 0)
+        self.assertGreater(breakdown["handling_cost_pln"], 0)
+        self.assertGreater(breakdown["selling_fees_pln"], 0)
+        self.assertLess(inspection["net_proceeds_pln"], inspection["spotted_gems_value_pln"])
+
+    def test_visual_analysis_labelling_when_image_provided(self):
+        """When an actual image is provided and analyzed, it may claim visual analysis."""
+        deal_with_image = {
+            "model": "Pokemon emerald",
+            "image_url": "https://example.com/lot_photo.jpg",
+            "actual_image_analyzed": True,
+            "price_jpy": 3000,
+            "est_pl_value": 95.0
+        }
+        inspection = LotVisionInspector.inspect_lot_photo_contents(deal_with_image)
+        self.assertEqual(inspection["analysis_method"], "visual_analysis")
+        self.assertIn("AI Vision", inspection["inspection_badge"])
+
+    def test_calculate_lot_net_proceeds_breakdown(self):
+        """Verifies net proceeds calculation with failure rate, unsold rate, parts, handling and fees."""
+        res = LotVisionInspector.calculate_lot_net_proceeds(
+            gross_value_pln=500.0,
+            unit_count=10,
+            failure_rate=0.15,
+            unsold_rate=0.10,
+            parts_cost_pln=50.0,
+            handling_fee_per_unit_pln=5.0,
+            selling_fee_rate=0.08
+        )
+        self.assertEqual(res["gross_value_pln"], 500.0)
+        self.assertEqual(res["failure_deduction_pln"], 75.0)  # 15% of 500
+        self.assertEqual(res["unsold_deduction_pln"], 50.0)   # 10% of 500
+        self.assertEqual(res["parts_cost_pln"], 50.0)
+        self.assertEqual(res["handling_cost_pln"], 50.0)     # 10 * 5.0
+        self.assertEqual(res["selling_fees_pln"], 40.0)      # 8% of 500
+        expected_total = 75.0 + 50.0 + 50.0 + 50.0 + 40.0     # 265.0
+        self.assertEqual(res["total_deductions_pln"], 265.0)
+        self.assertEqual(res["net_proceeds_pln"], 235.0)      # 500 - 265
 
     def test_battery_hazard_detection(self):
         deal_with_console = {

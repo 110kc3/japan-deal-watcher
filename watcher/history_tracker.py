@@ -1,15 +1,22 @@
-"""Price history tracking and sales intelligence engine for Japan Deal Watcher."""
+"""Price history tracking and sales intelligence engine for Japan Deal Watcher.
 
-import json
+Tracks historical price movements, detects closed/sold market listings,
+and computes sales velocity and pricing signals.
+
+Fix F07: Does NOT treat connection errors, HTTP 404s, or exclusion filters
+as sold items. Separates market disappearance from genuine sales and owner resale.
+"""
+
 from datetime import datetime
 from pathlib import Path
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Any, Optional, Union
 
 from .config import (
     PRICE_HISTORY_FILE,
     DEFAULT_JPY_PLN_RATE,
     DEFAULT_EUR_PLN_RATE
 )
+from .storage import atomic_write_json, read_json_safe
 
 
 class HistoryTracker:
@@ -18,18 +25,11 @@ class HistoryTracker:
     and computes sales velocity and pricing signals.
     """
 
-    def __init__(self, filepath: Path = PRICE_HISTORY_FILE):
-        self.filepath = Path(filepath)
+    def __init__(self, filepath: Optional[Union[Path, str]] = None):
+        self.filepath = Path(filepath or PRICE_HISTORY_FILE)
         self.data: Dict[str, Any] = self._load()
 
-    def _load(self) -> Dict[str, Any]:
-        if self.filepath.exists():
-            try:
-                with open(self.filepath, "r", encoding="utf-8") as f:
-                    return json.load(f)
-            except Exception as e:
-                print(f"[WARN] Nie udało się odczytać {self.filepath}: {e}. Inicjalizacja nowej bazy.")
-        
+    def _default_data(self) -> Dict[str, Any]:
         now_iso = datetime.now().strftime("%Y-%m-%d %H:%M UTC")
         return {
             "metadata": {
@@ -43,15 +43,114 @@ class HistoryTracker:
             "sales_log": []
         }
 
+    def _load(self) -> Dict[str, Any]:
+        data = read_json_safe(self.filepath, default=self._default_data)
+        if not isinstance(data, dict) or "items" not in data or "sales_log" not in data:
+            data = self._default_data()
+        data.setdefault("metadata", {})
+        data.setdefault("items", {})
+        data.setdefault("sales_log", [])
+
+        # Auto-clean any legacy contaminated entries on load
+        self.data = data
+        self.clean_contaminated_entries(auto_save=False)
+        return self.data
+
     def save(self) -> None:
-        """Persists historical data to JSON."""
+        """Persists historical data atomically to JSON."""
         self.data["metadata"]["last_updated"] = datetime.now().strftime("%Y-%m-%d %H:%M UTC")
         self.data["metadata"]["total_tracked_items"] = len(self.data["items"])
         self.data["metadata"]["total_sales_recorded"] = len(self.data["sales_log"])
 
-        self.filepath.parent.mkdir(parents=True, exist_ok=True)
-        with open(self.filepath, "w", encoding="utf-8") as f:
-            json.dump(self.data, f, indent=2, ensure_ascii=False)
+        atomic_write_json(self.filepath, self.data)
+
+    def clean_contaminated_entries(self, auto_save: bool = True) -> Dict[str, int]:
+        """
+        Fix F07: Cleans contaminated historical entries in data/price_history.json:
+        - HTTP 404s and connection errors are removed from sales_log and marked is_disappeared/has_fetch_error.
+        - Exclusions (broken, filtered) are removed from sales_log and marked is_excluded.
+        - Items in trading / transaction are removed from sales_log and marked is_trading.
+        - Clears is_sold = False and sold_at = None for non-sold items.
+        - Ensures potential_arbitrage_pln is populated on genuine market sales.
+        """
+        items_dict = self.data.setdefault("items", {})
+        old_sales_log = self.data.setdefault("sales_log", [])
+
+        cleaned_sales_log = []
+        removed_404_count = 0
+        removed_broken_count = 0
+        removed_trading_count = 0
+        removed_error_count = 0
+
+        # 1. Clean sales_log
+        for s in old_sales_log:
+            status = str(s.get("status", "")).lower()
+            is_404 = "404" in status or "nie znaleziono" in status or "usunięt" in status
+            is_broken = "uszkodzone" in status or "broken" in status or "wykluczone" in status
+            is_trading = "w trakcie transakcji" in status or "trading" in status
+            is_error = "błąd" in status or "error" in status or "timeout" in status
+
+            if is_404:
+                removed_404_count += 1
+                continue
+            if is_broken:
+                removed_broken_count += 1
+                continue
+            if is_trading:
+                removed_trading_count += 1
+                continue
+            if is_error:
+                removed_error_count += 1
+                continue
+
+            # Populate potential arbitrage and hypothetical margin
+            margin = s.get("realized_margin_pln", s.get("potential_arbitrage_pln", 0.0))
+            s["potential_arbitrage_pln"] = margin
+            s["hypothetical_margin_pln"] = margin
+            cleaned_sales_log.append(s)
+
+        # 2. Clean items dictionary
+        for item_id, item in items_dict.items():
+            status = str(item.get("status", "")).lower()
+            is_404 = "404" in status or "nie znaleziono" in status or "usunięt" in status
+            is_broken = "uszkodzone" in status or "broken" in status or "wykluczone" in status or bool(item.get("is_broken"))
+            is_trading = "w trakcie transakcji" in status or "trading" in status
+            is_error = "błąd" in status or "error" in status or "timeout" in status
+
+            if is_404:
+                item["is_sold"] = False
+                item["sold_at"] = None
+                item["is_disappeared"] = True
+                item["is_active"] = False
+            elif is_broken:
+                item["is_sold"] = False
+                item["sold_at"] = None
+                item["is_excluded"] = True
+                item["is_active"] = False
+            elif is_trading:
+                item["is_sold"] = False
+                item["sold_at"] = None
+                item["is_trading"] = True
+                item["is_active"] = False
+            elif is_error:
+                item["is_sold"] = False
+                item["sold_at"] = None
+                item["has_fetch_error"] = True
+
+        self.data["sales_log"] = cleaned_sales_log
+        self.data["metadata"]["total_sales_recorded"] = len(cleaned_sales_log)
+        self.data["metadata"]["total_tracked_items"] = len(items_dict)
+
+        if auto_save:
+            self.save()
+
+        return {
+            "removed_404": removed_404_count,
+            "removed_broken": removed_broken_count,
+            "removed_trading": removed_trading_count,
+            "removed_error": removed_error_count,
+            "remaining_genuine_sales": len(cleaned_sales_log)
+        }
 
     def record_scan(
         self,
@@ -60,7 +159,10 @@ class HistoryTracker:
         rate_eur: float = DEFAULT_EUR_PLN_RATE,
         timestamp: Optional[str] = None
     ) -> Dict[str, Any]:
-        """Records a scan cycle, detecting price changes and newly sold items."""
+        """
+        Records a scan cycle, detecting price changes and newly sold items.
+        Strictly distinguishes sold items from 404s, errors, exclusions, and trading states.
+        """
         if timestamp is None:
             timestamp = datetime.now().strftime("%Y-%m-%d %H:%M UTC")
 
@@ -77,8 +179,51 @@ class HistoryTracker:
                 continue
 
             status = str(deal.get("status", "Dostępne"))
-            is_active = ("Dostępne" in status or "Aktywna" in status) and not deal.get("is_broken", False) and ("Wykluczone" not in status)
-            is_sold_or_ended = not is_active
+            status_lower = status.lower()
+            is_broken = bool(deal.get("is_broken", False))
+
+            is_error = (
+                "błąd" in status_lower or
+                "error" in status_lower or
+                "timeout" in status_lower or
+                bool(deal.get("is_error"))
+            )
+            is_404 = (
+                "404" in status or
+                "nie znaleziono" in status_lower or
+                "usunięt" in status_lower
+            )
+            is_excluded = (
+                "wykluczone" in status_lower or
+                is_broken
+            )
+            is_trading = (
+                "w trakcie transakcji" in status_lower or
+                "trading" in status_lower
+            )
+
+            # Genuine sold detection: only if source indicates sold or normal completed auction
+            is_explicit_sold = (
+                bool(deal.get("is_sold")) or
+                "sprzedane" in status_lower or
+                "wylicytowano" in status_lower or
+                "sold" in status_lower or
+                "zakończona (wylicytowano)" in status_lower
+            )
+            is_auction_ended = (
+                bool(deal.get("is_ended")) and
+                not is_error and not is_404 and not is_excluded
+            )
+            is_genuine_sold = (
+                (is_explicit_sold or is_auction_ended) and
+                not is_error and not is_404 and not is_excluded and not is_trading
+            )
+
+            # Active item detection
+            is_active = (
+                ("dostępne" in status_lower or "aktywna" in status_lower or "on_sale" in status_lower or status == "Active")
+                and not is_error and not is_404 and not is_excluded and not is_trading and not is_genuine_sold
+            )
 
             price_jpy = float(deal.get("price_jpy", 0))
             price_pln = float(deal.get("price_pln_raw", round(price_jpy * rate_jpy, 2)))
@@ -90,6 +235,7 @@ class HistoryTracker:
             if deal_id in items_dict:
                 existing = items_dict[deal_id]
                 existing["last_seen"] = timestamp
+                existing["status"] = status
 
                 # Check for price changes
                 last_price = existing.get("current_price_jpy", price_jpy)
@@ -105,52 +251,69 @@ class HistoryTracker:
                     price_changes_count += 1
                     self.data["metadata"]["total_price_changes"] = self.data["metadata"].get("total_price_changes", 0) + 1
 
-                # Check if newly sold / ended
+                # State handling
                 was_active = existing.get("is_active", True)
-                if was_active and is_sold_or_ended:
-                    existing["is_active"] = False
-                    existing["is_sold"] = True
-                    existing["sold_at"] = timestamp
-                    existing["status"] = status
-                    
-                    # Compute days on market
-                    first_dt = existing.get("first_seen_date", timestamp[:10])
-                    days_on_market = self._estimate_days_on_market(first_dt, timestamp[:10])
-                    speed_tier = self._get_speed_tier(days_on_market)
+                if is_genuine_sold:
+                    if was_active or not existing.get("is_sold"):
+                        existing["is_active"] = False
+                        existing["is_sold"] = True
+                        existing["sold_at"] = existing.get("sold_at") or timestamp
 
-                    sales_entry = {
-                        "id": deal_id,
-                        "model": deal.get("model", existing.get("model", "")),
-                        "color": deal.get("color", existing.get("color", "")),
-                        "category_id": deal.get("category_id", existing.get("category_id", "")),
-                        "category_name": deal.get("category_name", existing.get("category_name", "")),
-                        "platform": deal.get("platform", existing.get("platform", "Mercari Japan")),
-                        "final_price_jpy": price_jpy,
-                        "final_price_pln": price_pln,
-                        "landed_cost_pln": landed_pln,
-                        "est_pl_value": est_pl,
-                        "realized_margin_pln": margin_pln,
-                        "roi_percent": roi_pct,
-                        "status": status,
-                        "first_seen": existing.get("first_seen", timestamp),
-                        "sold_at": timestamp,
-                        "days_on_market": days_on_market,
-                        "speed_tier": speed_tier,
-                        "battery_type": deal.get("battery_type", existing.get("battery_type", "none")),
-                        "zenmarket_url": deal.get("zenmarket_url", ""),
-                        "source_url": deal.get("mercari_url") or deal.get("source_url", "")
-                    }
-                    if deal_id not in sales_log_ids:
-                        sales_log.append(sales_entry)
-                        sales_log_ids.add(deal_id)
-                        new_sales_count += 1
+                        # Compute days on market
+                        first_dt = existing.get("first_seen_date", timestamp[:10])
+                        days_on_market = self._estimate_days_on_market(first_dt, timestamp[:10])
+                        speed_tier = self._get_speed_tier(days_on_market)
+
+                        sales_entry = {
+                            "id": deal_id,
+                            "model": deal.get("model", existing.get("model", "")),
+                            "color": deal.get("color", existing.get("color", "")),
+                            "category_id": deal.get("category_id", existing.get("category_id", "")),
+                            "category_name": deal.get("category_name", existing.get("category_name", "")),
+                            "platform": deal.get("platform", existing.get("platform", "Mercari Japan")),
+                            "final_price_jpy": price_jpy,
+                            "final_price_pln": price_pln,
+                            "landed_cost_pln": landed_pln,
+                            "est_pl_value": est_pl,
+                            "potential_arbitrage_pln": margin_pln,
+                            "hypothetical_margin_pln": margin_pln,
+                            "realized_margin_pln": margin_pln,
+                            "roi_percent": roi_pct,
+                            "status": status,
+                            "first_seen": existing.get("first_seen", timestamp),
+                            "sold_at": timestamp,
+                            "days_on_market": days_on_market,
+                            "speed_tier": speed_tier,
+                            "battery_type": deal.get("battery_type", existing.get("battery_type", "none")),
+                            "zenmarket_url": deal.get("zenmarket_url", ""),
+                            "source_url": deal.get("mercari_url") or deal.get("source_url", "")
+                        }
+                        if deal_id not in sales_log_ids:
+                            sales_log.append(sales_entry)
+                            sales_log_ids.add(deal_id)
+                            new_sales_count += 1
+                elif is_404:
+                    existing["is_active"] = False
+                    existing["is_sold"] = False
+                    existing["is_disappeared"] = True
+                    existing["disappeared_at"] = timestamp
+                elif is_excluded:
+                    existing["is_active"] = False
+                    existing["is_sold"] = False
+                    existing["is_excluded"] = True
+                elif is_trading:
+                    existing["is_active"] = False
+                    existing["is_sold"] = False
+                    existing["is_trading"] = True
+                elif is_error:
+                    existing["has_fetch_error"] = True
+                elif is_active:
+                    existing["is_active"] = True
+                    existing["is_sold"] = False
 
             else:
                 # Brand new item
                 first_seen_date = timestamp[:10]
-                days_on_market = 1.0 if is_sold_or_ended else 0.0
-                speed_tier = self._get_speed_tier(days_on_market) if is_sold_or_ended else "W ofercie (Aktywne)"
-
                 item_record = {
                     "id": deal_id,
                     "model": deal.get("model", ""),
@@ -170,8 +333,12 @@ class HistoryTracker:
                     "roi_percent": roi_pct,
                     "status": status,
                     "is_active": is_active,
-                    "is_sold": is_sold_or_ended,
-                    "sold_at": timestamp if is_sold_or_ended else None,
+                    "is_sold": is_genuine_sold,
+                    "is_disappeared": is_404,
+                    "is_excluded": is_excluded,
+                    "is_trading": is_trading,
+                    "has_fetch_error": is_error,
+                    "sold_at": timestamp if is_genuine_sold else None,
                     "price_history": [{
                         "timestamp": timestamp,
                         "price_jpy": price_jpy,
@@ -180,7 +347,9 @@ class HistoryTracker:
                 }
                 items_dict[deal_id] = item_record
 
-                if is_sold_or_ended and deal_id not in sales_log_ids:
+                if is_genuine_sold and deal_id not in sales_log_ids:
+                    days_on_market = 1.0
+                    speed_tier = self._get_speed_tier(days_on_market)
                     sales_entry = {
                         "id": deal_id,
                         "model": deal.get("model", ""),
@@ -192,13 +361,15 @@ class HistoryTracker:
                         "final_price_pln": price_pln,
                         "landed_cost_pln": landed_pln,
                         "est_pl_value": est_pl,
+                        "potential_arbitrage_pln": margin_pln,
+                        "hypothetical_margin_pln": margin_pln,
                         "realized_margin_pln": margin_pln,
                         "roi_percent": roi_pct,
                         "status": status,
                         "first_seen": timestamp,
                         "sold_at": timestamp,
-                        "days_on_market": 1.0,
-                        "speed_tier": "⚡ Błyskawiczna (< 24h)",
+                        "days_on_market": days_on_market,
+                        "speed_tier": speed_tier,
                         "battery_type": deal.get("battery_type", "none"),
                         "zenmarket_url": deal.get("zenmarket_url", ""),
                         "source_url": deal.get("mercari_url") or deal.get("source_url", "")
@@ -257,7 +428,9 @@ class HistoryTracker:
                 "avg_price_pln": 0.0,
                 "avg_landed_pln": 0.0,
                 "avg_margin_pln": 0.0,
+                "avg_potential_arbitrage_pln": 0.0,
                 "avg_roi_pct": 0.0,
+                "total_potential_arbitrage_pln": 0.0,
                 "total_realized_margin_pln": 0.0,
                 "category_stats": {},
                 "fastest_categories": [],
@@ -268,9 +441,9 @@ class HistoryTracker:
         avg_price_jpy = round(sum(s.get("final_price_jpy", 0) for s in sales) / total_sales, 1)
         avg_price_pln = round(sum(s.get("final_price_pln", 0) for s in sales) / total_sales, 2)
         avg_landed = round(sum(s.get("landed_cost_pln", 0) for s in sales) / total_sales, 2)
-        avg_margin = round(sum(s.get("realized_margin_pln", 0) for s in sales) / total_sales, 2)
+        avg_margin = round(sum(s.get("potential_arbitrage_pln", s.get("realized_margin_pln", 0)) for s in sales) / total_sales, 2)
         avg_roi = round(sum(s.get("roi_percent", 0) for s in sales) / total_sales, 1)
-        total_realized = round(sum(s.get("realized_margin_pln", 0) for s in sales), 2)
+        total_potential = round(sum(s.get("potential_arbitrage_pln", s.get("realized_margin_pln", 0)) for s in sales), 2)
 
         # Category breakdown
         cat_map: Dict[str, List[Dict[str, Any]]] = {}
@@ -284,7 +457,7 @@ class HistoryTracker:
         for cname, s_list in cat_map.items():
             cnt = len(s_list)
             c_avg_jpy = round(sum(x.get("final_price_jpy", 0) for x in s_list) / cnt, 1)
-            c_avg_margin = round(sum(x.get("realized_margin_pln", 0) for x in s_list) / cnt, 2)
+            c_avg_margin = round(sum(x.get("potential_arbitrage_pln", x.get("realized_margin_pln", 0)) for x in s_list) / cnt, 2)
             c_avg_roi = round(sum(x.get("roi_percent", 0) for x in s_list) / cnt, 1)
             c_avg_days = round(sum(x.get("days_on_market", 1.0) for x in s_list) / cnt, 1)
 
@@ -308,7 +481,11 @@ class HistoryTracker:
         cat_stats_sorted = sorted(cat_stats, key=lambda x: x["sales_count"], reverse=True)
 
         # Top profitable closed deals
-        top_sales = sorted(sales, key=lambda x: x.get("realized_margin_pln", 0), reverse=True)[:10]
+        top_sales = sorted(
+            sales,
+            key=lambda x: x.get("potential_arbitrage_pln", x.get("realized_margin_pln", 0)),
+            reverse=True
+        )[:10]
 
         # Empirical price sweet spots
         sweet_spots = [
@@ -357,8 +534,10 @@ class HistoryTracker:
             "avg_price_pln": avg_price_pln,
             "avg_landed_pln": avg_landed,
             "avg_margin_pln": avg_margin,
+            "avg_potential_arbitrage_pln": avg_margin,
             "avg_roi_pct": avg_roi,
-            "total_realized_margin_pln": total_realized,
+            "total_potential_arbitrage_pln": total_potential,
+            "total_realized_margin_pln": total_potential,
             "category_stats": cat_stats_sorted,
             "top_sales": top_sales,
             "sweet_spots": sweet_spots

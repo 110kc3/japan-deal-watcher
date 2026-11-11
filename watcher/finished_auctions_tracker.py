@@ -1,14 +1,18 @@
 """Finished Auctions Intelligence & Archive Tracker (落札相場).
 
 Tracks, archives, and evaluates completed Yahoo Auctions Japan listings.
-Maintains data/finished_auctions.json with realized Polish market margins,
-winning bid prices (落札価格), condition grades, and parcel weight stats.
+Maintains data/finished_auctions.json as the single authoritative source of truth.
+Estimates potential Polish market arbitrage (落札相場), condition grades, and parcel weight stats.
+
+Core rule: Does NOT claim fake realized margins. Realized profit is strictly reserved
+for confirmed owner sales in ResaleLedger. Finished auction signals are labelled as
+potential_arbitrage_pln / hypothetical_margin_pln.
 """
 
 import json
 from pathlib import Path
 from datetime import datetime
-from typing import Dict, Any, List, Optional
+from typing import Dict, Any, List, Optional, Union
 
 from .config import (
     FINISHED_AUCTIONS_FILE,
@@ -19,6 +23,7 @@ from .config import (
 )
 from .costs import calculate_landed_cost
 from .checks import is_camera_item, is_lens_item
+from .storage import atomic_write_json, read_json_safe
 
 
 # Seed historical verified closed auctions from Yahoo Auctions (落札相場)
@@ -36,7 +41,8 @@ HISTORICAL_SEED_AUCTIONS: List[Dict[str, Any]] = [
         "final_price_pln": 285.57,
         "landed_cost_pln": 438.20,
         "est_pl_value": 750.0,
-        "realized_margin_pln": 311.80,
+        "potential_arbitrage_pln": 311.80,
+        "hypothetical_margin_pln": 311.80,
         "roi_percent": 71.2,
         "condition_grade": "A_MINT_BOX",
         "condition_label": "📦 Kolekcjonerski Box (CIB)",
@@ -67,7 +73,8 @@ HISTORICAL_SEED_AUCTIONS: List[Dict[str, Any]] = [
         "final_price_pln": 297.98,
         "landed_cost_pln": 453.60,
         "est_pl_value": 790.0,
-        "realized_margin_pln": 336.40,
+        "potential_arbitrage_pln": 336.40,
+        "hypothetical_margin_pln": 336.40,
         "roi_percent": 74.2,
         "condition_grade": "A_MINT_BOX",
         "condition_label": "📦 Kolekcjonerski Box (CIB)",
@@ -98,7 +105,8 @@ HISTORICAL_SEED_AUCTIONS: List[Dict[str, Any]] = [
         "final_price_pln": 417.18,
         "landed_cost_pln": 601.20,
         "est_pl_value": 1080.0,
-        "realized_margin_pln": 478.80,
+        "potential_arbitrage_pln": 478.80,
+        "hypothetical_margin_pln": 478.80,
         "roi_percent": 79.6,
         "condition_grade": "A_MINT_BOX",
         "condition_label": "📦 Kolekcjonerski Box (CIB)",
@@ -129,7 +137,8 @@ HISTORICAL_SEED_AUCTIONS: List[Dict[str, Any]] = [
         "final_price_pln": 317.85,
         "landed_cost_pln": 478.50,
         "est_pl_value": 850.0,
-        "realized_margin_pln": 371.50,
+        "potential_arbitrage_pln": 371.50,
+        "hypothetical_margin_pln": 371.50,
         "roi_percent": 77.6,
         "condition_grade": "A_MINT_BOX",
         "condition_label": "📦 Kolekcjonerski Box (CIB)",
@@ -160,7 +169,8 @@ HISTORICAL_SEED_AUCTIONS: List[Dict[str, Any]] = [
         "final_price_pln": 86.91,
         "landed_cost_pln": 188.40,
         "est_pl_value": 380.0,
-        "realized_margin_pln": 191.60,
+        "potential_arbitrage_pln": 191.60,
+        "hypothetical_margin_pln": 191.60,
         "roi_percent": 101.7,
         "condition_grade": "B_VERY_GOOD",
         "condition_label": "✨ Bardzo Dobry (Sprawny 100%)",
@@ -191,7 +201,8 @@ HISTORICAL_SEED_AUCTIONS: List[Dict[str, Any]] = [
         "final_price_pln": 335.23,
         "landed_cost_pln": 520.00,
         "est_pl_value": 1450.0,
-        "realized_margin_pln": 930.00,
+        "potential_arbitrage_pln": 930.00,
+        "hypothetical_margin_pln": 930.00,
         "roi_percent": 178.8,
         "condition_grade": "J_UNTESTED_JUNK",
         "condition_label": "🧩 Pakiet / Junk / Likwidacja",
@@ -222,7 +233,8 @@ HISTORICAL_SEED_AUCTIONS: List[Dict[str, Any]] = [
         "final_price_pln": 203.62,
         "landed_cost_pln": 332.80,
         "est_pl_value": 590.0,
-        "realized_margin_pln": 257.20,
+        "potential_arbitrage_pln": 257.20,
+        "hypothetical_margin_pln": 257.20,
         "roi_percent": 77.3,
         "condition_grade": "A_MINT_BOX",
         "condition_label": "📦 Kolekcjonerski Box (CIB)",
@@ -253,7 +265,8 @@ HISTORICAL_SEED_AUCTIONS: List[Dict[str, Any]] = [
         "final_price_pln": 79.46,
         "landed_cost_pln": 178.50,
         "est_pl_value": 350.0,
-        "realized_margin_pln": 171.50,
+        "potential_arbitrage_pln": 171.50,
+        "hypothetical_margin_pln": 171.50,
         "roi_percent": 96.1,
         "condition_grade": "B_VERY_GOOD",
         "condition_label": "✨ Bardzo Dobry (Sprawny 100%)",
@@ -275,49 +288,69 @@ HISTORICAL_SEED_AUCTIONS: List[Dict[str, Any]] = [
 
 
 class FinishedAuctionsTracker:
-    """Manages the finished auctions archive and computes realized statistics."""
+    """Manages the authoritative finished auctions archive and computes potential arbitrage statistics."""
 
-    def __init__(self, filepath: Optional[Path] = None):
-        self.filepath = filepath or FINISHED_AUCTIONS_FILE
+    def __init__(self, filepath: Optional[Union[Path, str]] = None):
+        self.filepath = Path(filepath or FINISHED_AUCTIONS_FILE)
         self._data: List[Dict[str, Any]] = []
         self.load()
 
     def load(self) -> List[Dict[str, Any]]:
-        """Loads data from disk or initializes with seed data."""
-        if self.filepath.exists():
-            try:
-                with open(self.filepath, "r", encoding="utf-8") as f:
-                    content = f.read().strip()
-                    if content:
-                        self._data = json.loads(content)
-                        return self._data
-            except Exception:
-                pass
+        """Loads data from disk using safe storage or initializes with seed data."""
+        raw = read_json_safe(self.filepath, default=None)
+        if isinstance(raw, list) and len(raw) > 0:
+            self._data = raw
+        else:
+            self._data = [dict(a) for a in HISTORICAL_SEED_AUCTIONS]
 
-        # Initialize with curated seed auctions
-        self._data = [dict(a) for a in HISTORICAL_SEED_AUCTIONS]
-        self.save()
+        # Migrate and clean existing entries: do not claim fake realized margins
+        dirty = False
+        for it in self._data:
+            legacy_margin = it.pop("realized_margin_pln", None)
+            if legacy_margin is not None:
+                if "potential_arbitrage_pln" not in it:
+                    it["potential_arbitrage_pln"] = legacy_margin
+                if "hypothetical_margin_pln" not in it:
+                    it["hypothetical_margin_pln"] = legacy_margin
+                dirty = True
+            # Purge fake realized profit keys
+            if "realized_profit_pln" in it:
+                it.pop("realized_profit_pln", None)
+                dirty = True
+            if "realized_profit" in it:
+                it.pop("realized_profit", None)
+                dirty = True
+
+        if dirty or not self.filepath.exists():
+            self.save()
+
         return self._data
 
     def save(self) -> None:
         """Atomically saves the finished auctions dataset to disk."""
-        self.filepath.parent.mkdir(parents=True, exist_ok=True)
-        temp_file = self.filepath.with_suffix(".tmp")
-        with open(temp_file, "w", encoding="utf-8") as f:
-            json.dump(self._data, f, indent=2, ensure_ascii=False)
-        temp_file.replace(self.filepath)
+        atomic_write_json(self.filepath, self._data)
+
+    def sync_to(self, target_filepath: Union[Path, str]) -> Path:
+        """Synchronizes the authoritative finished auctions archive to an export target file (e.g. docs/data)."""
+        target = Path(target_filepath)
+        atomic_write_json(target, self.get_all())
+        return target
 
     def record_auction(self, auction: Dict[str, Any]) -> Dict[str, Any]:
         """
         Records or updates a finished auction item.
         Ensures strict price cap compliance (<= 100 PLN for cameras & lenses).
+        Labels calculated spread as potential_arbitrage_pln / hypothetical_margin_pln.
         """
         aid = auction.get("auction_id") or auction.get("id")
         if not aid:
             return auction
 
         # Check existing
-        existing_idx = next((i for i, a in enumerate(self._data) if a.get("auction_id") == aid or a.get("id") == aid), None)
+        existing_idx = next(
+            (i for i, a in enumerate(self._data) if a.get("auction_id") == aid or a.get("id") == aid),
+            None
+        )
 
         record = dict(auction)
         record["id"] = aid
@@ -334,7 +367,6 @@ class FinishedAuctionsTracker:
 
         # Enforce camera / lens rules if relevant
         if is_camera_item(record) and record["final_price_pln"] > MAX_CAMERA_PRICE_PLN:
-            # Skip or clamp according to strict rule
             record["is_deal"] = False
         if is_lens_item(record) and record["final_price_pln"] > MAX_LENS_PRICE_PLN:
             record["is_deal"] = False
@@ -352,9 +384,15 @@ class FinishedAuctionsTracker:
         landed = record.get("landed_cost_pln", 0.0)
         if est_pl > 0 and landed > 0:
             margin = round(est_pl - landed, 2)
-            record["realized_margin_pln"] = margin
+            record["potential_arbitrage_pln"] = margin
+            record["hypothetical_margin_pln"] = margin
             record["residual_profit_pln"] = margin
             record["roi_percent"] = round((margin / landed) * 100, 1)
+
+        # Reserve realized_profit strictly for confirmed owner sales; purge fake keys
+        record.pop("realized_margin_pln", None)
+        record.pop("realized_profit_pln", None)
+        record.pop("realized_profit", None)
 
         if "closed_at" not in record:
             record["closed_at"] = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -379,7 +417,6 @@ class FinishedAuctionsTracker:
             time_remaining = deal.get("time_remaining_minutes", 999)
             is_ended = deal.get("is_ended", False) or (time_remaining <= 0)
 
-            # Check ISO string comparison if ends_at is formatted as ISO
             if not is_ended and ends_at and "T" in ends_at:
                 try:
                     is_ended = ends_at <= now_iso
@@ -409,20 +446,28 @@ class FinishedAuctionsTracker:
         if total == 0:
             return {
                 "total_finished": 0,
+                "avg_potential_arbitrage_pln": 0.0,
+                "total_potential_arbitrage_pln": 0.0,
+                "avg_roi_percent": 0.0,
                 "avg_realized_margin_pln": 0.0,
-                "total_profit_pln": 0.0,
-                "avg_roi_percent": 0.0
+                "total_profit_pln": 0.0
             }
 
-        margins = [d.get("realized_margin_pln", 0.0) for d in self._data]
-        rois = [d.get("roi_percent", 0.0) for d in self._data]
-        total_profit = sum(margins)
-        avg_margin = total_profit / total
+        margins = [
+            float(d.get("potential_arbitrage_pln") or d.get("hypothetical_margin_pln") or 0.0)
+            for d in self._data
+        ]
+        rois = [float(d.get("roi_percent") or 0.0) for d in self._data]
+        total_arbitrage = sum(margins)
+        avg_margin = total_arbitrage / total
         avg_roi = sum(rois) / total
 
         return {
             "total_finished": total,
+            "avg_potential_arbitrage_pln": round(avg_margin, 2),
+            "total_potential_arbitrage_pln": round(total_arbitrage, 2),
+            "avg_roi_percent": round(avg_roi, 1),
+            # Backwards-compatible aliases
             "avg_realized_margin_pln": round(avg_margin, 2),
-            "total_profit_pln": round(total_profit, 2),
-            "avg_roi_percent": round(avg_roi, 1)
+            "total_profit_pln": round(total_arbitrage, 2)
         }

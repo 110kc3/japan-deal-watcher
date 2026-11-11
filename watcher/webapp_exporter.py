@@ -11,6 +11,7 @@ from typing import List, Dict, Any, Optional, Tuple
 from .config import (
     DOCS_DATA_FILE,
     DOCS_DIR,
+    FINISHED_AUCTIONS_FILE,
     DEFAULT_JPY_PLN_RATE,
     DEFAULT_EUR_PLN_RATE,
     MAX_CAMERA_PRICE_PLN,
@@ -36,6 +37,7 @@ from .consolidation import resolve_item_weight
 from .time_utils import calculate_auction_timing, format_time_remaining
 from .finished_auctions_tracker import FinishedAuctionsTracker
 from .market_queries import clean_polish_market_queries
+from .storage import atomic_write_json
 
 
 class WebappExporter:
@@ -50,6 +52,8 @@ class WebappExporter:
         mercari_deals: Optional[List[Dict[str, Any]]] = None,
         yahoo_deals: Optional[List[Dict[str, Any]]] = None,
         history_stats: Optional[Dict[str, Any]] = None,
+        finished_tracker: Optional[FinishedAuctionsTracker] = None,
+        finished_file: Optional[Path] = None,
     ):
         self.rate_jpy = float(rate_jpy)
         self.rate_eur = float(rate_eur)
@@ -66,6 +70,8 @@ class WebappExporter:
             "realized_profit": 11447.37,
             "avg_roi": 82.8
         }
+        self.finished_tracker = finished_tracker
+        self.finished_file = finished_file
 
     def process_yahoo_deal(self, deal: Dict[str, Any]) -> Dict[str, Any]:
         """Processes and standardizes a Yahoo Auction deal item."""
@@ -439,12 +445,16 @@ class WebappExporter:
         processed_auctions = [self.process_yahoo_deal(d) for d in self.raw_yahoo]
 
         # Filter out auctions that have already ended (User requirement: remove old/done auctions)
-        # and gather data into finished auctions archive
+        # and gather data into finished auctions archive (authoritative source: data/finished_auctions.json)
         now_utc = datetime.now(timezone.utc)
         active_auctions = []
         ended_auctions = []
-        finished_file = (target_path.parent / "finished_auctions.json") if output_file else None
-        finished_tracker = FinishedAuctionsTracker(filepath=finished_file)
+        if self.finished_tracker:
+            tracker = self.finished_tracker
+        elif self.finished_file:
+            tracker = FinishedAuctionsTracker(filepath=self.finished_file)
+        else:
+            tracker = FinishedAuctionsTracker(filepath=FINISHED_AUCTIONS_FILE)
 
         for a in processed_auctions:
             ends_iso = a.get("ends_at_iso")
@@ -466,9 +476,15 @@ class WebappExporter:
 
         # Harvest ended auctions into historical archive
         if ended_auctions:
-            finished_tracker.harvest_from_active(ended_auctions)
+            tracker.harvest_from_active(ended_auctions)
 
-        finished_auctions = finished_tracker.get_all()
+        finished_auctions = tracker.get_all()
+
+        # Synchronize authoritative finished auctions to docs/data/finished_auctions.json
+        if output_file:
+            docs_finished = target_path.parent / "finished_auctions.json"
+            if docs_finished.resolve() != tracker.filepath.resolve():
+                tracker.sync_to(docs_finished)
 
         # Sort Yahoo Auctions by remaining time ascending by default (ending soonest first – true prices)
         active_auctions.sort(
@@ -550,8 +566,7 @@ class WebappExporter:
             "search_streams": search_streams
         }
 
-        with open(target_path, "w", encoding="utf-8") as f:
-            json.dump(data, f, indent=2, ensure_ascii=False)
+        atomic_write_json(target_path, data)
 
         print(f"📱 Webapp Exporter: Saved {len(active_auctions)} auctions, {len(active_mercari)} Mercari deals, and {len(search_streams)} search streams to {target_path}")
         return {

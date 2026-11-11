@@ -414,16 +414,85 @@ class LotVisionInspector:
         }
 
     @classmethod
+    def calculate_lot_net_proceeds(
+        cls,
+        gross_value_pln: float,
+        unit_count: int,
+        failure_rate: float = 0.15,
+        unsold_rate: float = 0.10,
+        parts_cost_pln: float = 0.0,
+        handling_fee_per_unit_pln: float = 5.0,
+        selling_fee_rate: float = 0.08
+    ) -> Dict[str, Any]:
+        """
+        Calculates conservative net lot proceeds after deducting:
+        - Defect / failure rate (broken/untested units)
+        - Unsold unit / liquidation rate (items that don't sell)
+        - Replacement parts / repair / battery costs
+        - Per-item handling and packaging cost
+        - Polish platform selling fees (e.g. 8% Allegro/OLX)
+        """
+        gross_value = max(0.0, float(gross_value_pln))
+        units = max(0, int(unit_count))
+
+        failure_deduction = round(gross_value * failure_rate, 2)
+        unsold_deduction = round(gross_value * unsold_rate, 2)
+        handling_deduction = round(units * handling_fee_per_unit_pln, 2)
+        selling_fees = round(gross_value * selling_fee_rate, 2)
+        parts_cost = round(max(0.0, float(parts_cost_pln)), 2)
+
+        total_deductions = round(
+            failure_deduction + unsold_deduction + handling_deduction + selling_fees + parts_cost,
+            2
+        )
+        net_proceeds = round(max(0.0, gross_value - total_deductions), 2)
+
+        return {
+            "gross_value_pln": gross_value,
+            "unit_count": units,
+            "failure_rate": failure_rate,
+            "failure_deduction_pln": failure_deduction,
+            "unsold_rate": unsold_rate,
+            "unsold_deduction_pln": unsold_deduction,
+            "parts_cost_pln": parts_cost,
+            "handling_fee_per_unit_pln": handling_fee_per_unit_pln,
+            "handling_cost_pln": handling_deduction,
+            "selling_fee_rate": selling_fee_rate,
+            "selling_fees_pln": selling_fees,
+            "total_deductions_pln": total_deductions,
+            "net_proceeds_pln": net_proceeds,
+        }
+
+    @classmethod
     def inspect_lot_photo_contents(cls, deal: Dict[str, Any]) -> Dict[str, Any]:
         """
-        Inspects and synthesizes visual contents of lot photos.
-        If the deal already has curated photo_inspection metadata, it enriches it;
-        otherwise, it performs automatic recognition from titles, notes, and tags.
+        Inspects contents of lot deals.
+        Truthfully labels text analysis vs actual visual image inspection.
+        Requires genuine image provenance for visual analysis.
+        Avoids arbitrary 30-item / 6 PLN filler defaults when contents are uncertain.
         """
+        has_visual_image = bool(
+            deal.get("actual_image_analyzed")
+            or deal.get("image_analyzed")
+            or deal.get("has_actual_image")
+            or (deal.get("analysis_method") == "visual_analysis" and deal.get("image_url"))
+        )
+
         existing_pi = deal.get("photo_inspection")
         if existing_pi and existing_pi.get("inspected", False):
-            # Already deeply inspected by vision pipeline
+            # Already inspected. Ensure truthful labelling if text-only
+            if not has_visual_image and existing_pi.get("analysis_method") != "visual_analysis":
+                res = dict(existing_pi)
+                if "analysis_method" not in res:
+                    res["analysis_method"] = "text_analysis"
+                if "inspection_badge" not in res or "AI Vision" in res.get("inspection_badge", ""):
+                    if res["analysis_method"] == "text_analysis":
+                        res["inspection_badge"] = "📝 Analiza Tekstowa (Text Analysis)"
+                return res
             return existing_pi
+
+        analysis_method = "visual_analysis" if has_visual_image else "text_analysis"
+        inspection_badge = "🔍 Inspekcja Zdjęcia (AI Vision)" if has_visual_image else "📝 Analiza Tekstowa (Text Analysis)"
 
         # Generate automated inspection
         raw_text = " ".join([
@@ -470,13 +539,22 @@ class LotVisionInspector:
                 })
                 spotted_value += val
 
+        spotted_items_count = len(spotted_gems)
+        danshari_info = cls.detect_danshari_type(raw_text)
+
         # Estimate lot total item count from title
         count_match = re.search(r'(\d+)\s*(?:gier|sztuk|本|点|タイトル)', raw_text)
-        item_count = int(count_match.group(1)) if count_match else 30
-        filler_count = max(0, item_count - len(spotted_gems))
-        filler_val = filler_count * 6.0  # strictly conservative 6 PLN per filler Japanese title (wholesale / mix pricing)
-
-        danshari_info = cls.detect_danshari_type(raw_text)
+        if count_match:
+            total_items = int(count_match.group(1))
+            uncertain_contents = False
+            item_count = total_items
+            filler_count = max(0, total_items - spotted_items_count)
+            filler_val = 0.0  # Unknown filler has no confirmed value without evidence
+        else:
+            uncertain_contents = True
+            item_count = spotted_items_count
+            filler_count = 0
+            filler_val = 0.0
 
         # Check if lot is a wholesale console hardware bundle (specifically wholesale PSP lots >= 3 units)
         is_psp_wholesale = "psp" in raw_text and any(w in raw_text for w in ["3台", "4台", "5台", "10台", "3 szt", "4 szt", "5 szt", "10 szt", "hurt", "hurtowy", "大量"])
@@ -487,18 +565,31 @@ class LotVisionInspector:
             if psp_count < 3:
                 psp_count = 3
             item_count = psp_count
+            spotted_items_count = psp_count
+            uncertain_contents = False
+            filler_count = 0
+            filler_val = 0.0
+
             price_jpy = float(deal.get("target_price_jpy", deal.get("price_jpy", 6000)))
             unit_jpy = round(price_jpy / psp_count, 0)
             unit_pln_raw = round(unit_jpy * 0.024832, 2)
             est_gross_pln = psp_count * 195.0
             new_battery_budget = psp_count * 25.0
-            filler_val = 0.0
 
             battery_hazard = True
             battery_notes = (
                 f"🚨 PAKIET HURTOWY {psp_count} KONSOL PSP! Limit IATA to maks. 2 baterie Li-Ion w paczce lotniczej. "
                 "BEZWZGLĘDNIE zastosuj procedurę 'Dry Shipping' w magazynie ZenMarket (usunięcie/utylizacja starych, spuchniętych baterii w Osace) "
                 "lub wybierz Pocztę Morską (Japan Post Seamail). Nowe, świeże baterie na Allegro kosztują 18-25 zł."
+            )
+            net_calc = cls.calculate_lot_net_proceeds(
+                gross_value_pln=est_gross_pln,
+                unit_count=psp_count,
+                failure_rate=0.20,
+                unsold_rate=0.0,
+                parts_cost_pln=new_battery_budget,
+                handling_fee_per_unit_pln=10.0,
+                selling_fee_rate=0.08
             )
             psp_wholesale_info = {
                 "is_wholesale_psp": True,
@@ -508,6 +599,7 @@ class LotVisionInspector:
                 "recommended_shipping": "Dry Shipping (usunięcie starych baterii w Osace) lub Japan Post Seamail",
                 "estimated_gross_sales_pln": est_gross_pln,
                 "new_batteries_cost_pln": new_battery_budget,
+                "net_proceeds_pln": net_calc["net_proceeds_pln"],
                 "expected_yield": f"Szacunek: ~{round(psp_count*0.5)} w pełni sprawne, ~{round(psp_count*0.3)} idealne pod CFW/SD adapter, ~{round(psp_count*0.2)} dawcy części",
                 "wholesale_verdict": "🔥 BARDZO DOBRY ZAKUP: Hurtowe pakiety PSP z Japonii to wysoka marża pod warunkiem usunięcia baterii przed wysyłką lotniczą!"
             }
@@ -516,7 +608,7 @@ class LotVisionInspector:
             # Check battery safety: did seller include a console in the box?
             battery_hazard = False
             battery_notes = "🟢 100% Czyste Gry (0% Li-Ion / Brak baterii - bez ograniczeń IATA w paczce lotniczej)"
-            
+
             # Check for explicit console hardware indicators
             has_console = (
                 "本体" in raw_text
@@ -538,9 +630,30 @@ class LotVisionInspector:
                 top_gem = max(spotted_gems, key=lambda x: x["est_pl_value"])
                 break_even_str = f"Break-Even: Samodzielna sprzedaż perełki '{top_gem['title']}' (~{top_gem['est_pl_value']:.0f} zł po surowej wycenie NTSC-J) pokrywa znaczną część kosztów całego kartonu!"
 
+            net_calc = cls.calculate_lot_net_proceeds(
+                gross_value_pln=spotted_value + filler_val,
+                unit_count=item_count,
+                failure_rate=0.15,
+                unsold_rate=0.10,
+                parts_cost_pln=0.0,
+                handling_fee_per_unit_pln=3.0,
+                selling_fee_rate=0.08
+            )
+
+        summary_method_label = "Analiza tekstu ogłoszenia" if analysis_method == "text_analysis" else "Inspekcja wizualna zdjęć"
+        if is_psp_wholesale:
+            summary = f"Pakiet hurtowy {item_count} konsol PSP. Koszt jednostkowy: ~{unit_jpy:,.0f} JPY (~{unit_pln_raw:.2f} zł). Wymagany Dry Shipping."
+        elif uncertain_contents:
+            summary = f"[{summary_method_label}] Wykryto {spotted_items_count} potwierdzone tytuły w tekście. Zawartość niepewna (brak spisu liczby gier). Wycena perełek: ~{spotted_value:.0f} zł, estymowane wpływy netto: ~{net_calc['net_proceeds_pln']:.0f} zł."
+        else:
+            summary = f"[{summary_method_label}] Zidentyfikowano {spotted_items_count} kluczowych tytułów w kartonie ({item_count} gier). Szacowana wartość samych perełek po surowej wycenie NTSC-J: ~{spotted_value:.0f} zł (wpływy netto: ~{net_calc['net_proceeds_pln']:.0f} zł)."
+
         return {
             "inspected": True,
-            "inspection_badge": "🔍 Inspekcja Zdjęcia (AI Vision)",
+            "analysis_method": analysis_method,
+            "inspection_badge": inspection_badge,
+            "uncertain_contents": uncertain_contents,
+            "spotted_items_count": spotted_items_count,
             "total_items_spotted": item_count,
             "lot_type": danshari_info["lot_type"],
             "lot_type_name": danshari_info["label"],
@@ -548,11 +661,14 @@ class LotVisionInspector:
             "spotted_gems_value_pln": round(spotted_value, 2),
             "estimated_total_lot_value_pln": round(spotted_value + filler_val, 2),
             "filler_count": filler_count,
+            "filler_value_pln": filler_val,
+            "net_proceeds_pln": net_calc["net_proceeds_pln"],
+            "net_proceeds_breakdown": net_calc,
             "battery_hazard_detected": battery_hazard,
             "battery_notes": battery_notes,
             "break_even_gem": break_even_str,
             "psp_wholesale_info": psp_wholesale_info,
-            "inspection_summary": f"Zidentyfikowano {len(spotted_gems)} kluczowych tytułów w kartonie ({item_count} gier). Szacowana wartość samych perełek po surowej wycenie NTSC-J: ~{spotted_value:.0f} zł." if not is_psp_wholesale else f"Pakiet hurtowy {item_count} konsol PSP. Koszt jednostkowy: ~{unit_jpy:,.0f} JPY (~{unit_pln_raw:.2f} zł). Wymagany Dry Shipping."
+            "inspection_summary": summary
         }
 
     @classmethod
@@ -568,6 +684,10 @@ class LotVisionInspector:
         break_even = inspection.get("break_even_gem")
         if break_even:
             md.append(f"> 💡 **Break-Even:** {break_even}  ")
+
+        if "net_proceeds_pln" in inspection and inspection["net_proceeds_pln"] is not None:
+            net_val = inspection["net_proceeds_pln"]
+            md.append(f"> 💰 **Wpływy Netto z Pakietu:** **~{net_val:.0f} zł** (po potrąceniu awaryjności, niesprzedanych sztuk i prowizji)  ")
 
         psp_wholesale = inspection.get("psp_wholesale_info")
         if psp_wholesale:

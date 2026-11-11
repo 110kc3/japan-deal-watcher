@@ -2,7 +2,7 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>AgyDeal – Japan Deal & Auction Sniping Radar</title>
   <meta name="description" content="Mobilny radar okazji i licytacji z Yahoo! Japan Auctions i Mercari z kalkulatorem zysku w PLN i limitem IATA.">
   
@@ -55,20 +55,20 @@
         <span class="chip-label">💱 100 JPY:</span>
         <strong id="tickerJpyRate">2.48 zł</strong>
       </div>
-      <div class="ticker-chip" title="Darmowe magazynowanie w Osace">
+      <div class="ticker-chip" id="tickerStorageChip" title="Darmowe magazynowanie w Osace" style="display: none;">
         <span class="chip-label">⏳ Magazyn:</span>
         <strong id="tickerStorageDays" class="text-amber">58 dni</strong>
-      </div>
-      <div class="ticker-chip" title="Średnia zrealizowana stopa zwrotu">
-        <span class="chip-label">📈 ROI:</span>
-        <strong class="text-green">+82.8%</strong>
       </div>
     </div>
   </header>
 
   <!-- Navigation View Tabs -->
-  <nav class="view-tabs">
-    <button class="view-tab active" data-view="auctions">
+  <nav class="view-tabs" id="viewTabs">
+    <button class="view-tab active" data-view="opportunities">
+      🎯 <span>Okazje</span>
+      <span class="tab-badge" id="opportunitiesCountBadge">5</span>
+    </button>
+    <button class="view-tab" data-view="auctions">
       🔨 <span>Aukcje Yahoo</span>
       <span class="tab-badge" id="auctionsCountBadge">73</span>
     </button>
@@ -385,17 +385,17 @@
 
   <!-- Bottom Navigation Tab Bar (Mobile App Ergonomics) -->
   <nav class="bottom-nav-bar">
-    <button class="nav-item active" data-nav="auctions">
+    <button class="nav-item active" data-nav="opportunities">
+      <span class="nav-icon">🎯</span>
+      <span class="nav-text">Okazje</span>
+    </button>
+    <button class="nav-item" data-nav="auctions">
       <span class="nav-icon">🔨</span>
       <span class="nav-text">Aukcje</span>
     </button>
     <button class="nav-item" data-nav="mercari">
       <span class="nav-icon">🛍️</span>
       <span class="nav-text">Kup Teraz</span>
-    </button>
-    <button class="nav-item" data-nav="search_streams">
-      <span class="nav-icon">🔍</span>
-      <span class="nav-text">Strumienie</span>
     </button>
     <button class="nav-item" data-nav="calc">
       <span class="nav-icon">🧮</span>

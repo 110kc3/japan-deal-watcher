@@ -1,4 +1,10 @@
-"""Unit tests for HistoryTracker, HistoryGenerator, and markdown strikethrough."""
+"""Unit tests for HistoryTracker, HistoryGenerator, and markdown strikethrough.
+
+Fix F07 verification:
+- 404s, connection errors, and exclusion filters must NOT be marked as sales.
+- Genuine sales (e.g. 'Zakończone / Sprzedane') are properly logged.
+- Contaminated historical entries are cleaned.
+"""
 
 import unittest
 import tempfile
@@ -50,7 +56,7 @@ class TestHistoryTracker(unittest.TestCase):
                 "est_margin_pln": 187.50,
                 "roi_percent": 141.5,
                 "battery_type": "none",
-                "status": "Zakończone / 404",
+                "status": "Zakończone / Sprzedane",
                 "zenmarket_url": "https://zenmarket.jp/item2",
                 "mercari_url": "https://jp.mercari.com/item2"
             }
@@ -73,6 +79,64 @@ class TestHistoryTracker(unittest.TestCase):
         self.assertIn("item_sold_02", saved["items"])
         self.assertEqual(len(saved["sales_log"]), 1)
         self.assertEqual(saved["sales_log"][0]["id"], "item_sold_02")
+        self.assertTrue(saved["items"]["item_sold_02"]["is_sold"])
+        self.assertFalse(saved["items"]["item_active_01"]["is_sold"])
+
+    def test_errors_and_404_not_marked_as_sold(self):
+        """Fix F07: 404s, connection errors, exclusions, and trading must NOT be marked as sales."""
+        non_sales_deals = [
+            {
+                "id": "item_404",
+                "model": "Removed Item",
+                "price_jpy": 4000,
+                "status": "Zakończone / 404"
+            },
+            {
+                "id": "item_err",
+                "model": "Timeout Item",
+                "price_jpy": 5000,
+                "status": "Błąd połączenia"
+            },
+            {
+                "id": "item_broken",
+                "model": "Broken Screen GBA",
+                "price_jpy": 3000,
+                "is_broken": True,
+                "status": "Wykluczone: Uszkodzone (Broken)"
+            },
+            {
+                "id": "item_trading",
+                "model": "In Checkout Cart",
+                "price_jpy": 6000,
+                "status": "W trakcie transakcji"
+            }
+        ]
+
+        res = self.tracker.record_scan(non_sales_deals)
+        self.assertEqual(res["new_sales"], 0)
+        self.assertEqual(res["total_sales"], 0)
+        self.assertEqual(len(self.tracker.data["sales_log"]), 0)
+
+        items = self.tracker.data["items"]
+        # 404 is marked disappeared, not sold
+        self.assertFalse(items["item_404"]["is_sold"])
+        self.assertTrue(items["item_404"]["is_disappeared"])
+        self.assertIsNone(items["item_404"]["sold_at"])
+
+        # Connection error is marked as error, not sold
+        self.assertFalse(items["item_err"]["is_sold"])
+        self.assertTrue(items["item_err"]["has_fetch_error"])
+        self.assertIsNone(items["item_err"]["sold_at"])
+
+        # Broken exclusion is marked excluded, not sold
+        self.assertFalse(items["item_broken"]["is_sold"])
+        self.assertTrue(items["item_broken"]["is_excluded"])
+        self.assertIsNone(items["item_broken"]["sold_at"])
+
+        # In-transaction is marked trading, not sold
+        self.assertFalse(items["item_trading"]["is_sold"])
+        self.assertTrue(items["item_trading"]["is_trading"])
+        self.assertIsNone(items["item_trading"]["sold_at"])
 
     def test_price_change_detection(self):
         # 1. Initial scan
@@ -95,13 +159,55 @@ class TestHistoryTracker(unittest.TestCase):
         self.tracker.record_scan([self.sample_deals[0]])
         self.assertEqual(len(self.tracker.data["sales_log"]), 0)
 
-        # 2. Second scan: item is sold (404)
-        sold_item = dict(self.sample_deals[0], status="Zakończone / 404")
-        res = self.tracker.record_scan([sold_item])
-        self.assertEqual(res["new_sales"], 1)
+        # 2. Transition to 404: must NOT record sale
+        disappeared_item = dict(self.sample_deals[0], status="Zakończone / 404")
+        res_404 = self.tracker.record_scan([disappeared_item])
+        self.assertEqual(res_404["new_sales"], 0)
+        self.assertFalse(self.tracker.data["items"]["item_active_01"]["is_sold"])
+        self.assertTrue(self.tracker.data["items"]["item_active_01"]["is_disappeared"])
+
+        # 3. Transition to genuine sale: records sale
+        sold_item = dict(self.sample_deals[0], status="Zakończone / Sprzedane")
+        res_sold = self.tracker.record_scan([sold_item])
+        self.assertEqual(res_sold["new_sales"], 1)
         self.assertEqual(len(self.tracker.data["sales_log"]), 1)
         self.assertEqual(self.tracker.data["sales_log"][0]["id"], "item_active_01")
         self.assertTrue(self.tracker.data["items"]["item_active_01"]["is_sold"])
+
+    def test_clean_contaminated_entries(self):
+        """Fix F07: verifies purging of 404s and errors from legacy price_history database."""
+        contaminated = {
+            "metadata": {"total_sales_recorded": 4, "total_tracked_items": 4},
+            "items": {
+                "it_404": {"status": "Zakończone / 404", "is_sold": True, "sold_at": "2026-11-08 12:00 UTC"},
+                "it_broken": {"status": "Wykluczone: Uszkodzone (Broken)", "is_sold": True, "sold_at": "2026-11-08 12:00 UTC"},
+                "it_err": {"status": "Błąd połączenia", "is_sold": True, "sold_at": "2026-11-08 12:00 UTC"},
+                "it_real": {"status": "Zakończone / Sprzedane", "is_sold": True, "sold_at": "2026-11-08 12:00 UTC"}
+            },
+            "sales_log": [
+                {"id": "it_404", "status": "Zakończone / 404", "realized_margin_pln": 100},
+                {"id": "it_broken", "status": "Wykluczone: Uszkodzone (Broken)", "realized_margin_pln": 50},
+                {"id": "it_err", "status": "Błąd połączenia", "realized_margin_pln": 80},
+                {"id": "it_real", "status": "Zakończone / Sprzedane", "realized_margin_pln": 200}
+            ]
+        }
+        with open(self.history_file, "w", encoding="utf-8") as f:
+            json.dump(contaminated, f)
+
+        # Reload tracker which triggers clean_contaminated_entries
+        tracker = HistoryTracker(filepath=self.history_file)
+        self.assertEqual(len(tracker.data["sales_log"]), 1)
+        self.assertEqual(tracker.data["sales_log"][0]["id"], "it_real")
+        self.assertEqual(tracker.data["metadata"]["total_sales_recorded"], 1)
+
+        # Check item cleaning
+        self.assertFalse(tracker.data["items"]["it_404"]["is_sold"])
+        self.assertTrue(tracker.data["items"]["it_404"]["is_disappeared"])
+        self.assertFalse(tracker.data["items"]["it_broken"]["is_sold"])
+        self.assertTrue(tracker.data["items"]["it_broken"]["is_excluded"])
+        self.assertFalse(tracker.data["items"]["it_err"]["is_sold"])
+        self.assertTrue(tracker.data["items"]["it_err"]["has_fetch_error"])
+        self.assertTrue(tracker.data["items"]["it_real"]["is_sold"])
 
     def test_analytics_computation(self):
         self.tracker.record_scan(self.sample_deals)

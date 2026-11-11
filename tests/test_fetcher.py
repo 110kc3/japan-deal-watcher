@@ -29,6 +29,14 @@ class TestFetcher(unittest.TestCase):
         self.assertTrue(res["is_working"])
         self.assertEqual(res["condition_type"], "confirmed_working")
 
+    def test_classify_condition_empty_text_is_unknown(self):
+        res = classify_condition("")
+        self.assertFalse(res["is_broken"])
+        self.assertTrue(res["is_untested"])
+        self.assertIsNone(res["is_working"])
+        self.assertEqual(res["condition_type"], "unknown")
+        self.assertIn("Nieznany", res["condition_badge"])
+
     def test_classify_condition_negation(self):
         negation_text = "液晶画面割れなし。ボタン故障はありません。美品。"
         res = classify_condition(negation_text)

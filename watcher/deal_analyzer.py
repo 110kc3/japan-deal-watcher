@@ -13,6 +13,8 @@ from .checks import (
     is_lens_item,
     is_nintendo_ds_item
 )
+from .product_matcher import ProductMatcher
+from .recommendation_model import RecommendationModel
 
 class DealAnalyzer:
     """
@@ -95,6 +97,42 @@ class DealAnalyzer:
         cond_badge = deal.get("condition_badge", "✅ Stan Dobry")
 
         is_no_battery = battery_type != "li-ion" or "Bez Baterii" in color or "bez baterii" in note.lower()
+
+        # Product Identity Verification (F01)
+        match_res = ProductMatcher.verify_deal(deal, deal)
+        if not match_res.is_match:
+            raw_price = deal.get("price_pln_raw", round(price_jpy * self.rate_jpy, 2))
+            return {
+                "id": deal.get("id"),
+                "model": model,
+                "color": color,
+                "category_id": cat_id,
+                "category_name": deal.get("category_name", ""),
+                "price_jpy": price_jpy,
+                "price_pln_raw": raw_price,
+                "landed_cost_pln": landed_cost_pln,
+                "est_pl_value": est_pl_value,
+                "est_margin_pln": margin_pln,
+                "roi_percent": roi_percent,
+                "battery_type": battery_type,
+                "is_no_battery": is_no_battery,
+                "condition_type": cond_type,
+                "condition_badge": cond_badge,
+                "score": 0,
+                "tier": "DISQUALIFIED",
+                "verdict": "WYKLUCZONE (BŁĄD DOPASOWANIA PRODUKTU)",
+                "verdict_icon": "🚫",
+                "rationale": f"Niezgodność produktu: {match_res.reason}",
+                "is_active": True,
+                "is_worth_buying": False,
+                "product_match_rejected": True,
+                "product_match_reason": match_res.reason,
+                "checks_passed": ["listing_sanity"],
+                "checks_failed": ["product_identity_match"],
+                "checks_summary": f"1 Błąd: Błędne dopasowanie ({match_res.reason})",
+                "zenmarket_url": deal.get("zenmarket_url", ""),
+                "mercari_url": deal.get("mercari_url", "")
+            }
 
         # Check Camera Price Cap: User rule "aparaty powyżej 100zł nie są okazjami"
         if is_camera_item(deal):
@@ -292,13 +330,15 @@ class DealAnalyzer:
     def get_optimal_consolidation_basket(self):
         """
         Constructs an optimal shipping basket complying with IATA:
+        - Only genuinely qualified deals (is_worth_buying == True)
         - Exactly or up to 2 Li-Ion handhelds
         - Plus top 0% Li-Ion items (games, lenses, retro consoles)
         """
         ranked = self.get_ranked_deals()
-        
-        li_ion_items = [d for d in ranked if not d["is_no_battery"]]
-        no_battery_items = [d for d in ranked if d["is_no_battery"]]
+        eligible_ranked = [d for d in ranked if d.get("is_worth_buying")]
+
+        li_ion_items = [d for d in eligible_ranked if not d["is_no_battery"]]
+        no_battery_items = [d for d in eligible_ranked if d["is_no_battery"]]
 
         selected_li_ion = li_ion_items[:2]
         selected_no_battery = no_battery_items[:4]

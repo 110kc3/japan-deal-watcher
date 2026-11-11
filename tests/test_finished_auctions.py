@@ -26,8 +26,14 @@ class TestFinishedAuctionsTracker(unittest.TestCase):
         self.assertGreaterEqual(len(auctions), len(HISTORICAL_SEED_AUCTIONS))
         self.assertTrue(self.test_file.exists())
 
+        # Verify seed records do not claim fake realized profits
+        for a in auctions:
+            self.assertIn("potential_arbitrage_pln", a)
+            self.assertNotIn("realized_profit", a)
+            self.assertNotIn("realized_profit_pln", a)
+
     def test_record_new_finished_auction(self):
-        """Records a new finished auction and computes margin and ROI."""
+        """Records a new finished auction and computes potential arbitrage, NOT fake realized margin."""
         tracker = FinishedAuctionsTracker(filepath=self.test_file)
         sample = {
             "id": "t1234567890",
@@ -43,9 +49,16 @@ class TestFinishedAuctionsTracker(unittest.TestCase):
         }
         rec = tracker.record_auction(sample)
         self.assertEqual(rec["auction_id"], "t1234567890")
-        self.assertIn("realized_margin_pln", rec)
-        self.assertGreater(rec["realized_margin_pln"], 0)
+
+        # Must be labelled as potential arbitrage / hypothetical margin
+        self.assertIn("potential_arbitrage_pln", rec)
+        self.assertIn("hypothetical_margin_pln", rec)
+        self.assertGreater(rec["potential_arbitrage_pln"], 0)
         self.assertIn("landed_cost_pln", rec)
+
+        # Realized profit must NOT be claimed on market items
+        self.assertNotIn("realized_profit", rec)
+        self.assertNotIn("realized_profit_pln", rec)
 
         all_items = tracker.get_all()
         found = [x for x in all_items if x.get("id") == "t1234567890"]
@@ -96,6 +109,28 @@ class TestFinishedAuctionsTracker(unittest.TestCase):
         harvested = tracker.harvest_from_active(active)
         self.assertEqual(len(harvested), 1)
         self.assertEqual(harvested[0]["id"], "act001")
+        self.assertIn("potential_arbitrage_pln", harvested[0])
+
+    def test_sync_to_target_file(self):
+        """Authoritative archive synchronizes consistently to an external target."""
+        tracker = FinishedAuctionsTracker(filepath=self.test_file)
+        sync_target = Path(self.temp_dir.name) / "docs_finished_auctions.json"
+        tracker.sync_to(sync_target)
+
+        self.assertTrue(sync_target.exists())
+        with open(sync_target, "r", encoding="utf-8") as f:
+            synced_data = json.load(f)
+
+        self.assertEqual(len(synced_data), len(tracker.get_all()))
+
+    def test_get_stats_potential_arbitrage(self):
+        """Verifies aggregate statistics compute potential arbitrage."""
+        tracker = FinishedAuctionsTracker(filepath=self.test_file)
+        stats = tracker.get_stats()
+        self.assertIn("avg_potential_arbitrage_pln", stats)
+        self.assertIn("total_potential_arbitrage_pln", stats)
+        self.assertGreater(stats["total_finished"], 0)
+        self.assertGreater(stats["avg_potential_arbitrage_pln"], 0)
 
 
 if __name__ == "__main__":

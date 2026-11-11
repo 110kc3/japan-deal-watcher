@@ -9,12 +9,17 @@ WATCHLIST_FILE = DATA_DIR / "watchlist.json"
 CURRENT_DEALS_FILE = DATA_DIR / "current_deals.json"
 PRICE_HISTORY_FILE = DATA_DIR / "price_history.json"
 FINISHED_AUCTIONS_FILE = DATA_DIR / "finished_auctions.json"
+RESALE_LEDGER_FILE = DATA_DIR / "resale_ledger.json"
+RESALE_LEDGER_CSV_FILE = DATA_DIR / "resale_ledger.csv"
+ALERTS_HISTORY_FILE = DATA_DIR / "alerts_history.json"
 YAHOO_DEALS_FILE = DATA_DIR / "yahoo_deals.json"
 YAHOO_MD_FILE = BASE_DIR / "YAHOO_AUCTIONS_DEALS.md"
 SNIPER_GUIDE_MD_FILE = BASE_DIR / "AUCTION_SNIPING_GUIDE.md"
 MARKET_SALES_MD_FILE = BASE_DIR / "MARKET_SALES_HISTORY.md"
 AUCTION_RADAR_MD_FILE = BASE_DIR / "AUCTION_RADAR.md"
 MYSTERY_LOTS_MD_FILE = BASE_DIR / "MYSTERY_LOTS_ANALYSIS.md"
+REPORTS_DIR = BASE_DIR / "reports"
+LATEST_REPORT_FILE = REPORTS_DIR / "latest.md"
 DOCS_DIR = BASE_DIR / "docs"
 DOCS_DATA_FILE = DOCS_DIR / "data" / "deals.json"
 
@@ -26,6 +31,7 @@ DEFAULT_EUR_PLN_RATE = 4.35      # 1 EUR ≈ 4.35 PLN
 ZENMARKET_FEE_JPY = 800          # 800 JPY fee per item (domestic shipping / item charge)
 ZENMARKET_FEE_EUR = 2.0          # 2 EUR fee per item (ZenMarket proxy / handling fee)
 ZENMARKET_DEPOSIT_FEE_RATE = 0.035  # 3.5% deposit processing fee (Stripe / Card / PayPal)
+ZENMARKET_BATTERY_DISPOSAL_FEE_JPY = 300  # 300 JPY disposal fee per battery/device
 VAT_RATE = 0.23                  # 23% Polish VAT
 
 # ZenMarket Free Storage Policy

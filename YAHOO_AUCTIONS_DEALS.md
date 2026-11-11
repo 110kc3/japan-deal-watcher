@@ -3,7 +3,7 @@
 > **Katalog Alternatywnych Ofert z Yahoo! Japan Auctions (ヤフオク!), Surugaya (駿河屋) i Hard-Off Net Mall**  
 > *Dedykowane źródło licytacji z niskim progiem wejścia, hurtowych lotów gier retro oraz rzadkich wydań konsol i aparatów analogowych.*
 
-![Platforms](https://img.shields.io/badge/Platforms-Yahoo!%20Auctions%20%7C%20Surugaya%20%7C%20Hard--Off-orange) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-11%2017:47%20UTC-blue) ![Exchange Rate](https://img.shields.io/badge/NBP%20Live-100%20JPY%20%E2%89%88%202.47%20PLN-success) ![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-56%20Days%20Left-orange) ![Deal Checks](https://img.shields.io/badge/Deal%20Checks-10%20Rules%20PASS-brightgreen) ![Camera Cap](https://img.shields.io/badge/Camera%20Cap-Max%20100%20PLN-orange) ![Lens Cap](https://img.shields.io/badge/Lens%20Cap-Max%20100%20PLN-orange) ![Sniper Bidding](https://img.shields.io/badge/ZenMarket-Automated%20Sniper-brightgreen)
+![Platforms](https://img.shields.io/badge/Platforms-Yahoo!%20Auctions%20%7C%20Surugaya%20%7C%20Hard--Off-orange) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-11%2018:45%20UTC-blue) ![Exchange Rate](https://img.shields.io/badge/NBP%20Live-100%20JPY%20%E2%89%88%202.47%20PLN-success) ![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-56%20Days%20Left-orange) ![Deal Checks](https://img.shields.io/badge/Deal%20Checks-10%20Rules%20PASS-brightgreen) ![Camera Cap](https://img.shields.io/badge/Camera%20Cap-Max%20100%20PLN-orange) ![Lens Cap](https://img.shields.io/badge/Lens%20Cap-Max%20100%20PLN-orange) ![Sniper Bidding](https://img.shields.io/badge/ZenMarket-Automated%20Sniper-brightgreen)
 
 ⬅ **Nawigacja:** [📱 **Aplikacja Android / PWA (Live)**](https://110kc3.github.io/japan-deal-watcher/) · [Wróć do Głównego Dashboardu Mercari (README.md)](README.md) · [📦 **Pakiety Różności & Danshari (MYSTERY_LOTS_ANALYSIS.md)**](MYSTERY_LOTS_ANALYSIS.md) · [📡 Radar Licytacji (AUCTION_RADAR.md)](AUCTION_RADAR.md) · [🎯 Poradnik Snajpera i Ceny Końcowe (AUCTION_SNIPING_GUIDE.md)](AUCTION_SNIPING_GUIDE.md) · [💰 Audyt Opłacalności (REAL_PROFITABILITY_AUDIT.md)](REAL_PROFITABILITY_AUDIT.md) · [📈 Historia Sprzedaży (MARKET_SALES_HISTORY.md)](MARKET_SALES_HISTORY.md)
 
@@ -246,13 +246,12 @@ Wszystkie przedmioty wygrane na Yahoo! Auctions oraz kupione w Surugaya trafiaj�
 
 ## 💡 Optymalny Koszyk Konsolidacyjny (Yahoo! Auctions + Surugaya)
 
-Zestawienie optymalnego kartonu konsolidacyjnego 2 pozycji z Yahoo! Auctions i Surugaya przestrzegające ściśle limitu IATA (maks. 2 akumulatory Li-Ion):
+Zestawienie optymalnego kartonu konsolidacyjnego 1 pozycji z Yahoo! Auctions i Surugaya przestrzegające ściśle limitu IATA (maks. 2 akumulatory Li-Ion):
 
 | Skład Paczki Konsolidacyjnej | Baterie Li-Ion | Koszt Zakupu (JPY) | Koszt w PL (z VAT) | Wartość w Polsce | Szacowany Zysk Netto |
 |---|:---:|---:|---:|---:|---:|
 | 1× **【福袋】Tajemniczy Karton 50 Gier Retro (Surugaya Fukubukuro / 箱詰め)** (Surugaya Lucky Bag (50 Gier)) | 0 (Bez limitu) | 3,900 JPY (~96.44 zł) | ~202.40 zł | ~320.00 zł | **+117.60 zł** |
-| 1× **Zestaw 30 Gier Nintendo DS / 3DS w Pudełkach (CIB Lot)** (Mix 30 Gier DS / 3DS) | 0 (Bez limitu) | 3,600 JPY (~89.02 zł) | ~174.04 zł | ~220.00 zł | **+45.96 zł** |
-| **ŁĄCZNIE W 1 KARTONIE (2 poz.)** | **0 / 2 Li-Ion (100% OK)** | **7,500 JPY** | **~376.44 zł** | **~540.00 zł** | **<strong style='color:#10b981;'>+163.56 zł (+43.4%)</strong>** |
+| **ŁĄCZNIE W 1 KARTONIE (1 poz.)** | **0 / 2 Li-Ion (100% OK)** | **3,900 JPY** | **~202.40 zł** | **~320.00 zł** | **<strong style='color:#10b981;'>+117.60 zł (+58.1%)</strong>** |
 
 ---
 

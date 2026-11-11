@@ -23,6 +23,8 @@ from watcher.config import (
     MARKET_SALES_MD_FILE,
     AUCTION_RADAR_MD_FILE,
     MYSTERY_LOTS_MD_FILE,
+    REPORTS_DIR,
+    LATEST_REPORT_FILE,
     DOCS_DATA_FILE,
     BASE_DIR
 )
@@ -38,6 +40,7 @@ from watcher.webapp_exporter import WebappExporter
 from watcher.history_tracker import HistoryTracker
 from watcher.history_generator import HistoryGenerator
 from watcher.finished_auctions_tracker import FinishedAuctionsTracker
+from watcher.resale_ledger import ResaleLedger
 
 def main():
     print("=" * 60)
@@ -80,7 +83,7 @@ def main():
     timeline = tracker.get_timeline_status()
     print(f"⏳ 60-Day Warehouse Storage: {timeline['days_remaining']} days remaining until {timeline['deadline']}")
 
-    # 5. Generate README.md
+    # 5. Generate reports/latest.md (Top 5 qualified opportunities & compact health summary)
     generator = MarkdownGenerator(
         deals=deals,
         timeline_status=timeline,
@@ -88,12 +91,12 @@ def main():
         rate_eur=rate_eur,
         is_live_rate=is_live_jpy
     )
-    readme_content = generator.generate()
+    latest_report_content = generator.generate_latest_report()
 
-    readme_path = BASE_DIR / "README.md"
-    with open(readme_path, "w", encoding="utf-8") as f:
-        f.write(readme_content)
-    print(f"📄 Successfully generated and updated {readme_path}")
+    REPORTS_DIR.mkdir(parents=True, exist_ok=True)
+    with open(LATEST_REPORT_FILE, "w", encoding="utf-8") as f:
+        f.write(latest_report_content)
+    print(f"📄 Successfully generated and updated {LATEST_REPORT_FILE}")
 
     # 6. Generate YAHOO_AUCTIONS_DEALS.md (Alternative marketplaces)
     if YAHOO_DEALS_FILE.exists():
@@ -150,25 +153,25 @@ def main():
             f.write(mystery_content)
         print(f"📄 Successfully generated and updated {MYSTERY_LOTS_MD_FILE} (Danshari & Mystery Lots)")
 
-        # Save copy to Obsidian vault
-        obsidian_mystery_path = Path("/home/borg/docker/obsidian/vault/20-reports/adhoc/2026-11-09-mystery-lots-analysis.md")
-        if obsidian_mystery_path.parent.exists():
-            try:
-                with open(obsidian_mystery_path, "w", encoding="utf-8") as f:
-                    f.write(mystery_content)
-                print(f"📑 Copied mystery lots report to Obsidian: {obsidian_mystery_path.name}")
-            except Exception as e:
-                print(f"[WARN] Obsidian copy skipped: {e}")
+        # Save copy to Obsidian vault (opt-in via OBSIDIAN_VAULT_ENABLED)
+        if os.environ.get("OBSIDIAN_VAULT_ENABLED") == "1":
+            obsidian_mystery_path = Path("/home/borg/docker/obsidian/vault/20-reports/adhoc/2026-11-09-mystery-lots-analysis.md")
+            if obsidian_mystery_path.parent.exists():
+                try:
+                    with open(obsidian_mystery_path, "w", encoding="utf-8") as f:
+                        f.write(mystery_content)
+                    print(f"📑 Copied mystery lots report to Obsidian: {obsidian_mystery_path.name}")
+                except Exception as e:
+                    print(f"[WARN] Obsidian copy skipped: {e}")
 
-        # Save copy of radar to Obsidian vault
-        obsidian_radar_path = Path("/home/borg/docker/obsidian/vault/20-reports/adhoc/2026-11-09-yahoo-auctions-radar.md")
-        if obsidian_radar_path.parent.exists():
-            try:
-                with open(obsidian_radar_path, "w", encoding="utf-8") as f:
-                    f.write(radar_content)
-                print(f"📑 Copied auction radar to Obsidian: {obsidian_radar_path.name}")
-            except Exception as e:
-                print(f"[WARN] Obsidian copy skipped: {e}")
+            obsidian_radar_path = Path("/home/borg/docker/obsidian/vault/20-reports/adhoc/2026-11-09-yahoo-auctions-radar.md")
+            if obsidian_radar_path.parent.exists():
+                try:
+                    with open(obsidian_radar_path, "w", encoding="utf-8") as f:
+                        f.write(radar_content)
+                    print(f"📑 Copied auction radar to Obsidian: {obsidian_radar_path.name}")
+                except Exception as e:
+                    print(f"[WARN] Obsidian copy skipped: {e}")
 
     # 8. Record Price History and Generate MARKET_SALES_HISTORY.md
     history_tracker = HistoryTracker()
@@ -187,15 +190,16 @@ def main():
         f.write(sales_md_content)
     print(f"📄 Successfully generated and updated {MARKET_SALES_MD_FILE} (Market Sales & Price Intelligence)")
 
-    # Also save copy to Obsidian vault
-    obsidian_sales_path = Path("/home/borg/docker/obsidian/vault/20-reports/adhoc/2026-11-08-market-sales-history.md")
-    if obsidian_sales_path.parent.exists():
-        try:
-            with open(obsidian_sales_path, "w", encoding="utf-8") as f:
-                f.write(sales_md_content)
-            print(f"📑 Copied sales history report to Obsidian: {obsidian_sales_path.name}")
-        except Exception as e:
-            print(f"[WARN] Obsidian copy skipped: {e}")
+    # Also save copy to Obsidian vault (opt-in)
+    if os.environ.get("OBSIDIAN_VAULT_ENABLED") == "1":
+        obsidian_sales_path = Path("/home/borg/docker/obsidian/vault/20-reports/adhoc/2026-11-08-market-sales-history.md")
+        if obsidian_sales_path.parent.exists():
+            try:
+                with open(obsidian_sales_path, "w", encoding="utf-8") as f:
+                    f.write(sales_md_content)
+                print(f"📑 Copied sales history report to Obsidian: {obsidian_sales_path.name}")
+            except Exception as e:
+                print(f"[WARN] Obsidian copy skipped: {e}")
 
     # 9. Export Web App Data Feed (Android PWA on GitHub Pages)
     yahoo_deals_list = []
@@ -206,7 +210,7 @@ def main():
     finished_tracker = FinishedAuctionsTracker()
     finished_harvested = finished_tracker.harvest_from_active(yahoo_deals_list)
     finished_stats = finished_tracker.get_stats()
-    print(f"🏁 Finished Auctions: {finished_stats['total_finished']} completed listings archived (Total Realized Profit: +{finished_stats['total_profit_pln']:.2f} zł, Avg Margin: +{finished_stats['avg_realized_margin_pln']:.2f} zł)")
+    print(f"🏁 Finished Auctions: {finished_stats['total_finished']} completed listings archived (Total Potential Arbitrage: +{finished_stats['total_potential_arbitrage_pln']:.2f} zł, Avg Arbitrage: +{finished_stats['avg_potential_arbitrage_pln']:.2f} zł)")
 
     webapp_exporter = WebappExporter(
         rate_jpy=rate_jpy,
@@ -215,10 +219,17 @@ def main():
         timeline_status=timeline,
         mercari_deals=deals,
         yahoo_deals=yahoo_deals_list,
-        history_stats=scan_stats
+        history_stats=scan_stats,
+        finished_tracker=finished_tracker
     )
     webapp_res = webapp_exporter.export(output_file=DOCS_DATA_FILE)
     print(f"📱 Webapp Exporter: Synced Android PWA data feed ({webapp_res['auctions_count']} auctions, {webapp_res['mercari_count']} Mercari deals, {finished_stats['total_finished']} finished auctions)")
+
+    # 10. Resale Ledger & Owner Learning
+    resale_ledger = ResaleLedger()
+    ledger_metrics = resale_ledger.get_metrics()
+    if ledger_metrics["total_items"] > 0:
+        print(f"💼 Resale Ledger: {ledger_metrics['total_items']} items tracked | Capital at Risk: {ledger_metrics['capital_at_risk_pln']:.2f} zł | Realized Profit: +{ledger_metrics['total_realized_profit_pln']:.2f} zł (Win Rate: {ledger_metrics['win_rate_pct']}%)")
 
     print("=" * 60)
 
