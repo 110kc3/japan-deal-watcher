@@ -246,6 +246,10 @@ body {
   gap: 10px;
 }
 
+.controls-panel[hidden] {
+  display: none;
+}
+
 .search-box {
   position: relative;
   display: flex;

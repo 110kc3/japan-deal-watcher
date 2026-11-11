@@ -204,6 +204,8 @@ class ProductMatcher:
         mod = (model_name or "").lower()
 
         console_cats = [
+            "nintendo_switch_lite",
+            "nintendo_switch",
             "nintendo_3ds_handhelds",
             "nintendo_ds_handhelds",
             "gameboy_advance_retro",

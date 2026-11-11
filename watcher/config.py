@@ -49,6 +49,8 @@ MAX_LENS_PRICE_PLN = 100.0
 
 # Category-aware estimated shipping share in consolidated parcel (PLN)
 CATEGORY_SHIPPING_SHARES = {
+    "nintendo_switch_lite": 30.0,    # Planning estimate; replace with the parcel quote
+    "nintendo_switch": 45.0,         # Planning estimate for console + accessories
     # Granular Handhelds (Grupa 1: "Płynne Złoto" i Grupa 2)
     "nintendo_3ds_handhelds": 30.0,   # ~250g 3DS to 330g New 3DS XL
     "nintendo_ds_handhelds": 30.0,    # ~218g DS Lite to 314g DSi LL
@@ -76,6 +78,8 @@ DEFAULT_SHIPPING_SHARE_PLN = 30.0
 
 # Item estimated physical net weights (grams)
 CATEGORY_ESTIMATED_WEIGHTS_G = {
+    "nintendo_switch_lite": 350,        # Planning allowance with charger/packing
+    "nintendo_switch": 1000,            # Planning allowance with Joy-Con/dock/charger
     "nintendo_3ds_handhelds": 320,        # New 3DS XL ~330g, Old 3DS ~235g + sleeve
     "nintendo_ds_handhelds": 280,         # DS Lite ~218g, DSi LL ~314g
     "gameboy_advance_retro": 200,         # GBA SP ~142g, GBC ~138g

@@ -506,6 +506,8 @@ class WebappExporter:
         # Categories catalogue with metadata
         categories = [
             {"id": "all", "name": "Wszystkie Okazje", "icon": "🌐", "count": len(active_auctions) + len(active_mercari)},
+            {"id": "nintendo_switch_lite", "name": "Nintendo Switch Lite", "icon": "🎮", "battery": True},
+            {"id": "nintendo_switch", "name": "Nintendo Switch", "icon": "🎮", "battery": True},
             {"id": "nintendo_3ds_handhelds", "name": "Nintendo 3DS & New 3DS", "icon": "🕹️", "battery": True},
             {"id": "nintendo_ds_handhelds", "name": "Nintendo DSi LL & DS Lite", "icon": "🎮", "battery": True},
             {"id": "gameboy_advance_retro", "name": "Game Boy Advance & Retro", "icon": "👾", "battery": True},

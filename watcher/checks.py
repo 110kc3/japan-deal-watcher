@@ -189,6 +189,7 @@ def is_handheld_item(item: Dict[str, Any]) -> bool:
     model = item.get("model", "").lower()
 
     if cat_id in [
+        "nintendo_switch_lite", "nintendo_switch",
         "nintendo_3ds_handhelds", "nintendo_ds_handhelds", "gameboy_advance_retro",
         "ps_vita", "ps_vita_handhelds", "psp_handheld", "nintendo_ds_consoles"
     ]:

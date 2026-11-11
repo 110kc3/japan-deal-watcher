@@ -52,6 +52,16 @@ Japan Deal Watcher automates deal discovery, strict authenticity matching, lande
 
 ## ⚙️ Configuration & Policy Limits
 
+**Nintendo Switch Lite** and **Nintendo Switch** have separate filters in both
+**Aukcje** (Yahoo) and **Kup teraz** (Mercari), plus category search links through
+ZenMarket. Switch covers LCD/OLED models; Lite is separate. Both categories
+are registered in `data/watchlist.json` and the exported catalogue. They start with
+no tracked listings: add verified Mercari IDs to `tracked_items` or verified Yahoo
+records to `data/yahoo_deals.json` using the corresponding category ID
+(`nintendo_switch_lite` / `nintendo_switch`). Searches are not verified offers and
+do not imply a price or resale value. Calculator weights and shipping shares are
+planning estimates, to be replaced with actual parcel data.
+
 | Category / Parameter | Hard Limit / Policy | Enforcement Mechanism |
 |---|---|---|
 | **Compact Cameras** | Max 100.00 PLN purchase price | `watcher/checks.py` & `ProductMatcher` |

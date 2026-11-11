@@ -26,6 +26,8 @@ const CART_STORAGE_KEY = 'agydeal_cart_v2';
 
 // Weight and Logistics Configurations
 const CATEGORY_WEIGHTS = {
+  nintendo_switch_lite: 350,
+  nintendo_switch: 1000,
   nintendo_3ds_handhelds: 320,
   nintendo_ds_handhelds: 280,
   gameboy_advance_retro: 200,
@@ -598,6 +600,8 @@ function handleUrlShortcuts() {
 function renderDeals() {
   if (!state.data) return;
 
+  renderCategorySearch();
+
   const sureToggleWrapper = document.getElementById('sureDealsOnlyToggle')?.closest('label');
 
   // View 0: Top Opportunities Across Sources (First View / Default Experience - Fix F10)
@@ -948,6 +952,31 @@ function sortDealsList(list, order) {
 // ==========================================================================
 // Search Stream Card Generator (Category: Search Streams & Short Price Guides)
 // ==========================================================================
+function renderCategorySearch() {
+  const panel = document.getElementById('categorySearch');
+  const pill = [...elements.categoryPills.querySelectorAll('.pill')]
+    .find((item) => item.dataset.cat === state.selectedCategory);
+  const query = pill?.dataset.searchQuery;
+  const isAuctions = state.currentView === 'auctions';
+  const isMercari = state.currentView === 'mercari';
+  panel.hidden = !query || !(isAuctions || isMercari);
+  panel.replaceChildren();
+  if (panel.hidden) return;
+
+  const label = document.createElement('p');
+  label.textContent = `${pill.textContent.trim()} — wyszukaj oferty na ${isAuctions ? 'Yahoo! Auctions' : 'Mercari'}:`;
+  const link = document.createElement('a');
+  link.className = 'btn-compact btn-compact-secondary';
+  link.target = '_blank';
+  link.rel = 'noopener';
+  const encodedQuery = encodeURIComponent(query);
+  link.href = isAuctions
+    ? `https://zenmarket.jp/pl/yahoo.aspx?q=${encodedQuery}&sort=end&order=asc`
+    : `https://zenmarket.jp/pl/mercari.aspx?q=${encodedQuery}`;
+  link.textContent = isAuctions ? 'Szukaj aukcji ↗' : 'Szukaj ofert Kup teraz ↗';
+  panel.append(label, link);
+}
+
 function renderSearchStreamCard(stream) {
   const safeId = escapeHtml(stream.id);
   const safeModel = escapeHtml(stream.model || '');
@@ -1677,6 +1706,8 @@ function runCalculator() {
 
   // Category shipping shares
   const shippingShares = {
+    nintendo_switch_lite: 30.0,
+    nintendo_switch: 45.0,
     nintendo_3ds_handhelds: 30.0,
     nintendo_ds_handhelds: 30.0,
     gameboy_advance_retro: 25.0,

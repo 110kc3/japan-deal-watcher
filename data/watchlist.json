@@ -11,6 +11,20 @@
   },
   "categories": [
     {
+      "id": "nintendo_switch_lite",
+      "name": "Nintendo Switch Lite",
+      "battery_type": "li-ion",
+      "search_query_jp": "Nintendo Switch Lite 本体",
+      "tracked_items": []
+    },
+    {
+      "id": "nintendo_switch",
+      "name": "Nintendo Switch",
+      "battery_type": "li-ion",
+      "search_query_jp": "Nintendo Switch 本体 -Lite -ライト -Switch2 -\"Switch 2\" -スイッチ2 -スイッチ２",
+      "tracked_items": []
+    },
+    {
       "id": "nintendo_3ds_handhelds",
       "name": "Nintendo 3DS & New 3DS (Królowie Płynności: New 3DS XL, New 3DS, 3DS LL)",
       "battery_type": "li-ion",

@@ -55,6 +55,8 @@
       "avia_max_weight_g": 2000,
       "default_item_weight_g": 300,
       "category_weights": {
+        "nintendo_switch_lite": 350,
+        "nintendo_switch": 1000,
         "nintendo_3ds_handhelds": 320,
         "nintendo_ds_handhelds": 280,
         "gameboy_advance_retro": 200,
@@ -96,6 +98,18 @@
       "name": "Wszystkie Okazje",
       "icon": "🌐",
       "count": 77
+    },
+    {
+      "id": "nintendo_switch_lite",
+      "name": "Nintendo Switch Lite",
+      "icon": "🎮",
+      "battery": true
+    },
+    {
+      "id": "nintendo_switch",
+      "name": "Nintendo Switch",
+      "icon": "🎮",
+      "battery": true
     },
     {
       "id": "nintendo_3ds_handhelds",

@@ -19,7 +19,7 @@
   <link rel="apple-touch-icon" href="./icons/icon-192.png">
   
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="style.css?v=2.3.0">
+  <link rel="stylesheet" href="style.css?v=2.3.1">
 </head>
 <body>
   <!-- Header / App Bar -->
@@ -100,6 +100,8 @@
     <!-- Scrollable Category Filter Pills -->
     <div class="category-pills" id="categoryPills">
       <button class="pill active" data-cat="all">Wszystkie (<span id="totalDealsPill">82</span>)</button>
+      <button class="pill" data-cat="nintendo_switch_lite" data-search-query="Nintendo Switch Lite 本体">🎮 Switch Lite</button>
+      <button class="pill" data-cat="nintendo_switch" data-search-query="Nintendo Switch 本体 -Lite -ライト -Switch2 -&quot;Switch 2&quot; -スイッチ2 -スイッチ２">🎮 Switch</button>
       <button class="pill" data-cat="nintendo_3ds_handhelds">🕹️ 3DS / New 3DS</button>
       <button class="pill" data-cat="nintendo_ds_handhelds">🎮 DSi LL / DS Lite</button>
       <button class="pill" data-cat="gameboy_advance_retro">👾 GBA SP & Retro</button>
@@ -141,6 +143,8 @@
       </div>
     </div>
   </section>
+
+  <section class="controls-panel" id="categorySearch" hidden aria-label="Wyszukiwanie ofert kategorii"></section>
 
   <!-- Main Feed Container -->
   <main class="feed-container" id="feedContainer">
@@ -209,7 +213,9 @@
         <div class="form-group">
           <label for="calcCatSelect">Kategoria Towaru (Waga i Udział w Paczce):</label>
           <select id="calcCatSelect">
-            <option value="nintendo_3ds_handhelds">Nintendo 3DS / New 3DS (Udział: 30 zł)</option>
+            <option value="nintendo_switch_lite">Nintendo Switch Lite (Szacowany udział: 30 zł)</option>
+            <option value="nintendo_switch">Nintendo Switch (Szacowany udział: 45 zł)</option>
+            <option value="nintendo_3ds_handhelds" selected>Nintendo 3DS / New 3DS (Udział: 30 zł)</option>
             <option value="nintendo_ds_handhelds">Nintendo DSi / DS Lite (Udział: 30 zł)</option>
             <option value="gameboy_advance_retro">Game Boy Advance & Retro (Udział: 25 zł)</option>
             <option value="ps_vita">PlayStation Vita (Udział: 35 zł)</option>
@@ -408,6 +414,6 @@
   </nav>
 
   <!-- Scripts -->
-  <script src="app.js?v=2.3.0"></script>
+  <script src="app.js?v=2.3.1"></script>
 </body>
 </html>

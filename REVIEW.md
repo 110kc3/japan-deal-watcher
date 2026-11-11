@@ -33,6 +33,26 @@ Suggested order: **1 + 4 → 2 + 3 → 5 + 6**. Consider 7–9 after the first v
 
 ## Current work state
 
+### Switch categories — 2026-11-11
+
+Owner-selected scope: separate **Nintendo Switch Lite** and **Nintendo Switch**
+categories in **Aukcje** and **Kup teraz**. Implemented filters, source-specific
+search links, watchlist/catalogue registration, and calculator planning estimates.
+No verified Switch listings were present, so these categories have empty tracked
+lists and link to searches; no synthetic offers or resale prices were added.
+
+Local verification: **162 tests**, strict audit, JavaScript syntax checks, and
+Chromium at **390×844 / 1440×1000** passed. Browser checks covered the current empty
+categories and temporary exported fixtures: separate filters in both tabs, correct
+Yahoo/Mercari search queries, battery filtering and Python/browser calculator parity.
+The existing staged scan data/report changes remain outside this scoped commit.
+
+Delivery on `main`; [Actions verification pending after push](https://github.com/110kc3/japan-deal-watcher/actions?query=branch%3Amain).
+Do not wait for CI; check the delivered commit once next session. No further
+implementation task is selected by this addition.
+
+### Earlier review snapshot
+
 Review and proposals complete. **No implementation selected; no profitable resale verified.**
 
 **104 tests and strict audit pass**, but miss the major defects. Browser flows, documentation links and diff checked; limitations are in the evidence record.
