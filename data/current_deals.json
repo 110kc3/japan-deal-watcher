@@ -2488,7 +2488,7 @@
     "est_pl_value": 480.0,
     "est_margin_pln": 30.53,
     "roi_percent": 6.8,
-    "status": "Dostępne",
+    "status": "W trakcie transakcji",
     "condition_type": "standard_good",
     "condition_badge": "✅ Stan Dobry",
     "is_broken": false,
