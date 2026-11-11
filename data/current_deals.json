@@ -1795,7 +1795,7 @@
     "est_pl_value": 120.0,
     "est_margin_pln": 5.33,
     "roi_percent": 4.6,
-    "status": "Dostępne",
+    "status": "W trakcie transakcji",
     "condition_type": "confirmed_working",
     "condition_badge": "✅ Sprawny (Potwierdzone)",
     "is_broken": false,
