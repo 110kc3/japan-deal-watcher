@@ -125,6 +125,29 @@ class TestLotVisionInspector(unittest.TestCase):
         self.assertIn("closedsearch", md)
         self.assertIn("aucfan.com", md)
 
+    def test_psp_wholesale_lot_inspection(self):
+        """Verifies hardware bulk inspector correctly parses >=3 PSP bundles and recommends Dry Shipping."""
+        deal = {
+            "model": "【まとめ売り 3台】Sony PSP-1000 / 2000 / 3000 Pakiet Hurtowy (3 Konsole)",
+            "target_price_jpy": 6000,
+            "est_pl_value": 600.0,
+            "search_query_jp": "PSP 本体 まとめ 3台 セット"
+        }
+        res = LotVisionInspector.inspect_lot_photo_contents(deal)
+        self.assertTrue(res["inspected"])
+        self.assertTrue(res["battery_hazard_detected"])
+        self.assertIn("Dry Shipping", res["battery_notes"])
+
+        wholesale = res.get("psp_wholesale_info")
+        self.assertIsNotNone(wholesale)
+        self.assertEqual(wholesale["console_count"], 3)
+        self.assertEqual(wholesale["unit_cost_jpy"], 2000.0)
+        self.assertIn("BARDZO DOBRY ZAKUP", wholesale["wholesale_verdict"])
+
+        md = LotVisionInspector.format_inspection_markdown(res)
+        self.assertIn("Analiza Hurtowa PSP", md)
+        self.assertIn("3 sztuk", md)
+
 
 if __name__ == "__main__":
     unittest.main()

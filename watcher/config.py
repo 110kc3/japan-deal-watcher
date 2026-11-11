@@ -63,7 +63,8 @@ CATEGORY_SHIPPING_SHARES = {
     "ps5_limited_controllers": 30.0,  # ~280g DualSense controller
     "ps_retro_limited_controllers": 30.0, # ~210-280g DualShock 1-4 controller
     "ps_limited_consoles": 60.0,       # ~1.2-3.0kg PS1-PS5 special edition console
-    "film_cameras_point_shoot": 25.0   # ~180-280g 35mm compact point-and-shoot camera
+    "film_cameras_point_shoot": 25.0,  # ~180-280g 35mm compact point-and-shoot camera
+    "mechanical_keyboards": 45.0       # ~900-1400g mechanical keyboard / custom board (0% Li-Ion)
 }
 DEFAULT_SHIPPING_SHARE_PLN = 30.0
 
@@ -79,6 +80,7 @@ CATEGORY_ESTIMATED_WEIGHTS_G = {
     "danshari_mystery_lots": 1800,        # Large mystery cardboard box / bulk lot
     "high_margin_curated_consoles": 2500, # PSone Combo + LCD ~1.8kg, PS4 Pro ~3.8kg
     "film_cameras_point_shoot": 260,      # Compact 35mm camera ~200g + pouch
+    "mechanical_keyboards": 1150,         # Heavy aluminum/steel plate mechanical keyboard (0% Li-Ion)
     "analog_lenses": 280,                 # Manual prime lens ~200g + metal caps
     "ps5_limited_controllers": 380,       # DualSense ~280g + retail packaging
     "ps_retro_limited_controllers": 320,  # DualShock controller

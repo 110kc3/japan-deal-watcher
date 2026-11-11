@@ -33,6 +33,7 @@ const CATEGORY_WEIGHTS = {
   danshari_mystery_lots: 1800,
   high_margin_curated_consoles: 2500,
   film_cameras_point_shoot: 260,
+  mechanical_keyboards: 1150,
   analog_lenses: 280,
   ps5_limited_controllers: 380,
   ps_retro_limited_controllers: 320,

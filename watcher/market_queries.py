@@ -24,6 +24,8 @@ def clean_polish_market_queries(deal: Dict[str, Any]) -> Tuple[str, str]:
     if any(w in text for w in ["danshari", "mystery", "karton", "pakiet", "zestaw", "mix", "hurtowy", "まとめ売り", "断捨離", "実家整理", "引退品"]):
         if "pokemon" in text or "pokémon" in text or "stwork" in text:
             pl_q = "gry pokemon nintendo"
+        elif "psp" in text and any(w in text for w in ["konsol", "sztuk", "pakiety", "pakiet", "本体", "台", "3台", "5台", "10台"]):
+            pl_q = "konsola psp zestaw"
         elif "3ds" in text or "ds" in text:
             pl_q = "gry nintendo ds zestaw"
         elif "gba" in text or "game boy" in text or "gb" in text:
@@ -36,6 +38,20 @@ def clean_polish_market_queries(deal: Dict[str, Any]) -> Tuple[str, str]:
             pl_q = "gry super famicom"
         else:
             pl_q = "gry retro zestaw mix"
+
+    # 1.5 Mechanical Keyboards & Custom Hardware
+    elif "realforce" in text or "東プレ" in text:
+        pl_q = "Topre Realforce"
+    elif "hhkb" in text or "happy hacking" in text:
+        pl_q = "HHKB Professional"
+    elif "filco" in text or "majestouch" in text:
+        pl_q = "Filco Majestouch"
+    elif "keychron" in text:
+        pl_q = "Keychron Hot Swap"
+    elif "evangelion" in text and ("keyboard" in text or "klawiatura" in text or "キーボード" in text):
+        pl_q = "Klawiatura Evangelion"
+    elif "klawiatura" in text or "keyboard" in text or "キーボード" in text or "hot-swap" in text or "hotswap" in text:
+        pl_q = "klawiatura mechaniczna hot swap"
 
     # 2. Cameras
     elif "mju" in text:

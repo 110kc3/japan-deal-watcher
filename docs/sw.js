@@ -1,12 +1,12 @@
 // Service Worker for AgyDeal Japan Auction & Deal Radar PWA
-const CACHE_NAME = 'agydeal-v2.2.2';
+const CACHE_NAME = 'agydeal-v2.3.0';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
   './style.css',
-  './style.css?v=2.2.2',
+  './style.css?v=2.3.0',
   './app.js',
-  './app.js?v=2.2.2',
+  './app.js?v=2.3.0',
   './manifest.json',
   './icons/icon-192.svg',
   './icons/icon-512.svg'
@@ -17,7 +17,7 @@ self.addEventListener('install', (event) => {
   self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      console.log('[SW] Pre-caching static assets (v2.2.2, skipping deals.json)');
+      console.log('[SW] Pre-caching static assets (v2.3.0, skipping deals.json)');
       return cache.addAll(ASSETS_TO_CACHE);
     })
   );

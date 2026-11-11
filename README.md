@@ -3,7 +3,7 @@
 > **Automated Private Deal Watcher for Retro Consoles, Handhelds, UMD Bundles & Analog Lenses**  
 > *Live tracking Mercari Japan, Yahoo Auctions & ZenMarket consolidation timeline.*
 
-![Status](https://img.shields.io/badge/Watcher-Active-brightgreen) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-11%2010:03%20UTC-blue) ![Exchange Rate](https://img.shields.io/badge/NBP%20Live-100%20JPY%20%E2%89%88%202.47%20PLN-success) ![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-56%20Days%20Left-orange) ![Deal Checks](https://img.shields.io/badge/Deal%20Checks-10%20Rules%20PASS-brightgreen) ![Camera Cap](https://img.shields.io/badge/Camera%20Cap-Max%20100%20PLN-orange) ![Lens Cap](https://img.shields.io/badge/Lens%20Cap-Max%20100%20PLN-orange) ![Update Cycle](https://img.shields.io/badge/Cycle-Hourly%20(1h)-purple) ![Android PWA](https://img.shields.io/badge/Android%20App-PWA%20Live-brightgreen)
+![Status](https://img.shields.io/badge/Watcher-Active-brightgreen) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-11%2010:26%20UTC-blue) ![Exchange Rate](https://img.shields.io/badge/NBP%20Live-100%20JPY%20%E2%89%88%202.47%20PLN-success) ![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-56%20Days%20Left-orange) ![Deal Checks](https://img.shields.io/badge/Deal%20Checks-10%20Rules%20PASS-brightgreen) ![Camera Cap](https://img.shields.io/badge/Camera%20Cap-Max%20100%20PLN-orange) ![Lens Cap](https://img.shields.io/badge/Lens%20Cap-Max%20100%20PLN-orange) ![Update Cycle](https://img.shields.io/badge/Cycle-Hourly%20(1h)-purple) ![Android PWA](https://img.shields.io/badge/Android%20App-PWA%20Live-brightgreen)
 
 > 🧭 **Szybka Nawigacja:** [📱 **Aplikacja Android / PWA (Live)**](https://110kc3.github.io/japan-deal-watcher/) · [📦 **Pakiety Różności & Danshari (MYSTERY_LOTS_ANALYSIS.md)**](MYSTERY_LOTS_ANALYSIS.md) · [📡 Radar Licytacji (AUCTION_RADAR.md)](AUCTION_RADAR.md) · [🔨 Yahoo Aukcje (YAHOO_AUCTIONS_DEALS.md)](YAHOO_AUCTIONS_DEALS.md) · [🎯 Poradnik Snajpera (AUCTION_SNIPING_GUIDE.md)](AUCTION_SNIPING_GUIDE.md) · [📊 Audyt Rynku PL (POLAND_REAL_SALES_AUDIT.md)](POLAND_REAL_SALES_AUDIT.md) · [📈 Historia Sprzedaży (MARKET_SALES_HISTORY.md)](MARKET_SALES_HISTORY.md)
 
@@ -307,6 +307,35 @@ ZenMarket zapewnia **60 dni darmowego przechowywania** w Osace na połączenie o
 | **【引退品】Zestaw 60 Gier Sony PSP UMD (Kolekcja Gracza / まとめ売り)**<br><small>Mix 60 Gier UMD<br>*Zestaw 60 gier PSP UMD – Persona 3 Portable i Crisis Core w japońskich wydaniach (wycena NTSC-J: ~65 zł i ~30 zł)*</small> | ✅ <strong>Stan Dobry</strong> | **18,100 JPY**<br>(~447.59 zł) | ~646.60 zł | **320.00 zł** | <strong style='color:#ef4444;'>-326.60 zł</strong><br><small>(-50.5%)</small> | ⏱️ <strong>C-TIER</strong><br><small>28.5/100</small> | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m78120938289)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m78120938289) |
 | **【断捨離】Zestaw 15 Kartridży Pokémon (DS / GBA / GBC - Wyprzedaż Prywatna)**<br><small>Lot 15 Kartridży<br>*Pakiet 15 kartridży Pokémon – autentyczne japońskie nośniki do transferu stworków (SoulSilver, FireRed, Ruby)*</small> | ✅ <strong>Stan Dobry</strong> | **3,777 JPY**<br>(~93.40 zł) | ~198.55 zł | **490.00 zł** | <strong style='color:#10b981;'>+291.45 zł</strong><br><small>(+146.8%)</small> | 🌟 <strong>S-TIER</strong><br><small>92.6/100</small> | ✅ Dostępne | [🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m37732833792)<br>[🇯🇵 Mercari Oferta](https://jp.mercari.com/item/m37732833792) |
 
+<details><summary>📁 Zakończone / Sprzedane w tej kategorii (2 ofert - kliknij, aby rozwinąć)</summary>
+
+| Model / Wariant | Stan / Weryfikacja | Cena JPY (PLN) | Koszt w PL (z VAT) | Cena w Polsce | Potencjalny Zysk | Werdykt AI | Status | Linki |
+|---|:---:|---:|---:|---:|---:|:---:|:---:|---|
+| ~~**【まとめ売り 3台】Sony PSP-1000 / 2000 / 3000 Pakiet Hurtowy (3 Konsole)**~~<br><small>~~Mix 3 Konsole~~</small> | ~~✅ Stan Dobry~~ | ~~**5,800 JPY**~~<br>(~~~143.43 zł~~) | ~~~261.84 zł~~ | ~~**590.00 zł**~~ | ~~<strong style='color:#10b981;'>+328.16 zł</strong><br><small>(+125.3%)</small>~~ | ~~⚪ N/A~~ | ~~❌ Zakończone / Sprzedane~~ | ~~[🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m71829384756)~~ |
+| ~~**【ジャンク 大量 5台】Sony PSP-2000 & 3000 Hurtowy Karton (5 Konsol)**~~<br><small>~~Mix 5 Konsol~~</small> | ~~✅ Stan Dobry~~ | ~~**8,900 JPY**~~<br>(~~~220.09 zł~~) | ~~~358.82 zł~~ | ~~**950.00 zł**~~ | ~~<strong style='color:#10b981;'>+591.18 zł</strong><br><small>(+164.8%)</small>~~ | ~~⚪ N/A~~ | ~~❌ Zakończone / Sprzedane~~ | ~~[🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m82910492817)~~ |
+
+</details>
+
+---
+
+## Klawiatury Mechaniczne & Custom (Hot-Swap, Topre, HHKB, Limited Editions)
+> **Typ zasilania / IATA:** 🟢 No-Battery / Dry Cell (Brak limitu w paczce)
+
+*Brak nowych aktywnych ofert w tej chwili (wszystkie pozycje wyprzedane lub w trakcie transakcji).*
+
+<details><summary>📁 Zakończone / Sprzedane w tej kategorii (6 ofert - kliknij, aby rozwinąć)</summary>
+
+| Model / Wariant | Stan / Weryfikacja | Cena JPY (PLN) | Koszt w PL (z VAT) | Cena w Polsce | Potencjalny Zysk | Werdykt AI | Status | Linki |
+|---|:---:|---:|---:|---:|---:|:---:|:---:|---|
+| ~~**Topre Realforce R2 TKL (Silent 45g - PFU Limited)**~~<br><small>~~Czarny / Black (R2TLSA-JP4-BK)~~</small> | ~~✅ Stan Dobry~~ | ~~**14,800 JPY**~~<br>(~~~365.99 zł~~) | ~~~556.03 zł~~ | ~~**790.00 zł**~~ | ~~<strong style='color:#10b981;'>+233.97 zł</strong><br><small>(+42.1%)</small>~~ | ~~⚪ N/A~~ | ~~❌ Zakończone / Sprzedane~~ | ~~[🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m61928301924)~~ |
+| ~~**HHKB Happy Hacking Keyboard Professional 2**~~<br><small>~~Grafitowy (Sumi / Charcoal Printed)~~</small> | ~~✅ Stan Dobry~~ | ~~**10,500 JPY**~~<br>(~~~259.65 zł~~) | ~~~421.51 zł~~ | ~~**680.00 zł**~~ | ~~<strong style='color:#10b981;'>+258.49 zł</strong><br><small>(+61.3%)</small>~~ | ~~⚪ N/A~~ | ~~❌ Zakończone / Sprzedane~~ | ~~[🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m73829102834)~~ |
+| ~~**Filco Majestouch 2 Hakua Tenkeyless (Cherry MX Brown)**~~<br><small>~~Śnieżna Biel (Hakua White)~~</small> | ~~✅ Stan Dobry~~ | ~~**5,200 JPY**~~<br>(~~~128.59 zł~~) | ~~~255.72 zł~~ | ~~**390.00 zł**~~ | ~~<strong style='color:#10b981;'>+134.28 zł</strong><br><small>(+52.5%)</small>~~ | ~~⚪ N/A~~ | ~~❌ Zakończone / Sprzedane~~ | ~~[🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m84920193845)~~ |
+| ~~**Keychron Q1 Knob Version (Hot-Swap / CNC Aluminum)**~~<br><small>~~Carbon Black (Hot-Swap Gateron G Pro)~~</small> | ~~✅ Stan Dobry~~ | ~~**7,500 JPY**~~<br>(~~~185.47 zł~~) | ~~~327.68 zł~~ | ~~**460.00 zł**~~ | ~~<strong style='color:#10b981;'>+132.32 zł</strong><br><small>(+40.4%)</small>~~ | ~~⚪ N/A~~ | ~~❌ Zakończone / Sprzedane~~ | ~~[🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m95039281746)~~ |
+| ~~**Evangelion EVA-01 Limited Mechanical Keyboard (Officially Licensed)**~~<br><small>~~EVA-01 Fiolet & Neonowa Zieleń (Unit-01)~~</small> | ~~✅ Stan Dobry~~ | ~~**8,800 JPY**~~<br>(~~~217.62 zł~~) | ~~~368.34 zł~~ | ~~**580.00 zł**~~ | ~~<strong style='color:#10b981;'>+211.66 zł</strong><br><small>(+57.5%)</small>~~ | ~~⚪ N/A~~ | ~~❌ Zakończone / Sprzedane~~ | ~~[🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m10293847561)~~ |
+| ~~**Topre Realforce 108US (30g Ultra-Light Uniform)**~~<br><small>~~Biało-Szary Klasyk (SJ38D0)~~</small> | ~~✅ Stan Dobry~~ | ~~**12,000 JPY**~~<br>(~~~296.75 zł~~) | ~~~468.44 zł~~ | ~~**720.00 zł**~~ | ~~<strong style='color:#10b981;'>+251.56 zł</strong><br><small>(+53.7%)</small>~~ | ~~⚪ N/A~~ | ~~❌ Zakończone / Sprzedane~~ | ~~[🛒 ZenMarket 1-Click](https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m21304958671)~~ |
+
+</details>
+
 ---
 
 ## 💡 Optymalny Koszyk Konsolidacyjny (Wysyłka Zbiorcza)
@@ -348,4 +377,4 @@ Po zakupieniu przedmiotu w panelu ZenMarket kliknij *Order Photos* i wklej:
 - **Lokalne uruchomienie:** `python3 main.py` w repozytorium.
 
 ---
-*Dashboard automatically maintained by GitHub Actions & Antigravity Agent. Last updated: 2026-11-11 10:03 UTC.*
+*Dashboard automatically maintained by GitHub Actions & Antigravity Agent. Last updated: 2026-11-11 10:26 UTC.*

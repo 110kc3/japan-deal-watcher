@@ -280,11 +280,23 @@ class TestChecks(unittest.TestCase):
         ok, errs = check_unproxied_geoblocked_links()
         self.assertTrue(ok, f"Unproxied geoblocked links check failed: {errs}")
 
+    def test_mechanical_keyboards_category_check(self):
+        """Verifies mechanical keyboards category integrity check."""
+        from watcher.checks import check_mechanical_keyboards_category
+        ok, errs = check_mechanical_keyboards_category()
+        self.assertTrue(ok, f"Mechanical keyboards check failed: {errs}")
+
+    def test_wholesale_psp_lots_check(self):
+        """Verifies wholesale PSP bundles (>=3 units) check."""
+        from watcher.checks import check_wholesale_psp_lots
+        ok, errs = check_wholesale_psp_lots()
+        self.assertTrue(ok, f"Wholesale PSP lots check failed: {errs}")
+
     def test_run_full_system_audit(self):
         audit = run_full_system_audit()
         self.assertTrue(audit["success"])
         self.assertEqual(audit["failed_checks"], 0)
-        self.assertEqual(audit["total_checks"], 8)
+        self.assertEqual(audit["total_checks"], 10)
 
 
 if __name__ == "__main__":

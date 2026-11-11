@@ -584,6 +584,87 @@ def check_unproxied_geoblocked_links(docs_deals_file: Optional[Path] = None) -> 
     return len(errors) == 0, errors
 
 
+def check_mechanical_keyboards_category(watchlist_file: Optional[Path] = None) -> Tuple[bool, List[str]]:
+    """
+    Check 14: Mechanical Keyboards & Custom Hardware Category Verification.
+    Verifies that the mechanical_keyboards category exists in watchlist.json,
+    contains >= 5 tracked items, has 0% Li-Ion battery classification,
+    and realistic Polish resale valuations.
+    """
+    target = watchlist_file or WATCHLIST_FILE
+    if not target.exists():
+        return False, [f"Plik watchlisty nie istnieje: {target}"]
+
+    errors: List[str] = []
+    try:
+        with open(target, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except Exception as e:
+        return False, [f"Błąd odczytu {target.name}: {e}"]
+
+    categories = data.get("categories", [])
+    kb_cat = next((c for c in categories if c.get("id") == "mechanical_keyboards"), None)
+    if not kb_cat:
+        return False, ["Brak wymaganej kategorii 'mechanical_keyboards' w watchlist.json"]
+
+    tracked = kb_cat.get("tracked_items", [])
+    if len(tracked) < 5:
+        errors.append(f"Kategoria 'mechanical_keyboards' ma za mało ofert ({len(tracked)} < 5)")
+
+    for it in tracked:
+        mid = it.get("id", "unknown")
+        model = it.get("model", "")
+        if not model:
+            errors.append(f"Klawiatura {mid}: Brak nazwy modelu")
+        est_pl = it.get("est_pl_value", 0)
+        if est_pl < 250 or est_pl > 1500:
+            errors.append(f"Klawiatura {mid} ({model}): Podejrzana wycena PL {est_pl} zł")
+        b_type = it.get("battery_type", "none")
+        if b_type not in ["none", "aa", "aaa"]:
+            errors.append(f"Klawiatura {mid} ({model}): Niezgodny typ baterii '{b_type}' (wymagane 0% Li-Ion / none / aa)")
+
+    return len(errors) == 0, errors
+
+
+def check_wholesale_psp_lots(watchlist_file: Optional[Path] = None) -> Tuple[bool, List[str]]:
+    """
+    Check 15: Wholesale PSP Bundles (>=3 Consoles) Verification.
+    Verifies that wholesale PSP bundles in watchlist.json have console count >= 3,
+    explicit Dry Shipping battery removal instructions, and realistic margins.
+    """
+    target = watchlist_file or WATCHLIST_FILE
+    if not target.exists():
+        return False, [f"Plik watchlisty nie istnieje: {target}"]
+
+    errors: List[str] = []
+    try:
+        with open(target, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except Exception as e:
+        return False, [f"Błąd odczytu {target.name}: {e}"]
+
+    categories = data.get("categories", [])
+    danshari_cat = next((c for c in categories if c.get("id") == "danshari_mystery_lots"), None)
+    if not danshari_cat:
+        return False, ["Brak kategorii 'danshari_mystery_lots'"]
+
+    items = danshari_cat.get("tracked_items", [])
+    psp_lots = [it for it in items if "psp" in it.get("model", "").lower() and any(w in it.get("model", "") for w in ["3台", "5台", "10台", "3 Konsole", "5 Konsol", "Hurtowy"])]
+
+    if not psp_lots:
+        errors.append("Brak pakietów hurtowych PSP (>=3 sztuk) w danshari_mystery_lots")
+
+    for lot in psp_lots:
+        lid = lot.get("id", "unknown")
+        note = lot.get("note", "").lower()
+        if "dry shipping" not in note:
+            errors.append(f"Pakiet PSP {lid}: Brak ostrzeżenia i procedury 'Dry Shipping'")
+        if lot.get("est_pl_value", 0) < 400:
+            errors.append(f"Pakiet PSP {lid}: Zaniżona wycena hurtowa w PL ({lot.get('est_pl_value')} zł)")
+
+    return len(errors) == 0, errors
+
+
 def run_full_system_audit(strict: bool = False) -> Dict[str, Any]:
     """
     Executes all system and deal verification checks, returning an executive audit report.
@@ -629,6 +710,16 @@ def run_full_system_audit(strict: bool = False) -> Dict[str, Any]:
     ok, errs = check_unproxied_geoblocked_links(DOCS_DATA_FILE)
     msg = "100% linków akcji skierowanych przez bezpieczny proxy ZenMarket (brak blokad geoblock)" if ok else "; ".join(errs)
     audit_results.append({"name": "Geoblock Resilience & Primary Proxy Action Links", "passed": ok, "message": msg, "icon": "🛡️"})
+
+    # 9. Mechanical Keyboards Category & 0% Li-Ion compliance
+    ok, errs = check_mechanical_keyboards_category(WATCHLIST_FILE)
+    msg = "Kategoria klawiatur mechanicznych (Topre, HHKB, Hot-Swap) aktywna, 0% Li-Ion" if ok else "; ".join(errs)
+    audit_results.append({"name": "Mechanical Keyboards Category (Hot-Swap & Limited)", "passed": ok, "message": msg, "icon": "⌨️"})
+
+    # 10. Wholesale PSP Bundles (>=3 Consoles) & Dry Shipping Protocol
+    ok, errs = check_wholesale_psp_lots(WATCHLIST_FILE)
+    msg = "Pakiety hurtowe PSP (>=3 sztuki) zweryfikowane, procedura Dry Shipping zdefiniowana" if ok else "; ".join(errs)
+    audit_results.append({"name": "Wholesale PSP Bundles (>=3 Units) & Dry Shipping", "passed": ok, "message": msg, "icon": "📦"})
 
     total_checks = len(audit_results)
     passed_checks = sum(1 for r in audit_results if r["passed"])

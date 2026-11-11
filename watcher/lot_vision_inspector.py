@@ -478,30 +478,65 @@ class LotVisionInspector:
 
         danshari_info = cls.detect_danshari_type(raw_text)
 
-        # Check battery safety: did seller include a console in the box?
-        battery_hazard = False
-        battery_notes = "🟢 100% Czyste Gry (0% Li-Ion / Brak baterii - bez ograniczeń IATA w paczce lotniczej)"
-        
-        # Check for explicit console hardware indicators
-        has_console = (
-            "本体" in raw_text
-            or "konsola" in raw_text
-            or "console" in raw_text
-            or "ds lite" in raw_text
-            or "dslite" in raw_text
-            or "3ds ll" in raw_text
-            or "3ds xl" in raw_text
-            or ("ładowark" in raw_text)
-            or ("zasilacz" in raw_text)
-        )
-        if has_console:
-            battery_hazard = True
-            battery_notes = "⚠️ Wykryto konsolę w kartonie! Pamiętaj o limicie maks. 2 urządzeń Li-Ion na paczkę lotniczą (lub wybierz Dry Shipping / Pocztę Morską)."
+        # Check if lot is a wholesale console hardware bundle (specifically wholesale PSP lots >= 3 units)
+        is_psp_wholesale = "psp" in raw_text and any(w in raw_text for w in ["3台", "4台", "5台", "10台", "3 szt", "4 szt", "5 szt", "10 szt", "hurt", "hurtowy", "大量"])
+        psp_wholesale_info = None
+        if is_psp_wholesale:
+            psp_count_match = re.search(r'(\d+)\s*(?:台|szt|konsole|konsol|sztuk)', raw_text)
+            psp_count = int(psp_count_match.group(1)) if psp_count_match else 3
+            if psp_count < 3:
+                psp_count = 3
+            item_count = psp_count
+            price_jpy = float(deal.get("target_price_jpy", deal.get("price_jpy", 6000)))
+            unit_jpy = round(price_jpy / psp_count, 0)
+            unit_pln_raw = round(unit_jpy * 0.024832, 2)
+            est_gross_pln = psp_count * 195.0
+            new_battery_budget = psp_count * 25.0
+            filler_val = 0.0
 
-        break_even_str = ""
-        if spotted_gems:
-            top_gem = max(spotted_gems, key=lambda x: x["est_pl_value"])
-            break_even_str = f"Break-Even: Samodzielna sprzedaż perełki '{top_gem['title']}' (~{top_gem['est_pl_value']:.0f} zł po surowej wycenie NTSC-J) pokrywa znaczną część kosztów całego kartonu!"
+            battery_hazard = True
+            battery_notes = (
+                f"🚨 PAKIET HURTOWY {psp_count} KONSOL PSP! Limit IATA to maks. 2 baterie Li-Ion w paczce lotniczej. "
+                "BEZWZGLĘDNIE zastosuj procedurę 'Dry Shipping' w magazynie ZenMarket (usunięcie/utylizacja starych, spuchniętych baterii w Osace) "
+                "lub wybierz Pocztę Morską (Japan Post Seamail). Nowe, świeże baterie na Allegro kosztują 18-25 zł."
+            )
+            psp_wholesale_info = {
+                "is_wholesale_psp": True,
+                "console_count": psp_count,
+                "unit_cost_jpy": unit_jpy,
+                "unit_cost_pln_raw": unit_pln_raw,
+                "recommended_shipping": "Dry Shipping (usunięcie starych baterii w Osace) lub Japan Post Seamail",
+                "estimated_gross_sales_pln": est_gross_pln,
+                "new_batteries_cost_pln": new_battery_budget,
+                "expected_yield": f"Szacunek: ~{round(psp_count*0.5)} w pełni sprawne, ~{round(psp_count*0.3)} idealne pod CFW/SD adapter, ~{round(psp_count*0.2)} dawcy części",
+                "wholesale_verdict": "🔥 BARDZO DOBRY ZAKUP: Hurtowe pakiety PSP z Japonii to wysoka marża pod warunkiem usunięcia baterii przed wysyłką lotniczą!"
+            }
+            break_even_str = f"Break-Even: Sprzedaż zaledwie 1 sprawnej konsoli PSP-2000/3000 (~240-270 zł) pokrywa ~70-80% kosztu zakupu całego pakietu {psp_count} sztuk!"
+        else:
+            # Check battery safety: did seller include a console in the box?
+            battery_hazard = False
+            battery_notes = "🟢 100% Czyste Gry (0% Li-Ion / Brak baterii - bez ograniczeń IATA w paczce lotniczej)"
+            
+            # Check for explicit console hardware indicators
+            has_console = (
+                "本体" in raw_text
+                or "konsola" in raw_text
+                or "console" in raw_text
+                or "ds lite" in raw_text
+                or "dslite" in raw_text
+                or "3ds ll" in raw_text
+                or "3ds xl" in raw_text
+                or ("ładowark" in raw_text)
+                or ("zasilacz" in raw_text)
+            )
+            if has_console:
+                battery_hazard = True
+                battery_notes = "⚠️ Wykryto konsolę w kartonie! Pamiętaj o limicie maks. 2 urządzeń Li-Ion na paczkę lotniczą (lub wybierz Dry Shipping / Pocztę Morską)."
+
+            break_even_str = ""
+            if spotted_gems:
+                top_gem = max(spotted_gems, key=lambda x: x["est_pl_value"])
+                break_even_str = f"Break-Even: Samodzielna sprzedaż perełki '{top_gem['title']}' (~{top_gem['est_pl_value']:.0f} zł po surowej wycenie NTSC-J) pokrywa znaczną część kosztów całego kartonu!"
 
         return {
             "inspected": True,
@@ -516,7 +551,8 @@ class LotVisionInspector:
             "battery_hazard_detected": battery_hazard,
             "battery_notes": battery_notes,
             "break_even_gem": break_even_str,
-            "inspection_summary": f"Zidentyfikowano {len(spotted_gems)} kluczowych tytułów w kartonie ({item_count} gier). Szacowana wartość samych perełek po surowej wycenie NTSC-J: ~{spotted_value:.0f} zł."
+            "psp_wholesale_info": psp_wholesale_info,
+            "inspection_summary": f"Zidentyfikowano {len(spotted_gems)} kluczowych tytułów w kartonie ({item_count} gier). Szacowana wartość samych perełek po surowej wycenie NTSC-J: ~{spotted_value:.0f} zł." if not is_psp_wholesale else f"Pakiet hurtowy {item_count} konsol PSP. Koszt jednostkowy: ~{unit_jpy:,.0f} JPY (~{unit_pln_raw:.2f} zł). Wymagany Dry Shipping."
         }
 
     @classmethod
@@ -532,6 +568,16 @@ class LotVisionInspector:
         break_even = inspection.get("break_even_gem")
         if break_even:
             md.append(f"> 💡 **Break-Even:** {break_even}  ")
+
+        psp_wholesale = inspection.get("psp_wholesale_info")
+        if psp_wholesale:
+            md.append("> \n> **📦 Analiza Hurtowa PSP (Pakiety 3+ Konsol):**")
+            md.append(f"> - **Ilość konsol w pakiecie:** **{psp_wholesale.get('console_count', 3)} sztuk**")
+            md.append(f"> - **Koszt jednostkowy w Japonii:** ~{psp_wholesale.get('unit_cost_jpy', 0):,.0f} JPY (~{psp_wholesale.get('unit_cost_pln_raw', 0):.2f} zł / sztuka)")
+            md.append(f"> - **Szacowany przychód ze sprzedaży w PL:** ~{psp_wholesale.get('estimated_gross_sales_pln', 0):.0f} zł (po odliczeniu baterii)")
+            md.append(f"> - **Struktura sprawności:** {psp_wholesale.get('expected_yield', '')}")
+            md.append(f"> - **Rekomendacja wysyłki:** {psp_wholesale.get('recommended_shipping', '')}")
+            md.append(f"> - **Werdykt:** {psp_wholesale.get('wholesale_verdict', '')}")
 
         gems = inspection.get("top_gems", [])
         if gems:
