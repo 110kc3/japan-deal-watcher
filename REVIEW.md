@@ -33,6 +33,32 @@ Suggested order: **1 + 4 → 2 + 3 → 5 + 6**. Consider 7–9 after the first v
 
 ## Current work state
 
+### Switch offer research — 2026-11-11
+
+Owner requested more Switch/Switch Lite offers now and one further scan at 08:00.
+The bounded research scanner reads Yahoo search results and rechecks up to 24
+Mercari item details per category, excluding Mercari auctions from fixed-price
+results. It records actual prices, timestamps, source links, declared defects and
+unknown/partial tests. Yahoo full descriptions could not be accessed, so those
+records remain explicitly search-result candidates, with no invented closing time.
+Results live in [the research report](reports/switch-offers.md) and its JSON sibling;
+they are separate from the dashboard's verified listing inputs and resale model.
+
+The requested one-off repeat is scheduled on the existing host for **2026-11-12
+08:00 Europe/London (09:00 Europe/Warsaw)**, using user timer
+`japan-switch-scan-20261112.timer`. It runs `scan_switch_offers.py --publish`,
+which uses an isolated clone and commits/pushes only the two research files.
+The timer is persistent across restarts; execution still depends on host/network
+availability. Output goes to the same report, not a chat notification.
+
+Previous category commit `e947f64`: [Actions passed](https://github.com/110kc3/japan-deal-watcher/actions/runs/43114057879), checked once this session.
+Local verification: **166 tests**, strict audit, and an isolated local-Git publisher
+check passed (only research files pushed; staged edits preserved). The enabled
+persistent timer was checked for the exact next execution time. New delivery:
+[Actions verification pending](https://github.com/110kc3/japan-deal-watcher/actions?query=branch%3Amain);
+research/script-only changes do not match this workflow's push paths. The only
+remaining accepted action after this delivery is the scheduled morning scan.
+
 ### Switch categories — 2026-11-11
 
 Owner-selected scope: separate **Nintendo Switch Lite** and **Nintendo Switch**

@@ -4,7 +4,7 @@
 > Tracks Mercari Japan and Yahoo! Auctions via ZenMarket proxy with evidence-based Polish resale economics.
 
 [![Watcher CI](https://img.shields.io/badge/Audit-Strict%20PASS-brightgreen)](check_deals.py)
-[![Unit Tests](https://img.shields.io/badge/Tests-162%20PASS-brightgreen)](tests/)
+[![Unit Tests](https://img.shields.io/badge/Tests-166%20PASS-brightgreen)](tests/)
 [![PWA Live](https://img.shields.io/badge/PWA-Webapp%20Live-blue)](https://110kc3.github.io/japan-deal-watcher/)
 [![Roadmap](https://img.shields.io/badge/Roadmap-Choices%201--9%20Complete-success)](review/product-and-roadmap.md)
 
@@ -30,6 +30,7 @@ Japan Deal Watcher automates deal discovery, strict authenticity matching, lande
 - 📐 **[Financial Valuation Model (`review/recommendation-model.md`)](review/recommendation-model.md)** — Mathematical specifications and Polish resale model.
 - 🎯 **[Sniping Guide (`AUCTION_SNIPING_GUIDE.md`)](AUCTION_SNIPING_GUIDE.md)** — Tactical bid pacing and hard cap rules.
 - 📡 **[Auction Radar (`AUCTION_RADAR.md`)](AUCTION_RADAR.md)** — Live auction tracking and closing predictions.
+- 🎮 **[Switch / Switch Lite offer research](reports/switch-offers.md)** — Checked Mercari listings and separately labelled Yahoo search candidates.
 - 📦 **[Mystery Lots Analysis (`MYSTERY_LOTS_ANALYSIS.md`)](MYSTERY_LOTS_ANALYSIS.md)** — Danshari and bundle inventory evaluation.
 - 📈 **[Market Sales History (`MARKET_SALES_HISTORY.md`)](MARKET_SALES_HISTORY.md)** — Source-event observations and market intelligence.
 
@@ -38,14 +39,19 @@ Japan Deal Watcher automates deal discovery, strict authenticity matching, lande
 ## 🛠️ Quickstart & Commands
 
 ```bash
-# 1. Run full test suite (162 tests)
-.venv/bin/python -m unittest discover -s tests -v
+# 1. Run full test suite
+.venv/bin/python -m unittest discover -s tests -q
 
 # 2. Run strict system audit
 .venv/bin/python check_deals.py --strict
 
 # 3. Execute deal scan, feeds sync, and report generation
 .venv/bin/python main.py
+
+# 4. Research Switch / Switch Lite offers without changing dashboard observations
+.venv/bin/python scripts/scan_switch_offers.py
+# Optional: scan and publish only the two research files from an isolated clone
+.venv/bin/python scripts/scan_switch_offers.py --publish
 ```
 
 ---
