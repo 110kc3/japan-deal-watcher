@@ -1,5 +1,7 @@
 # 🇵🇱 Polski Rynek Wtórny: Audyt Rzeczywistych Cen Sprzedaży i Marżowości Arbitrażu
 
+> **Status 2026-11-11: historyczne, niezweryfikowane założenia.** Ten raport nie zawiera transakcji źródłowych potwierdzających podane mediany ani ceny po negocjacjach. Nie używaj jego limitów jako rekomendacji zakupu. [Aktualny przegląd](REVIEW.md) dokumentuje błędne dopasowania produktów; [nowy model i źródła](review/recommendation-model.md) wyjaśniają wycenę, koszty i korekty dotyczące Allegro, odpowiedzialności sprzedawcy oraz transportu. Treść poniżej zachowano jako zapis historyczny.
+
 > **Raport Weryfikacyjny: Allegro Archiwum (Zakończone Licytacje) vs Realne Transakcje Gotówkowe OLX (po Negocjacjach)**  
 > *Data audytu:* 2026-11-09 | *Powód:* Skalibrowanie wycen po uwadze użytkownika dotyczącej przeszacowania cen w Polsce oraz konieczności uwzględnienia kultury targowania na OLX.
 

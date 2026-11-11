@@ -1,4 +1,7 @@
 # 📊 Brutalny Audyt Opłacalności Arbitrażu z Japonii: Czy To Się NAPRAWDĘ Opłaca?
+
+> **Status 2026-11-11: raport historyczny, zastąpiony przez [aktualny przegląd](REVIEW.md).** Wyceny, czasy sprzedaży i gwarancje zysku poniżej nie mają wystarczających danych źródłowych. Model pomija część kosztów, a twierdzenia o darmowym usuwaniu baterii i braku limitów dla poczty morskiej wymagają korekty. Korzystaj z [modelu rekomendacji](review/recommendation-model.md) i [sprawdzonych źródeł](review/evidence.md). Treść zachowano jako zapis historyczny.
+
 > **Raport Inwestycyjny i Reality-Check dla Importu z Mercari Japan & Yahoo! Auctions**  
 > *Data analizy: 2026-11-08 · Baza danych: 105 ofert Mercari + 46 aukcji Yahoo · Kurs bazowy: 100 JPY ≈ 2.48 PLN (NBP)*
 
