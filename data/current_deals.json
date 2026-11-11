@@ -739,7 +739,7 @@
     "est_pl_value": 250.0,
     "est_margin_pln": 157.22,
     "roi_percent": 169.5,
-    "status": "Dostępne",
+    "status": "W trakcie transakcji",
     "condition_type": "cosmetic_only",
     "condition_badge": "⚠️ Tylko Stan Wizualny (Brak Testu)",
     "is_broken": false,

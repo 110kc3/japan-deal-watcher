@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-11-11 18:45 UTC",
+    "generated_at": "2026-11-11 19:15 UTC",
     "app_title": "AgyDeal – Japan Deal & Auction Sniping Radar",
     "app_version": "2.2.2",
     "exchange_rates": {
@@ -84,10 +84,10 @@
     },
     "counts": {
       "yahoo_auctions": 19,
-      "mercari_deals": 59,
+      "mercari_deals": 58,
       "search_streams": 26,
       "finished_auctions": 65,
-      "total_active": 78
+      "total_active": 77
     }
   },
   "categories": [
@@ -95,7 +95,7 @@
       "id": "all",
       "name": "Wszystkie Okazje",
       "icon": "🌐",
-      "count": 78
+      "count": 77
     },
     {
       "id": "nintendo_3ds_handhelds",
@@ -187,8 +187,8 @@
       "status": "Aktywna Aukcja",
       "condition_badge": "🟢 0% Li-Ion (Zasilacz Zewnętrzny)",
       "custom_note": "Legendarny doczepiany ekran 5 cali LCD Sony SCPH-130. 0% Li-Ion – czysta gotówka i zerowe ryzyko IATA",
-      "time_remaining_minutes": 1266,
-      "time_remaining_formatted": "21h 06m",
+      "time_remaining_minutes": 1235,
+      "time_remaining_formatted": "20h 35m",
       "ends_at": "2026-11-12 15:51 UTC",
       "ends_at_iso": "2026-11-12T15:51:00Z",
       "ends_at_pl": "16:51",
@@ -277,8 +277,8 @@
       "status": "Aktywna Aukcja",
       "condition_badge": "💎 Perełka Kolekcjonerska",
       "custom_note": "Święty Graal kolekcjonerów New 3DS – oficjalna edycja Super Famicom na zamówienie Nintendo",
-      "time_remaining_minutes": 1266,
-      "time_remaining_formatted": "21h 06m",
+      "time_remaining_minutes": 1235,
+      "time_remaining_formatted": "20h 35m",
       "ends_at": "2026-11-12 15:51 UTC",
       "ends_at_iso": "2026-11-12T15:51:00Z",
       "ends_at_pl": "16:51",
@@ -367,8 +367,8 @@
       "status": "Aktywna Aukcja",
       "condition_badge": "✅ Sprawny (Potwierdzone)",
       "custom_note": "Ekran OLED 5 cali o nieskończonym kontraście i metalicznej szafirowej obudowie ZA04",
-      "time_remaining_minutes": 1266,
-      "time_remaining_formatted": "21h 06m",
+      "time_remaining_minutes": 1235,
+      "time_remaining_formatted": "20h 35m",
       "ends_at": "2026-11-12 15:51 UTC",
       "ends_at_iso": "2026-11-12T15:51:00Z",
       "ends_at_pl": "16:51",
@@ -457,8 +457,8 @@
       "status": "Aktywna Aukcja",
       "condition_badge": "💎 Limitowana Edycja",
       "custom_note": "Limitowana edycja z grafiką Akihiko Yoshidy z Final Fantasy III i unikalnym numerem seryjnym",
-      "time_remaining_minutes": 1266,
-      "time_remaining_formatted": "21h 06m",
+      "time_remaining_minutes": 1235,
+      "time_remaining_formatted": "20h 35m",
       "ends_at": "2026-11-12 15:51 UTC",
       "ends_at_iso": "2026-11-12T15:51:00Z",
       "ends_at_pl": "16:51",
@@ -547,8 +547,8 @@
       "status": "Aktywna Aukcja",
       "condition_badge": "🟢 0% Li-Ion (Zero Baterii)",
       "custom_note": "Niezwykle ostry i lekki obiektyw Pancake o wadze zaledwie 160g. Bezpieczna, tania inwestycja",
-      "time_remaining_minutes": 1266,
-      "time_remaining_formatted": "21h 06m",
+      "time_remaining_minutes": 1235,
+      "time_remaining_formatted": "20h 35m",
       "ends_at": "2026-11-12 15:51 UTC",
       "ends_at_iso": "2026-11-12T15:51:00Z",
       "ends_at_pl": "16:51",
@@ -637,8 +637,8 @@
       "status": "Aktywna Aukcja",
       "condition_badge": "🟢 0% Li-Ion (Zwykłe Baterie)",
       "custom_note": "Super tani i niezawodny zoom kompaktowy, idealny do paczki ze względu na zerową wagę i cenę 25 zł",
-      "time_remaining_minutes": 1266,
-      "time_remaining_formatted": "21h 06m",
+      "time_remaining_minutes": 1235,
+      "time_remaining_formatted": "20h 35m",
       "ends_at": "2026-11-12 15:51 UTC",
       "ends_at_iso": "2026-11-12T15:51:00Z",
       "ends_at_pl": "16:51",
@@ -727,8 +727,8 @@
       "status": "Aktywna Aukcja",
       "condition_badge": "🟢 0% Li-Ion (Zero Baterii)",
       "custom_note": "Kolekcja wieloletniego gracza PSP – rozpoznano Persona 3 Portable, Crisis Core FF7 i Monster Hunter!",
-      "time_remaining_minutes": 2706,
-      "time_remaining_formatted": "1d 21h",
+      "time_remaining_minutes": 2675,
+      "time_remaining_formatted": "1d 20h",
       "ends_at": "2026-11-13 15:51 UTC",
       "ends_at_iso": "2026-11-13T15:51:00Z",
       "ends_at_pl": "16:51",
@@ -877,8 +877,8 @@
       "status": "Aktywna Aukcja",
       "condition_badge": "🟢 0% Li-Ion (Zwykła Bateria 2CR5)",
       "custom_note": "Jasny obiektyw stałoogniskowy 38mm f/2.8 – kultowy aparat uliczny poszukiwany przez młodzież",
-      "time_remaining_minutes": 2706,
-      "time_remaining_formatted": "1d 21h",
+      "time_remaining_minutes": 2675,
+      "time_remaining_formatted": "1d 20h",
       "ends_at": "2026-11-13 15:51 UTC",
       "ends_at_iso": "2026-11-13T15:51:00Z",
       "ends_at_pl": "16:51",
@@ -967,8 +967,8 @@
       "status": "Aktywna Aukcja",
       "condition_badge": "✅ Sprawny (Potwierdzone)",
       "custom_note": "Poszukiwana dwukolorowa edycja Crimson Red / Black – bardzo ładnie prezentuje się na aukcjach w Polsce",
-      "time_remaining_minutes": 2706,
-      "time_remaining_formatted": "1d 21h",
+      "time_remaining_minutes": 2675,
+      "time_remaining_formatted": "1d 20h",
       "ends_at": "2026-11-13 15:51 UTC",
       "ends_at_iso": "2026-11-13T15:51:00Z",
       "ends_at_pl": "16:51",
@@ -1057,8 +1057,8 @@
       "status": "Aktywna Aukcja",
       "condition_badge": "🟢 0% Li-Ion (Zero Baterii)",
       "custom_note": "Aukcja wyprzedażowa Danshari – w kartonie odnaleziono Pokémon HeartGold, Platinum oraz Zelda Phantom Hourglass!",
-      "time_remaining_minutes": 2706,
-      "time_remaining_formatted": "1d 21h",
+      "time_remaining_minutes": 2675,
+      "time_remaining_formatted": "1d 20h",
       "ends_at": "2026-11-13 15:51 UTC",
       "ends_at_iso": "2026-11-13T15:51:00Z",
       "ends_at_pl": "16:51",
@@ -1207,8 +1207,8 @@
       "status": "Aktywna Aukcja",
       "condition_badge": "✅ Sprawny (Potwierdzone)",
       "custom_note": "Biały perłowy OLED 1000 – srebrne akcenty, brak żółknięcia obudowy",
-      "time_remaining_minutes": 4146,
-      "time_remaining_formatted": "2d 21h",
+      "time_remaining_minutes": 4115,
+      "time_remaining_formatted": "2d 20h",
       "ends_at": "2026-11-14 15:51 UTC",
       "ends_at_iso": "2026-11-14T15:51:00Z",
       "ends_at_pl": "16:51",
@@ -1297,8 +1297,8 @@
       "status": "Aktywna Aukcja",
       "condition_badge": "🟢 0% Li-Ion (Zero Baterii)",
       "custom_note": "Czysty zestaw 15 oryginalnych gier Pokémon bez pudełek – rozpoznano SoulSilver, FireRed, Ruby, Diamond!",
-      "time_remaining_minutes": 4146,
-      "time_remaining_formatted": "2d 21h",
+      "time_remaining_minutes": 4115,
+      "time_remaining_formatted": "2d 20h",
       "ends_at": "2026-11-14 15:51 UTC",
       "ends_at_iso": "2026-11-14T15:51:00Z",
       "ends_at_pl": "16:51",
@@ -1447,8 +1447,8 @@
       "status": "Aktywna Aukcja",
       "condition_badge": "🟢 0% Li-Ion (Zero Baterii)",
       "custom_note": "Pudło z kultowymi japońskimi RPG z ery PS1/PS2 – widoczne gry Final Fantasy VII, VIII, IX oraz Biohazard!",
-      "time_remaining_minutes": 4146,
-      "time_remaining_formatted": "2d 21h",
+      "time_remaining_minutes": 4115,
+      "time_remaining_formatted": "2d 20h",
       "ends_at": "2026-11-14 15:51 UTC",
       "ends_at_iso": "2026-11-14T15:51:00Z",
       "ends_at_pl": "16:51",
@@ -1582,8 +1582,8 @@
       "status": "Aktywna Aukcja",
       "condition_badge": "✅ Sprawny (Potwierdzone)",
       "custom_note": "Konstrukcja w kształcie klina bez zawiasów (nie do zniszczenia), idealna konsola dla dzieci",
-      "time_remaining_minutes": 4146,
-      "time_remaining_formatted": "2d 21h",
+      "time_remaining_minutes": 4115,
+      "time_remaining_formatted": "2d 20h",
       "ends_at": "2026-11-14 15:51 UTC",
       "ends_at_iso": "2026-11-14T15:51:00Z",
       "ends_at_pl": "16:51",
@@ -1672,8 +1672,8 @@
       "status": "Aktywna Aukcja",
       "condition_badge": "🟢 0% Li-Ion (Zwykłe Baterie AA)",
       "custom_note": "Kultowy przezroczysty Atomic Purple na 2 paluszki AA. Zero limitów IATA – idealny wypełniacz paczki lotniczej",
-      "time_remaining_minutes": 4146,
-      "time_remaining_formatted": "2d 21h",
+      "time_remaining_minutes": 4115,
+      "time_remaining_formatted": "2d 20h",
       "ends_at": "2026-11-14 15:51 UTC",
       "ends_at_iso": "2026-11-14T15:51:00Z",
       "ends_at_pl": "16:51",
@@ -1762,8 +1762,8 @@
       "status": "Aktywna Aukcja",
       "condition_badge": "🟢 0% Li-Ion (Zero Baterii)",
       "custom_note": "Karton 50 japońskich gier w pudełkach – czysty zysk ze sprzedaży na sztuki lub w małych pakietach",
-      "time_remaining_minutes": 4146,
-      "time_remaining_formatted": "2d 21h",
+      "time_remaining_minutes": 4115,
+      "time_remaining_formatted": "2d 20h",
       "ends_at": "2026-11-14 15:51 UTC",
       "ends_at_iso": "2026-11-14T15:51:00Z",
       "ends_at_pl": "16:51",
@@ -1887,8 +1887,8 @@
       "status": "Aktywna Aukcja",
       "condition_badge": "🟢 0% Li-Ion (Bateria 2CR5)",
       "custom_note": "Aparat dwuogniskowy z możliwością robienia zdjęć formatu Half-Frame na zwykłym filmie",
-      "time_remaining_minutes": 4146,
-      "time_remaining_formatted": "2d 21h",
+      "time_remaining_minutes": 4115,
+      "time_remaining_formatted": "2d 20h",
       "ends_at": "2026-11-14 15:51 UTC",
       "ends_at_iso": "2026-11-14T15:51:00Z",
       "ends_at_pl": "16:51",
@@ -1977,8 +1977,8 @@
       "status": "Aktywna Aukcja",
       "condition_badge": "🟢 0% Li-Ion (Bateria CR123A)",
       "custom_note": "Dwuogniskowy obiektyw 35mm i 70mm z przesuwaną osłoną clamshell, odporny na zachlapania",
-      "time_remaining_minutes": 4146,
-      "time_remaining_formatted": "2d 21h",
+      "time_remaining_minutes": 4115,
+      "time_remaining_formatted": "2d 20h",
       "ends_at": "2026-11-14 15:51 UTC",
       "ends_at_iso": "2026-11-14T15:51:00Z",
       "ends_at_pl": "16:51",
@@ -2067,8 +2067,8 @@
       "status": "Aktywna Aukcja",
       "condition_badge": "🟢 0% Li-Ion (Przewodowy Kontroler)",
       "custom_note": "Kolekcjonerski gamepad w kształcie potworka Slime z Dragon Quest. 0% Li-Ion – czysta gotówka",
-      "time_remaining_minutes": 7026,
-      "time_remaining_formatted": "4d 21h",
+      "time_remaining_minutes": 6995,
+      "time_remaining_formatted": "4d 20h",
       "ends_at": "2026-11-16 15:51 UTC",
       "ends_at_iso": "2026-11-16T15:51:00Z",
       "ends_at_pl": "16:51",
@@ -3201,78 +3201,6 @@
         "zenmarket_yahoo_search": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%9C%E3%83%BC%E3%82%A4%E3%82%AB%E3%83%A9%E3%83%BC%20%E3%83%9D%E3%82%B1%E3%83%A2%E3%83%B3%203%E5%91%A8%E5%B9%B4&sort=end&order=asc",
         "allegro_search": "https://allegro.pl/listing?string=Game%20Boy%20Color%20Pokemon",
         "olx_search": "https://www.olx.pl/oferty/q-game-boy-color-pokemon/"
-      }
-    },
-    {
-      "id": "m66082013594",
-      "platform": "Mercari Japan",
-      "category_id": "gameboy_advance_retro",
-      "category_name": "Nintendo Game Boy (GBA SP AGS-101 Brighter, GBA, GBC & Micro)",
-      "model": "Game Boy Advance (AGB-001 Poziomy)",
-      "color": "Glacier / Indigo",
-      "battery_type": "none",
-      "has_battery": false,
-      "est_weight_g": 200,
-      "weight_formatted": "~200 g",
-      "image_url": "https://static.mercdn.net/thumb/item/jpeg/m66082013594_1.jpg?1794324770",
-      "status": "Dostępne",
-      "condition_badge": "⚠️ Tylko Stan Wizualny (Brak Testu)",
-      "custom_note": "Klasyczny horyzontalny Game Boy Advance AGB-001, idealny pod mod ekranu IPS, 0% Li-Ion",
-      "time_remaining_minutes": 0,
-      "time_remaining_formatted": "Kup Teraz (Stała cena)",
-      "ends_at": "Natychmiastowy zakup (Kup Teraz)",
-      "ends_at_iso": null,
-      "ends_at_pl": "Stała cena",
-      "ends_at_jst": "即決",
-      "ends_at_formatted": "Kup Teraz (Brak licytacji)",
-      "ends_at_pl_short": "Kup Teraz",
-      "price_stage_note": "✅ Cena stała (Kup Teraz) – Prawdziwa cena bez licytacji",
-      "is_ending_soon": false,
-      "predicted_closure_jpy": 800,
-      "predicted_closure_min_jpy": 800,
-      "predicted_closure_max_jpy": 800,
-      "predicted_closure_pln": 19.78,
-      "closure_gap_jpy": 0,
-      "closure_gap_pct": 0.0,
-      "expected_landed_cost_pln": 92.78,
-      "expected_margin_pln": 157.22,
-      "expected_roi_pct": 169.5,
-      "condition_grade": "MERCARI_BIN",
-      "condition_label": "🛍️ Kup Teraz (Cena Stała)",
-      "condition_short_label": "Kup Teraz",
-      "condition_badge_color": "#10b981",
-      "condition_features": [
-        "Natychmiastowy zakup",
-        "Gwarancja stałej ceny"
-      ],
-      "condition_desc": "Przedmiot z ceną Kup Teraz – brak licytacji, cena ostateczna",
-      "verdict_code": "MERCARI_INSTANT_BUY",
-      "verdict_label": "🛍️ KUP TERAZ: STAŁA CENA",
-      "verdict_badge_class": "verdict-mercari",
-      "recommendation_text": "Cena ostateczna. Kupuj bez ryzyka podbicia ceny przez snajperów.",
-      "price_jpy": 800,
-      "price_pln_raw": 19.78,
-      "landed_cost_pln": 92.78,
-      "est_pl_value": 250.0,
-      "allegro_archive_pln": 270.0,
-      "olx_haggled_pln": 225.0,
-      "est_margin_pln": 157.22,
-      "roi_percent": 169.5,
-      "shipping_share_pln": 25.0,
-      "vat_pln": 16.87,
-      "zenmarket_fee_pln": 8.78,
-      "photo_inspection": null,
-      "links": {
-        "primary_url": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m66082013594",
-        "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m66082013594",
-        "mercari_direct": "https://jp.mercari.com/item/m66082013594",
-        "buyee_url": "https://buyee.jp/mercari/item/m66082013594",
-        "buyee_buy": "https://buyee.jp/mercari/item/m66082013594",
-        "zenmarket_search_mercari": "https://zenmarket.jp/pl/mercari.aspx?q=%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%9C%E3%83%BC%E3%82%A4%E3%82%A2%E3%83%89%E3%83%90%E3%83%B3%E3%82%B9%20AGB-001",
-        "mercari_live_search": "https://jp.mercari.com/search?keyword=%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%9C%E3%83%BC%E3%82%A4%E3%82%A2%E3%83%89%E3%83%90%E3%83%B3%E3%82%B9%20AGB-001&status=on_sale",
-        "zenmarket_yahoo_search": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%9C%E3%83%BC%E3%82%A4%E3%82%A2%E3%83%89%E3%83%90%E3%83%B3%E3%82%B9%20AGB-001&sort=end&order=asc",
-        "allegro_search": "https://allegro.pl/listing?string=Game%20Boy%20Advance",
-        "olx_search": "https://www.olx.pl/oferty/q-game-boy-advance/"
       }
     },
     {
@@ -7034,7 +6962,7 @@
       "potential_arbitrage_pln": 117.6,
       "hypothetical_margin_pln": 117.6,
       "residual_profit_pln": 117.6,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "b1251661405",
@@ -7190,7 +7118,7 @@
       "potential_arbitrage_pln": 167.55,
       "hypothetical_margin_pln": 167.55,
       "residual_profit_pln": 167.55,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "m1251424285",
@@ -7346,7 +7274,7 @@
       "potential_arbitrage_pln": 98.21,
       "hypothetical_margin_pln": 98.21,
       "residual_profit_pln": 98.21,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "p1251459113",
@@ -7502,7 +7430,7 @@
       "potential_arbitrage_pln": 168.83,
       "hypothetical_margin_pln": 168.83,
       "residual_profit_pln": 168.83,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "f1251819973",
@@ -7633,7 +7561,7 @@
       "potential_arbitrage_pln": 77.05,
       "hypothetical_margin_pln": 77.05,
       "residual_profit_pln": 77.05,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "f1246338593",
@@ -7729,7 +7657,7 @@
       "potential_arbitrage_pln": 65.82,
       "hypothetical_margin_pln": 65.82,
       "residual_profit_pln": 65.82,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "d1251552929",
@@ -7825,7 +7753,7 @@
       "potential_arbitrage_pln": 64.66,
       "hypothetical_margin_pln": 64.66,
       "residual_profit_pln": 64.66,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "v1251622331",
@@ -7921,7 +7849,7 @@
       "potential_arbitrage_pln": 62.19,
       "hypothetical_margin_pln": 62.19,
       "residual_profit_pln": 62.19,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "h1251615097",
@@ -8017,7 +7945,7 @@
       "potential_arbitrage_pln": 65.94,
       "hypothetical_margin_pln": 65.94,
       "residual_profit_pln": 65.94,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "q1251656350",
@@ -8113,7 +8041,7 @@
       "potential_arbitrage_pln": 98.31,
       "hypothetical_margin_pln": 98.31,
       "residual_profit_pln": 98.31,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "n1251749127",
@@ -8209,7 +8137,7 @@
       "potential_arbitrage_pln": 95.08,
       "hypothetical_margin_pln": 95.08,
       "residual_profit_pln": 95.08,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "f1251656361",
@@ -8305,7 +8233,7 @@
       "potential_arbitrage_pln": 78.24,
       "hypothetical_margin_pln": 78.24,
       "residual_profit_pln": 78.24,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "c1251630970",
@@ -8401,7 +8329,7 @@
       "potential_arbitrage_pln": 74.48,
       "hypothetical_margin_pln": 74.48,
       "residual_profit_pln": 74.48,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "w1251651117",
@@ -8497,7 +8425,7 @@
       "potential_arbitrage_pln": 129.19,
       "hypothetical_margin_pln": 129.19,
       "residual_profit_pln": 129.19,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "v1251661475",
@@ -8593,7 +8521,7 @@
       "potential_arbitrage_pln": 137.29,
       "hypothetical_margin_pln": 137.29,
       "residual_profit_pln": 137.29,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "e1248977601",
@@ -8689,7 +8617,7 @@
       "potential_arbitrage_pln": 236.86,
       "hypothetical_margin_pln": 236.86,
       "residual_profit_pln": 236.86,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "n1251812676",
@@ -8785,7 +8713,7 @@
       "potential_arbitrage_pln": 90.2,
       "hypothetical_margin_pln": 90.2,
       "residual_profit_pln": 90.2,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "j1251505974",
@@ -8882,7 +8810,7 @@
       "potential_arbitrage_pln": 93.31,
       "hypothetical_margin_pln": 93.31,
       "residual_profit_pln": 93.31,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "m1251553051",
@@ -8978,7 +8906,7 @@
       "potential_arbitrage_pln": 39.0,
       "hypothetical_margin_pln": 39.0,
       "residual_profit_pln": 39.0,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "d1251823525",
@@ -9074,7 +9002,7 @@
       "potential_arbitrage_pln": 133.19,
       "hypothetical_margin_pln": 133.19,
       "residual_profit_pln": 133.19,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "k1251818302",
@@ -9170,7 +9098,7 @@
       "potential_arbitrage_pln": 103.26,
       "hypothetical_margin_pln": 103.26,
       "residual_profit_pln": 103.26,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "p1249428295",
@@ -9266,7 +9194,7 @@
       "potential_arbitrage_pln": -72.8,
       "hypothetical_margin_pln": -72.8,
       "residual_profit_pln": -72.8,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "t1250970249",
@@ -9362,7 +9290,7 @@
       "potential_arbitrage_pln": 114.04,
       "hypothetical_margin_pln": 114.04,
       "residual_profit_pln": 114.04,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "d1245986339",
@@ -9458,7 +9386,7 @@
       "potential_arbitrage_pln": 54.72,
       "hypothetical_margin_pln": 54.72,
       "residual_profit_pln": 54.72,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "k1244528483",
@@ -9554,7 +9482,7 @@
       "potential_arbitrage_pln": 45.33,
       "hypothetical_margin_pln": 45.33,
       "residual_profit_pln": 45.33,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "b1246124221",
@@ -9650,7 +9578,7 @@
       "potential_arbitrage_pln": 221.64,
       "hypothetical_margin_pln": 221.64,
       "residual_profit_pln": 221.64,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "h1250921225",
@@ -9746,7 +9674,7 @@
       "potential_arbitrage_pln": 265.23,
       "hypothetical_margin_pln": 265.23,
       "residual_profit_pln": 265.23,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "b1251556000",
@@ -9877,7 +9805,7 @@
       "potential_arbitrage_pln": 45.96,
       "hypothetical_margin_pln": 45.96,
       "residual_profit_pln": 45.96,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "t1251382423",
@@ -9973,7 +9901,7 @@
       "potential_arbitrage_pln": 83.87,
       "hypothetical_margin_pln": 83.87,
       "residual_profit_pln": 83.87,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "j1251645657",
@@ -10069,7 +9997,7 @@
       "potential_arbitrage_pln": 117.46,
       "hypothetical_margin_pln": 117.46,
       "residual_profit_pln": 117.46,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "j1251280330",
@@ -10165,7 +10093,7 @@
       "potential_arbitrage_pln": 186.01,
       "hypothetical_margin_pln": 186.01,
       "residual_profit_pln": 186.01,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "g1251507424",
@@ -10261,7 +10189,7 @@
       "potential_arbitrage_pln": 132.92,
       "hypothetical_margin_pln": 132.92,
       "residual_profit_pln": 132.92,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "n1251521383",
@@ -10357,7 +10285,7 @@
       "potential_arbitrage_pln": 245.57,
       "hypothetical_margin_pln": 245.57,
       "residual_profit_pln": 245.57,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "r1250922821",
@@ -10453,7 +10381,7 @@
       "potential_arbitrage_pln": 183.79,
       "hypothetical_margin_pln": 183.79,
       "residual_profit_pln": 183.79,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "u1251654393",
@@ -10550,7 +10478,7 @@
       "potential_arbitrage_pln": 86.43,
       "hypothetical_margin_pln": 86.43,
       "residual_profit_pln": 86.43,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "h1251823950",
@@ -10646,7 +10574,7 @@
       "potential_arbitrage_pln": 201.82,
       "hypothetical_margin_pln": 201.82,
       "residual_profit_pln": 201.82,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "d1251827205",
@@ -10742,7 +10670,7 @@
       "potential_arbitrage_pln": 103.26,
       "hypothetical_margin_pln": 103.26,
       "residual_profit_pln": 103.26,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "m1251545975",
@@ -10838,7 +10766,7 @@
       "potential_arbitrage_pln": 103.26,
       "hypothetical_margin_pln": 103.26,
       "residual_profit_pln": 103.26,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "r1251817447",
@@ -10934,7 +10862,7 @@
       "potential_arbitrage_pln": 133.19,
       "hypothetical_margin_pln": 133.19,
       "residual_profit_pln": 133.19,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "f1251419199",
@@ -11030,7 +10958,7 @@
       "potential_arbitrage_pln": 147.46,
       "hypothetical_margin_pln": 147.46,
       "residual_profit_pln": 147.46,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "q1251671063",
@@ -11126,7 +11054,7 @@
       "potential_arbitrage_pln": 29.61,
       "hypothetical_margin_pln": 29.61,
       "residual_profit_pln": 29.61,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "p1251818449",
@@ -11222,7 +11150,7 @@
       "potential_arbitrage_pln": 73.26,
       "hypothetical_margin_pln": 73.26,
       "residual_profit_pln": 73.26,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "j1251512119",
@@ -11353,7 +11281,7 @@
       "potential_arbitrage_pln": 45.96,
       "hypothetical_margin_pln": 45.96,
       "residual_profit_pln": 45.96,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "n1249820524",
@@ -11449,7 +11377,7 @@
       "potential_arbitrage_pln": 73.43,
       "hypothetical_margin_pln": 73.43,
       "residual_profit_pln": 73.43,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "r1249150953",
@@ -11545,7 +11473,7 @@
       "potential_arbitrage_pln": 63.23,
       "hypothetical_margin_pln": 63.23,
       "residual_profit_pln": 63.23,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "k1251598819",
@@ -11641,7 +11569,7 @@
       "potential_arbitrage_pln": 202.74,
       "hypothetical_margin_pln": 202.74,
       "residual_profit_pln": 202.74,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "s1245196893",
@@ -11737,7 +11665,7 @@
       "potential_arbitrage_pln": 290.93,
       "hypothetical_margin_pln": 290.93,
       "residual_profit_pln": 290.93,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "n1250601912",
@@ -11833,7 +11761,7 @@
       "potential_arbitrage_pln": 92.5,
       "hypothetical_margin_pln": 92.5,
       "residual_profit_pln": 92.5,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "e1249970845",
@@ -11929,7 +11857,7 @@
       "potential_arbitrage_pln": 100.63,
       "hypothetical_margin_pln": 100.63,
       "residual_profit_pln": 100.63,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "q1251675793",
@@ -12026,7 +11954,7 @@
       "potential_arbitrage_pln": 71.42,
       "hypothetical_margin_pln": 71.42,
       "residual_profit_pln": 71.42,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "g1251812089",
@@ -12122,7 +12050,7 @@
       "potential_arbitrage_pln": 134.04,
       "hypothetical_margin_pln": 134.04,
       "residual_profit_pln": 134.04,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "v1251516199",
@@ -12218,7 +12146,7 @@
       "potential_arbitrage_pln": 220.52,
       "hypothetical_margin_pln": 220.52,
       "residual_profit_pln": 220.52,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "e1251507348",
@@ -12315,7 +12243,7 @@
       "potential_arbitrage_pln": 90.38,
       "hypothetical_margin_pln": 90.38,
       "residual_profit_pln": 90.38,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "d1251551345",
@@ -12411,7 +12339,7 @@
       "potential_arbitrage_pln": 663.38,
       "hypothetical_margin_pln": 663.38,
       "residual_profit_pln": 663.38,
-      "closed_at": "2026-11-11T18:45:24Z"
+      "closed_at": "2026-11-11T19:15:52Z"
     },
     {
       "id": "deal_ended",
@@ -12507,7 +12435,7 @@
       "potential_arbitrage_pln": 163.11,
       "hypothetical_margin_pln": 163.11,
       "residual_profit_pln": 163.11,
-      "closed_at": "2026-11-11T18:43:29Z"
+      "closed_at": "2026-11-11T19:15:17Z"
     },
     {
       "id": "test_camera",
