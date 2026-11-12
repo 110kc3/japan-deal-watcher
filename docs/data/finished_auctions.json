@@ -93,7 +93,7 @@
     "potential_arbitrage_pln": 20.68,
     "hypothetical_margin_pln": 20.68,
     "residual_profit_pln": 20.68,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:41Z"
   },
   {
     "id": "x1251777697",
@@ -189,391 +189,7 @@
     "potential_arbitrage_pln": 28.11,
     "hypothetical_margin_pln": 28.11,
     "residual_profit_pln": 28.11,
-    "closed_at": "2026-11-12T17:28:27Z"
-  },
-  {
-    "id": "e1251828262",
-    "auction_id": "e1251828262",
-    "platform": "Yahoo! Auctions Japan",
-    "category_id": "nintendo_ds_handhelds",
-    "category_name": "Nintendo DS & DSi (DSi LL Dual IPS, DS Lite, Edycje Kolekcjonerskie)",
-    "model": "Nintendo DS Lite Final Fantasy III Crystal Edition",
-    "color": "Crystal White (Limited)",
-    "battery_type": "li-ion",
-    "has_battery": true,
-    "est_weight_g": 280,
-    "weight_formatted": "~280 g",
-    "image_url": "https://www.jauce.com/read_yafile/https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0211/user/2d857f1d0c5a09ef65b32de8119606c444e98c55063e7df1ff1f35ac3f44a566/i-img1200x1200-17943156298632b59ahm37.jpg?w=300&h=300",
-    "status": "🏁 Zakończona (Wylicytowano)",
-    "condition_badge": "💎 Limitowana Edycja",
-    "custom_note": "Limitowana edycja z grafiką Akihiko Yoshidy z Final Fantasy III i unikalnym numerem seryjnym",
-    "time_remaining_minutes": 0,
-    "time_remaining_formatted": "Zakończona",
-    "ends_at": "2026-11-12 15:51 UTC",
-    "ends_at_iso": "2026-11-12T15:51:00Z",
-    "ends_at_pl": "16:51",
-    "ends_at_jst": "00:51",
-    "ends_at_formatted": "Aukcja zakończona o 16:51 (PL)",
-    "ends_at_pl_short": "Zakończona (16:51)",
-    "price_stage_note": "🟢 Wczesna licytacja – monitoruj i ustaw snajpera",
-    "is_ending_soon": false,
-    "predicted_closure_jpy": 8500,
-    "predicted_closure_min_jpy": 5000,
-    "predicted_closure_max_jpy": 14000,
-    "predicted_closure_pln": 211.17,
-    "closure_gap_jpy": 3000,
-    "closure_gap_pct": 54.5,
-    "expected_landed_cost_pln": 341.34,
-    "expected_margin_pln": 38.66,
-    "expected_roi_pct": 11.3,
-    "condition_grade": "B_VERY_GOOD",
-    "condition_label": "✨ Bardzo Dobry (Sprawny 100%)",
-    "condition_short_label": "B. Dobry",
-    "condition_badge_color": "#10b981",
-    "condition_features": [
-      "Sprawny 100% (potwierdzone)",
-      "Bardzo dobry stan wizualny"
-    ],
-    "condition_desc": "Zadbany egzemplarz, w 100% sprawny technicznie, czysty ekran, minimalne ślady",
-    "verdict_code": "B_TIER_MARGINAL",
-    "verdict_label": "⚖️ B-TIER: NA STYKU OPŁACALNOŚCI",
-    "verdict_badge_class": "verdict-b-tier",
-    "recommendation_text": "Aukcja w cenie rynkowej (B. Dobry). Oczekiwane zamknięcie 8,500 JPY zostawia bezpieczny bufor +39 zł. Nie przekraczaj limitu snajpera.",
-    "price_jpy": 5500.0,
-    "price_pln_raw": 136.64,
-    "buy_now_price_jpy": 6800,
-    "buy_now_price_pln": 168.93,
-    "has_buy_now": true,
-    "landed_cost_pln": 247.07,
-    "est_pl_value": 380.0,
-    "allegro_archive_pln": 420.0,
-    "olx_haggled_pln": 340.0,
-    "est_margin_pln": 132.93,
-    "roi_percent": 53.8,
-    "max_bid_jpy": 6200,
-    "guaranteed_margin_pln": 110.94,
-    "guaranteed_roi_pct": 41.2,
-    "closed_price_min_jpy": 5000,
-    "closed_price_max_jpy": 14000,
-    "closed_price_avg_jpy": 8500,
-    "mercari_bin_avg_jpy": 13000,
-    "arbitrage_discount_pct": 34.6,
-    "auction_advantage_note": "Rzadki egzemplarz o wysokiej marży kolekcjonerskiej",
-    "shipping_share_pln": 30.0,
-    "vat_pln": 44.92,
-    "zenmarket_fee_pln": 8.8,
-    "photo_inspection": null,
-    "links": {
-      "primary_url": "https://zenmarket.jp/pl/auction.aspx?itemCode=e1251828262",
-      "zenmarket_auction": "https://zenmarket.jp/pl/auction.aspx?itemCode=e1251828262",
-      "zenmarket_sniper": "https://zenmarket.jp/pl/auction.aspx?itemCode=e1251828262",
-      "zenmarket_buy_now": "https://zenmarket.jp/pl/auction.aspx?itemCode=e1251828262",
-      "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=DS%E3%83%A9%E3%82%A4%E3%83%88%20%E3%83%95%E3%82%A1%E3%82%A4%E3%83%8A%E3%83%AB%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BCIII&sort=end&order=asc",
-      "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=DS%E3%83%A9%E3%82%A4%E3%83%88%20%E3%83%95%E3%82%A1%E3%82%A4%E3%83%8A%E3%83%AB%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BCIII&sort=price&order=asc",
-      "zenmarket_mercari_stream": "https://zenmarket.jp/pl/mercari.aspx?q=DS%E3%83%A9%E3%82%A4%E3%83%88%20%E3%83%95%E3%82%A1%E3%82%A4%E3%83%8A%E3%83%AB%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BCIII",
-      "mercari_live_search": "https://jp.mercari.com/search?keyword=DS%E3%83%A9%E3%82%A4%E3%83%88%20%E3%83%95%E3%82%A1%E3%82%A4%E3%83%8A%E3%83%AB%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BCIII&status=on_sale",
-      "buyee_url": "https://buyee.jp/item/yahoo/auction/e1251828262",
-      "buyee_auction": "https://buyee.jp/item/yahoo/auction/e1251828262",
-      "buyee_ending_soon": "https://buyee.jp/item/search/query/DS%E3%83%A9%E3%82%A4%E3%83%88%20%E3%83%95%E3%82%A1%E3%82%A4%E3%83%8A%E3%83%AB%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BCIII?translationType=1&sort=end&order=a",
-      "yahoo_closed_archive": "https://auctions.yahoo.co.jp/closedsearch/closedsearch?p=DS%E3%83%A9%E3%82%A4%E3%83%88%20%E3%83%95%E3%82%A1%E3%82%A4%E3%83%8A%E3%83%AB%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BCIII",
-      "yahoo_direct": "https://page.auctions.yahoo.co.jp/jp/auction/e1251828262",
-      "allegro_search": "https://allegro.pl/listing?string=Nintendo%20DS%20Lite",
-      "olx_search": "https://www.olx.pl/oferty/q-nintendo-ds-lite/"
-    },
-    "final_price_jpy": 5500.0,
-    "final_price_pln": 136.58,
-    "potential_arbitrage_pln": 132.93,
-    "hypothetical_margin_pln": 132.93,
-    "residual_profit_pln": 132.93,
-    "closed_at": "2026-11-12T17:28:27Z"
-  },
-  {
-    "id": "f1186217388",
-    "auction_id": "f1186217388",
-    "platform": "Yahoo! Auctions Japan",
-    "category_id": "nintendo_3ds_handhelds",
-    "category_name": "Nintendo 3DS & New 3DS (Królowie Płynności: New 3DS XL, New 3DS, 3DS LL)",
-    "model": "New Nintendo 3DS LL Super Famicom Edition",
-    "color": "Super Famicom Edition (Kolekcjonerska)",
-    "battery_type": "li-ion",
-    "has_battery": true,
-    "est_weight_g": 320,
-    "weight_formatted": "~320 g",
-    "image_url": "https://www.jauce.com/read_yafile/https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0105/user/6c828530daa692ce1d9a8a48229eaff667b9e6ce8d36c5b87c0c33721560f38e/i-img1200x1200-174814968603917czxm010871.jpg?w=300&h=300",
-    "status": "🏁 Zakończona (Wylicytowano)",
-    "condition_badge": "💎 Perełka Kolekcjonerska",
-    "custom_note": "Święty Graal kolekcjonerów New 3DS – oficjalna edycja Super Famicom na zamówienie Nintendo",
-    "time_remaining_minutes": 0,
-    "time_remaining_formatted": "Zakończona",
-    "ends_at": "2026-11-12 15:51 UTC",
-    "ends_at_iso": "2026-11-12T15:51:00Z",
-    "ends_at_pl": "16:51",
-    "ends_at_jst": "00:51",
-    "ends_at_formatted": "Aukcja zakończona o 16:51 (PL)",
-    "ends_at_pl_short": "Zakończona (16:51)",
-    "price_stage_note": "🟢 Wczesna licytacja – monitoruj i ustaw snajpera",
-    "is_ending_soon": false,
-    "predicted_closure_jpy": 36000,
-    "predicted_closure_min_jpy": 26000,
-    "predicted_closure_max_jpy": 48000,
-    "predicted_closure_pln": 894.35,
-    "closure_gap_jpy": 8000,
-    "closure_gap_pct": 28.6,
-    "expected_landed_cost_pln": 1205.57,
-    "expected_margin_pln": 194.43,
-    "expected_roi_pct": 16.1,
-    "condition_grade": "B_VERY_GOOD",
-    "condition_label": "✨ Bardzo Dobry (Sprawny 100%)",
-    "condition_short_label": "B. Dobry",
-    "condition_badge_color": "#10b981",
-    "condition_features": [
-      "Sprawny 100% (potwierdzone)",
-      "Bardzo dobry stan wizualny"
-    ],
-    "condition_desc": "Zadbany egzemplarz, w 100% sprawny technicznie, czysty ekran, minimalne ślady",
-    "verdict_code": "B_TIER_MARGINAL",
-    "verdict_label": "⚖️ B-TIER: NA STYKU OPŁACALNOŚCI",
-    "verdict_badge_class": "verdict-b-tier",
-    "recommendation_text": "Aukcja w cenie rynkowej (B. Dobry). Oczekiwane zamknięcie 36,000 JPY zostawia bezpieczny bufor +194 zł. Nie przekraczaj limitu snajpera.",
-    "price_jpy": 28000.0,
-    "price_pln_raw": 695.6,
-    "buy_now_price_jpy": 35000,
-    "buy_now_price_pln": 869.5,
-    "has_buy_now": true,
-    "landed_cost_pln": 954.15,
-    "est_pl_value": 1400.0,
-    "allegro_archive_pln": 1550.0,
-    "olx_haggled_pln": 1300.0,
-    "est_margin_pln": 445.85,
-    "roi_percent": 46.7,
-    "max_bid_jpy": 32400,
-    "guaranteed_margin_pln": 307.57,
-    "guaranteed_roi_pct": 28.2,
-    "closed_price_min_jpy": 26000,
-    "closed_price_max_jpy": 48000,
-    "closed_price_avg_jpy": 36000,
-    "mercari_bin_avg_jpy": 45000,
-    "arbitrage_discount_pct": 20.0,
-    "auction_advantage_note": "W Polsce ceny CIB osiągają 1800-2200 zł",
-    "shipping_share_pln": 30.0,
-    "vat_pln": 173.48,
-    "zenmarket_fee_pln": 8.8,
-    "photo_inspection": null,
-    "links": {
-      "primary_url": "https://zenmarket.jp/pl/auction.aspx?itemCode=f1186217388",
-      "zenmarket_auction": "https://zenmarket.jp/pl/auction.aspx?itemCode=f1186217388",
-      "zenmarket_sniper": "https://zenmarket.jp/pl/auction.aspx?itemCode=f1186217388",
-      "zenmarket_buy_now": "https://zenmarket.jp/pl/auction.aspx?itemCode=f1186217388",
-      "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=New%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20LL%20%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E3%83%95%E3%82%A1%E3%83%9F%E3%82%B3%E3%83%B3&sort=end&order=asc",
-      "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=New%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20LL%20%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E3%83%95%E3%82%A1%E3%83%9F%E3%82%B3%E3%83%B3&sort=price&order=asc",
-      "zenmarket_mercari_stream": "https://zenmarket.jp/pl/mercari.aspx?q=New%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20LL%20%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E3%83%95%E3%82%A1%E3%83%9F%E3%82%B3%E3%83%B3",
-      "mercari_live_search": "https://jp.mercari.com/search?keyword=New%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20LL%20%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E3%83%95%E3%82%A1%E3%83%9F%E3%82%B3%E3%83%B3&status=on_sale",
-      "buyee_url": "https://buyee.jp/item/yahoo/auction/f1186217388",
-      "buyee_auction": "https://buyee.jp/item/yahoo/auction/f1186217388",
-      "buyee_ending_soon": "https://buyee.jp/item/search/query/New%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20LL%20%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E3%83%95%E3%82%A1%E3%83%9F%E3%82%B3%E3%83%B3?translationType=1&sort=end&order=a",
-      "yahoo_closed_archive": "https://auctions.yahoo.co.jp/closedsearch/closedsearch?p=New%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20LL%20%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E3%83%95%E3%82%A1%E3%83%9F%E3%82%B3%E3%83%B3",
-      "yahoo_direct": "https://page.auctions.yahoo.co.jp/jp/auction/f1186217388",
-      "allegro_search": "https://allegro.pl/listing?string=New%20Nintendo%203DS%20XL",
-      "olx_search": "https://www.olx.pl/oferty/q-new-nintendo-3ds-xl/"
-    },
-    "final_price_jpy": 28000.0,
-    "final_price_pln": 695.3,
-    "potential_arbitrage_pln": 445.85,
-    "hypothetical_margin_pln": 445.85,
-    "residual_profit_pln": 445.85,
-    "closed_at": "2026-11-12T17:28:27Z"
-  },
-  {
-    "id": "m1251679677",
-    "auction_id": "m1251679677",
-    "platform": "Yahoo! Auctions Japan",
-    "category_id": "ps_vita",
-    "category_name": "PlayStation Vita (Special Editions & Colors)",
-    "model": "PCH-1000 OLED",
-    "color": "Sapphire Blue (ZA04)",
-    "battery_type": "li-ion",
-    "has_battery": true,
-    "est_weight_g": 290,
-    "weight_formatted": "~290 g",
-    "image_url": "https://www.jauce.com/read_yafile/https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0211/user/127cd6790f50957102ba90523edc8e965be5be211254354fa16acda58c674059/i-img1200x900-17942209611740i51nen747.jpg?w=300&h=300",
-    "status": "🏁 Zakończona (Wylicytowano)",
-    "condition_badge": "✅ Sprawny (Potwierdzone)",
-    "custom_note": "Ekran OLED 5 cali o nieskończonym kontraście i metalicznej szafirowej obudowie ZA04",
-    "time_remaining_minutes": 0,
-    "time_remaining_formatted": "Zakończona",
-    "ends_at": "2026-11-12 15:51 UTC",
-    "ends_at_iso": "2026-11-12T15:51:00Z",
-    "ends_at_pl": "16:51",
-    "ends_at_jst": "00:51",
-    "ends_at_formatted": "Aukcja zakończona o 16:51 (PL)",
-    "ends_at_pl_short": "Zakończona (16:51)",
-    "price_stage_note": "🟢 Wczesna licytacja – monitoruj i ustaw snajpera",
-    "is_ending_soon": false,
-    "predicted_closure_jpy": 15500,
-    "predicted_closure_min_jpy": 11500,
-    "predicted_closure_max_jpy": 19500,
-    "predicted_closure_pln": 385.07,
-    "closure_gap_jpy": 7300,
-    "closure_gap_pct": 89.0,
-    "expected_landed_cost_pln": 567.66,
-    "expected_margin_pln": 22.34,
-    "expected_roi_pct": 3.9,
-    "condition_grade": "B_VERY_GOOD",
-    "condition_label": "✨ Bardzo Dobry (Sprawny 100%)",
-    "condition_short_label": "B. Dobry",
-    "condition_badge_color": "#10b981",
-    "condition_features": [
-      "Sprawny 100% (potwierdzone)",
-      "Bardzo dobry stan wizualny"
-    ],
-    "condition_desc": "Zadbany egzemplarz, w 100% sprawny technicznie, czysty ekran, minimalne ślady",
-    "verdict_code": "C_TIER_OVERHEATED",
-    "verdict_label": "⚠️ C-TIER: RYZYKO PRZEPŁACENIA",
-    "verdict_badge_class": "verdict-c-tier",
-    "recommendation_text": "Licytacja może przekroczyć próg opłacalności. Oczekiwana cena zamknięcia (15,500 JPY) zostawia zbyt mały margines bezpieczeństwa w Polsce (22 zł).",
-    "price_jpy": 8200.0,
-    "price_pln_raw": 203.71,
-    "buy_now_price_jpy": 10200,
-    "buy_now_price_pln": 253.4,
-    "has_buy_now": true,
-    "landed_cost_pln": 338.24,
-    "est_pl_value": 590.0,
-    "allegro_archive_pln": 630.0,
-    "olx_haggled_pln": 540.0,
-    "est_margin_pln": 251.76,
-    "roi_percent": 74.4,
-    "max_bid_jpy": 11600,
-    "guaranteed_margin_pln": 144.91,
-    "guaranteed_roi_pct": 32.6,
-    "closed_price_min_jpy": 11500,
-    "closed_price_max_jpy": 19500,
-    "closed_price_avg_jpy": 15500,
-    "mercari_bin_avg_jpy": 18900,
-    "arbitrage_discount_pct": 18.0,
-    "auction_advantage_note": "OLED to ulubiony wybór entuzjastów gier indie",
-    "shipping_share_pln": 35.0,
-    "vat_pln": 61.5,
-    "zenmarket_fee_pln": 8.8,
-    "photo_inspection": null,
-    "links": {
-      "primary_url": "https://zenmarket.jp/pl/auction.aspx?itemCode=m1251679677",
-      "zenmarket_auction": "https://zenmarket.jp/pl/auction.aspx?itemCode=m1251679677",
-      "zenmarket_sniper": "https://zenmarket.jp/pl/auction.aspx?itemCode=m1251679677",
-      "zenmarket_buy_now": "https://zenmarket.jp/pl/auction.aspx?itemCode=m1251679677",
-      "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=PS%E3%83%B4%E3%82%A3%E3%83%BC%E3%82%BF%201000%20%E3%82%B5%E3%83%95%E3%82%A1%E3%82%A4%E3%82%A2%E3%83%96%E3%83%AB%E3%83%BC&sort=end&order=asc",
-      "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=PS%E3%83%B4%E3%82%A3%E3%83%BC%E3%82%BF%201000%20%E3%82%B5%E3%83%95%E3%82%A1%E3%82%A4%E3%82%A2%E3%83%96%E3%83%AB%E3%83%BC&sort=price&order=asc",
-      "zenmarket_mercari_stream": "https://zenmarket.jp/pl/mercari.aspx?q=PS%E3%83%B4%E3%82%A3%E3%83%BC%E3%82%BF%201000%20%E3%82%B5%E3%83%95%E3%82%A1%E3%82%A4%E3%82%A2%E3%83%96%E3%83%AB%E3%83%BC",
-      "mercari_live_search": "https://jp.mercari.com/search?keyword=PS%E3%83%B4%E3%82%A3%E3%83%BC%E3%82%BF%201000%20%E3%82%B5%E3%83%95%E3%82%A1%E3%82%A4%E3%82%A2%E3%83%96%E3%83%AB%E3%83%BC&status=on_sale",
-      "buyee_url": "https://buyee.jp/item/yahoo/auction/m1251679677",
-      "buyee_auction": "https://buyee.jp/item/yahoo/auction/m1251679677",
-      "buyee_ending_soon": "https://buyee.jp/item/search/query/PS%E3%83%B4%E3%82%A3%E3%83%BC%E3%82%BF%201000%20%E3%82%B5%E3%83%95%E3%82%A1%E3%82%A4%E3%82%A2%E3%83%96%E3%83%AB%E3%83%BC?translationType=1&sort=end&order=a",
-      "yahoo_closed_archive": "https://auctions.yahoo.co.jp/closedsearch/closedsearch?p=PS%E3%83%B4%E3%82%A3%E3%83%BC%E3%82%BF%201000%20%E3%82%B5%E3%83%95%E3%82%A1%E3%82%A4%E3%82%A2%E3%83%96%E3%83%AB%E3%83%BC",
-      "yahoo_direct": "https://page.auctions.yahoo.co.jp/jp/auction/m1251679677",
-      "allegro_search": "https://allegro.pl/listing?string=PS%20Vita%20OLED",
-      "olx_search": "https://www.olx.pl/oferty/q-ps-vita-oled/"
-    },
-    "final_price_jpy": 8200.0,
-    "final_price_pln": 203.62,
-    "potential_arbitrage_pln": 251.76,
-    "hypothetical_margin_pln": 251.76,
-    "residual_profit_pln": 251.76,
-    "closed_at": "2026-11-12T17:28:27Z"
-  },
-  {
-    "id": "v1251354403",
-    "auction_id": "v1251354403",
-    "platform": "Yahoo! Auctions Japan",
-    "category_id": "high_margin_curated_consoles",
-    "category_name": "Wyselekcjonowane Konsole Stacjonarne (Tylko Wysoki Zysk > 400-750 zł)",
-    "model": "PSone COMBO SCPH-130 (Zintegrowany 5\" LCD Sony)",
-    "color": "Biały Mini + Doczepiany Ekran LCD",
-    "battery_type": "none",
-    "has_battery": false,
-    "est_weight_g": 2500,
-    "weight_formatted": "~2.5 kg",
-    "image_url": "https://www.jauce.com/read_yafile/https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0211/user/70dadf85381cf4f995add1211f507dd7517083b4edbf0c955ad784f54c0952db/i-img1200x903-179400976119106nkagp588.jpg?w=300&h=300",
-    "status": "🏁 Zakończona (Wylicytowano)",
-    "condition_badge": "🟢 0% Li-Ion (Zasilacz Zewnętrzny)",
-    "custom_note": "Legendarny doczepiany ekran 5 cali LCD Sony SCPH-130. 0% Li-Ion – czysta gotówka i zerowe ryzyko IATA",
-    "time_remaining_minutes": 0,
-    "time_remaining_formatted": "Zakończona",
-    "ends_at": "2026-11-12 15:51 UTC",
-    "ends_at_iso": "2026-11-12T15:51:00Z",
-    "ends_at_pl": "16:51",
-    "ends_at_jst": "00:51",
-    "ends_at_formatted": "Aukcja zakończona o 16:51 (PL)",
-    "ends_at_pl_short": "Zakończona (16:51)",
-    "price_stage_note": "🟢 Wczesna licytacja – monitoruj i ustaw snajpera",
-    "is_ending_soon": false,
-    "predicted_closure_jpy": 28000,
-    "predicted_closure_min_jpy": 21600,
-    "predicted_closure_max_jpy": 37800,
-    "predicted_closure_pln": 695.6,
-    "closure_gap_jpy": 13200,
-    "closure_gap_pct": 89.2,
-    "expected_landed_cost_pln": 998.42,
-    "expected_margin_pln": 51.58,
-    "expected_roi_pct": 5.2,
-    "condition_grade": "A_MINT_BOX",
-    "condition_label": "📦 Kolekcjonerski Box (CIB)",
-    "condition_short_label": "Box CIB",
-    "condition_badge_color": "#8b5cf6",
-    "condition_features": [
-      "Oryginalne pudełko (CIB)",
-      "Komplet z ekranem LCD / akcesoriami"
-    ],
-    "condition_desc": "Stan gabinetowy/kolekcjonerski w oryginalnym pudełku z kompletem akcesoriów",
-    "verdict_code": "C_TIER_OVERHEATED",
-    "verdict_label": "⚠️ C-TIER: RYZYKO PRZEPŁACENIA",
-    "verdict_badge_class": "verdict-c-tier",
-    "recommendation_text": "Licytacja może przekroczyć próg opłacalności. Oczekiwana cena zamknięcia (28,000 JPY) zostawia zbyt mały margines bezpieczeństwa w Polsce (52 zł).",
-    "price_jpy": 14800.0,
-    "price_pln_raw": 367.68,
-    "buy_now_price_jpy": 18500,
-    "buy_now_price_pln": 459.6,
-    "has_buy_now": true,
-    "landed_cost_pln": 583.61,
-    "est_pl_value": 1050.0,
-    "allegro_archive_pln": 1150.0,
-    "olx_haggled_pln": 950.0,
-    "est_margin_pln": 466.39,
-    "roi_percent": 79.9,
-    "max_bid_jpy": 21500,
-    "guaranteed_margin_pln": 255.85,
-    "guaranteed_roi_pct": 32.2,
-    "closed_price_min_jpy": 20000,
-    "closed_price_max_jpy": 35000,
-    "closed_price_avg_jpy": 26000,
-    "mercari_bin_avg_jpy": 34000,
-    "arbitrage_discount_pct": 23.5,
-    "auction_advantage_note": "Aukcje zamykają się nawet o 25% taniej niż oferty Kup Teraz",
-    "shipping_share_pln": 65.0,
-    "vat_pln": 106.11,
-    "zenmarket_fee_pln": 8.8,
-    "photo_inspection": null,
-    "links": {
-      "primary_url": "https://zenmarket.jp/pl/auction.aspx?itemCode=v1251354403",
-      "zenmarket_auction": "https://zenmarket.jp/pl/auction.aspx?itemCode=v1251354403",
-      "zenmarket_sniper": "https://zenmarket.jp/pl/auction.aspx?itemCode=v1251354403",
-      "zenmarket_buy_now": "https://zenmarket.jp/pl/auction.aspx?itemCode=v1251354403",
-      "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=PSone%20COMBO%20SCPH-130&sort=end&order=asc",
-      "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=PSone%20COMBO%20SCPH-130&sort=price&order=asc",
-      "zenmarket_mercari_stream": "https://zenmarket.jp/pl/mercari.aspx?q=PSone%20COMBO%20SCPH-130",
-      "mercari_live_search": "https://jp.mercari.com/search?keyword=PSone%20COMBO%20SCPH-130&status=on_sale",
-      "buyee_url": "https://buyee.jp/item/yahoo/auction/v1251354403",
-      "buyee_auction": "https://buyee.jp/item/yahoo/auction/v1251354403",
-      "buyee_ending_soon": "https://buyee.jp/item/search/query/PSone%20COMBO%20SCPH-130?translationType=1&sort=end&order=a",
-      "yahoo_closed_archive": "https://auctions.yahoo.co.jp/closedsearch/closedsearch?p=PSone%20COMBO%20SCPH-130",
-      "yahoo_direct": "https://page.auctions.yahoo.co.jp/jp/auction/v1251354403",
-      "allegro_search": "https://allegro.pl/listing?string=PSone%20LCD%20Combo%20SCPH-130",
-      "olx_search": "https://www.olx.pl/oferty/q-psone-lcd-combo-scph-130/"
-    },
-    "final_price_jpy": 14800.0,
-    "final_price_pln": 367.51,
-    "potential_arbitrage_pln": 466.39,
-    "hypothetical_margin_pln": 466.39,
-    "residual_profit_pln": 466.39,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:41Z"
   },
   {
     "id": "w1251004036",
@@ -714,7 +330,7 @@
     "potential_arbitrage_pln": 116.89,
     "hypothetical_margin_pln": 116.89,
     "residual_profit_pln": 116.89,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:41Z"
   },
   {
     "id": "b1251661405",
@@ -870,7 +486,7 @@
     "potential_arbitrage_pln": 166.61,
     "hypothetical_margin_pln": 166.61,
     "residual_profit_pln": 166.61,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:41Z"
   },
   {
     "id": "m1251424285",
@@ -1026,7 +642,7 @@
     "potential_arbitrage_pln": 97.47,
     "hypothetical_margin_pln": 97.47,
     "residual_profit_pln": 97.47,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:41Z"
   },
   {
     "id": "p1251459113",
@@ -1182,7 +798,7 @@
     "potential_arbitrage_pln": 168.04,
     "hypothetical_margin_pln": 168.04,
     "residual_profit_pln": 168.04,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:41Z"
   },
   {
     "id": "f1251819973",
@@ -1313,7 +929,7 @@
     "potential_arbitrage_pln": 76.36,
     "hypothetical_margin_pln": 76.36,
     "residual_profit_pln": 76.36,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:41Z"
   },
   {
     "id": "f1246338593",
@@ -1409,7 +1025,7 @@
     "potential_arbitrage_pln": 65.21,
     "hypothetical_margin_pln": 65.21,
     "residual_profit_pln": 65.21,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:41Z"
   },
   {
     "id": "d1251552929",
@@ -1505,7 +1121,7 @@
     "potential_arbitrage_pln": 64.12,
     "hypothetical_margin_pln": 64.12,
     "residual_profit_pln": 64.12,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:41Z"
   },
   {
     "id": "v1251622331",
@@ -1601,7 +1217,7 @@
     "potential_arbitrage_pln": 61.82,
     "hypothetical_margin_pln": 61.82,
     "residual_profit_pln": 61.82,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:41Z"
   },
   {
     "id": "h1251615097",
@@ -1697,7 +1313,7 @@
     "potential_arbitrage_pln": 65.54,
     "hypothetical_margin_pln": 65.54,
     "residual_profit_pln": 65.54,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:41Z"
   },
   {
     "id": "q1251656350",
@@ -1793,7 +1409,7 @@
     "potential_arbitrage_pln": 97.24,
     "hypothetical_margin_pln": 97.24,
     "residual_profit_pln": 97.24,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:41Z"
   },
   {
     "id": "n1251749127",
@@ -1889,7 +1505,7 @@
     "potential_arbitrage_pln": 93.53,
     "hypothetical_margin_pln": 93.53,
     "residual_profit_pln": 93.53,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:41Z"
   },
   {
     "id": "f1251656361",
@@ -1985,7 +1601,7 @@
     "potential_arbitrage_pln": 77.22,
     "hypothetical_margin_pln": 77.22,
     "residual_profit_pln": 77.22,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:41Z"
   },
   {
     "id": "c1251630970",
@@ -2081,7 +1697,7 @@
     "potential_arbitrage_pln": 73.51,
     "hypothetical_margin_pln": 73.51,
     "residual_profit_pln": 73.51,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:41Z"
   },
   {
     "id": "w1251651117",
@@ -2177,7 +1793,7 @@
     "potential_arbitrage_pln": 127.2,
     "hypothetical_margin_pln": 127.2,
     "residual_profit_pln": 127.2,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:41Z"
   },
   {
     "id": "v1251661475",
@@ -2273,7 +1889,7 @@
     "potential_arbitrage_pln": 135.2,
     "hypothetical_margin_pln": 135.2,
     "residual_profit_pln": 135.2,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:41Z"
   },
   {
     "id": "e1248977601",
@@ -2369,7 +1985,7 @@
     "potential_arbitrage_pln": 234.99,
     "hypothetical_margin_pln": 234.99,
     "residual_profit_pln": 234.99,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:41Z"
   },
   {
     "id": "n1251812676",
@@ -2465,7 +2081,7 @@
     "potential_arbitrage_pln": 89.26,
     "hypothetical_margin_pln": 89.26,
     "residual_profit_pln": 89.26,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:41Z"
   },
   {
     "id": "j1251505974",
@@ -2562,7 +2178,7 @@
     "potential_arbitrage_pln": 92.66,
     "hypothetical_margin_pln": 92.66,
     "residual_profit_pln": 92.66,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:41Z"
   },
   {
     "id": "m1251553051",
@@ -2658,7 +2274,7 @@
     "potential_arbitrage_pln": 38.65,
     "hypothetical_margin_pln": 38.65,
     "residual_profit_pln": 38.65,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:41Z"
   },
   {
     "id": "d1251823525",
@@ -2754,7 +2370,7 @@
     "potential_arbitrage_pln": 132.08,
     "hypothetical_margin_pln": 132.08,
     "residual_profit_pln": 132.08,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:41Z"
   },
   {
     "id": "k1251818302",
@@ -2850,7 +2466,7 @@
     "potential_arbitrage_pln": 102.37,
     "hypothetical_margin_pln": 102.37,
     "residual_profit_pln": 102.37,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:41Z"
   },
   {
     "id": "p1249428295",
@@ -2946,7 +2562,7 @@
     "potential_arbitrage_pln": -75.61,
     "hypothetical_margin_pln": -75.61,
     "residual_profit_pln": -75.61,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:41Z"
   },
   {
     "id": "t1250970249",
@@ -3042,7 +2658,7 @@
     "potential_arbitrage_pln": 113.54,
     "hypothetical_margin_pln": 113.54,
     "residual_profit_pln": 113.54,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:41Z"
   },
   {
     "id": "d1245986339",
@@ -3138,7 +2754,7 @@
     "potential_arbitrage_pln": 54.4,
     "hypothetical_margin_pln": 54.4,
     "residual_profit_pln": 54.4,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:41Z"
   },
   {
     "id": "k1244528483",
@@ -3234,7 +2850,7 @@
     "potential_arbitrage_pln": 44.98,
     "hypothetical_margin_pln": 44.98,
     "residual_profit_pln": 44.98,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:41Z"
   },
   {
     "id": "b1246124221",
@@ -3330,7 +2946,7 @@
     "potential_arbitrage_pln": 218.69,
     "hypothetical_margin_pln": 218.69,
     "residual_profit_pln": 218.69,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:41Z"
   },
   {
     "id": "h1250921225",
@@ -3426,7 +3042,391 @@
     "potential_arbitrage_pln": 261.57,
     "hypothetical_margin_pln": 261.57,
     "residual_profit_pln": 261.57,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:41Z"
+  },
+  {
+    "id": "e1251828262",
+    "auction_id": "e1251828262",
+    "platform": "Yahoo! Auctions Japan",
+    "category_id": "nintendo_ds_handhelds",
+    "category_name": "Nintendo DS & DSi (DSi LL Dual IPS, DS Lite, Edycje Kolekcjonerskie)",
+    "model": "Nintendo DS Lite Final Fantasy III Crystal Edition",
+    "color": "Crystal White (Limited)",
+    "battery_type": "li-ion",
+    "has_battery": true,
+    "est_weight_g": 280,
+    "weight_formatted": "~280 g",
+    "image_url": "https://www.jauce.com/read_yafile/https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0211/user/2d857f1d0c5a09ef65b32de8119606c444e98c55063e7df1ff1f35ac3f44a566/i-img1200x1200-17943156298632b59ahm37.jpg?w=300&h=300",
+    "status": "🏁 Zakończona (Wylicytowano)",
+    "condition_badge": "💎 Limitowana Edycja",
+    "custom_note": "Limitowana edycja z grafiką Akihiko Yoshidy z Final Fantasy III i unikalnym numerem seryjnym",
+    "time_remaining_minutes": 0,
+    "time_remaining_formatted": "Zakończona",
+    "ends_at": "2026-11-12 15:51 UTC",
+    "ends_at_iso": "2026-11-12T15:51:00Z",
+    "ends_at_pl": "16:51",
+    "ends_at_jst": "00:51",
+    "ends_at_formatted": "Aukcja zakończona o 16:51 (PL)",
+    "ends_at_pl_short": "Zakończona (16:51)",
+    "price_stage_note": "🟢 Wczesna licytacja – monitoruj i ustaw snajpera",
+    "is_ending_soon": false,
+    "predicted_closure_jpy": 8500,
+    "predicted_closure_min_jpy": 5000,
+    "predicted_closure_max_jpy": 14000,
+    "predicted_closure_pln": 211.17,
+    "closure_gap_jpy": 3000,
+    "closure_gap_pct": 54.5,
+    "expected_landed_cost_pln": 341.34,
+    "expected_margin_pln": 38.66,
+    "expected_roi_pct": 11.3,
+    "condition_grade": "B_VERY_GOOD",
+    "condition_label": "✨ Bardzo Dobry (Sprawny 100%)",
+    "condition_short_label": "B. Dobry",
+    "condition_badge_color": "#10b981",
+    "condition_features": [
+      "Sprawny 100% (potwierdzone)",
+      "Bardzo dobry stan wizualny"
+    ],
+    "condition_desc": "Zadbany egzemplarz, w 100% sprawny technicznie, czysty ekran, minimalne ślady",
+    "verdict_code": "B_TIER_MARGINAL",
+    "verdict_label": "⚖️ B-TIER: NA STYKU OPŁACALNOŚCI",
+    "verdict_badge_class": "verdict-b-tier",
+    "recommendation_text": "Aukcja w cenie rynkowej (B. Dobry). Oczekiwane zamknięcie 8,500 JPY zostawia bezpieczny bufor +39 zł. Nie przekraczaj limitu snajpera.",
+    "price_jpy": 5500.0,
+    "price_pln_raw": 136.64,
+    "buy_now_price_jpy": 6800,
+    "buy_now_price_pln": 168.93,
+    "has_buy_now": true,
+    "landed_cost_pln": 247.07,
+    "est_pl_value": 380.0,
+    "allegro_archive_pln": 420.0,
+    "olx_haggled_pln": 340.0,
+    "est_margin_pln": 132.93,
+    "roi_percent": 53.8,
+    "max_bid_jpy": 6200,
+    "guaranteed_margin_pln": 110.94,
+    "guaranteed_roi_pct": 41.2,
+    "closed_price_min_jpy": 5000,
+    "closed_price_max_jpy": 14000,
+    "closed_price_avg_jpy": 8500,
+    "mercari_bin_avg_jpy": 13000,
+    "arbitrage_discount_pct": 34.6,
+    "auction_advantage_note": "Rzadki egzemplarz o wysokiej marży kolekcjonerskiej",
+    "shipping_share_pln": 30.0,
+    "vat_pln": 44.92,
+    "zenmarket_fee_pln": 8.8,
+    "photo_inspection": null,
+    "links": {
+      "primary_url": "https://zenmarket.jp/pl/auction.aspx?itemCode=e1251828262",
+      "zenmarket_auction": "https://zenmarket.jp/pl/auction.aspx?itemCode=e1251828262",
+      "zenmarket_sniper": "https://zenmarket.jp/pl/auction.aspx?itemCode=e1251828262",
+      "zenmarket_buy_now": "https://zenmarket.jp/pl/auction.aspx?itemCode=e1251828262",
+      "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=DS%E3%83%A9%E3%82%A4%E3%83%88%20%E3%83%95%E3%82%A1%E3%82%A4%E3%83%8A%E3%83%AB%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BCIII&sort=end&order=asc",
+      "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=DS%E3%83%A9%E3%82%A4%E3%83%88%20%E3%83%95%E3%82%A1%E3%82%A4%E3%83%8A%E3%83%AB%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BCIII&sort=price&order=asc",
+      "zenmarket_mercari_stream": "https://zenmarket.jp/pl/mercari.aspx?q=DS%E3%83%A9%E3%82%A4%E3%83%88%20%E3%83%95%E3%82%A1%E3%82%A4%E3%83%8A%E3%83%AB%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BCIII",
+      "mercari_live_search": "https://jp.mercari.com/search?keyword=DS%E3%83%A9%E3%82%A4%E3%83%88%20%E3%83%95%E3%82%A1%E3%82%A4%E3%83%8A%E3%83%AB%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BCIII&status=on_sale",
+      "buyee_url": "https://buyee.jp/item/yahoo/auction/e1251828262",
+      "buyee_auction": "https://buyee.jp/item/yahoo/auction/e1251828262",
+      "buyee_ending_soon": "https://buyee.jp/item/search/query/DS%E3%83%A9%E3%82%A4%E3%83%88%20%E3%83%95%E3%82%A1%E3%82%A4%E3%83%8A%E3%83%AB%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BCIII?translationType=1&sort=end&order=a",
+      "yahoo_closed_archive": "https://auctions.yahoo.co.jp/closedsearch/closedsearch?p=DS%E3%83%A9%E3%82%A4%E3%83%88%20%E3%83%95%E3%82%A1%E3%82%A4%E3%83%8A%E3%83%AB%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BCIII",
+      "yahoo_direct": "https://page.auctions.yahoo.co.jp/jp/auction/e1251828262",
+      "allegro_search": "https://allegro.pl/listing?string=Nintendo%20DS%20Lite",
+      "olx_search": "https://www.olx.pl/oferty/q-nintendo-ds-lite/"
+    },
+    "final_price_jpy": 5500.0,
+    "final_price_pln": 136.58,
+    "potential_arbitrage_pln": 132.93,
+    "hypothetical_margin_pln": 132.93,
+    "residual_profit_pln": 132.93,
+    "closed_at": "2026-11-12T23:24:40Z"
+  },
+  {
+    "id": "f1186217388",
+    "auction_id": "f1186217388",
+    "platform": "Yahoo! Auctions Japan",
+    "category_id": "nintendo_3ds_handhelds",
+    "category_name": "Nintendo 3DS & New 3DS (Królowie Płynności: New 3DS XL, New 3DS, 3DS LL)",
+    "model": "New Nintendo 3DS LL Super Famicom Edition",
+    "color": "Super Famicom Edition (Kolekcjonerska)",
+    "battery_type": "li-ion",
+    "has_battery": true,
+    "est_weight_g": 320,
+    "weight_formatted": "~320 g",
+    "image_url": "https://www.jauce.com/read_yafile/https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0105/user/6c828530daa692ce1d9a8a48229eaff667b9e6ce8d36c5b87c0c33721560f38e/i-img1200x1200-174814968603917czxm010871.jpg?w=300&h=300",
+    "status": "🏁 Zakończona (Wylicytowano)",
+    "condition_badge": "💎 Perełka Kolekcjonerska",
+    "custom_note": "Święty Graal kolekcjonerów New 3DS – oficjalna edycja Super Famicom na zamówienie Nintendo",
+    "time_remaining_minutes": 0,
+    "time_remaining_formatted": "Zakończona",
+    "ends_at": "2026-11-12 15:51 UTC",
+    "ends_at_iso": "2026-11-12T15:51:00Z",
+    "ends_at_pl": "16:51",
+    "ends_at_jst": "00:51",
+    "ends_at_formatted": "Aukcja zakończona o 16:51 (PL)",
+    "ends_at_pl_short": "Zakończona (16:51)",
+    "price_stage_note": "🟢 Wczesna licytacja – monitoruj i ustaw snajpera",
+    "is_ending_soon": false,
+    "predicted_closure_jpy": 36000,
+    "predicted_closure_min_jpy": 26000,
+    "predicted_closure_max_jpy": 48000,
+    "predicted_closure_pln": 894.35,
+    "closure_gap_jpy": 8000,
+    "closure_gap_pct": 28.6,
+    "expected_landed_cost_pln": 1205.57,
+    "expected_margin_pln": 194.43,
+    "expected_roi_pct": 16.1,
+    "condition_grade": "B_VERY_GOOD",
+    "condition_label": "✨ Bardzo Dobry (Sprawny 100%)",
+    "condition_short_label": "B. Dobry",
+    "condition_badge_color": "#10b981",
+    "condition_features": [
+      "Sprawny 100% (potwierdzone)",
+      "Bardzo dobry stan wizualny"
+    ],
+    "condition_desc": "Zadbany egzemplarz, w 100% sprawny technicznie, czysty ekran, minimalne ślady",
+    "verdict_code": "B_TIER_MARGINAL",
+    "verdict_label": "⚖️ B-TIER: NA STYKU OPŁACALNOŚCI",
+    "verdict_badge_class": "verdict-b-tier",
+    "recommendation_text": "Aukcja w cenie rynkowej (B. Dobry). Oczekiwane zamknięcie 36,000 JPY zostawia bezpieczny bufor +194 zł. Nie przekraczaj limitu snajpera.",
+    "price_jpy": 28000.0,
+    "price_pln_raw": 695.6,
+    "buy_now_price_jpy": 35000,
+    "buy_now_price_pln": 869.5,
+    "has_buy_now": true,
+    "landed_cost_pln": 954.15,
+    "est_pl_value": 1400.0,
+    "allegro_archive_pln": 1550.0,
+    "olx_haggled_pln": 1300.0,
+    "est_margin_pln": 445.85,
+    "roi_percent": 46.7,
+    "max_bid_jpy": 32400,
+    "guaranteed_margin_pln": 307.57,
+    "guaranteed_roi_pct": 28.2,
+    "closed_price_min_jpy": 26000,
+    "closed_price_max_jpy": 48000,
+    "closed_price_avg_jpy": 36000,
+    "mercari_bin_avg_jpy": 45000,
+    "arbitrage_discount_pct": 20.0,
+    "auction_advantage_note": "W Polsce ceny CIB osiągają 1800-2200 zł",
+    "shipping_share_pln": 30.0,
+    "vat_pln": 173.48,
+    "zenmarket_fee_pln": 8.8,
+    "photo_inspection": null,
+    "links": {
+      "primary_url": "https://zenmarket.jp/pl/auction.aspx?itemCode=f1186217388",
+      "zenmarket_auction": "https://zenmarket.jp/pl/auction.aspx?itemCode=f1186217388",
+      "zenmarket_sniper": "https://zenmarket.jp/pl/auction.aspx?itemCode=f1186217388",
+      "zenmarket_buy_now": "https://zenmarket.jp/pl/auction.aspx?itemCode=f1186217388",
+      "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=New%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20LL%20%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E3%83%95%E3%82%A1%E3%83%9F%E3%82%B3%E3%83%B3&sort=end&order=asc",
+      "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=New%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20LL%20%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E3%83%95%E3%82%A1%E3%83%9F%E3%82%B3%E3%83%B3&sort=price&order=asc",
+      "zenmarket_mercari_stream": "https://zenmarket.jp/pl/mercari.aspx?q=New%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20LL%20%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E3%83%95%E3%82%A1%E3%83%9F%E3%82%B3%E3%83%B3",
+      "mercari_live_search": "https://jp.mercari.com/search?keyword=New%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20LL%20%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E3%83%95%E3%82%A1%E3%83%9F%E3%82%B3%E3%83%B3&status=on_sale",
+      "buyee_url": "https://buyee.jp/item/yahoo/auction/f1186217388",
+      "buyee_auction": "https://buyee.jp/item/yahoo/auction/f1186217388",
+      "buyee_ending_soon": "https://buyee.jp/item/search/query/New%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20LL%20%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E3%83%95%E3%82%A1%E3%83%9F%E3%82%B3%E3%83%B3?translationType=1&sort=end&order=a",
+      "yahoo_closed_archive": "https://auctions.yahoo.co.jp/closedsearch/closedsearch?p=New%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BC3DS%20LL%20%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E3%83%95%E3%82%A1%E3%83%9F%E3%82%B3%E3%83%B3",
+      "yahoo_direct": "https://page.auctions.yahoo.co.jp/jp/auction/f1186217388",
+      "allegro_search": "https://allegro.pl/listing?string=New%20Nintendo%203DS%20XL",
+      "olx_search": "https://www.olx.pl/oferty/q-new-nintendo-3ds-xl/"
+    },
+    "final_price_jpy": 28000.0,
+    "final_price_pln": 695.3,
+    "potential_arbitrage_pln": 445.85,
+    "hypothetical_margin_pln": 445.85,
+    "residual_profit_pln": 445.85,
+    "closed_at": "2026-11-12T23:24:40Z"
+  },
+  {
+    "id": "m1251679677",
+    "auction_id": "m1251679677",
+    "platform": "Yahoo! Auctions Japan",
+    "category_id": "ps_vita",
+    "category_name": "PlayStation Vita (Special Editions & Colors)",
+    "model": "PCH-1000 OLED",
+    "color": "Sapphire Blue (ZA04)",
+    "battery_type": "li-ion",
+    "has_battery": true,
+    "est_weight_g": 290,
+    "weight_formatted": "~290 g",
+    "image_url": "https://www.jauce.com/read_yafile/https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0211/user/127cd6790f50957102ba90523edc8e965be5be211254354fa16acda58c674059/i-img1200x900-17942209611740i51nen747.jpg?w=300&h=300",
+    "status": "🏁 Zakończona (Wylicytowano)",
+    "condition_badge": "✅ Sprawny (Potwierdzone)",
+    "custom_note": "Ekran OLED 5 cali o nieskończonym kontraście i metalicznej szafirowej obudowie ZA04",
+    "time_remaining_minutes": 0,
+    "time_remaining_formatted": "Zakończona",
+    "ends_at": "2026-11-12 15:51 UTC",
+    "ends_at_iso": "2026-11-12T15:51:00Z",
+    "ends_at_pl": "16:51",
+    "ends_at_jst": "00:51",
+    "ends_at_formatted": "Aukcja zakończona o 16:51 (PL)",
+    "ends_at_pl_short": "Zakończona (16:51)",
+    "price_stage_note": "🟢 Wczesna licytacja – monitoruj i ustaw snajpera",
+    "is_ending_soon": false,
+    "predicted_closure_jpy": 15500,
+    "predicted_closure_min_jpy": 11500,
+    "predicted_closure_max_jpy": 19500,
+    "predicted_closure_pln": 385.07,
+    "closure_gap_jpy": 7300,
+    "closure_gap_pct": 89.0,
+    "expected_landed_cost_pln": 567.66,
+    "expected_margin_pln": 22.34,
+    "expected_roi_pct": 3.9,
+    "condition_grade": "B_VERY_GOOD",
+    "condition_label": "✨ Bardzo Dobry (Sprawny 100%)",
+    "condition_short_label": "B. Dobry",
+    "condition_badge_color": "#10b981",
+    "condition_features": [
+      "Sprawny 100% (potwierdzone)",
+      "Bardzo dobry stan wizualny"
+    ],
+    "condition_desc": "Zadbany egzemplarz, w 100% sprawny technicznie, czysty ekran, minimalne ślady",
+    "verdict_code": "C_TIER_OVERHEATED",
+    "verdict_label": "⚠️ C-TIER: RYZYKO PRZEPŁACENIA",
+    "verdict_badge_class": "verdict-c-tier",
+    "recommendation_text": "Licytacja może przekroczyć próg opłacalności. Oczekiwana cena zamknięcia (15,500 JPY) zostawia zbyt mały margines bezpieczeństwa w Polsce (22 zł).",
+    "price_jpy": 8200.0,
+    "price_pln_raw": 203.71,
+    "buy_now_price_jpy": 10200,
+    "buy_now_price_pln": 253.4,
+    "has_buy_now": true,
+    "landed_cost_pln": 338.24,
+    "est_pl_value": 590.0,
+    "allegro_archive_pln": 630.0,
+    "olx_haggled_pln": 540.0,
+    "est_margin_pln": 251.76,
+    "roi_percent": 74.4,
+    "max_bid_jpy": 11600,
+    "guaranteed_margin_pln": 144.91,
+    "guaranteed_roi_pct": 32.6,
+    "closed_price_min_jpy": 11500,
+    "closed_price_max_jpy": 19500,
+    "closed_price_avg_jpy": 15500,
+    "mercari_bin_avg_jpy": 18900,
+    "arbitrage_discount_pct": 18.0,
+    "auction_advantage_note": "OLED to ulubiony wybór entuzjastów gier indie",
+    "shipping_share_pln": 35.0,
+    "vat_pln": 61.5,
+    "zenmarket_fee_pln": 8.8,
+    "photo_inspection": null,
+    "links": {
+      "primary_url": "https://zenmarket.jp/pl/auction.aspx?itemCode=m1251679677",
+      "zenmarket_auction": "https://zenmarket.jp/pl/auction.aspx?itemCode=m1251679677",
+      "zenmarket_sniper": "https://zenmarket.jp/pl/auction.aspx?itemCode=m1251679677",
+      "zenmarket_buy_now": "https://zenmarket.jp/pl/auction.aspx?itemCode=m1251679677",
+      "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=PS%E3%83%B4%E3%82%A3%E3%83%BC%E3%82%BF%201000%20%E3%82%B5%E3%83%95%E3%82%A1%E3%82%A4%E3%82%A2%E3%83%96%E3%83%AB%E3%83%BC&sort=end&order=asc",
+      "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=PS%E3%83%B4%E3%82%A3%E3%83%BC%E3%82%BF%201000%20%E3%82%B5%E3%83%95%E3%82%A1%E3%82%A4%E3%82%A2%E3%83%96%E3%83%AB%E3%83%BC&sort=price&order=asc",
+      "zenmarket_mercari_stream": "https://zenmarket.jp/pl/mercari.aspx?q=PS%E3%83%B4%E3%82%A3%E3%83%BC%E3%82%BF%201000%20%E3%82%B5%E3%83%95%E3%82%A1%E3%82%A4%E3%82%A2%E3%83%96%E3%83%AB%E3%83%BC",
+      "mercari_live_search": "https://jp.mercari.com/search?keyword=PS%E3%83%B4%E3%82%A3%E3%83%BC%E3%82%BF%201000%20%E3%82%B5%E3%83%95%E3%82%A1%E3%82%A4%E3%82%A2%E3%83%96%E3%83%AB%E3%83%BC&status=on_sale",
+      "buyee_url": "https://buyee.jp/item/yahoo/auction/m1251679677",
+      "buyee_auction": "https://buyee.jp/item/yahoo/auction/m1251679677",
+      "buyee_ending_soon": "https://buyee.jp/item/search/query/PS%E3%83%B4%E3%82%A3%E3%83%BC%E3%82%BF%201000%20%E3%82%B5%E3%83%95%E3%82%A1%E3%82%A4%E3%82%A2%E3%83%96%E3%83%AB%E3%83%BC?translationType=1&sort=end&order=a",
+      "yahoo_closed_archive": "https://auctions.yahoo.co.jp/closedsearch/closedsearch?p=PS%E3%83%B4%E3%82%A3%E3%83%BC%E3%82%BF%201000%20%E3%82%B5%E3%83%95%E3%82%A1%E3%82%A4%E3%82%A2%E3%83%96%E3%83%AB%E3%83%BC",
+      "yahoo_direct": "https://page.auctions.yahoo.co.jp/jp/auction/m1251679677",
+      "allegro_search": "https://allegro.pl/listing?string=PS%20Vita%20OLED",
+      "olx_search": "https://www.olx.pl/oferty/q-ps-vita-oled/"
+    },
+    "final_price_jpy": 8200.0,
+    "final_price_pln": 203.62,
+    "potential_arbitrage_pln": 251.76,
+    "hypothetical_margin_pln": 251.76,
+    "residual_profit_pln": 251.76,
+    "closed_at": "2026-11-12T23:24:40Z"
+  },
+  {
+    "id": "v1251354403",
+    "auction_id": "v1251354403",
+    "platform": "Yahoo! Auctions Japan",
+    "category_id": "high_margin_curated_consoles",
+    "category_name": "Wyselekcjonowane Konsole Stacjonarne (Tylko Wysoki Zysk > 400-750 zł)",
+    "model": "PSone COMBO SCPH-130 (Zintegrowany 5\" LCD Sony)",
+    "color": "Biały Mini + Doczepiany Ekran LCD",
+    "battery_type": "none",
+    "has_battery": false,
+    "est_weight_g": 2500,
+    "weight_formatted": "~2.5 kg",
+    "image_url": "https://www.jauce.com/read_yafile/https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0211/user/70dadf85381cf4f995add1211f507dd7517083b4edbf0c955ad784f54c0952db/i-img1200x903-179400976119106nkagp588.jpg?w=300&h=300",
+    "status": "🏁 Zakończona (Wylicytowano)",
+    "condition_badge": "🟢 0% Li-Ion (Zasilacz Zewnętrzny)",
+    "custom_note": "Legendarny doczepiany ekran 5 cali LCD Sony SCPH-130. 0% Li-Ion – czysta gotówka i zerowe ryzyko IATA",
+    "time_remaining_minutes": 0,
+    "time_remaining_formatted": "Zakończona",
+    "ends_at": "2026-11-12 15:51 UTC",
+    "ends_at_iso": "2026-11-12T15:51:00Z",
+    "ends_at_pl": "16:51",
+    "ends_at_jst": "00:51",
+    "ends_at_formatted": "Aukcja zakończona o 16:51 (PL)",
+    "ends_at_pl_short": "Zakończona (16:51)",
+    "price_stage_note": "🟢 Wczesna licytacja – monitoruj i ustaw snajpera",
+    "is_ending_soon": false,
+    "predicted_closure_jpy": 28000,
+    "predicted_closure_min_jpy": 21600,
+    "predicted_closure_max_jpy": 37800,
+    "predicted_closure_pln": 695.6,
+    "closure_gap_jpy": 13200,
+    "closure_gap_pct": 89.2,
+    "expected_landed_cost_pln": 998.42,
+    "expected_margin_pln": 51.58,
+    "expected_roi_pct": 5.2,
+    "condition_grade": "A_MINT_BOX",
+    "condition_label": "📦 Kolekcjonerski Box (CIB)",
+    "condition_short_label": "Box CIB",
+    "condition_badge_color": "#8b5cf6",
+    "condition_features": [
+      "Oryginalne pudełko (CIB)",
+      "Komplet z ekranem LCD / akcesoriami"
+    ],
+    "condition_desc": "Stan gabinetowy/kolekcjonerski w oryginalnym pudełku z kompletem akcesoriów",
+    "verdict_code": "C_TIER_OVERHEATED",
+    "verdict_label": "⚠️ C-TIER: RYZYKO PRZEPŁACENIA",
+    "verdict_badge_class": "verdict-c-tier",
+    "recommendation_text": "Licytacja może przekroczyć próg opłacalności. Oczekiwana cena zamknięcia (28,000 JPY) zostawia zbyt mały margines bezpieczeństwa w Polsce (52 zł).",
+    "price_jpy": 14800.0,
+    "price_pln_raw": 367.68,
+    "buy_now_price_jpy": 18500,
+    "buy_now_price_pln": 459.6,
+    "has_buy_now": true,
+    "landed_cost_pln": 583.61,
+    "est_pl_value": 1050.0,
+    "allegro_archive_pln": 1150.0,
+    "olx_haggled_pln": 950.0,
+    "est_margin_pln": 466.39,
+    "roi_percent": 79.9,
+    "max_bid_jpy": 21500,
+    "guaranteed_margin_pln": 255.85,
+    "guaranteed_roi_pct": 32.2,
+    "closed_price_min_jpy": 20000,
+    "closed_price_max_jpy": 35000,
+    "closed_price_avg_jpy": 26000,
+    "mercari_bin_avg_jpy": 34000,
+    "arbitrage_discount_pct": 23.5,
+    "auction_advantage_note": "Aukcje zamykają się nawet o 25% taniej niż oferty Kup Teraz",
+    "shipping_share_pln": 65.0,
+    "vat_pln": 106.11,
+    "zenmarket_fee_pln": 8.8,
+    "photo_inspection": null,
+    "links": {
+      "primary_url": "https://zenmarket.jp/pl/auction.aspx?itemCode=v1251354403",
+      "zenmarket_auction": "https://zenmarket.jp/pl/auction.aspx?itemCode=v1251354403",
+      "zenmarket_sniper": "https://zenmarket.jp/pl/auction.aspx?itemCode=v1251354403",
+      "zenmarket_buy_now": "https://zenmarket.jp/pl/auction.aspx?itemCode=v1251354403",
+      "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=PSone%20COMBO%20SCPH-130&sort=end&order=asc",
+      "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=PSone%20COMBO%20SCPH-130&sort=price&order=asc",
+      "zenmarket_mercari_stream": "https://zenmarket.jp/pl/mercari.aspx?q=PSone%20COMBO%20SCPH-130",
+      "mercari_live_search": "https://jp.mercari.com/search?keyword=PSone%20COMBO%20SCPH-130&status=on_sale",
+      "buyee_url": "https://buyee.jp/item/yahoo/auction/v1251354403",
+      "buyee_auction": "https://buyee.jp/item/yahoo/auction/v1251354403",
+      "buyee_ending_soon": "https://buyee.jp/item/search/query/PSone%20COMBO%20SCPH-130?translationType=1&sort=end&order=a",
+      "yahoo_closed_archive": "https://auctions.yahoo.co.jp/closedsearch/closedsearch?p=PSone%20COMBO%20SCPH-130",
+      "yahoo_direct": "https://page.auctions.yahoo.co.jp/jp/auction/v1251354403",
+      "allegro_search": "https://allegro.pl/listing?string=PSone%20LCD%20Combo%20SCPH-130",
+      "olx_search": "https://www.olx.pl/oferty/q-psone-lcd-combo-scph-130/"
+    },
+    "final_price_jpy": 14800.0,
+    "final_price_pln": 367.51,
+    "potential_arbitrage_pln": 466.39,
+    "hypothetical_margin_pln": 466.39,
+    "residual_profit_pln": 466.39,
+    "closed_at": "2026-11-12T23:24:40Z"
   },
   {
     "id": "b1251556000",
@@ -3557,7 +3557,7 @@
     "potential_arbitrage_pln": 45.31,
     "hypothetical_margin_pln": 45.31,
     "residual_profit_pln": 45.31,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:40Z"
   },
   {
     "id": "t1251382423",
@@ -3653,7 +3653,7 @@
     "potential_arbitrage_pln": 82.93,
     "hypothetical_margin_pln": 82.93,
     "residual_profit_pln": 82.93,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:40Z"
   },
   {
     "id": "j1251645657",
@@ -3749,7 +3749,7 @@
     "potential_arbitrage_pln": 115.81,
     "hypothetical_margin_pln": 115.81,
     "residual_profit_pln": 115.81,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:40Z"
   },
   {
     "id": "j1251280330",
@@ -3845,7 +3845,7 @@
     "potential_arbitrage_pln": 183.78,
     "hypothetical_margin_pln": 183.78,
     "residual_profit_pln": 183.78,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:40Z"
   },
   {
     "id": "g1251507424",
@@ -3941,7 +3941,7 @@
     "potential_arbitrage_pln": 130.92,
     "hypothetical_margin_pln": 130.92,
     "residual_profit_pln": 130.92,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:40Z"
   },
   {
     "id": "n1251521383",
@@ -4037,7 +4037,7 @@
     "potential_arbitrage_pln": 243.57,
     "hypothetical_margin_pln": 243.57,
     "residual_profit_pln": 243.57,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:40Z"
   },
   {
     "id": "r1250922821",
@@ -4133,7 +4133,7 @@
     "potential_arbitrage_pln": 182.13,
     "hypothetical_margin_pln": 182.13,
     "residual_profit_pln": 182.13,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:40Z"
   },
   {
     "id": "u1251654393",
@@ -4230,7 +4230,7 @@
     "potential_arbitrage_pln": 85.79,
     "hypothetical_margin_pln": 85.79,
     "residual_profit_pln": 85.79,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:40Z"
   },
   {
     "id": "h1251823950",
@@ -4326,7 +4326,7 @@
     "potential_arbitrage_pln": 200.09,
     "hypothetical_margin_pln": 200.09,
     "residual_profit_pln": 200.09,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:40Z"
   },
   {
     "id": "d1251827205",
@@ -4422,7 +4422,7 @@
     "potential_arbitrage_pln": 102.37,
     "hypothetical_margin_pln": 102.37,
     "residual_profit_pln": 102.37,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:40Z"
   },
   {
     "id": "m1251545975",
@@ -4518,7 +4518,7 @@
     "potential_arbitrage_pln": 102.37,
     "hypothetical_margin_pln": 102.37,
     "residual_profit_pln": 102.37,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:40Z"
   },
   {
     "id": "r1251817447",
@@ -4614,7 +4614,7 @@
     "potential_arbitrage_pln": 132.08,
     "hypothetical_margin_pln": 132.08,
     "residual_profit_pln": 132.08,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:40Z"
   },
   {
     "id": "f1251419199",
@@ -4710,7 +4710,7 @@
     "potential_arbitrage_pln": 145.81,
     "hypothetical_margin_pln": 145.81,
     "residual_profit_pln": 145.81,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:40Z"
   },
   {
     "id": "q1251671063",
@@ -4806,7 +4806,7 @@
     "potential_arbitrage_pln": 29.21,
     "hypothetical_margin_pln": 29.21,
     "residual_profit_pln": 29.21,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:40Z"
   },
   {
     "id": "p1251818449",
@@ -4902,7 +4902,7 @@
     "potential_arbitrage_pln": 72.37,
     "hypothetical_margin_pln": 72.37,
     "residual_profit_pln": 72.37,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:40Z"
   },
   {
     "id": "j1251512119",
@@ -5033,7 +5033,7 @@
     "potential_arbitrage_pln": 45.31,
     "hypothetical_margin_pln": 45.31,
     "residual_profit_pln": 45.31,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:40Z"
   },
   {
     "id": "n1249820524",
@@ -5129,7 +5129,7 @@
     "potential_arbitrage_pln": 72.98,
     "hypothetical_margin_pln": 72.98,
     "residual_profit_pln": 72.98,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:40Z"
   },
   {
     "id": "r1249150953",
@@ -5225,7 +5225,7 @@
     "potential_arbitrage_pln": 61.81,
     "hypothetical_margin_pln": 61.81,
     "residual_profit_pln": 61.81,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:40Z"
   },
   {
     "id": "k1251598819",
@@ -5321,7 +5321,7 @@
     "potential_arbitrage_pln": 202.36,
     "hypothetical_margin_pln": 202.36,
     "residual_profit_pln": 202.36,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:40Z"
   },
   {
     "id": "s1245196893",
@@ -5417,7 +5417,7 @@
     "potential_arbitrage_pln": 290.52,
     "hypothetical_margin_pln": 290.52,
     "residual_profit_pln": 290.52,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:40Z"
   },
   {
     "id": "n1250601912",
@@ -5513,7 +5513,7 @@
     "potential_arbitrage_pln": 90.71,
     "hypothetical_margin_pln": 90.71,
     "residual_profit_pln": 90.71,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:40Z"
   },
   {
     "id": "e1249970845",
@@ -5609,7 +5609,7 @@
     "potential_arbitrage_pln": 99.22,
     "hypothetical_margin_pln": 99.22,
     "residual_profit_pln": 99.22,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:40Z"
   },
   {
     "id": "q1251675793",
@@ -5706,7 +5706,7 @@
     "potential_arbitrage_pln": 70.66,
     "hypothetical_margin_pln": 70.66,
     "residual_profit_pln": 70.66,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:40Z"
   },
   {
     "id": "g1251812089",
@@ -5802,7 +5802,7 @@
     "potential_arbitrage_pln": 133.54,
     "hypothetical_margin_pln": 133.54,
     "residual_profit_pln": 133.54,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:40Z"
   },
   {
     "id": "v1251516199",
@@ -5898,7 +5898,7 @@
     "potential_arbitrage_pln": 218.9,
     "hypothetical_margin_pln": 218.9,
     "residual_profit_pln": 218.9,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:40Z"
   },
   {
     "id": "e1251507348",
@@ -5995,7 +5995,7 @@
     "potential_arbitrage_pln": 87.82,
     "hypothetical_margin_pln": 87.82,
     "residual_profit_pln": 87.82,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:40Z"
   },
   {
     "id": "d1251551345",
@@ -6091,7 +6091,7 @@
     "potential_arbitrage_pln": 662.69,
     "hypothetical_margin_pln": 662.69,
     "residual_profit_pln": 662.69,
-    "closed_at": "2026-11-12T17:28:27Z"
+    "closed_at": "2026-11-12T23:24:40Z"
   },
   {
     "id": "deal_ended",
@@ -6187,7 +6187,7 @@
     "potential_arbitrage_pln": 163.11,
     "hypothetical_margin_pln": 163.11,
     "residual_profit_pln": 163.11,
-    "closed_at": "2026-11-12T17:27:53Z"
+    "closed_at": "2026-11-12T23:24:10Z"
   },
   {
     "id": "test_camera",
