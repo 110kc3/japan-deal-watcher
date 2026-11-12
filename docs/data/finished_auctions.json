@@ -138,7 +138,7 @@
     "potential_arbitrage_pln": 117.6,
     "hypothetical_margin_pln": 117.6,
     "residual_profit_pln": 117.6,
-    "closed_at": "2026-11-12T01:27:46Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "b1251661405",
@@ -294,55 +294,7 @@
     "potential_arbitrage_pln": 167.55,
     "hypothetical_margin_pln": 167.55,
     "residual_profit_pln": 167.55,
-    "closed_at": "2026-11-12T01:27:46Z"
-  },
-  {
-    "id": "p1251797943",
-    "platform": "Yahoo! Auctions Japan",
-    "category_id": "film_cameras_point_shoot",
-    "category_name": "Aparaty Analogowe Typu Małpka (35mm Point & Shoot)",
-    "model": "Minolta Riva Zoom 70 Date",
-    "color": "Black Classic (35-70mm AF)",
-    "price_jpy": 1000,
-    "est_pl_value": 120.0,
-    "allegro_archive_pln": 130.0,
-    "olx_haggled_pln": 100.0,
-    "battery_type": "none",
-    "status": "🏁 Zakończona (Wylicytowano)",
-    "condition_type": "confirmed_working",
-    "condition_badge": "🟢 0% Li-Ion (Zwykłe Baterie)",
-    "image_url": "https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0211/user/206000c851ad3bd22e9f2af97d81b67f36fc16f0f0eb31e1cc5f79f6841fc132/i-img900x1200-1794296119877203fxzy36.jpg?w=300&h=300",
-    "custom_note": "Super tani i niezawodny zoom kompaktowy, idealny do paczki ze względu na zerową wagę i cenę 25 zł",
-    "source_url": "https://page.auctions.yahoo.co.jp/jp/auction/p1251797943",
-    "zenmarket_url": "https://zenmarket.jp/pl/auction.aspx?itemCode=p1251797943",
-    "buyee_url": "https://buyee.jp/item/yahoo/auction/p1251797943",
-    "search_query_jp": "Minolta Riva Zoom 70",
-    "closed_price_min_jpy": 800,
-    "closed_price_avg_jpy": 1800,
-    "closed_price_max_jpy": 3000,
-    "mercari_bin_avg_jpy": 2800,
-    "auction_advantage_note": "Najtańszy sprawny aparat w zestawieniu",
-    "time_remaining_minutes": 2880,
-    "time_remaining_formatted": "2 dni",
-    "ends_at": "2026-11-12 15:51 UTC",
-    "price_stage_note": "🟢 Wczesna licytacja – monitoruj i ustaw snajpera",
-    "is_ending_soon": false,
-    "ends_at_iso": "2026-11-12T15:51:04Z",
-    "ends_at_pl": "16:51",
-    "ends_at_jst": "00:51",
-    "ends_at_formatted": "Dziś o 16:51 (PL) / 00:51 (JP)",
-    "ends_at_pl_short": "Dziś 16:51",
-    "auction_id": "p1251797943",
-    "buy_now_price_jpy": 1100,
-    "current_price_jpy": 1000.0,
-    "final_price_jpy": 1000,
-    "final_price_pln": 24.83,
-    "landed_cost_pln": 99.17,
-    "potential_arbitrage_pln": 20.83,
-    "hypothetical_margin_pln": 20.83,
-    "residual_profit_pln": 20.83,
-    "roi_percent": 21.0,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "m1251424285",
@@ -498,7 +450,7 @@
     "potential_arbitrage_pln": 98.21,
     "hypothetical_margin_pln": 98.21,
     "residual_profit_pln": 98.21,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "p1251459113",
@@ -654,7 +606,7 @@
     "potential_arbitrage_pln": 168.83,
     "hypothetical_margin_pln": 168.83,
     "residual_profit_pln": 168.83,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "f1251819973",
@@ -785,7 +737,7 @@
     "potential_arbitrage_pln": 77.05,
     "hypothetical_margin_pln": 77.05,
     "residual_profit_pln": 77.05,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "f1246338593",
@@ -881,7 +833,7 @@
     "potential_arbitrage_pln": 65.82,
     "hypothetical_margin_pln": 65.82,
     "residual_profit_pln": 65.82,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "d1251552929",
@@ -977,7 +929,7 @@
     "potential_arbitrage_pln": 64.66,
     "hypothetical_margin_pln": 64.66,
     "residual_profit_pln": 64.66,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "v1251622331",
@@ -1073,7 +1025,7 @@
     "potential_arbitrage_pln": 62.19,
     "hypothetical_margin_pln": 62.19,
     "residual_profit_pln": 62.19,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "h1251615097",
@@ -1169,7 +1121,7 @@
     "potential_arbitrage_pln": 65.94,
     "hypothetical_margin_pln": 65.94,
     "residual_profit_pln": 65.94,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "q1251656350",
@@ -1265,7 +1217,7 @@
     "potential_arbitrage_pln": 98.31,
     "hypothetical_margin_pln": 98.31,
     "residual_profit_pln": 98.31,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "n1251749127",
@@ -1361,7 +1313,7 @@
     "potential_arbitrage_pln": 95.08,
     "hypothetical_margin_pln": 95.08,
     "residual_profit_pln": 95.08,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "f1251656361",
@@ -1457,7 +1409,7 @@
     "potential_arbitrage_pln": 78.24,
     "hypothetical_margin_pln": 78.24,
     "residual_profit_pln": 78.24,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "c1251630970",
@@ -1553,7 +1505,7 @@
     "potential_arbitrage_pln": 74.48,
     "hypothetical_margin_pln": 74.48,
     "residual_profit_pln": 74.48,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "w1251651117",
@@ -1649,7 +1601,7 @@
     "potential_arbitrage_pln": 129.19,
     "hypothetical_margin_pln": 129.19,
     "residual_profit_pln": 129.19,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "v1251661475",
@@ -1745,7 +1697,7 @@
     "potential_arbitrage_pln": 137.29,
     "hypothetical_margin_pln": 137.29,
     "residual_profit_pln": 137.29,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "e1248977601",
@@ -1841,7 +1793,7 @@
     "potential_arbitrage_pln": 236.86,
     "hypothetical_margin_pln": 236.86,
     "residual_profit_pln": 236.86,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "n1251812676",
@@ -1937,7 +1889,7 @@
     "potential_arbitrage_pln": 90.2,
     "hypothetical_margin_pln": 90.2,
     "residual_profit_pln": 90.2,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "j1251505974",
@@ -2034,7 +1986,7 @@
     "potential_arbitrage_pln": 93.31,
     "hypothetical_margin_pln": 93.31,
     "residual_profit_pln": 93.31,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "m1251553051",
@@ -2130,7 +2082,7 @@
     "potential_arbitrage_pln": 39.0,
     "hypothetical_margin_pln": 39.0,
     "residual_profit_pln": 39.0,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "d1251823525",
@@ -2226,7 +2178,7 @@
     "potential_arbitrage_pln": 133.19,
     "hypothetical_margin_pln": 133.19,
     "residual_profit_pln": 133.19,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "k1251818302",
@@ -2322,7 +2274,7 @@
     "potential_arbitrage_pln": 103.26,
     "hypothetical_margin_pln": 103.26,
     "residual_profit_pln": 103.26,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "p1249428295",
@@ -2418,7 +2370,7 @@
     "potential_arbitrage_pln": -72.8,
     "hypothetical_margin_pln": -72.8,
     "residual_profit_pln": -72.8,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "t1250970249",
@@ -2514,7 +2466,7 @@
     "potential_arbitrage_pln": 114.04,
     "hypothetical_margin_pln": 114.04,
     "residual_profit_pln": 114.04,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "d1245986339",
@@ -2610,7 +2562,7 @@
     "potential_arbitrage_pln": 54.72,
     "hypothetical_margin_pln": 54.72,
     "residual_profit_pln": 54.72,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "k1244528483",
@@ -2706,7 +2658,7 @@
     "potential_arbitrage_pln": 45.33,
     "hypothetical_margin_pln": 45.33,
     "residual_profit_pln": 45.33,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "b1246124221",
@@ -2802,7 +2754,7 @@
     "potential_arbitrage_pln": 221.64,
     "hypothetical_margin_pln": 221.64,
     "residual_profit_pln": 221.64,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "h1250921225",
@@ -2898,7 +2850,7 @@
     "potential_arbitrage_pln": 265.23,
     "hypothetical_margin_pln": 265.23,
     "residual_profit_pln": 265.23,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "b1251556000",
@@ -3029,7 +2981,7 @@
     "potential_arbitrage_pln": 45.96,
     "hypothetical_margin_pln": 45.96,
     "residual_profit_pln": 45.96,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "t1251382423",
@@ -3125,7 +3077,7 @@
     "potential_arbitrage_pln": 83.87,
     "hypothetical_margin_pln": 83.87,
     "residual_profit_pln": 83.87,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "j1251645657",
@@ -3221,7 +3173,7 @@
     "potential_arbitrage_pln": 117.46,
     "hypothetical_margin_pln": 117.46,
     "residual_profit_pln": 117.46,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "j1251280330",
@@ -3317,7 +3269,7 @@
     "potential_arbitrage_pln": 186.01,
     "hypothetical_margin_pln": 186.01,
     "residual_profit_pln": 186.01,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "g1251507424",
@@ -3413,7 +3365,7 @@
     "potential_arbitrage_pln": 132.92,
     "hypothetical_margin_pln": 132.92,
     "residual_profit_pln": 132.92,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "n1251521383",
@@ -3509,7 +3461,7 @@
     "potential_arbitrage_pln": 245.57,
     "hypothetical_margin_pln": 245.57,
     "residual_profit_pln": 245.57,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "r1250922821",
@@ -3605,7 +3557,7 @@
     "potential_arbitrage_pln": 183.79,
     "hypothetical_margin_pln": 183.79,
     "residual_profit_pln": 183.79,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "u1251654393",
@@ -3702,7 +3654,7 @@
     "potential_arbitrage_pln": 86.43,
     "hypothetical_margin_pln": 86.43,
     "residual_profit_pln": 86.43,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "h1251823950",
@@ -3798,7 +3750,7 @@
     "potential_arbitrage_pln": 201.82,
     "hypothetical_margin_pln": 201.82,
     "residual_profit_pln": 201.82,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "d1251827205",
@@ -3894,7 +3846,7 @@
     "potential_arbitrage_pln": 103.26,
     "hypothetical_margin_pln": 103.26,
     "residual_profit_pln": 103.26,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "m1251545975",
@@ -3990,7 +3942,7 @@
     "potential_arbitrage_pln": 103.26,
     "hypothetical_margin_pln": 103.26,
     "residual_profit_pln": 103.26,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "r1251817447",
@@ -4086,7 +4038,7 @@
     "potential_arbitrage_pln": 133.19,
     "hypothetical_margin_pln": 133.19,
     "residual_profit_pln": 133.19,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "f1251419199",
@@ -4182,7 +4134,7 @@
     "potential_arbitrage_pln": 147.46,
     "hypothetical_margin_pln": 147.46,
     "residual_profit_pln": 147.46,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "q1251671063",
@@ -4278,7 +4230,7 @@
     "potential_arbitrage_pln": 29.61,
     "hypothetical_margin_pln": 29.61,
     "residual_profit_pln": 29.61,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "p1251818449",
@@ -4374,7 +4326,7 @@
     "potential_arbitrage_pln": 73.26,
     "hypothetical_margin_pln": 73.26,
     "residual_profit_pln": 73.26,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "j1251512119",
@@ -4505,7 +4457,7 @@
     "potential_arbitrage_pln": 45.96,
     "hypothetical_margin_pln": 45.96,
     "residual_profit_pln": 45.96,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "n1249820524",
@@ -4601,7 +4553,7 @@
     "potential_arbitrage_pln": 73.43,
     "hypothetical_margin_pln": 73.43,
     "residual_profit_pln": 73.43,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "r1249150953",
@@ -4697,7 +4649,7 @@
     "potential_arbitrage_pln": 63.23,
     "hypothetical_margin_pln": 63.23,
     "residual_profit_pln": 63.23,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "k1251598819",
@@ -4793,7 +4745,7 @@
     "potential_arbitrage_pln": 202.74,
     "hypothetical_margin_pln": 202.74,
     "residual_profit_pln": 202.74,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "s1245196893",
@@ -4889,7 +4841,7 @@
     "potential_arbitrage_pln": 290.93,
     "hypothetical_margin_pln": 290.93,
     "residual_profit_pln": 290.93,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "n1250601912",
@@ -4985,7 +4937,7 @@
     "potential_arbitrage_pln": 92.5,
     "hypothetical_margin_pln": 92.5,
     "residual_profit_pln": 92.5,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "e1249970845",
@@ -5081,7 +5033,7 @@
     "potential_arbitrage_pln": 100.63,
     "hypothetical_margin_pln": 100.63,
     "residual_profit_pln": 100.63,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "q1251675793",
@@ -5178,7 +5130,7 @@
     "potential_arbitrage_pln": 71.42,
     "hypothetical_margin_pln": 71.42,
     "residual_profit_pln": 71.42,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "g1251812089",
@@ -5274,7 +5226,7 @@
     "potential_arbitrage_pln": 134.04,
     "hypothetical_margin_pln": 134.04,
     "residual_profit_pln": 134.04,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "v1251516199",
@@ -5370,7 +5322,7 @@
     "potential_arbitrage_pln": 220.52,
     "hypothetical_margin_pln": 220.52,
     "residual_profit_pln": 220.52,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "e1251507348",
@@ -5467,7 +5419,7 @@
     "potential_arbitrage_pln": 90.38,
     "hypothetical_margin_pln": 90.38,
     "residual_profit_pln": 90.38,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
   },
   {
     "id": "d1251551345",
@@ -5563,7 +5515,55 @@
     "potential_arbitrage_pln": 663.38,
     "hypothetical_margin_pln": 663.38,
     "residual_profit_pln": 663.38,
-    "closed_at": "2026-11-12T01:27:45Z"
+    "closed_at": "2026-11-12T02:27:44Z"
+  },
+  {
+    "id": "p1251797943",
+    "platform": "Yahoo! Auctions Japan",
+    "category_id": "film_cameras_point_shoot",
+    "category_name": "Aparaty Analogowe Typu Małpka (35mm Point & Shoot)",
+    "model": "Minolta Riva Zoom 70 Date",
+    "color": "Black Classic (35-70mm AF)",
+    "price_jpy": 1000,
+    "est_pl_value": 120.0,
+    "allegro_archive_pln": 130.0,
+    "olx_haggled_pln": 100.0,
+    "battery_type": "none",
+    "status": "🏁 Zakończona (Wylicytowano)",
+    "condition_type": "confirmed_working",
+    "condition_badge": "🟢 0% Li-Ion (Zwykłe Baterie)",
+    "image_url": "https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0211/user/206000c851ad3bd22e9f2af97d81b67f36fc16f0f0eb31e1cc5f79f6841fc132/i-img900x1200-1794296119877203fxzy36.jpg?w=300&h=300",
+    "custom_note": "Super tani i niezawodny zoom kompaktowy, idealny do paczki ze względu na zerową wagę i cenę 25 zł",
+    "source_url": "https://page.auctions.yahoo.co.jp/jp/auction/p1251797943",
+    "zenmarket_url": "https://zenmarket.jp/pl/auction.aspx?itemCode=p1251797943",
+    "buyee_url": "https://buyee.jp/item/yahoo/auction/p1251797943",
+    "search_query_jp": "Minolta Riva Zoom 70",
+    "closed_price_min_jpy": 800,
+    "closed_price_avg_jpy": 1800,
+    "closed_price_max_jpy": 3000,
+    "mercari_bin_avg_jpy": 2800,
+    "auction_advantage_note": "Najtańszy sprawny aparat w zestawieniu",
+    "time_remaining_minutes": 2880,
+    "time_remaining_formatted": "2 dni",
+    "ends_at": "2026-11-12 15:51 UTC",
+    "price_stage_note": "🟢 Wczesna licytacja – monitoruj i ustaw snajpera",
+    "is_ending_soon": false,
+    "ends_at_iso": "2026-11-12T15:51:04Z",
+    "ends_at_pl": "16:51",
+    "ends_at_jst": "00:51",
+    "ends_at_formatted": "Dziś o 16:51 (PL) / 00:51 (JP)",
+    "ends_at_pl_short": "Dziś 16:51",
+    "auction_id": "p1251797943",
+    "buy_now_price_jpy": 1100,
+    "current_price_jpy": 1000.0,
+    "final_price_jpy": 1000,
+    "final_price_pln": 24.83,
+    "landed_cost_pln": 99.17,
+    "potential_arbitrage_pln": 20.83,
+    "hypothetical_margin_pln": 20.83,
+    "residual_profit_pln": 20.83,
+    "roi_percent": 21.0,
+    "closed_at": "2026-11-12T02:27:43Z"
   },
   {
     "id": "x1251777697",
@@ -5611,7 +5611,7 @@
     "hypothetical_margin_pln": 28.26,
     "residual_profit_pln": 28.26,
     "roi_percent": 25.3,
-    "closed_at": "2026-11-12T01:27:44Z"
+    "closed_at": "2026-11-12T02:27:43Z"
   },
   {
     "id": "e1251828262",
@@ -5660,7 +5660,7 @@
     "hypothetical_margin_pln": 133.14,
     "residual_profit_pln": 133.14,
     "roi_percent": 53.9,
-    "closed_at": "2026-11-12T01:27:44Z"
+    "closed_at": "2026-11-12T02:27:43Z"
   },
   {
     "id": "f1186217388",
@@ -5709,7 +5709,7 @@
     "hypothetical_margin_pln": 446.35,
     "residual_profit_pln": 446.35,
     "roi_percent": 46.8,
-    "closed_at": "2026-11-12T01:27:44Z"
+    "closed_at": "2026-11-12T02:27:43Z"
   },
   {
     "id": "m1251679677",
@@ -5757,7 +5757,7 @@
     "hypothetical_margin_pln": 252.01,
     "residual_profit_pln": 252.01,
     "roi_percent": 74.6,
-    "closed_at": "2026-11-12T01:27:44Z"
+    "closed_at": "2026-11-12T02:27:43Z"
   },
   {
     "id": "v1251354403",
@@ -5805,7 +5805,7 @@
     "hypothetical_margin_pln": 466.73,
     "residual_profit_pln": 466.73,
     "roi_percent": 80.0,
-    "closed_at": "2026-11-12T01:27:44Z"
+    "closed_at": "2026-11-12T02:27:43Z"
   },
   {
     "id": "deal_ended",
