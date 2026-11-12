@@ -1,7 +1,7 @@
 # 🇯🇵 Japan Deal Watcher – Zweryfikowane Okazje (Latest Opportunities)
 
-> **Aktualizacja:** 2026-11-11 20:27 UTC · **NBP Live:** 100 JPY ≈ 2.47 PLN · 1 EUR ≈ 4.3895 PLN
-> **Magazyn ZenMarket:** 56 dni darmowego przechowywania (do 2027-01-06) · Max 2 Li-Ion / paczka lotnicza
+> **Aktualizacja:** 2026-11-12 01:27 UTC · **NBP Live:** 100 JPY ≈ 2.47 PLN · 1 EUR ≈ 4.3895 PLN
+> **Magazyn ZenMarket:** 55 dni darmowego przechowywania (do 2027-01-06) · Max 2 Li-Ion / paczka lotnicza
 > 🧭 **Nawigacja:** [📱 PWA App](https://110kc3.github.io/japan-deal-watcher/) · [📋 Przegląd i Audyt (REVIEW.md)](../REVIEW.md) · [📐 Model Wyceny (review/recommendation-model.md)](../review/recommendation-model.md)
 
 ---
@@ -21,7 +21,7 @@
 ## 📊 Stan Pipeline'u i Bezpieczeństwo
 
 - **Zakwalifikowane okazje:** 5 / 5 max
-- **Odrzucone / niespełniające kryteriów:** 52 ofert (w tym filtry cenowe <= 100 zł dla aparatów i obiektywów)
+- **Odrzucone / niespełniające kryteriów:** 49 ofert (w tym filtry cenowe <= 100 zł dla aparatów i obiektywów)
 - **Weryfikacja tożsamości:** 100% sprawdzona przez `ProductMatcher` (zero podmian produktów)
 - **PWA & Data Feed:** zsynchronizowano z `docs/data/deals.json`
 
