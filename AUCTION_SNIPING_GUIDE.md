@@ -3,7 +3,7 @@
 > **Kompendium Licytacji w Ostatnich Minutach na Yahoo! Japan Auctions (ヤフオク!)**  
 > *Prawdziwe Ceny Końcowe (落札相場), Matematyczne Limity Snajpera (Hard Sniping Caps) i Strategia Wyprzedzania Konkurencji.*
 
-![Sniping Guide](https://img.shields.io/badge/Sniping%20Guide-Masterclass-brightgreen) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-12%2023:24%20UTC-blue) ![Exchange Rate](https://img.shields.io/badge/NBP%20Live-100%20JPY%20%E2%89%88%202.48%20PLN-success) ![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-55%20Days%20Left-orange) ![Auto-Extension](https://img.shields.io/badge/Yahoo%20Japan-Auto--Extension%20Aware-purple)
+![Sniping Guide](https://img.shields.io/badge/Sniping%20Guide-Masterclass-brightgreen) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-13%2005:57%20UTC-blue) ![Exchange Rate](https://img.shields.io/badge/NBP%20Live-100%20JPY%20%E2%89%88%202.48%20PLN-success) ![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-54%20Days%20Left-orange) ![Auto-Extension](https://img.shields.io/badge/Yahoo%20Japan-Auto--Extension%20Aware-purple)
 
 ⬅ **Nawigacja:** [📱 **Aplikacja Android / PWA (Live)**](https://110kc3.github.io/japan-deal-watcher/) · [Główny Dashboard Mercari (README.md)](README.md) · [📦 **Pakiety Różności & Danshari (MYSTERY_LOTS_ANALYSIS.md)**](MYSTERY_LOTS_ANALYSIS.md) · [📡 Radar Licytacji (AUCTION_RADAR.md)](AUCTION_RADAR.md) · [Katalog Alternatywnych Ofert (YAHOO_AUCTIONS_DEALS.md)](YAHOO_AUCTIONS_DEALS.md) · [💰 Audyt Opłacalności (REAL_PROFITABILITY_AUDIT.md)](REAL_PROFITABILITY_AUDIT.md) · [📈 Historia Sprzedaży (MARKET_SALES_HISTORY.md)](MARKET_SALES_HISTORY.md)
 
@@ -233,4 +233,4 @@ Odpowiedź brzmi: **NIE! Istnieją 4 sprawdzone w boju metody, aby legalnie i ta
 - [ ] **Krok 6:** Czy po wygranej konsoliduję z grami UMD / aparatami 0% Li-Ion w ciągu **59 dni**?
 
 ---
-*Poradnik wygenerowany automatycznie dla Japan Deal Watcher. Ostatnia aktualizacja bazy: 2026-11-12 23:24 UTC.*
+*Poradnik wygenerowany automatycznie dla Japan Deal Watcher. Ostatnia aktualizacja bazy: 2026-11-13 05:57 UTC.*
