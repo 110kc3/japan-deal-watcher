@@ -2,6 +2,8 @@
 
 Reviewed **2026-11-11**, against `bbc7a51`. Goal: buy worthwhile deals in Japan for resale in Poland.
 
+> **Verification, 2026-11-13:** the later "fix F01-F16" commit did not fix what the published feed shows — 1 finding fixed, 10 partial, 5 not fixed. See [the verification report](review/verification-2026-11-13.md).
+
 **The biggest problem is incorrect product matching.** The feed values PS4 games as a limited console, a Mju Zoom as a Mju-II prime, a silicone cover as a DS, and children's shoes as a PSP. Those recommendations are unreliable.
 
 Clutter: eight reports contain about **47,600 words**; the first mobile card has **208 words and eight actions**. Target: five concise, qualified opportunities with details on demand.
