@@ -9,7 +9,6 @@ const ASSETS_TO_CACHE = [
   './manifest.json',
   './icons/icon-192.svg',
   './icons/icon-512.svg'
-  // Pre-caching skips deals.json to guarantee 100% fresh auction & deal data
 ];
 
 self.addEventListener('install', (event) => {

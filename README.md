@@ -20,7 +20,14 @@ Automated deal discovery and parcel consolidation engine for sourcing retro gami
 
 # Run deal scan and regenerate reports
 .venv/bin/python main.py
+
+# Research Switch / Switch Lite offers without changing dashboard observations
+.venv/bin/python scripts/scan_switch_offers.py
+# Scan and publish only the two research files from an isolated clone
+.venv/bin/python scripts/scan_switch_offers.py --publish
 ```
+
+Switch and Switch Lite category searches are not verified offers and do not imply a price or resale value. Calculator weights and shipping shares are planning estimates, to be replaced with actual parcel data.
 
 ## Documentation & Reports
 

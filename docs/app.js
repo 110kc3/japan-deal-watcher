@@ -1881,7 +1881,6 @@ function addToCart(deal) {
     return;
   }
 
-  // Ensure weight fields are preserved
   const w = getItemWeight(deal);
   const cartDeal = {
     ...deal,
