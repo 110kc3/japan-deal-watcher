@@ -8,7 +8,6 @@ def sanitize_md(text):
     """Sanitizes text for safe inclusion in Markdown tables."""
     if text is None:
         return ""
-    # Replace pipes and newlines that break Markdown tables
     clean = str(text).replace("|", "&#124;").replace("\n", " ").replace("\r", "").strip()
     return clean
 
@@ -65,12 +64,10 @@ class MarkdownGenerator:
         deadline = self.timeline["deadline"]
         status_badge = self.timeline["status_badge"]
 
-        # 1. AI Analysis & Ranking
         ranked_deals = self.analyzer.get_ranked_deals()
         top_worth_buying = [d for d in ranked_deals if d.get("is_worth_buying")][:5]
         optimal_basket = self.analyzer.get_optimal_consolidation_basket()
 
-        # Filter top snipes (highest margin/ROI, must be available)
         valid_deals = [
             d for d in self.deals
             if "404" not in d.get("status", "")
@@ -85,7 +82,6 @@ class MarkdownGenerator:
         rate_badge_color = "success" if self.is_live_rate else "informational"
 
         md = []
-        # Header & Badges (Compact)
         md.append("# 🇯🇵 Japan Deal Watcher & Consolidation Dashboard")
         md.append("")
         md.append(f"> **Automated Private Deal Watcher for Retro Consoles, Handhelds, UMD Bundles & Analog Lenses**  ")
@@ -101,13 +97,11 @@ class MarkdownGenerator:
                   "![Update Cycle](https://img.shields.io/badge/Cycle-Hourly%20(1h)-purple) "
                   "![Android PWA](https://img.shields.io/badge/Android%20App-PWA%20Live-brightgreen)")
         md.append("")
-        # Sleek Quick Navigation Bar
         md.append("> 🧭 **Szybka Nawigacja:** [📱 **Aplikacja Android / PWA (Live)**](https://110kc3.github.io/japan-deal-watcher/) · [📦 **Pakiety Różności & Danshari (MYSTERY_LOTS_ANALYSIS.md)**](MYSTERY_LOTS_ANALYSIS.md) · [📡 Radar Licytacji (AUCTION_RADAR.md)](AUCTION_RADAR.md) · [🔨 Yahoo Aukcje (YAHOO_AUCTIONS_DEALS.md)](YAHOO_AUCTIONS_DEALS.md) · [🎯 Poradnik Snajpera (AUCTION_SNIPING_GUIDE.md)](AUCTION_SNIPING_GUIDE.md) · [📊 Audyt Rynku PL (POLAND_REAL_SALES_AUDIT.md)](POLAND_REAL_SALES_AUDIT.md) · [📈 Historia Sprzedaży (MARKET_SALES_HISTORY.md)](MARKET_SALES_HISTORY.md)")
         md.append("")
         md.append("---")
         md.append("")
 
-        # 2. Consolidated Storage & Landed Cost Card
         md.append("## 📦 60-Day Warehouse Packing & Consolidation Timeline")
         md.append("")
         md.append(f"ZenMarket zapewnia **60 dni darmowego przechowywania** w Osace na połączenie ofert z Mercari i Yahoo Auctions w 1 tanią paczkę zbiorczą.")
@@ -125,7 +119,6 @@ class MarkdownGenerator:
         md.append("---")
         md.append("")
 
-        # 3. AI Worth-Buying Evaluation & Top 3 Snipes
         if top_worth_buying:
             md.append("## 🤖 Automatyczna Analiza Opłacalności AI (Worth-Buying Score)")
             md.append("")
@@ -173,7 +166,6 @@ class MarkdownGenerator:
             md.append("---")
             md.append("")
 
-        # 4. Render categories: separate active deals from ended deals (Collapsible Archive)
         categories = {}
         for d in self.deals:
             cname = d.get("category_name", "Inne")
@@ -202,7 +194,6 @@ class MarkdownGenerator:
                 md.append("> 🎮 **Kategoria Nintendo DS:** Kultowe handheldy Dual Screen (możliwy demontaż baterii / Dry Shipping 0% Li-Ion).")
             md.append("")
 
-            # Separate active and ended items
             active_items = [it for it in items if "Dostępne" in it.get("status", "")]
             ended_items = [it for it in items if "Dostępne" not in it.get("status", "")]
 
@@ -231,7 +222,6 @@ class MarkdownGenerator:
                     deal_eval = self.analyzer.analyze_deal(it)
                     ai_badge = f"{deal_eval['verdict_icon']} <strong>{deal_eval['tier']}</strong><br><small>{deal_eval['score']}/100</small>" if deal_eval.get("is_active") else "⚪ N/A"
 
-                    # Condensed model cell: avoid repeating color twice
                     note_str = f"<br>*{clean_note}*" if clean_note and clean_note != clean_color else ""
                     model_col = f"**{clean_model}**<br><small>{clean_color}{note_str}</small>"
                     price_col = f"**{it['price_jpy']:,} JPY**<br>(~{it['price_pln_raw']:.2f} zł)"
@@ -255,7 +245,6 @@ class MarkdownGenerator:
                 md.append("*Brak nowych aktywnych ofert w tej chwili (wszystkie pozycje wyprzedane lub w trakcie transakcji).*")
                 md.append("")
 
-            # If there are ended items in this category, render them cleanly in a collapsible section
             if ended_items:
                 md.append(f"<details><summary>📁 Zakończone / Sprzedane w tej kategorii ({len(ended_items)} ofert - kliknij, aby rozwinąć)</summary>")
                 md.append("")
@@ -296,7 +285,6 @@ class MarkdownGenerator:
             md.append("---")
             md.append("")
 
-        # 5. Dynamic Consolidation simulation box (Condensed)
         b_items = optimal_basket.get("items", [])
         md.append("## 💡 Optymalny Koszyk Konsolidacyjny (Wysyłka Zbiorcza)")
         md.append("")
@@ -325,7 +313,6 @@ class MarkdownGenerator:
         md.append("---")
         md.append("")
 
-        # 6. Collapsible Photo Inspection Formulas (Clean reference)
         md.append("<details><summary>🛡️ Formułki Inspekcji Zdjęciowej ZenMarket (Order Photos - 500 JPY za 3 zdjęcia)</summary>")
         md.append("")
         md.append("Po zakupieniu przedmiotu w panelu ZenMarket kliknij *Order Photos* i wklej:")
@@ -341,7 +328,6 @@ class MarkdownGenerator:
         md.append("---")
         md.append("")
 
-        # 7. Concise Technical Footer
         md.append("## ⚙️ How This Watcher Works")
         md.append("")
         md.append("- **Automated Refresh:** GitHub Actions uruchamiane co godzinę (`cron: '0 * * * *'`) pobiera aktualne kursy NBP i sprawdza dostępność.")
@@ -363,7 +349,6 @@ class MarkdownGenerator:
         deadline = self.timeline["deadline"]
 
         ranked_deals = self.analyzer.get_ranked_deals()
-        # Top 5 qualified opportunities that pass all gates
         qualified_deals = [d for d in ranked_deals if d.get("is_worth_buying") and not d.get("product_match_rejected")][:5]
 
         disqualified_count = sum(1 for d in ranked_deals if not d.get("is_worth_buying") or d.get("product_match_rejected"))

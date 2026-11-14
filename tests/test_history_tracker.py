@@ -15,7 +15,6 @@ from watcher.history_tracker import HistoryTracker
 from watcher.history_generator import HistoryGenerator
 from watcher.markdown_generator import MarkdownGenerator
 
-
 class TestHistoryTracker(unittest.TestCase):
 
     def setUp(self):
@@ -71,7 +70,6 @@ class TestHistoryTracker(unittest.TestCase):
         self.assertEqual(res["total_sales"], 1)
         self.assertEqual(res["new_sales"], 1)
 
-        # File persisted
         self.assertTrue(self.history_file.exists())
         with open(self.history_file, "r", encoding="utf-8") as f:
             saved = json.load(f)
@@ -118,31 +116,25 @@ class TestHistoryTracker(unittest.TestCase):
         self.assertEqual(len(self.tracker.data["sales_log"]), 0)
 
         items = self.tracker.data["items"]
-        # 404 is marked disappeared, not sold
         self.assertFalse(items["item_404"]["is_sold"])
         self.assertTrue(items["item_404"]["is_disappeared"])
         self.assertIsNone(items["item_404"]["sold_at"])
 
-        # Connection error is marked as error, not sold
         self.assertFalse(items["item_err"]["is_sold"])
         self.assertTrue(items["item_err"]["has_fetch_error"])
         self.assertIsNone(items["item_err"]["sold_at"])
 
-        # Broken exclusion is marked excluded, not sold
         self.assertFalse(items["item_broken"]["is_sold"])
         self.assertTrue(items["item_broken"]["is_excluded"])
         self.assertIsNone(items["item_broken"]["sold_at"])
 
-        # In-transaction is marked trading, not sold
         self.assertFalse(items["item_trading"]["is_sold"])
         self.assertTrue(items["item_trading"]["is_trading"])
         self.assertIsNone(items["item_trading"]["sold_at"])
 
     def test_price_change_detection(self):
-        # 1. Initial scan
         self.tracker.record_scan(self.sample_deals)
 
-        # 2. Price cut on item_active_01
         updated_deals = [
             dict(self.sample_deals[0], price_jpy=3000, price_pln_raw=74.50),
             self.sample_deals[1]
@@ -155,18 +147,15 @@ class TestHistoryTracker(unittest.TestCase):
         self.assertEqual(item["current_price_jpy"], 3000)
 
     def test_active_to_sold_transition(self):
-        # 1. Initial scan with item_active_01 as active
         self.tracker.record_scan([self.sample_deals[0]])
         self.assertEqual(len(self.tracker.data["sales_log"]), 0)
 
-        # 2. Transition to 404: must NOT record sale
         disappeared_item = dict(self.sample_deals[0], status="Zakończone / 404")
         res_404 = self.tracker.record_scan([disappeared_item])
         self.assertEqual(res_404["new_sales"], 0)
         self.assertFalse(self.tracker.data["items"]["item_active_01"]["is_sold"])
         self.assertTrue(self.tracker.data["items"]["item_active_01"]["is_disappeared"])
 
-        # 3. Transition to genuine sale: records sale
         sold_item = dict(self.sample_deals[0], status="Zakończone / Sprzedane")
         res_sold = self.tracker.record_scan([sold_item])
         self.assertEqual(res_sold["new_sales"], 1)
@@ -194,13 +183,11 @@ class TestHistoryTracker(unittest.TestCase):
         with open(self.history_file, "w", encoding="utf-8") as f:
             json.dump(contaminated, f)
 
-        # Reload tracker which triggers clean_contaminated_entries
         tracker = HistoryTracker(filepath=self.history_file)
         self.assertEqual(len(tracker.data["sales_log"]), 1)
         self.assertEqual(tracker.data["sales_log"][0]["id"], "it_real")
         self.assertEqual(tracker.data["metadata"]["total_sales_recorded"], 1)
 
-        # Check item cleaning
         self.assertFalse(tracker.data["items"]["it_404"]["is_sold"])
         self.assertTrue(tracker.data["items"]["it_404"]["is_disappeared"])
         self.assertFalse(tracker.data["items"]["it_broken"]["is_sold"])
@@ -250,14 +237,11 @@ class TestHistoryTracker(unittest.TestCase):
         )
         md = md_gen.generate()
 
-        # Active deal is NOT strikethrough
         self.assertIn("**Nintendo DS Lite**", md)
         self.assertNotIn("~~**Nintendo DS Lite**~~", md)
 
-        # Ended / sold deal IS strikethrough (user rule: "kiedy oferta sie skonczy wykresl ja z readme")
         self.assertIn("~~**Super Takumar 55mm f/1.8**~~", md)
         self.assertIn("~~❌ Zakończone / Sprzedane~~", md)
-
 
 if __name__ == "__main__":
     unittest.main()

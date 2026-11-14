@@ -70,7 +70,6 @@ CSV_FIELDNAMES = [
     "notes"
 ]
 
-
 class ResaleLedger:
     """Purchase-to-resale lifecycle and financial ledger."""
 
@@ -110,7 +109,6 @@ class ResaleLedger:
         Calculates landed cost, net settlement, and realized profit/ROI.
         Enforces: NO realized profit unless status == 'sold' with confirmed settlement.
         """
-        # 1. Landed Cost
         price_jpy = float(item.get("purchase_price_jpy") or 0.0)
         fx_rate = float(item.get("fx_rate_jpy_pln") or DEFAULT_JPY_PLN_RATE)
         base_pln = price_jpy * fx_rate
@@ -118,7 +116,6 @@ class ResaleLedger:
         freight_pln = float(item.get("actual_freight_pln") or 0.0)
         vat_pln = float(item.get("actual_customs_vat_pln") or 0.0)
 
-        # If landed cost wasn't explicitly given or is 0, compute it from parts
         landed = float(item.get("landed_cost_pln") or 0.0)
         if landed <= 0.0 and (price_jpy > 0 or fees_pln > 0 or freight_pln > 0 or vat_pln > 0):
             landed = round(base_pln + fees_pln + freight_pln + vat_pln, 2)
@@ -130,7 +127,6 @@ class ResaleLedger:
         item["testing_repair_cost_pln"] = repair_cost
         total_invested = round(landed + repair_cost, 2)
 
-        # 2. Net Settlement
         sale_price = item.get("sale_price_pln")
         selling_fees = round(float(item.get("selling_fees_pln") or 0.0), 2)
         shipping_cost = round(float(item.get("shipping_packing_cost_pln") or 0.0), 2)
@@ -152,8 +148,6 @@ class ResaleLedger:
         elif net_settlement is not None:
             item["net_settlement_pln"] = round(float(net_settlement), 2)
 
-        # 3. Realized Profit and ROI
-        # CORE RULE: Realized profit ONLY exists if status == 'sold' with net settlement
         status = item.get("status")
         if status == "sold" and item.get("net_settlement_pln") is not None:
             settled = float(item["net_settlement_pln"])
@@ -164,7 +158,6 @@ class ResaleLedger:
             else:
                 item["realized_roi_pct"] = 0.0
         else:
-            # Unsold units remain in capital-at-risk, no realized profit
             item["realized_profit_pln"] = None
             item["realized_roi_pct"] = None
 
@@ -276,7 +269,6 @@ class ResaleLedger:
             existing_notes = item.get("notes", "")
             item["notes"] = f"{existing_notes}\n{notes}".strip() if existing_notes else notes
 
-        # Update any additional keyword arguments (e.g. tracking dates, costs)
         for k, v in kwargs.items():
             if k not in ("item_id", "created_at", "history"):
                 item[k] = v
@@ -331,7 +323,6 @@ class ResaleLedger:
         if listing_channel:
             updates["listing_channel"] = listing_channel
 
-        # Transition item to 'sold'
         return self.transition_status(
             item_id=item_id,
             new_status="sold",
@@ -392,7 +383,6 @@ class ResaleLedger:
             if st in status_counts:
                 status_counts[st] += 1
 
-        # Capital at risk: unsold items with deployed capital (bought through listed, plus returned)
         capital_at_risk_stages = {"bought", "in_warehouse", "shipped", "received_tested", "listed", "returned"}
         capital_at_risk_pln = sum(
             float(it.get("landed_cost_pln") or 0.0) + float(it.get("testing_repair_cost_pln") or 0.0)
@@ -403,7 +393,6 @@ class ResaleLedger:
             for it in items if it.get("status") == "planned"
         )
 
-        # Realized sales metrics (strictly status == 'sold' with settlement)
         sold_items = [it for it in items if it.get("status") == "sold" and it.get("realized_profit_pln") is not None]
         total_sales_count = len(sold_items)
 
@@ -427,7 +416,6 @@ class ResaleLedger:
             if total_sales_count > 0 else 0.0
         )
 
-        # Days to cash: difference between purchase_date and settlement_date / sale_date
         days_list = []
         for it in sold_items:
             p_date_str = it.get("purchase_date")
@@ -444,7 +432,6 @@ class ResaleLedger:
 
         avg_days_to_cash = round(sum(days_list) / len(days_list), 1) if days_list else 0.0
 
-        # Handling hours & profitability per hour
         total_handling_hours = sum(float(it.get("handling_hours") or 0.0) for it in items)
         sold_handling_hours = sum(float(it.get("handling_hours") or 0.0) for it in sold_items)
         profit_per_hour_pln = (
@@ -452,7 +439,6 @@ class ResaleLedger:
             if sold_handling_hours > 0 else 0.0
         )
 
-        # Category breakdown
         by_category: Dict[str, Dict[str, Any]] = {}
         for it in items:
             cat = it.get("category_id") or "general"
@@ -485,7 +471,6 @@ class ResaleLedger:
                 if cdata["invested_sold_pln"] > 0 else 0.0
             )
 
-        # Listing channel breakdown
         by_channel: Dict[str, Dict[str, Any]] = {}
         for it in sold_items:
             chan = it.get("listing_channel") or "Unknown"
@@ -538,7 +523,6 @@ class ResaleLedger:
 
         items = list(self.data["items"].values())
 
-        # Build in-memory CSV
         output = io.StringIO()
         writer = csv.DictWriter(output, fieldnames=CSV_FIELDNAMES, extrasaction="ignore")
         writer.writeheader()
@@ -552,7 +536,6 @@ class ResaleLedger:
 
         content = output.getvalue()
 
-        # Atomic file write
         temp_file = target.parent / f".{target.name}.tmp.{int(datetime.utcnow().timestamp())}"
         try:
             with open(temp_file, "w", encoding="utf-8", newline="") as f:

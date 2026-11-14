@@ -25,8 +25,6 @@ from .costs import calculate_landed_cost
 from .checks import is_camera_item, is_lens_item
 from .storage import atomic_write_json, read_json_safe
 
-
-# Seed historical verified closed auctions from Yahoo Auctions (落札相場)
 HISTORICAL_SEED_AUCTIONS: List[Dict[str, Any]] = [
     {
         "id": "j1158930211",
@@ -286,7 +284,6 @@ HISTORICAL_SEED_AUCTIONS: List[Dict[str, Any]] = [
     }
 ]
 
-
 class FinishedAuctionsTracker:
     """Manages the authoritative finished auctions archive and computes potential arbitrage statistics."""
 
@@ -303,7 +300,6 @@ class FinishedAuctionsTracker:
         else:
             self._data = [dict(a) for a in HISTORICAL_SEED_AUCTIONS]
 
-        # Migrate and clean existing entries: do not claim fake realized margins
         dirty = False
         for it in self._data:
             legacy_margin = it.pop("realized_margin_pln", None)
@@ -313,7 +309,6 @@ class FinishedAuctionsTracker:
                 if "hypothetical_margin_pln" not in it:
                     it["hypothetical_margin_pln"] = legacy_margin
                 dirty = True
-            # Purge fake realized profit keys
             if "realized_profit_pln" in it:
                 it.pop("realized_profit_pln", None)
                 dirty = True
@@ -346,7 +341,6 @@ class FinishedAuctionsTracker:
         if not aid:
             return auction
 
-        # Check existing
         existing_idx = next(
             (i for i, a in enumerate(self._data) if a.get("auction_id") == aid or a.get("id") == aid),
             None
@@ -358,14 +352,12 @@ class FinishedAuctionsTracker:
         record["platform"] = record.get("platform", "Yahoo Auctions Japan")
         record["status"] = "🏁 Zakończona (Wylicytowano)"
 
-        # Calculate values if missing
         price_jpy = record.get("final_price_jpy", record.get("price_jpy", 0))
         record["final_price_jpy"] = price_jpy
 
         if "final_price_pln" not in record:
             record["final_price_pln"] = round(price_jpy * DEFAULT_JPY_PLN_RATE, 2)
 
-        # Enforce camera / lens rules if relevant
         if is_camera_item(record) and record["final_price_pln"] > MAX_CAMERA_PRICE_PLN:
             record["is_deal"] = False
         if is_lens_item(record) and record["final_price_pln"] > MAX_LENS_PRICE_PLN:
@@ -389,7 +381,6 @@ class FinishedAuctionsTracker:
             record["residual_profit_pln"] = margin
             record["roi_percent"] = round((margin / landed) * 100, 1)
 
-        # Reserve realized_profit strictly for confirmed owner sales; purge fake keys
         record.pop("realized_margin_pln", None)
         record.pop("realized_profit_pln", None)
         record.pop("realized_profit", None)
@@ -467,7 +458,6 @@ class FinishedAuctionsTracker:
             "avg_potential_arbitrage_pln": round(avg_margin, 2),
             "total_potential_arbitrage_pln": round(total_arbitrage, 2),
             "avg_roi_percent": round(avg_roi, 1),
-            # Backwards-compatible aliases
             "avg_realized_margin_pln": round(avg_margin, 2),
             "total_profit_pln": round(total_arbitrage, 2)
         }

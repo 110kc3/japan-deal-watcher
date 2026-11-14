@@ -15,14 +15,12 @@ from .checks import is_camera_item, is_lens_item
 from .closure_predictor import AuctionClosurePredictor, ConditionGrade
 from .time_utils import calculate_auction_timing
 
-
 def sanitize_md(text: Any) -> str:
     """Sanitizes text for safe inclusion in Markdown tables."""
     if text is None:
         return ""
     cleaned = str(text).replace("|", "&#124;").replace("\r\n", " ").replace("\n", " ").replace("\r", " ")
     return " ".join(cleaned.split()).strip()
-
 
 class AuctionRadarGenerator:
     """Generates AUCTION_RADAR.md – The dedicated live auction radar and closure price intelligence dashboard."""
@@ -77,7 +75,6 @@ class AuctionRadarGenerator:
         md.append("---")
         md.append("")
 
-        # Section 1: Core Arbitrage Thesis
         md.append("## 💡 Dlaczego na Aukcjach Yahoo Kupisz Taniej Niż na Mercari? (Fakty i Liczby)")
         md.append("")
         md.append("> [!NOTE]")
@@ -95,7 +92,6 @@ class AuctionRadarGenerator:
         md.append("---")
         md.append("")
 
-        # Section 2: Condition-Aware Closure Price Matrix & Prediction Engine (落札相場)
         md.append("## 📊 Matryca Arbitrażu: Rzeczywiste Ceny Końcowe Yahoo (落札相場) i Predykcja Stanów Wizualnych")
         md.append("")
         md.append(
@@ -113,7 +109,6 @@ class AuctionRadarGenerator:
         md.append("> - ⚠️ **C-TIER (Ryzyko Przepłacenia):** Licytacja w walce snajperów przekroczy próg opłacalności w Polsce – nie bierz w niej udziału!")
         md.append("")
 
-        # Sort ALL active items by remaining time ascending (ending soonest first – true prices, exclude ended)
         now_utc = datetime.now(timezone.utc)
         active_deals = []
         for it in self.raw_deals:
@@ -129,10 +124,8 @@ class AuctionRadarGenerator:
             )
         )
 
-        # Precompute predictions for all deals
         predictions = [AuctionClosurePredictor.predict_closure(it, self.rate, self.rate_eur) for it in sorted_deals]
 
-        # Top Spotlight: S-Tier and A-Tier Confirmed Deals
         spotlight = [
             (it, pred) for it, pred in zip(sorted_deals, predictions)
             if pred["verdict_code"] in ["S_TIER_SURE_ARBITRAGE", "A_TIER_SOLID_DEAL"]
@@ -167,7 +160,6 @@ class AuctionRadarGenerator:
             md.append("---")
             md.append("")
 
-        # Master Table
         md.append("### 📊 Kompletna Matryca Licytacji: Stan, Prognoza Końcowa i Werdykt Rynkowy")
         md.append("")
         md.append("| Model / Przedmiot | ⏳ Czas | Stan Wizualny | Aktualna Oferta | 🔮 Prognoza Zamknięcia | Cena w PL | Zysk przy Prognozie | 🎯 Werdykt i Limit Snajpera | Bateria |")
@@ -185,7 +177,6 @@ class AuctionRadarGenerator:
             allegro_p = it.get("allegro_archive_pln", round(est_pl * 1.08, 0))
             olx_p = it.get("olx_haggled_pln", round(est_pl * 0.90, 0))
 
-            # Remaining time badge with precise clock end hour
             timing = calculate_auction_timing(it)
             time_m = timing["time_remaining_minutes"]
             time_fmt = timing["time_remaining_formatted"]
@@ -222,7 +213,6 @@ class AuctionRadarGenerator:
         md.append("---")
         md.append("")
 
-        # Section 3: Curated Top 12 Auction Targets To Watch
         md.append("## 🎯 Top 12 Wyselekcjonowanych Celów do Obserwacji (Bezpośrednie Linki i Snajper)")
         md.append("")
         md.append(
@@ -232,7 +222,6 @@ class AuctionRadarGenerator:
         )
         md.append("")
 
-        # Top 12 Curated Items
         top_targets = [
             ("new_n3ds_xl_red", "Nintendo 3DS XL / New 3DS", "Królowie Płynności", "Szukaj egzemplarzy z ekranami IPS (górny ekran ma głębszą czerń pod kątem)."),
             ("gba_sp_famicom", "Game Boy Advance SP Famicom", "Rarytas Kolekcjonerski", "Możliwość Dry Shippingu (usunięcie baterii = 0% Li-Ion)."),
@@ -268,12 +257,10 @@ class AuctionRadarGenerator:
             query = it.get("search_query_jp", it.get("model", ""))
             encoded_q = urllib.parse.quote(query)
 
-            # Cap
             cap_info = calculate_max_sniper_bid(est_pl, cat_id, 32.0, self.rate, self.rate_eur)
             max_bid = cap_info["max_bid_jpy"]
             guar_margin = cap_info["guaranteed_margin_pln"]
 
-            # Camera / Lens caps
             if is_camera_item(it) or cat_id == "film_cameras_point_shoot":
                 max_cam = int((MAX_CAMERA_PRICE_PLN / self.rate) // 100 * 100)
                 if max_bid > max_cam:
@@ -317,7 +304,6 @@ class AuctionRadarGenerator:
         md.append("---")
         md.append("")
 
-        # Section 4: Live Sniping Radar Terminal (Search Matrix by Category)
         md.append("## 🛰️ Terminal Wyszukiwania Licytacji (Wszystkie 11 Kategorii)")
         md.append("")
         md.append(
@@ -355,7 +341,6 @@ class AuctionRadarGenerator:
         md.append("---")
         md.append("")
 
-        # Section 5: Practical ZenMarket Sniper Rules
         md.append("## 🛡️ Praktyczna Instrukcja: Jak Ustawić Snajpera w ZenMarket?")
         md.append("")
         md.append("1. **Zaloguj się do ZenMarket i doładuj saldo:**")

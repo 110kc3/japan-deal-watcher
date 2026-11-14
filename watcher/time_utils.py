@@ -4,10 +4,8 @@ from datetime import datetime, timezone, timedelta
 from typing import Dict, Any, Optional
 import zoneinfo
 
-
 TZ_WARSAW = zoneinfo.ZoneInfo("Europe/Warsaw")
 TZ_TOKYO = zoneinfo.ZoneInfo("Asia/Tokyo")
-
 
 def format_time_remaining(minutes: int) -> str:
     """Formats remaining minutes into human-readable Polish notation."""
@@ -22,7 +20,6 @@ def format_time_remaining(minutes: int) -> str:
     days = hours // 24
     rem_h = hours % 24
     return f"{days}d {rem_h}h" if rem_h > 0 else f"{days}d"
-
 
 def calculate_auction_timing(
     deal: Dict[str, Any],
@@ -47,7 +44,6 @@ def calculate_auction_timing(
     target_end_dt: Optional[datetime] = None
     has_valid_ends_at = False
 
-    # Try parsing ends_at if present
     if raw_ends_at and isinstance(raw_ends_at, str):
         clean_str = raw_ends_at.replace(" UTC", "").replace("Z", "").strip()
         for fmt in ["%Y-%m-%d %H:%M", "%Y-%m-%dT%H:%M:%S", "%Y-%m-%d %H:%M:%S", "%Y-%m-%dT%H:%M"]:
@@ -59,7 +55,6 @@ def calculate_auction_timing(
             except ValueError:
                 continue
 
-    # If ends_at was present, we preserve it truthfully! Never overwrite past ends_at with future minutes!
     if has_valid_ends_at and target_end_dt is not None:
         diff_seconds = (target_end_dt - now_utc).total_seconds()
         if diff_seconds <= 0:
@@ -69,7 +64,6 @@ def calculate_auction_timing(
             minutes_rem = max(0, int(round(diff_seconds / 60.0)))
             is_ended = False
     elif raw_minutes is not None:
-        # No valid ends_at, but time_remaining_minutes is provided
         try:
             m_val = int(raw_minutes)
         except (ValueError, TypeError):
@@ -83,7 +77,6 @@ def calculate_auction_timing(
             is_ended = False
             target_end_dt = now_utc + timedelta(minutes=m_val)
     else:
-        # Neither ends_at nor minutes provided
         status_str = str(deal.get("status", "")).lower()
         if "aktywna" in status_str or "active" in status_str:
             minutes_rem = 120
@@ -94,7 +87,6 @@ def calculate_auction_timing(
             is_ended = True
             target_end_dt = now_utc
 
-    # Formatting representations
     ends_at_utc_str = target_end_dt.strftime("%Y-%m-%d %H:%M UTC")
     ends_at_iso = target_end_dt.strftime("%Y-%m-%dT%H:%M:%SZ")
 
@@ -104,7 +96,6 @@ def calculate_auction_timing(
     pl_clock = end_pl.strftime("%H:%M")
     jst_clock = end_jst.strftime("%H:%M")
 
-    # Date relative label for Polish users in Europe/Warsaw
     days_diff = (end_pl.date() - now_pl.date()).days
     if is_ended:
         day_label = "Zakończona"

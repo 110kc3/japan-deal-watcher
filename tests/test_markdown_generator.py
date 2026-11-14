@@ -9,19 +9,16 @@ class TestMarkdownGenerator(unittest.TestCase):
         self.assertEqual(sanitize_md("Clean Text"), "Clean Text")
 
     def test_format_margin(self):
-        # Positive margin
         pos = MarkdownGenerator.format_margin(120.5, 45.2)
         self.assertIn("+120.50 zł", pos)
         self.assertIn("+45.2%", pos)
         self.assertIn("#10b981", pos)
 
-        # Negative margin
         neg = MarkdownGenerator.format_margin(-25.0, -8.5)
         self.assertIn("-25.00 zł", neg)
-        self.assertNotIn("+-", neg)  # Ensure no double +- bug
+        self.assertNotIn("+-", neg)
         self.assertIn("#ef4444", neg)
 
-        # Zero margin
         zero = MarkdownGenerator.format_margin(0.0, 0.0)
         self.assertIn("0.00 zł", zero)
 

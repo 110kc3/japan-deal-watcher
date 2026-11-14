@@ -15,20 +15,17 @@ from dataclasses import dataclass, field
 from enum import Enum
 from typing import Dict, Any, Optional, List, Tuple
 
-
 class SellingChannel(Enum):
-    ALLEGRO_STANDARD = "allegro_standard"      # ~12% commission
-    ALLEGRO_LOKALNIE = "allegro_lokalnie"      # 4.9% electronics, 7.9% other
-    OLX_CASH = "olx_cash"                      # 0% commission, cash in hand, 10-15% haggling discount
-    OLX_DELIVERY = "olx_delivery"              # 2.5% service fee paid by buyer/seller share
-
+    ALLEGRO_STANDARD = "allegro_standard"
+    ALLEGRO_LOKALNIE = "allegro_lokalnie"
+    OLX_CASH = "olx_cash"
+    OLX_DELIVERY = "olx_delivery"
 
 class RecommendationVerdict(Enum):
-    BUY_UP_TO_LIMIT = "Sprawdź i kup do limitu"  # High confidence, meets all 3 criteria
-    TO_VERIFY = "Do sprawdzenia"                 # Missing evidence, unknown condition or thin margin
-    WATCH = "Obserwuj"                           # Price currently too high, watch for drops
-    REJECTED = "Odrzucone"                       # Negative downside, mismatch, or broken unit
-
+    BUY_UP_TO_LIMIT = "Sprawdź i kup do limitu"
+    TO_VERIFY = "Do sprawdzenia"
+    WATCH = "Obserwuj"
+    REJECTED = "Odrzucone"
 
 @dataclass
 class ScenarioResult:
@@ -59,7 +56,6 @@ class ScenarioResult:
             "cash_roi_pct": round(self.cash_roi_pct, 1),
         }
 
-
 @dataclass
 class ChannelFeeProfile:
     name: str
@@ -81,14 +77,13 @@ class ChannelFeeProfile:
             return cls("OLX Przesyłka", channel, commission_rate=0.02, fixed_fee_pln=0.0, haggling_discount_rate=0.08)
         return cls("Inny Kanał", channel, commission_rate=0.10)
 
-
 class RecommendationModel:
     """Computes comprehensive contribution and maximum bid for Japanese imports."""
 
     DEFAULT_HOURLY_RATE_PLN = 60.0
     DEFAULT_HANDLING_HOURS = 0.5
     DEFAULT_DELIVERY_PACKING_PLN = 15.0
-    DEFAULT_RETURN_ALLOWANCE_RATE = 0.05  # 5% reserve for defect/return allowance
+    DEFAULT_RETURN_ALLOWANCE_RATE = 0.05
 
     MIN_DECISION_CONTRIBUTION_PLN = 75.0
     MIN_CASH_ROI_PCT = 25.0
@@ -111,29 +106,20 @@ class RecommendationModel:
         """Evaluates financial proceeds and contributions for a given scenario."""
         fee_profile = ChannelFeeProfile.get_profile(channel, is_electronics)
 
-        # Apply haggling discount if applicable (e.g. OLX)
         effective_sale_price = sale_price_pln * (1.0 - fee_profile.haggling_discount_rate)
-        # Apply scenario variance (e.g. -15% downside)
         actual_sale_proceeds = max(0.0, effective_sale_price * scenario_multiplier_sale)
 
-        # Landed cost with scenario variance (e.g. +10% downside)
         actual_landed_cost = max(0.0, landed_cost_pln * scenario_multiplier_cost)
 
-        # Selling fees
         selling_fees = actual_sale_proceeds * fee_profile.commission_rate + fee_profile.fixed_fee_pln
-        # Return / defect reserve
         return_allowance = actual_sale_proceeds * return_allowance_rate
 
-        # Cash contribution before income tax
         cash_contribution = actual_sale_proceeds - actual_landed_cost - selling_fees - delivery_packing_pln - return_allowance
 
-        # Owner time cost
         owner_time_cost = handling_hours * owner_hourly_rate
 
-        # Decision contribution
         decision_contribution = cash_contribution - owner_time_cost
 
-        # Cash ROI % = (cash_contribution / total_cash_committed) * 100
         total_cash_committed = actual_landed_cost + delivery_packing_pln
         cash_roi_pct = (cash_contribution / total_cash_committed * 100.0) if total_cash_committed > 0 else 0.0
 
@@ -172,8 +158,8 @@ class RecommendationModel:
             landed_cost_pln=landed_cost_pln,
             channel=channel,
             is_electronics=is_electronics,
-            scenario_multiplier_sale=0.85,  # -15% sale price
-            scenario_multiplier_cost=1.10,  # +10% landed cost
+            scenario_multiplier_sale=0.85,
+            scenario_multiplier_cost=1.10,
             scenario_name="Downside (-15% sale / +10% cost)"
         )
         upside = cls.evaluate_scenario(
@@ -181,7 +167,7 @@ class RecommendationModel:
             landed_cost_pln=landed_cost_pln,
             channel=channel,
             is_electronics=is_electronics,
-            scenario_multiplier_sale=1.10,  # +10% sale price
+            scenario_multiplier_sale=1.10,
             scenario_multiplier_cost=1.0,
             scenario_name="Upside (+10% sale)"
         )
@@ -223,9 +209,7 @@ class RecommendationModel:
                 "reason": "Nieprawidłowa wycena w Polsce lub kurs walutowy"
             }
 
-        # Binary search for highest feasible bid in JPY
         low_jpy = 0
-        # Upper bound rounded to multiple of bid_increment_jpy
         high_jpy = int((est_sale_pln / rate_jpy) * 1.5)
         high_jpy = (high_jpy // bid_increment_jpy) * bid_increment_jpy
 
@@ -247,7 +231,6 @@ class RecommendationModel:
             base = scenarios["base"]
             downside = scenarios["downside"]
 
-            # Check all 3 hard constraints
             c1 = base.decision_contribution_pln >= min_contribution_pln
             c2 = base.cash_roi_pct >= min_roi_pct
             c3 = downside.decision_contribution_pln >= 0.0
@@ -295,7 +278,6 @@ class RecommendationModel:
         if is_broken:
             return RecommendationVerdict.REJECTED, "Uszkodzony sprzęt / pułapka oferty"
 
-        # Check product match if available
         if deal.get("product_match_rejected"):
             return RecommendationVerdict.REJECTED, f"Niezgodność produktu: {deal.get('product_match_reason')}"
 
@@ -305,11 +287,9 @@ class RecommendationModel:
         current_price_jpy = float(deal.get("price_jpy", 0))
         max_bid_jpy = max_bid_info.get("max_bid_jpy", 0)
 
-        # Check current price vs max bid
         if current_price_jpy > max_bid_jpy:
             return RecommendationVerdict.WATCH, f"Aktualna cena ({current_price_jpy:,} JPY) przekracza twardy limit snajpera ({max_bid_jpy:,} JPY)"
 
-        # Check condition
         cond_type = deal.get("condition_type", "unknown")
         if cond_type in ["unknown", "cosmetic_only"]:
             return RecommendationVerdict.TO_VERIFY, "Stan techniczny niepotwierdzony – wymaga dokładnej weryfikacji opisu przed licytacją"

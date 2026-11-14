@@ -3,7 +3,6 @@ import unittest
 from watcher.closure_predictor import ConditionGrade, ConditionAnalyzer, AuctionClosurePredictor
 from watcher.config import DEFAULT_JPY_PLN_RATE, DEFAULT_EUR_PLN_RATE, MAX_CAMERA_PRICE_PLN, MAX_LENS_PRICE_PLN
 
-
 class TestClosurePredictor(unittest.TestCase):
     def test_condition_detection_mint_box(self):
         deal = {
@@ -81,12 +80,10 @@ class TestClosurePredictor(unittest.TestCase):
             "custom_note": "Aparat analogowy point & shoot"
         }
         pred = AuctionClosurePredictor.predict_closure(cam_deal, DEFAULT_JPY_PLN_RATE, DEFAULT_EUR_PLN_RATE)
-        # Maximum sniper bid in PLN must strictly respect MAX_CAMERA_PRICE_PLN (100 PLN), without clamping predicted market closure
         max_bid_pln = pred["max_sniper_bid_jpy"] * DEFAULT_JPY_PLN_RATE
         self.assertLessEqual(max_bid_pln, MAX_CAMERA_PRICE_PLN + 0.5)
 
     def test_verdict_tiers(self):
-        # S-Tier deal with huge profit
         s_deal = {
             "id": "s_deal",
             "model": "Cult Retro Bundle",
@@ -99,7 +96,6 @@ class TestClosurePredictor(unittest.TestCase):
         }
         pred_s = AuctionClosurePredictor.predict_closure(s_deal, DEFAULT_JPY_PLN_RATE, DEFAULT_EUR_PLN_RATE)
         self.assertIn("S-TIER", pred_s["verdict_label"])
-
 
 if __name__ == "__main__":
     unittest.main()

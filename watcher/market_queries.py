@@ -4,7 +4,6 @@ import re
 import unicodedata
 from typing import Dict, Any, Tuple
 
-
 def clean_polish_market_queries(deal: Dict[str, Any]) -> Tuple[str, str]:
     """
     Produces:
@@ -20,7 +19,6 @@ def clean_polish_market_queries(deal: Dict[str, Any]) -> Tuple[str, str]:
     title = deal.get("title", "")
     text = f"{model} {title}".lower()
 
-    # 1. Games & Mystery Lots / Bundles (prioritized over single console model matches)
     if any(w in text for w in ["danshari", "mystery", "karton", "pakiet", "zestaw", "mix", "hurtowy", "まとめ売り", "断捨離", "実家整理", "引退品"]):
         if "pokemon" in text or "pokémon" in text or "stwork" in text:
             pl_q = "gry pokemon nintendo"
@@ -39,7 +37,6 @@ def clean_polish_market_queries(deal: Dict[str, Any]) -> Tuple[str, str]:
         else:
             pl_q = "gry retro zestaw mix"
 
-    # 1.5 Mechanical Keyboards & Custom Hardware
     elif "realforce" in text or "東プレ" in text:
         pl_q = "Topre Realforce"
     elif "hhkb" in text or "happy hacking" in text:
@@ -53,7 +50,6 @@ def clean_polish_market_queries(deal: Dict[str, Any]) -> Tuple[str, str]:
     elif "klawiatura" in text or "keyboard" in text or "キーボード" in text or "hot-swap" in text or "hotswap" in text:
         pl_q = "klawiatura mechaniczna hot swap"
 
-    # 2. Cameras
     elif "mju" in text:
         pl_q = "Olympus Mju II"
     elif "pc35af" in text:
@@ -81,7 +77,6 @@ def clean_polish_market_queries(deal: Dict[str, Any]) -> Tuple[str, str]:
     elif "pop efj" in text:
         pl_q = "Konica Pop EFJ"
 
-    # 3. Handhelds & Consoles
     elif "pch-2000" in text or ("vita" in text and "slim" in text):
         pl_q = "PS Vita Slim"
     elif "pch-1000" in text or ("vita" in text and "oled" in text):
@@ -135,7 +130,6 @@ def clean_polish_market_queries(deal: Dict[str, Any]) -> Tuple[str, str]:
     elif "ps4" in text and "metal gear" in text:
         pl_q = "PS4 Metal Gear Solid V"
 
-    # 4. Controllers
     elif "astro bot" in text:
         pl_q = "DualSense Astro Bot"
     elif "monster hunter" in text and "dualsense" in text:
@@ -169,7 +163,6 @@ def clean_polish_market_queries(deal: Dict[str, Any]) -> Tuple[str, str]:
     elif "dualshock 4" in text:
         pl_q = "DualShock 4"
 
-    # 5. Lenses
     elif "super-takumar 55mm" in text or "takumar 55mm" in text:
         pl_q = "Super-Takumar 55mm 1.8"
     elif "pentax-m 50mm" in text and "1.4" in text:
@@ -186,7 +179,6 @@ def clean_polish_market_queries(deal: Dict[str, Any]) -> Tuple[str, str]:
         pl_q = "Pentax 28mm 2.8"
 
     else:
-        # Generic clean
         t = re.sub(r"[\u3000-\u303f\u3040-\u309f\u30a0-\u30ff\uff00-\uffef\u4e00-\u9faf]", "", model or title)
         t = re.sub(r"【.*?】", "", t)
         t = re.sub(r"\(.*?\)", "", t)

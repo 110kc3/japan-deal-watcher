@@ -5,7 +5,6 @@ import sys
 import os
 from pathlib import Path
 
-# Auto-reexec with repository virtualenv if not already running in it
 _REPO_DIR = Path(__file__).resolve().parent
 _VENV_DIR = _REPO_DIR / ".venv"
 _VENV_PYTHON = _VENV_DIR / "bin" / "python"
@@ -58,7 +57,6 @@ def main():
     fallback_rate_jpy = settings.get("currency_rate_jpy_pln", 0.024832)
     fallback_rate_eur = settings.get("currency_rate_eur_pln", 4.35)
 
-    # 1. Fetch live NBP rates or fallback
     rate_jpy, rate_eur, is_live_jpy, is_live_eur = get_live_rates()
     if not is_live_jpy:
         rate_jpy = fallback_rate_jpy
@@ -67,23 +65,19 @@ def main():
 
     print(f"💱 Exchange rates: 100 JPY ≈ {rate_jpy * 100:.2f} PLN | 1 EUR ≈ {rate_eur:.4f} PLN")
 
-    # 2. Fetch deal data
     fetcher = DealFetcher(rate=rate_jpy, rate_eur=rate_eur)
     deals = fetcher.scan_watchlist(watchlist)
 
-    # 3. Save current deals to JSON
     with open(CURRENT_DEALS_FILE, "w", encoding="utf-8") as f:
         json.dump(deals, f, indent=2, ensure_ascii=False)
     print(f"✅ Saved {len(deals)} deals to {CURRENT_DEALS_FILE}")
 
-    # 4. Calculate consolidation timeline
     start_date = settings.get("consolidation_start_date", "2026-11-07")
     storage_limit = settings.get("free_storage_days", 60)
     tracker = ConsolidationTracker(start_date=start_date, storage_limit_days=storage_limit)
     timeline = tracker.get_timeline_status()
     print(f"⏳ 60-Day Warehouse Storage: {timeline['days_remaining']} days remaining until {timeline['deadline']}")
 
-    # 5. Generate reports/latest.md (Top 5 qualified opportunities & compact health summary)
     generator = MarkdownGenerator(
         deals=deals,
         timeline_status=timeline,
@@ -98,7 +92,6 @@ def main():
         f.write(latest_report_content)
     print(f"📄 Successfully generated and updated {LATEST_REPORT_FILE}")
 
-    # 6. Generate YAHOO_AUCTIONS_DEALS.md (Alternative marketplaces)
     if YAHOO_DEALS_FILE.exists():
         with open(YAHOO_DEALS_FILE, "r", encoding="utf-8") as f:
             yahoo_deals = json.load(f)
@@ -114,7 +107,6 @@ def main():
             f.write(yahoo_md_content)
         print(f"📄 Successfully generated and updated {YAHOO_MD_FILE} ({len(yahoo_deals)} alternative deals)")
 
-        # 7. Generate AUCTION_SNIPING_GUIDE.md (Tactical sniping masterclass & hard caps)
         sniper_generator = SniperGuideGenerator(
             raw_deals=yahoo_deals,
             timeline_status=timeline,
@@ -127,7 +119,6 @@ def main():
             f.write(sniper_guide_content)
         print(f"📄 Successfully generated and updated {SNIPER_GUIDE_MD_FILE} (Tactical Sniping Guide)")
 
-        # 7b. Generate AUCTION_RADAR.md (Live Auction Radar & Real Closing Price Intelligence)
         radar_generator = AuctionRadarGenerator(
             raw_deals=yahoo_deals,
             timeline_status=timeline,
@@ -140,7 +131,6 @@ def main():
             f.write(radar_content)
         print(f"📄 Successfully generated and updated {AUCTION_RADAR_MD_FILE} (Live Auction Radar)")
 
-        # 7c. Generate MYSTERY_LOTS_ANALYSIS.md (Danshari & Mystery Lots Photo Intelligence)
         mystery_gen = MysteryLotsGenerator(
             raw_deals=yahoo_deals,
             timeline_status=timeline,
@@ -153,7 +143,6 @@ def main():
             f.write(mystery_content)
         print(f"📄 Successfully generated and updated {MYSTERY_LOTS_MD_FILE} (Danshari & Mystery Lots)")
 
-        # Save copy to Obsidian vault (opt-in via OBSIDIAN_VAULT_ENABLED)
         if os.environ.get("OBSIDIAN_VAULT_ENABLED") == "1":
             obsidian_mystery_path = Path("/home/borg/docker/obsidian/vault/20-reports/adhoc/2026-11-09-mystery-lots-analysis.md")
             if obsidian_mystery_path.parent.exists():
@@ -173,7 +162,6 @@ def main():
                 except Exception as e:
                     print(f"[WARN] Obsidian copy skipped: {e}")
 
-    # 8. Record Price History and Generate MARKET_SALES_HISTORY.md
     history_tracker = HistoryTracker()
     all_scan_deals = list(deals)
     if YAHOO_DEALS_FILE.exists():
@@ -190,7 +178,6 @@ def main():
         f.write(sales_md_content)
     print(f"📄 Successfully generated and updated {MARKET_SALES_MD_FILE} (Market Sales & Price Intelligence)")
 
-    # Also save copy to Obsidian vault (opt-in)
     if os.environ.get("OBSIDIAN_VAULT_ENABLED") == "1":
         obsidian_sales_path = Path("/home/borg/docker/obsidian/vault/20-reports/adhoc/2026-11-08-market-sales-history.md")
         if obsidian_sales_path.parent.exists():
@@ -201,7 +188,6 @@ def main():
             except Exception as e:
                 print(f"[WARN] Obsidian copy skipped: {e}")
 
-    # 9. Export Web App Data Feed (Android PWA on GitHub Pages)
     yahoo_deals_list = []
     if YAHOO_DEALS_FILE.exists():
         with open(YAHOO_DEALS_FILE, "r", encoding="utf-8") as f:
@@ -225,7 +211,6 @@ def main():
     webapp_res = webapp_exporter.export(output_file=DOCS_DATA_FILE)
     print(f"📱 Webapp Exporter: Synced Android PWA data feed ({webapp_res['auctions_count']} auctions, {webapp_res['mercari_count']} Mercari deals, {finished_stats['total_finished']} finished auctions)")
 
-    # 10. Resale Ledger & Owner Learning
     resale_ledger = ResaleLedger()
     ledger_metrics = resale_ledger.get_metrics()
     if ledger_metrics["total_items"] > 0:

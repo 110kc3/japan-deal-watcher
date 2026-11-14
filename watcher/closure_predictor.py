@@ -15,7 +15,6 @@ from .config import (
 from .costs import calculate_landed_cost, calculate_max_sniper_bid
 from .checks import is_camera_item, is_lens_item
 
-
 class ConditionGrade:
     """Standardized Condition Grades for Japanese Auctions."""
     MINT_BOX = "A_MINT_BOX"
@@ -30,46 +29,45 @@ class ConditionGrade:
             "label": "📦 Kolekcjonerski Box (CIB)",
             "short_label": "Box CIB",
             "multiplier": 1.08,
-            "badge_color": "#8b5cf6",  # purple
+            "badge_color": "#8b5cf6",
             "desc": "Stan gabinetowy/kolekcjonerski w oryginalnym pudełku z kompletem akcesoriów"
         },
         VERY_GOOD: {
             "label": "✨ Bardzo Dobry (Sprawny 100%)",
             "short_label": "B. Dobry",
             "multiplier": 1.00,
-            "badge_color": "#10b981",  # emerald
+            "badge_color": "#10b981",
             "desc": "Zadbany egzemplarz, w 100% sprawny technicznie, czysty ekran, minimalne ślady"
         },
         GOOD_CONSOLE_ONLY: {
             "label": "🎮 Sprawny (Goła konsola)",
             "short_label": "Goła Konsola",
             "multiplier": 0.90,
-            "badge_color": "#3b82f6",  # blue
+            "badge_color": "#3b82f6",
             "desc": "Sama konsola bez pudełka, sprawna technicznie, normalne ślady użytkowania"
         },
         FLAWED_WORKING: {
             "label": "⚠️ Sprawny z Wadą Wizualną",
             "short_label": "Z Wadą Wiz.",
             "multiplier": 0.82,
-            "badge_color": "#f59e0b",  # amber
+            "badge_color": "#f59e0b",
             "desc": "Sprawna technicznie, ale widoczne pożółknięcie obudowy/ekranu lub głębokie zarysowania"
         },
         UNTESTED_JUNK: {
             "label": "🧩 Pakiet / Junk / Likwidacja",
             "short_label": "Junk / Pakiet",
             "multiplier": 0.90,
-            "badge_color": "#ec4899",  # pink
+            "badge_color": "#ec4899",
             "desc": "Nietestowany pakiet hurtowy lub likwidacja szafy ze strychu (Danshari)"
         },
         UNKNOWN: {
             "label": "❓ Stan Nieznany (Brak Opisu)",
             "short_label": "Nieznany",
             "multiplier": 0.85,
-            "badge_color": "#94a3b8",  # slate
+            "badge_color": "#94a3b8",
             "desc": "Brak deklaracji sprawności od sprzedawcy – wymaga weryfikacji przed licytacją"
         }
     }
-
 
 class ConditionAnalyzer:
     """Analyzes titles, descriptions, notes, and visual cues to determine device condition."""
@@ -85,7 +83,6 @@ class ConditionAnalyzer:
 
         features: List[str] = []
 
-        # 0. Empty / No condition claim: Unknown condition
         if not (title.strip() or note.strip() or c_badge.strip()):
             grade = ConditionGrade.UNKNOWN
             features.append("Brak deklaracji sprzedawcy")
@@ -101,7 +98,6 @@ class ConditionAnalyzer:
                 "features": features
             }
 
-        # 1. Danshari / Mystery lot / Untested Wholesale
         is_lot = any(w in full_text for w in [
             "danshari", "mystery", "karton", "pakiet", "zestaw gier", "mix",
             "まとめ", "処分", "雑多", "福袋", "引退品", "実家整理", "hurtow"
@@ -119,7 +115,6 @@ class ConditionAnalyzer:
             else:
                 features.append("Likwidacja kolekcji prywatnej")
 
-        # 2. Complete in Box (CIB) / Mint Box
         elif any(w in full_text for w in [
             "完品", "元箱", "箱説", "外箱", "箱付き", "kompletny box", "w pudełku",
             "box cib", "z pudełkiem", "oryginalne pudełko", "pudełko i instrukcje", "combo"
@@ -131,7 +126,6 @@ class ConditionAnalyzer:
             else:
                 features.append("Komplet kolekcjonerski")
 
-        # 3. Flawed working / Yellowing / Scratched
         elif any(w in full_text for w in [
             "ヤケ", "液晶黄ばみ", "キズ大", "żółknięc", "pożółkł", "zżółkł",
             "głębokie rysy", "porysowan", "brak klapki", "wada wizualna"
@@ -143,7 +137,6 @@ class ConditionAnalyzer:
             else:
                 features.append("Zarysowania obudowy")
 
-        # 4. Console Only / Body Only
         elif any(w in full_text for w in [
             "本体のみ", "goła konsola", "sama konsola", "tylko konsola",
             "body only", "bez pudełka", "brak akcesoriów"
@@ -152,7 +145,6 @@ class ConditionAnalyzer:
             features.append("Goła konsola (sprawna)")
             features.append("Brak pudełka i ładowarki")
 
-        # 5. Default: Very Good (Sprawny, zadbany)
         else:
             grade = ConditionGrade.VERY_GOOD
             features.append("Sprawny 100% (potwierdzone)")
@@ -171,7 +163,6 @@ class ConditionAnalyzer:
             "features": features
         }
 
-
 class AuctionClosurePredictor:
     """Predicts expected auction closing price (落札相場) and calculates market deal viability."""
 
@@ -182,7 +173,6 @@ class AuctionClosurePredictor:
         rate_eur: float = DEFAULT_EUR_PLN_RATE
     ) -> Dict[str, Any]:
         """Calculates expected auction closure price, landed cost, and recommendation verdict."""
-        # 1. Detect condition
         cond = ConditionAnalyzer.detect_condition(deal)
         grade = cond["grade"]
         multiplier = cond["multiplier"]
@@ -192,17 +182,14 @@ class AuctionClosurePredictor:
         cat_id = deal.get("category_id", "other")
         est_pl = float(deal.get("est_pl_value", 0))
 
-        # Base benchmark closure from deal or fallback
         base_avg = float(deal.get("closed_price_avg_jpy", current_price_jpy * 1.2))
         base_min = float(deal.get("closed_price_min_jpy", base_avg * 0.85))
         base_max = float(deal.get("closed_price_max_jpy", base_avg * 1.15))
 
-        # Calculate condition-adjusted closing price
         predicted_closure = int(round(base_avg * multiplier // 100 * 100))
         predicted_min = int(round(base_min * multiplier // 100 * 100))
         predicted_max = int(round(base_max * multiplier // 100 * 100))
 
-        # Auctions near end (< 60m): current bid has already advanced towards closure
         if time_rem <= 60:
             predicted_closure = max(int(current_price_jpy), min(predicted_closure, int(current_price_jpy * 1.08)))
             predicted_min = max(int(current_price_jpy), predicted_min)
@@ -210,21 +197,17 @@ class AuctionClosurePredictor:
         else:
             predicted_closure = max(int(current_price_jpy), predicted_closure)
 
-        # Enforce strict <= 100 PLN cap for cameras and lenses on the buyer's maximum bid (never clamp market predictions)
         is_cam = is_camera_item(deal) or cat_id == "film_cameras_point_shoot"
         is_lens = is_lens_item(deal) or cat_id == "analog_lenses"
 
-        # 2. Landed cost and margin at predicted closing price
         expected_landed = calculate_landed_cost(predicted_closure, cat_id, rate_jpy, rate_eur)
         expected_landed_pln = expected_landed["landed_cost_pln"]
         expected_margin_pln = round(est_pl - expected_landed_pln, 2)
         expected_roi_pct = round((expected_margin_pln / expected_landed_pln * 100.0), 1) if expected_landed_pln > 0 else 0.0
 
-        # Expected price jump from current bid to final closure
         closure_gap_jpy = max(0, int(predicted_closure - current_price_jpy))
         closure_gap_pct = round((closure_gap_jpy / current_price_jpy * 100.0), 1) if current_price_jpy > 0 else 0.0
 
-        # Hard sniper cap for comparison
         target_roi = 40.0 if ("games_mix" in cat_id or est_pl <= 500) else 32.0
         cap_info = calculate_max_sniper_bid(est_pl, cat_id, target_roi, rate_jpy, rate_eur)
         max_sniper_bid = cap_info["max_bid_jpy"]
@@ -233,7 +216,6 @@ class AuctionClosurePredictor:
         if is_lens:
             max_sniper_bid = min(max_sniper_bid, int((MAX_LENS_PRICE_PLN / rate_jpy) // 100 * 100))
 
-        # 3. Market Deal Verdict & Recommendation
         headroom_jpy = max_sniper_bid - predicted_closure
 
         if expected_margin_pln >= 120.0 and expected_roi_pct >= 30.0 and headroom_jpy >= 0:

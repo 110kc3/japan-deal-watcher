@@ -5,7 +5,6 @@ from watcher.config import DEFAULT_JPY_PLN_RATE, DEFAULT_EUR_PLN_RATE
 
 class TestCurrency(unittest.TestCase):
     def test_jpy_to_pln_standard(self):
-        # 10,000 JPY at rate 0.024832 = 248.32 PLN
         self.assertEqual(jpy_to_pln(10000, 0.024832), 248.32)
 
     def test_jpy_to_pln_edge_cases(self):

@@ -44,10 +44,8 @@ def calculate_landed_cost(
     base_purchase_pln = round(price_pln_raw + domestic_shipping_pln + zenmarket_fee_pln, 2)
     subtotal_goods_and_freight = round(base_purchase_pln + shipping_share, 2)
 
-    # 3.5% deposit processing fee on all funds deposited into ZenMarket balance
     deposit_fee_pln = round(subtotal_goods_and_freight * ZENMARKET_DEPOSIT_FEE_RATE, 2)
 
-    # 23% VAT assessed on customs value (goods + international shipping)
     vat_pln = round(subtotal_goods_and_freight * VAT_RATE, 2)
 
     landed_cost_pln = round(base_purchase_pln + shipping_share + deposit_fee_pln + vat_pln, 2)
@@ -64,7 +62,6 @@ def calculate_landed_cost(
         "vat_pln": vat_pln,
         "landed_cost_pln": landed_cost_pln,
     }
-
 
 def calculate_max_sniper_bid(
     est_pl_value: float,
@@ -85,27 +82,20 @@ def calculate_max_sniper_bid(
     else:
         shipping_share = float(shipping_share_pln)
 
-    # Landed cost tax multiplier: 1 + deposit_fee (3.5%) + vat (23%) = 1.265
     tax_multiplier = 1.0 + ZENMARKET_DEPOSIT_FEE_RATE + VAT_RATE
 
-    # Target max landed cost = est_pl_value / (1 + target_roi_pct / 100)
     target_max_landed = est_pl_value / (1.0 + target_roi_pct / 100.0)
 
-    # Subtotal goods and freight target
     subtotal_target = target_max_landed / tax_multiplier
 
-    # Fixed fees in PLN: domestic shipping + ZenMarket 2 EUR + shipping share
     domestic_shipping_pln = ZENMARKET_FEE_JPY * rate_jpy
     zenmarket_fee_pln = ZENMARKET_FEE_EUR * rate_eur
     fixed_fees_pln = domestic_shipping_pln + zenmarket_fee_pln + shipping_share
 
-    # Max item purchase in PLN
     max_price_pln = max(0.0, subtotal_target - fixed_fees_pln)
 
-    # Max price in JPY rounded down to nearest 100 JPY
     max_price_jpy = int(max_price_pln / rate_jpy // 100 * 100) if rate_jpy > 0 else 0
 
-    # Verification: compute exact landed cost at this bid
     verif = calculate_landed_cost(
         price_jpy=max_price_jpy,
         category_id=category_id,

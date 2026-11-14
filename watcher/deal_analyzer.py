@@ -23,21 +23,19 @@ class DealAnalyzer:
     """
 
     CATEGORY_WEIGHTS = {
-        # Granular Handhelds (Grupa 1: "Płynne Złoto" i Grupa 2)
-        "nintendo_3ds_handhelds": 1.30, # Top #1 Polish demand, CFW Luma3DS, fastest turnover
-        "gameboy_advance_retro": 1.25,  # GBA SP AGS-101 & Pokémon high liquidity
-        "nintendo_ds_handhelds": 1.20,  # DSi LL IPS & DS Lite high liquidity
-        "ps_vita": 1.20,                # High Polish demand for colorful Vitas
-        "ps_vita_handhelds": 1.20,      # Alias
-        "retro_games_mix": 1.25,        # High volume, zero Li-Ion, huge margin (DS, GBA, PS1/PS2, SFC)
-        "danshari_mystery_lots": 1.35,  # Top #1 Arbitrage Potential: Mystery Lots, Danshari & Hidden Gems
-        "high_margin_curated_consoles": 1.15, # Curated PSone Combo & rare CIB consoles (>400-750 PLN profit)
-        "film_cameras_point_shoot": 1.25, # Huge youth/hipster market in PL, instant turnover, 0% Li-Ion
-        "analog_lenses": 1.15,          # Fast sale to photo enthusiasts, 0% Li-Ion
-        "ps5_limited_controllers": 1.15, # High Polish resale demand for Limited Edition DualSense
-        "ps_retro_limited_controllers": 1.10, # Collectors demand for DualShock 1-4 limited editions
-        "psp_handheld": 1.10,           # Good margin, but occupies Li-Ion unless dry
-        # Legacy aliases
+        "nintendo_3ds_handhelds": 1.30,
+        "gameboy_advance_retro": 1.25,
+        "nintendo_ds_handhelds": 1.20,
+        "ps_vita": 1.20,
+        "ps_vita_handhelds": 1.20,
+        "retro_games_mix": 1.25,
+        "danshari_mystery_lots": 1.35,
+        "high_margin_curated_consoles": 1.15,
+        "film_cameras_point_shoot": 1.25,
+        "analog_lenses": 1.15,
+        "ps5_limited_controllers": 1.15,
+        "ps_retro_limited_controllers": 1.10,
+        "psp_handheld": 1.10,
         "nintendo_ds_consoles": 1.15,
         "nintendo_retro": 1.20,
         "psp_games_mix": 1.25,
@@ -98,7 +96,6 @@ class DealAnalyzer:
 
         is_no_battery = battery_type != "li-ion" or "Bez Baterii" in color or "bez baterii" in note.lower()
 
-        # Product Identity Verification (F01)
         match_res = ProductMatcher.verify_deal(deal, deal)
         if not match_res.is_match:
             raw_price = deal.get("price_pln_raw", round(price_jpy * self.rate_jpy, 2))
@@ -134,7 +131,6 @@ class DealAnalyzer:
                 "mercari_url": deal.get("mercari_url", "")
             }
 
-        # Check Camera Price Cap: User rule "aparaty powyżej 100zł nie są okazjami"
         if is_camera_item(deal):
             cap_ok, cap_msg = check_camera_price_cap(deal, max_price_pln=MAX_CAMERA_PRICE_PLN)
             if not cap_ok:
@@ -169,7 +165,6 @@ class DealAnalyzer:
                     "mercari_url": deal.get("mercari_url", "")
                 }
 
-        # Check Lens Price Cap: User rule "obiektywy tez w duzych cenach odpadaja"
         if is_lens_item(deal):
             lens_cap_ok, lens_cap_msg = check_lens_price_cap(deal, max_price_pln=MAX_LENS_PRICE_PLN)
             if not lens_cap_ok:
@@ -204,32 +199,23 @@ class DealAnalyzer:
                     "mercari_url": deal.get("mercari_url", "")
                 }
 
-        # 1. Margin Points (0 to 35 pts)
-        # 350+ PLN margin gets max points
         margin_pts = min(35.0, max(0.0, (margin_pln / 350.0) * 35.0))
 
-        # 2. ROI Points (0 to 35 pts)
-        # 70%+ ROI gets max points
         roi_pts = min(35.0, max(0.0, (roi_percent / 70.0) * 35.0))
 
-        # 3. Logistics & Battery Bonus (0 to 15 pts)
-        # Items without Li-Ion don't consume the strict 2-device limit
         is_no_battery = battery_type != "li-ion" or "Bez Baterii" in color or "bez baterii" in note.lower()
         battery_pts = 15.0 if is_no_battery else 8.0
 
-        # 4. Liquidity & Category Factor (0 to 15 pts)
         cat_factor = self.CATEGORY_WEIGHTS.get(cat_id, 1.0)
         liquidity_pts = min(15.0, 10.0 * cat_factor)
 
-        # 5. Opportunity Gain Factor (Arbitrage for untested gear with high upside)
         opp_bonus = 0.0
         if cond_type == "untested_opportunity" and roi_percent >= 40:
-            opp_bonus = 3.0  # Extra boost for cheap untested equipment with huge gain potential
+            opp_bonus = 3.0
 
         raw_score = margin_pts + roi_pts + battery_pts + liquidity_pts + opp_bonus
         score = round(min(100.0, raw_score), 1)
 
-        # Classify Tier and Verdict
         if score >= 80:
             tier = "S-TIER"
             verdict = "KUPUJ NATYCHMIAST (MUST BUY)"
@@ -251,7 +237,6 @@ class DealAnalyzer:
             verdict_icon = "⏱️"
             is_worth_buying = False
 
-        # Generate custom Polish rationale
         reasons = []
         if cond_type == "untested_opportunity":
             reasons.append("⚡ sprzęt niesprawdzany przez sprzedawcę (wysoki potencjał zysku / arbitraż)")
@@ -277,7 +262,6 @@ class DealAnalyzer:
 
         rationale = "Przedmiot warty zakupu: " + ", ".join(reasons) + "."
 
-        # Compile check results
         checks_passed = ["defects_clean", "listing_sanity", "iata_battery_rule"]
         checks_failed = []
         if is_camera_item(deal):

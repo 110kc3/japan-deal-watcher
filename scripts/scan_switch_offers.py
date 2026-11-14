@@ -28,7 +28,6 @@ CATEGORIES = {
     'nintendo_switch': ('Nintendo Switch', 701, 'Switch'),
 }
 REPORT_FILES = ['reports/switch-offers.json', 'reports/switch-offers.md']
-# This is screening, not proof of condition or completeness.
 TRAPS = re.compile(r'箱のみ|空箱|ケース|カバー|フィルム|交換用|シェル|基板|ソフトのみ|ドックのみ|充電器のみ|専用出品', re.I)
 DEFECTS = re.compile(r'ジャンク|ジャング品|訳あり|難あり|壊れ|故障|修理が必要|変形|湾曲|ひび割れ|ヒビ|割れて|'
                      r'読み込みにくい|充電(?:が)?(?:出来|でき)(?:ない|ません)|'
@@ -37,10 +36,8 @@ DEFECTS = re.compile(r'ジャンク|ジャング品|訳あり|難あり|壊れ|�
 WORKING = re.compile(r'動作確認済|動作品|完動品|動作OK|稼動品|動作は問題', re.I)
 UNTESTED = re.compile(r'未確認|確認していない|起動確認のみ|初期設定画面|すべてのボタン[^。]{0,20}チェック', re.I)
 
-
 def now_iso():
     return datetime.now(timezone.utc).isoformat(timespec='seconds')
-
 
 def matches_category(title, category):
     text = unicodedata.normalize('NFKC', title)
@@ -51,12 +48,9 @@ def matches_category(title, category):
     is_lite = bool(re.search(r'lite|ライト', text, re.I))
     if is_lite != (category == 'nintendo_switch_lite'):
         return False
-    # Require a console name/body, not software mentioning only its platform.
     return bool(re.search(r'本体|HDH[- ]?001|HAC[- ]?001|Nintendo\s*Switch|ニンテンドー\s*スイッチ', text, re.I))
 
-
 def condition(text):
-    # Keep a negative claim elsewhere even when another sentence says "no problems".
     clean = re.sub(r'(?:接触|動作|充電|液晶|ボタン)不良(?:なし|無し|はありません)', '', text)
     defect = DEFECTS.search(clean)
     if defect:
@@ -66,7 +60,6 @@ def condition(text):
     if WORKING.search(text):
         return 'seller_claims_working', 'Sprzedawca deklaruje sprawność'
     return 'unknown', 'Brak jednoznacznej deklaracji testu'
-
 
 def observations(text):
     notes = []
@@ -85,7 +78,6 @@ def observations(text):
             notes.append(note)
     return notes
 
-
 def parse_yahoo_search(body, category, source_url):
     pattern = re.compile(
         r'href=["\x27]https://www\.jauce\.com/auction/\.\./auction/([a-zA-Z]\d+)["\x27][^>]*>.*?'
@@ -102,7 +94,6 @@ def parse_yahoo_search(body, category, source_url):
                      'proxy_url': f'https://zenmarket.jp/pl/auction.aspx?itemCode={aid}'})
     return rows
 
-
 def yahoo_search(category):
     query = CATEGORIES[category][0] + ' 本体'
     url = 'https://www.jauce.com/search/' + urllib.parse.quote(query)
@@ -113,7 +104,6 @@ def yahoo_search(category):
     if not rows:
         raise RuntimeError('Brak rozpoznanych wyników; możliwa zmiana strony lub blokada')
     return rows
-
 
 async def scan():
     result = {'observed_at': now_iso(), 'queries': [], 'offers': [], 'rejected': [], 'errors': []}
@@ -145,14 +135,13 @@ async def scan():
             candidates = [item for item in search.items if re.fullmatch(r'm\d+', item.id_)
                           and matches_category(item.name, category)
                           and not (item.auction and item.auction.id_)]
-            # Detail-check a bounded set, sorted by actual observed asking price.
             for candidate in sorted(candidates, key=lambda item: item.price)[:24]:
                 try:
                     item = await asyncio.wait_for(mercari.item(candidate.id_), timeout=15)
                     if not item or item.status != 'on_sale' or not matches_category(item.name, category):
                         continue
                     if item.auction_info and getattr(item.auction_info, 'id_', None):
-                        continue  # Mercari auctions are not fixed-price listings.
+                        continue
                     if not isinstance(item.price, int) or item.price <= 0:
                         continue
                     text = item.name + '\n' + (item.description or '')
@@ -176,7 +165,6 @@ async def scan():
         row['price_pln'] = costs['price_pln_raw']
         row['model_landed_pln'] = costs['landed_cost_pln']
     return result
-
 
 def report(data):
     lines = ['# Switch i Switch Lite — przegląd ofert', '', f"Sprawdzenie UTC: {data['observed_at']}", '',
@@ -206,7 +194,6 @@ def report(data):
     lines += ['', 'Pełne wyniki i identyfikatory odrzuconych ofert: [switch-offers.json](switch-offers.json).', '']
     return '\n'.join(lines)
 
-
 def write_reports(destination):
     data = asyncio.run(scan())
     if not data['offers']:
@@ -217,7 +204,6 @@ def write_reports(destination):
     temporary.write_text(report(data), encoding='utf-8')
     temporary.replace(destination / 'switch-offers.md')
     print(json.dumps({'offers': len(data['offers']), 'rejected': len(data['rejected']), 'errors': len(data['errors'])}))
-
 
 def publish():
     """Publish only research files from an isolated clone; never touch the shared index."""
@@ -237,7 +223,6 @@ def publish():
     git('rebase', 'origin/main', cwd=checkout)
     git('push', 'origin', 'HEAD:main', cwd=checkout)
     print('Published: ' + git('rev-parse', 'HEAD', cwd=checkout), flush=True)
-
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)

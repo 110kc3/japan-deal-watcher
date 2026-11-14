@@ -39,7 +39,6 @@ from .checks import (
 
 logger = logging.getLogger(__name__)
 
-
 class AlertsEngine:
     """
     Selective discovery and alerts engine for Japan Deal Watcher.
@@ -97,7 +96,6 @@ class AlertsEngine:
         failed_gates = []
         failure_reasons = []
 
-        # Gate 1: Identity & Availability
         deal_id = str(deal.get("id") or "").strip()
         model = str(deal.get("model") or deal.get("name") or "").strip()
         price_jpy = float(deal.get("price_jpy", deal.get("target_price_jpy", 0)))
@@ -109,7 +107,6 @@ class AlertsEngine:
         else:
             passed_gates.append("identity")
 
-        # Gate 2: Price Caps (Cameras & Lenses <= 100 PLN)
         cam_ok, cam_reason = check_camera_price_cap(deal, max_price_pln=100.0)
         lens_ok, lens_reason = check_lens_price_cap(deal, max_price_pln=100.0)
         if not cam_ok:
@@ -121,7 +118,6 @@ class AlertsEngine:
         else:
             passed_gates.append("price_caps")
 
-        # Gate 3: Defects, Scams & Shipping Traps
         text_corpus = " ".join([
             model,
             str(deal.get("custom_note", "")),
@@ -130,7 +126,6 @@ class AlertsEngine:
             str(deal.get("condition", ""))
         ])
 
-        # Check defect keywords (returns True if clean, False if defective/trap)
         is_defect_free, defect_reason = check_defects(
             text_corpus,
             custom_note=str(deal.get("custom_note", "")),
@@ -140,7 +135,6 @@ class AlertsEngine:
             failed_gates.append("defects_and_traps")
             failure_reasons.append(defect_reason)
         else:
-            # Check shipping trap (Chakubarai) - returns True if clean, False if trap
             is_shipping_ok, trap_reason = check_shipping_trap(text_corpus)
             if not is_shipping_ok:
                 failed_gates.append("defects_and_traps")
@@ -148,7 +142,6 @@ class AlertsEngine:
             else:
                 passed_gates.append("defects_and_traps")
 
-        # Gate 4: Logistics & Battery limit (max 2 Li-Ion per parcel)
         battery_count = resolve_item_battery_count(deal)
         if battery_count > MAX_LI_ION_PER_PARCEL and not deal.get("dry_ship"):
             failed_gates.append("logistics")
@@ -158,7 +151,6 @@ class AlertsEngine:
         else:
             passed_gates.append("logistics")
 
-        # Gate 5: Profitability & ROI Hurdle
         cat_id = deal.get("category_id")
         shipping_share = deal.get("shipping_share_pln")
         landed = calculate_landed_cost(
@@ -232,20 +224,17 @@ class AlertsEngine:
         price_drop_jpy = 0.0
 
         if existing_sig is None:
-            # Check if this was a known tracked item with a price drop
             if previous_price_jpy is not None and current_price_jpy < previous_price_jpy:
                 alert_type = "price_drop"
                 price_drop_jpy = round(previous_price_jpy - current_price_jpy, 0)
             else:
                 alert_type = "new_opportunity"
         else:
-            # Already alerted before. Check if price dropped significantly below last alerted price
             last_price = existing_sig.get("last_price_jpy", current_price_jpy)
             if current_price_jpy < last_price:
                 alert_type = "price_drop"
                 price_drop_jpy = round(last_price - current_price_jpy, 0)
             else:
-                # Deduplication: already alerted at this or lower price
                 return None
 
         now_iso = datetime.now(timezone.utc).isoformat()
@@ -282,7 +271,6 @@ class AlertsEngine:
             "summary": summary
         }
 
-        # Update signatures & history
         signatures[deal_id] = {
             "last_alert_type": alert_type,
             "last_price_jpy": current_price_jpy,

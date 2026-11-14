@@ -70,13 +70,11 @@ class TestSniperGuide(unittest.TestCase):
         self.assertIn("Dry Shipping", md)
         self.assertIn("Szybka Checklista Przed Wciśnięciem „Snajper”", md)
 
-        # Check ending soon URLs
         self.assertIn("sort=end&order=asc", md)
         self.assertIn("sort=end&order=a", md)
         self.assertIn("closedsearch", md)
         self.assertIn("aucfan.com", md)
 
-        # Check items in table
         self.assertIn("Sony PlayStation Vita PCH-2000 (Aqua Blue)", md)
         self.assertIn("Hurtowy Pakiet 50 Gier PSP UMD", md)
         self.assertIn("🔴 1 Li-Ion", md)
@@ -109,7 +107,6 @@ class TestSniperGuide(unittest.TestCase):
             is_live_rate=True
         )
         md = gen.generate()
-        # Max lens price is 100 PLN -> 100 / 0.024832 = 4027 JPY -> rounded to 4,000 JPY
         self.assertIn("4,000 JPY", md)
 
     def test_calculate_max_sniper_bid_logic(self):

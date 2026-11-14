@@ -8,7 +8,6 @@ from pathlib import Path
 from watcher.alerts import AlertsEngine
 from watcher.config import DEFAULT_JPY_PLN_RATE, DEFAULT_EUR_PLN_RATE
 
-
 class TestAlertsEngine(unittest.TestCase):
     def setUp(self):
         self.temp_dir = tempfile.TemporaryDirectory()
@@ -46,7 +45,7 @@ class TestAlertsEngine(unittest.TestCase):
             "id": "cam_over_cap_001",
             "model": "Olympus Mju-II Zoom 80",
             "category_id": "film_cameras_point_shoot",
-            "price_jpy": 6000,  # ~149 PLN > 100 PLN cap
+            "price_jpy": 6000,
             "est_pl_value": 400.0
         }
         res = self.engine.evaluate_gates(expensive_camera)
@@ -74,8 +73,8 @@ class TestAlertsEngine(unittest.TestCase):
             "id": "low_margin_001",
             "model": "Generic Game Boy Cartridge",
             "category_id": "retro_games_mix",
-            "price_jpy": 2500,  # Landed ~110 PLN
-            "est_pl_value": 120.0  # Only ~10 PLN margin (< 40 PLN minimum)
+            "price_jpy": 2500,
+            "est_pl_value": 120.0
         }
         res = self.engine.evaluate_gates(low_margin_deal)
         self.assertFalse(res["eligible"])
@@ -100,8 +99,8 @@ class TestAlertsEngine(unittest.TestCase):
             "id": "m_gem_001",
             "model": "Nintendo DS Lite Polar White",
             "category_id": "nintendo_ds_handhelds",
-            "price_jpy": 2500,  # Landed ~125 PLN
-            "est_pl_value": 240.0,  # ~115 PLN margin (> 40 PLN, ROI > 25%)
+            "price_jpy": 2500,
+            "est_pl_value": 240.0,
             "condition": "Bardzo dobry stan, 動作確認済",
             "shipping_share_pln": 30.0
         }
@@ -116,7 +115,6 @@ class TestAlertsEngine(unittest.TestCase):
         self.assertGreater(alert["net_margin_pln"], 40.0)
         self.assertGreater(alert["roi_pct"], 25.0)
 
-        # Assert persistence to disk
         self.assertTrue(self.alerts_file.exists())
         with open(self.alerts_file, "r", encoding="utf-8") as f:
             saved = json.load(f)
@@ -135,11 +133,9 @@ class TestAlertsEngine(unittest.TestCase):
         alert1 = self.engine.process_candidate(deal)
         self.assertIsNotNone(alert1)
 
-        # Second scan at same price
         alert2 = self.engine.process_candidate(deal)
         self.assertIsNone(alert2)
 
-        # Alerts list in engine must still be 1
         alerts = self.engine.get_alerts()
         self.assertEqual(len(alerts), 1)
 
@@ -156,7 +152,6 @@ class TestAlertsEngine(unittest.TestCase):
         self.assertIsNotNone(alert1)
         self.assertEqual(alert1["alert_type"], "new_opportunity")
 
-        # Seller drops price to 6000 JPY
         deal_dropped = dict(deal)
         deal_dropped["price_jpy"] = 6000
 
@@ -167,10 +162,9 @@ class TestAlertsEngine(unittest.TestCase):
         self.assertEqual(alert2["current_price_jpy"], 6000.0)
         self.assertIn("SPADEK CENY", alert2["summary"])
 
-        # History should now contain 2 alerts
         alerts = self.engine.get_alerts()
         self.assertEqual(len(alerts), 2)
-        self.assertEqual(alerts[0]["alert_type"], "price_drop")  # Newest first
+        self.assertEqual(alerts[0]["alert_type"], "price_drop")
 
     def test_batch_processing_and_clear_history(self):
         """Tests processing multiple items in batch and clearing history."""
@@ -198,18 +192,16 @@ class TestAlertsEngine(unittest.TestCase):
             }
         ]
         emitted = self.engine.process_batch(deals)
-        self.assertEqual(len(emitted), 2)  # d1 and d3 pass, d2 fails defect gate
+        self.assertEqual(len(emitted), 2)
 
         alerted_ids = self.engine.get_alerted_ids()
         self.assertIn("d1", alerted_ids)
         self.assertIn("d3", alerted_ids)
         self.assertNotIn("d2", alerted_ids)
 
-        # Clear history
         self.engine.clear_history()
         self.assertEqual(len(self.engine.get_alerts()), 0)
         self.assertEqual(len(self.engine.get_alerted_ids()), 0)
-
 
 if __name__ == "__main__":
     unittest.main()

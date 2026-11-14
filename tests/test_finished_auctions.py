@@ -8,7 +8,6 @@ from pathlib import Path
 from watcher.finished_auctions_tracker import FinishedAuctionsTracker, HISTORICAL_SEED_AUCTIONS
 from watcher.config import MAX_CAMERA_PRICE_PLN, MAX_LENS_PRICE_PLN
 
-
 class TestFinishedAuctionsTracker(unittest.TestCase):
     """Test suite for FinishedAuctionsTracker."""
 
@@ -26,7 +25,6 @@ class TestFinishedAuctionsTracker(unittest.TestCase):
         self.assertGreaterEqual(len(auctions), len(HISTORICAL_SEED_AUCTIONS))
         self.assertTrue(self.test_file.exists())
 
-        # Verify seed records do not claim fake realized profits
         for a in auctions:
             self.assertIn("potential_arbitrage_pln", a)
             self.assertNotIn("realized_profit", a)
@@ -50,13 +48,11 @@ class TestFinishedAuctionsTracker(unittest.TestCase):
         rec = tracker.record_auction(sample)
         self.assertEqual(rec["auction_id"], "t1234567890")
 
-        # Must be labelled as potential arbitrage / hypothetical margin
         self.assertIn("potential_arbitrage_pln", rec)
         self.assertIn("hypothetical_margin_pln", rec)
         self.assertGreater(rec["potential_arbitrage_pln"], 0)
         self.assertIn("landed_cost_pln", rec)
 
-        # Realized profit must NOT be claimed on market items
         self.assertNotIn("realized_profit", rec)
         self.assertNotIn("realized_profit_pln", rec)
 
@@ -131,7 +127,6 @@ class TestFinishedAuctionsTracker(unittest.TestCase):
         self.assertIn("total_potential_arbitrage_pln", stats)
         self.assertGreater(stats["total_finished"], 0)
         self.assertGreater(stats["avg_potential_arbitrage_pln"], 0)
-
 
 if __name__ == "__main__":
     unittest.main()

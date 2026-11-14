@@ -1,9 +1,4 @@
-/**
- * AgyDeal – Japan Deal & Auction Sniping Radar
- * Mobile-First Android PWA & GitHub Pages Application
- */
 
-// Application State
 const state = {
   data: null,
   currentView: 'opportunities', // 'opportunities' | 'auctions' | 'mercari' | 'search_streams' | 'finished_auctions'
@@ -21,10 +16,8 @@ const state = {
   deferredPrompt: null
 };
 
-// LocalStorage Cart Key
 const CART_STORAGE_KEY = 'agydeal_cart_v2';
 
-// Weight and Logistics Configurations
 const CATEGORY_WEIGHTS = {
   nintendo_switch_lite: 350,
   nintendo_switch: 1000,
@@ -49,7 +42,6 @@ const CATEGORY_WEIGHTS = {
 const OUTER_BOX_BUFFER_WEIGHT_G = 300;
 const AVIA_MAX_WEIGHT_G = 2000;
 
-// DOM Elements
 const elements = {
   feedContainer: document.getElementById('feedContainer'),
   loadingState: document.getElementById('loadingState'),
@@ -60,7 +52,6 @@ const elements = {
   sureDealsOnlyToggle: document.getElementById('sureDealsOnlyToggle'),
   sortSelect: document.getElementById('sortSelect'),
   
-  // Ticker & Badges
   tickerJpyRate: document.getElementById('tickerJpyRate'),
   tickerStorageDays: document.getElementById('tickerStorageDays'),
   tickerStorageChip: document.getElementById('tickerStorageChip'),
@@ -71,7 +62,6 @@ const elements = {
   finishedCountBadge: document.getElementById('finishedCountBadge'),
   totalDealsPill: document.getElementById('totalDealsPill'),
   
-  // Cart
   cartBadgeCount: document.getElementById('cartBadgeCount'),
   stickyCartBar: document.getElementById('stickyCartBar'),
   barCartCount: document.getElementById('barCartCount'),
@@ -81,7 +71,6 @@ const elements = {
   openCartBtn: document.getElementById('openCartBtn'),
   cartBarTrigger: document.getElementById('cartBarTrigger'),
   
-  // Calculator Modal
   calcModal: document.getElementById('calcModal'),
   closeCalcBtn: document.getElementById('closeCalcBtn'),
   closeCalcBtnBottom: document.getElementById('closeCalcBtnBottom'),
@@ -95,7 +84,6 @@ const elements = {
   calcCatSelect: document.getElementById('calcCatSelect'),
   calcAddCartBtn: document.getElementById('calcAddCartBtn'),
   
-  // Calc Breakdown
   resRawPln: document.getElementById('resRawPln'),
   resZenFee: document.getElementById('resZenFee'),
   resDepositFee: document.getElementById('resDepositFee'),
@@ -107,7 +95,6 @@ const elements = {
   calcVerdictBanner: document.getElementById('calcVerdictBanner'),
   calcVerdictText: document.getElementById('calcVerdictText'),
 
-  // Cart Modal & Battery Meter
   cartModal: document.getElementById('cartModal'),
   closeCartBtn: document.getElementById('closeCartBtn'),
   closeCartBtnBottom: document.getElementById('closeCartBtnBottom'),
@@ -117,18 +104,15 @@ const elements = {
   iataProgressFill: document.getElementById('iataProgressFill'),
   iataHintText: document.getElementById('iataHintText'),
 
-  // Package Weight Meter & Limits
   packageWeightLabel: document.getElementById('packageWeightLabel'),
   weightProgressFill: document.getElementById('weightProgressFill'),
   weightHintText: document.getElementById('weightHintText'),
   weightNetVal: document.getElementById('weightNetVal'),
   weightBufferVal: document.getElementById('weightBufferVal'),
 
-  // Shipping Selector
   shippingRecBadge: document.getElementById('shippingRecBadge'),
   shippingTiersGrid: document.getElementById('shippingTiersGrid'),
 
-  // Residual Profit ("Cena, która zostaje")
   residualProfitVal: document.getElementById('residualProfitVal'),
   residualRoiChip: document.getElementById('residualRoiChip'),
   resSumResale: document.getElementById('resSumResale'),
@@ -138,17 +122,14 @@ const elements = {
   resTaxCost: document.getElementById('resTaxCost'),
   resSavingsVal: document.getElementById('resSavingsVal'),
 
-  // Stats Grid
   cartStatItems: document.getElementById('cartStatItems'),
   cartStatLanded: document.getElementById('cartStatLanded'),
   cartStatResale: document.getElementById('cartStatResale'),
   cartStatProfit: document.getElementById('cartStatProfit'),
 
-  // PWA Install Button
   installPwaBtn: document.getElementById('installPwaBtn')
 };
 
-// Initialize Application
 document.addEventListener('DOMContentLoaded', () => {
   loadSavedCart();
   registerServiceWorker();
@@ -159,7 +140,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initLiveCountdownTicker();
 });
 
-// Register PWA Service Worker
 function registerServiceWorker() {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./sw.js')
@@ -168,7 +148,6 @@ function registerServiceWorker() {
   }
 }
 
-// Setup PWA "Install App" prompt on Android
 function setupPwaInstallPrompt() {
   window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
@@ -194,7 +173,6 @@ function setupPwaInstallPrompt() {
   });
 }
 
-// Strict HTML Escaping Helper (Prevents XSS / Unsafe Script Injection - Fix F11)
 function escapeHtml(str) {
   if (str === null || str === undefined) return '';
   return String(str)
@@ -205,7 +183,6 @@ function escapeHtml(str) {
     .replace(/'/g, '&#39;');
 }
 
-// Strict URL protocol & domain allowlist (Rejects javascript:, data:, and untrusted domains)
 const ALLOWED_URL_DOMAINS = [
   'zenmarket.jp',
   'mercari.com',
@@ -241,7 +218,6 @@ function sanitizeUrl(url) {
   }
 }
 
-// Safe CDN Image URL Validator & Proxy Constructor (Fix F11)
 function getSafeImageUrl(url) {
   if (!url || typeof url !== 'string') return './assets/images/placeholder.svg';
   const trimmed = url.trim();
@@ -263,12 +239,10 @@ function getSafeImageUrl(url) {
       return './assets/images/placeholder.svg';
     }
 
-    // Already safely proxied via jauce
     if (cleanUrl.startsWith('https://www.jauce.com/read_yafile/')) {
       return cleanUrl;
     }
 
-    // Geoblocked Yahoo Japan auction images: proxy through Jauce bypass
     if (cleanUrl.includes('auc-pctr.c.yimg.jp')) {
       return 'https://www.jauce.com/read_yafile/' + cleanUrl;
     }
@@ -282,7 +256,6 @@ function getSafeImageUrl(url) {
   }
 }
 
-// Color sanitizer for style attributes to prevent CSS injection
 function sanitizeColor(col, fallback = '#38bdf8') {
   if (!col || typeof col !== 'string') return fallback;
   const trimmed = col.trim();
@@ -292,12 +265,10 @@ function sanitizeColor(col, fallback = '#38bdf8') {
   return fallback;
 }
 
-// 2-decimal financial rounding helper (guarantees parity with Python watcher/costs.py)
 function round2(num) {
   return Math.round((Number(num) + Number.EPSILON) * 100) / 100;
 }
 
-// Strict Eligibility Filter (positive margin, not expired, camera/lens budget cap <=100zł)
 function isDealEligible(deal) {
   const isAuction = Boolean(deal._isAuction || deal.auction_id || (deal.platform && deal.platform.includes('Yahoo')));
   if (isAuction) {
@@ -312,24 +283,20 @@ function isDealEligible(deal) {
     if (timing.isEnded || timing.diffMs <= 0) return false;
   }
 
-  // Camera & Lens budget cap: <= 100 PLN (User rule: "aparaty powyżej 100zł nie są okazjami")
   const rateJpy = state.data?.meta?.exchange_rates?.rate_jpy || 0.024832;
   const pricePln = deal.price_pln_raw || (deal.price_jpy * rateJpy);
   if (deal.category_id === 'film_cameras_point_shoot' || deal.category_id === 'analog_lenses') {
     if (pricePln > 100) return false;
   }
 
-  // Positive margin / conservative contribution required
   const margin = deal.expected_margin_pln !== undefined ? deal.expected_margin_pln : deal.est_margin_pln;
   if (margin === undefined || margin === null || margin <= 0) return false;
 
-  // Reject overheated
   if (deal.verdict_code === 'C_TIER_OVERHEATED') return false;
 
   return true;
 }
 
-// Calculate total eligible opportunities across all sources
 function getEligibleOpportunitiesCount() {
   if (!state.data) return 0;
   const auctions = (state.data.auctions || []).map((d) => ({ ...d, _isAuction: true }));
@@ -337,7 +304,6 @@ function getEligibleOpportunitiesCount() {
   return [...auctions, ...mercari].filter((d) => isDealEligible(d) && !state.hiddenDeals.has(String(d.id))).length;
 }
 
-// Get active Yahoo auctions count (strictly filters out ended / diffMs <= 0 auctions)
 function getActiveAuctionsCount() {
   if (!state.data || !Array.isArray(state.data.auctions)) return 0;
   const now = Date.now();
@@ -353,7 +319,6 @@ function getActiveAuctionsCount() {
   }).length;
 }
 
-// Fetch compiled data feed from ./data/deals.json
 async function fetchDealsData() {
   try {
     const response = await fetch('./data/deals.json?v=' + Date.now(), { cache: 'no-store' });
@@ -373,7 +338,6 @@ async function fetchDealsData() {
   }
 }
 
-// Render Top Tickers & Header Stats
 function renderAppHeader(meta) {
   if (!meta) return;
   const rates = meta.exchange_rates || {};
@@ -385,7 +349,6 @@ function renderAppHeader(meta) {
     elements.tickerStorageDays.textContent = `${storage.days_remaining} dni`;
   }
 
-  // Display warehouse storage chip only when there are items in the warehouse/cart
   if (elements.tickerStorageChip) {
     const hasItems = state.cart && state.cart.length > 0;
     elements.tickerStorageChip.style.display = hasItems ? 'inline-flex' : 'none';
@@ -409,9 +372,7 @@ function renderAppHeader(meta) {
   elements.totalDealsPill.textContent = counts.total_active || 0;
 }
 
-// Setup Event Listeners
 function setupEventListeners() {
-  // View Switcher (Auctions vs Mercari vs Calc)
   document.querySelectorAll('.view-tab').forEach((tab) => {
     tab.addEventListener('click', () => {
       const view = tab.dataset.view;
@@ -427,7 +388,6 @@ function setupEventListeners() {
     });
   });
 
-  // Bottom Navigation Bar
   document.querySelectorAll('.nav-item').forEach((item) => {
     item.addEventListener('click', () => {
       const nav = item.dataset.nav;
@@ -447,7 +407,6 @@ function setupEventListeners() {
     });
   });
 
-  // Search input
   elements.searchInput.addEventListener('input', (e) => {
     state.searchQuery = e.target.value.toLowerCase().trim();
     elements.clearSearchBtn.style.display = state.searchQuery ? 'block' : 'none';
@@ -461,7 +420,6 @@ function setupEventListeners() {
     renderDeals();
   });
 
-  // Category Pills
   elements.categoryPills.querySelectorAll('.pill').forEach((pill) => {
     pill.addEventListener('click', () => {
       elements.categoryPills.querySelectorAll('.pill').forEach((p) => p.classList.remove('active'));
@@ -471,13 +429,11 @@ function setupEventListeners() {
     });
   });
 
-  // Battery Zero Only Toggle
   elements.batteryZeroOnlyToggle.addEventListener('change', (e) => {
     state.batteryZeroOnly = e.target.checked;
     renderDeals();
   });
 
-  // Sure Deals (S-Tier & A-Tier) Only Toggle
   if (elements.sureDealsOnlyToggle) {
     elements.sureDealsOnlyToggle.addEventListener('change', (e) => {
       state.sureDealsOnly = e.target.checked;
@@ -485,20 +441,17 @@ function setupEventListeners() {
     });
   }
 
-  // Sort Order Select
   elements.sortSelect.addEventListener('change', (e) => {
     state.sortOrder = e.target.value;
     renderDeals();
   });
 
-  // Cart Triggers
   elements.openCartBtn.addEventListener('click', openCart);
   elements.cartBarTrigger.addEventListener('click', openCart);
   elements.closeCartBtn.addEventListener('click', closeCart);
   elements.closeCartBtnBottom.addEventListener('click', closeCart);
   elements.clearCartBtn.addEventListener('click', clearCart);
 
-  // Calculator Triggers
   elements.closeCalcBtn.addEventListener('click', closeCalculator);
   elements.closeCalcBtnBottom.addEventListener('click', closeCalculator);
   elements.calcBidInput.addEventListener('input', (e) => {
@@ -512,7 +465,6 @@ function setupEventListeners() {
   elements.calcResaleInput.addEventListener('input', runCalculator);
   elements.calcCatSelect.addEventListener('change', runCalculator);
   elements.calcAddCartBtn.addEventListener('click', addCalculationToCart);
-  // Cart delegation for removing items
   if (elements.cartItemsList) {
     elements.cartItemsList.addEventListener('click', (e) => {
       const btn = e.target.closest('.btn-remove-item');
@@ -522,7 +474,6 @@ function setupEventListeners() {
     });
   }
 
-  // Modal backdrop click to close (Accessible UX)
   if (elements.calcModal) {
     elements.calcModal.addEventListener('click', (e) => {
       if (e.target === elements.calcModal) closeCalculator();
@@ -534,7 +485,6 @@ function setupEventListeners() {
     });
   }
 
-  // Keyboard Escape key to close open modals (WCAG Accessibility)
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       if (elements.calcModal && elements.calcModal.style.display !== 'none') {
@@ -547,7 +497,6 @@ function setupEventListeners() {
   });
 }
 
-// Sync Navigation states
 function syncTopTabs(view) {
   document.querySelectorAll('.view-tab').forEach((t) => {
     t.classList.toggle('active', t.dataset.view === view);
@@ -559,7 +508,6 @@ function syncBottomNav(view) {
   });
 }
 
-// URL query parameter shortcuts (PWA manifest launch)
 function handleUrlShortcuts() {
   const urlParams = new URLSearchParams(window.location.search);
   const tab = urlParams.get('tab');
@@ -594,9 +542,6 @@ function handleUrlShortcuts() {
   }
 }
 
-// ==========================================================================
-// Deal Rendering Engine
-// ==========================================================================
 function renderDeals() {
   if (!state.data) return;
 
@@ -604,7 +549,6 @@ function renderDeals() {
 
   const sureToggleWrapper = document.getElementById('sureDealsOnlyToggle')?.closest('label');
 
-  // View 0: Top Opportunities Across Sources (First View / Default Experience - Fix F10)
   if (state.currentView === 'opportunities') {
     if (sureToggleWrapper) sureToggleWrapper.style.display = 'inline-flex';
 
@@ -612,25 +556,20 @@ function renderDeals() {
     const rawMercari = (state.data.mercari_deals || []).map((d) => ({ ...d, _isAuction: false }));
     let deals = [...rawAuctions, ...rawMercari];
 
-    // Filter out hidden deals
     deals = deals.filter((d) => !state.hiddenDeals.has(String(d.id)));
 
-    // 1. Filter by Category
     if (state.selectedCategory !== 'all') {
       deals = deals.filter((d) => d.category_id === state.selectedCategory);
     }
 
-    // 2. Filter by Battery (Zero only)
     if (state.batteryZeroOnly) {
       deals = deals.filter((d) => !d.has_battery);
     }
 
-    // 2b. Filter by Sure Deals (S-Tier & A-Tier only)
     if (state.sureDealsOnly) {
       deals = deals.filter((d) => d.verdict_code === 'S_TIER_SURE_ARBITRAGE' || d.verdict_code === 'A_TIER_SOLID_DEAL');
     }
 
-    // 3. Filter by Search Query
     if (state.searchQuery) {
       const q = state.searchQuery.toLowerCase();
       deals = deals.filter((d) => {
@@ -642,13 +581,10 @@ function renderDeals() {
       });
     }
 
-    // 4. Strict Eligibility Gate (positive margin, not expired, camera/lens caps <=100zł)
     deals = deals.filter(isDealEligible);
 
-    // 5. Sort Deals
     deals = sortDealsList(deals, state.sortOrder);
 
-    // Update opportunities count badge
     if (elements.opportunitiesCountBadge) {
       elements.opportunitiesCountBadge.textContent = deals.length;
     }
@@ -689,23 +625,19 @@ function renderDeals() {
     return;
   }
 
-  // View 1: Search Streams & Tactical Price Guides
   if (state.currentView === 'search_streams') {
     if (sureToggleWrapper) sureToggleWrapper.style.display = 'none';
 
     let streams = state.data.search_streams || [];
 
-    // Filter by Category
     if (state.selectedCategory !== 'all') {
       streams = streams.filter((s) => s.category_id === state.selectedCategory);
     }
 
-    // Filter by Battery (Zero only)
     if (state.batteryZeroOnly) {
       streams = streams.filter((s) => !s.has_battery);
     }
 
-    // Filter by Search Query
     if (state.searchQuery) {
       const q = state.searchQuery.toLowerCase();
       streams = streams.filter((s) => {
@@ -716,7 +648,6 @@ function renderDeals() {
       });
     }
 
-    // Sort Streams
     streams = sortStreamsList(streams, state.sortOrder);
 
     if (streams.length === 0) {
@@ -733,23 +664,19 @@ function renderDeals() {
     return;
   }
 
-  // View 4: Finished Auctions Archive & Realized Arbitrage Intelligence (落札相場)
   if (state.currentView === 'finished_auctions') {
     if (sureToggleWrapper) sureToggleWrapper.style.display = 'none';
 
     let finished = state.data.finished_auctions || [];
 
-    // Filter by Category
     if (state.selectedCategory !== 'all') {
       finished = finished.filter((f) => f.category_id === state.selectedCategory);
     }
 
-    // Filter by Battery (Zero only)
     if (state.batteryZeroOnly) {
       finished = finished.filter((f) => !f.battery_type || f.battery_type === 'none');
     }
 
-    // Filter by Search Query
     if (state.searchQuery) {
       const q = state.searchQuery.toLowerCase();
       finished = finished.filter((f) => {
@@ -776,11 +703,9 @@ function renderDeals() {
 
   if (sureToggleWrapper) sureToggleWrapper.style.display = 'inline-flex';
 
-  // View 2 & 3: Specific Auction Listings (Yahoo) & Specific BIN Listings (Mercari)
   const isAuctions = state.currentView === 'auctions';
   let deals = isAuctions ? (state.data.auctions || []) : (state.data.mercari_deals || []);
 
-  // Filter out hidden deals
   deals = deals.filter((d) => !state.hiddenDeals.has(String(d.id)));
 
   if (!deals || deals.length === 0) {
@@ -795,7 +720,6 @@ function renderDeals() {
     return;
   }
 
-  // 0. Auto-remove ended/expired auctions (User requirement: no old auctions on the app)
   if (isAuctions) {
     const now = Date.now();
     deals = deals.filter((d) => {
@@ -818,28 +742,23 @@ function renderDeals() {
       return true;
     });
 
-    // Keep active auctions badge count in sync
     if (elements.auctionsCountBadge) {
       elements.auctionsCountBadge.textContent = deals.length;
     }
   }
 
-  // 1. Filter by Category
   if (state.selectedCategory !== 'all') {
     deals = deals.filter((d) => d.category_id === state.selectedCategory);
   }
 
-  // 2. Filter by Battery (Zero only)
   if (state.batteryZeroOnly) {
     deals = deals.filter((d) => !d.has_battery);
   }
 
-  // 2b. Filter by Sure Deals (S-Tier & A-Tier only)
   if (state.sureDealsOnly) {
     deals = deals.filter((d) => d.verdict_code === 'S_TIER_SURE_ARBITRAGE' || d.verdict_code === 'A_TIER_SOLID_DEAL');
   }
 
-  // 3. Filter by Search Query
   if (state.searchQuery) {
     const q = state.searchQuery.toLowerCase();
     deals = deals.filter((d) => {
@@ -851,10 +770,8 @@ function renderDeals() {
     });
   }
 
-  // 4. Sort Deals
   deals = sortDealsList(deals, state.sortOrder);
 
-  // 5. Render HTML Cards
   if (deals.length === 0) {
     const hiddenCount = state.hiddenDeals.size;
     elements.feedContainer.innerHTML = `
@@ -870,16 +787,13 @@ function renderDeals() {
 
   elements.feedContainer.innerHTML = deals.map((deal) => renderDealCard(deal, isAuctions)).join('');
 
-  // Attach card event listeners
   attachCardEvents();
 
-  // Instantly sync live countdowns to newly rendered DOM nodes
   if (typeof window.updateLiveCountdowns === 'function') {
     window.updateLiveCountdowns();
   }
 }
 
-// Sort streams list helper
 function sortStreamsList(list, order) {
   const items = [...list];
   switch (order) {
@@ -906,7 +820,6 @@ function sortStreamsList(list, order) {
   }
 }
 
-// Sort deals list helper
 function sortDealsList(list, order) {
   const items = [...list];
   switch (order) {
@@ -949,9 +862,6 @@ function sortDealsList(list, order) {
   }
 }
 
-// ==========================================================================
-// Search Stream Card Generator (Category: Search Streams & Short Price Guides)
-// ==========================================================================
 function renderCategorySearch() {
   const panel = document.getElementById('categorySearch');
   const pill = [...elements.categoryPills.querySelectorAll('.pill')]
@@ -1111,9 +1021,6 @@ function renderSearchStreamCard(stream) {
   `;
 }
 
-// ==========================================================================
-// Finished Auction Card Generator (Archive & Realized Profits Intelligence)
-// ==========================================================================
 function renderFinishedAuctionCard(item) {
   const safeId = escapeHtml(item.id);
   const safeModel = escapeHtml(item.model || '');
@@ -1235,7 +1142,6 @@ function renderFinishedAuctionCard(item) {
   `;
 }
 
-// Dynamic Auction Timing & Timezone Localization Engine
 function getAuctionLiveTiming(deal) {
   const now = Date.now();
   let endsAtMs = null;
@@ -1331,9 +1237,6 @@ function getAuctionLiveTiming(deal) {
   };
 }
 
-// ==========================================================================
-// Compact Deal Card Generator (Fix F10 & F11: Row <=240px, Safe HTML, Details)
-// ==========================================================================
 function renderDealCard(deal, isAuction) {
   const safeId = escapeHtml(deal.id);
   const safeModel = escapeHtml(deal.model || 'Przedmiot bez nazwy');
@@ -1342,22 +1245,18 @@ function renderDealCard(deal, isAuction) {
   const safeColor = deal.color ? escapeHtml(deal.color) : '';
   const safeCategoryName = escapeHtml(deal.category_name || deal.category_id || '');
 
-  // Live currency rates for precise fee breakdown
   const rateJpy = state.data?.meta?.exchange_rates?.rate_jpy || 0.024832;
   const rateEur = state.data?.meta?.exchange_rates?.rate_eur || 4.35;
 
-  // URLs & Image sanitization
   const primaryUrl = (deal.links && (deal.links.primary_url || deal.links.zenmarket_sniper || deal.links.zenmarket_buy || deal.links.zenmarket_url)) || '#';
   const endingSoonUrl = (deal.links && deal.links.zenmarket_ending_soon) || primaryUrl;
   const safePrimaryUrl = escapeHtml(sanitizeUrl(primaryUrl));
   const safeEndingSoonUrl = escapeHtml(sanitizeUrl(endingSoonUrl));
   const safeImgUrl = escapeHtml(getSafeImageUrl(deal.image_url));
 
-  // Condition & Badge color
   const safeCondition = escapeHtml(deal.condition_short_label || deal.condition_badge || 'Sprawny');
   const safeBadgeColor = sanitizeColor(deal.condition_badge_color, '#38bdf8');
 
-  // Timing
   let liveTiming = null;
   let timingBadge = '';
   if (isAuction) {
@@ -1371,7 +1270,6 @@ function renderDealCard(deal, isAuction) {
   const platformLabel = isAuction ? 'Yahoo!' : 'Mercari';
   const platformBadgeClass = isAuction ? 'platform-yahoo' : 'platform-mercari';
 
-  // Target CTA link
   const auctionTargetUrl = (isAuctionEnded && deal.links?.zenmarket_ending_soon)
     ? deal.links.zenmarket_ending_soon
     : ((deal.links && (deal.links.zenmarket_auction || deal.links.zenmarket_sniper || deal.links.primary_url)) || primaryUrl);
@@ -1382,7 +1280,6 @@ function renderDealCard(deal, isAuction) {
     ? '⏰ Szukaj w ZenMarket'
     : (isAuction ? '🎯 Licytuj' : '🛒 Kup Teraz');
 
-  // Pricing & Margins
   const priceJpy = Number(deal.price_jpy) || 0;
   const pricePlnRaw = deal.price_pln_raw !== undefined ? Number(deal.price_pln_raw) : round2(priceJpy * rateJpy);
   const landedPln = deal.landed_cost_pln !== undefined ? Number(deal.landed_cost_pln) : 0;
@@ -1392,7 +1289,6 @@ function renderDealCard(deal, isAuction) {
   const profitSign = estMargin >= 0 ? '+' : '';
   const profitClass = estMargin >= 80 ? 'text-green' : (estMargin > 0 ? 'text-amber' : 'text-red');
 
-  // Landed cost fee breakdown (exact formula matching watcher/costs.py)
   const domesticShippingPln = round2(800 * rateJpy);
   const zenHandlingPln = round2(2.0 * rateEur);
   const shippingSharePln = Number(deal.shipping_share_pln) || 30.0;
@@ -1401,20 +1297,16 @@ function renderDealCard(deal, isAuction) {
   const depositFeePln = round2(subtotalGoodsFreight * 0.035);
   const vatPln = round2(subtotalGoodsFreight * 0.23);
 
-  // Market comparables
   const allegroPrice = deal.allegro_archive_pln ? deal.allegro_archive_pln.toFixed(0) : Math.round(resalePln * 1.08);
   const olxPrice = deal.olx_haggled_pln ? deal.olx_haggled_pln.toFixed(0) : Math.round(resalePln * 0.90);
 
-  // Expand state
   const isExpanded = state.expandedDealDetails.has(String(deal.id));
 
-  // Auxiliary research links (sanitized)
   const allegroSearchUrl = deal.links?.allegro_search ? escapeHtml(sanitizeUrl(deal.links.allegro_search)) : '';
   const olxSearchUrl = deal.links?.olx_search ? escapeHtml(sanitizeUrl(deal.links.olx_search)) : '';
   const buyeeUrl = deal.links?.buyee_url ? escapeHtml(sanitizeUrl(deal.links.buyee_url)) : '';
   const yahooArchiveUrl = deal.links?.yahoo_closed_archive ? escapeHtml(sanitizeUrl(deal.links.yahoo_closed_archive)) : '';
 
-  // Photo Inspection (if available)
   let inspectionHtml = '';
   if (deal.photo_inspection && deal.photo_inspection.inspected) {
     const pi = deal.photo_inspection;
@@ -1572,9 +1464,7 @@ function renderDealCard(deal, isAuction) {
   `;
 }
 
-// Attach Card Buttons Listeners
 function attachCardEvents() {
-  // Calculator trigger
   document.querySelectorAll('.btn-calc-trigger').forEach((btn) => {
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -1585,7 +1475,6 @@ function attachCardEvents() {
     });
   });
 
-  // Add to cart trigger
   document.querySelectorAll('.btn-add-cart').forEach((btn) => {
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -1596,7 +1485,6 @@ function attachCardEvents() {
     });
   });
 
-  // Details toggle trigger
   document.querySelectorAll('.btn-details-toggle, .btn-collapse-details').forEach((btn) => {
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -1624,7 +1512,6 @@ function attachCardEvents() {
     });
   });
 
-  // Hide deal trigger
   document.querySelectorAll('.btn-hide-deal').forEach((btn) => {
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -1644,7 +1531,6 @@ function attachCardEvents() {
     });
   });
 
-  // Unhide all trigger
   document.querySelectorAll('.btn-unhide-all').forEach((btn) => {
     btn.addEventListener('click', () => {
       state.hiddenDeals.clear();
@@ -1652,7 +1538,6 @@ function attachCardEvents() {
     });
   });
 
-  // Toggle show all opportunities trigger
   const showMoreBtn = document.getElementById('toggleShowAllBtn');
   if (showMoreBtn) {
     showMoreBtn.addEventListener('click', () => {
@@ -1668,9 +1553,6 @@ function findDealById(id, type) {
   return list.find((d) => String(d.id) === String(id));
 }
 
-// ==========================================================================
-// Interactive Sniping Calculator Modal
-// ==========================================================================
 function openCalculator(deal = null) {
   state.activeCalcDeal = deal;
 
@@ -1704,7 +1586,6 @@ function runCalculator() {
   const resalePln = parseFloat(elements.calcResaleInput.value) || 0;
   const catId = elements.calcCatSelect.value;
 
-  // Category shipping shares
   const shippingShares = {
     nintendo_switch_lite: 30.0,
     nintendo_switch: 45.0,
@@ -1723,12 +1604,6 @@ function runCalculator() {
   };
   const shippingShare = shippingShares[catId] !== undefined ? shippingShares[catId] : 30.0;
 
-  // Landed cost calculation matching Python formula in watcher/costs.py exactly (Fix F06)
-  // base_purchase_pln = price_jpy * rate_jpy + domestic_shipping_jpy * rate_jpy + zenmarket_fee_eur * rate_eur
-  // subtotal_goods_and_freight = base_purchase_pln + shipping_share
-  // deposit_fee_pln = subtotal_goods_and_freight * 0.035
-  // vat_pln = subtotal_goods_and_freight * 0.23
-  // landed_cost_pln = base_purchase_pln + shipping_share + deposit_fee_pln + vat_pln
   const pricePlnRaw = round2(bidJpy * rateJpy);
   const domesticShippingPln = round2(800 * rateJpy);
   const zenHandlingPln = round2(2.0 * rateEur);
@@ -1743,7 +1618,6 @@ function runCalculator() {
   const netProfitPln = round2(resalePln - totalLandedPln);
   const roiPct = totalLandedPln > 0 ? (netProfitPln / totalLandedPln) * 100 : 0;
 
-  // Update UI
   elements.calcBidPlnPreview.textContent = `~${pricePlnRaw.toFixed(0)} zł`;
   elements.resRawPln.textContent = `${pricePlnRaw.toFixed(2)} zł`;
   elements.resZenFee.textContent = `~${zenTotalFeePln.toFixed(2)} zł`;
@@ -1759,7 +1633,6 @@ function runCalculator() {
   elements.resRoiPct.style.color = profitColor;
   elements.resRoiPct.textContent = `${roiPct >= 0 ? '+' : ''}${roiPct.toFixed(1)}%`;
 
-  // Verdict Banner
   if (netProfitPln > 200 && roiPct >= 35) {
     elements.calcVerdictBanner.className = 'calc-verdict-banner';
     elements.calcVerdictText.innerHTML = `🌟 <strong>BARDZO WYSOKI ZYSK (+${netProfitPln.toFixed(0)} zł, ROI ${roiPct.toFixed(0)}%)!</strong> Warto licytować z twardym limitem.`;
@@ -1801,9 +1674,6 @@ function addCalculationToCart() {
   openCart();
 }
 
-// ==========================================================================
-// Parcel Consolidation Basket, Package Weight Analysis & Residual Profit
-// ==========================================================================
 function getItemWeight(item) {
   if (item && item.est_weight_g && Number(item.est_weight_g) > 0) {
     return Number(item.est_weight_g);
@@ -1861,7 +1731,6 @@ function calculateCartPackageWeight(cartItems) {
 function calculateShippingOptions(weightG, rateJpy) {
   rateJpy = rateJpy || (state.data && state.data.meta && state.data.meta.exchange_rates ? state.data.meta.exchange_rates.rate_jpy : 0.024832);
 
-  // AVIA Small Packet (Air Economy, max 2000g)
   let aviaAvailable = weightG <= 2000 && weightG > 0;
   let aviaJpy = 0;
   if (aviaAvailable) {
@@ -1870,7 +1739,6 @@ function calculateShippingOptions(weightG, rateJpy) {
   }
   const aviaPln = aviaAvailable ? Math.round(aviaJpy * rateJpy * 100) / 100 : null;
 
-  // EMS Express Air (up to 30kg)
   let emsJpy = 0;
   if (weightG > 0) {
     if (weightG <= 500) emsJpy = 3900;
@@ -1879,7 +1747,6 @@ function calculateShippingOptions(weightG, rateJpy) {
   }
   const emsPln = weightG > 0 ? Math.round(emsJpy * rateJpy * 100) / 100 : 0;
 
-  // Surface Sea Mail (up to 30kg)
   let surfJpy = 0;
   if (weightG > 0) {
     if (weightG <= 1000) surfJpy = 3300;
@@ -1955,7 +1822,6 @@ function computeResidualProfitDetails(cartItems) {
   const residualProfitPln = count > 0 ? (totalResalePln - totalLandedPln) : 0;
   const residualRoiPct = totalLandedPln > 0 ? (residualProfitPln / totalLandedPln * 100) : 0;
 
-  // Individual shipping comparison (~110 PLN per item in separate packages)
   const individualShippingPln = count * 110;
   const consolidationSavingsPln = Math.max(0, individualShippingPln - chosenShippingPln);
 
@@ -2009,7 +1875,6 @@ function saveCart() {
 }
 
 function addToCart(deal) {
-  // Prevent duplicate additions
   const exists = state.cart.some((it) => String(it.id) === String(deal.id));
   if (exists) {
     showToast(`"${deal.model}" jest już w koszyku!`);
@@ -2083,7 +1948,6 @@ function renderCartModal() {
   const details = computeResidualProfitDetails(state.cart);
   const w = details.weightInfo;
 
-  // IATA Progress Bar
   if (elements.iataCountLabel) elements.iataCountLabel.textContent = `${batteryCount} / 2 baterii`;
   const iataPct = Math.min((batteryCount / 2) * 100, 100);
   if (elements.iataProgressFill) elements.iataProgressFill.style.width = `${iataPct}%`;
@@ -2102,7 +1966,6 @@ function renderCartModal() {
     if (elements.iataHintText) elements.iataHintText.innerHTML = `🔴 <strong>ALARM IATA! (${batteryCount}/2):</strong> Przekroczono dopuszczalny limit linii lotniczych! Usuń urządzenia z baterią lub zgłoś do ZenMarketu usunięcie baterii (Dry Shipping).`;
   }
 
-  // Package Weight Meter Widget
   if (elements.weightNetVal) elements.weightNetVal.textContent = w.netWeightG;
   if (elements.weightBufferVal) elements.weightBufferVal.textContent = w.boxBufferG;
   if (elements.packageWeightLabel) {
@@ -2134,7 +1997,6 @@ function renderCartModal() {
     }
   }
 
-  // Shipping Selector Grid
   if (elements.shippingRecBadge) {
     const recOpt = details.shippingInfo[details.shippingInfo.recommendedId];
     elements.shippingRecBadge.textContent = `Zalecana: ${recOpt ? recOpt.name : 'AVIA'}`;
@@ -2163,7 +2025,6 @@ function renderCartModal() {
     }).join('');
   }
 
-  // Residual Net Profit Card ("Cena, która Ci zostaje")
   if (elements.residualProfitVal) {
     elements.residualProfitVal.textContent = `${details.residualProfitPln >= 0 ? '+' : ''}${details.residualProfitPln.toFixed(0)} zł`;
     elements.residualProfitVal.style.color = details.residualProfitPln >= 0 ? '#34d399' : '#ef4444';
@@ -2181,7 +2042,6 @@ function renderCartModal() {
     elements.resSavingsVal.textContent = count > 1 ? `+${details.consolidationSavingsPln.toFixed(0)} zł` : '0 zł (1 sztuka)';
   }
 
-  // Summary Stats Grid
   if (elements.cartStatItems) elements.cartStatItems.textContent = `${count} szt.`;
   if (elements.cartStatLanded) elements.cartStatLanded.textContent = `~${details.totalLandedPln.toFixed(0)} zł`;
   if (elements.cartStatResale) elements.cartStatResale.textContent = `${details.totalResalePln.toFixed(0)} zł`;
@@ -2190,7 +2050,6 @@ function renderCartModal() {
     elements.cartStatProfit.className = details.residualProfitPln >= 0 ? 'text-green' : 'text-red';
   }
 
-  // List Items
   if (count === 0) {
     elements.cartItemsList.innerHTML = `
       <div class="empty-cart-hint">
@@ -2227,7 +2086,6 @@ function renderCartModal() {
   }).join('');
 }
 
-// Global Toast Alert Helper
 function showToast(message) {
   let toast = document.getElementById('appToast');
   if (!toast) {
@@ -2261,7 +2119,6 @@ function showToast(message) {
   }, 2400);
 }
 
-// Live Real-Time Countdown Ticker for Yahoo Auctions (1-second high-precision ticker)
 function initLiveCountdownTicker() {
   function updateCountdowns() {
     const cards = document.querySelectorAll('.deal-card[data-is-auction="1"]');
@@ -2275,31 +2132,25 @@ function initLiveCountdownTicker() {
       const endsAt = endsAtStr ? new Date(endsAtStr).getTime() : NaN;
       const diffMs = !isNaN(endsAt) ? endsAt - now : -1;
 
-      // When an auction timer expires (diffMs <= 0):
-      // Automatically remove the card from the DOM with smooth fade-out and update #auctionsCountBadge!
       if (diffMs <= 0) {
         card.setAttribute('data-is-ended', '1');
 
-        // Remove from memory state so filters and sorting won't restore it
         const dealId = card.id ? card.id.replace('card-', '') : null;
         if (dealId && state.data && Array.isArray(state.data.auctions)) {
           state.data.auctions = state.data.auctions.filter(a => String(a.id) !== String(dealId));
         }
 
-        // Immediately update active count badge
         if (elements.auctionsCountBadge) {
           const liveRemaining = document.querySelectorAll('.deal-card[data-is-auction="1"]:not([data-is-ended="1"])').length;
           elements.auctionsCountBadge.textContent = liveRemaining;
         }
 
-        // Trigger smooth fade-out transition and remove from DOM
         card._removing = true;
         card.classList.add('deal-card-fade-out');
 
         setTimeout(() => {
           card.remove();
 
-          // Recount active cards after DOM removal
           if (elements.auctionsCountBadge) {
             const remaining = document.querySelectorAll('.deal-card[data-is-auction="1"]').length;
             elements.auctionsCountBadge.textContent = remaining;
@@ -2327,7 +2178,6 @@ function initLiveCountdownTicker() {
       const stageEl = ribbon ? ribbon.querySelector('.time-ribbon-stage') : null;
       const iconEl = ribbon ? ribbon.querySelector('.time-ribbon-icon') : null;
 
-      // Format remaining time (seconds precision under 5m)
       let formatted = '';
       if (diffMs < 300000) {
         const m = Math.floor(totalSecs / 60);
@@ -2348,7 +2198,6 @@ function initLiveCountdownTicker() {
       if (ribbonText) ribbonText.textContent = formatted;
       if (badgeText) badgeText.textContent = formatted;
 
-      // Update urgency classes dynamically
       if (ribbon) {
         if (minsRemaining <= 60) {
           const targetClass = diffMs < 300000 ? 'time-ribbon time-ribbon-urgent live-pulse' : 'time-ribbon time-ribbon-urgent';
@@ -2374,13 +2223,11 @@ function initLiveCountdownTicker() {
     });
   }
 
-  // Run immediately and every 1 second
   updateCountdowns();
   if (window._countdownInterval) clearInterval(window._countdownInterval);
   window._countdownInterval = setInterval(updateCountdowns, 1000);
   window.updateLiveCountdowns = updateCountdowns;
 }
 
-// Global scope export for inline onclick
 window.removeFromCart = removeFromCart;
 window.selectShippingMethod = selectShippingMethod;

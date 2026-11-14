@@ -39,7 +39,6 @@ from .finished_auctions_tracker import FinishedAuctionsTracker
 from .market_queries import clean_polish_market_queries
 from .storage import atomic_write_json
 
-
 class WebappExporter:
     """Exports unified deals, auctions, rates, and analytics for the Android / GitHub Pages Web App."""
 
@@ -82,7 +81,6 @@ class WebappExporter:
         query = d.get("search_query_jp", d.get("model", ""))
         encoded_q = urllib.parse.quote(query)
 
-        # Landed cost at current price
         cost_info = calculate_landed_cost(
             price_jpy=price_jpy,
             category_id=cat_id,
@@ -93,7 +91,6 @@ class WebappExporter:
         est_margin = round(est_pl - landed_cost, 2)
         roi_pct = round((est_margin / landed_cost * 100.0), 1) if landed_cost > 0 else 0.0
 
-        # Target ROI hurdle
         if "games_mix" in cat_id or est_pl <= 500:
             target_roi = 40.0
         elif est_pl >= 1200:
@@ -112,7 +109,6 @@ class WebappExporter:
         guar_margin = cap_info["guaranteed_margin_pln"]
         guar_roi = cap_info["guaranteed_roi_pct"]
 
-        # Strict caps on cameras and lenses
         if is_camera_item(d) or cat_id == "film_cameras_point_shoot":
             max_cam = int((MAX_CAMERA_PRICE_PLN / self.rate_jpy) // 100 * 100)
             if max_bid > max_cam:
@@ -140,17 +136,14 @@ class WebappExporter:
         b_type = d.get("battery_type", "none")
         has_battery = (b_type == "li-ion")
 
-        # Resolve image URL
         image_url = self._resolve_image_url(d, cat_id)
 
-        # Allegro completed archive & OLX clean query
         clean_pl_q, clean_olx_slug = clean_polish_market_queries(d)
         allegro_url = f"https://allegro.pl/listing?string={urllib.parse.quote(clean_pl_q)}"
         olx_url = f"https://www.olx.pl/oferty/q-{clean_olx_slug}/"
         allegro_pln = float(d.get("allegro_archive_pln", round(est_pl * 1.08, 1)))
         olx_pln = float(d.get("olx_haggled_pln", round(est_pl * 0.90, 1)))
 
-        # Synchronized auction timing (UTC, Polish time CET, and Japanese time JST)
         timing = calculate_auction_timing(d)
         time_rem = timing["time_remaining_minutes"]
         time_formatted = timing["time_remaining_formatted"]
@@ -163,10 +156,8 @@ class WebappExporter:
         price_stage_note = timing["price_stage_note"]
         is_ending_soon = timing["is_ending_soon"]
 
-        # Closure price prediction & condition grading (落札相場)
         pred = AuctionClosurePredictor.predict_closure(d, self.rate_jpy, self.rate_eur)
 
-        # Resolve specific direct auction links (guarantees direct item listing, not general search)
         aid = str(d.get("auction_id") or d.get("id") or "")
         zen_auction = f"https://zenmarket.jp/pl/auction.aspx?itemCode={aid}"
         buyee_auction = f"https://buyee.jp/item/yahoo/auction/{aid}"
@@ -175,7 +166,6 @@ class WebappExporter:
         zen_ending_soon = f"https://zenmarket.jp/pl/yahoo.aspx?q={encoded_q}&sort=end&order=asc"
         zen_lowest_bid = f"https://zenmarket.jp/pl/yahoo.aspx?q={encoded_q}&sort=price&order=asc"
 
-        # Buy Now price (即決価格) on auction
         buy_now_jpy = d.get("buy_now_price_jpy")
         if buy_now_jpy:
             buy_now_jpy = int(buy_now_jpy)
@@ -186,7 +176,6 @@ class WebappExporter:
             buy_now_pln = None
             has_buy_now_opt = False
 
-        # Weight estimation
         weight_g = resolve_item_weight(d)
         weight_formatted = f"~{weight_g} g" if weight_g < 1000 else f"~{weight_g / 1000.0:.1f} kg"
 
@@ -287,8 +276,6 @@ class WebappExporter:
         img = deal.get("image_url")
         if img and isinstance(img, str) and img.strip() and img != "None":
             img_clean = img.strip()
-            # Yahoo Japan CDN (auc-pctr.c.yimg.jp) geoblocks European/Polish IP addresses (HTTP 403).
-            # Route through Jauce's high-speed CDN reverse proxy so images load cleanly in Poland and the EEA.
             if img_clean.startswith("https://auc-pctr.c.yimg.jp"):
                 return f"https://www.jauce.com/read_yafile/{img_clean}"
             return img_clean
@@ -339,7 +326,6 @@ class WebappExporter:
         query_jp = d.get("search_query_jp") or d.get("model", "")
         encoded_q = urllib.parse.quote(query_jp)
 
-        # Resolve buy and direct links without internal proxy ID leak
         iid = str(d.get("mercari_id") or d.get("id", ""))
         is_real_mercari = bool(re.match(r"^m\d+$", iid))
         
@@ -356,7 +342,6 @@ class WebappExporter:
 
         buyee_buy = f"https://buyee.jp/mercari/item/{iid}" if is_real_mercari else f"https://buyee.jp/mercari/search?keyword={encoded_q}"
 
-        # Weight estimation
         weight_g = resolve_item_weight(d)
         weight_formatted = f"~{weight_g} g" if weight_g < 1000 else f"~{weight_g / 1000.0:.1f} kg"
 
@@ -441,11 +426,8 @@ class WebappExporter:
 
         now_str = datetime.now().strftime("%Y-%m-%d %H:%M UTC")
 
-        # Process Yahoo Auctions
         processed_auctions = [self.process_yahoo_deal(d) for d in self.raw_yahoo]
 
-        # Filter out auctions that have already ended (User requirement: remove old/done auctions)
-        # and gather data into finished auctions archive (authoritative source: data/finished_auctions.json)
         now_utc = datetime.now(timezone.utc)
         active_auctions = []
         ended_auctions = []
@@ -474,19 +456,16 @@ class WebappExporter:
             else:
                 ended_auctions.append(a)
 
-        # Harvest ended auctions into historical archive
         if ended_auctions:
             tracker.harvest_from_active(ended_auctions)
 
         finished_auctions = tracker.get_all()
 
-        # Synchronize authoritative finished auctions to docs/data/finished_auctions.json
         if output_file:
             docs_finished = target_path.parent / "finished_auctions.json"
             if docs_finished.resolve() != tracker.filepath.resolve():
                 tracker.sync_to(docs_finished)
 
-        # Sort Yahoo Auctions by remaining time ascending by default (ending soonest first – true prices)
         active_auctions.sort(
             key=lambda x: (
                 x.get("time_remaining_minutes") if x.get("time_remaining_minutes") is not None else 999999,
@@ -494,16 +473,13 @@ class WebappExporter:
             )
         )
 
-        # Process Mercari Deals (only active / available)
         active_mercari = [
             self.process_mercari_deal(d) for d in self.raw_mercari
             if "Dostępne" in str(d.get("status", ""))
         ]
 
-        # Generate Search Streams with concise price guides & earliest ending links
         search_streams = generate_search_streams(rate_jpy=self.rate_jpy, rate_eur=self.rate_eur)
 
-        # Categories catalogue with metadata
         categories = [
             {"id": "all", "name": "Wszystkie Okazje", "icon": "🌐", "count": len(active_auctions) + len(active_mercari)},
             {"id": "nintendo_switch_lite", "name": "Nintendo Switch Lite", "icon": "🎮", "battery": True},

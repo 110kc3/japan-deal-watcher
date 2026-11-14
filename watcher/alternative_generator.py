@@ -31,7 +31,6 @@ class AlternativeDealsGenerator:
         self.rate_eur = float(rate_eur)
         self.is_live_rate = is_live_rate
 
-        # Re-calculate landed costs with current live rate
         self.deals = self._recompute_costs(raw_deals)
         self.analyzer = DealAnalyzer(self.deals, rate_jpy=self.rate, rate_eur=self.rate_eur)
 
@@ -149,7 +148,6 @@ class AlternativeDealsGenerator:
         md.append("---")
         md.append("")
 
-        # Strategic value proposition
         md.append("## 💡 Dlaczego Warto Korzystać z Yahoo! Auctions i Surugaya?")
         md.append("")
         md.append("Mercari Japan jest znakomite do natychmiastowych zakupów („Kup Teraz”), ale Yahoo! Auctions Japan oraz Surugaya oferują unikalne przewagi:")
@@ -160,7 +158,6 @@ class AlternativeDealsGenerator:
         md.append("4. **Weryfikacja Stanu w Surugaya:** Sklep Surugaya osobiście testuje sprzęt i klasyfikuje stan, eliminując ryzyko zakupu od nieuczciwego sprzedawcy prywatnego.")
         md.append("")
 
-        # Platform comparison table
         md.append("### ⚖️ Porównanie Japońskich Platform Zakupowych")
         md.append("")
         md.append("| Cecha / Platforma | Mercari Japan | Yahoo! Auctions Japan | Surugaya (駿河屋) | eBay Japan (IOSS) |")
@@ -176,7 +173,6 @@ class AlternativeDealsGenerator:
         md.append("---")
         md.append("")
 
-        # 60-Day Timeline
         md.append("## 📦 60-Day Warehouse Consolidation Timeline")
         md.append("")
         md.append(f"Wszystkie przedmioty wygrane na Yahoo! Auctions oraz kupione w Surugaya trafiają do wspólnego magazynu **ZenMarket w Osace**. Masz **{days_rem} dni darmowego przechowywania** na połączenie ich z ofertami z Mercari w 1 bezpieczną paczkę.")
@@ -198,7 +194,6 @@ class AlternativeDealsGenerator:
         md.append("---")
         md.append("")
 
-        # Top Snipes
         valid_deals = [d for d in self.deals if "Zakończone" not in d.get("status", "")]
         sorted_deals = sorted(valid_deals, key=lambda x: x.get("est_margin_pln", 0), reverse=True)
         top_snipes = sorted_deals[:3]
@@ -223,7 +218,6 @@ class AlternativeDealsGenerator:
         md.append("---")
         md.append("")
 
-        # Category tables
         categories = {}
         for d in self.deals:
             cname = d.get("category_name", "Inne")
@@ -306,7 +300,6 @@ class AlternativeDealsGenerator:
             md.append("---")
             md.append("")
 
-        # Consolidation simulation box
         b_items = optimal_basket.get("items", [])
         md.append("## 💡 Optymalny Koszyk Konsolidacyjny (Yahoo! Auctions + Surugaya)")
         md.append("")
@@ -333,7 +326,6 @@ class AlternativeDealsGenerator:
         md.append("---")
         md.append("")
 
-        # Practical Guide on Sniper Bidding
         md.append("## 📖 Poradnik Licytacji przez ZenMarket Sniper")
         md.append("")
         md.append("1. **Doładuj saldo depozytowe w ZenMarket:** Aby złożyć ofertę, musisz mieć zdeponowaną kwotę równą Twojej maksymalnej ofercie (w JPY). Jeśli przegrasz aukcję, cała kwota natychmiast wraca na Twoje saldo bez żadnych potrąceń!")

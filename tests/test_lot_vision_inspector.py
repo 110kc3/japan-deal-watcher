@@ -4,7 +4,6 @@ import unittest
 from watcher.lot_vision_inspector import LotVisionInspector, RETRO_GAME_KNOWLEDGE_BASE, DANSHARI_KEYWORDS
 from watcher.mystery_lots_generator import MysteryLotsGenerator
 
-
 class TestLotVisionInspector(unittest.TestCase):
     def test_detect_danshari_keywords(self):
         t1 = "【断捨離】ニンテンドーDS ゲームソフト 大量まとめ売り"
@@ -32,7 +31,6 @@ class TestLotVisionInspector(unittest.TestCase):
         inspection = LotVisionInspector.inspect_lot_photo_contents(sample_deal)
 
         self.assertTrue(inspection["inspected"])
-        # Truthful labelling: no image was provided, so it must be text_analysis, NOT AI Vision
         self.assertEqual(inspection["analysis_method"], "text_analysis")
         self.assertIn("Text Analysis", inspection["inspection_badge"])
         self.assertNotIn("AI Vision", inspection["inspection_badge"])
@@ -48,12 +46,10 @@ class TestLotVisionInspector(unittest.TestCase):
         self.assertTrue(any("Zelda" in t for t in titles))
 
         self.assertGreater(inspection["spotted_gems_value_pln"], 180.0)
-        # Filler without evidence has 0.0 confirmed PLN
         self.assertEqual(inspection["filler_value_pln"], 0.0)
         self.assertIn("Break-Even", inspection["break_even_gem"])
         self.assertFalse(inspection["battery_hazard_detected"])
 
-        # Deductions in net proceeds calculation
         self.assertIn("net_proceeds_pln", inspection)
         self.assertIn("net_proceeds_breakdown", inspection)
         self.assertLess(inspection["net_proceeds_pln"], inspection["estimated_total_lot_value_pln"])
@@ -68,19 +64,16 @@ class TestLotVisionInspector(unittest.TestCase):
         }
         inspection = LotVisionInspector.inspect_lot_photo_contents(text_only_deal)
 
-        # 1. Truthful labelling
         self.assertEqual(inspection["analysis_method"], "text_analysis")
         self.assertIn("Text Analysis", inspection["inspection_badge"])
         self.assertNotIn("AI Vision", inspection["inspection_badge"])
 
-        # 2. No arbitrary 30 items or fake filler
         self.assertTrue(inspection["uncertain_contents"])
         self.assertEqual(inspection["spotted_items_count"], 1)
-        self.assertEqual(inspection["total_items_spotted"], 1)  # only 1 confirmed item, NOT 30!
+        self.assertEqual(inspection["total_items_spotted"], 1)
         self.assertEqual(inspection["filler_count"], 0)
         self.assertEqual(inspection["filler_value_pln"], 0.0)
 
-        # 3. Net proceeds includes deductions (failure rate, unsold allowance, handling, selling fees)
         self.assertIn("net_proceeds_pln", inspection)
         breakdown = inspection["net_proceeds_breakdown"]
         self.assertGreater(breakdown["failure_deduction_pln"], 0)
@@ -114,14 +107,14 @@ class TestLotVisionInspector(unittest.TestCase):
             selling_fee_rate=0.08
         )
         self.assertEqual(res["gross_value_pln"], 500.0)
-        self.assertEqual(res["failure_deduction_pln"], 75.0)  # 15% of 500
-        self.assertEqual(res["unsold_deduction_pln"], 50.0)   # 10% of 500
+        self.assertEqual(res["failure_deduction_pln"], 75.0)
+        self.assertEqual(res["unsold_deduction_pln"], 50.0)
         self.assertEqual(res["parts_cost_pln"], 50.0)
-        self.assertEqual(res["handling_cost_pln"], 50.0)     # 10 * 5.0
-        self.assertEqual(res["selling_fees_pln"], 40.0)      # 8% of 500
-        expected_total = 75.0 + 50.0 + 50.0 + 50.0 + 40.0     # 265.0
+        self.assertEqual(res["handling_cost_pln"], 50.0)
+        self.assertEqual(res["selling_fees_pln"], 40.0)
+        expected_total = 75.0 + 50.0 + 50.0 + 50.0 + 40.0
         self.assertEqual(res["total_deductions_pln"], 265.0)
-        self.assertEqual(res["net_proceeds_pln"], 235.0)      # 500 - 265
+        self.assertEqual(res["net_proceeds_pln"], 235.0)
 
     def test_battery_hazard_detection(self):
         deal_with_console = {
@@ -225,7 +218,6 @@ class TestLotVisionInspector(unittest.TestCase):
         md = LotVisionInspector.format_inspection_markdown(res)
         self.assertIn("Analiza Hurtowa PSP", md)
         self.assertIn("3 sztuk", md)
-
 
 if __name__ == "__main__":
     unittest.main()

@@ -10,10 +10,7 @@ import unicodedata
 import urllib.parse
 from typing import Dict, List, Any, Optional
 
-# Polish market value reference catalog for Japanese games identified in lot photos (Allegro Archiwum / OLX medians)
-# Rigorously discounted for NTSC-J / 100% Japanese language barrier where applicable!
 RETRO_GAME_KNOWLEDGE_BASE = {
-    # --- NINTENDO DS GEMS ---
     "pokemon_heartgold": {
         "title": "Pokémon HeartGold (Pocket Monsters HeartGold)",
         "jp_title": "ポケットモンスター ハートゴールド",
@@ -171,7 +168,6 @@ RETRO_GAME_KNOWLEDGE_BASE = {
         "keywords": ["ドラゴンクエストix", "星空の守り人", "dq9"]
     },
 
-    # --- GAME BOY ADVANCE (GBA) & GAME BOY COLOR GEMS ---
     "pokemon_emerald_gba": {
         "title": "Pokémon Emerald (Pocket Monsters Emerald)",
         "jp_title": "ポケットモンスター エメラルド",
@@ -238,7 +234,6 @@ RETRO_GAME_KNOWLEDGE_BASE = {
         "keywords": ["メトロイドフュージョン", "metroid fusion"]
     },
 
-    # --- SONY PSP & PS VITA GEMS ---
     "persona_3_portable_psp": {
         "title": "Persona 3 Portable (P3P)",
         "jp_title": "ペルソナ3 ポータブル",
@@ -292,7 +287,6 @@ RETRO_GAME_KNOWLEDGE_BASE = {
         "keywords": ["ペルソナ4", "p4g", "persona 4"]
     },
 
-    # --- SONY PLAYSTATION 1 & 2 CLASSICS ---
     "final_fantasy_vii_ps1": {
         "title": "Final Fantasy VII / VIII / IX (PS1 JPN)",
         "jp_title": "ファイナルファンタジー VII / VIII / IX",
@@ -364,7 +358,6 @@ DANSHARI_KEYWORDS = {
     }
 }
 
-
 class LotVisionInspector:
     """
     Intelligent Inspector for Japanese Mystery Lots, Danshari Boxes, and Photo Contents.
@@ -396,7 +389,6 @@ class LotVisionInspector:
                 "all_tags": [m["label"] for m in matched]
             }
 
-        # Check for generic matomeuri or tsumeawase in english or kana
         if "まとめ" in text or "set" in text.lower() or "lot" in text.lower():
             return {
                 "is_mystery_lot": True,
@@ -480,7 +472,6 @@ class LotVisionInspector:
 
         existing_pi = deal.get("photo_inspection")
         if existing_pi and existing_pi.get("inspected", False):
-            # Already inspected. Ensure truthful labelling if text-only
             if not has_visual_image and existing_pi.get("analysis_method") != "visual_analysis":
                 res = dict(existing_pi)
                 if "analysis_method" not in res:
@@ -494,7 +485,6 @@ class LotVisionInspector:
         analysis_method = "visual_analysis" if has_visual_image else "text_analysis"
         inspection_badge = "🔍 Inspekcja Zdjęcia (AI Vision)" if has_visual_image else "📝 Analiza Tekstowa (Text Analysis)"
 
-        # Generate automated inspection
         raw_text = " ".join([
             deal.get("model", ""),
             deal.get("custom_note", ""),
@@ -542,21 +532,19 @@ class LotVisionInspector:
         spotted_items_count = len(spotted_gems)
         danshari_info = cls.detect_danshari_type(raw_text)
 
-        # Estimate lot total item count from title
         count_match = re.search(r'(\d+)\s*(?:gier|sztuk|本|点|タイトル)', raw_text)
         if count_match:
             total_items = int(count_match.group(1))
             uncertain_contents = False
             item_count = total_items
             filler_count = max(0, total_items - spotted_items_count)
-            filler_val = 0.0  # Unknown filler has no confirmed value without evidence
+            filler_val = 0.0
         else:
             uncertain_contents = True
             item_count = spotted_items_count
             filler_count = 0
             filler_val = 0.0
 
-        # Check if lot is a wholesale console hardware bundle (specifically wholesale PSP lots >= 3 units)
         is_psp_wholesale = "psp" in raw_text and any(w in raw_text for w in ["3台", "4台", "5台", "10台", "3 szt", "4 szt", "5 szt", "10 szt", "hurt", "hurtowy", "大量"])
         psp_wholesale_info = None
         if is_psp_wholesale:
@@ -605,11 +593,9 @@ class LotVisionInspector:
             }
             break_even_str = f"Break-Even: Sprzedaż zaledwie 1 sprawnej konsoli PSP-2000/3000 (~240-270 zł) pokrywa ~70-80% kosztu zakupu całego pakietu {psp_count} sztuk!"
         else:
-            # Check battery safety: did seller include a console in the box?
             battery_hazard = False
             battery_notes = "🟢 100% Czyste Gry (0% Li-Ion / Brak baterii - bez ograniczeń IATA w paczce lotniczej)"
 
-            # Check for explicit console hardware indicators
             has_console = (
                 "本体" in raw_text
                 or "konsola" in raw_text

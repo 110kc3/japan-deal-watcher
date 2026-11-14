@@ -23,7 +23,6 @@ from .config import (
     VAT_RATE
 )
 
-
 def resolve_item_weight(item: Dict[str, Any]) -> int:
     """Returns the estimated net weight of an item in grams."""
     if not item:
@@ -53,7 +52,6 @@ def resolve_item_weight(item: Dict[str, Any]) -> int:
     if "danshari" in name or "mystery" in name or "karton" in name or "zestaw" in name:
         return 1800
     return DEFAULT_ITEM_WEIGHT_G
-
 
 def calculate_package_weight(
     items: List[Dict[str, Any]],
@@ -95,7 +93,6 @@ def calculate_package_weight(
         "weight_pct_of_avia": pct
     }
 
-
 def estimate_shipping_cost_by_method(
     weight_g: int,
     method_id: str,
@@ -123,7 +120,6 @@ def estimate_shipping_cost_by_method(
         }
 
     if method_id == "avia_small_packet":
-        # Base: 1,200 JPY (up to 100g) + 150 JPY per 100g
         if weight_g <= 100:
             cost_jpy = 1200
         else:
@@ -131,7 +127,6 @@ def estimate_shipping_cost_by_method(
             cost_jpy = 1200 + steps * 150
 
     elif method_id == "ems_express":
-        # Base: 3,900 JPY (up to 500g)
         if weight_g <= 500:
             cost_jpy = 3900
         elif weight_g <= 2000:
@@ -142,7 +137,6 @@ def estimate_shipping_cost_by_method(
             cost_jpy = 6000 + steps * 700
 
     elif method_id == "surface_sea":
-        # Base: 3,300 JPY (up to 1,000g) + 450 JPY per 1,000g
         if weight_g <= 1000:
             cost_jpy = 3300
         else:
@@ -164,7 +158,6 @@ def estimate_shipping_cost_by_method(
         "unavailability_reason": None
     }
 
-
 def calculate_shipping_rates_by_weight(
     weight_g: int,
     rate_jpy: float = DEFAULT_JPY_PLN_RATE
@@ -177,7 +170,6 @@ def calculate_shipping_rates_by_weight(
     for mid in SHIPPING_METHODS:
         rates[mid] = estimate_shipping_cost_by_method(weight_g, mid, rate_jpy)
 
-    # Determine recommended method
     available_methods = [r for r in rates.values() if r["is_available"] and r["cost_pln"] is not None]
     if not available_methods:
         recommended_id = "ems_express"
@@ -186,7 +178,6 @@ def calculate_shipping_rates_by_weight(
     elif weight_g <= 4000:
         recommended_id = "ems_express"
     else:
-        # For heavy packages > 4kg, surface sea is cheapest
         cheapest = min(available_methods, key=lambda x: x["cost_pln"])
         recommended_id = cheapest["method_id"]
 
@@ -196,7 +187,6 @@ def calculate_shipping_rates_by_weight(
         "recommended_method_id": recommended_id,
         "recommended": rates.get(recommended_id)
     }
-
 
 def calculate_residual_profit(
     items: List[Dict[str, Any]],
@@ -272,7 +262,6 @@ def calculate_residual_profit(
         "shipping_rates": shipping_info
     }
 
-
 def resolve_item_battery_count(item: Dict[str, Any]) -> int:
     """
     Accurately counts lithium batteries per item.
@@ -283,11 +272,9 @@ def resolve_item_battery_count(item: Dict[str, Any]) -> int:
     if not item:
         return 0
 
-    # If already disposed or marked dry ship
     if item.get("battery_disposed") or item.get("dry_ship"):
         return 0
 
-    # Explicit battery_count takes precedence
     if "battery_count" in item and item["battery_count"] is not None:
         try:
             return max(0, int(item["battery_count"]))
@@ -306,7 +293,6 @@ def resolve_item_battery_count(item: Dict[str, Any]) -> int:
         str(item.get("search_query_jp", ""))
     ]).lower()
 
-    # Multi-unit console bundle detection (e.g. wholesale PSP lots: 3台, 4台, 5台, 3 szt, 5 sztuk)
     unit_count = 1
     m = re.search(r'(\d+)\s*(?:台|szt|konsole|konsol|sztuk)', text)
     if m:
@@ -317,7 +303,6 @@ def resolve_item_battery_count(item: Dict[str, Any]) -> int:
         except ValueError:
             pass
 
-    # Known lithium battery devices
     li_ion_patterns = [
         "psp", "vita", "3ds", "ds lite", "dslite", "dsi", "gba sp",
         "game boy advance sp", "switch", "dualsense", "dualshock 3", "dualshock 4"
@@ -326,14 +311,12 @@ def resolve_item_battery_count(item: Dict[str, Any]) -> int:
     if b_type == "li-ion":
         return unit_count
     if any(p in text for p in li_ion_patterns):
-        # Exclude accessories that are just games/cases/cables/chargers without the console
         if any(acc in text for acc in ["box only", "manual only", "gra ", "game only", "silicone cover", "etui"]):
             if not any(k in text for k in ["本体", "konsola", "console"]):
                 return 0
         return unit_count
 
     return 0
-
 
 def apply_battery_disposal(
     item: Dict[str, Any],
@@ -376,7 +359,6 @@ def apply_battery_disposal(
         "is_dry_ship": item_copy.get("dry_ship", False)
     }
 
-
 def calculate_marginal_freight(
     current_items: List[Dict[str, Any]],
     candidate_item: Dict[str, Any],
@@ -396,7 +378,6 @@ def calculate_marginal_freight(
     rate_jpy = float(rate_jpy or DEFAULT_JPY_PLN_RATE)
     rate_eur = float(rate_eur or DEFAULT_EUR_PLN_RATE)
 
-    # 1. Current parcel state
     if current_items:
         curr_weight_info = calculate_package_weight(current_items)
         curr_shipping_info = calculate_shipping_rates_by_weight(curr_weight_info["total_weight_g"], rate_jpy)
@@ -417,7 +398,6 @@ def calculate_marginal_freight(
         curr_is_avia = True
         curr_battery_audit = {"li_ion_count": 0, "is_compliant": True, "slots_available": MAX_LI_ION_PER_PARCEL}
 
-    # 2. New parcel state with candidate added
     new_items = list(current_items) + [candidate_item]
     new_weight_info = calculate_package_weight(new_items)
     new_shipping_info = calculate_shipping_rates_by_weight(new_weight_info["total_weight_g"], rate_jpy)
@@ -429,20 +409,16 @@ def calculate_marginal_freight(
     new_is_avia = new_weight_info["is_avia_eligible"]
     new_battery_audit = ConsolidationTracker.audit_battery_slots(new_items)
 
-    # 3. Incremental freight & weight
     marginal_weight_g = new_weight_g - curr_weight_g if current_items else new_weight_g
     marginal_freight_pln = round(max(0.0, new_freight_pln - curr_freight_pln), 2) if current_items else new_freight_pln
     marginal_freight_jpy = max(0, new_freight_jpy - curr_freight_jpy) if current_items else new_freight_jpy
 
-    # 4. Weight bracket crossing check (e.g. AVIA Small Packet 2000g ceiling)
     crossed_avia_bracket = bool(current_items and curr_is_avia and not new_is_avia)
     bracket_changed = bool(current_items and (curr_method.get("method_id") != new_method.get("method_id")))
 
-    # 5. Battery compliance check
     battery_limit_exceeded = not new_battery_audit["is_compliant"]
     cand_batteries = resolve_item_battery_count(candidate_item)
 
-    # 6. Marginal economics & profit impact
     cand_price_jpy = float(candidate_item.get("price_jpy", candidate_item.get("target_price_jpy", 0)))
     cand_price_pln = round(cand_price_jpy * rate_jpy, 2)
     cand_zen_jpy = ZENMARKET_FEE_JPY
@@ -450,7 +426,6 @@ def calculate_marginal_freight(
     cand_zen_pln = round(cand_zen_jpy * rate_jpy + cand_zen_eur * rate_eur, 2)
     cand_resale_pln = float(candidate_item.get("est_pl_value", 0))
 
-    # Marginal landed cost of adding this specific item into the parcel
     marginal_subtotal = round(cand_price_pln + cand_zen_pln + marginal_freight_pln, 2)
     marginal_deposit_fee = round(marginal_subtotal * ZENMARKET_DEPOSIT_FEE_RATE, 2)
     marginal_vat = round(marginal_subtotal * VAT_RATE, 2)
@@ -460,7 +435,6 @@ def calculate_marginal_freight(
 
     erases_margin = bool(marginal_net_margin_pln <= 0)
 
-    # 7. Recommendation decision
     if battery_limit_exceeded:
         recommendation = "reject_battery_limit"
         verdict = (
@@ -513,7 +487,6 @@ def calculate_marginal_freight(
         "verdict": verdict,
         "battery_audit": new_battery_audit
     }
-
 
 class ConsolidationTracker:
     def __init__(self, start_date=CONSOLIDATION_START, storage_limit_days=FREE_STORAGE_DAYS):
@@ -679,7 +652,6 @@ class ConsolidationTracker:
         days_passed = (now_date - self.start_date).days
         days_remaining = max(0, (deadline - now_date).days)
 
-        # Determine status level
         if days_remaining > 30:
             status_badge = "🟢 Safe (Ideal consolidation window)"
             status_color = "brightgreen"
@@ -718,14 +690,11 @@ class ConsolidationTracker:
                 "weight_kg": 0.0
             }
         
-        # Individual shipping estimate per small parcel JP-PL: ~110 PLN
         individual_cost = len(items) * 110
         
-        # Consolidated parcel: base ~140 PLN + ~25 PLN per kg/extra item
         consolidated_cost = 140 + max(0, (len(items) - 1) * 18)
         savings = max(0, individual_cost - consolidated_cost)
 
-        # Weight-based analysis
         weight_info = calculate_package_weight(items)
         shipping_info = calculate_shipping_rates_by_weight(weight_info["total_weight_g"], rate_jpy)
         rec_shipping_pln = shipping_info["recommended"]["cost_pln"] if shipping_info.get("recommended") else consolidated_cost
@@ -770,7 +739,6 @@ class ConsolidationTracker:
             )
         }
 
-        # Japan Post Dangerous Goods regulations apply to Sea Mail too!
         sea_mail_note = (
             "Zasady towarów niebezpiecznych Japan Post (Dangerous Goods) obowiązują również pocztę morską (Surface Mail). "
             "Poczta morska NIE jest darmową furtką na ominięcie limitów IATA dla baterii litowych bez deklaracji."

@@ -23,7 +23,6 @@ from watcher.checks import (
 )
 from watcher.config import WATCHLIST_FILE, YAHOO_DEALS_FILE, BASE_DIR, MAX_CAMERA_PRICE_PLN, MAX_LENS_PRICE_PLN
 
-
 class TestChecks(unittest.TestCase):
 
     def test_camera_detection(self):
@@ -66,7 +65,6 @@ class TestChecks(unittest.TestCase):
         self.assertFalse(is_nintendo_ds_item(not_ds))
 
     def test_camera_price_cap_rule(self):
-        # 1. Camera <= 100 PLN passes
         cheap_camera = {
             "category_id": "film_cameras_point_shoot",
             "model": "Minolta Riva Zoom",
@@ -76,7 +74,6 @@ class TestChecks(unittest.TestCase):
         self.assertTrue(ok)
         self.assertIn("mieści się w limicie", msg)
 
-        # 2. Camera > 100 PLN fails
         expensive_camera = {
             "category_id": "film_cameras_point_shoot",
             "model": "Olympus mju II",
@@ -87,7 +84,6 @@ class TestChecks(unittest.TestCase):
         self.assertIn("przekracza dopuszczalny limit", msg)
         self.assertIn("Aparaty powyżej 100 zł nie są okazjami", msg)
 
-        # 3. Non-camera item > 100 PLN is not affected
         expensive_console = {
             "category_id": "ps_vita",
             "model": "PS Vita OLED",
@@ -98,7 +94,6 @@ class TestChecks(unittest.TestCase):
         self.assertIn("N/A", msg)
 
     def test_lens_price_cap_rule(self):
-        # 1. Lens <= 100 PLN passes
         cheap_lens = {
             "category_id": "analog_lenses",
             "model": "SMC Pentax-M 50mm f/2",
@@ -108,7 +103,6 @@ class TestChecks(unittest.TestCase):
         self.assertTrue(ok)
         self.assertIn("mieści się w limicie", msg)
 
-        # 2. Lens > 100 PLN fails
         expensive_lens = {
             "category_id": "analog_lenses",
             "model": "Canon FD 50mm f/1.4",
@@ -119,7 +113,6 @@ class TestChecks(unittest.TestCase):
         self.assertIn("przekracza dopuszczalny limit", msg)
         self.assertIn("Obiektywy w dużych cenach odpadają", msg)
 
-        # 3. Non-lens item > 100 PLN is not affected
         expensive_console = {
             "category_id": "ps_vita",
             "model": "PS Vita OLED",
@@ -130,7 +123,6 @@ class TestChecks(unittest.TestCase):
         self.assertIn("N/A", msg)
 
     def test_expanded_defects_detection(self):
-        # Optics defects: fungus, haze
         ok, msg = check_defects("レンズにカビあり。撮影に影響します。")
         self.assertFalse(ok)
         self.assertIn("カビあり", msg)
@@ -139,38 +131,31 @@ class TestChecks(unittest.TestCase):
         self.assertFalse(ok)
         self.assertIn("クモリあり", msg)
 
-        # Mechanics defects: shutter stuck, winder broken
         ok, msg = check_defects("シャッター不動のためジャンクです。")
         self.assertFalse(ok)
         self.assertIn("シャッター不動", msg)
 
-        # Corrosion: blue verdigris, terminal acid
         ok, msg = check_defects("電池室に青サビがあります。")
         self.assertFalse(ok)
         self.assertIn("青サビ", msg)
 
-        # Hinge & battery door broken
         ok, msg = check_defects("ヒンジ破損により画面が自立しません。")
         self.assertFalse(ok)
         self.assertIn("ヒンジ破損", msg)
 
-        # Stick drift
         ok, msg = check_defects("左スティックドリフトが発生しています。")
         self.assertFalse(ok)
         self.assertIn("ドリフト", msg)
 
-        # Clean negations pass
         ok, msg = check_defects("カビなし、クモリなし、動作確認済みです。")
         self.assertTrue(ok)
         self.assertEqual(msg, "Brak uszkodzeń i defektów")
 
     def test_trap_keywords_detection(self):
-        # Empty box trap
         ok, msg = check_defects("PlayStation 5 DualSense 箱のみです。本体はありません。")
         self.assertFalse(ok)
         self.assertIn("箱のみ", msg)
 
-        # Manual only trap
         ok, msg = check_defects("取説のみ。説明書のみの出品です。")
         self.assertFalse(ok)
         self.assertIn("説明書のみ", msg)
@@ -234,12 +219,10 @@ class TestChecks(unittest.TestCase):
         self.assertIn("Anomalia kursu JPY", msg)
 
     def test_watchlist_camera_price_compliance(self):
-        # Watchlist must not contain any camera > 100 PLN
         ok, errs = check_dataset_integrity(WATCHLIST_FILE, expected_type="watchlist")
         self.assertTrue(ok, f"Błędy w watchlist: {errs}")
 
     def test_yahoo_deals_camera_price_compliance(self):
-        # Yahoo deals must not contain any camera > 100 PLN
         ok, errs = check_dataset_integrity(YAHOO_DEALS_FILE, expected_type="yahoo_deals")
         self.assertTrue(ok, f"Błędy w yahoo_deals: {errs}")
 
@@ -248,11 +231,9 @@ class TestChecks(unittest.TestCase):
         self.assertTrue(ok, f"Błędy dashboardów: {errs}")
 
     def test_pentax_pc35af_exclusion_and_mju2(self):
-        # 1. Manual Pentax PC35AF passes
         ok_manual, _ = check_defects("Pentax PC35AF 35mm f/2.8 czysty naciąg ręczny")
         self.assertTrue(ok_manual)
 
-        # 2. Motorized Pentax PC35AF-M is strictly excluded ("ale bez pc35afm")
         ok_motor, msg_motor = check_defects("Pentax PC35AF-M z silnikiem elektrycznym")
         self.assertFalse(ok_motor)
         self.assertIn("PC35AF-M", msg_motor)
@@ -260,7 +241,6 @@ class TestChecks(unittest.TestCase):
         ok_motor2, _ = check_defects("PENTAX PC35AFM film camera")
         self.assertFalse(ok_motor2)
 
-        # 3. Olympus mju II is recognized as camera
         mju_deal = {"category_id": "film_cameras_point_shoot", "model": "Olympus [mju:]-II 35mm f/2.8"}
         self.assertTrue(is_camera_item(mju_deal))
 
@@ -297,7 +277,6 @@ class TestChecks(unittest.TestCase):
         self.assertTrue(audit["success"])
         self.assertEqual(audit["failed_checks"], 0)
         self.assertEqual(audit["total_checks"], 10)
-
 
 if __name__ == "__main__":
     unittest.main()

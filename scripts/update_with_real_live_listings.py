@@ -55,7 +55,6 @@ FALLBACK_QUERIES = {
     "c1184920188": "DualSense 30th"
 }
 
-
 def parse_time_left(time_left_str: str) -> int:
     """Converts Jauce time left string (e.g. '22hour(s)', '2day(s)', '35min') to minutes."""
     tl = time_left_str.lower().strip()
@@ -68,12 +67,11 @@ def parse_time_left(time_left_str: str) -> int:
     m_min = re.search(r"(\d+)\s*min", tl)
     if m_min:
         return max(5, int(m_min.group(1)))
-    return 360  # Default 6 hours
-
+    return 360
 
 def fetch_jauce_auctions(query: str):
     """Fetches real Yahoo Japan auctions via Jauce search."""
-    clean_q = re.sub(r"-[^\s]+", "", query).strip()  # Strip negative keywords for Jauce
+    clean_q = re.sub(r"-[^\s]+", "", query).strip()
     url = f"https://www.jauce.com/search/{urllib.parse.quote(clean_q)}"
     req = urllib.request.Request(url, headers=HEADERS)
     try:
@@ -93,7 +91,6 @@ def fetch_jauce_auctions(query: str):
     items = []
     for match in pattern.finditer(html):
         aid, img, title, bid, time_left = match.groups()
-        # Enforce standard Yahoo Japan auction ID format: letter prefix + digits (reject numeric-only IDs)
         if not (aid and aid[0].isalpha() and aid[1:].isdigit()):
             continue
         bid_val = int(bid.replace(",", ""))
@@ -107,7 +104,6 @@ def fetch_jauce_auctions(query: str):
             "time_minutes": parse_time_left(time_left)
         })
     return items
-
 
 def harvest_yahoo_deals(rate_jpy: float, rate_eur: float):
     print("=== Harvesting Real Yahoo Auctions ===")
@@ -127,21 +123,17 @@ def harvest_yahoo_deals(rate_jpy: float, rate_eur: float):
 
         auctions = fetch_jauce_auctions(q)
         if not auctions:
-            # Fallback query
             fallback_q = FALLBACK_QUERIES.get(deal_id) or d.get("model", "").split("(")[0].strip()
             auctions = fetch_jauce_auctions(fallback_q)
 
-        # Filter out already used IDs
         available_auctions = [a for a in auctions if a["auction_id"] not in used_aids]
 
-        # Enforce camera & lens cap <= 100 PLN (<= 3800 JPY)
         if is_camera or is_lens:
             cheap_auctions = [a for a in available_auctions if a["bid_jpy"] <= 3800]
             if cheap_auctions:
                 chosen = cheap_auctions[0]
             elif available_auctions:
                 chosen = available_auctions[0]
-                # Cap the starting bid to 3800 JPY for strict compliance
                 chosen["bid_jpy"] = min(chosen["bid_jpy"], 3800)
             else:
                 chosen = None
@@ -158,7 +150,6 @@ def harvest_yahoo_deals(rate_jpy: float, rate_eur: float):
             d["zenmarket_url"] = f"https://zenmarket.jp/pl/auction.aspx?itemCode={aid}"
             d["buyee_url"] = f"https://buyee.jp/item/yahoo/auction/{aid}"
 
-            # Update timing
             rem_min = chosen["time_minutes"]
             d["time_remaining_minutes"] = rem_min
             if rem_min < 60:
@@ -193,7 +184,6 @@ def harvest_yahoo_deals(rate_jpy: float, rate_eur: float):
         json.dump(yahoo_deals, f, indent=2, ensure_ascii=False)
     print(f"Saved {updated_count}/{len(yahoo_deals)} real Yahoo auction deals to {YAHOO_FILE}")
 
-
 async def harvest_mercari_deals(rate_jpy: float, rate_eur: float):
     print("\n=== Harvesting Real Mercari Deals via Mercapi ===")
     from mercapi import Mercapi
@@ -226,12 +216,11 @@ async def harvest_mercari_deals(rate_jpy: float, rate_eur: float):
                 print(f"Mercapi search error for '{clean_q}': {e}")
                 on_sale = []
 
-            # Filter camera & lens caps <= 100 PLN (<= 3800 JPY)
             if is_camera or is_lens:
                 cheap_items = [it for it in on_sale if it.price <= 3800]
                 chosen = cheap_items[0] if cheap_items else (on_sale[0] if on_sale else None)
                 if chosen and chosen.price > 3800:
-                    chosen.price = 3800  # Cap strictly
+                    chosen.price = 3800
             else:
                 chosen = on_sale[0] if on_sale else None
 
@@ -247,7 +236,6 @@ async def harvest_mercari_deals(rate_jpy: float, rate_eur: float):
                 if item_img:
                     item["image_url"] = item_img
 
-                # Landed cost & profit computation
                 est_pl = float(item.get("est_pl_value", 350.0))
                 cost_calc = calculate_landed_cost(chosen.price, category_id=cid, rate_jpy=rate_jpy, rate_eur=rate_eur)
                 landed_pln = cost_calc["landed_cost_pln"]
@@ -299,19 +287,15 @@ async def harvest_mercari_deals(rate_jpy: float, rate_eur: float):
         json.dump(current_deals_list, f, indent=2, ensure_ascii=False)
     print(f"Saved {total_updated} real live Mercari deals to {WATCHLIST_FILE} and {CURRENT_DEALS_FILE}")
 
-
 def main():
     rate_jpy, rate_eur, is_live_jpy, is_live_eur = get_live_rates()
     is_live = is_live_jpy and is_live_eur
     print(f"Exchange rates: 1 JPY = {rate_jpy:.6f} PLN | 1 EUR = {rate_eur:.4f} PLN")
 
-    # 1. Harvest Yahoo
     harvest_yahoo_deals(rate_jpy, rate_eur)
 
-    # 2. Harvest Mercari
     asyncio.run(harvest_mercari_deals(rate_jpy, rate_eur))
 
-    # 3. Export Webapp deals.json
     print("\n=== Exporting to docs/data/deals.json ===")
     with open(YAHOO_FILE, "r", encoding="utf-8") as f:
         yahoo_deals = json.load(f)
@@ -327,7 +311,6 @@ def main():
     )
     exporter.export()
     print("Export complete!")
-
 
 if __name__ == "__main__":
     main()

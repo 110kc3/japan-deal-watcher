@@ -76,7 +76,7 @@ class TestDealAnalyzer(unittest.TestCase):
 
     def test_ranking_order(self):
         ranked = self.analyzer.get_ranked_deals()
-        self.assertEqual(len(ranked), 3)  # Sold item omitted
+        self.assertEqual(len(ranked), 3)
         self.assertGreaterEqual(ranked[0]["score"], ranked[1]["score"])
 
     def test_broken_item_exclusion(self):
@@ -118,7 +118,6 @@ class TestDealAnalyzer(unittest.TestCase):
 
     def test_optimal_consolidation_basket(self):
         basket = self.analyzer.get_optimal_consolidation_basket()
-        # Basket must respect max 2 Li-Ion items
         self.assertLessEqual(basket["li_ion_count"], 2)
         self.assertGreater(basket["total_margin_pln"], 0)
         self.assertGreater(basket["total_items"], 0)
@@ -190,7 +189,6 @@ class TestDealAnalyzer(unittest.TestCase):
         self.assertTrue(res["is_no_battery"])
 
     def test_film_cameras_point_shoot_under_100_pln_is_deal(self):
-        # Camera under 100 PLN is an okazja!
         cheap_camera = {
             "id": "m_nikon_tw2d",
             "model": "Nikon TW2D Dual Lens",
@@ -214,7 +212,6 @@ class TestDealAnalyzer(unittest.TestCase):
         self.assertIn("camera_price_cap_100_pln", res["checks_passed"])
 
     def test_film_cameras_point_shoot_over_100_pln_disqualified(self):
-        # User rule: "aparaty powyżej 100zł nie są okazjami"
         expensive_camera = {
             "id": "m_nikon_pikaichi",
             "model": "Nikon L35AF ISO 400 Pikaichi",
@@ -238,7 +235,6 @@ class TestDealAnalyzer(unittest.TestCase):
         self.assertIn("camera_price_cap_100_pln", res["checks_failed"])
 
     def test_analog_lens_under_100_pln_is_deal(self):
-        # Lens under 100 PLN is an okazja!
         cheap_lens = {
             "id": "m_pentax_50mm",
             "model": "SMC Pentax-M 50mm f/2",
@@ -262,7 +258,6 @@ class TestDealAnalyzer(unittest.TestCase):
         self.assertIn("lens_price_cap_100_pln", res["checks_passed"])
 
     def test_analog_lens_over_100_pln_disqualified(self):
-        # User rule: "obiektywy tez w duzych cenach odpadaja"
         expensive_lens = {
             "id": "m_expensive_takumar",
             "model": "Super Takumar 50mm f/1.4 8-Element",
@@ -286,7 +281,6 @@ class TestDealAnalyzer(unittest.TestCase):
         self.assertIn("lens_price_cap_100_pln", res["checks_failed"])
 
     def test_nintendo_ds_consoles_deal(self):
-        # Nintendo DS category deal
         ds_deal = {
             "id": "m_ds_lite_silver",
             "model": "Nintendo DS Lite Metallic Silver",

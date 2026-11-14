@@ -5,24 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>AgyDeal – Japan Deal & Auction Sniping Radar</title>
   <meta name="description" content="Mobilny radar okazji i licytacji z Yahoo! Japan Auctions i Mercari z kalkulatorem zysku w PLN i limitem IATA.">
-  
-  <!-- PWA & Android Meta Tags -->
+
   <link rel="manifest" href="./manifest.json">
   <meta name="theme-color" content="#10b981">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="AgyDeal">
-  
-  <!-- Icons -->
+
   <link rel="icon" type="image/svg+xml" href="./icons/icon-192.svg">
   <link rel="apple-touch-icon" href="./icons/icon-192.png">
-  
-  <!-- Stylesheets -->
+
   <link rel="stylesheet" href="style.css?v=2.3.1">
 </head>
 <body>
-  <!-- Header / App Bar -->
+  
   <header class="app-header">
     <div class="header-content">
       <div class="brand">
@@ -48,8 +45,7 @@
         </button>
       </div>
     </div>
-    
-    <!-- Live Currency & Warehouse Ticker -->
+
     <div class="live-ticker">
       <div class="ticker-chip" title="Kurs NBP JPY/PLN">
         <span class="chip-label">💱 100 JPY:</span>
@@ -62,7 +58,6 @@
     </div>
   </header>
 
-  <!-- Navigation View Tabs -->
   <nav class="view-tabs" id="viewTabs">
     <button class="view-tab active" data-view="opportunities">
       🎯 <span>Okazje</span>
@@ -89,7 +84,6 @@
     </button>
   </nav>
 
-  <!-- Search & Category Filters -->
   <section class="controls-panel">
     <div class="search-box">
       <span class="search-icon">🔍</span>
@@ -97,7 +91,6 @@
       <button id="clearSearchBtn" class="btn-clear" style="display: none;">✕</button>
     </div>
 
-    <!-- Scrollable Category Filter Pills -->
     <div class="category-pills" id="categoryPills">
       <button class="pill active" data-cat="all">Wszystkie (<span id="totalDealsPill">82</span>)</button>
       <button class="pill" data-cat="nintendo_switch_lite" data-search-query="Nintendo Switch Lite 本体">🎮 Switch Lite</button>
@@ -117,7 +110,6 @@
       <button class="pill" data-cat="ps_retro_limited_controllers">🎯 Pady Retro</button>
     </div>
 
-    <!-- Quick Filter Toggles & Sorting -->
     <div class="sub-filters">
       <label class="toggle-pill">
         <input type="checkbox" id="batteryZeroOnlyToggle">
@@ -146,16 +138,14 @@
 
   <section class="controls-panel" id="categorySearch" hidden aria-label="Wyszukiwanie ofert kategorii"></section>
 
-  <!-- Main Feed Container -->
   <main class="feed-container" id="feedContainer">
-    <!-- Deal Cards populated dynamically by app.js -->
+    
     <div class="loading-state" id="loadingState">
       <div class="spinner"></div>
       <p>Ładowanie najgorętszych licytacji z Japonii...</p>
     </div>
   </main>
 
-  <!-- Floating Sticky Bottom Bar: Cart Summary & Quick Actions -->
   <aside class="sticky-cart-bar" id="stickyCartBar" style="display: none;">
     <div class="cart-bar-content" id="cartBarTrigger">
       <div class="cart-bar-left">
@@ -175,7 +165,6 @@
     </div>
   </aside>
 
-  <!-- MODAL: Interactive Sniping Calculator -->
   <div class="modal-backdrop" id="calcModal" style="display: none;">
     <div class="modal-card">
       <div class="modal-header">
@@ -228,7 +217,6 @@
           </select>
         </div>
 
-        <!-- Live Breakdown Table -->
         <div class="cost-breakdown-card">
           <div class="breakdown-row">
             <span>Cena zakupu JPY (po kursie NBP):</span>
@@ -277,7 +265,6 @@
     </div>
   </div>
 
-  <!-- MODAL: Parcel Consolidation Basket & IATA Battery Meter -->
   <div class="modal-backdrop" id="cartModal" style="display: none;">
     <div class="modal-card">
       <div class="modal-header">
@@ -289,7 +276,7 @@
       </div>
 
       <div class="modal-body">
-        <!-- IATA Battery Meter Widget -->
+        
         <div class="iata-meter-card">
           <div class="iata-header">
             <strong>Licznik Baterii IATA (Maks 2x Li-Ion na paczkę):</strong>
@@ -303,7 +290,6 @@
           </p>
         </div>
 
-        <!-- Package Weight & AVIA Limit Meter Widget -->
         <div class="weight-meter-card">
           <div class="weight-header">
             <div>
@@ -320,18 +306,16 @@
           </p>
         </div>
 
-        <!-- Shipping Method Selector & Pricing Tiers -->
         <div class="shipping-selector-card">
           <div class="shipping-header">
             <strong>✈️ Metoda Wysyłki z Japonii (wg wagi paczki):</strong>
             <span class="shipping-rec-badge" id="shippingRecBadge">Zalecana: AVIA</span>
           </div>
           <div class="shipping-tiers-grid" id="shippingTiersGrid">
-            <!-- Dynamic shipping tier options (AVIA, EMS, Surface) -->
+            
           </div>
         </div>
 
-        <!-- Residual Net Profit Card: The Real Money Left in Your Pocket -->
         <div class="residual-profit-card">
           <div class="residual-header">
             <span class="residual-icon">💰</span>
@@ -353,7 +337,6 @@
           </div>
         </div>
 
-        <!-- Cart Summary Stats -->
         <div class="cart-stats-grid">
           <div class="stat-box">
             <span class="stat-label">Przedmiotów:</span>
@@ -373,7 +356,6 @@
           </div>
         </div>
 
-        <!-- Cart Items List -->
         <div class="cart-items-list" id="cartItemsList">
           <div class="empty-cart-hint">
             <p>Twój koszyk konsolidacyjny jest pusty.</p>
@@ -389,7 +371,6 @@
     </div>
   </div>
 
-  <!-- Bottom Navigation Tab Bar (Mobile App Ergonomics) -->
   <nav class="bottom-nav-bar">
     <button class="nav-item active" data-nav="opportunities">
       <span class="nav-icon">🎯</span>
@@ -413,7 +394,6 @@
     </button>
   </nav>
 
-  <!-- Scripts -->
   <script src="app.js?v=2.3.1"></script>
 </body>
 </html>

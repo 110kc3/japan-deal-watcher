@@ -6,7 +6,6 @@ import argparse
 import json
 from pathlib import Path
 
-# Add current dir to path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from watcher.checks import (
@@ -20,7 +19,6 @@ from watcher.checks import (
 )
 from watcher.config import CURRENT_DEALS_FILE, MAX_CAMERA_PRICE_PLN, MAX_LENS_PRICE_PLN
 
-
 def main():
     parser = argparse.ArgumentParser(description="Japan Deal Watcher Verification Checks Audit")
     parser.add_argument("--strict", action="store_true", help="Exit with code 1 if any check fails")
@@ -30,7 +28,6 @@ def main():
     print("🔍 JAPAN DEAL WATCHER – SYSTEM & DEAL VERIFICATION AUDIT")
     print("=" * 70)
 
-    # 1. Run system audit
     audit = run_full_system_audit(strict=args.strict)
     has_errors = False
 
@@ -41,7 +38,6 @@ def main():
         print(f"[{status}] {c['icon']} {c['name']}")
         print(f"         └─ {c['message']}")
 
-    # 2. Check current deals if available
     if CURRENT_DEALS_FILE.exists():
         try:
             with open(CURRENT_DEALS_FILE, "r", encoding="utf-8") as f:
@@ -50,7 +46,6 @@ def main():
             active_deals = [d for d in deals if "Dostępne" in d.get("status", "")]
             camera_deals = [d for d in active_deals if is_camera_item(d)]
 
-            # Camera price cap check on live deals
             overpriced_cameras = [
                 d for d in camera_deals
                 if d.get("price_pln_raw", 0) > MAX_CAMERA_PRICE_PLN
@@ -63,7 +58,6 @@ def main():
             else:
                 print(f"[✅ PASS] 📷 Live Camera Deals Price Cap Check: Wszystkie {len(camera_deals)} aparatów <= 100 zł!")
 
-            # Lens price cap check on live deals
             lens_deals = [d for d in active_deals if is_lens_item(d)]
             overpriced_lenses = [
                 d for d in lens_deals
@@ -77,7 +71,6 @@ def main():
             else:
                 print(f"[✅ PASS] 🔍 Live Lens Deals Price Cap Check: Wszystkie {len(lens_deals)} obiektywów <= 100 zł!")
 
-            # Defect check on active deals
             broken_active = [d for d in active_deals if d.get("is_broken")]
             if broken_active:
                 has_errors = True
@@ -98,7 +91,6 @@ def main():
         print(f"🎉 WYNIK AUDYTU: Wszystkie checki zaliczone pomyślnie! (0 błędów)")
         print("=" * 70)
         sys.exit(0)
-
 
 if __name__ == "__main__":
     main()

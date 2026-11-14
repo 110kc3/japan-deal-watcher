@@ -18,7 +18,6 @@ from .config import (
 )
 from .storage import atomic_write_json, read_json_safe
 
-
 class HistoryTracker:
     """Tracks historical price movements, detects closed/sold listings,
 
@@ -51,7 +50,6 @@ class HistoryTracker:
         data.setdefault("items", {})
         data.setdefault("sales_log", [])
 
-        # Auto-clean any legacy contaminated entries on load
         self.data = data
         self.clean_contaminated_entries(auto_save=False)
         return self.data
@@ -82,7 +80,6 @@ class HistoryTracker:
         removed_trading_count = 0
         removed_error_count = 0
 
-        # 1. Clean sales_log
         for s in old_sales_log:
             status = str(s.get("status", "")).lower()
             is_404 = "404" in status or "nie znaleziono" in status or "usunięt" in status
@@ -103,13 +100,11 @@ class HistoryTracker:
                 removed_error_count += 1
                 continue
 
-            # Populate potential arbitrage and hypothetical margin
             margin = s.get("realized_margin_pln", s.get("potential_arbitrage_pln", 0.0))
             s["potential_arbitrage_pln"] = margin
             s["hypothetical_margin_pln"] = margin
             cleaned_sales_log.append(s)
 
-        # 2. Clean items dictionary
         for item_id, item in items_dict.items():
             status = str(item.get("status", "")).lower()
             is_404 = "404" in status or "nie znaleziono" in status or "usunięt" in status
@@ -202,7 +197,6 @@ class HistoryTracker:
                 "trading" in status_lower
             )
 
-            # Genuine sold detection: only if source indicates sold or normal completed auction
             is_explicit_sold = (
                 bool(deal.get("is_sold")) or
                 "sprzedane" in status_lower or
@@ -219,7 +213,6 @@ class HistoryTracker:
                 not is_error and not is_404 and not is_excluded and not is_trading
             )
 
-            # Active item detection
             is_active = (
                 ("dostępne" in status_lower or "aktywna" in status_lower or "on_sale" in status_lower or status == "Active")
                 and not is_error and not is_404 and not is_excluded and not is_trading and not is_genuine_sold
@@ -237,7 +230,6 @@ class HistoryTracker:
                 existing["last_seen"] = timestamp
                 existing["status"] = status
 
-                # Check for price changes
                 last_price = existing.get("current_price_jpy", price_jpy)
                 if abs(last_price - price_jpy) > 1.0:
                     existing["price_history"].append({
@@ -251,7 +243,6 @@ class HistoryTracker:
                     price_changes_count += 1
                     self.data["metadata"]["total_price_changes"] = self.data["metadata"].get("total_price_changes", 0) + 1
 
-                # State handling
                 was_active = existing.get("is_active", True)
                 if is_genuine_sold:
                     if was_active or not existing.get("is_sold"):
@@ -259,7 +250,6 @@ class HistoryTracker:
                         existing["is_sold"] = True
                         existing["sold_at"] = existing.get("sold_at") or timestamp
 
-                        # Compute days on market
                         first_dt = existing.get("first_seen_date", timestamp[:10])
                         days_on_market = self._estimate_days_on_market(first_dt, timestamp[:10])
                         speed_tier = self._get_speed_tier(days_on_market)
@@ -312,7 +302,6 @@ class HistoryTracker:
                     existing["is_sold"] = False
 
             else:
-                # Brand new item
                 first_seen_date = timestamp[:10]
                 item_record = {
                     "id": deal_id,
@@ -445,7 +434,6 @@ class HistoryTracker:
         avg_roi = round(sum(s.get("roi_percent", 0) for s in sales) / total_sales, 1)
         total_potential = round(sum(s.get("potential_arbitrage_pln", s.get("realized_margin_pln", 0)) for s in sales), 2)
 
-        # Category breakdown
         cat_map: Dict[str, List[Dict[str, Any]]] = {}
         for s in sales:
             cname = s.get("category_name", "Inne")
@@ -480,14 +468,12 @@ class HistoryTracker:
 
         cat_stats_sorted = sorted(cat_stats, key=lambda x: x["sales_count"], reverse=True)
 
-        # Top profitable closed deals
         top_sales = sorted(
             sales,
             key=lambda x: x.get("potential_arbitrage_pln", x.get("realized_margin_pln", 0)),
             reverse=True
         )[:10]
 
-        # Empirical price sweet spots
         sweet_spots = [
             {
                 "category": "Nintendo DS & 3DS",

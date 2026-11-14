@@ -9,9 +9,7 @@ from typing import List, Dict, Any
 from .config import DEFAULT_JPY_PLN_RATE, DEFAULT_EUR_PLN_RATE, MAX_CAMERA_PRICE_PLN, MAX_LENS_PRICE_PLN
 from .market_queries import clean_polish_market_queries
 
-
 SEARCH_STREAM_DEFINITIONS = [
-    # 1. Cameras (Point & Shoot 35mm - STRICT <= 100 zł cap)
     {
         "id": "stream_olympus_mju_2",
         "model": "Olympus [mju:]-II (μ-II 35mm f/2.8 Prime)",
@@ -93,7 +91,6 @@ SEARCH_STREAM_DEFINITIONS = [
         "sniping_tip": "Zawsze weryfikuj taśmę flex tylnej klapki – jej przerwanie to typowa wada Big Mini. Egzemplarze ze sprawnym ekranem LCD osiągają najwyższe ceny."
     },
 
-    # 2. Handheld Consoles (Nintendo & PlayStation)
     {
         "id": "stream_new_n3ds_xl",
         "model": "New Nintendo 3DS LL (New 3DS XL)",
@@ -275,7 +272,6 @@ SEARCH_STREAM_DEFINITIONS = [
         "sniping_tip": "Ulepszony ekran z eliminacją smużenia. Żywe kolory z serii Carnival Colors (Vibrant Blue, Radiant Red, Spirited Green) mają 20% wyższą wycenę."
     },
 
-    # 3. Mystery Lots & Retro Bundles (0% Li-Ion – Unlimited Air Shipping)
     {
         "id": "stream_danshari_games_mix",
         "model": "Pakiety Różności i Likwidacje Pokoju (Danshari Mix 0% Li-Ion)",
@@ -337,7 +333,6 @@ SEARCH_STREAM_DEFINITIONS = [
         "sniping_tip": "Gry w oryginalnych plastikowych pudełkach z okładkami. Sprawdzaj czy nie ma gier wymagających 100% znajomości języka (RPG tekstowe) – preferuj platformówki i zręcznościówki."
     },
 
-    # 4. Manual Japanese Lenses (STRICT <= 100 zł cap)
     {
         "id": "stream_pentax_m_50_14",
         "model": "SMC Pentax-M 50mm f/1.4 (K-mount)",
@@ -379,7 +374,6 @@ SEARCH_STREAM_DEFINITIONS = [
         "sniping_tip": "Kultowy obiektyw M42 słynący z flary i bokeh. Żółtawy odcień soczewek od powłok torowych usuwa się naświetlaniem promieniami UV."
     },
 
-    # 5. Limited Controllers & Home Consoles
     {
         "id": "stream_dualsense_astro_bot",
         "model": "DualSense Astro Bot Limited Edition PS5",
@@ -460,7 +454,6 @@ SEARCH_STREAM_DEFINITIONS = [
         "roi_pct": "+50%",
         "sniping_tip": "Kolor Spice Orange był wydany oficjalnie wyłącznie w Japonii. Wersja DOL-001 posiada cyfrowe wyjście wideo Digital AV Out."
     },
-    # 8. PSP Wholesale Lots (Hurt 3+ Konsol)
     {
         "id": "stream_psp_wholesale_bundle",
         "model": "Sony PSP Hurtowe Pakiety 3-10 sztuk (1000 / 2000 / 3000 まとめ売り)",
@@ -481,7 +474,6 @@ SEARCH_STREAM_DEFINITIONS = [
         "roi_pct": "+85%",
         "sniping_tip": "KLUCZOWE: Zastosuj procedurę 'Dry Shipping' – w uwagach do ZenMarket poproś o usunięcie i utylizację starych spuchniętych baterii w Osace! Odblokowuje to nielimitowaną paczkę lotniczą (0% Li-Ion). Nowe baterie na Allegro: 18-25 zł."
     },
-    # 9. Mechanical Keyboards & Custom (Topre, HHKB, Hot-Swap, Limited Editions)
     {
         "id": "stream_topre_realforce",
         "model": "Topre Realforce R2 / R3 TKL (Electro-Capacitive Silent)",
@@ -544,7 +536,6 @@ SEARCH_STREAM_DEFINITIONS = [
     }
 ]
 
-
 def generate_search_streams(rate_jpy: float = DEFAULT_JPY_PLN_RATE, rate_eur: float = DEFAULT_EUR_PLN_RATE) -> List[Dict[str, Any]]:
     """
     Compiles search stream objects with dynamic links to the earliest ending auctions,
@@ -556,21 +547,17 @@ def generate_search_streams(rate_jpy: float = DEFAULT_JPY_PLN_RATE, rate_eur: fl
         query = s.get("search_query_jp", "")
         encoded_q = urllib.parse.quote(query)
 
-        # Polish queries for Allegro and OLX
         clean_pl_q, clean_olx_slug = clean_polish_market_queries(s)
         allegro_url = f"https://allegro.pl/listing?string={urllib.parse.quote(clean_pl_q)}"
         olx_url = f"https://www.olx.pl/oferty/q-{clean_olx_slug}/"
 
-        # Calculate exact landed cost at target start price
         start_jpy = s.get("target_start_jpy", 1)
         start_pln_raw = round(start_jpy * rate_jpy, 2)
         start_display = f"od {start_jpy:,} JPY (~{start_pln_raw:.2f} zł)" if start_jpy > 1 else "od 1 JPY (~0.02 zł)"
 
-        # Set calculated price guide attributes
         s["target_start_pln"] = start_pln_raw
         s["target_start_label"] = start_display
 
-        # Generate direct sniper stream links (ending soonest first – true prices)
         s["links"] = {
             "primary_url": f"https://zenmarket.jp/pl/yahoo.aspx?q={encoded_q}&sort=end&order=asc",
             "zenmarket_ending_earliest": f"https://zenmarket.jp/pl/yahoo.aspx?q={encoded_q}&sort=end&order=asc",

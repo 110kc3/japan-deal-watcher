@@ -6,7 +6,6 @@ from pathlib import Path
 from watcher.webapp_exporter import WebappExporter, clean_polish_market_queries
 from watcher.config import DEFAULT_JPY_PLN_RATE, DEFAULT_EUR_PLN_RATE, MAX_CAMERA_PRICE_PLN, MAX_LENS_PRICE_PLN
 
-
 class TestWebappExporter(unittest.TestCase):
     def setUp(self):
         self.sample_yahoo = [
@@ -114,7 +113,6 @@ class TestWebappExporter(unittest.TestCase):
             yahoo_deals=self.sample_yahoo
         )
         cam_deal = exporter.process_yahoo_deal(self.sample_yahoo[1])
-        # Camera bid cap in PLN must not exceed MAX_CAMERA_PRICE_PLN (100 PLN)
         max_bid_pln = cam_deal["max_bid_jpy"] * 0.024802
         self.assertLessEqual(max_bid_pln, MAX_CAMERA_PRICE_PLN + 1.0)
 
@@ -144,7 +142,6 @@ class TestWebappExporter(unittest.TestCase):
             self.assertIn("search_streams", data)
 
             self.assertEqual(len(data["auctions"]), 2)
-            # Only the 1 active Mercari deal should be included (excluding 404)
             self.assertEqual(len(data["mercari_deals"]), 1)
             self.assertEqual(data["mercari_deals"][0]["id"], "m1234567890")
             self.assertIn("est_weight_g", data["mercari_deals"][0])
@@ -175,7 +172,6 @@ class TestWebappExporter(unittest.TestCase):
         processed = exporter.process_yahoo_deal(auction_item)
         links = processed["links"]
 
-        # Ensure direct auction links for normal auctions and buy now
         self.assertEqual(links["primary_url"], "https://zenmarket.jp/pl/auction.aspx?itemCode=v1173928104")
         self.assertEqual(links["zenmarket_auction"], "https://zenmarket.jp/pl/auction.aspx?itemCode=v1173928104")
         self.assertEqual(links["zenmarket_sniper"], "https://zenmarket.jp/pl/auction.aspx?itemCode=v1173928104")
@@ -185,7 +181,6 @@ class TestWebappExporter(unittest.TestCase):
         self.assertTrue(processed["has_buy_now"])
         self.assertEqual(processed["buy_now_price_jpy"], 12800)
 
-        # Auxiliary research links in drawer
         self.assertIn("sort=end&order=asc", links["zenmarket_ending_soon"])
         self.assertIn("sort=price&order=asc", links["zenmarket_lowest_bid"])
         self.assertIn("closedsearch", links["yahoo_closed_archive"])
@@ -230,11 +225,9 @@ class TestWebappExporter(unittest.TestCase):
         processed = exporter.process_mercari_deal(proxy_item)
         links = processed["links"]
 
-        # Ensure no URL contains the raw string 'danshari_ds_3ds_50'
         for link_name, url in links.items():
             self.assertNotIn("danshari_ds_3ds_50", url, f"Link {link_name} leaked internal proxy ID")
 
-        # Verify search query stream presence
         self.assertIn("primary_url", links)
         self.assertIn("zenmarket_search_mercari", links)
         self.assertIn("mercari_live_search", links)
@@ -292,7 +285,6 @@ class TestWebappExporter(unittest.TestCase):
             auctions = data["auctions"]
             self.assertEqual(len(auctions), 1)
             self.assertEqual(auctions[0]["id"], "deal_live")
-
 
 if __name__ == "__main__":
     unittest.main()

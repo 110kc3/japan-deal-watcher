@@ -19,13 +19,11 @@ from .config import (
 from .costs import calculate_landed_cost, calculate_max_sniper_bid
 from .checks import is_camera_item, is_lens_item
 
-
 def sanitize_md(text: Any) -> str:
     """Sanitizes text for safe inclusion in Markdown tables."""
     if text is None:
         return ""
     return str(text).replace("|", "&#124;").replace("\n", " ").replace("\r", "").strip()
-
 
 class SniperGuideGenerator:
     """Generates a dedicated tactical sniping guide and hard bidding ceilings table."""
@@ -79,7 +77,6 @@ class SniperGuideGenerator:
         md.append("---")
         md.append("")
 
-        # Problem Statement Callout
         md.append("> [!IMPORTANT]")
         md.append("> **Dlaczego licytacje na Yahoo! Auctions zyskują realną cenę dopiero przed samym końcem?**")
         md.append("> 1. **Iluzja ceny 1 JPY:** Ponad 90% ofert startuje od 1 JPY i przez 5 dni stoi na kwotach rzędu 500–3,000 JPY. To nie jest cena zakupu, lecz zabieg marketingowy.")
@@ -90,7 +87,6 @@ class SniperGuideGenerator:
         md.append("---")
         md.append("")
 
-        # Section 1: Mechanics of the last 15 minutes
         md.append("## ⏱️ Anatomia Ostatnich 15 Minut Aukcji: Co Dokładnie Dzieje Się na Yahoo Japan?")
         md.append("")
         md.append("```mermaid")
@@ -119,7 +115,6 @@ class SniperGuideGenerator:
         md.append("---")
         md.append("")
 
-        # Section 2: Full Ceilings Table
         md.append(f"## 📊 Tabela Twardych Limitów Snajpera (Hard Sniping Caps) – {len(self.raw_deals)} Modeli")
         md.append("")
         md.append(
@@ -131,7 +126,6 @@ class SniperGuideGenerator:
         md.append("| Model / Wariant | Wycena w PL | Średnia Cena Końcowa (落札相場) | Mercari Kup Teraz | Przewaga Aukcji | 🎯 Twardy Limit Snajpera | Koszt w PL przy Limicie | Gwarantowany Zysk Netto | Bateria IATA | 1-Click Linki (Ending Soon & Archiwum) |")
         md.append("|---|---:|---:|---:|---:|---:|---:|---:|:---:|---|")
 
-        # Group deals by category
         categories: Dict[str, List[Dict[str, Any]]] = {}
         for d in self.raw_deals:
             cname = d.get("category_name", "Inne")
@@ -146,7 +140,6 @@ class SniperGuideGenerator:
                 price_curr = float(it.get("price_jpy", 0))
                 query = it.get("search_query_jp", it.get("model", ""))
 
-                # Target ROI: 30% for high value, 35% for medium, 50% for cheap UMD lots
                 if "games_mix" in cat_id or est_pl <= 500:
                     target_roi = 40.0
                 elif est_pl >= 1200:
@@ -167,7 +160,6 @@ class SniperGuideGenerator:
                 guar_margin = cap_info["guaranteed_margin_pln"]
                 guar_roi = cap_info["guaranteed_roi_pct"]
 
-                # Strict camera ceiling: "aparaty powyżej 100zł nie są okazjami"
                 if is_camera_item(it) or cat_id == "film_cameras_point_shoot":
                     max_cam_jpy = int((MAX_CAMERA_PRICE_PLN / self.rate) // 100 * 100)
                     if max_bid > max_cam_jpy:
@@ -177,7 +169,6 @@ class SniperGuideGenerator:
                         guar_margin = round(est_pl - landed_at_cap, 2)
                         guar_roi = round((guar_margin / landed_at_cap * 100.0), 1) if landed_at_cap > 0 else 0.0
 
-                # Strict lens ceiling: "obiektywy tez w duzych cenach odpadaja" (max 100 PLN)
                 if is_lens_item(it) or cat_id == "analog_lenses":
                     max_lens_jpy = int((MAX_LENS_PRICE_PLN / self.rate) // 100 * 100)
                     if max_bid > max_lens_jpy:
@@ -187,7 +178,6 @@ class SniperGuideGenerator:
                         guar_margin = round(est_pl - landed_at_cap, 2)
                         guar_roi = round((guar_margin / landed_at_cap * 100.0), 1) if landed_at_cap > 0 else 0.0
 
-                # Empirical Yahoo closing price range
                 if "closed_price_min_jpy" in it and "closed_price_max_jpy" in it:
                     clearing_range_str = f"**{it['closed_price_min_jpy']:,} – {it['closed_price_max_jpy']:,} JPY**<br><small>(Śr: {it.get('closed_price_avg_jpy', 0):,} JPY)</small>"
                 else:
@@ -195,7 +185,6 @@ class SniperGuideGenerator:
                     high_clearing = int(max_bid * 0.95 // 100 * 100)
                     clearing_range_str = f"{low_clearing:,} – {high_clearing:,} JPY"
 
-                # Mercari Buy-It-Now Benchmark & Arbitrage Discount
                 mercari_bin = it.get("mercari_bin_avg_jpy", int(price_curr * 1.25 // 100 * 100))
                 mercari_str = f"~{mercari_bin:,} JPY"
                 yahoo_avg = it.get("closed_price_avg_jpy", int(price_curr))
@@ -209,17 +198,11 @@ class SniperGuideGenerator:
                 else:
                     arbitrage_str = "–"
 
-                # URLs
                 encoded_q = urllib.parse.quote(query)
-                # Ending soon ZenMarket (sorted by end time asc)
                 zen_ending_soon = f"https://zenmarket.jp/pl/yahoo.aspx?q={encoded_q}&sort=end&order=asc"
-                # Lowest bid ZenMarket (sorted by price asc)
                 zen_lowest_bid = f"https://zenmarket.jp/pl/yahoo.aspx?q={encoded_q}&sort=price&order=asc"
-                # Buyee ending soon
                 buyee_ending_soon = f"https://buyee.jp/item/search/query/{encoded_q}?translationType=1&sort=end&order=a"
-                # Yahoo Japan Closed Search (historical sales)
                 yahoo_closed = f"https://auctions.yahoo.co.jp/closedsearch/closedsearch?p={encoded_q}"
-                # Aucfan market price
                 aucfan_url = f"https://aucfan.com/search1/q-{encoded_q}/s-mix/"
 
                 b_type = it.get("battery_type", "")
@@ -257,7 +240,6 @@ class SniperGuideGenerator:
         md.append("---")
         md.append("")
 
-        # Section 3: Timezone Arbitrage
         md.append("## 🌍 Złote Okna Czasowe: Kiedy Japończycy Śpią, a Ty Zgarniasz Okazje (Arbitraż Stref Czasowych)")
         md.append("")
         md.append(
@@ -275,7 +257,6 @@ class SniperGuideGenerator:
         md.append("---")
         md.append("")
 
-        # Section 4: Seller Traps & Fraud Prevention
         md.append("## 🛡️ Czarna Lista i Pułapki Sprzedawców na Yahoo Japan")
         md.append("")
         md.append("Aukcje od 1 JPY niosą ze sobą pewne specyficzne ryzyka. Oto jak chronić swój kapitał:")
@@ -305,7 +286,6 @@ class SniperGuideGenerator:
         md.append("---")
         md.append("")
 
-        # Section 5: Advanced Portfolio Bidding Strategy
         md.append("## 💼 Zaawansowana Strategia: Multi-Sniper na 1 Budżet")
         md.append("")
         md.append("ZenMarket posiada unikalną cechę, o której nie wie większość kupujących:")
@@ -325,7 +305,6 @@ class SniperGuideGenerator:
         md.append("---")
         md.append("")
 
-        # Section 6: Tactical Battery Logistics Guide
         md.append("## 🔋 Tajniki Logistyki Bateryjnej: Czy na pewno nie da się wysłać więcej niż 2 baterie?")
         md.append("")
         md.append(
@@ -366,7 +345,6 @@ class SniperGuideGenerator:
         md.append("---")
         md.append("")
 
-        # Section 7: Quick Action Checklist
         md.append("## ✅ Szybka Checklista Przed Wciśnięciem „Snajper”")
         md.append("")
         md.append("- [ ] **Krok 1:** Czy sprawdziłem wycenę w Polsce w [Tabeli Limitów](#-tabela-twardych-limitów-snajpera-hard-sniping-caps--41-modeli)?")

@@ -5,13 +5,11 @@ from typing import Dict, Any, List
 
 from .history_tracker import HistoryTracker
 
-
 def sanitize_md(text: Any) -> str:
     """Sanitizes text for safe inclusion in Markdown tables."""
     if text is None:
         return ""
     return str(text).replace("|", "&#124;").replace("\n", " ").replace("\r", "").strip()
-
 
 class HistoryGenerator:
     """Generates the dedicated MARKET_SALES_HISTORY.md dashboard."""
@@ -62,7 +60,6 @@ class HistoryGenerator:
         md.append("---")
         md.append("")
 
-        # Callout note
         md.append("> [!IMPORTANT]")
         md.append("> **Dlaczego analiza zakończonych ofert jest kluczowa dla Twojego sukcesu?**  ")
         md.append("> 1. **Prawdziwa cena to cena sprzedaży, a nie cena życzeniowa:** Wiele ofert wisi tygodniami, bo sprzedawcy żądają zbyt wiele. Rejestr sprzedaży pokazuje wyłącznie transakcje, które **faktycznie doszły do skutku**.")
@@ -72,7 +69,6 @@ class HistoryGenerator:
         md.append("---")
         md.append("")
 
-        # Section 1: Executive KPIs
         md.append("## 📊 Kluczowe Wskaźniki Zrealizowanej Sprzedaży (Executive Sales KPIs)")
         md.append("")
         md.append("| Metryka Rynkowa | Wartość | Komentarz Analityczny |")
@@ -88,7 +84,6 @@ class HistoryGenerator:
         md.append("---")
         md.append("")
 
-        # Section 2: Category Dynamics
         md.append("## 🏆 Co Się Najszybciej Sprzedaje? (Ranking Dynamiki Kategorii)")
         md.append("")
         md.append(
@@ -116,7 +111,6 @@ class HistoryGenerator:
         md.append("---")
         md.append("")
 
-        # Section 3: Sweet Spots & Empirical Signals
         md.append("## 🎯 Złote Widełki Cenowe i Sygnały Zakupowe (Price Sweet Spots)")
         md.append("")
         md.append(
@@ -139,7 +133,6 @@ class HistoryGenerator:
         md.append("---")
         md.append("")
 
-        # Section 4: Detailed Closing Log
         md.append(f"## 📋 Kompletny Rejestr Zamkniętych i Sprzedanych Ofert ({len(sales_log)} Pozycji)")
         md.append("")
         md.append(
@@ -150,7 +143,6 @@ class HistoryGenerator:
         md.append("| Model / Przedmiot | Kategoria | Cena Końcowa (JPY / PLN) | Koszt w PL (Landed) | Wycena w Polsce | Zrealizowany Zysk | Płynność | Status | Link Archiwalny |")
         md.append("|---|---|---:|---:|---:|---:|:---:|:---:|---|")
 
-        # Sort sales log by realized margin descending
         sorted_log = sorted(sales_log, key=lambda x: x.get("realized_margin_pln", 0), reverse=True)
 
         for s in sorted_log:
@@ -187,7 +179,6 @@ class HistoryGenerator:
         md.append("---")
         md.append("")
 
-        # Section 5: Visual Diagram
         md.append("## 📈 Mapa Popytu i Cykl Życia Oferty na Japońskim Rynku")
         md.append("")
         md.append("```mermaid")

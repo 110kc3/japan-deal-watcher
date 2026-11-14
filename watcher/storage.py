@@ -12,7 +12,6 @@ from typing import Any, Callable, Dict, List, Optional, Sequence, Union
 
 logger = logging.getLogger(__name__)
 
-
 def atomic_write_json(
     filepath: Union[Path, str],
     data: Any,
@@ -26,7 +25,6 @@ def atomic_write_json(
     path = Path(filepath).resolve()
     path.parent.mkdir(parents=True, exist_ok=True)
 
-    # Use same directory to ensure it's on the same filesystem/mount point
     timestamp = int(time.time() * 1000)
     pid = os.getpid()
     temp_file = path.parent / f".{path.name}.tmp.{pid}_{timestamp}"
@@ -48,7 +46,6 @@ def atomic_write_json(
         logger.error(f"Failed to atomically write JSON to {path}: {e}")
         raise
 
-
 def quarantine_corrupt_file(filepath: Union[Path, str], reason: str = "") -> Optional[Path]:
     """
     Preserves a corrupt file by moving it to <filename>.corrupt.<timestamp>.
@@ -61,7 +58,6 @@ def quarantine_corrupt_file(filepath: Union[Path, str], reason: str = "") -> Opt
     timestamp = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
     quarantine_path = path.parent / f"{path.name}.corrupt.{timestamp}"
     try:
-        # Move the corrupt file out of the way
         shutil.move(str(path), str(quarantine_path))
         logger.warning(
             f"Quarantined corrupt file {path.name} -> {quarantine_path.name}. Reason: {reason}"
@@ -70,7 +66,6 @@ def quarantine_corrupt_file(filepath: Union[Path, str], reason: str = "") -> Opt
     except Exception as e:
         logger.error(f"Failed to quarantine corrupt file {path}: {e}")
         return None
-
 
 def read_json_safe(
     filepath: Union[Path, str],

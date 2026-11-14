@@ -4,7 +4,6 @@ import unittest
 from watcher.local_comparator import LocalComparator, compare_sourcing
 from watcher.config import DEFAULT_JPY_PLN_RATE, DEFAULT_EUR_PLN_RATE
 
-
 class TestLocalComparator(unittest.TestCase):
     def setUp(self):
         self.comparator = LocalComparator(
@@ -17,10 +16,9 @@ class TestLocalComparator(unittest.TestCase):
         jp_deal = {
             "model": "Sony PSP-3000 Piano Black",
             "category_id": "psp_handheld",
-            "price_jpy": 6000,  # ~150 PLN raw + fees + VAT + shipping = ~230+ PLN landed
+            "price_jpy": 6000,
             "shipping_share_pln": 30.0
         }
-        # In Poland, someone listed it on OLX for 170 PLN with 15 PLN shipping = 185 PLN total
         local_deal = {
             "platform": "OLX",
             "price_pln": 170.0,
@@ -32,7 +30,7 @@ class TestLocalComparator(unittest.TestCase):
         self.assertEqual(res["recommendation"], "skip_import")
         self.assertIn("Skip Import: Kup lokalnie w Polsce", res["recommendation_label"])
         self.assertGreater(res["cost_difference_pln"], 0)
-        self.assertEqual(res["days_saved"], 19)  # 21 - 2
+        self.assertEqual(res["days_saved"], 19)
         self.assertTrue(res["local_sourcing"]["return_rights"])
         self.assertFalse(res["jp_sourcing"]["return_rights"])
         self.assertIn("niższa niż efektywny koszt", res["reason"])
@@ -45,8 +43,6 @@ class TestLocalComparator(unittest.TestCase):
             "price_jpy": 3000,
             "shipping_share_pln": 30.0
         }
-        # JP base landed cost ~160 PLN. Effective cost with risk/time ~178 PLN.
-        # Local price on Allegro is 185 PLN with Smart (free shipping), only ~7 PLN higher than JP.
         local_deal = {
             "platform": "Allegro",
             "price_pln": 185.0,
@@ -65,10 +61,9 @@ class TestLocalComparator(unittest.TestCase):
         jp_deal = {
             "model": "New Nintendo 3DS LL Metallic Blue",
             "category_id": "nintendo_3ds_handhelds",
-            "price_jpy": 9000,  # ~223 PLN raw + landed ~320 PLN
+            "price_jpy": 9000,
             "shipping_share_pln": 30.0
         }
-        # In Poland, New 3DS XL sells for 650 PLN on Allegro
         local_deal = {
             "platform": "Allegro",
             "price_pln": 650.0,
@@ -79,7 +74,7 @@ class TestLocalComparator(unittest.TestCase):
         res = self.comparator.compare(jp_deal, local_deal)
         self.assertEqual(res["recommendation"], "import_japan")
         self.assertIn("Importuj z Japonii", res["recommendation_label"])
-        self.assertLess(res["cost_difference_pln"], -150.0)  # Significant savings importing
+        self.assertLess(res["cost_difference_pln"], -150.0)
         self.assertIn("pozostaje wysoce opłacalny", res["reason"])
 
     def test_convenience_helper_function(self):
@@ -119,7 +114,6 @@ class TestLocalComparator(unittest.TestCase):
         self.assertEqual(res["recommendation"], "import_japan")
         self.assertIn("Brak ofert", res["recommendation_label"])
         self.assertIsNone(res["local_sourcing"])
-
 
 if __name__ == "__main__":
     unittest.main()

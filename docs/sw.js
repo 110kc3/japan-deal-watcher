@@ -1,4 +1,3 @@
-// Service Worker for AgyDeal Japan Auction & Deal Radar PWA
 const CACHE_NAME = 'agydeal-v2.3.1';
 const ASSETS_TO_CACHE = [
   './',
@@ -38,18 +37,15 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Immediate skip waiting on message
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
     self.skipWaiting();
   }
 });
 
-// Network-first with cache: 'no-store' for live deals, Stale-While-Revalidate for static assets
 self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
 
-  // For data/deals.json, NEVER serve stale data: network-first with cache: 'no-store'
   if (url.pathname.endsWith('deals.json')) {
     event.respondWith(
       fetch(new Request(event.request.url, {
@@ -69,7 +65,6 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // For static assets: Stale-While-Revalidate
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
       const fetchPromise = fetch(event.request)
@@ -80,7 +75,6 @@ self.addEventListener('fetch', (event) => {
           return networkResponse;
         })
         .catch(() => {
-          // Offline fallback
           return cachedResponse;
         });
 

@@ -19,7 +19,6 @@ from pathlib import Path
 from watcher.resale_ledger import ResaleLedger, LIFECYCLE_STAGES, CSV_FIELDNAMES
 from watcher.storage import atomic_write_json, read_json_safe
 
-
 class TestResaleLedger(unittest.TestCase):
 
     def setUp(self):
@@ -54,9 +53,7 @@ class TestResaleLedger(unittest.TestCase):
 
         self.assertEqual(item["item_id"], "item_001")
         self.assertEqual(item["status"], "planned")
-        # Landed cost = 250 + 28 + 30 + 70.84 = 378.84
         self.assertAlmostEqual(item["landed_cost_pln"], 378.84, places=2)
-        # CORE RULE: Unsold item must NOT have realized profit
         self.assertIsNone(item["realized_profit_pln"])
         self.assertIsNone(item["realized_roi_pct"])
 
@@ -65,27 +62,21 @@ class TestResaleLedger(unittest.TestCase):
         item = self.ledger.add_item({"item_id": "ds_lite_01", "model": "Nintendo DS Lite"})
         self.assertEqual(item["status"], "planned")
 
-        # 1. planned -> bought
         self.ledger.transition_status("ds_lite_01", "bought", notes="Won Yahoo auction")
         self.assertEqual(self.ledger.get_item("ds_lite_01")["status"], "bought")
 
-        # 2. bought -> in_warehouse
         self.ledger.transition_status("ds_lite_01", "in_warehouse", notes="Arrived in Osaka warehouse")
         self.assertEqual(self.ledger.get_item("ds_lite_01")["status"], "in_warehouse")
 
-        # 3. in_warehouse -> shipped
         self.ledger.transition_status("ds_lite_01", "shipped", notes="Dispatched via AVIA parcel")
         self.assertEqual(self.ledger.get_item("ds_lite_01")["status"], "shipped")
 
-        # 4. shipped -> received_tested
         self.ledger.transition_status("ds_lite_01", "received_tested", notes="Received in Poland, fully working")
         self.assertEqual(self.ledger.get_item("ds_lite_01")["status"], "received_tested")
 
-        # 5. received_tested -> listed
         self.ledger.transition_status("ds_lite_01", "listed", listing_channel="Allegro")
         self.assertEqual(self.ledger.get_item("ds_lite_01")["status"], "listed")
 
-        # Invalid jump without force should raise ValueError
         with self.assertRaises(ValueError):
             self.ledger.transition_status("ds_lite_01", "in_warehouse", force=False)
 
@@ -107,11 +98,6 @@ class TestResaleLedger(unittest.TestCase):
             "status": "listed"
         })
 
-        # Record sale on Allegro: 750 zł sale, 65 zł fees, 15 zł shipping
-        # Net settlement = 750 - 65 - 15 = 670 zł
-        # Total cost = 440.34 + 10.0 = 450.34 zł
-        # Realized profit = 670 - 450.34 = 219.66 zł
-        # ROI = (219.66 / 450.34) * 100 = 48.78%
         res = self.ledger.record_settlement(
             item_id="vita_001",
             sale_price_pln=750.0,
@@ -134,7 +120,7 @@ class TestResaleLedger(unittest.TestCase):
             "item_id": "lens_01",
             "model": "Super Takumar 50mm f/1.4",
             "landed_cost_pln": 180.0,
-            "sale_price_pln": 350.0, # Target price is planned, but not sold
+            "sale_price_pln": 350.0,
             "status": "listed"
         })
         item = self.ledger.get_item("lens_01")
@@ -155,7 +141,6 @@ class TestResaleLedger(unittest.TestCase):
             "status": "listed"
         })
 
-        # First sold
         self.ledger.record_settlement(
             item_id="cam_01",
             sale_price_pln=300.0,
@@ -166,7 +151,6 @@ class TestResaleLedger(unittest.TestCase):
         self.assertEqual(item["status"], "sold")
         self.assertGreater(item["realized_profit_pln"], 0)
 
-        # Buyer returns item (lens shutter stuck)
         self.ledger.record_refund(
             item_id="cam_01",
             refund_amount_pln=300.0,
@@ -176,10 +160,8 @@ class TestResaleLedger(unittest.TestCase):
         returned_item = self.ledger.get_item("cam_01")
         self.assertEqual(returned_item["status"], "returned")
         self.assertEqual(returned_item["refund_amount_pln"], 300.0)
-        # Realized profit must be cleared
         self.assertIsNone(returned_item["realized_profit_pln"])
 
-        # Unsold returned unit is counted in capital at risk
         metrics = self.ledger.get_metrics()
         self.assertEqual(metrics["total_realized_profit_pln"], 0.0)
         self.assertEqual(metrics["capital_at_risk_pln"], 150.0)
@@ -198,10 +180,8 @@ class TestResaleLedger(unittest.TestCase):
             selling_fees_pln=30.0,
             shipping_packing_cost_pln=10.0
         )
-        # Net settlement = 360, profit = 360 - 200 = 160
         self.assertEqual(self.ledger.get_item("psp_01")["realized_profit_pln"], 160.0)
 
-        # Issue 40 zł partial refund for cosmetic scratch
         self.ledger.record_refund(
             item_id="psp_01",
             refund_amount_pln=40.0,
@@ -210,12 +190,10 @@ class TestResaleLedger(unittest.TestCase):
         )
         item = self.ledger.get_item("psp_01")
         self.assertEqual(item["status"], "sold")
-        # Profit adjusted: 360 - 40 - 200 = 120 zł
         self.assertEqual(item["realized_profit_pln"], 120.0)
 
     def test_metrics_capital_at_risk_win_rate_days_to_cash(self):
         """Computes comprehensive executive metrics."""
-        # 1. Unsold active item (capital at risk: 300 + 20 = 320)
         self.ledger.add_item({
             "item_id": "active_01",
             "model": "Game Boy Micro",
@@ -225,7 +203,6 @@ class TestResaleLedger(unittest.TestCase):
             "status": "listed"
         })
 
-        # 2. Profitable sold item (+150 profit, 10 days to cash)
         self.ledger.add_item({
             "item_id": "sold_win",
             "model": "DS Lite Black",
@@ -244,7 +221,6 @@ class TestResaleLedger(unittest.TestCase):
             listing_channel="Allegro"
         )
 
-        # 3. Unprofitable sold item (-20 loss, 20 days to cash)
         self.ledger.add_item({
             "item_id": "sold_loss",
             "model": "Broken GBA SP",
@@ -270,12 +246,9 @@ class TestResaleLedger(unittest.TestCase):
         self.assertEqual(metrics["profitable_sales_count"], 1)
         self.assertEqual(metrics["unprofitable_sales_count"], 1)
         self.assertEqual(metrics["win_rate_pct"], 50.0)
-        # Total profit = 150 - 20 = 130 zł
         self.assertAlmostEqual(metrics["total_realized_profit_pln"], 130.0, places=2)
-        # Avg days to cash = (10 + 20) / 2 = 15.0 days
         self.assertEqual(metrics["avg_days_to_cash"], 15.0)
 
-        # Channel performance
         self.assertIn("Allegro", metrics["by_channel"])
         self.assertIn("OLX", metrics["by_channel"])
         self.assertEqual(metrics["by_channel"]["Allegro"]["sales_count"], 1)
@@ -300,7 +273,6 @@ class TestResaleLedger(unittest.TestCase):
         self.assertEqual(len(rows), 1)
         self.assertEqual(rows[0]["item_id"], "csv_test_01")
         self.assertEqual(rows[0]["model"], "PSP-2000 Silver")
-        # All columns present
         for col in CSV_FIELDNAMES:
             self.assertIn(col, rows[0])
 
@@ -330,16 +302,13 @@ class TestResaleLedger(unittest.TestCase):
             f.write("{this is not valid json!@@#$")
 
         new_ledger = ResaleLedger(filepath=corrupt_file)
-        # Should initialize clean
         self.assertEqual(len(new_ledger.data["items"]), 0)
 
-        # Corrupt file must have been quarantined with .corrupt.<timestamp>
         corrupt_copies = list(Path(self.temp_dir.name).glob("corrupt_ledger.json.corrupt.*"))
         self.assertEqual(len(corrupt_copies), 1)
         with open(corrupt_copies[0], "r", encoding="utf-8") as f:
             content = f.read()
         self.assertEqual(content, "{this is not valid json!@@#$")
-
 
 if __name__ == "__main__":
     unittest.main()

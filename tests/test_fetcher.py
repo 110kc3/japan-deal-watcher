@@ -43,18 +43,8 @@ class TestFetcher(unittest.TestCase):
         self.assertFalse(res["is_broken"])
 
     def test_landed_cost_calculation(self):
-        # target item: 10,000 JPY
-        # domestic shipping: 800 JPY -> 20.00 PLN (at 0.025)
-        # zenmarket fee: 2 EUR -> 8.70 PLN (at 4.35)
-        # base_purchase = 250.0 + 20.0 + 8.70 = 278.70 PLN
-        # category "ps_vita" -> shipping_share = 35.0 PLN
-        # subtotal = 278.70 + 35.0 = 313.70 PLN
-        # deposit fee 3.5% = 10.98 PLN
-        # vat 23% = 72.15 PLN
-        # landed_cost = 278.70 + 35.0 + 10.98 + 72.15 = 396.83 PLN
         fallback = {"target_price_jpy": 10000, "est_pl_value": 800.0, "note": "Test Vita"}
         
-        # Test with cached/fallback path (mocking urlopen to 404 to test fallback math)
         with patch("urllib.request.urlopen") as mock_open:
             import urllib.error
             mock_open.side_effect = urllib.error.HTTPError("url", 404, "Not Found", {}, None)

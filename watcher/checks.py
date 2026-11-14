@@ -36,32 +36,22 @@ from .config import (
     DEFAULT_EUR_PLN_RATE
 )
 
-# 1. Defect keywords (broken / damaged / parts only)
 DEFECT_KEYWORDS = [
-    # General failure & non-working
     "故障", "壊れて", "壊れ", "動かない", "動作不可", "作動不可",
     "起動不可", "起動しません", "起動しない", "電源入りません", "電源つかない", "電源が入らない", "通電不可",
     "赤点滅", "電源落ちる", "勝手に電源が切れる",
-    # Optics / Lens damage
     "カビあり", "カビが生えて", "カビが見られ", "クモリあり", "くもりあり", "くもりが見られ",
     "バルサム切れ", "絞り不良", "絞り羽根油", "絞り動かない",
-    # Corrosion / Battery acid
     "液漏れ", "青サビ", "青錆", "端子サビ", "端子腐食",
-    # Display / Screen defects
     "画面割れ", "液晶割れ", "液晶漏れ", "ドット抜け", "ビネガーシンドローム", "画面真っ暗", "液晶不良", "バックライト切れ",
-    # Drives & mechanics
     "シャッター不動", "シャッター切れません", "シャッター切れない", "巻き上げ不可", "巻き上げ不良",
     "読み込みが出来ません", "読み込み不可", "読み込まない", "ディスク読み込まない",
     "トレイ開かない", "トレイ開閉不可", "イジェクト不良", "異音",
-    # Controls / Sticks
     "スティック誤作動", "スティックドリフト", "ドリフト", "ボタン効かない", "ボタン陥没",
-    # Shell / Physical damage
     "破損しており", "破損あり", "ヒビ", "ヒンジ破損", "ヒンジ割れ", "電池蓋破損", "電池蓋爪折れ", "爪折れ",
-    # Water / Environment
     "水没", "水濡れ", "水没マーク", "タバコ臭", "ヤニ汚れ", "不動品"
 ]
 
-# 2. Untested / high gain potential keywords
 UNTESTED_KEYWORDS = [
     "未確認", "動作未確認", "動作未チェック", "未チェック",
     "現状品", "現状渡し", "通電のみ", "通電確認のみ", "通電ok", "通電確認済",
@@ -71,13 +61,11 @@ UNTESTED_KEYWORDS = [
     "動作環境がないため", "テレビがないため", "倉庫整理", "実家から出てきた"
 ]
 
-# 3. Clean optics keywords
 CLEAN_OPTICS_KEYWORDS = [
     "光学クリア", "カビなし", "クモリなし", "分解清掃", "黄変除去",
     "dry box", "防湿box", "防湿庫", "チリ極小", "ホコリ極少"
 ]
 
-# 4. Confirmed working keywords
 CONFIRMED_WORKING_KEYWORDS = [
     "動作確認済み", "動作確認済", "動作品", "完動品", "動作ok",
     "起動確認", "初期化済", "ボタン正常", "読み込みok", "液晶良好",
@@ -85,11 +73,9 @@ CONFIRMED_WORKING_KEYWORDS = [
     "シャッター動作ok", "フラッシュ発光ok"
 ]
 
-# 5. Trap keywords (box only / manual only / empty packages)
 TRAP_KEYWORDS = [
     "箱のみ", "外箱のみ", "空箱", "パッケージのみ", "説明書のみ", "取扱説明書のみ", "部品取り専用"
 ]
-
 
 def is_camera_item(item: Dict[str, Any]) -> bool:
     """Detects whether an item belongs to the analog/compact camera category."""
@@ -110,7 +96,6 @@ def is_camera_item(item: Dict[str, Any]) -> bool:
         return True
     return False
 
-
 def check_camera_price_cap(item: Dict[str, Any], max_price_pln: float = MAX_CAMERA_PRICE_PLN) -> Tuple[bool, str]:
     """
     Check 1: Camera Price Cap.
@@ -129,7 +114,6 @@ def check_camera_price_cap(item: Dict[str, Any], max_price_pln: float = MAX_CAME
         return False, f"Cena aparatu {raw_pln:.2f} zł przekracza dopuszczalny limit {max_price_pln:.2f} zł. Aparaty powyżej 100 zł nie są okazjami."
     return True, f"Cena aparatu {raw_pln:.2f} zł mieści się w limicie okazjonalnym (<= {max_price_pln:.2f} zł)"
 
-
 def is_lens_item(item: Dict[str, Any]) -> bool:
     """Detects whether an item belongs to the analog/manual lens category."""
     cat_id = item.get("category_id", "")
@@ -146,7 +130,6 @@ def is_lens_item(item: Dict[str, Any]) -> bool:
     if "obiektyw" in note:
         return True
     return False
-
 
 def check_lens_price_cap(item: Dict[str, Any], max_price_pln: float = MAX_LENS_PRICE_PLN) -> Tuple[bool, str]:
     """
@@ -166,7 +149,6 @@ def check_lens_price_cap(item: Dict[str, Any], max_price_pln: float = MAX_LENS_P
         return False, f"Cena obiektywu {raw_pln:.2f} zł przekracza dopuszczalny limit {max_price_pln:.2f} zł. Obiektywy w dużych cenach odpadają."
     return True, f"Cena obiektywu {raw_pln:.2f} zł mieści się w limicie okazjonalnym (<= {max_price_pln:.2f} zł)"
 
-
 def is_nintendo_ds_item(item: Dict[str, Any]) -> bool:
     """Detects whether an item belongs to the Nintendo DS / 3DS handheld family."""
     cat_id = item.get("category_id", "")
@@ -180,7 +162,6 @@ def is_nintendo_ds_item(item: Dict[str, Any]) -> bool:
     if any(k in model for k in ["ds lite", "dsi", "3ds", "2ds", "nintendo ds", "new 3ds", "dsi ll", "dsi xl"]):
         return True
     return False
-
 
 def is_handheld_item(item: Dict[str, Any]) -> bool:
     """Detects whether an item belongs to any handheld console category."""
@@ -200,7 +181,6 @@ def is_handheld_item(item: Dict[str, Any]) -> bool:
         return True
     return False
 
-
 def check_defects(text: str, custom_note: str = "", item_condition: str = "") -> Tuple[bool, str]:
     """
     Check 2: Defect & Damage Exclusion Check.
@@ -208,7 +188,6 @@ def check_defects(text: str, custom_note: str = "", item_condition: str = "") ->
     """
     combined = ((text or "") + " " + (custom_note or "") + " " + (item_condition or "")).lower()
 
-    # Pre-clean negations
     cleaned = combined
     cleaned = cleaned.replace("カビなし", "カビ無し")
     cleaned = cleaned.replace("クモリなし", "クモリ無し")
@@ -221,29 +200,24 @@ def check_defects(text: str, custom_note: str = "", item_condition: str = "") ->
 
     negations = ["なし", "ありません", "ないです", "確認済み", "無", "無し", "見られません", "ございません"]
 
-    # If explicitly untested due to missing accessories, avoid parts-only false positive
     is_explicit_untested = any(w in cleaned for w in [
         "動作未確認", "未確認", "充電器がない為動作未確認", "手元に電源コードやケーブル類がないため", "コードがないため"
     ])
 
     for kw in sorted(DEFECT_KEYWORDS, key=len, reverse=True):
         if kw in cleaned:
-            # Check negation
             is_negated = any(kw + neg in cleaned or kw + "は" + neg in cleaned for neg in negations)
             if not is_negated:
                 return False, f"Wykryto defekt/uszkodzenie: '{kw}' w opisie"
 
-    # Box-only / manual-only trap check
     for trap in TRAP_KEYWORDS:
         if trap in cleaned:
             return False, f"Wykryto pułapkę oferty (niepełny towar / tylko pudełko): '{trap}'"
 
-    # Exclusion check: Pentax PC35AF-M (user explicitly requires manual winder PC35AF without motorized M)
     if any(unwanted in cleaned for unwanted in ["pc35af-m", "pc35afm", "pc35af m"]):
         return False, "Wykluczono wersję PC35AF-M (silnik elektryczny) – preferowany model oryginalny PC35AF z ręcznym naciągiem"
 
     return True, "Brak uszkodzeń i defektów"
-
 
 def check_untested_opportunity(text: str, custom_note: str = "") -> Tuple[bool, str]:
     """
@@ -256,7 +230,6 @@ def check_untested_opportunity(text: str, custom_note: str = "") -> Tuple[bool, 
             return True, f"Wykryto potencjał zysku (sprzęt niesprawdzany): '{kw}'"
     return False, "Sprzęt nie posiada flagi 'niesprawdzany'"
 
-
 def check_shipping_trap(text: str) -> Tuple[bool, str]:
     """
     Check 4: Domestic Shipping Trap Check.
@@ -268,7 +241,6 @@ def check_shipping_trap(text: str) -> Tuple[bool, str]:
     if "着払い" in t:
         return False, "Ostrzeżenie: Płatność przy odbiorze (着払い / Chakubarai)"
     return True, "Standardowa stawka wysyłki krajowej (~800 JPY)"
-
 
 def check_iata_lithium(items: List[Dict[str, Any]]) -> Tuple[bool, str]:
     """
@@ -287,7 +259,6 @@ def check_iata_lithium(items: List[Dict[str, Any]]) -> Tuple[bool, str]:
         return False, f"Przekroczono limit IATA: {li_ion_count} baterii Li-Ion w paczce (maksymalnie {MAX_LI_ION_PER_PARCEL})"
     return True, f"Zgodne z regulacjami IATA ({li_ion_count}/{MAX_LI_ION_PER_PARCEL} baterii Li-Ion)"
 
-
 def check_profitability_hurdle(deal: Dict[str, Any], min_roi: float = 30.0, min_margin: float = 40.0) -> Tuple[bool, str]:
     """
     Check 6: Profitability & Hurdle Rate Check.
@@ -302,7 +273,6 @@ def check_profitability_hurdle(deal: Dict[str, Any], min_roi: float = 30.0, min_
         return False, f"Zbyt niska stopa zwrotu: {roi:.1f}% ROI (wymagane min. {min_roi:.1f}%)"
     return True, f"Opłacalna oferta (+{margin:.2f} zł, +{roi:.1f}% ROI)"
 
-
 def check_currency_health(rate_jpy: float, rate_eur: float) -> Tuple[bool, str]:
     """
     Check 7: Currency Exchange Rate Health & Spread Check.
@@ -313,7 +283,6 @@ def check_currency_health(rate_jpy: float, rate_eur: float) -> Tuple[bool, str]:
     if rate_eur <= 3.80 or rate_eur >= 5.50:
         return False, f"Anomalia kursu EUR/PLN: {rate_eur:.4f} (oczekiwany zakres: 4.00 - 5.00)"
     return True, f"Kursy walut stabilne (100 JPY ≈ {rate_jpy * 100:.2f} zł, 1 EUR ≈ {rate_eur:.4f} zł)"
-
 
 def check_dataset_integrity(filepath: Path, expected_type: str = "watchlist") -> Tuple[bool, List[str]]:
     """
@@ -339,7 +308,6 @@ def check_dataset_integrity(filepath: Path, expected_type: str = "watchlist") ->
             cat_id = cat.get("id", "")
             items = cat.get("tracked_items", [])
             for it in items:
-                # Validate camera prices
                 if cat_id == "film_cameras_point_shoot" or is_camera_item(it):
                     price_jpy = it.get("target_price_jpy", 0)
                     raw_pln = price_jpy * DEFAULT_JPY_PLN_RATE
@@ -348,7 +316,6 @@ def check_dataset_integrity(filepath: Path, expected_type: str = "watchlist") ->
                             f"Naruszenie reguły aparatów w {it.get('id', 'item')} ({it.get('model')}): "
                             f"cena {raw_pln:.2f} zł > {MAX_CAMERA_PRICE_PLN:.2f} zł!"
                         )
-                # Validate lens prices
                 if cat_id == "analog_lenses" or is_lens_item(it):
                     price_jpy = it.get("target_price_jpy", 0)
                     raw_pln = price_jpy * DEFAULT_JPY_PLN_RATE
@@ -381,7 +348,6 @@ def check_dataset_integrity(filepath: Path, expected_type: str = "watchlist") ->
 
     return len(errors) == 0, errors
 
-
 def check_markdown_dashboards(base_dir: Path = BASE_DIR) -> Tuple[bool, List[str]]:
     """
     Check 9: Markdown Dashboards & Cross-Links Integrity.
@@ -406,7 +372,6 @@ def check_markdown_dashboards(base_dir: Path = BASE_DIR) -> Tuple[bool, List[str
                 errors.append(f"Plik {doc.name} jest podejrzanie krótki ({len(text)} znaków)")
 
     return len(errors) == 0, errors
-
 
 def check_link_integrity(docs_deals_file: Optional[Path] = None) -> Tuple[bool, List[str]]:
     """
@@ -444,32 +409,26 @@ def check_link_integrity(docs_deals_file: Optional[Path] = None) -> Tuple[bool, 
                 errors.append(f"Przedmiot {iid}: Pusty link '{link_key}'")
                 continue
 
-            # 1. No leaked proxy IDs
             if any(p in url for p in ["danshari_", "pentax_pc35af_manual", "mju_2_prime_black"]):
                 errors.append(f"Przedmiot {iid}: Link '{link_key}' wycieka wewnętrzne proxy ID ({url})")
 
-            # 2. No uninterpolated placeholders
             if "{" in url or "}" in url or "%7B" in url or "%7D" in url:
                 errors.append(f"Przedmiot {iid}: Link '{link_key}' zawiera niezastąpione klamry ({url})")
 
-            # 3. OLX format check
             if link_key == "olx_search":
                 if not olx_regex.match(url):
                     errors.append(f"Przedmiot {iid}: Nieprawidłowy format OLX slug ({url})")
                 if "%26" in url or "-&-" in url:
                     errors.append(f"Przedmiot {iid}: OLX link zawiera niedozwolony znak '&' ({url})")
 
-            # 4. Allegro format check
             if link_key == "allegro_search":
                 if jp_regex.search(url) or "%E3%80%90" in url:
                     errors.append(f"Przedmiot {iid}: Allegro search zawiera japoński tekst lub tagi ({url})")
 
-            # 5. ZenMarket format check
             if "zenmarket" in link_key and not url.startswith("https://zenmarket.jp/"):
                 errors.append(f"Przedmiot {iid}: ZenMarket URL nie zaczyna się od https://zenmarket.jp/ ({url})")
 
     return len(errors) == 0, errors
-
 
 def check_finished_auctions_dataset(filepath: Optional[Path] = None) -> Tuple[bool, List[str]]:
     """
@@ -505,11 +464,9 @@ def check_finished_auctions_dataset(filepath: Optional[Path] = None) -> Tuple[bo
         if final_pln <= 0:
             errors.append(f"Aukcja {aid} ({it.get('model')}): Nieprawidłowa cena końcowa {final_pln} zł")
 
-        # Camera price cap rule <= 100 PLN
         if is_camera_item(it) and final_pln > MAX_CAMERA_PRICE_PLN:
             errors.append(f"Aparat {aid} ({it.get('model')}): Cena końcowa {final_pln:.2f} zł > 100 zł!")
 
-        # Lens price cap rule <= 100 PLN
         if is_lens_item(it) and final_pln > MAX_LENS_PRICE_PLN:
             errors.append(f"Obiektyw {aid} ({it.get('model')}): Cena końcowa {final_pln:.2f} zł > 100 zł!")
 
@@ -517,7 +474,6 @@ def check_finished_auctions_dataset(filepath: Optional[Path] = None) -> Tuple[bo
             errors.append(f"Aukcja {aid}: Brak daty zakończenia (closed_at)")
 
     return len(errors) == 0, errors
-
 
 def check_active_auction_timing(yahoo_file: Optional[Path] = None) -> Tuple[bool, List[str]]:
     """
@@ -548,7 +504,6 @@ def check_active_auction_timing(yahoo_file: Optional[Path] = None) -> Tuple[bool
             errors.append(f"Aukcja {aid}: Brak daty zakończenia (ends_at)")
 
     return len(errors) == 0, errors
-
 
 def check_unproxied_geoblocked_links(docs_deals_file: Optional[Path] = None) -> Tuple[bool, List[str]]:
     """
@@ -583,7 +538,6 @@ def check_unproxied_geoblocked_links(docs_deals_file: Optional[Path] = None) -> 
             errors.append(f"Aukcja {aid}: primary_url zawiera geoblowany direct link do Yahoo Auctions")
 
     return len(errors) == 0, errors
-
 
 def check_mechanical_keyboards_category(watchlist_file: Optional[Path] = None) -> Tuple[bool, List[str]]:
     """
@@ -626,7 +580,6 @@ def check_mechanical_keyboards_category(watchlist_file: Optional[Path] = None) -
 
     return len(errors) == 0, errors
 
-
 def check_wholesale_psp_lots(watchlist_file: Optional[Path] = None) -> Tuple[bool, List[str]]:
     """
     Check 15: Wholesale PSP Bundles (>=3 Consoles) Verification.
@@ -665,59 +618,48 @@ def check_wholesale_psp_lots(watchlist_file: Optional[Path] = None) -> Tuple[boo
 
     return len(errors) == 0, errors
 
-
 def run_full_system_audit(strict: bool = False) -> Dict[str, Any]:
     """
     Executes all system and deal verification checks, returning an executive audit report.
     """
     audit_results: List[Dict[str, Any]] = []
 
-    # 1. Currency health check
     ok, msg = check_currency_health(DEFAULT_JPY_PLN_RATE, DEFAULT_EUR_PLN_RATE)
     audit_results.append({"name": "NBP Live Currency Rates", "passed": ok, "message": msg, "icon": "💱"})
 
-    # 2. Watchlist integrity & camera / lens <= 100 PLN rules
     ok, errs = check_dataset_integrity(WATCHLIST_FILE, expected_type="watchlist")
     msg = "Wszystkie kategorie, aparaty i obiektywy spełniają limit <= 100 zł" if ok else "; ".join(errs)
     audit_results.append({"name": "Watchlist Dataset & Camera/Lens <= 100 zł Rules", "passed": ok, "message": msg, "icon": "📋"})
 
-    # 3. Yahoo deals integrity & camera / lens <= 100 PLN rules
     if YAHOO_DEALS_FILE.exists():
         ok, errs = check_dataset_integrity(YAHOO_DEALS_FILE, expected_type="yahoo_deals")
         msg = "Wszystkie aukcje, aparaty i obiektywy spełniają limit <= 100 zł" if ok else "; ".join(errs)
         audit_results.append({"name": "Yahoo Deals Dataset & Camera/Lens <= 100 zł Rules", "passed": ok, "message": msg, "icon": "🔨"})
 
-    # 4. Markdown dashboards integrity
     ok, errs = check_markdown_dashboards(BASE_DIR)
     msg = "Wszystkie dashboardy Markdown (README, YAHOO, SNIPER) aktywne" if ok else "; ".join(errs)
     audit_results.append({"name": "Markdown Dashboards & Cross-Links", "passed": ok, "message": msg, "icon": "📄"})
 
-    # 5. Link integrity & Polish market search streams verification
     ok, errs = check_link_integrity(DOCS_DATA_FILE)
     msg = "Wszystkie linki (ZenMarket, Allegro, OLX) zweryfikowane, zero 404/błędów" if ok else "; ".join(errs)
     audit_results.append({"name": "Link & Search Stream Integrity (ZenMarket/Allegro/OLX)", "passed": ok, "message": msg, "icon": "🔗"})
 
-    # 6. Finished auctions dataset & realized margin integrity
     ok, errs = check_finished_auctions_dataset(FINISHED_AUCTIONS_FILE)
     msg = "Archiwum zakończonych aukcji poprawne, ceny aparatów/obiektywów <= 100 zł" if ok else "; ".join(errs)
     audit_results.append({"name": "Finished Auctions Dataset & Realized Margin Integrity", "passed": ok, "message": msg, "icon": "🏁"})
 
-    # 7. Active auction timing & Yahoo ID validation
     ok, errs = check_active_auction_timing(YAHOO_DEALS_FILE)
     msg = "Wszystkie aukcje mają poprawne identyfikatory Yahoo i zdefiniowany czas" if ok else "; ".join(errs)
     audit_results.append({"name": "Active Auction Timing & Yahoo Auction ID Integrity", "passed": ok, "message": msg, "icon": "⏱️"})
 
-    # 8. Geoblock & Primary Action URL resilience
     ok, errs = check_unproxied_geoblocked_links(DOCS_DATA_FILE)
     msg = "100% linków akcji skierowanych przez bezpieczny proxy ZenMarket (brak blokad geoblock)" if ok else "; ".join(errs)
     audit_results.append({"name": "Geoblock Resilience & Primary Proxy Action Links", "passed": ok, "message": msg, "icon": "🛡️"})
 
-    # 9. Mechanical Keyboards Category & 0% Li-Ion compliance
     ok, errs = check_mechanical_keyboards_category(WATCHLIST_FILE)
     msg = "Kategoria klawiatur mechanicznych (Topre, HHKB, Hot-Swap) aktywna, 0% Li-Ion" if ok else "; ".join(errs)
     audit_results.append({"name": "Mechanical Keyboards Category (Hot-Swap & Limited)", "passed": ok, "message": msg, "icon": "⌨️"})
 
-    # 10. Wholesale PSP Bundles (>=3 Consoles) & Dry Shipping Protocol
     ok, errs = check_wholesale_psp_lots(WATCHLIST_FILE)
     msg = "Pakiety hurtowe PSP (>=3 sztuki) zweryfikowane, procedura Dry Shipping zdefiniowana" if ok else "; ".join(errs)
     audit_results.append({"name": "Wholesale PSP Bundles (>=3 Units) & Dry Shipping", "passed": ok, "message": msg, "icon": "📦"})

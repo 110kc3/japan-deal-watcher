@@ -66,7 +66,6 @@ class TestAlternativeDeals(unittest.TestCase):
         deals = gen.deals
         self.assertEqual(len(deals), 2)
 
-        # Item 1: PS Vita (12500 JPY, 800 JPY dom, 2 EUR fee, 3.5% dep, 23% VAT)
         d1 = deals[0]
         c1 = calculate_landed_cost(12500, "ps_vita", rate_jpy=rate, rate_eur=rate_eur)
         self.assertEqual(d1["price_pln_raw"], c1["price_pln_raw"])
@@ -74,7 +73,6 @@ class TestAlternativeDeals(unittest.TestCase):
         self.assertEqual(d1["est_margin_pln"], round(750.0 - c1["landed_cost_pln"], 2))
         self.assertGreater(d1["roi_percent"], 0)
 
-        # Item 2: PSP games mix (3800 JPY, 800 JPY dom, 2 EUR fee, 3.5% dep, 23% VAT)
         d2 = deals[1]
         c2 = calculate_landed_cost(3800, "psp_games_mix", rate_jpy=rate, rate_eur=rate_eur)
         self.assertEqual(d2["landed_cost_pln"], c2["landed_cost_pln"])
@@ -129,7 +127,6 @@ class TestAlternativeDeals(unittest.TestCase):
             self.assertTrue(deal["source_url"].startswith("http"))
             self.assertTrue(deal["zenmarket_url"].startswith("http"))
             self.assertTrue(len(deal["search_query_jp"]) > 0)
-            # Ensure links are valid ZenMarket and proxy links (either specific auction or stream)
             self.assertIn("zenmarket.jp", deal["zenmarket_url"])
             self.assertTrue(
                 "itemCode=" in deal["zenmarket_url"] or

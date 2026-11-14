@@ -13,7 +13,6 @@ from pathlib import Path
 from watcher.config import YAHOO_DEALS_FILE, CURRENT_DEALS_FILE
 from watcher.lot_vision_inspector import LotVisionInspector, RETRO_GAME_KNOWLEDGE_BASE, DANSHARI_KEYWORDS
 
-
 def load_all_deals():
     deals = []
     if YAHOO_DEALS_FILE.exists():
@@ -23,7 +22,6 @@ def load_all_deals():
         with open(CURRENT_DEALS_FILE, "r", encoding="utf-8") as f:
             deals.extend(json.load(f))
     return deals
-
 
 def cmd_list_lots():
     deals = load_all_deals()
@@ -58,7 +56,6 @@ def cmd_list_lots():
             print(f"    💡 Break-Even: {inspection['break_even_gem']}")
         print(f"    🔗 Snajper: {lot.get('zenmarket_url', '')}")
 
-
 def cmd_inspect_id(lot_id: str):
     deals = load_all_deals()
     target = None
@@ -79,7 +76,6 @@ def cmd_inspect_id(lot_id: str):
     print("\n--- FORMAT MARKDOWN ---")
     print(LotVisionInspector.format_inspection_markdown(inspection))
 
-
 def cmd_analyze_text(text: str):
     print("=" * 80)
     print(f"📝 ANALIZA TEKSTU I TYTUŁU OFERTY: '{text}'")
@@ -88,7 +84,6 @@ def cmd_analyze_text(text: str):
     print(f"Typ aukcji: {danshari['label']} (Wykryto słowa kluczowe: {danshari.get('all_tags', [])})")
     print(f"Opis: {danshari['description']}")
 
-    # Fake deal dict for inspection
     fake_deal = {"model": text, "custom_note": text, "price_jpy": 3000, "est_pl_value": 350.0}
     inspection = LotVisionInspector.inspect_lot_photo_contents(fake_deal)
     gems = inspection.get("top_gems", [])
@@ -97,12 +92,10 @@ def cmd_analyze_text(text: str):
         print(f"  • {g['title']} ({g['platform']}) - Wycena: ~{g['est_pl_value']:.0f} zł [{g['rarity']}]")
     print(f"\n{inspection.get('battery_notes')}")
 
-
 def cmd_demo():
     sample = "【断捨離】DS 3DS ゲームソフト 45本まとめ売り ポケットモンスター ハートゴールド プラチナ ゼルダの伝説 夢幻の砂時計 動作未確認 ジャンク扱い"
     print("🎬 URUCHAMIANIE DEMONSTRACJI INSPEKCJI PAKIETU DANSHARI...")
     cmd_analyze_text(sample)
-
 
 def main():
     parser = argparse.ArgumentParser(description="Japanese Mystery Game Lot & Danshari Photo Inspector CLI")
@@ -125,7 +118,6 @@ def main():
         cmd_analyze_text(args.analyze)
     elif args.demo:
         cmd_demo()
-
 
 if __name__ == "__main__":
     main()

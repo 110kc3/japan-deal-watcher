@@ -15,12 +15,11 @@ from .config import (
 )
 from .costs import calculate_landed_cost
 
-DEFAULT_TRANSIT_DAYS_JP = 21            # Average air transit (Avia Small Packet: 14-21 days)
-DEFAULT_TRANSIT_DAYS_PL = 2             # Polish domestic courier / Paczkomat: 1-2 days
-DEFAULT_CAPITAL_COST_ANNUAL_RATE = 0.12 # 12% per annum cost of tied-up capital
-DEFAULT_IMPORT_RISK_RATE = 0.05         # 5% risk factor (damage, customs delay, no return rights to JP)
-DEFAULT_PL_DOMESTIC_SHIPPING_PLN = 15.0 # InPost Paczkomat / DPD domestic rate
-
+DEFAULT_TRANSIT_DAYS_JP = 21
+DEFAULT_TRANSIT_DAYS_PL = 2
+DEFAULT_CAPITAL_COST_ANNUAL_RATE = 0.12
+DEFAULT_IMPORT_RISK_RATE = 0.05
+DEFAULT_PL_DOMESTIC_SHIPPING_PLN = 15.0
 
 class LocalComparator:
     """
@@ -61,7 +60,6 @@ class LocalComparator:
             tolerance_pln: If local cost is within this margin above JP landed cost,
                            recommend local buying because transit time and return rights outweigh tiny savings.
         """
-        # 1. Japanese Landed Cost Calculation
         jp_price_jpy = float(jp_deal.get("price_jpy", jp_deal.get("target_price_jpy", 0)))
         category_id = jp_deal.get("category_id")
         shipping_share_pln = jp_deal.get("shipping_share_pln")
@@ -83,7 +81,6 @@ class LocalComparator:
         import_risk_pln = round(base_jp_landed_pln * self.import_risk_rate, 2)
         effective_jp_cost_pln = round(base_jp_landed_pln + holding_cost_pln + import_risk_pln, 2)
 
-        # 2. Polish Domestic Sourcing Calculation
         local_price_pln = float(local_deal.get("price_pln", local_deal.get("price", 0)))
         has_smart = bool(local_deal.get("has_smart", False) or local_deal.get("free_shipping", False))
         if has_smart:
@@ -96,13 +93,10 @@ class LocalComparator:
         transit_days_pl = int(local_deal.get("transit_days", self.transit_days_pl))
         effective_local_cost_pln = round(local_price_pln + local_shipping, 2)
 
-        # 3. Decision & Comparison
-        # Positive diff means local is cheaper by diff amount
         cost_difference_pln = round(effective_jp_cost_pln - effective_local_cost_pln, 2)
         days_saved = max(0, transit_days_jp - transit_days_pl)
 
         is_strictly_cheaper_local = effective_local_cost_pln <= effective_jp_cost_pln
-        # If difference is minimal (e.g. local is only a few PLN more), local is comparable
         is_comparable_local = (effective_local_cost_pln - effective_jp_cost_pln) <= tolerance_pln
 
         if is_strictly_cheaper_local or is_comparable_local:
@@ -172,7 +166,6 @@ class LocalComparator:
         Picks the best local option and produces a definitive recommendation.
         """
         if not local_candidates:
-            # No local candidates available
             jp_price_jpy = float(jp_deal.get("price_jpy", jp_deal.get("target_price_jpy", 0)))
             category_id = jp_deal.get("category_id")
             landed_info = calculate_landed_cost(
@@ -199,10 +192,8 @@ class LocalComparator:
             }
 
         comparisons = [self.compare(jp_deal, cand, tolerance_pln=tolerance_pln) for cand in local_candidates]
-        # Best local candidate is the one with the lowest effective cost in Poland
         best = min(comparisons, key=lambda c: c["local_sourcing"]["effective_cost_pln"])
         return best
-
 
 def compare_sourcing(
     jp_deal: Dict[str, Any],

@@ -13,14 +13,12 @@ from .config import (
 from .costs import calculate_landed_cost
 from .lot_vision_inspector import LotVisionInspector, DANSHARI_KEYWORDS
 
-
 def sanitize_md(text: Any) -> str:
     """Sanitizes text for safe inclusion in Markdown tables."""
     if text is None:
         return ""
     cleaned = str(text).replace("|", "&#124;").replace("\r\n", " ").replace("\n", " ").replace("\r", " ")
     return " ".join(cleaned.split()).strip()
-
 
 class MysteryLotsGenerator:
     """Generates MYSTERY_LOTS_ANALYSIS.md – Dedicated dashboard for Danshari & Mystery game lots."""
@@ -45,7 +43,6 @@ class MysteryLotsGenerator:
         rate_badge_label = "NBP%20Live" if self.is_live_rate else "Rate"
         rate_badge_color = "success" if self.is_live_rate else "informational"
 
-        # Filter mystery lots and lots with photo inspections
         mystery_deals = []
         for d in self.raw_deals:
             cid = d.get("category_id", "")
@@ -88,7 +85,6 @@ class MysteryLotsGenerator:
         md.append("---")
         md.append("")
 
-        # Section 1: The Danshari Arbitrage Phenomenon
         md.append("## 💡 Dlaczego Pakiety Różności (Danshari / 処分) Oferują Najwyższe ROI?")
         md.append("")
         md.append(
@@ -106,7 +102,6 @@ class MysteryLotsGenerator:
         md.append("---")
         md.append("")
 
-        # Section 1.5: Wholesale PSP Bundles Analysis (Hurtowe Pakiety 3+ Sztuk)
         md.append("## 🎮 Hurtowe Pakiety Konsol PSP (3+ sztuki w ogłoszeniu) – Czy to się opłaca?")
         md.append("")
         md.append(
@@ -145,7 +140,6 @@ class MysteryLotsGenerator:
         md.append("---")
         md.append("")
 
-        # Section 2: NTSC-J Language Reality & Strict Polish Resale Penalty
         md.append("## ⚠️ Rygorystyczny Filtr Bariery Językowej NTSC-J na Rynku Polskim")
         md.append("")
         md.append(
@@ -167,7 +161,6 @@ class MysteryLotsGenerator:
         md.append("---")
         md.append("")
 
-        # Section 3: Visual Inspection Cheatsheet
         md.append("## 🔍 Przewodnik Inspekcji Wizualnej Zdjęć (Jak Rozpoznawać Skarby)")
         md.append("")
         md.append(
@@ -184,7 +177,6 @@ class MysteryLotsGenerator:
         md.append("---")
         md.append("")
 
-        # Section 4: Japońskie Słowa Klucze (Złoty Słownik)
         md.append("## 📚 Złoty Słownik Japońskich Ofert Typu Różności")
         md.append("")
         md.append("| Japońskie Hasło | Rōmaji | Polski Odpowiednik | Dlaczego Warto Szukać? |\n|---|---|---|---|")
@@ -194,7 +186,6 @@ class MysteryLotsGenerator:
         md.append("---")
         md.append("")
 
-        # Section 4: Curated Mystery Lots Table
         md.append(f"## 📋 Tabela Śledzonych Pakietów Różności z Inspekcją Zdjęć ({len(mystery_deals)} Pozycji)")
         md.append("")
         md.append(
@@ -225,12 +216,11 @@ class MysteryLotsGenerator:
             img_url = d.get("image_url", "./assets/images/mystery_lot.svg")
             img_tag = f"<img src='{img_url}' width='55' height='36' style='border-radius:4px; object-fit:contain; background:#0f172a; vertical-align:middle;' />"
 
-            # Inspection analysis
             inspection = LotVisionInspector.inspect_lot_photo_contents(d)
             gems = inspection.get("top_gems", [])
 
             gems_summary_lines = []
-            for g in gems[:3]:  # Top 3 gems
+            for g in gems[:3]:
                 gems_summary_lines.append(f"• 💎 **{g['title']}** (~{g['est_pl_value']:.0f} zł)")
             gems_str = "<br>".join(gems_summary_lines) if gems_summary_lines else "• Standardowy miks gier retro"
 
@@ -245,7 +235,6 @@ class MysteryLotsGenerator:
                 f"{break_even_tag}"
             )
 
-            # 1-Click URLs
             query = d.get("search_query_jp", d.get("model", ""))
             encoded_q = urllib.parse.quote(query)
             zen_ending_soon = f"https://zenmarket.jp/pl/yahoo.aspx?q={encoded_q}&sort=end&order=asc"
@@ -255,7 +244,6 @@ class MysteryLotsGenerator:
             yahoo_closed = f"https://auctions.yahoo.co.jp/closedsearch/closedsearch?p={encoded_q}"
             aucfan_url = f"https://aucfan.com/search1/q-{encoded_q}/s-mix/"
 
-            # Polish comparison searches
             clean_search_kw = "gry " + d.get("category_id", "").replace("_", " ")
             if "ds" in d.get("model", "").lower():
                 clean_search_kw = "gry nintendo ds"
@@ -295,7 +283,6 @@ class MysteryLotsGenerator:
         md.append("---")
         md.append("")
 
-        # Section 5: Logistyka i Pakowanie
         md.append("## 📦 Logistyka, Baterie i Konsolidacja Pakietów Różności")
         md.append("")
         md.append(
