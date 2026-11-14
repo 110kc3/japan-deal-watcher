@@ -1,5 +1,100 @@
 [
   {
+    "id": "m1251794490",
+    "platform": "Yahoo! Auctions Japan",
+    "category_id": "danshari_mystery_lots",
+    "category_name": "Pakiety Różności i Likwidacje Kolekcji (Danshari / 処分 / 雑多 / 福袋)",
+    "model": "【倉庫整理】Pudło 45 Gier PS1 & PS2 RPG (Square Enix / Capcom / Konami)",
+    "color": "Mix 45 Gier PS1 & PS2",
+    "price_jpy": 3800,
+    "est_pl_value": 300.0,
+    "allegro_archive_pln": 340.0,
+    "olx_haggled_pln": 270.0,
+    "battery_type": "none",
+    "status": "🏁 Zakończona (Wylicytowano)",
+    "condition_type": "confirmed_working",
+    "condition_badge": "🟢 0% Li-Ion (Zero Baterii)",
+    "image_url": "https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0211/user/17c35c68403a49d6b0096f376076467cc4d2a1367a1413f510f7ef5f37a4dc84/i-img1200x824-17942935916596ae8dzl734.jpg?w=300&h=300",
+    "custom_note": "Pudło z kultowymi japońskimi RPG z ery PS1/PS2 – widoczne gry Final Fantasy VII, VIII, IX oraz Biohazard!",
+    "source_url": "https://page.auctions.yahoo.co.jp/jp/auction/m1251794490",
+    "zenmarket_url": "https://zenmarket.jp/pl/auction.aspx?itemCode=m1251794490",
+    "buyee_url": "https://buyee.jp/item/yahoo/auction/m1251794490",
+    "search_query_jp": "PS1 PS2 ソフト 倉庫整理 RPG",
+    "closed_price_min_jpy": 3000,
+    "closed_price_avg_jpy": 4600,
+    "closed_price_max_jpy": 6900,
+    "mercari_bin_avg_jpy": 8200,
+    "auction_advantage_note": "Japońskie wydania Final Fantasy na PS1 mają genialne białe okładki z rysunkami Yoshitaki Amano – hit w PL!",
+    "photo_inspection": {
+      "inspected": true,
+      "inspection_badge": "🔍 Inspekcja Zdjęcia (AI Vision)",
+      "total_items_spotted": 45,
+      "lot_type": "storage_cleanup",
+      "lot_type_name": "Czyszczenie Magazynu / Schowka",
+      "top_gems": [
+        {
+          "title": "Final Fantasy VII / VIII / IX (PS1 JPN)",
+          "jp_title": "ファイナルファンタジー VII / VIII / IX",
+          "platform": "PlayStation 1",
+          "format": "CIB Jewel Case",
+          "rarity": "⭐⭐⭐⭐ Ikona Kolekcjonerska",
+          "est_pl_value": 55.0,
+          "allegro_archive_pln": 65.0,
+          "olx_haggled_pln": 45.0,
+          "region_free": false,
+          "language_barrier": "high",
+          "language_note": "Piękne białe okładki Amano na półkę.",
+          "allegro_search_url": "https://allegro.pl/kategoria/gry?string=Final+Fantasy+PS1+Japonia",
+          "olx_search_url": "https://www.olx.pl/oferty/q-final-fantasy-ps1-japonia/"
+        },
+        {
+          "title": "Biohazard 2 & 3 (Resident Evil PS1 JPN)",
+          "jp_title": "バイオハザード 2 & 3",
+          "platform": "PlayStation 1",
+          "format": "CIB Boxed",
+          "rarity": "⭐⭐⭐⭐ Skarb Survival Horror",
+          "est_pl_value": 60.0,
+          "allegro_archive_pln": 70.0,
+          "olx_haggled_pln": 50.0,
+          "region_free": false,
+          "language_barrier": "medium",
+          "language_note": "Angielski voice-acting w grze ułatwia zabawę.",
+          "allegro_search_url": "https://allegro.pl/kategoria/gry?string=Biohazard+PS1",
+          "olx_search_url": "https://www.olx.pl/oferty/q-biohazard-ps1/"
+        }
+      ],
+      "spotted_gems_value_pln": 115.0,
+      "estimated_total_lot_value_pln": 361.0,
+      "filler_count": 41,
+      "battery_hazard_detected": false,
+      "battery_notes": "🟢 100% Płyty CD/DVD (0% Li-Ion / Bez limitu w paczce lotniczej)",
+      "break_even_gem": "Sprzedaż Final Fantasy i Biohazard (~115 zł) pokrywa 60% kosztów całego pudła!",
+      "inspection_summary": "Zidentyfikowano 2 kluczowych tytułów w kartonie (45 gier). Szacowana wartość samych perełek po surowej wycenie NTSC-J: ~115 zł."
+    },
+    "time_remaining_minutes": 5760,
+    "time_remaining_formatted": "4 dni",
+    "ends_at": "2026-11-14 15:51 UTC",
+    "price_stage_note": "🟢 Wczesna licytacja – monitoruj i ustaw snajpera",
+    "is_ending_soon": false,
+    "ends_at_iso": "2026-11-14T15:51:04Z",
+    "ends_at_pl": "16:51",
+    "ends_at_jst": "00:51",
+    "ends_at_formatted": "Dziś o 16:51 (PL) / 00:51 (JP)",
+    "ends_at_pl_short": "Dziś 16:51",
+    "slug_id": "danshari_ps1_ps2_45",
+    "auction_id": "m1251794490",
+    "buy_now_price_jpy": 4700,
+    "current_price_jpy": 3000.0,
+    "final_price_jpy": 3800,
+    "final_price_pln": 94.36,
+    "landed_cost_pln": 199.78,
+    "potential_arbitrage_pln": 100.22,
+    "hypothetical_margin_pln": 100.22,
+    "residual_profit_pln": 100.22,
+    "roi_percent": 50.2,
+    "closed_at": "2026-11-14T02:07:16Z"
+  },
+  {
     "id": "t1251821087",
     "auction_id": "t1251821087",
     "platform": "Yahoo! Auctions Japan",
@@ -153,7 +248,56 @@
     "potential_arbitrage_pln": 116.38,
     "hypothetical_margin_pln": 116.38,
     "residual_profit_pln": 116.38,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
+  },
+  {
+    "id": "v1251784671",
+    "platform": "Yahoo! Auctions Japan",
+    "category_id": "film_cameras_point_shoot",
+    "category_name": "Aparaty Analogowe Typu Małpka (35mm Point & Shoot)",
+    "model": "Canon Autoboy Tele 6 / Sure Shot Tele",
+    "color": "Czarny (Dwuogniskowy 35mm / 60mm)",
+    "price_jpy": 1800,
+    "est_pl_value": 160.0,
+    "allegro_archive_pln": 180.0,
+    "olx_haggled_pln": 140.0,
+    "battery_type": "none",
+    "status": "🏁 Zakończona (Wylicytowano)",
+    "condition_type": "confirmed_working",
+    "condition_badge": "🟢 0% Li-Ion (Bateria 2CR5)",
+    "image_url": "https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0211/user/c0a697000218bbb67b16f98ca9b245ebe42c35720942aaad851403832c7466ea/i-img1200x800-17942895555468ppyguf27.jpg?w=300&h=300",
+    "custom_note": "Aparat dwuogniskowy z możliwością robienia zdjęć formatu Half-Frame na zwykłym filmie",
+    "source_url": "https://page.auctions.yahoo.co.jp/jp/auction/v1251784671",
+    "zenmarket_url": "https://zenmarket.jp/pl/auction.aspx?itemCode=v1251784671",
+    "buyee_url": "https://buyee.jp/item/yahoo/auction/v1251784671",
+    "search_query_jp": "Canon Autoboy Tele 動作品",
+    "closed_price_min_jpy": 1500,
+    "closed_price_avg_jpy": 3200,
+    "closed_price_max_jpy": 4800,
+    "mercari_bin_avg_jpy": 4500,
+    "auction_advantage_note": "Bardzo poszukiwana funkcja Half-Frame",
+    "time_remaining_minutes": 5760,
+    "time_remaining_formatted": "4 dni",
+    "ends_at": "2026-11-14 15:51 UTC",
+    "price_stage_note": "🟢 Wczesna licytacja – monitoruj i ustaw snajpera",
+    "is_ending_soon": false,
+    "ends_at_iso": "2026-11-14T15:51:04Z",
+    "ends_at_pl": "16:51",
+    "ends_at_jst": "00:51",
+    "ends_at_formatted": "Dziś o 16:51 (PL) / 00:51 (JP)",
+    "ends_at_pl_short": "Dziś 16:51",
+    "slug_id": "canon_sureshot_tele",
+    "auction_id": "v1251784671",
+    "buy_now_price_jpy": 2000,
+    "current_price_jpy": 1.0,
+    "final_price_jpy": 1800,
+    "final_price_pln": 44.7,
+    "landed_cost_pln": 124.31,
+    "potential_arbitrage_pln": 35.69,
+    "hypothetical_margin_pln": 35.69,
+    "residual_profit_pln": 35.69,
+    "roi_percent": 28.7,
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "w1251819684",
@@ -249,7 +393,7 @@
     "potential_arbitrage_pln": 45.24,
     "hypothetical_margin_pln": 45.24,
     "residual_profit_pln": 45.24,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "o1251830468",
@@ -345,7 +489,7 @@
     "potential_arbitrage_pln": 92.18,
     "hypothetical_margin_pln": 92.18,
     "residual_profit_pln": 92.18,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "s1251602705",
@@ -501,7 +645,7 @@
     "potential_arbitrage_pln": 21.86,
     "hypothetical_margin_pln": 21.86,
     "residual_profit_pln": 21.86,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "p1251797943",
@@ -597,7 +741,7 @@
     "potential_arbitrage_pln": 20.47,
     "hypothetical_margin_pln": 20.47,
     "residual_profit_pln": 20.47,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "x1251777697",
@@ -693,7 +837,7 @@
     "potential_arbitrage_pln": 27.86,
     "hypothetical_margin_pln": 27.86,
     "residual_profit_pln": 27.86,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "e1251828262",
@@ -789,7 +933,7 @@
     "potential_arbitrage_pln": 132.25,
     "hypothetical_margin_pln": 132.25,
     "residual_profit_pln": 132.25,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "f1186217388",
@@ -885,7 +1029,7 @@
     "potential_arbitrage_pln": 442.77,
     "hypothetical_margin_pln": 442.77,
     "residual_profit_pln": 442.77,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "m1251679677",
@@ -981,7 +1125,7 @@
     "potential_arbitrage_pln": 250.79,
     "hypothetical_margin_pln": 250.79,
     "residual_profit_pln": 250.79,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "v1251354403",
@@ -1077,7 +1221,7 @@
     "potential_arbitrage_pln": 464.73,
     "hypothetical_margin_pln": 464.73,
     "residual_profit_pln": 464.73,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "w1251004036",
@@ -1218,7 +1362,7 @@
     "potential_arbitrage_pln": 116.38,
     "hypothetical_margin_pln": 116.38,
     "residual_profit_pln": 116.38,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "b1251661405",
@@ -1374,7 +1518,7 @@
     "potential_arbitrage_pln": 165.92,
     "hypothetical_margin_pln": 165.92,
     "residual_profit_pln": 165.92,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "m1251424285",
@@ -1530,7 +1674,7 @@
     "potential_arbitrage_pln": 96.92,
     "hypothetical_margin_pln": 96.92,
     "residual_profit_pln": 96.92,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "p1251459113",
@@ -1686,7 +1830,7 @@
     "potential_arbitrage_pln": 167.46,
     "hypothetical_margin_pln": 167.46,
     "residual_profit_pln": 167.46,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "f1251819973",
@@ -1817,7 +1961,7 @@
     "potential_arbitrage_pln": 75.86,
     "hypothetical_margin_pln": 75.86,
     "residual_profit_pln": 75.86,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "f1246338593",
@@ -1913,7 +2057,7 @@
     "potential_arbitrage_pln": 64.77,
     "hypothetical_margin_pln": 64.77,
     "residual_profit_pln": 64.77,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "d1251552929",
@@ -2009,7 +2153,7 @@
     "potential_arbitrage_pln": 63.71,
     "hypothetical_margin_pln": 63.71,
     "residual_profit_pln": 63.71,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "v1251622331",
@@ -2105,7 +2249,7 @@
     "potential_arbitrage_pln": 61.56,
     "hypothetical_margin_pln": 61.56,
     "residual_profit_pln": 61.56,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "h1251615097",
@@ -2201,7 +2345,7 @@
     "potential_arbitrage_pln": 65.25,
     "hypothetical_margin_pln": 65.25,
     "residual_profit_pln": 65.25,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "q1251656350",
@@ -2297,7 +2441,7 @@
     "potential_arbitrage_pln": 96.44,
     "hypothetical_margin_pln": 96.44,
     "residual_profit_pln": 96.44,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "n1251749127",
@@ -2393,7 +2537,7 @@
     "potential_arbitrage_pln": 92.39,
     "hypothetical_margin_pln": 92.39,
     "residual_profit_pln": 92.39,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "f1251656361",
@@ -2489,7 +2633,7 @@
     "potential_arbitrage_pln": 76.49,
     "hypothetical_margin_pln": 76.49,
     "residual_profit_pln": 76.49,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "c1251630970",
@@ -2585,7 +2729,7 @@
     "potential_arbitrage_pln": 72.78,
     "hypothetical_margin_pln": 72.78,
     "residual_profit_pln": 72.78,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "w1251651117",
@@ -2681,7 +2825,7 @@
     "potential_arbitrage_pln": 125.73,
     "hypothetical_margin_pln": 125.73,
     "residual_profit_pln": 125.73,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "v1251661475",
@@ -2777,7 +2921,7 @@
     "potential_arbitrage_pln": 133.67,
     "hypothetical_margin_pln": 133.67,
     "residual_profit_pln": 133.67,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "e1248977601",
@@ -2873,7 +3017,7 @@
     "potential_arbitrage_pln": 233.62,
     "hypothetical_margin_pln": 233.62,
     "residual_profit_pln": 233.62,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "n1251812676",
@@ -2969,7 +3113,7 @@
     "potential_arbitrage_pln": 88.57,
     "hypothetical_margin_pln": 88.57,
     "residual_profit_pln": 88.57,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "j1251505974",
@@ -3066,7 +3210,7 @@
     "potential_arbitrage_pln": 92.16,
     "hypothetical_margin_pln": 92.16,
     "residual_profit_pln": 92.16,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "m1251553051",
@@ -3162,7 +3306,7 @@
     "potential_arbitrage_pln": 38.39,
     "hypothetical_margin_pln": 38.39,
     "residual_profit_pln": 38.39,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "d1251823525",
@@ -3258,7 +3402,7 @@
     "potential_arbitrage_pln": 131.26,
     "hypothetical_margin_pln": 131.26,
     "residual_profit_pln": 131.26,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "k1251818302",
@@ -3354,7 +3498,7 @@
     "potential_arbitrage_pln": 101.71,
     "hypothetical_margin_pln": 101.71,
     "residual_profit_pln": 101.71,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "p1249428295",
@@ -3450,7 +3594,7 @@
     "potential_arbitrage_pln": -77.68,
     "hypothetical_margin_pln": -77.68,
     "residual_profit_pln": -77.68,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "t1250970249",
@@ -3546,7 +3690,7 @@
     "potential_arbitrage_pln": 113.17,
     "hypothetical_margin_pln": 113.17,
     "residual_profit_pln": 113.17,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "d1245986339",
@@ -3642,7 +3786,7 @@
     "potential_arbitrage_pln": 54.17,
     "hypothetical_margin_pln": 54.17,
     "residual_profit_pln": 54.17,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "k1244528483",
@@ -3738,7 +3882,7 @@
     "potential_arbitrage_pln": 44.71,
     "hypothetical_margin_pln": 44.71,
     "residual_profit_pln": 44.71,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "b1246124221",
@@ -3834,7 +3978,7 @@
     "potential_arbitrage_pln": 216.52,
     "hypothetical_margin_pln": 216.52,
     "residual_profit_pln": 216.52,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "h1250921225",
@@ -3930,7 +4074,7 @@
     "potential_arbitrage_pln": 258.85,
     "hypothetical_margin_pln": 258.85,
     "residual_profit_pln": 258.85,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "b1251556000",
@@ -4061,7 +4205,7 @@
     "potential_arbitrage_pln": 44.81,
     "hypothetical_margin_pln": 44.81,
     "residual_profit_pln": 44.81,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "t1251382423",
@@ -4157,7 +4301,7 @@
     "potential_arbitrage_pln": 82.25,
     "hypothetical_margin_pln": 82.25,
     "residual_profit_pln": 82.25,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "j1251645657",
@@ -4253,7 +4397,7 @@
     "potential_arbitrage_pln": 114.59,
     "hypothetical_margin_pln": 114.59,
     "residual_profit_pln": 114.59,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "j1251280330",
@@ -4349,7 +4493,7 @@
     "potential_arbitrage_pln": 182.14,
     "hypothetical_margin_pln": 182.14,
     "residual_profit_pln": 182.14,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "g1251507424",
@@ -4445,7 +4589,7 @@
     "potential_arbitrage_pln": 129.44,
     "hypothetical_margin_pln": 129.44,
     "residual_profit_pln": 129.44,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "n1251521383",
@@ -4541,7 +4685,7 @@
     "potential_arbitrage_pln": 242.09,
     "hypothetical_margin_pln": 242.09,
     "residual_profit_pln": 242.09,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "r1250922821",
@@ -4637,7 +4781,7 @@
     "potential_arbitrage_pln": 180.92,
     "hypothetical_margin_pln": 180.92,
     "residual_profit_pln": 180.92,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "u1251654393",
@@ -4734,7 +4878,7 @@
     "potential_arbitrage_pln": 85.32,
     "hypothetical_margin_pln": 85.32,
     "residual_profit_pln": 85.32,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "h1251823950",
@@ -4830,7 +4974,7 @@
     "potential_arbitrage_pln": 198.82,
     "hypothetical_margin_pln": 198.82,
     "residual_profit_pln": 198.82,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "d1251827205",
@@ -4926,7 +5070,7 @@
     "potential_arbitrage_pln": 101.71,
     "hypothetical_margin_pln": 101.71,
     "residual_profit_pln": 101.71,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "m1251545975",
@@ -5022,7 +5166,7 @@
     "potential_arbitrage_pln": 101.71,
     "hypothetical_margin_pln": 101.71,
     "residual_profit_pln": 101.71,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "r1251817447",
@@ -5118,7 +5262,7 @@
     "potential_arbitrage_pln": 131.26,
     "hypothetical_margin_pln": 131.26,
     "residual_profit_pln": 131.26,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "f1251419199",
@@ -5214,7 +5358,7 @@
     "potential_arbitrage_pln": 144.59,
     "hypothetical_margin_pln": 144.59,
     "residual_profit_pln": 144.59,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "q1251671063",
@@ -5310,7 +5454,7 @@
     "potential_arbitrage_pln": 28.92,
     "hypothetical_margin_pln": 28.92,
     "residual_profit_pln": 28.92,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "p1251818449",
@@ -5406,7 +5550,7 @@
     "potential_arbitrage_pln": 71.71,
     "hypothetical_margin_pln": 71.71,
     "residual_profit_pln": 71.71,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "j1251512119",
@@ -5537,7 +5681,7 @@
     "potential_arbitrage_pln": 44.81,
     "hypothetical_margin_pln": 44.81,
     "residual_profit_pln": 44.81,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "n1249820524",
@@ -5633,7 +5777,7 @@
     "potential_arbitrage_pln": 72.63,
     "hypothetical_margin_pln": 72.63,
     "residual_profit_pln": 72.63,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "r1249150953",
@@ -5729,7 +5873,7 @@
     "potential_arbitrage_pln": 60.76,
     "hypothetical_margin_pln": 60.76,
     "residual_profit_pln": 60.76,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "k1251598819",
@@ -5825,7 +5969,7 @@
     "potential_arbitrage_pln": 202.07,
     "hypothetical_margin_pln": 202.07,
     "residual_profit_pln": 202.07,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "s1245196893",
@@ -5921,7 +6065,7 @@
     "potential_arbitrage_pln": 290.2,
     "hypothetical_margin_pln": 290.2,
     "residual_profit_pln": 290.2,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "n1250601912",
@@ -6017,7 +6161,7 @@
     "potential_arbitrage_pln": 89.39,
     "hypothetical_margin_pln": 89.39,
     "residual_profit_pln": 89.39,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "e1249970845",
@@ -6113,7 +6257,7 @@
     "potential_arbitrage_pln": 98.19,
     "hypothetical_margin_pln": 98.19,
     "residual_profit_pln": 98.19,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "q1251675793",
@@ -6210,7 +6354,7 @@
     "potential_arbitrage_pln": 70.08,
     "hypothetical_margin_pln": 70.08,
     "residual_profit_pln": 70.08,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "g1251812089",
@@ -6306,7 +6450,7 @@
     "potential_arbitrage_pln": 133.17,
     "hypothetical_margin_pln": 133.17,
     "residual_profit_pln": 133.17,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "v1251516199",
@@ -6402,7 +6546,7 @@
     "potential_arbitrage_pln": 217.72,
     "hypothetical_margin_pln": 217.72,
     "residual_profit_pln": 217.72,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "e1251507348",
@@ -6499,7 +6643,7 @@
     "potential_arbitrage_pln": 85.94,
     "hypothetical_margin_pln": 85.94,
     "residual_profit_pln": 85.94,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
   },
   {
     "id": "d1251551345",
@@ -6595,7 +6739,360 @@
     "potential_arbitrage_pln": 662.18,
     "hypothetical_margin_pln": 662.18,
     "residual_profit_pln": 662.18,
-    "closed_at": "2026-11-13T21:20:10Z"
+    "closed_at": "2026-11-14T02:07:16Z"
+  },
+  {
+    "id": "x1251537445",
+    "platform": "Yahoo! Auctions Japan",
+    "category_id": "nintendo_3ds_handhelds",
+    "category_name": "Nintendo 3DS & New 3DS (Królowie Płynności: New 3DS XL, New 3DS, 3DS LL)",
+    "model": "Nintendo 2DS (Klin / Doorstop)",
+    "color": "Electric Blue (FTR-001)",
+    "price_jpy": 4800,
+    "est_pl_value": 310.0,
+    "allegro_archive_pln": 340.0,
+    "olx_haggled_pln": 280.0,
+    "battery_type": "li-ion",
+    "status": "🏁 Zakończona (Wylicytowano)",
+    "condition_type": "confirmed_working",
+    "condition_badge": "✅ Sprawny (Potwierdzone)",
+    "image_url": "https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0211/user/41bf4a83f2730286a50c999e2e76eae997bdd4a9c6bda6eb9a1bc43efc306fe8/i-img1200x1200-17941413287667cffbrm27.jpg?w=300&h=300",
+    "custom_note": "Konstrukcja w kształcie klina bez zawiasów (nie do zniszczenia), idealna konsola dla dzieci",
+    "source_url": "https://page.auctions.yahoo.co.jp/jp/auction/x1251537445",
+    "zenmarket_url": "https://zenmarket.jp/pl/auction.aspx?itemCode=x1251537445",
+    "buyee_url": "https://buyee.jp/item/yahoo/auction/x1251537445",
+    "search_query_jp": "ニンテンドー2DS 本体 ブルー",
+    "closed_price_min_jpy": 4500,
+    "closed_price_avg_jpy": 6800,
+    "closed_price_max_jpy": 9500,
+    "mercari_bin_avg_jpy": 8900,
+    "auction_advantage_note": "Super tania i bezawaryjna",
+    "time_remaining_minutes": 5760,
+    "time_remaining_formatted": "4 dni",
+    "ends_at": "2026-11-14 15:51 UTC",
+    "price_stage_note": "🟢 Wczesna licytacja – monitoruj i ustaw snajpera",
+    "is_ending_soon": false,
+    "ends_at_iso": "2026-11-14T15:51:04Z",
+    "ends_at_pl": "16:51",
+    "ends_at_jst": "00:51",
+    "ends_at_formatted": "Dziś o 16:51 (PL) / 00:51 (JP)",
+    "ends_at_pl_short": "Dziś 16:51",
+    "slug_id": "n2ds_doorstop_blue",
+    "auction_id": "x1251537445",
+    "buy_now_price_jpy": 6000,
+    "current_price_jpy": 31.0,
+    "final_price_jpy": 4800,
+    "final_price_pln": 119.19,
+    "landed_cost_pln": 224.86,
+    "potential_arbitrage_pln": 85.14,
+    "hypothetical_margin_pln": 85.14,
+    "residual_profit_pln": 85.14,
+    "roi_percent": 37.9,
+    "closed_at": "2026-11-14T02:07:15Z"
+  },
+  {
+    "id": "m1250486960",
+    "platform": "Yahoo! Auctions Japan",
+    "category_id": "film_cameras_point_shoot",
+    "category_name": "Aparaty Analogowe Typu Małpka (35mm Point & Shoot)",
+    "model": "Olympus AF-10 Twin",
+    "color": "Czarny Clamshell (35mm / 70mm)",
+    "price_jpy": 2000,
+    "est_pl_value": 160.0,
+    "allegro_archive_pln": 180.0,
+    "olx_haggled_pln": 140.0,
+    "battery_type": "none",
+    "status": "🏁 Zakończona (Wylicytowano)",
+    "condition_type": "confirmed_working",
+    "condition_badge": "🟢 0% Li-Ion (Bateria CR123A)",
+    "image_url": "https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0210/user/ac1e4ac69763404edc743c31dd45ca69f7dc2dc163207513125730ad0870081b/i-img1200x1200-17934286675906fn514d3257.jpg?w=300&h=300",
+    "custom_note": "Dwuogniskowy obiektyw 35mm i 70mm z przesuwaną osłoną clamshell, odporny na zachlapania",
+    "source_url": "https://page.auctions.yahoo.co.jp/jp/auction/m1250486960",
+    "zenmarket_url": "https://zenmarket.jp/pl/auction.aspx?itemCode=m1250486960",
+    "buyee_url": "https://buyee.jp/item/yahoo/auction/m1250486960",
+    "search_query_jp": "Olympus AF-10 Twin",
+    "closed_price_min_jpy": 1800,
+    "closed_price_avg_jpy": 3500,
+    "closed_price_max_jpy": 5200,
+    "mercari_bin_avg_jpy": 4800,
+    "auction_advantage_note": "Świetna optyka Zuiko w budżetowym body",
+    "time_remaining_minutes": 5760,
+    "time_remaining_formatted": "4 dni",
+    "ends_at": "2026-11-14 15:51 UTC",
+    "price_stage_note": "🟢 Wczesna licytacja – monitoruj i ustaw snajpera",
+    "is_ending_soon": false,
+    "ends_at_iso": "2026-11-14T15:51:04Z",
+    "ends_at_pl": "16:51",
+    "ends_at_jst": "00:51",
+    "ends_at_formatted": "Dziś o 16:51 (PL) / 00:51 (JP)",
+    "ends_at_pl_short": "Dziś 16:51",
+    "auction_id": "m1250486960",
+    "buy_now_price_jpy": 2300,
+    "current_price_jpy": 3000.0,
+    "final_price_jpy": 2000,
+    "final_price_pln": 49.66,
+    "landed_cost_pln": 130.58,
+    "potential_arbitrage_pln": 29.42,
+    "hypothetical_margin_pln": 29.42,
+    "residual_profit_pln": 29.42,
+    "roi_percent": 22.5,
+    "closed_at": "2026-11-14T02:07:15Z"
+  },
+  {
+    "id": "s1251792916",
+    "platform": "Yahoo! Auctions Japan",
+    "category_id": "ps_vita",
+    "category_name": "PlayStation Vita (Special Editions & Colors)",
+    "model": "PCH-1000 OLED",
+    "color": "Crystal White (ZA02)",
+    "price_jpy": 12000,
+    "est_pl_value": 580.0,
+    "allegro_archive_pln": 620.0,
+    "olx_haggled_pln": 540.0,
+    "battery_type": "li-ion",
+    "status": "🏁 Zakończona (Wylicytowano)",
+    "condition_type": "confirmed_working",
+    "condition_badge": "✅ Sprawny (Potwierdzone)",
+    "image_url": "https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0211/user/bebe28fc932be9eca5929303fa406e3bcd85fe2a7ed8b30ce6fc12050368c266/i-img1200x1200-179428886716987a0ff337.jpg?w=300&h=300",
+    "custom_note": "Biały perłowy OLED 1000 – srebrne akcenty, brak żółknięcia obudowy",
+    "source_url": "https://page.auctions.yahoo.co.jp/jp/auction/s1251792916",
+    "zenmarket_url": "https://zenmarket.jp/pl/auction.aspx?itemCode=s1251792916",
+    "buyee_url": "https://buyee.jp/item/yahoo/auction/s1251792916",
+    "search_query_jp": "PSヴィータ 1000 クリスタルホワイト",
+    "closed_price_min_jpy": 11000,
+    "closed_price_avg_jpy": 15000,
+    "closed_price_max_jpy": 19000,
+    "mercari_bin_avg_jpy": 18000,
+    "auction_advantage_note": "Świetna prezencja i stały popyt w PL",
+    "time_remaining_minutes": 5760,
+    "time_remaining_formatted": "4 dni",
+    "ends_at": "2026-11-14 15:51 UTC",
+    "price_stage_note": "🟢 Wczesna licytacja – monitoruj i ustaw snajpera",
+    "is_ending_soon": false,
+    "ends_at_iso": "2026-11-14T15:51:04Z",
+    "ends_at_pl": "16:51",
+    "ends_at_jst": "00:51",
+    "ends_at_formatted": "Dziś o 16:51 (PL) / 00:51 (JP)",
+    "ends_at_pl_short": "Dziś 16:51",
+    "slug_id": "vita1000_crystal_white",
+    "auction_id": "s1251792916",
+    "buy_now_price_jpy": 15000,
+    "current_price_jpy": 9800.0,
+    "final_price_jpy": 12000,
+    "final_price_pln": 297.98,
+    "landed_cost_pln": 457.36,
+    "potential_arbitrage_pln": 122.64,
+    "hypothetical_margin_pln": 122.64,
+    "residual_profit_pln": 122.64,
+    "roi_percent": 26.8,
+    "closed_at": "2026-11-14T02:07:15Z"
+  },
+  {
+    "id": "m1251554753",
+    "platform": "Yahoo! Auctions Japan",
+    "category_id": "gameboy_advance_retro",
+    "category_name": "Nintendo Game Boy (GBA SP AGS-101 Brighter, GBA, GBC & Micro)",
+    "model": "Game Boy Color CGB-001",
+    "color": "Atomic Purple (Przezroczysty Fiolet)",
+    "price_jpy": 5000,
+    "est_pl_value": 290.0,
+    "allegro_archive_pln": 320.0,
+    "olx_haggled_pln": 260.0,
+    "battery_type": "none",
+    "status": "🏁 Zakończona (Wylicytowano)",
+    "condition_type": "confirmed_working",
+    "condition_badge": "🟢 0% Li-Ion (Zwykłe Baterie AA)",
+    "image_url": "https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0211/user/f54aa01745fb9674b894f94f5fde355422de16929826e60b9ff138108841eaf3/i-img1200x1200-1794140072217811vhrwhe29.jpg?w=300&h=300",
+    "custom_note": "Kultowy przezroczysty Atomic Purple na 2 paluszki AA. Zero limitów IATA – idealny wypełniacz paczki lotniczej",
+    "source_url": "https://page.auctions.yahoo.co.jp/jp/auction/m1251554753",
+    "zenmarket_url": "https://zenmarket.jp/pl/auction.aspx?itemCode=m1251554753",
+    "buyee_url": "https://buyee.jp/item/yahoo/auction/m1251554753",
+    "search_query_jp": "ゲームボーイカラー クリアパープル",
+    "closed_price_min_jpy": 4500,
+    "closed_price_avg_jpy": 6800,
+    "closed_price_max_jpy": 9500,
+    "mercari_bin_avg_jpy": 9000,
+    "auction_advantage_note": "Zasilanie bateriami AA – brak wbudowanego akumulatora Li-Ion",
+    "time_remaining_minutes": 5760,
+    "time_remaining_formatted": "4 dni",
+    "ends_at": "2026-11-14 15:51 UTC",
+    "price_stage_note": "🟢 Wczesna licytacja – monitoruj i ustaw snajpera",
+    "is_ending_soon": false,
+    "ends_at_iso": "2026-11-14T15:51:04Z",
+    "ends_at_pl": "16:51",
+    "ends_at_jst": "00:51",
+    "ends_at_formatted": "Dziś o 16:51 (PL) / 00:51 (JP)",
+    "ends_at_pl_short": "Dziś 16:51",
+    "slug_id": "gbc_atomic_purple",
+    "auction_id": "m1251554753",
+    "buy_now_price_jpy": 6200,
+    "current_price_jpy": 5000.0,
+    "final_price_jpy": 5000,
+    "final_price_pln": 124.16,
+    "landed_cost_pln": 224.83,
+    "potential_arbitrage_pln": 65.17,
+    "hypothetical_margin_pln": 65.17,
+    "residual_profit_pln": 65.17,
+    "roi_percent": 29.0,
+    "closed_at": "2026-11-14T02:07:15Z"
+  },
+  {
+    "id": "t1249061970",
+    "platform": "Yahoo! Auctions Japan",
+    "category_id": "danshari_mystery_lots",
+    "category_name": "Pakiety Różności i Likwidacje Kolekcji (Danshari / 処分 / 雑多 / 福袋)",
+    "model": "【断捨離】Zestaw 15 Kartridży Pokémon (DS / GBA / GBC - Wyprzedaż Prywatna)",
+    "color": "Lot 15 Kartridży Pokémon",
+    "price_jpy": 9200,
+    "est_pl_value": 490.0,
+    "allegro_archive_pln": 550.0,
+    "olx_haggled_pln": 440.0,
+    "battery_type": "none",
+    "status": "🏁 Zakończona (Wylicytowano)",
+    "condition_type": "confirmed_working",
+    "condition_badge": "🟢 0% Li-Ion (Zero Baterii)",
+    "image_url": "https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0210/user/dcb4cefee6578c436a4a40bfaa6476f0929fbb8ce2626eccc9eb4ed288caea4e/i-img1200x1200-17924811293630qbcnan8137.jpg?w=300&h=300",
+    "custom_note": "Czysty zestaw 15 oryginalnych gier Pokémon bez pudełek – rozpoznano SoulSilver, FireRed, Ruby, Diamond!",
+    "source_url": "https://page.auctions.yahoo.co.jp/jp/auction/t1249061970",
+    "zenmarket_url": "https://zenmarket.jp/pl/auction.aspx?itemCode=t1249061970",
+    "buyee_url": "https://buyee.jp/item/yahoo/auction/t1249061970",
+    "search_query_jp": "ポケモン ソフト まとめ売り 断捨離",
+    "closed_price_min_jpy": 5500,
+    "closed_price_avg_jpy": 8200,
+    "closed_price_max_jpy": 12500,
+    "mercari_bin_avg_jpy": 14500,
+    "auction_advantage_note": "Pokémony to najbardziej płynna waluta retro w Polsce – sprzedają się w 24-48h od wystawienia na OLX",
+    "photo_inspection": {
+      "inspected": true,
+      "inspection_badge": "🔍 Inspekcja Zdjęcia (AI Vision)",
+      "total_items_spotted": 15,
+      "lot_type": "danshari_purge",
+      "lot_type_name": "Danshari (Minimalistyczne Czyszczenie Domu)",
+      "top_gems": [
+        {
+          "title": "Pokémon SoulSilver (DS)",
+          "jp_title": "ポケットモンスター ソウルシルバー",
+          "platform": "Nintendo DS",
+          "format": "Cartridge Loose",
+          "rarity": "⭐⭐⭐⭐⭐ Top Skarb",
+          "est_pl_value": 95.0,
+          "allegro_archive_pln": 105.0,
+          "olx_haggled_pln": 85.0,
+          "region_free": true,
+          "language_barrier": "high",
+          "language_note": "Kultowy DS Pokémon – surowa wycena NTSC-J.",
+          "allegro_search_url": "https://allegro.pl/kategoria/gry?string=Pokemon+SoulSilver+DS+Japonia",
+          "olx_search_url": "https://www.olx.pl/oferty/q-pokemon-soulsilver-ds-japonia/"
+        },
+        {
+          "title": "Pokémon FireRed (GBA)",
+          "jp_title": "ポケットモンスター ファイアレッド",
+          "platform": "Game Boy Advance",
+          "format": "Cartridge Loose",
+          "rarity": "⭐⭐⭐⭐ Skarb",
+          "est_pl_value": 75.0,
+          "allegro_archive_pln": 85.0,
+          "olx_haggled_pln": 65.0,
+          "region_free": true,
+          "language_barrier": "high",
+          "language_note": "Kanto remake GBA.",
+          "allegro_search_url": "https://allegro.pl/kategoria/gry?string=Pokemon+FireRed+GBA",
+          "olx_search_url": "https://www.olx.pl/oferty/q-pokemon-firered-gba/"
+        },
+        {
+          "title": "Pokémon Ruby (GBA)",
+          "jp_title": "ポケットモンスター ルビー",
+          "platform": "Game Boy Advance",
+          "format": "Cartridge Loose",
+          "rarity": "⭐⭐⭐ Klasyk",
+          "est_pl_value": 55.0,
+          "allegro_archive_pln": 65.0,
+          "olx_haggled_pln": 45.0,
+          "region_free": true,
+          "language_barrier": "high",
+          "language_note": "Hoenn GBA.",
+          "allegro_search_url": "https://allegro.pl/kategoria/gry?string=Pokemon+Ruby+GBA",
+          "olx_search_url": "https://www.olx.pl/oferty/q-pokemon-ruby-gba/"
+        }
+      ],
+      "spotted_gems_value_pln": 225.0,
+      "estimated_total_lot_value_pln": 645.0,
+      "filler_count": 12,
+      "battery_hazard_detected": false,
+      "battery_notes": "🟢 100% Czyste Kartridże (0% Li-Ion / Brak limitu w paczce lotniczej)",
+      "break_even_gem": "Sprzedaż samych gier SoulSilver (~95 zł) i FireRed (~75 zł) pokrywa ponad 65% kosztów sprowadzenia pakietu!",
+      "inspection_summary": "Zidentyfikowano 3 kluczowych tytułów w kartonie (15 gier). Szacowana wartość samych perełek po surowej wycenie NTSC-J: ~225 zł."
+    },
+    "time_remaining_minutes": 5760,
+    "time_remaining_formatted": "4 dni",
+    "ends_at": "2026-11-14 15:51 UTC",
+    "price_stage_note": "🟢 Wczesna licytacja – monitoruj i ustaw snajpera",
+    "is_ending_soon": false,
+    "ends_at_iso": "2026-11-14T15:51:04Z",
+    "ends_at_pl": "16:51",
+    "ends_at_jst": "00:51",
+    "ends_at_formatted": "Dziś o 16:51 (PL) / 00:51 (JP)",
+    "ends_at_pl_short": "Dziś 16:51",
+    "slug_id": "danshari_pokemon_15",
+    "auction_id": "t1249061970",
+    "buy_now_price_jpy": 11500,
+    "current_price_jpy": 3200.0,
+    "final_price_jpy": 9200,
+    "final_price_pln": 228.45,
+    "landed_cost_pln": 369.4,
+    "potential_arbitrage_pln": 120.6,
+    "hypothetical_margin_pln": 120.6,
+    "residual_profit_pln": 120.6,
+    "roi_percent": 32.6,
+    "closed_at": "2026-11-14T02:07:15Z"
+  },
+  {
+    "id": "v1251813701",
+    "platform": "Yahoo! Auctions Japan",
+    "category_id": "retro_games_mix",
+    "category_name": "Pakiety Gier Retro (Mix Gier / まとめ売り)",
+    "model": "Hurtowy Pakiet 50 Gier Retro (Nintendo DS / GBA / SFC / PS2)",
+    "color": "Mix 50 Gier Hurtowo",
+    "price_jpy": 4200,
+    "est_pl_value": 250.0,
+    "allegro_archive_pln": 280.0,
+    "olx_haggled_pln": 220.0,
+    "battery_type": "none",
+    "status": "🏁 Zakończona (Wylicytowano)",
+    "condition_type": "confirmed_working",
+    "condition_badge": "🟢 0% Li-Ion (Zero Baterii)",
+    "image_url": "https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0211/user/82d501aa70e2632eb671d5af6b28e2105c7997d838db812c61452a4fca55327f/i-img1200x551-17943010812657iqks7536.jpg?w=300&h=300",
+    "custom_note": "Karton 50 japońskich gier w pudełkach – czysty zysk ze sprzedaży na sztuki lub w małych pakietach",
+    "source_url": "https://page.auctions.yahoo.co.jp/jp/auction/v1251813701",
+    "zenmarket_url": "https://zenmarket.jp/pl/auction.aspx?itemCode=v1251813701",
+    "buyee_url": "https://buyee.jp/item/yahoo/auction/v1251813701",
+    "search_query_jp": "ゲームソフト まとめ売り 50本",
+    "closed_price_min_jpy": 3000,
+    "closed_price_avg_jpy": 5500,
+    "closed_price_max_jpy": 8500,
+    "mercari_bin_avg_jpy": 9500,
+    "auction_advantage_note": "Aukcje hurtowe z Japonii to najwyższe realne ROI w systemie (ponad 100%)",
+    "time_remaining_minutes": 5760,
+    "time_remaining_formatted": "4 dni",
+    "ends_at": "2026-11-14 15:51 UTC",
+    "price_stage_note": "🟢 Wczesna licytacja – monitoruj i ustaw snajpera",
+    "is_ending_soon": false,
+    "ends_at_iso": "2026-11-14T15:51:04Z",
+    "ends_at_pl": "16:51",
+    "ends_at_jst": "00:51",
+    "ends_at_formatted": "Dziś o 16:51 (PL) / 00:51 (JP)",
+    "ends_at_pl_short": "Dziś 16:51",
+    "auction_id": "v1251813701",
+    "buy_now_price_jpy": 5200,
+    "current_price_jpy": 310.0,
+    "final_price_jpy": 4200,
+    "final_price_pln": 104.29,
+    "landed_cost_pln": 193.37,
+    "potential_arbitrage_pln": 56.63,
+    "hypothetical_margin_pln": 56.63,
+    "residual_profit_pln": 56.63,
+    "roi_percent": 29.3,
+    "closed_at": "2026-11-14T02:07:15Z"
   },
   {
     "id": "deal_ended",
@@ -6691,7 +7188,7 @@
     "potential_arbitrage_pln": 163.11,
     "hypothetical_margin_pln": 163.11,
     "residual_profit_pln": 163.11,
-    "closed_at": "2026-11-13T21:19:35Z"
+    "closed_at": "2026-11-14T02:06:48Z"
   },
   {
     "id": "test_camera",
