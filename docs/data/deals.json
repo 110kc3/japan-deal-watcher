@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-11-14 02:07 UTC",
+    "generated_at": "2026-11-14 08:15 UTC",
     "app_title": "AgyDeal – Japan Deal & Auction Sniping Radar",
     "app_version": "2.2.2",
     "exchange_rates": {
@@ -86,10 +86,10 @@
     },
     "counts": {
       "yahoo_auctions": 9,
-      "mercari_deals": 42,
+      "mercari_deals": 41,
       "search_streams": 26,
       "finished_auctions": 83,
-      "total_active": 51
+      "total_active": 50
     }
   },
   "categories": [
@@ -97,7 +97,7 @@
       "id": "all",
       "name": "Wszystkie Okazje",
       "icon": "🌐",
-      "count": 51
+      "count": 50
     },
     {
       "id": "nintendo_switch_lite",
@@ -201,8 +201,8 @@
       "status": "Aktywna Aukcja",
       "condition_badge": "✅ Sprawny (Potwierdzone)",
       "custom_note": "Biały perłowy OLED 1000 – srebrne akcenty, brak żółknięcia obudowy",
-      "time_remaining_minutes": 824,
-      "time_remaining_formatted": "13h 44m",
+      "time_remaining_minutes": 456,
+      "time_remaining_formatted": "7h 36m",
       "ends_at": "2026-11-14 15:51 UTC",
       "ends_at_iso": "2026-11-14T15:51:00Z",
       "ends_at_pl": "16:51",
@@ -291,8 +291,8 @@
       "status": "Aktywna Aukcja",
       "condition_badge": "🟢 0% Li-Ion (Zero Baterii)",
       "custom_note": "Czysty zestaw 15 oryginalnych gier Pokémon bez pudełek – rozpoznano SoulSilver, FireRed, Ruby, Diamond!",
-      "time_remaining_minutes": 824,
-      "time_remaining_formatted": "13h 44m",
+      "time_remaining_minutes": 456,
+      "time_remaining_formatted": "7h 36m",
       "ends_at": "2026-11-14 15:51 UTC",
       "ends_at_iso": "2026-11-14T15:51:00Z",
       "ends_at_pl": "16:51",
@@ -441,8 +441,8 @@
       "status": "Aktywna Aukcja",
       "condition_badge": "🟢 0% Li-Ion (Zero Baterii)",
       "custom_note": "Pudło z kultowymi japońskimi RPG z ery PS1/PS2 – widoczne gry Final Fantasy VII, VIII, IX oraz Biohazard!",
-      "time_remaining_minutes": 824,
-      "time_remaining_formatted": "13h 44m",
+      "time_remaining_minutes": 456,
+      "time_remaining_formatted": "7h 36m",
       "ends_at": "2026-11-14 15:51 UTC",
       "ends_at_iso": "2026-11-14T15:51:00Z",
       "ends_at_pl": "16:51",
@@ -576,8 +576,8 @@
       "status": "Aktywna Aukcja",
       "condition_badge": "✅ Sprawny (Potwierdzone)",
       "custom_note": "Konstrukcja w kształcie klina bez zawiasów (nie do zniszczenia), idealna konsola dla dzieci",
-      "time_remaining_minutes": 824,
-      "time_remaining_formatted": "13h 44m",
+      "time_remaining_minutes": 456,
+      "time_remaining_formatted": "7h 36m",
       "ends_at": "2026-11-14 15:51 UTC",
       "ends_at_iso": "2026-11-14T15:51:00Z",
       "ends_at_pl": "16:51",
@@ -666,8 +666,8 @@
       "status": "Aktywna Aukcja",
       "condition_badge": "🟢 0% Li-Ion (Zwykłe Baterie AA)",
       "custom_note": "Kultowy przezroczysty Atomic Purple na 2 paluszki AA. Zero limitów IATA – idealny wypełniacz paczki lotniczej",
-      "time_remaining_minutes": 824,
-      "time_remaining_formatted": "13h 44m",
+      "time_remaining_minutes": 456,
+      "time_remaining_formatted": "7h 36m",
       "ends_at": "2026-11-14 15:51 UTC",
       "ends_at_iso": "2026-11-14T15:51:00Z",
       "ends_at_pl": "16:51",
@@ -756,8 +756,8 @@
       "status": "Aktywna Aukcja",
       "condition_badge": "🟢 0% Li-Ion (Zero Baterii)",
       "custom_note": "Karton 50 japońskich gier w pudełkach – czysty zysk ze sprzedaży na sztuki lub w małych pakietach",
-      "time_remaining_minutes": 824,
-      "time_remaining_formatted": "13h 44m",
+      "time_remaining_minutes": 456,
+      "time_remaining_formatted": "7h 36m",
       "ends_at": "2026-11-14 15:51 UTC",
       "ends_at_iso": "2026-11-14T15:51:00Z",
       "ends_at_pl": "16:51",
@@ -881,8 +881,8 @@
       "status": "Aktywna Aukcja",
       "condition_badge": "🟢 0% Li-Ion (Bateria 2CR5)",
       "custom_note": "Aparat dwuogniskowy z możliwością robienia zdjęć formatu Half-Frame na zwykłym filmie",
-      "time_remaining_minutes": 824,
-      "time_remaining_formatted": "13h 44m",
+      "time_remaining_minutes": 456,
+      "time_remaining_formatted": "7h 36m",
       "ends_at": "2026-11-14 15:51 UTC",
       "ends_at_iso": "2026-11-14T15:51:00Z",
       "ends_at_pl": "16:51",
@@ -971,8 +971,8 @@
       "status": "Aktywna Aukcja",
       "condition_badge": "🟢 0% Li-Ion (Bateria CR123A)",
       "custom_note": "Dwuogniskowy obiektyw 35mm i 70mm z przesuwaną osłoną clamshell, odporny na zachlapania",
-      "time_remaining_minutes": 824,
-      "time_remaining_formatted": "13h 44m",
+      "time_remaining_minutes": 456,
+      "time_remaining_formatted": "7h 36m",
       "ends_at": "2026-11-14 15:51 UTC",
       "ends_at_iso": "2026-11-14T15:51:00Z",
       "ends_at_pl": "16:51",
@@ -1061,8 +1061,8 @@
       "status": "Aktywna Aukcja",
       "condition_badge": "🟢 0% Li-Ion (Przewodowy Kontroler)",
       "custom_note": "Kolekcjonerski gamepad w kształcie potworka Slime z Dragon Quest. 0% Li-Ion – czysta gotówka",
-      "time_remaining_minutes": 3704,
-      "time_remaining_formatted": "2d 13h",
+      "time_remaining_minutes": 3336,
+      "time_remaining_formatted": "2d 7h",
       "ends_at": "2026-11-16 15:51 UTC",
       "ends_at_iso": "2026-11-16T15:51:00Z",
       "ends_at_pl": "16:51",
@@ -1495,78 +1495,6 @@
         "zenmarket_yahoo_search": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%83%8B%E3%83%B3%E3%83%86%E3%83%B3%E3%83%89%E3%83%BCDS%20Lite%20%E3%83%87%E3%82%A3%E3%82%A2%E3%83%AB%E3%82%AC%20%E3%83%91%E3%83%AB%E3%82%AD%E3%82%A2&sort=end&order=asc",
         "allegro_search": "https://allegro.pl/listing?string=Nintendo%20DS%20Lite",
         "olx_search": "https://www.olx.pl/oferty/q-nintendo-ds-lite/"
-      }
-    },
-    {
-      "id": "m73957407571",
-      "platform": "Mercari Japan",
-      "category_id": "gameboy_advance_retro",
-      "category_name": "Nintendo Game Boy (GBA SP AGS-101 Brighter, GBA, GBC & Micro)",
-      "model": "Game Boy Advance SP (AGS-101 Brighter LCD)",
-      "color": "Pearl Blue (Podświetlenie II Generacji)",
-      "battery_type": "li-ion",
-      "has_battery": true,
-      "est_weight_g": 200,
-      "weight_formatted": "~200 g",
-      "image_url": "https://static.mercdn.net/thumb/item/jpeg/m73957407571_1.jpg?1791241802",
-      "status": "Dostępne",
-      "condition_badge": "✅ Sprawny (Potwierdzone)",
-      "custom_note": "Oryginalny model AGS-101 z jasnym podświetleniem fabrycznym, ogromny popyt w PL",
-      "time_remaining_minutes": 0,
-      "time_remaining_formatted": "Kup Teraz (Stała cena)",
-      "ends_at": "Natychmiastowy zakup (Kup Teraz)",
-      "ends_at_iso": null,
-      "ends_at_pl": "Stała cena",
-      "ends_at_jst": "即決",
-      "ends_at_formatted": "Kup Teraz (Brak licytacji)",
-      "ends_at_pl_short": "Kup Teraz",
-      "price_stage_note": "✅ Cena stała (Kup Teraz) – Prawdziwa cena bez licytacji",
-      "is_ending_soon": false,
-      "predicted_closure_jpy": 13000,
-      "predicted_closure_min_jpy": 13000,
-      "predicted_closure_max_jpy": 13000,
-      "predicted_closure_pln": 324.05,
-      "closure_gap_jpy": 0,
-      "closure_gap_pct": 0.0,
-      "expected_landed_cost_pln": 477.91,
-      "expected_margin_pln": 102.09,
-      "expected_roi_pct": 21.4,
-      "condition_grade": "MERCARI_BIN",
-      "condition_label": "🛍️ Kup Teraz (Cena Stała)",
-      "condition_short_label": "Kup Teraz",
-      "condition_badge_color": "#10b981",
-      "condition_features": [
-        "Natychmiastowy zakup",
-        "Gwarancja stałej ceny"
-      ],
-      "condition_desc": "Przedmiot z ceną Kup Teraz – brak licytacji, cena ostateczna",
-      "verdict_code": "MERCARI_INSTANT_BUY",
-      "verdict_label": "🛍️ KUP TERAZ: STAŁA CENA",
-      "verdict_badge_class": "verdict-mercari",
-      "recommendation_text": "Cena ostateczna. Kupuj bez ryzyka podbicia ceny przez snajperów.",
-      "price_jpy": 13000,
-      "price_pln_raw": 324.05,
-      "landed_cost_pln": 477.91,
-      "est_pl_value": 580.0,
-      "allegro_archive_pln": 626.4,
-      "olx_haggled_pln": 522.0,
-      "est_margin_pln": 102.09,
-      "roi_percent": 21.4,
-      "shipping_share_pln": 25.0,
-      "vat_pln": 86.89,
-      "zenmarket_fee_pln": 8.81,
-      "photo_inspection": null,
-      "links": {
-        "primary_url": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m73957407571",
-        "zenmarket_buy": "https://zenmarket.jp/pl/mercariproduct.aspx?itemCode=m73957407571",
-        "mercari_direct": "https://jp.mercari.com/item/m73957407571",
-        "buyee_url": "https://buyee.jp/mercari/item/m73957407571",
-        "buyee_buy": "https://buyee.jp/mercari/item/m73957407571",
-        "zenmarket_search_mercari": "https://zenmarket.jp/pl/mercari.aspx?q=%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%9C%E3%83%BC%E3%82%A4%E3%82%A2%E3%83%89%E3%83%90%E3%83%B3%E3%82%B9SP%20AGS-101%20%E3%83%91%E3%83%BC%E3%83%AB%E3%83%96%E3%83%AB%E3%83%BC",
-        "mercari_live_search": "https://jp.mercari.com/search?keyword=%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%9C%E3%83%BC%E3%82%A4%E3%82%A2%E3%83%89%E3%83%90%E3%83%B3%E3%82%B9SP%20AGS-101%20%E3%83%91%E3%83%BC%E3%83%AB%E3%83%96%E3%83%AB%E3%83%BC&status=on_sale",
-        "zenmarket_yahoo_search": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%9C%E3%83%BC%E3%82%A4%E3%82%A2%E3%83%89%E3%83%90%E3%83%B3%E3%82%B9SP%20AGS-101%20%E3%83%91%E3%83%BC%E3%83%AB%E3%83%96%E3%83%AB%E3%83%BC&sort=end&order=asc",
-        "allegro_search": "https://allegro.pl/listing?string=Game%20Boy%20Advance%20SP%20AGS-101",
-        "olx_search": "https://www.olx.pl/oferty/q-game-boy-advance-sp-ags-101/"
       }
     },
     {
@@ -2681,15 +2609,15 @@
       "ends_at_pl_short": "Kup Teraz",
       "price_stage_note": "✅ Cena stała (Kup Teraz) – Prawdziwa cena bez licytacji",
       "is_ending_soon": false,
-      "predicted_closure_jpy": 2300,
-      "predicted_closure_min_jpy": 2300,
-      "predicted_closure_max_jpy": 2300,
-      "predicted_closure_pln": 57.33,
+      "predicted_closure_jpy": 2000,
+      "predicted_closure_min_jpy": 2000,
+      "predicted_closure_max_jpy": 2000,
+      "predicted_closure_pln": 49.85,
       "closure_gap_jpy": 0,
       "closure_gap_pct": 0.0,
-      "expected_landed_cost_pln": 140.52,
-      "expected_margin_pln": 9.48,
-      "expected_roi_pct": 6.7,
+      "expected_landed_cost_pln": 131.06,
+      "expected_margin_pln": 18.94,
+      "expected_roi_pct": 14.5,
       "condition_grade": "MERCARI_BIN",
       "condition_label": "🛍️ Kup Teraz (Cena Stała)",
       "condition_short_label": "Kup Teraz",
@@ -2703,16 +2631,16 @@
       "verdict_label": "🛍️ KUP TERAZ: STAŁA CENA",
       "verdict_badge_class": "verdict-mercari",
       "recommendation_text": "Cena ostateczna. Kupuj bez ryzyka podbicia ceny przez snajperów.",
-      "price_jpy": 2300,
-      "price_pln_raw": 57.33,
-      "landed_cost_pln": 140.52,
+      "price_jpy": 2000,
+      "price_pln_raw": 49.85,
+      "landed_cost_pln": 131.06,
       "est_pl_value": 150.0,
       "allegro_archive_pln": 162.0,
       "olx_haggled_pln": 135.0,
-      "est_margin_pln": 9.48,
-      "roi_percent": 6.7,
+      "est_margin_pln": 18.94,
+      "roi_percent": 14.5,
       "shipping_share_pln": 25.0,
-      "vat_pln": 25.55,
+      "vat_pln": 23.83,
       "zenmarket_fee_pln": 8.81,
       "photo_inspection": null,
       "links": {
@@ -4638,7 +4566,7 @@
       "hypothetical_margin_pln": 100.22,
       "residual_profit_pln": 100.22,
       "roi_percent": 50.2,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "t1251821087",
@@ -4794,56 +4722,7 @@
       "potential_arbitrage_pln": 116.38,
       "hypothetical_margin_pln": 116.38,
       "residual_profit_pln": 116.38,
-      "closed_at": "2026-11-14T02:07:16Z"
-    },
-    {
-      "id": "v1251784671",
-      "platform": "Yahoo! Auctions Japan",
-      "category_id": "film_cameras_point_shoot",
-      "category_name": "Aparaty Analogowe Typu Małpka (35mm Point & Shoot)",
-      "model": "Canon Autoboy Tele 6 / Sure Shot Tele",
-      "color": "Czarny (Dwuogniskowy 35mm / 60mm)",
-      "price_jpy": 1800,
-      "est_pl_value": 160.0,
-      "allegro_archive_pln": 180.0,
-      "olx_haggled_pln": 140.0,
-      "battery_type": "none",
-      "status": "🏁 Zakończona (Wylicytowano)",
-      "condition_type": "confirmed_working",
-      "condition_badge": "🟢 0% Li-Ion (Bateria 2CR5)",
-      "image_url": "https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0211/user/c0a697000218bbb67b16f98ca9b245ebe42c35720942aaad851403832c7466ea/i-img1200x800-17942895555468ppyguf27.jpg?w=300&h=300",
-      "custom_note": "Aparat dwuogniskowy z możliwością robienia zdjęć formatu Half-Frame na zwykłym filmie",
-      "source_url": "https://page.auctions.yahoo.co.jp/jp/auction/v1251784671",
-      "zenmarket_url": "https://zenmarket.jp/pl/auction.aspx?itemCode=v1251784671",
-      "buyee_url": "https://buyee.jp/item/yahoo/auction/v1251784671",
-      "search_query_jp": "Canon Autoboy Tele 動作品",
-      "closed_price_min_jpy": 1500,
-      "closed_price_avg_jpy": 3200,
-      "closed_price_max_jpy": 4800,
-      "mercari_bin_avg_jpy": 4500,
-      "auction_advantage_note": "Bardzo poszukiwana funkcja Half-Frame",
-      "time_remaining_minutes": 5760,
-      "time_remaining_formatted": "4 dni",
-      "ends_at": "2026-11-14 15:51 UTC",
-      "price_stage_note": "🟢 Wczesna licytacja – monitoruj i ustaw snajpera",
-      "is_ending_soon": false,
-      "ends_at_iso": "2026-11-14T15:51:04Z",
-      "ends_at_pl": "16:51",
-      "ends_at_jst": "00:51",
-      "ends_at_formatted": "Dziś o 16:51 (PL) / 00:51 (JP)",
-      "ends_at_pl_short": "Dziś 16:51",
-      "slug_id": "canon_sureshot_tele",
-      "auction_id": "v1251784671",
-      "buy_now_price_jpy": 2000,
-      "current_price_jpy": 1.0,
-      "final_price_jpy": 1800,
-      "final_price_pln": 44.7,
-      "landed_cost_pln": 124.31,
-      "potential_arbitrage_pln": 35.69,
-      "hypothetical_margin_pln": 35.69,
-      "residual_profit_pln": 35.69,
-      "roi_percent": 28.7,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "w1251819684",
@@ -4939,7 +4818,7 @@
       "potential_arbitrage_pln": 45.24,
       "hypothetical_margin_pln": 45.24,
       "residual_profit_pln": 45.24,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "o1251830468",
@@ -5035,7 +4914,7 @@
       "potential_arbitrage_pln": 92.18,
       "hypothetical_margin_pln": 92.18,
       "residual_profit_pln": 92.18,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "s1251602705",
@@ -5191,7 +5070,7 @@
       "potential_arbitrage_pln": 21.86,
       "hypothetical_margin_pln": 21.86,
       "residual_profit_pln": 21.86,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "p1251797943",
@@ -5287,7 +5166,7 @@
       "potential_arbitrage_pln": 20.47,
       "hypothetical_margin_pln": 20.47,
       "residual_profit_pln": 20.47,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "x1251777697",
@@ -5383,7 +5262,7 @@
       "potential_arbitrage_pln": 27.86,
       "hypothetical_margin_pln": 27.86,
       "residual_profit_pln": 27.86,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "e1251828262",
@@ -5479,7 +5358,7 @@
       "potential_arbitrage_pln": 132.25,
       "hypothetical_margin_pln": 132.25,
       "residual_profit_pln": 132.25,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "f1186217388",
@@ -5575,7 +5454,7 @@
       "potential_arbitrage_pln": 442.77,
       "hypothetical_margin_pln": 442.77,
       "residual_profit_pln": 442.77,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "m1251679677",
@@ -5671,7 +5550,7 @@
       "potential_arbitrage_pln": 250.79,
       "hypothetical_margin_pln": 250.79,
       "residual_profit_pln": 250.79,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "v1251354403",
@@ -5767,7 +5646,7 @@
       "potential_arbitrage_pln": 464.73,
       "hypothetical_margin_pln": 464.73,
       "residual_profit_pln": 464.73,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "w1251004036",
@@ -5908,7 +5787,7 @@
       "potential_arbitrage_pln": 116.38,
       "hypothetical_margin_pln": 116.38,
       "residual_profit_pln": 116.38,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "b1251661405",
@@ -6064,7 +5943,7 @@
       "potential_arbitrage_pln": 165.92,
       "hypothetical_margin_pln": 165.92,
       "residual_profit_pln": 165.92,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "m1251424285",
@@ -6220,7 +6099,7 @@
       "potential_arbitrage_pln": 96.92,
       "hypothetical_margin_pln": 96.92,
       "residual_profit_pln": 96.92,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "p1251459113",
@@ -6376,7 +6255,7 @@
       "potential_arbitrage_pln": 167.46,
       "hypothetical_margin_pln": 167.46,
       "residual_profit_pln": 167.46,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "f1251819973",
@@ -6507,7 +6386,7 @@
       "potential_arbitrage_pln": 75.86,
       "hypothetical_margin_pln": 75.86,
       "residual_profit_pln": 75.86,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "f1246338593",
@@ -6603,7 +6482,7 @@
       "potential_arbitrage_pln": 64.77,
       "hypothetical_margin_pln": 64.77,
       "residual_profit_pln": 64.77,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "d1251552929",
@@ -6699,7 +6578,7 @@
       "potential_arbitrage_pln": 63.71,
       "hypothetical_margin_pln": 63.71,
       "residual_profit_pln": 63.71,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "v1251622331",
@@ -6795,7 +6674,7 @@
       "potential_arbitrage_pln": 61.56,
       "hypothetical_margin_pln": 61.56,
       "residual_profit_pln": 61.56,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "h1251615097",
@@ -6891,7 +6770,7 @@
       "potential_arbitrage_pln": 65.25,
       "hypothetical_margin_pln": 65.25,
       "residual_profit_pln": 65.25,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "q1251656350",
@@ -6987,7 +6866,7 @@
       "potential_arbitrage_pln": 96.44,
       "hypothetical_margin_pln": 96.44,
       "residual_profit_pln": 96.44,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "n1251749127",
@@ -7083,7 +6962,7 @@
       "potential_arbitrage_pln": 92.39,
       "hypothetical_margin_pln": 92.39,
       "residual_profit_pln": 92.39,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "f1251656361",
@@ -7179,7 +7058,7 @@
       "potential_arbitrage_pln": 76.49,
       "hypothetical_margin_pln": 76.49,
       "residual_profit_pln": 76.49,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "c1251630970",
@@ -7275,7 +7154,7 @@
       "potential_arbitrage_pln": 72.78,
       "hypothetical_margin_pln": 72.78,
       "residual_profit_pln": 72.78,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "w1251651117",
@@ -7371,7 +7250,7 @@
       "potential_arbitrage_pln": 125.73,
       "hypothetical_margin_pln": 125.73,
       "residual_profit_pln": 125.73,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "v1251661475",
@@ -7467,7 +7346,7 @@
       "potential_arbitrage_pln": 133.67,
       "hypothetical_margin_pln": 133.67,
       "residual_profit_pln": 133.67,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "e1248977601",
@@ -7563,7 +7442,7 @@
       "potential_arbitrage_pln": 233.62,
       "hypothetical_margin_pln": 233.62,
       "residual_profit_pln": 233.62,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "n1251812676",
@@ -7659,7 +7538,7 @@
       "potential_arbitrage_pln": 88.57,
       "hypothetical_margin_pln": 88.57,
       "residual_profit_pln": 88.57,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "j1251505974",
@@ -7756,7 +7635,7 @@
       "potential_arbitrage_pln": 92.16,
       "hypothetical_margin_pln": 92.16,
       "residual_profit_pln": 92.16,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "m1251553051",
@@ -7852,7 +7731,7 @@
       "potential_arbitrage_pln": 38.39,
       "hypothetical_margin_pln": 38.39,
       "residual_profit_pln": 38.39,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "d1251823525",
@@ -7948,7 +7827,7 @@
       "potential_arbitrage_pln": 131.26,
       "hypothetical_margin_pln": 131.26,
       "residual_profit_pln": 131.26,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "k1251818302",
@@ -8044,7 +7923,7 @@
       "potential_arbitrage_pln": 101.71,
       "hypothetical_margin_pln": 101.71,
       "residual_profit_pln": 101.71,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "p1249428295",
@@ -8140,7 +8019,7 @@
       "potential_arbitrage_pln": -77.68,
       "hypothetical_margin_pln": -77.68,
       "residual_profit_pln": -77.68,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "t1250970249",
@@ -8236,7 +8115,7 @@
       "potential_arbitrage_pln": 113.17,
       "hypothetical_margin_pln": 113.17,
       "residual_profit_pln": 113.17,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "d1245986339",
@@ -8332,7 +8211,7 @@
       "potential_arbitrage_pln": 54.17,
       "hypothetical_margin_pln": 54.17,
       "residual_profit_pln": 54.17,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "k1244528483",
@@ -8428,7 +8307,7 @@
       "potential_arbitrage_pln": 44.71,
       "hypothetical_margin_pln": 44.71,
       "residual_profit_pln": 44.71,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "b1246124221",
@@ -8524,7 +8403,7 @@
       "potential_arbitrage_pln": 216.52,
       "hypothetical_margin_pln": 216.52,
       "residual_profit_pln": 216.52,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "h1250921225",
@@ -8620,7 +8499,7 @@
       "potential_arbitrage_pln": 258.85,
       "hypothetical_margin_pln": 258.85,
       "residual_profit_pln": 258.85,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "b1251556000",
@@ -8751,7 +8630,7 @@
       "potential_arbitrage_pln": 44.81,
       "hypothetical_margin_pln": 44.81,
       "residual_profit_pln": 44.81,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "t1251382423",
@@ -8847,7 +8726,7 @@
       "potential_arbitrage_pln": 82.25,
       "hypothetical_margin_pln": 82.25,
       "residual_profit_pln": 82.25,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "j1251645657",
@@ -8943,7 +8822,7 @@
       "potential_arbitrage_pln": 114.59,
       "hypothetical_margin_pln": 114.59,
       "residual_profit_pln": 114.59,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "j1251280330",
@@ -9039,7 +8918,7 @@
       "potential_arbitrage_pln": 182.14,
       "hypothetical_margin_pln": 182.14,
       "residual_profit_pln": 182.14,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "g1251507424",
@@ -9135,7 +9014,7 @@
       "potential_arbitrage_pln": 129.44,
       "hypothetical_margin_pln": 129.44,
       "residual_profit_pln": 129.44,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "n1251521383",
@@ -9231,7 +9110,7 @@
       "potential_arbitrage_pln": 242.09,
       "hypothetical_margin_pln": 242.09,
       "residual_profit_pln": 242.09,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "r1250922821",
@@ -9327,7 +9206,7 @@
       "potential_arbitrage_pln": 180.92,
       "hypothetical_margin_pln": 180.92,
       "residual_profit_pln": 180.92,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "u1251654393",
@@ -9424,7 +9303,7 @@
       "potential_arbitrage_pln": 85.32,
       "hypothetical_margin_pln": 85.32,
       "residual_profit_pln": 85.32,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "h1251823950",
@@ -9520,7 +9399,7 @@
       "potential_arbitrage_pln": 198.82,
       "hypothetical_margin_pln": 198.82,
       "residual_profit_pln": 198.82,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "d1251827205",
@@ -9616,7 +9495,7 @@
       "potential_arbitrage_pln": 101.71,
       "hypothetical_margin_pln": 101.71,
       "residual_profit_pln": 101.71,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "m1251545975",
@@ -9712,7 +9591,7 @@
       "potential_arbitrage_pln": 101.71,
       "hypothetical_margin_pln": 101.71,
       "residual_profit_pln": 101.71,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "r1251817447",
@@ -9808,7 +9687,7 @@
       "potential_arbitrage_pln": 131.26,
       "hypothetical_margin_pln": 131.26,
       "residual_profit_pln": 131.26,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "f1251419199",
@@ -9904,7 +9783,7 @@
       "potential_arbitrage_pln": 144.59,
       "hypothetical_margin_pln": 144.59,
       "residual_profit_pln": 144.59,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "q1251671063",
@@ -10000,7 +9879,7 @@
       "potential_arbitrage_pln": 28.92,
       "hypothetical_margin_pln": 28.92,
       "residual_profit_pln": 28.92,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "p1251818449",
@@ -10096,7 +9975,7 @@
       "potential_arbitrage_pln": 71.71,
       "hypothetical_margin_pln": 71.71,
       "residual_profit_pln": 71.71,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "j1251512119",
@@ -10227,7 +10106,7 @@
       "potential_arbitrage_pln": 44.81,
       "hypothetical_margin_pln": 44.81,
       "residual_profit_pln": 44.81,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "n1249820524",
@@ -10323,7 +10202,7 @@
       "potential_arbitrage_pln": 72.63,
       "hypothetical_margin_pln": 72.63,
       "residual_profit_pln": 72.63,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "r1249150953",
@@ -10419,7 +10298,7 @@
       "potential_arbitrage_pln": 60.76,
       "hypothetical_margin_pln": 60.76,
       "residual_profit_pln": 60.76,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "k1251598819",
@@ -10515,7 +10394,7 @@
       "potential_arbitrage_pln": 202.07,
       "hypothetical_margin_pln": 202.07,
       "residual_profit_pln": 202.07,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "s1245196893",
@@ -10611,7 +10490,7 @@
       "potential_arbitrage_pln": 290.2,
       "hypothetical_margin_pln": 290.2,
       "residual_profit_pln": 290.2,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "n1250601912",
@@ -10707,7 +10586,7 @@
       "potential_arbitrage_pln": 89.39,
       "hypothetical_margin_pln": 89.39,
       "residual_profit_pln": 89.39,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "e1249970845",
@@ -10803,7 +10682,7 @@
       "potential_arbitrage_pln": 98.19,
       "hypothetical_margin_pln": 98.19,
       "residual_profit_pln": 98.19,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "q1251675793",
@@ -10900,7 +10779,7 @@
       "potential_arbitrage_pln": 70.08,
       "hypothetical_margin_pln": 70.08,
       "residual_profit_pln": 70.08,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "g1251812089",
@@ -10996,7 +10875,7 @@
       "potential_arbitrage_pln": 133.17,
       "hypothetical_margin_pln": 133.17,
       "residual_profit_pln": 133.17,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "v1251516199",
@@ -11092,7 +10971,7 @@
       "potential_arbitrage_pln": 217.72,
       "hypothetical_margin_pln": 217.72,
       "residual_profit_pln": 217.72,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "e1251507348",
@@ -11189,7 +11068,7 @@
       "potential_arbitrage_pln": 85.94,
       "hypothetical_margin_pln": 85.94,
       "residual_profit_pln": 85.94,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
     },
     {
       "id": "d1251551345",
@@ -11285,7 +11164,56 @@
       "potential_arbitrage_pln": 662.18,
       "hypothetical_margin_pln": 662.18,
       "residual_profit_pln": 662.18,
-      "closed_at": "2026-11-14T02:07:16Z"
+      "closed_at": "2026-11-14T08:15:23Z"
+    },
+    {
+      "id": "v1251784671",
+      "platform": "Yahoo! Auctions Japan",
+      "category_id": "film_cameras_point_shoot",
+      "category_name": "Aparaty Analogowe Typu Małpka (35mm Point & Shoot)",
+      "model": "Canon Autoboy Tele 6 / Sure Shot Tele",
+      "color": "Czarny (Dwuogniskowy 35mm / 60mm)",
+      "price_jpy": 1800,
+      "est_pl_value": 160.0,
+      "allegro_archive_pln": 180.0,
+      "olx_haggled_pln": 140.0,
+      "battery_type": "none",
+      "status": "🏁 Zakończona (Wylicytowano)",
+      "condition_type": "confirmed_working",
+      "condition_badge": "🟢 0% Li-Ion (Bateria 2CR5)",
+      "image_url": "https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0211/user/c0a697000218bbb67b16f98ca9b245ebe42c35720942aaad851403832c7466ea/i-img1200x800-17942895555468ppyguf27.jpg?w=300&h=300",
+      "custom_note": "Aparat dwuogniskowy z możliwością robienia zdjęć formatu Half-Frame na zwykłym filmie",
+      "source_url": "https://page.auctions.yahoo.co.jp/jp/auction/v1251784671",
+      "zenmarket_url": "https://zenmarket.jp/pl/auction.aspx?itemCode=v1251784671",
+      "buyee_url": "https://buyee.jp/item/yahoo/auction/v1251784671",
+      "search_query_jp": "Canon Autoboy Tele 動作品",
+      "closed_price_min_jpy": 1500,
+      "closed_price_avg_jpy": 3200,
+      "closed_price_max_jpy": 4800,
+      "mercari_bin_avg_jpy": 4500,
+      "auction_advantage_note": "Bardzo poszukiwana funkcja Half-Frame",
+      "time_remaining_minutes": 5760,
+      "time_remaining_formatted": "4 dni",
+      "ends_at": "2026-11-14 15:51 UTC",
+      "price_stage_note": "🟢 Wczesna licytacja – monitoruj i ustaw snajpera",
+      "is_ending_soon": false,
+      "ends_at_iso": "2026-11-14T15:51:04Z",
+      "ends_at_pl": "16:51",
+      "ends_at_jst": "00:51",
+      "ends_at_formatted": "Dziś o 16:51 (PL) / 00:51 (JP)",
+      "ends_at_pl_short": "Dziś 16:51",
+      "slug_id": "canon_sureshot_tele",
+      "auction_id": "v1251784671",
+      "buy_now_price_jpy": 2000,
+      "current_price_jpy": 1.0,
+      "final_price_jpy": 1800,
+      "final_price_pln": 44.7,
+      "landed_cost_pln": 124.31,
+      "potential_arbitrage_pln": 35.69,
+      "hypothetical_margin_pln": 35.69,
+      "residual_profit_pln": 35.69,
+      "roi_percent": 28.7,
+      "closed_at": "2026-11-14T08:15:22Z"
     },
     {
       "id": "x1251537445",
@@ -11334,7 +11262,7 @@
       "hypothetical_margin_pln": 85.14,
       "residual_profit_pln": 85.14,
       "roi_percent": 37.9,
-      "closed_at": "2026-11-14T02:07:15Z"
+      "closed_at": "2026-11-14T08:15:22Z"
     },
     {
       "id": "m1250486960",
@@ -11382,7 +11310,7 @@
       "hypothetical_margin_pln": 29.42,
       "residual_profit_pln": 29.42,
       "roi_percent": 22.5,
-      "closed_at": "2026-11-14T02:07:15Z"
+      "closed_at": "2026-11-14T08:15:22Z"
     },
     {
       "id": "s1251792916",
@@ -11431,7 +11359,7 @@
       "hypothetical_margin_pln": 122.64,
       "residual_profit_pln": 122.64,
       "roi_percent": 26.8,
-      "closed_at": "2026-11-14T02:07:15Z"
+      "closed_at": "2026-11-14T08:15:22Z"
     },
     {
       "id": "m1251554753",
@@ -11480,7 +11408,7 @@
       "hypothetical_margin_pln": 65.17,
       "residual_profit_pln": 65.17,
       "roi_percent": 29.0,
-      "closed_at": "2026-11-14T02:07:15Z"
+      "closed_at": "2026-11-14T08:15:22Z"
     },
     {
       "id": "t1249061970",
@@ -11590,7 +11518,7 @@
       "hypothetical_margin_pln": 120.6,
       "residual_profit_pln": 120.6,
       "roi_percent": 32.6,
-      "closed_at": "2026-11-14T02:07:15Z"
+      "closed_at": "2026-11-14T08:15:22Z"
     },
     {
       "id": "v1251813701",
@@ -11638,7 +11566,7 @@
       "hypothetical_margin_pln": 56.63,
       "residual_profit_pln": 56.63,
       "roi_percent": 29.3,
-      "closed_at": "2026-11-14T02:07:15Z"
+      "closed_at": "2026-11-14T08:15:22Z"
     },
     {
       "id": "deal_ended",
@@ -11734,7 +11662,7 @@
       "potential_arbitrage_pln": 163.11,
       "hypothetical_margin_pln": 163.11,
       "residual_profit_pln": 163.11,
-      "closed_at": "2026-11-14T02:06:48Z"
+      "closed_at": "2026-11-14T08:14:55Z"
     },
     {
       "id": "test_camera",
