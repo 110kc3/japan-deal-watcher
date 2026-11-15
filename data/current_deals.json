@@ -2422,7 +2422,7 @@
     "est_pl_value": 450.0,
     "est_margin_pln": 79.28,
     "roi_percent": 21.4,
-    "status": "Dostępne",
+    "status": "W trakcie transakcji",
     "condition_type": "cosmetic_only",
     "condition_badge": "⚠️ Tylko Stan Wizualny (Brak Testu)",
     "is_broken": false,

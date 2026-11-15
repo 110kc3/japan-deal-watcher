@@ -138,7 +138,7 @@
     "potential_arbitrage_pln": 99.53,
     "hypothetical_margin_pln": 99.53,
     "residual_profit_pln": 99.53,
-    "closed_at": "2026-11-15T16:53:17Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "t1251821087",
@@ -294,460 +294,7 @@
     "potential_arbitrage_pln": 116.38,
     "hypothetical_margin_pln": 116.38,
     "residual_profit_pln": 116.38,
-    "closed_at": "2026-11-15T16:53:17Z"
-  },
-  {
-    "id": "w1251004036",
-    "auction_id": "w1251004036",
-    "platform": "Surugaya",
-    "category_id": "danshari_mystery_lots",
-    "category_name": "Pakiety Różności i Likwidacje Kolekcji (Danshari / 処分 / 雑多 / 福袋)",
-    "model": "【福袋】Tajemniczy Karton 50 Gier Retro (Surugaya Fukubukuro / 箱詰め)",
-    "color": "Surugaya Lucky Bag (50 Gier)",
-    "battery_type": "none",
-    "has_battery": false,
-    "est_weight_g": 1800,
-    "weight_formatted": "~1.8 kg",
-    "image_url": "https://www.jauce.com/read_yafile/https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0211/user/ed1c31981d20e2bc99ff5cb4963d6016c3442562c1d7d44d71b3157300d3b7e0/i-img934x1200-179381239585410egyqz34.jpg?w=300&h=300",
-    "status": "🏁 Zakończona (Wylicytowano)",
-    "condition_badge": "🟢 0% Li-Ion (Zero Baterii)",
-    "custom_note": "Oficjalny mystery bag od Surugaya – gwarantowany sprawny stan techniczny, zidentyfikowano Pokémon Black 2 i Dragon Quest!",
-    "time_remaining_minutes": 0,
-    "time_remaining_formatted": "Zakończona",
-    "ends_at": "2026-11-11 11:51 UTC",
-    "ends_at_iso": "2026-11-11T11:51:00Z",
-    "ends_at_pl": "12:51",
-    "ends_at_jst": "20:51",
-    "ends_at_formatted": "Aukcja zakończona o 12:51 (PL)",
-    "ends_at_pl_short": "Zakończona (12:51)",
-    "price_stage_note": "⚡ Aukcja w toku – licytuj ze snajperem w końcówce",
-    "is_ending_soon": false,
-    "predicted_closure_jpy": 4400,
-    "predicted_closure_min_jpy": 3100,
-    "predicted_closure_max_jpy": 6700,
-    "predicted_closure_pln": 109.68,
-    "closure_gap_jpy": 500,
-    "closure_gap_pct": 12.8,
-    "expected_landed_cost_pln": 219.39,
-    "expected_margin_pln": 100.61,
-    "expected_roi_pct": 45.9,
-    "condition_grade": "J_UNTESTED_JUNK",
-    "condition_label": "🧩 Pakiet / Junk / Likwidacja",
-    "condition_short_label": "Junk / Pakiet",
-    "condition_badge_color": "#ec4899",
-    "condition_features": [
-      "Paczka hurtowa / Danshari",
-      "Likwidacja kolekcji prywatnej"
-    ],
-    "condition_desc": "Nietestowany pakiet hurtowy lub likwidacja szafy ze strychu (Danshari)",
-    "verdict_code": "A_TIER_SOLID_DEAL",
-    "verdict_label": "⚡ A-TIER: SOLIDNA OKAZJA",
-    "verdict_badge_class": "verdict-a-tier",
-    "recommendation_text": "Dobra relacja ceny do stanu (Junk / Pakiet). Spodziewana cena końcowa 4,400 JPY daje zysk +101 zł (ROI +46%). Warto licytować z limitem.",
-    "price_jpy": 3900.0,
-    "price_pln_raw": 97.22,
-    "buy_now_price_jpy": 4800,
-    "buy_now_price_pln": 119.65,
-    "has_buy_now": true,
-    "landed_cost_pln": 203.62,
-    "est_pl_value": 320.0,
-    "allegro_archive_pln": 360.0,
-    "olx_haggled_pln": 280.0,
-    "est_margin_pln": 116.38,
-    "roi_percent": 57.2,
-    "max_bid_jpy": 4600,
-    "guaranteed_margin_pln": 94.32,
-    "guaranteed_roi_pct": 41.8,
-    "closed_price_min_jpy": 3500,
-    "closed_price_max_jpy": 7500,
-    "closed_price_avg_jpy": 4900,
-    "mercari_bin_avg_jpy": 8900,
-    "arbitrage_discount_pct": 44.9,
-    "auction_advantage_note": "Surugaya osobiście weryfikuje czytelność nośników – zerowe ryzyko zakupu niedziałających płyt",
-    "shipping_share_pln": 35.0,
-    "vat_pln": 37.02,
-    "zenmarket_fee_pln": 8.81,
-    "photo_inspection": {
-      "inspected": true,
-      "inspection_badge": "🔍 Inspekcja Zdjęcia (AI Vision)",
-      "total_items_spotted": 50,
-      "lot_type": "mystery_grab_bag",
-      "lot_type_name": "Fukubukuro (Tajemniczy Worek / Mystery Box)",
-      "top_gems": [
-        {
-          "title": "Pokémon Black 2 (DS)",
-          "jp_title": "ポケットモンスター ブラック2",
-          "platform": "Nintendo DS",
-          "format": "Cartridge Loose",
-          "rarity": "⭐⭐⭐⭐ Skarb",
-          "est_pl_value": 85.0,
-          "allegro_archive_pln": 95.0,
-          "olx_haggled_pln": 75.0,
-          "region_free": true,
-          "language_barrier": "high",
-          "language_note": "DS Pokémon Gen 5.",
-          "allegro_search_url": "https://allegro.pl/kategoria/gry?string=Pokemon+Black+2+DS+Japonia",
-          "olx_search_url": "https://www.olx.pl/oferty/q-pokemon-black-2-ds-japonia/"
-        },
-        {
-          "title": "Dragon Quest IX: Sentinels of the Starry Skies",
-          "jp_title": "ドラゴンクエストIX 星空の守り人",
-          "platform": "Nintendo DS",
-          "format": "CIB Boxed",
-          "rarity": "⭐⭐ Masowy RPG w Japonii",
-          "est_pl_value": 35.0,
-          "allegro_archive_pln": 40.0,
-          "olx_haggled_pln": 30.0,
-          "region_free": true,
-          "language_barrier": "high",
-          "language_note": "Tani japoński klasyk.",
-          "allegro_search_url": "https://allegro.pl/kategoria/gry?string=Dragon+Quest+IX+DS",
-          "olx_search_url": "https://www.olx.pl/oferty/q-dragon-quest-ix-ds/"
-        }
-      ],
-      "spotted_gems_value_pln": 120.0,
-      "estimated_total_lot_value_pln": 408.0,
-      "filler_count": 48,
-      "battery_hazard_detected": false,
-      "battery_notes": "🟢 100% Czyste Gry (0% Li-Ion / Brak baterii)",
-      "break_even_gem": "Sprzedaż samego Pokémon Black 2 (~85 zł) pokrywa niemal połowę ceny mystery boxa!",
-      "inspection_summary": "Zidentyfikowano 2 kluczowych tytułów w kartonie (50 gier). Szacowana wartość samych perełek po surowej wycenie NTSC-J: ~120 zł."
-    },
-    "links": {
-      "primary_url": "https://zenmarket.jp/pl/auction.aspx?itemCode=w1251004036",
-      "zenmarket_auction": "https://zenmarket.jp/pl/auction.aspx?itemCode=w1251004036",
-      "zenmarket_sniper": "https://zenmarket.jp/pl/auction.aspx?itemCode=w1251004036",
-      "zenmarket_buy_now": "https://zenmarket.jp/pl/auction.aspx?itemCode=w1251004036",
-      "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=%E7%A6%8F%E8%A2%8B%20%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88%20%E3%81%BE%E3%81%A8%E3%82%81&sort=end&order=asc",
-      "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=%E7%A6%8F%E8%A2%8B%20%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88%20%E3%81%BE%E3%81%A8%E3%82%81&sort=price&order=asc",
-      "zenmarket_mercari_stream": "https://zenmarket.jp/pl/mercari.aspx?q=%E7%A6%8F%E8%A2%8B%20%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88%20%E3%81%BE%E3%81%A8%E3%82%81",
-      "mercari_live_search": "https://jp.mercari.com/search?keyword=%E7%A6%8F%E8%A2%8B%20%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88%20%E3%81%BE%E3%81%A8%E3%82%81&status=on_sale",
-      "buyee_url": "https://buyee.jp/item/yahoo/auction/w1251004036",
-      "buyee_auction": "https://buyee.jp/item/yahoo/auction/w1251004036",
-      "buyee_ending_soon": "https://buyee.jp/item/search/query/%E7%A6%8F%E8%A2%8B%20%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88%20%E3%81%BE%E3%81%A8%E3%82%81?translationType=1&sort=end&order=a",
-      "yahoo_closed_archive": "https://auctions.yahoo.co.jp/closedsearch/closedsearch?p=%E7%A6%8F%E8%A2%8B%20%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88%20%E3%81%BE%E3%81%A8%E3%82%81",
-      "yahoo_direct": "https://page.auctions.yahoo.co.jp/jp/auction/w1251004036",
-      "allegro_search": "https://allegro.pl/listing?string=gry%20retro%20zestaw%20mix",
-      "olx_search": "https://www.olx.pl/oferty/q-gry-retro-zestaw-mix/"
-    },
-    "final_price_jpy": 3900.0,
-    "final_price_pln": 96.84,
-    "potential_arbitrage_pln": 116.38,
-    "hypothetical_margin_pln": 116.38,
-    "residual_profit_pln": 116.38,
-    "closed_at": "2026-11-15T16:53:17Z"
-  },
-  {
-    "id": "b1251661405",
-    "auction_id": "b1251661405",
-    "platform": "Yahoo! Auctions Japan",
-    "category_id": "danshari_mystery_lots",
-    "category_name": "Pakiety Różności i Likwidacje Kolekcji (Danshari / 処分 / 雑多 / 福袋)",
-    "model": "【大処分】Mega Karton 80 Gier Mix (DS, PSP, PS2, SFC - Zatta Box)",
-    "color": "Karton 80 Gier Multiformat",
-    "battery_type": "none",
-    "has_battery": false,
-    "est_weight_g": 1800,
-    "weight_formatted": "~1.8 kg",
-    "image_url": "https://www.jauce.com/read_yafile/https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0211/user/4de85e37f2cc010ee64b5d765ea5758a79581da8e31f1e79dbb068181bd11d56/i-img1200x718-17942072833034hfgp0627.jpg?w=300&h=300",
-    "status": "🏁 Zakończona (Wylicytowano)",
-    "condition_badge": "🟢 0% Li-Ion (Zero Baterii)",
-    "custom_note": "Potężny karton 80 gier zebrany podczas sprzątania domu – rozpoznano Chrono Trigger DS, Castlevania oraz Persona 4 Golden!",
-    "time_remaining_minutes": 0,
-    "time_remaining_formatted": "Zakończona",
-    "ends_at": "2026-11-11 12:51 UTC",
-    "ends_at_iso": "2026-11-11T12:51:00Z",
-    "ends_at_pl": "13:51",
-    "ends_at_jst": "21:51",
-    "ends_at_formatted": "Aukcja zakończona o 13:51 (PL)",
-    "ends_at_pl_short": "Zakończona (13:51)",
-    "price_stage_note": "⚡ Aukcja w toku – licytuj ze snajperem w końcówce",
-    "is_ending_soon": false,
-    "predicted_closure_jpy": 6100,
-    "predicted_closure_min_jpy": 4000,
-    "predicted_closure_max_jpy": 9400,
-    "predicted_closure_pln": 152.05,
-    "closure_gap_jpy": 600,
-    "closure_gap_pct": 10.9,
-    "expected_landed_cost_pln": 272.98,
-    "expected_margin_pln": 147.02,
-    "expected_roi_pct": 53.9,
-    "condition_grade": "J_UNTESTED_JUNK",
-    "condition_label": "🧩 Pakiet / Junk / Likwidacja",
-    "condition_short_label": "Junk / Pakiet",
-    "condition_badge_color": "#ec4899",
-    "condition_features": [
-      "Paczka hurtowa / Danshari",
-      "Likwidacja kolekcji prywatnej"
-    ],
-    "condition_desc": "Nietestowany pakiet hurtowy lub likwidacja szafy ze strychu (Danshari)",
-    "verdict_code": "S_TIER_SURE_ARBITRAGE",
-    "verdict_label": "🔥 S-TIER: PEWNY ARBITRAŻ",
-    "verdict_badge_class": "verdict-s-tier",
-    "recommendation_text": "Znakomity stan (Junk / Pakiet). Oczekiwane zamknięcie w okolicy 6,100 JPY (~152 zł) zostawia aż +147 zł zysku netto w PL! Ustaw snajpera na 6,900 JPY.",
-    "price_jpy": 5500.0,
-    "price_pln_raw": 137.1,
-    "buy_now_price_jpy": 6800,
-    "buy_now_price_pln": 169.5,
-    "has_buy_now": true,
-    "landed_cost_pln": 254.08,
-    "est_pl_value": 420.0,
-    "allegro_archive_pln": 480.0,
-    "olx_haggled_pln": 370.0,
-    "est_margin_pln": 165.92,
-    "roi_percent": 65.3,
-    "max_bid_jpy": 6900,
-    "guaranteed_margin_pln": 121.78,
-    "guaranteed_roi_pct": 40.8,
-    "closed_price_min_jpy": 4500,
-    "closed_price_max_jpy": 10500,
-    "closed_price_avg_jpy": 6800,
-    "mercari_bin_avg_jpy": 13500,
-    "arbitrage_discount_pct": 49.6,
-    "auction_advantage_note": "Koszt jednostkowy około 68 JPY (~1.70 zł za grę!) – rekordowy stosunek ilości do ceny",
-    "shipping_share_pln": 35.0,
-    "vat_pln": 46.2,
-    "zenmarket_fee_pln": 8.81,
-    "photo_inspection": {
-      "inspected": true,
-      "inspection_badge": "🔍 Inspekcja Zdjęcia (AI Vision)",
-      "total_items_spotted": 80,
-      "lot_type": "miscellaneous_assortment",
-      "lot_type_name": "Zatta (Różności / Miks)",
-      "top_gems": [
-        {
-          "title": "Castlevania: Dawn of Sorrow",
-          "jp_title": "悪魔城ドラキュラ 蒼月の十字架",
-          "platform": "Nintendo DS",
-          "format": "Cartridge Loose",
-          "rarity": "⭐⭐⭐⭐⭐ Top Skarb",
-          "est_pl_value": 70.0,
-          "allegro_archive_pln": 80.0,
-          "olx_haggled_pln": 60.0,
-          "region_free": true,
-          "language_barrier": "medium",
-          "language_note": "Kultowa metroidvania.",
-          "allegro_search_url": "https://allegro.pl/kategoria/gry?string=Castlevania+Dawn+of+Sorrow+DS",
-          "olx_search_url": "https://www.olx.pl/oferty/q-castlevania-dawn-of-sorrow-ds/"
-        },
-        {
-          "title": "Chrono Trigger DS",
-          "jp_title": "クロノ・トリガー",
-          "platform": "Nintendo DS",
-          "format": "Cartridge Loose",
-          "rarity": "⭐⭐⭐⭐ Rzadki RPG",
-          "est_pl_value": 60.0,
-          "allegro_archive_pln": 70.0,
-          "olx_haggled_pln": 50.0,
-          "region_free": true,
-          "language_barrier": "high",
-          "language_note": "Tekst w kanji.",
-          "allegro_search_url": "https://allegro.pl/kategoria/gry?string=Chrono+Trigger+DS",
-          "olx_search_url": "https://www.olx.pl/oferty/q-chrono-trigger-ds/"
-        },
-        {
-          "title": "Persona 4 Golden",
-          "jp_title": "ペルソナ4 ザ・ゴールデン",
-          "platform": "PS Vita",
-          "format": "CIB Boxed",
-          "rarity": "⭐⭐⭐⭐ Skarb Półkowy",
-          "est_pl_value": 60.0,
-          "allegro_archive_pln": 70.0,
-          "olx_haggled_pln": 50.0,
-          "region_free": true,
-          "language_barrier": "high",
-          "language_note": "Pudełkowa Persona na Vitę.",
-          "allegro_search_url": "https://allegro.pl/kategoria/gry?string=Persona+4+Golden+PS+Vita",
-          "olx_search_url": "https://www.olx.pl/oferty/q-persona-4-golden-ps-vita/"
-        }
-      ],
-      "spotted_gems_value_pln": 190.0,
-      "estimated_total_lot_value_pln": 652.0,
-      "filler_count": 77,
-      "battery_hazard_detected": false,
-      "battery_notes": "🟢 100% Czyste Gry (0% Li-Ion / Bez limitu w paczce lotniczej)",
-      "break_even_gem": "Sprzedaż Castlevania (~70 zł) i Chrono Trigger (~60 zł) pokrywa 60% kosztów pudła!",
-      "inspection_summary": "Zidentyfikowano 3 kluczowych tytułów w kartonie (80 gier). Szacowana wartość samych perełek po surowej wycenie NTSC-J: ~190 zł."
-    },
-    "links": {
-      "primary_url": "https://zenmarket.jp/pl/auction.aspx?itemCode=b1251661405",
-      "zenmarket_auction": "https://zenmarket.jp/pl/auction.aspx?itemCode=b1251661405",
-      "zenmarket_sniper": "https://zenmarket.jp/pl/auction.aspx?itemCode=b1251661405",
-      "zenmarket_buy_now": "https://zenmarket.jp/pl/auction.aspx?itemCode=b1251661405",
-      "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88%20%E9%9B%91%E5%A4%9A%20%E5%A4%A7%E9%87%8F%20%E6%96%AD%E6%8D%A8%E9%9B%A2&sort=end&order=asc",
-      "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88%20%E9%9B%91%E5%A4%9A%20%E5%A4%A7%E9%87%8F%20%E6%96%AD%E6%8D%A8%E9%9B%A2&sort=price&order=asc",
-      "zenmarket_mercari_stream": "https://zenmarket.jp/pl/mercari.aspx?q=%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88%20%E9%9B%91%E5%A4%9A%20%E5%A4%A7%E9%87%8F%20%E6%96%AD%E6%8D%A8%E9%9B%A2",
-      "mercari_live_search": "https://jp.mercari.com/search?keyword=%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88%20%E9%9B%91%E5%A4%9A%20%E5%A4%A7%E9%87%8F%20%E6%96%AD%E6%8D%A8%E9%9B%A2&status=on_sale",
-      "buyee_url": "https://buyee.jp/item/yahoo/auction/b1251661405",
-      "buyee_auction": "https://buyee.jp/item/yahoo/auction/b1251661405",
-      "buyee_ending_soon": "https://buyee.jp/item/search/query/%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88%20%E9%9B%91%E5%A4%9A%20%E5%A4%A7%E9%87%8F%20%E6%96%AD%E6%8D%A8%E9%9B%A2?translationType=1&sort=end&order=a",
-      "yahoo_closed_archive": "https://auctions.yahoo.co.jp/closedsearch/closedsearch?p=%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88%20%E9%9B%91%E5%A4%9A%20%E5%A4%A7%E9%87%8F%20%E6%96%AD%E6%8D%A8%E9%9B%A2",
-      "yahoo_direct": "https://page.auctions.yahoo.co.jp/jp/auction/b1251661405",
-      "allegro_search": "https://allegro.pl/listing?string=gry%20nintendo%20ds%20zestaw",
-      "olx_search": "https://www.olx.pl/oferty/q-gry-nintendo-ds-zestaw/"
-    },
-    "final_price_jpy": 5500.0,
-    "final_price_pln": 136.58,
-    "potential_arbitrage_pln": 165.92,
-    "hypothetical_margin_pln": 165.92,
-    "residual_profit_pln": 165.92,
-    "closed_at": "2026-11-15T16:53:17Z"
-  },
-  {
-    "id": "m1251424285",
-    "auction_id": "m1251424285",
-    "platform": "Yahoo! Auctions Japan",
-    "category_id": "danshari_mystery_lots",
-    "category_name": "Pakiety Różności i Likwidacje Kolekcji (Danshari / 処分 / 雑多 / 福袋)",
-    "model": "【処分】Kolekcja 25 Gier Zelda & Mario (DS, 3DS, GBA - まとめ)",
-    "color": "Lot 25 Gier Nintendo Franchise",
-    "battery_type": "none",
-    "has_battery": false,
-    "est_weight_g": 1800,
-    "weight_formatted": "~1.8 kg",
-    "image_url": "https://www.jauce.com/read_yafile/https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0211/user/e282df4b9fb3992e61c7c8129483f3571ec381aa0c4934c8aec5da458e47608a/i-img900x1200-17940384839902sqn7um38.jpg?w=300&h=300",
-    "status": "🏁 Zakończona (Wylicytowano)",
-    "condition_badge": "🟢 0% Li-Ion (Zero Baterii)",
-    "custom_note": "Prywatna wyprzedaż gier Zelda i Mario – rozpoznano Zelda Spirit Tracks, Ocarina of Time 3D i New Super Mario Bros!",
-    "time_remaining_minutes": 0,
-    "time_remaining_formatted": "Zakończona",
-    "ends_at": "2026-11-11 15:51 UTC",
-    "ends_at_iso": "2026-11-11T15:51:00Z",
-    "ends_at_pl": "16:51",
-    "ends_at_jst": "00:51",
-    "ends_at_formatted": "Aukcja zakończona o 16:51 (PL)",
-    "ends_at_pl_short": "Zakończona (16:51)",
-    "price_stage_note": "🟢 Wczesna licytacja – monitoruj i ustaw snajpera",
-    "is_ending_soon": false,
-    "predicted_closure_jpy": 4500,
-    "predicted_closure_min_jpy": 3200,
-    "predicted_closure_max_jpy": 7000,
-    "predicted_closure_pln": 112.17,
-    "closure_gap_jpy": 300,
-    "closure_gap_pct": 7.1,
-    "expected_landed_cost_pln": 222.54,
-    "expected_margin_pln": 87.46,
-    "expected_roi_pct": 39.3,
-    "condition_grade": "J_UNTESTED_JUNK",
-    "condition_label": "🧩 Pakiet / Junk / Likwidacja",
-    "condition_short_label": "Junk / Pakiet",
-    "condition_badge_color": "#ec4899",
-    "condition_features": [
-      "Paczka hurtowa / Danshari",
-      "Likwidacja kolekcji prywatnej"
-    ],
-    "condition_desc": "Nietestowany pakiet hurtowy lub likwidacja szafy ze strychu (Danshari)",
-    "verdict_code": "A_TIER_SOLID_DEAL",
-    "verdict_label": "⚡ A-TIER: SOLIDNA OKAZJA",
-    "verdict_badge_class": "verdict-a-tier",
-    "recommendation_text": "Dobra relacja ceny do stanu (Junk / Pakiet). Spodziewana cena końcowa 4,500 JPY daje zysk +87 zł (ROI +39%). Warto licytować z limitem.",
-    "price_jpy": 4200.0,
-    "price_pln_raw": 104.69,
-    "buy_now_price_jpy": 5200,
-    "buy_now_price_pln": 129.62,
-    "has_buy_now": true,
-    "landed_cost_pln": 213.08,
-    "est_pl_value": 310.0,
-    "allegro_archive_pln": 350.0,
-    "olx_haggled_pln": 275.0,
-    "est_margin_pln": 96.92,
-    "roi_percent": 45.5,
-    "max_bid_jpy": 4400,
-    "guaranteed_margin_pln": 90.61,
-    "guaranteed_roi_pct": 41.3,
-    "closed_price_min_jpy": 3600,
-    "closed_price_max_jpy": 7800,
-    "closed_price_avg_jpy": 5100,
-    "mercari_bin_avg_jpy": 9500,
-    "arbitrage_discount_pct": 46.3,
-    "auction_advantage_note": "Gry z serii Mario i Zelda schodzą na Allegro od ręki – natychmiastowa płynność",
-    "shipping_share_pln": 35.0,
-    "vat_pln": 38.74,
-    "zenmarket_fee_pln": 8.81,
-    "photo_inspection": {
-      "inspected": true,
-      "inspection_badge": "🔍 Inspekcja Zdjęcia (AI Vision)",
-      "total_items_spotted": 25,
-      "lot_type": "clearance_liquidation",
-      "lot_type_name": "Likwidacja / Wyprzedaż (Shobun)",
-      "top_gems": [
-        {
-          "title": "The Legend of Zelda: Spirit Tracks",
-          "jp_title": "ゼルダの伝説 大地の汽笛",
-          "platform": "Nintendo DS",
-          "format": "CIB Boxed",
-          "rarity": "⭐⭐⭐⭐ Rzadki Klasyk",
-          "est_pl_value": 65.0,
-          "allegro_archive_pln": 75.0,
-          "olx_haggled_pln": 55.0,
-          "region_free": true,
-          "language_barrier": "medium",
-          "language_note": "Pudełkowa Zelda DS.",
-          "allegro_search_url": "https://allegro.pl/kategoria/gry?string=Zelda+Spirit+Tracks+DS",
-          "olx_search_url": "https://www.olx.pl/oferty/q-zelda-spirit-tracks-ds/"
-        },
-        {
-          "title": "Zelda: Ocarina of Time 3D",
-          "jp_title": "ゼルダの伝説 時のオカリナ 3D",
-          "platform": "Nintendo 3DS",
-          "format": "CIB Boxed",
-          "rarity": "⭐⭐⭐ Klasyk 3D",
-          "est_pl_value": 60.0,
-          "allegro_archive_pln": 70.0,
-          "olx_haggled_pln": 50.0,
-          "region_free": false,
-          "language_barrier": "medium",
-          "language_note": "Zelda 3DS.",
-          "allegro_search_url": "https://allegro.pl/kategoria/gry?string=Zelda+Ocarina+3D",
-          "olx_search_url": "https://www.olx.pl/oferty/q-zelda-ocarina-3d/"
-        },
-        {
-          "title": "New Super Mario Bros DS + Mario 64 DS",
-          "jp_title": "New スーパーマリオブラザーズ + 64 DS",
-          "platform": "Nintendo DS",
-          "format": "CIB Boxed",
-          "rarity": "⭐⭐⭐ Super Płynne",
-          "est_pl_value": 50.0,
-          "allegro_archive_pln": 60.0,
-          "olx_haggled_pln": 40.0,
-          "region_free": true,
-          "language_barrier": "low",
-          "language_note": "Znikoma bariera językowa.",
-          "allegro_search_url": "https://allegro.pl/kategoria/gry?string=New+Super+Mario+Bros+DS",
-          "olx_search_url": "https://www.olx.pl/oferty/q-new-super-mario-bros-ds/"
-        }
-      ],
-      "spotted_gems_value_pln": 175.0,
-      "estimated_total_lot_value_pln": 351.0,
-      "filler_count": 22,
-      "battery_hazard_detected": false,
-      "battery_notes": "🟢 100% Czyste Gry (0% Li-Ion / Brak baterii)",
-      "break_even_gem": "Sprzedaż obu Zeld (~125 zł) pokrywa większość ceny paczki!",
-      "inspection_summary": "Zidentyfikowano 3 kluczowych tytułów w kartonie (25 gier). Szacowana wartość samych perełek po surowej wycenie NTSC-J: ~175 zł."
-    },
-    "links": {
-      "primary_url": "https://zenmarket.jp/pl/auction.aspx?itemCode=m1251424285",
-      "zenmarket_auction": "https://zenmarket.jp/pl/auction.aspx?itemCode=m1251424285",
-      "zenmarket_sniper": "https://zenmarket.jp/pl/auction.aspx?itemCode=m1251424285",
-      "zenmarket_buy_now": "https://zenmarket.jp/pl/auction.aspx?itemCode=m1251424285",
-      "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%BC%E3%83%AB%E3%83%80%20%E3%83%9E%E3%83%AA%E3%82%AA%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%87%A6%E5%88%86%20%E3%81%BE%E3%81%A8%E3%82%81&sort=end&order=asc",
-      "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%BC%E3%83%AB%E3%83%80%20%E3%83%9E%E3%83%AA%E3%82%AA%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%87%A6%E5%88%86%20%E3%81%BE%E3%81%A8%E3%82%81&sort=price&order=asc",
-      "zenmarket_mercari_stream": "https://zenmarket.jp/pl/mercari.aspx?q=%E3%82%BC%E3%83%AB%E3%83%80%20%E3%83%9E%E3%83%AA%E3%82%AA%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%87%A6%E5%88%86%20%E3%81%BE%E3%81%A8%E3%82%81",
-      "mercari_live_search": "https://jp.mercari.com/search?keyword=%E3%82%BC%E3%83%AB%E3%83%80%20%E3%83%9E%E3%83%AA%E3%82%AA%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%87%A6%E5%88%86%20%E3%81%BE%E3%81%A8%E3%82%81&status=on_sale",
-      "buyee_url": "https://buyee.jp/item/yahoo/auction/m1251424285",
-      "buyee_auction": "https://buyee.jp/item/yahoo/auction/m1251424285",
-      "buyee_ending_soon": "https://buyee.jp/item/search/query/%E3%82%BC%E3%83%AB%E3%83%80%20%E3%83%9E%E3%83%AA%E3%82%AA%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%87%A6%E5%88%86%20%E3%81%BE%E3%81%A8%E3%82%81?translationType=1&sort=end&order=a",
-      "yahoo_closed_archive": "https://auctions.yahoo.co.jp/closedsearch/closedsearch?p=%E3%82%BC%E3%83%AB%E3%83%80%20%E3%83%9E%E3%83%AA%E3%82%AA%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%87%A6%E5%88%86%20%E3%81%BE%E3%81%A8%E3%82%81",
-      "yahoo_direct": "https://page.auctions.yahoo.co.jp/jp/auction/m1251424285",
-      "allegro_search": "https://allegro.pl/listing?string=Nintendo%203DS",
-      "olx_search": "https://www.olx.pl/oferty/q-nintendo-3ds/"
-    },
-    "final_price_jpy": 4200.0,
-    "final_price_pln": 104.29,
-    "potential_arbitrage_pln": 96.92,
-    "hypothetical_margin_pln": 96.92,
-    "residual_profit_pln": 96.92,
-    "closed_at": "2026-11-15T16:53:17Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "v1251784671",
@@ -843,7 +390,7 @@
     "potential_arbitrage_pln": 35.25,
     "hypothetical_margin_pln": 35.25,
     "residual_profit_pln": 35.25,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "x1251537445",
@@ -939,7 +486,7 @@
     "potential_arbitrage_pln": 84.33,
     "hypothetical_margin_pln": 84.33,
     "residual_profit_pln": 84.33,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "m1250486960",
@@ -1035,7 +582,7 @@
     "potential_arbitrage_pln": 28.94,
     "hypothetical_margin_pln": 28.94,
     "residual_profit_pln": 28.94,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "s1251792916",
@@ -1131,7 +678,7 @@
     "potential_arbitrage_pln": 120.97,
     "hypothetical_margin_pln": 120.97,
     "residual_profit_pln": 120.97,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "m1251554753",
@@ -1227,7 +774,7 @@
     "potential_arbitrage_pln": 64.34,
     "hypothetical_margin_pln": 64.34,
     "residual_profit_pln": 64.34,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "w1251819684",
@@ -1323,7 +870,7 @@
     "potential_arbitrage_pln": 45.24,
     "hypothetical_margin_pln": 45.24,
     "residual_profit_pln": 45.24,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "t1249061970",
@@ -1479,7 +1026,7 @@
     "potential_arbitrage_pln": 119.25,
     "hypothetical_margin_pln": 119.25,
     "residual_profit_pln": 119.25,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "o1251830468",
@@ -1575,7 +1122,7 @@
     "potential_arbitrage_pln": 92.18,
     "hypothetical_margin_pln": 92.18,
     "residual_profit_pln": 92.18,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "v1251813701",
@@ -1706,7 +1253,7 @@
     "potential_arbitrage_pln": 55.9,
     "hypothetical_margin_pln": 55.9,
     "residual_profit_pln": 55.9,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "s1251602705",
@@ -1862,7 +1409,7 @@
     "potential_arbitrage_pln": 21.86,
     "hypothetical_margin_pln": 21.86,
     "residual_profit_pln": 21.86,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "p1251797943",
@@ -1958,7 +1505,7 @@
     "potential_arbitrage_pln": 20.47,
     "hypothetical_margin_pln": 20.47,
     "residual_profit_pln": 20.47,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "x1251777697",
@@ -2054,7 +1601,7 @@
     "potential_arbitrage_pln": 27.86,
     "hypothetical_margin_pln": 27.86,
     "residual_profit_pln": 27.86,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "e1251828262",
@@ -2150,7 +1697,7 @@
     "potential_arbitrage_pln": 132.25,
     "hypothetical_margin_pln": 132.25,
     "residual_profit_pln": 132.25,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "f1186217388",
@@ -2246,7 +1793,7 @@
     "potential_arbitrage_pln": 442.77,
     "hypothetical_margin_pln": 442.77,
     "residual_profit_pln": 442.77,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "m1251679677",
@@ -2342,7 +1889,7 @@
     "potential_arbitrage_pln": 250.79,
     "hypothetical_margin_pln": 250.79,
     "residual_profit_pln": 250.79,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "v1251354403",
@@ -2438,7 +1985,460 @@
     "potential_arbitrage_pln": 464.73,
     "hypothetical_margin_pln": 464.73,
     "residual_profit_pln": 464.73,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
+  },
+  {
+    "id": "w1251004036",
+    "auction_id": "w1251004036",
+    "platform": "Surugaya",
+    "category_id": "danshari_mystery_lots",
+    "category_name": "Pakiety Różności i Likwidacje Kolekcji (Danshari / 処分 / 雑多 / 福袋)",
+    "model": "【福袋】Tajemniczy Karton 50 Gier Retro (Surugaya Fukubukuro / 箱詰め)",
+    "color": "Surugaya Lucky Bag (50 Gier)",
+    "battery_type": "none",
+    "has_battery": false,
+    "est_weight_g": 1800,
+    "weight_formatted": "~1.8 kg",
+    "image_url": "https://www.jauce.com/read_yafile/https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0211/user/ed1c31981d20e2bc99ff5cb4963d6016c3442562c1d7d44d71b3157300d3b7e0/i-img934x1200-179381239585410egyqz34.jpg?w=300&h=300",
+    "status": "🏁 Zakończona (Wylicytowano)",
+    "condition_badge": "🟢 0% Li-Ion (Zero Baterii)",
+    "custom_note": "Oficjalny mystery bag od Surugaya – gwarantowany sprawny stan techniczny, zidentyfikowano Pokémon Black 2 i Dragon Quest!",
+    "time_remaining_minutes": 0,
+    "time_remaining_formatted": "Zakończona",
+    "ends_at": "2026-11-11 11:51 UTC",
+    "ends_at_iso": "2026-11-11T11:51:00Z",
+    "ends_at_pl": "12:51",
+    "ends_at_jst": "20:51",
+    "ends_at_formatted": "Aukcja zakończona o 12:51 (PL)",
+    "ends_at_pl_short": "Zakończona (12:51)",
+    "price_stage_note": "⚡ Aukcja w toku – licytuj ze snajperem w końcówce",
+    "is_ending_soon": false,
+    "predicted_closure_jpy": 4400,
+    "predicted_closure_min_jpy": 3100,
+    "predicted_closure_max_jpy": 6700,
+    "predicted_closure_pln": 109.68,
+    "closure_gap_jpy": 500,
+    "closure_gap_pct": 12.8,
+    "expected_landed_cost_pln": 219.39,
+    "expected_margin_pln": 100.61,
+    "expected_roi_pct": 45.9,
+    "condition_grade": "J_UNTESTED_JUNK",
+    "condition_label": "🧩 Pakiet / Junk / Likwidacja",
+    "condition_short_label": "Junk / Pakiet",
+    "condition_badge_color": "#ec4899",
+    "condition_features": [
+      "Paczka hurtowa / Danshari",
+      "Likwidacja kolekcji prywatnej"
+    ],
+    "condition_desc": "Nietestowany pakiet hurtowy lub likwidacja szafy ze strychu (Danshari)",
+    "verdict_code": "A_TIER_SOLID_DEAL",
+    "verdict_label": "⚡ A-TIER: SOLIDNA OKAZJA",
+    "verdict_badge_class": "verdict-a-tier",
+    "recommendation_text": "Dobra relacja ceny do stanu (Junk / Pakiet). Spodziewana cena końcowa 4,400 JPY daje zysk +101 zł (ROI +46%). Warto licytować z limitem.",
+    "price_jpy": 3900.0,
+    "price_pln_raw": 97.22,
+    "buy_now_price_jpy": 4800,
+    "buy_now_price_pln": 119.65,
+    "has_buy_now": true,
+    "landed_cost_pln": 203.62,
+    "est_pl_value": 320.0,
+    "allegro_archive_pln": 360.0,
+    "olx_haggled_pln": 280.0,
+    "est_margin_pln": 116.38,
+    "roi_percent": 57.2,
+    "max_bid_jpy": 4600,
+    "guaranteed_margin_pln": 94.32,
+    "guaranteed_roi_pct": 41.8,
+    "closed_price_min_jpy": 3500,
+    "closed_price_max_jpy": 7500,
+    "closed_price_avg_jpy": 4900,
+    "mercari_bin_avg_jpy": 8900,
+    "arbitrage_discount_pct": 44.9,
+    "auction_advantage_note": "Surugaya osobiście weryfikuje czytelność nośników – zerowe ryzyko zakupu niedziałających płyt",
+    "shipping_share_pln": 35.0,
+    "vat_pln": 37.02,
+    "zenmarket_fee_pln": 8.81,
+    "photo_inspection": {
+      "inspected": true,
+      "inspection_badge": "🔍 Inspekcja Zdjęcia (AI Vision)",
+      "total_items_spotted": 50,
+      "lot_type": "mystery_grab_bag",
+      "lot_type_name": "Fukubukuro (Tajemniczy Worek / Mystery Box)",
+      "top_gems": [
+        {
+          "title": "Pokémon Black 2 (DS)",
+          "jp_title": "ポケットモンスター ブラック2",
+          "platform": "Nintendo DS",
+          "format": "Cartridge Loose",
+          "rarity": "⭐⭐⭐⭐ Skarb",
+          "est_pl_value": 85.0,
+          "allegro_archive_pln": 95.0,
+          "olx_haggled_pln": 75.0,
+          "region_free": true,
+          "language_barrier": "high",
+          "language_note": "DS Pokémon Gen 5.",
+          "allegro_search_url": "https://allegro.pl/kategoria/gry?string=Pokemon+Black+2+DS+Japonia",
+          "olx_search_url": "https://www.olx.pl/oferty/q-pokemon-black-2-ds-japonia/"
+        },
+        {
+          "title": "Dragon Quest IX: Sentinels of the Starry Skies",
+          "jp_title": "ドラゴンクエストIX 星空の守り人",
+          "platform": "Nintendo DS",
+          "format": "CIB Boxed",
+          "rarity": "⭐⭐ Masowy RPG w Japonii",
+          "est_pl_value": 35.0,
+          "allegro_archive_pln": 40.0,
+          "olx_haggled_pln": 30.0,
+          "region_free": true,
+          "language_barrier": "high",
+          "language_note": "Tani japoński klasyk.",
+          "allegro_search_url": "https://allegro.pl/kategoria/gry?string=Dragon+Quest+IX+DS",
+          "olx_search_url": "https://www.olx.pl/oferty/q-dragon-quest-ix-ds/"
+        }
+      ],
+      "spotted_gems_value_pln": 120.0,
+      "estimated_total_lot_value_pln": 408.0,
+      "filler_count": 48,
+      "battery_hazard_detected": false,
+      "battery_notes": "🟢 100% Czyste Gry (0% Li-Ion / Brak baterii)",
+      "break_even_gem": "Sprzedaż samego Pokémon Black 2 (~85 zł) pokrywa niemal połowę ceny mystery boxa!",
+      "inspection_summary": "Zidentyfikowano 2 kluczowych tytułów w kartonie (50 gier). Szacowana wartość samych perełek po surowej wycenie NTSC-J: ~120 zł."
+    },
+    "links": {
+      "primary_url": "https://zenmarket.jp/pl/auction.aspx?itemCode=w1251004036",
+      "zenmarket_auction": "https://zenmarket.jp/pl/auction.aspx?itemCode=w1251004036",
+      "zenmarket_sniper": "https://zenmarket.jp/pl/auction.aspx?itemCode=w1251004036",
+      "zenmarket_buy_now": "https://zenmarket.jp/pl/auction.aspx?itemCode=w1251004036",
+      "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=%E7%A6%8F%E8%A2%8B%20%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88%20%E3%81%BE%E3%81%A8%E3%82%81&sort=end&order=asc",
+      "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=%E7%A6%8F%E8%A2%8B%20%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88%20%E3%81%BE%E3%81%A8%E3%82%81&sort=price&order=asc",
+      "zenmarket_mercari_stream": "https://zenmarket.jp/pl/mercari.aspx?q=%E7%A6%8F%E8%A2%8B%20%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88%20%E3%81%BE%E3%81%A8%E3%82%81",
+      "mercari_live_search": "https://jp.mercari.com/search?keyword=%E7%A6%8F%E8%A2%8B%20%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88%20%E3%81%BE%E3%81%A8%E3%82%81&status=on_sale",
+      "buyee_url": "https://buyee.jp/item/yahoo/auction/w1251004036",
+      "buyee_auction": "https://buyee.jp/item/yahoo/auction/w1251004036",
+      "buyee_ending_soon": "https://buyee.jp/item/search/query/%E7%A6%8F%E8%A2%8B%20%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88%20%E3%81%BE%E3%81%A8%E3%82%81?translationType=1&sort=end&order=a",
+      "yahoo_closed_archive": "https://auctions.yahoo.co.jp/closedsearch/closedsearch?p=%E7%A6%8F%E8%A2%8B%20%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88%20%E3%81%BE%E3%81%A8%E3%82%81",
+      "yahoo_direct": "https://page.auctions.yahoo.co.jp/jp/auction/w1251004036",
+      "allegro_search": "https://allegro.pl/listing?string=gry%20retro%20zestaw%20mix",
+      "olx_search": "https://www.olx.pl/oferty/q-gry-retro-zestaw-mix/"
+    },
+    "final_price_jpy": 3900.0,
+    "final_price_pln": 96.84,
+    "potential_arbitrage_pln": 116.38,
+    "hypothetical_margin_pln": 116.38,
+    "residual_profit_pln": 116.38,
+    "closed_at": "2026-11-15T21:34:56Z"
+  },
+  {
+    "id": "b1251661405",
+    "auction_id": "b1251661405",
+    "platform": "Yahoo! Auctions Japan",
+    "category_id": "danshari_mystery_lots",
+    "category_name": "Pakiety Różności i Likwidacje Kolekcji (Danshari / 処分 / 雑多 / 福袋)",
+    "model": "【大処分】Mega Karton 80 Gier Mix (DS, PSP, PS2, SFC - Zatta Box)",
+    "color": "Karton 80 Gier Multiformat",
+    "battery_type": "none",
+    "has_battery": false,
+    "est_weight_g": 1800,
+    "weight_formatted": "~1.8 kg",
+    "image_url": "https://www.jauce.com/read_yafile/https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0211/user/4de85e37f2cc010ee64b5d765ea5758a79581da8e31f1e79dbb068181bd11d56/i-img1200x718-17942072833034hfgp0627.jpg?w=300&h=300",
+    "status": "🏁 Zakończona (Wylicytowano)",
+    "condition_badge": "🟢 0% Li-Ion (Zero Baterii)",
+    "custom_note": "Potężny karton 80 gier zebrany podczas sprzątania domu – rozpoznano Chrono Trigger DS, Castlevania oraz Persona 4 Golden!",
+    "time_remaining_minutes": 0,
+    "time_remaining_formatted": "Zakończona",
+    "ends_at": "2026-11-11 12:51 UTC",
+    "ends_at_iso": "2026-11-11T12:51:00Z",
+    "ends_at_pl": "13:51",
+    "ends_at_jst": "21:51",
+    "ends_at_formatted": "Aukcja zakończona o 13:51 (PL)",
+    "ends_at_pl_short": "Zakończona (13:51)",
+    "price_stage_note": "⚡ Aukcja w toku – licytuj ze snajperem w końcówce",
+    "is_ending_soon": false,
+    "predicted_closure_jpy": 6100,
+    "predicted_closure_min_jpy": 4000,
+    "predicted_closure_max_jpy": 9400,
+    "predicted_closure_pln": 152.05,
+    "closure_gap_jpy": 600,
+    "closure_gap_pct": 10.9,
+    "expected_landed_cost_pln": 272.98,
+    "expected_margin_pln": 147.02,
+    "expected_roi_pct": 53.9,
+    "condition_grade": "J_UNTESTED_JUNK",
+    "condition_label": "🧩 Pakiet / Junk / Likwidacja",
+    "condition_short_label": "Junk / Pakiet",
+    "condition_badge_color": "#ec4899",
+    "condition_features": [
+      "Paczka hurtowa / Danshari",
+      "Likwidacja kolekcji prywatnej"
+    ],
+    "condition_desc": "Nietestowany pakiet hurtowy lub likwidacja szafy ze strychu (Danshari)",
+    "verdict_code": "S_TIER_SURE_ARBITRAGE",
+    "verdict_label": "🔥 S-TIER: PEWNY ARBITRAŻ",
+    "verdict_badge_class": "verdict-s-tier",
+    "recommendation_text": "Znakomity stan (Junk / Pakiet). Oczekiwane zamknięcie w okolicy 6,100 JPY (~152 zł) zostawia aż +147 zł zysku netto w PL! Ustaw snajpera na 6,900 JPY.",
+    "price_jpy": 5500.0,
+    "price_pln_raw": 137.1,
+    "buy_now_price_jpy": 6800,
+    "buy_now_price_pln": 169.5,
+    "has_buy_now": true,
+    "landed_cost_pln": 254.08,
+    "est_pl_value": 420.0,
+    "allegro_archive_pln": 480.0,
+    "olx_haggled_pln": 370.0,
+    "est_margin_pln": 165.92,
+    "roi_percent": 65.3,
+    "max_bid_jpy": 6900,
+    "guaranteed_margin_pln": 121.78,
+    "guaranteed_roi_pct": 40.8,
+    "closed_price_min_jpy": 4500,
+    "closed_price_max_jpy": 10500,
+    "closed_price_avg_jpy": 6800,
+    "mercari_bin_avg_jpy": 13500,
+    "arbitrage_discount_pct": 49.6,
+    "auction_advantage_note": "Koszt jednostkowy około 68 JPY (~1.70 zł za grę!) – rekordowy stosunek ilości do ceny",
+    "shipping_share_pln": 35.0,
+    "vat_pln": 46.2,
+    "zenmarket_fee_pln": 8.81,
+    "photo_inspection": {
+      "inspected": true,
+      "inspection_badge": "🔍 Inspekcja Zdjęcia (AI Vision)",
+      "total_items_spotted": 80,
+      "lot_type": "miscellaneous_assortment",
+      "lot_type_name": "Zatta (Różności / Miks)",
+      "top_gems": [
+        {
+          "title": "Castlevania: Dawn of Sorrow",
+          "jp_title": "悪魔城ドラキュラ 蒼月の十字架",
+          "platform": "Nintendo DS",
+          "format": "Cartridge Loose",
+          "rarity": "⭐⭐⭐⭐⭐ Top Skarb",
+          "est_pl_value": 70.0,
+          "allegro_archive_pln": 80.0,
+          "olx_haggled_pln": 60.0,
+          "region_free": true,
+          "language_barrier": "medium",
+          "language_note": "Kultowa metroidvania.",
+          "allegro_search_url": "https://allegro.pl/kategoria/gry?string=Castlevania+Dawn+of+Sorrow+DS",
+          "olx_search_url": "https://www.olx.pl/oferty/q-castlevania-dawn-of-sorrow-ds/"
+        },
+        {
+          "title": "Chrono Trigger DS",
+          "jp_title": "クロノ・トリガー",
+          "platform": "Nintendo DS",
+          "format": "Cartridge Loose",
+          "rarity": "⭐⭐⭐⭐ Rzadki RPG",
+          "est_pl_value": 60.0,
+          "allegro_archive_pln": 70.0,
+          "olx_haggled_pln": 50.0,
+          "region_free": true,
+          "language_barrier": "high",
+          "language_note": "Tekst w kanji.",
+          "allegro_search_url": "https://allegro.pl/kategoria/gry?string=Chrono+Trigger+DS",
+          "olx_search_url": "https://www.olx.pl/oferty/q-chrono-trigger-ds/"
+        },
+        {
+          "title": "Persona 4 Golden",
+          "jp_title": "ペルソナ4 ザ・ゴールデン",
+          "platform": "PS Vita",
+          "format": "CIB Boxed",
+          "rarity": "⭐⭐⭐⭐ Skarb Półkowy",
+          "est_pl_value": 60.0,
+          "allegro_archive_pln": 70.0,
+          "olx_haggled_pln": 50.0,
+          "region_free": true,
+          "language_barrier": "high",
+          "language_note": "Pudełkowa Persona na Vitę.",
+          "allegro_search_url": "https://allegro.pl/kategoria/gry?string=Persona+4+Golden+PS+Vita",
+          "olx_search_url": "https://www.olx.pl/oferty/q-persona-4-golden-ps-vita/"
+        }
+      ],
+      "spotted_gems_value_pln": 190.0,
+      "estimated_total_lot_value_pln": 652.0,
+      "filler_count": 77,
+      "battery_hazard_detected": false,
+      "battery_notes": "🟢 100% Czyste Gry (0% Li-Ion / Bez limitu w paczce lotniczej)",
+      "break_even_gem": "Sprzedaż Castlevania (~70 zł) i Chrono Trigger (~60 zł) pokrywa 60% kosztów pudła!",
+      "inspection_summary": "Zidentyfikowano 3 kluczowych tytułów w kartonie (80 gier). Szacowana wartość samych perełek po surowej wycenie NTSC-J: ~190 zł."
+    },
+    "links": {
+      "primary_url": "https://zenmarket.jp/pl/auction.aspx?itemCode=b1251661405",
+      "zenmarket_auction": "https://zenmarket.jp/pl/auction.aspx?itemCode=b1251661405",
+      "zenmarket_sniper": "https://zenmarket.jp/pl/auction.aspx?itemCode=b1251661405",
+      "zenmarket_buy_now": "https://zenmarket.jp/pl/auction.aspx?itemCode=b1251661405",
+      "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88%20%E9%9B%91%E5%A4%9A%20%E5%A4%A7%E9%87%8F%20%E6%96%AD%E6%8D%A8%E9%9B%A2&sort=end&order=asc",
+      "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88%20%E9%9B%91%E5%A4%9A%20%E5%A4%A7%E9%87%8F%20%E6%96%AD%E6%8D%A8%E9%9B%A2&sort=price&order=asc",
+      "zenmarket_mercari_stream": "https://zenmarket.jp/pl/mercari.aspx?q=%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88%20%E9%9B%91%E5%A4%9A%20%E5%A4%A7%E9%87%8F%20%E6%96%AD%E6%8D%A8%E9%9B%A2",
+      "mercari_live_search": "https://jp.mercari.com/search?keyword=%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88%20%E9%9B%91%E5%A4%9A%20%E5%A4%A7%E9%87%8F%20%E6%96%AD%E6%8D%A8%E9%9B%A2&status=on_sale",
+      "buyee_url": "https://buyee.jp/item/yahoo/auction/b1251661405",
+      "buyee_auction": "https://buyee.jp/item/yahoo/auction/b1251661405",
+      "buyee_ending_soon": "https://buyee.jp/item/search/query/%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88%20%E9%9B%91%E5%A4%9A%20%E5%A4%A7%E9%87%8F%20%E6%96%AD%E6%8D%A8%E9%9B%A2?translationType=1&sort=end&order=a",
+      "yahoo_closed_archive": "https://auctions.yahoo.co.jp/closedsearch/closedsearch?p=%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%BD%E3%83%95%E3%83%88%20%E9%9B%91%E5%A4%9A%20%E5%A4%A7%E9%87%8F%20%E6%96%AD%E6%8D%A8%E9%9B%A2",
+      "yahoo_direct": "https://page.auctions.yahoo.co.jp/jp/auction/b1251661405",
+      "allegro_search": "https://allegro.pl/listing?string=gry%20nintendo%20ds%20zestaw",
+      "olx_search": "https://www.olx.pl/oferty/q-gry-nintendo-ds-zestaw/"
+    },
+    "final_price_jpy": 5500.0,
+    "final_price_pln": 136.58,
+    "potential_arbitrage_pln": 165.92,
+    "hypothetical_margin_pln": 165.92,
+    "residual_profit_pln": 165.92,
+    "closed_at": "2026-11-15T21:34:56Z"
+  },
+  {
+    "id": "m1251424285",
+    "auction_id": "m1251424285",
+    "platform": "Yahoo! Auctions Japan",
+    "category_id": "danshari_mystery_lots",
+    "category_name": "Pakiety Różności i Likwidacje Kolekcji (Danshari / 処分 / 雑多 / 福袋)",
+    "model": "【処分】Kolekcja 25 Gier Zelda & Mario (DS, 3DS, GBA - まとめ)",
+    "color": "Lot 25 Gier Nintendo Franchise",
+    "battery_type": "none",
+    "has_battery": false,
+    "est_weight_g": 1800,
+    "weight_formatted": "~1.8 kg",
+    "image_url": "https://www.jauce.com/read_yafile/https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0211/user/e282df4b9fb3992e61c7c8129483f3571ec381aa0c4934c8aec5da458e47608a/i-img900x1200-17940384839902sqn7um38.jpg?w=300&h=300",
+    "status": "🏁 Zakończona (Wylicytowano)",
+    "condition_badge": "🟢 0% Li-Ion (Zero Baterii)",
+    "custom_note": "Prywatna wyprzedaż gier Zelda i Mario – rozpoznano Zelda Spirit Tracks, Ocarina of Time 3D i New Super Mario Bros!",
+    "time_remaining_minutes": 0,
+    "time_remaining_formatted": "Zakończona",
+    "ends_at": "2026-11-11 15:51 UTC",
+    "ends_at_iso": "2026-11-11T15:51:00Z",
+    "ends_at_pl": "16:51",
+    "ends_at_jst": "00:51",
+    "ends_at_formatted": "Aukcja zakończona o 16:51 (PL)",
+    "ends_at_pl_short": "Zakończona (16:51)",
+    "price_stage_note": "🟢 Wczesna licytacja – monitoruj i ustaw snajpera",
+    "is_ending_soon": false,
+    "predicted_closure_jpy": 4500,
+    "predicted_closure_min_jpy": 3200,
+    "predicted_closure_max_jpy": 7000,
+    "predicted_closure_pln": 112.17,
+    "closure_gap_jpy": 300,
+    "closure_gap_pct": 7.1,
+    "expected_landed_cost_pln": 222.54,
+    "expected_margin_pln": 87.46,
+    "expected_roi_pct": 39.3,
+    "condition_grade": "J_UNTESTED_JUNK",
+    "condition_label": "🧩 Pakiet / Junk / Likwidacja",
+    "condition_short_label": "Junk / Pakiet",
+    "condition_badge_color": "#ec4899",
+    "condition_features": [
+      "Paczka hurtowa / Danshari",
+      "Likwidacja kolekcji prywatnej"
+    ],
+    "condition_desc": "Nietestowany pakiet hurtowy lub likwidacja szafy ze strychu (Danshari)",
+    "verdict_code": "A_TIER_SOLID_DEAL",
+    "verdict_label": "⚡ A-TIER: SOLIDNA OKAZJA",
+    "verdict_badge_class": "verdict-a-tier",
+    "recommendation_text": "Dobra relacja ceny do stanu (Junk / Pakiet). Spodziewana cena końcowa 4,500 JPY daje zysk +87 zł (ROI +39%). Warto licytować z limitem.",
+    "price_jpy": 4200.0,
+    "price_pln_raw": 104.69,
+    "buy_now_price_jpy": 5200,
+    "buy_now_price_pln": 129.62,
+    "has_buy_now": true,
+    "landed_cost_pln": 213.08,
+    "est_pl_value": 310.0,
+    "allegro_archive_pln": 350.0,
+    "olx_haggled_pln": 275.0,
+    "est_margin_pln": 96.92,
+    "roi_percent": 45.5,
+    "max_bid_jpy": 4400,
+    "guaranteed_margin_pln": 90.61,
+    "guaranteed_roi_pct": 41.3,
+    "closed_price_min_jpy": 3600,
+    "closed_price_max_jpy": 7800,
+    "closed_price_avg_jpy": 5100,
+    "mercari_bin_avg_jpy": 9500,
+    "arbitrage_discount_pct": 46.3,
+    "auction_advantage_note": "Gry z serii Mario i Zelda schodzą na Allegro od ręki – natychmiastowa płynność",
+    "shipping_share_pln": 35.0,
+    "vat_pln": 38.74,
+    "zenmarket_fee_pln": 8.81,
+    "photo_inspection": {
+      "inspected": true,
+      "inspection_badge": "🔍 Inspekcja Zdjęcia (AI Vision)",
+      "total_items_spotted": 25,
+      "lot_type": "clearance_liquidation",
+      "lot_type_name": "Likwidacja / Wyprzedaż (Shobun)",
+      "top_gems": [
+        {
+          "title": "The Legend of Zelda: Spirit Tracks",
+          "jp_title": "ゼルダの伝説 大地の汽笛",
+          "platform": "Nintendo DS",
+          "format": "CIB Boxed",
+          "rarity": "⭐⭐⭐⭐ Rzadki Klasyk",
+          "est_pl_value": 65.0,
+          "allegro_archive_pln": 75.0,
+          "olx_haggled_pln": 55.0,
+          "region_free": true,
+          "language_barrier": "medium",
+          "language_note": "Pudełkowa Zelda DS.",
+          "allegro_search_url": "https://allegro.pl/kategoria/gry?string=Zelda+Spirit+Tracks+DS",
+          "olx_search_url": "https://www.olx.pl/oferty/q-zelda-spirit-tracks-ds/"
+        },
+        {
+          "title": "Zelda: Ocarina of Time 3D",
+          "jp_title": "ゼルダの伝説 時のオカリナ 3D",
+          "platform": "Nintendo 3DS",
+          "format": "CIB Boxed",
+          "rarity": "⭐⭐⭐ Klasyk 3D",
+          "est_pl_value": 60.0,
+          "allegro_archive_pln": 70.0,
+          "olx_haggled_pln": 50.0,
+          "region_free": false,
+          "language_barrier": "medium",
+          "language_note": "Zelda 3DS.",
+          "allegro_search_url": "https://allegro.pl/kategoria/gry?string=Zelda+Ocarina+3D",
+          "olx_search_url": "https://www.olx.pl/oferty/q-zelda-ocarina-3d/"
+        },
+        {
+          "title": "New Super Mario Bros DS + Mario 64 DS",
+          "jp_title": "New スーパーマリオブラザーズ + 64 DS",
+          "platform": "Nintendo DS",
+          "format": "CIB Boxed",
+          "rarity": "⭐⭐⭐ Super Płynne",
+          "est_pl_value": 50.0,
+          "allegro_archive_pln": 60.0,
+          "olx_haggled_pln": 40.0,
+          "region_free": true,
+          "language_barrier": "low",
+          "language_note": "Znikoma bariera językowa.",
+          "allegro_search_url": "https://allegro.pl/kategoria/gry?string=New+Super+Mario+Bros+DS",
+          "olx_search_url": "https://www.olx.pl/oferty/q-new-super-mario-bros-ds/"
+        }
+      ],
+      "spotted_gems_value_pln": 175.0,
+      "estimated_total_lot_value_pln": 351.0,
+      "filler_count": 22,
+      "battery_hazard_detected": false,
+      "battery_notes": "🟢 100% Czyste Gry (0% Li-Ion / Brak baterii)",
+      "break_even_gem": "Sprzedaż obu Zeld (~125 zł) pokrywa większość ceny paczki!",
+      "inspection_summary": "Zidentyfikowano 3 kluczowych tytułów w kartonie (25 gier). Szacowana wartość samych perełek po surowej wycenie NTSC-J: ~175 zł."
+    },
+    "links": {
+      "primary_url": "https://zenmarket.jp/pl/auction.aspx?itemCode=m1251424285",
+      "zenmarket_auction": "https://zenmarket.jp/pl/auction.aspx?itemCode=m1251424285",
+      "zenmarket_sniper": "https://zenmarket.jp/pl/auction.aspx?itemCode=m1251424285",
+      "zenmarket_buy_now": "https://zenmarket.jp/pl/auction.aspx?itemCode=m1251424285",
+      "zenmarket_ending_soon": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%BC%E3%83%AB%E3%83%80%20%E3%83%9E%E3%83%AA%E3%82%AA%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%87%A6%E5%88%86%20%E3%81%BE%E3%81%A8%E3%82%81&sort=end&order=asc",
+      "zenmarket_lowest_bid": "https://zenmarket.jp/pl/yahoo.aspx?q=%E3%82%BC%E3%83%AB%E3%83%80%20%E3%83%9E%E3%83%AA%E3%82%AA%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%87%A6%E5%88%86%20%E3%81%BE%E3%81%A8%E3%82%81&sort=price&order=asc",
+      "zenmarket_mercari_stream": "https://zenmarket.jp/pl/mercari.aspx?q=%E3%82%BC%E3%83%AB%E3%83%80%20%E3%83%9E%E3%83%AA%E3%82%AA%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%87%A6%E5%88%86%20%E3%81%BE%E3%81%A8%E3%82%81",
+      "mercari_live_search": "https://jp.mercari.com/search?keyword=%E3%82%BC%E3%83%AB%E3%83%80%20%E3%83%9E%E3%83%AA%E3%82%AA%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%87%A6%E5%88%86%20%E3%81%BE%E3%81%A8%E3%82%81&status=on_sale",
+      "buyee_url": "https://buyee.jp/item/yahoo/auction/m1251424285",
+      "buyee_auction": "https://buyee.jp/item/yahoo/auction/m1251424285",
+      "buyee_ending_soon": "https://buyee.jp/item/search/query/%E3%82%BC%E3%83%AB%E3%83%80%20%E3%83%9E%E3%83%AA%E3%82%AA%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%87%A6%E5%88%86%20%E3%81%BE%E3%81%A8%E3%82%81?translationType=1&sort=end&order=a",
+      "yahoo_closed_archive": "https://auctions.yahoo.co.jp/closedsearch/closedsearch?p=%E3%82%BC%E3%83%AB%E3%83%80%20%E3%83%9E%E3%83%AA%E3%82%AA%20%E3%82%BD%E3%83%95%E3%83%88%20%E5%87%A6%E5%88%86%20%E3%81%BE%E3%81%A8%E3%82%81",
+      "yahoo_direct": "https://page.auctions.yahoo.co.jp/jp/auction/m1251424285",
+      "allegro_search": "https://allegro.pl/listing?string=Nintendo%203DS",
+      "olx_search": "https://www.olx.pl/oferty/q-nintendo-3ds/"
+    },
+    "final_price_jpy": 4200.0,
+    "final_price_pln": 104.29,
+    "potential_arbitrage_pln": 96.92,
+    "hypothetical_margin_pln": 96.92,
+    "residual_profit_pln": 96.92,
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "p1251459113",
@@ -2594,7 +2594,7 @@
     "potential_arbitrage_pln": 167.46,
     "hypothetical_margin_pln": 167.46,
     "residual_profit_pln": 167.46,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "f1251819973",
@@ -2725,7 +2725,7 @@
     "potential_arbitrage_pln": 75.86,
     "hypothetical_margin_pln": 75.86,
     "residual_profit_pln": 75.86,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "f1246338593",
@@ -2821,7 +2821,7 @@
     "potential_arbitrage_pln": 64.77,
     "hypothetical_margin_pln": 64.77,
     "residual_profit_pln": 64.77,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "d1251552929",
@@ -2917,7 +2917,7 @@
     "potential_arbitrage_pln": 63.71,
     "hypothetical_margin_pln": 63.71,
     "residual_profit_pln": 63.71,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "v1251622331",
@@ -3013,7 +3013,7 @@
     "potential_arbitrage_pln": 61.56,
     "hypothetical_margin_pln": 61.56,
     "residual_profit_pln": 61.56,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "h1251615097",
@@ -3109,7 +3109,7 @@
     "potential_arbitrage_pln": 65.25,
     "hypothetical_margin_pln": 65.25,
     "residual_profit_pln": 65.25,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "q1251656350",
@@ -3205,7 +3205,7 @@
     "potential_arbitrage_pln": 96.44,
     "hypothetical_margin_pln": 96.44,
     "residual_profit_pln": 96.44,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "n1251749127",
@@ -3301,7 +3301,7 @@
     "potential_arbitrage_pln": 92.39,
     "hypothetical_margin_pln": 92.39,
     "residual_profit_pln": 92.39,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "f1251656361",
@@ -3397,7 +3397,7 @@
     "potential_arbitrage_pln": 76.49,
     "hypothetical_margin_pln": 76.49,
     "residual_profit_pln": 76.49,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "c1251630970",
@@ -3493,7 +3493,7 @@
     "potential_arbitrage_pln": 72.78,
     "hypothetical_margin_pln": 72.78,
     "residual_profit_pln": 72.78,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "w1251651117",
@@ -3589,7 +3589,7 @@
     "potential_arbitrage_pln": 125.73,
     "hypothetical_margin_pln": 125.73,
     "residual_profit_pln": 125.73,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "v1251661475",
@@ -3685,7 +3685,7 @@
     "potential_arbitrage_pln": 133.67,
     "hypothetical_margin_pln": 133.67,
     "residual_profit_pln": 133.67,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "e1248977601",
@@ -3781,7 +3781,7 @@
     "potential_arbitrage_pln": 233.62,
     "hypothetical_margin_pln": 233.62,
     "residual_profit_pln": 233.62,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "n1251812676",
@@ -3877,7 +3877,7 @@
     "potential_arbitrage_pln": 88.57,
     "hypothetical_margin_pln": 88.57,
     "residual_profit_pln": 88.57,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "j1251505974",
@@ -3974,7 +3974,7 @@
     "potential_arbitrage_pln": 92.16,
     "hypothetical_margin_pln": 92.16,
     "residual_profit_pln": 92.16,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "m1251553051",
@@ -4070,7 +4070,7 @@
     "potential_arbitrage_pln": 38.39,
     "hypothetical_margin_pln": 38.39,
     "residual_profit_pln": 38.39,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "d1251823525",
@@ -4166,7 +4166,7 @@
     "potential_arbitrage_pln": 131.26,
     "hypothetical_margin_pln": 131.26,
     "residual_profit_pln": 131.26,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "k1251818302",
@@ -4262,7 +4262,7 @@
     "potential_arbitrage_pln": 101.71,
     "hypothetical_margin_pln": 101.71,
     "residual_profit_pln": 101.71,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "p1249428295",
@@ -4358,7 +4358,7 @@
     "potential_arbitrage_pln": -77.68,
     "hypothetical_margin_pln": -77.68,
     "residual_profit_pln": -77.68,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "t1250970249",
@@ -4454,7 +4454,7 @@
     "potential_arbitrage_pln": 113.17,
     "hypothetical_margin_pln": 113.17,
     "residual_profit_pln": 113.17,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "d1245986339",
@@ -4550,7 +4550,7 @@
     "potential_arbitrage_pln": 54.17,
     "hypothetical_margin_pln": 54.17,
     "residual_profit_pln": 54.17,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "k1244528483",
@@ -4646,7 +4646,7 @@
     "potential_arbitrage_pln": 44.71,
     "hypothetical_margin_pln": 44.71,
     "residual_profit_pln": 44.71,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "b1246124221",
@@ -4742,7 +4742,7 @@
     "potential_arbitrage_pln": 216.52,
     "hypothetical_margin_pln": 216.52,
     "residual_profit_pln": 216.52,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "h1250921225",
@@ -4838,7 +4838,7 @@
     "potential_arbitrage_pln": 258.85,
     "hypothetical_margin_pln": 258.85,
     "residual_profit_pln": 258.85,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "b1251556000",
@@ -4969,7 +4969,7 @@
     "potential_arbitrage_pln": 44.81,
     "hypothetical_margin_pln": 44.81,
     "residual_profit_pln": 44.81,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "t1251382423",
@@ -5065,7 +5065,7 @@
     "potential_arbitrage_pln": 82.25,
     "hypothetical_margin_pln": 82.25,
     "residual_profit_pln": 82.25,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "j1251645657",
@@ -5161,7 +5161,7 @@
     "potential_arbitrage_pln": 114.59,
     "hypothetical_margin_pln": 114.59,
     "residual_profit_pln": 114.59,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "j1251280330",
@@ -5257,7 +5257,7 @@
     "potential_arbitrage_pln": 182.14,
     "hypothetical_margin_pln": 182.14,
     "residual_profit_pln": 182.14,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "g1251507424",
@@ -5353,7 +5353,7 @@
     "potential_arbitrage_pln": 129.44,
     "hypothetical_margin_pln": 129.44,
     "residual_profit_pln": 129.44,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "n1251521383",
@@ -5449,7 +5449,7 @@
     "potential_arbitrage_pln": 242.09,
     "hypothetical_margin_pln": 242.09,
     "residual_profit_pln": 242.09,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "r1250922821",
@@ -5545,7 +5545,7 @@
     "potential_arbitrage_pln": 180.92,
     "hypothetical_margin_pln": 180.92,
     "residual_profit_pln": 180.92,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "u1251654393",
@@ -5642,7 +5642,7 @@
     "potential_arbitrage_pln": 85.32,
     "hypothetical_margin_pln": 85.32,
     "residual_profit_pln": 85.32,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "h1251823950",
@@ -5738,7 +5738,7 @@
     "potential_arbitrage_pln": 198.82,
     "hypothetical_margin_pln": 198.82,
     "residual_profit_pln": 198.82,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "d1251827205",
@@ -5834,7 +5834,7 @@
     "potential_arbitrage_pln": 101.71,
     "hypothetical_margin_pln": 101.71,
     "residual_profit_pln": 101.71,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "m1251545975",
@@ -5930,7 +5930,7 @@
     "potential_arbitrage_pln": 101.71,
     "hypothetical_margin_pln": 101.71,
     "residual_profit_pln": 101.71,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "r1251817447",
@@ -6026,7 +6026,7 @@
     "potential_arbitrage_pln": 131.26,
     "hypothetical_margin_pln": 131.26,
     "residual_profit_pln": 131.26,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "f1251419199",
@@ -6122,7 +6122,7 @@
     "potential_arbitrage_pln": 144.59,
     "hypothetical_margin_pln": 144.59,
     "residual_profit_pln": 144.59,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "q1251671063",
@@ -6218,7 +6218,7 @@
     "potential_arbitrage_pln": 28.92,
     "hypothetical_margin_pln": 28.92,
     "residual_profit_pln": 28.92,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "p1251818449",
@@ -6314,7 +6314,7 @@
     "potential_arbitrage_pln": 71.71,
     "hypothetical_margin_pln": 71.71,
     "residual_profit_pln": 71.71,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "j1251512119",
@@ -6445,7 +6445,7 @@
     "potential_arbitrage_pln": 44.81,
     "hypothetical_margin_pln": 44.81,
     "residual_profit_pln": 44.81,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "n1249820524",
@@ -6541,7 +6541,7 @@
     "potential_arbitrage_pln": 72.63,
     "hypothetical_margin_pln": 72.63,
     "residual_profit_pln": 72.63,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "r1249150953",
@@ -6637,7 +6637,7 @@
     "potential_arbitrage_pln": 60.76,
     "hypothetical_margin_pln": 60.76,
     "residual_profit_pln": 60.76,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "k1251598819",
@@ -6733,7 +6733,7 @@
     "potential_arbitrage_pln": 202.07,
     "hypothetical_margin_pln": 202.07,
     "residual_profit_pln": 202.07,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "s1245196893",
@@ -6829,7 +6829,7 @@
     "potential_arbitrage_pln": 290.2,
     "hypothetical_margin_pln": 290.2,
     "residual_profit_pln": 290.2,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "n1250601912",
@@ -6925,7 +6925,7 @@
     "potential_arbitrage_pln": 89.39,
     "hypothetical_margin_pln": 89.39,
     "residual_profit_pln": 89.39,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "e1249970845",
@@ -7021,7 +7021,7 @@
     "potential_arbitrage_pln": 98.19,
     "hypothetical_margin_pln": 98.19,
     "residual_profit_pln": 98.19,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "q1251675793",
@@ -7118,7 +7118,7 @@
     "potential_arbitrage_pln": 70.08,
     "hypothetical_margin_pln": 70.08,
     "residual_profit_pln": 70.08,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "g1251812089",
@@ -7214,7 +7214,7 @@
     "potential_arbitrage_pln": 133.17,
     "hypothetical_margin_pln": 133.17,
     "residual_profit_pln": 133.17,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "v1251516199",
@@ -7310,7 +7310,7 @@
     "potential_arbitrage_pln": 217.72,
     "hypothetical_margin_pln": 217.72,
     "residual_profit_pln": 217.72,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "e1251507348",
@@ -7407,7 +7407,7 @@
     "potential_arbitrage_pln": 85.94,
     "hypothetical_margin_pln": 85.94,
     "residual_profit_pln": 85.94,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "d1251551345",
@@ -7503,7 +7503,7 @@
     "potential_arbitrage_pln": 662.18,
     "hypothetical_margin_pln": 662.18,
     "residual_profit_pln": 662.18,
-    "closed_at": "2026-11-15T16:53:16Z"
+    "closed_at": "2026-11-15T21:34:56Z"
   },
   {
     "id": "deal_ended",
@@ -7599,7 +7599,7 @@
     "potential_arbitrage_pln": 163.11,
     "hypothetical_margin_pln": 163.11,
     "residual_profit_pln": 163.11,
-    "closed_at": "2026-11-15T16:52:45Z"
+    "closed_at": "2026-11-15T21:34:28Z"
   },
   {
     "id": "test_camera",
