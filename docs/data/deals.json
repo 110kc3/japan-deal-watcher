@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-11-16 01:42 UTC",
+    "generated_at": "2026-11-16 09:18 UTC",
     "app_title": "AgyDeal – Japan Deal & Auction Sniping Radar",
     "app_version": "2.2.2",
     "exchange_rates": {
@@ -80,7 +80,7 @@
     },
     "sales_history_summary": {
       "new_sales": 0,
-      "price_changes": 3,
+      "price_changes": 1,
       "total_tracked": 358,
       "total_sales": 106
     },
@@ -201,8 +201,8 @@
       "status": "Aktywna Aukcja",
       "condition_badge": "🟢 0% Li-Ion (Przewodowy Kontroler)",
       "custom_note": "Kolekcjonerski gamepad w kształcie potworka Slime z Dragon Quest. 0% Li-Ion – czysta gotówka",
-      "time_remaining_minutes": 849,
-      "time_remaining_formatted": "14h 09m",
+      "time_remaining_minutes": 393,
+      "time_remaining_formatted": "6h 33m",
       "ends_at": "2026-11-16 15:51 UTC",
       "ends_at_iso": "2026-11-16T15:51:00Z",
       "ends_at_pl": "16:51",
@@ -1282,15 +1282,15 @@
       "ends_at_pl_short": "Kup Teraz",
       "price_stage_note": "✅ Cena stała (Kup Teraz) – Prawdziwa cena bez licytacji",
       "is_ending_soon": false,
-      "predicted_closure_jpy": 2500,
-      "predicted_closure_min_jpy": 2500,
-      "predicted_closure_max_jpy": 2500,
-      "predicted_closure_pln": 62.32,
+      "predicted_closure_jpy": 1950,
+      "predicted_closure_min_jpy": 1950,
+      "predicted_closure_max_jpy": 1950,
+      "predicted_closure_pln": 48.61,
       "closure_gap_jpy": 0,
       "closure_gap_pct": 0.0,
-      "expected_landed_cost_pln": 197.43,
-      "expected_margin_pln": 752.57,
-      "expected_roi_pct": 381.2,
+      "expected_landed_cost_pln": 180.08,
+      "expected_margin_pln": 769.92,
+      "expected_roi_pct": 427.5,
       "condition_grade": "MERCARI_BIN",
       "condition_label": "🛍️ Kup Teraz (Cena Stała)",
       "condition_short_label": "Kup Teraz",
@@ -1304,16 +1304,16 @@
       "verdict_label": "🛍️ KUP TERAZ: STAŁA CENA",
       "verdict_badge_class": "verdict-mercari",
       "recommendation_text": "Cena ostateczna. Kupuj bez ryzyka podbicia ceny przez snajperów.",
-      "price_jpy": 2500,
-      "price_pln_raw": 62.32,
-      "landed_cost_pln": 197.43,
+      "price_jpy": 1950,
+      "price_pln_raw": 48.61,
+      "landed_cost_pln": 180.08,
       "est_pl_value": 950.0,
       "allegro_archive_pln": 1026.0,
       "olx_haggled_pln": 855.0,
-      "est_margin_pln": 752.57,
-      "roi_percent": 381.2,
+      "est_margin_pln": 769.92,
+      "roi_percent": 427.5,
       "shipping_share_pln": 65.0,
-      "vat_pln": 35.9,
+      "vat_pln": 32.74,
       "zenmarket_fee_pln": 8.81,
       "photo_inspection": null,
       "links": {
@@ -3285,7 +3285,7 @@
       "potential_arbitrage_pln": 99.53,
       "hypothetical_margin_pln": 99.53,
       "residual_profit_pln": 99.53,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "t1251821087",
@@ -3441,7 +3441,7 @@
       "potential_arbitrage_pln": 116.38,
       "hypothetical_margin_pln": 116.38,
       "residual_profit_pln": 116.38,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "v1251784671",
@@ -3537,7 +3537,7 @@
       "potential_arbitrage_pln": 35.25,
       "hypothetical_margin_pln": 35.25,
       "residual_profit_pln": 35.25,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "x1251537445",
@@ -3633,7 +3633,7 @@
       "potential_arbitrage_pln": 84.33,
       "hypothetical_margin_pln": 84.33,
       "residual_profit_pln": 84.33,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "v1205616478",
@@ -3681,7 +3681,7 @@
       "hypothetical_margin_pln": 66.55,
       "residual_profit_pln": 66.55,
       "roi_percent": 34.4,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "m1250486960",
@@ -3777,7 +3777,7 @@
       "potential_arbitrage_pln": 28.94,
       "hypothetical_margin_pln": 28.94,
       "residual_profit_pln": 28.94,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "s1251792916",
@@ -3873,7 +3873,7 @@
       "potential_arbitrage_pln": 120.97,
       "hypothetical_margin_pln": 120.97,
       "residual_profit_pln": 120.97,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "m1251554753",
@@ -3969,7 +3969,7 @@
       "potential_arbitrage_pln": 64.34,
       "hypothetical_margin_pln": 64.34,
       "residual_profit_pln": 64.34,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "w1251819684",
@@ -4065,7 +4065,7 @@
       "potential_arbitrage_pln": 45.24,
       "hypothetical_margin_pln": 45.24,
       "residual_profit_pln": 45.24,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "t1249061970",
@@ -4221,7 +4221,7 @@
       "potential_arbitrage_pln": 119.25,
       "hypothetical_margin_pln": 119.25,
       "residual_profit_pln": 119.25,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "o1251830468",
@@ -4317,7 +4317,7 @@
       "potential_arbitrage_pln": 92.18,
       "hypothetical_margin_pln": 92.18,
       "residual_profit_pln": 92.18,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "v1251813701",
@@ -4448,7 +4448,7 @@
       "potential_arbitrage_pln": 55.9,
       "hypothetical_margin_pln": 55.9,
       "residual_profit_pln": 55.9,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "s1251602705",
@@ -4604,7 +4604,7 @@
       "potential_arbitrage_pln": 21.86,
       "hypothetical_margin_pln": 21.86,
       "residual_profit_pln": 21.86,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "p1251797943",
@@ -4700,7 +4700,7 @@
       "potential_arbitrage_pln": 20.47,
       "hypothetical_margin_pln": 20.47,
       "residual_profit_pln": 20.47,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "x1251777697",
@@ -4796,7 +4796,7 @@
       "potential_arbitrage_pln": 27.86,
       "hypothetical_margin_pln": 27.86,
       "residual_profit_pln": 27.86,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "e1251828262",
@@ -4892,7 +4892,7 @@
       "potential_arbitrage_pln": 132.25,
       "hypothetical_margin_pln": 132.25,
       "residual_profit_pln": 132.25,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "f1186217388",
@@ -4988,7 +4988,7 @@
       "potential_arbitrage_pln": 442.77,
       "hypothetical_margin_pln": 442.77,
       "residual_profit_pln": 442.77,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "m1251679677",
@@ -5084,7 +5084,7 @@
       "potential_arbitrage_pln": 250.79,
       "hypothetical_margin_pln": 250.79,
       "residual_profit_pln": 250.79,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "v1251354403",
@@ -5180,7 +5180,7 @@
       "potential_arbitrage_pln": 464.73,
       "hypothetical_margin_pln": 464.73,
       "residual_profit_pln": 464.73,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "w1251004036",
@@ -5321,7 +5321,7 @@
       "potential_arbitrage_pln": 116.38,
       "hypothetical_margin_pln": 116.38,
       "residual_profit_pln": 116.38,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "b1251661405",
@@ -5477,7 +5477,7 @@
       "potential_arbitrage_pln": 165.92,
       "hypothetical_margin_pln": 165.92,
       "residual_profit_pln": 165.92,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "m1251424285",
@@ -5633,7 +5633,7 @@
       "potential_arbitrage_pln": 96.92,
       "hypothetical_margin_pln": 96.92,
       "residual_profit_pln": 96.92,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "p1251459113",
@@ -5789,7 +5789,7 @@
       "potential_arbitrage_pln": 167.46,
       "hypothetical_margin_pln": 167.46,
       "residual_profit_pln": 167.46,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "f1251819973",
@@ -5920,7 +5920,7 @@
       "potential_arbitrage_pln": 75.86,
       "hypothetical_margin_pln": 75.86,
       "residual_profit_pln": 75.86,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "f1246338593",
@@ -6016,7 +6016,7 @@
       "potential_arbitrage_pln": 64.77,
       "hypothetical_margin_pln": 64.77,
       "residual_profit_pln": 64.77,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "d1251552929",
@@ -6112,7 +6112,7 @@
       "potential_arbitrage_pln": 63.71,
       "hypothetical_margin_pln": 63.71,
       "residual_profit_pln": 63.71,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "v1251622331",
@@ -6208,7 +6208,7 @@
       "potential_arbitrage_pln": 61.56,
       "hypothetical_margin_pln": 61.56,
       "residual_profit_pln": 61.56,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "h1251615097",
@@ -6304,7 +6304,7 @@
       "potential_arbitrage_pln": 65.25,
       "hypothetical_margin_pln": 65.25,
       "residual_profit_pln": 65.25,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "q1251656350",
@@ -6400,7 +6400,7 @@
       "potential_arbitrage_pln": 96.44,
       "hypothetical_margin_pln": 96.44,
       "residual_profit_pln": 96.44,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "n1251749127",
@@ -6496,7 +6496,7 @@
       "potential_arbitrage_pln": 92.39,
       "hypothetical_margin_pln": 92.39,
       "residual_profit_pln": 92.39,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "f1251656361",
@@ -6592,7 +6592,7 @@
       "potential_arbitrage_pln": 76.49,
       "hypothetical_margin_pln": 76.49,
       "residual_profit_pln": 76.49,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "c1251630970",
@@ -6688,7 +6688,7 @@
       "potential_arbitrage_pln": 72.78,
       "hypothetical_margin_pln": 72.78,
       "residual_profit_pln": 72.78,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "w1251651117",
@@ -6784,7 +6784,7 @@
       "potential_arbitrage_pln": 125.73,
       "hypothetical_margin_pln": 125.73,
       "residual_profit_pln": 125.73,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "v1251661475",
@@ -6880,7 +6880,7 @@
       "potential_arbitrage_pln": 133.67,
       "hypothetical_margin_pln": 133.67,
       "residual_profit_pln": 133.67,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "e1248977601",
@@ -6976,7 +6976,7 @@
       "potential_arbitrage_pln": 233.62,
       "hypothetical_margin_pln": 233.62,
       "residual_profit_pln": 233.62,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "n1251812676",
@@ -7072,7 +7072,7 @@
       "potential_arbitrage_pln": 88.57,
       "hypothetical_margin_pln": 88.57,
       "residual_profit_pln": 88.57,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "j1251505974",
@@ -7169,7 +7169,7 @@
       "potential_arbitrage_pln": 92.16,
       "hypothetical_margin_pln": 92.16,
       "residual_profit_pln": 92.16,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "m1251553051",
@@ -7265,7 +7265,7 @@
       "potential_arbitrage_pln": 38.39,
       "hypothetical_margin_pln": 38.39,
       "residual_profit_pln": 38.39,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "d1251823525",
@@ -7361,7 +7361,7 @@
       "potential_arbitrage_pln": 131.26,
       "hypothetical_margin_pln": 131.26,
       "residual_profit_pln": 131.26,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "k1251818302",
@@ -7457,7 +7457,7 @@
       "potential_arbitrage_pln": 101.71,
       "hypothetical_margin_pln": 101.71,
       "residual_profit_pln": 101.71,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "p1249428295",
@@ -7553,7 +7553,7 @@
       "potential_arbitrage_pln": -77.68,
       "hypothetical_margin_pln": -77.68,
       "residual_profit_pln": -77.68,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "t1250970249",
@@ -7649,7 +7649,7 @@
       "potential_arbitrage_pln": 113.17,
       "hypothetical_margin_pln": 113.17,
       "residual_profit_pln": 113.17,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "d1245986339",
@@ -7745,7 +7745,7 @@
       "potential_arbitrage_pln": 54.17,
       "hypothetical_margin_pln": 54.17,
       "residual_profit_pln": 54.17,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "k1244528483",
@@ -7841,7 +7841,7 @@
       "potential_arbitrage_pln": 44.71,
       "hypothetical_margin_pln": 44.71,
       "residual_profit_pln": 44.71,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "b1246124221",
@@ -7937,7 +7937,7 @@
       "potential_arbitrage_pln": 216.52,
       "hypothetical_margin_pln": 216.52,
       "residual_profit_pln": 216.52,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "h1250921225",
@@ -8033,7 +8033,7 @@
       "potential_arbitrage_pln": 258.85,
       "hypothetical_margin_pln": 258.85,
       "residual_profit_pln": 258.85,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "b1251556000",
@@ -8164,7 +8164,7 @@
       "potential_arbitrage_pln": 44.81,
       "hypothetical_margin_pln": 44.81,
       "residual_profit_pln": 44.81,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "t1251382423",
@@ -8260,7 +8260,7 @@
       "potential_arbitrage_pln": 82.25,
       "hypothetical_margin_pln": 82.25,
       "residual_profit_pln": 82.25,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "j1251645657",
@@ -8356,7 +8356,7 @@
       "potential_arbitrage_pln": 114.59,
       "hypothetical_margin_pln": 114.59,
       "residual_profit_pln": 114.59,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "j1251280330",
@@ -8452,7 +8452,7 @@
       "potential_arbitrage_pln": 182.14,
       "hypothetical_margin_pln": 182.14,
       "residual_profit_pln": 182.14,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "g1251507424",
@@ -8548,7 +8548,7 @@
       "potential_arbitrage_pln": 129.44,
       "hypothetical_margin_pln": 129.44,
       "residual_profit_pln": 129.44,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "n1251521383",
@@ -8644,7 +8644,7 @@
       "potential_arbitrage_pln": 242.09,
       "hypothetical_margin_pln": 242.09,
       "residual_profit_pln": 242.09,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "r1250922821",
@@ -8740,7 +8740,7 @@
       "potential_arbitrage_pln": 180.92,
       "hypothetical_margin_pln": 180.92,
       "residual_profit_pln": 180.92,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "u1251654393",
@@ -8837,7 +8837,7 @@
       "potential_arbitrage_pln": 85.32,
       "hypothetical_margin_pln": 85.32,
       "residual_profit_pln": 85.32,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "h1251823950",
@@ -8933,7 +8933,7 @@
       "potential_arbitrage_pln": 198.82,
       "hypothetical_margin_pln": 198.82,
       "residual_profit_pln": 198.82,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "d1251827205",
@@ -9029,7 +9029,7 @@
       "potential_arbitrage_pln": 101.71,
       "hypothetical_margin_pln": 101.71,
       "residual_profit_pln": 101.71,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "m1251545975",
@@ -9125,7 +9125,7 @@
       "potential_arbitrage_pln": 101.71,
       "hypothetical_margin_pln": 101.71,
       "residual_profit_pln": 101.71,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "r1251817447",
@@ -9221,7 +9221,7 @@
       "potential_arbitrage_pln": 131.26,
       "hypothetical_margin_pln": 131.26,
       "residual_profit_pln": 131.26,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "f1251419199",
@@ -9317,7 +9317,7 @@
       "potential_arbitrage_pln": 144.59,
       "hypothetical_margin_pln": 144.59,
       "residual_profit_pln": 144.59,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "q1251671063",
@@ -9413,7 +9413,7 @@
       "potential_arbitrage_pln": 28.92,
       "hypothetical_margin_pln": 28.92,
       "residual_profit_pln": 28.92,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "p1251818449",
@@ -9509,7 +9509,7 @@
       "potential_arbitrage_pln": 71.71,
       "hypothetical_margin_pln": 71.71,
       "residual_profit_pln": 71.71,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "j1251512119",
@@ -9640,7 +9640,7 @@
       "potential_arbitrage_pln": 44.81,
       "hypothetical_margin_pln": 44.81,
       "residual_profit_pln": 44.81,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "n1249820524",
@@ -9736,7 +9736,7 @@
       "potential_arbitrage_pln": 72.63,
       "hypothetical_margin_pln": 72.63,
       "residual_profit_pln": 72.63,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "r1249150953",
@@ -9832,7 +9832,7 @@
       "potential_arbitrage_pln": 60.76,
       "hypothetical_margin_pln": 60.76,
       "residual_profit_pln": 60.76,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "k1251598819",
@@ -9928,7 +9928,7 @@
       "potential_arbitrage_pln": 202.07,
       "hypothetical_margin_pln": 202.07,
       "residual_profit_pln": 202.07,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "s1245196893",
@@ -10024,7 +10024,7 @@
       "potential_arbitrage_pln": 290.2,
       "hypothetical_margin_pln": 290.2,
       "residual_profit_pln": 290.2,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "n1250601912",
@@ -10120,7 +10120,7 @@
       "potential_arbitrage_pln": 89.39,
       "hypothetical_margin_pln": 89.39,
       "residual_profit_pln": 89.39,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "e1249970845",
@@ -10216,7 +10216,7 @@
       "potential_arbitrage_pln": 98.19,
       "hypothetical_margin_pln": 98.19,
       "residual_profit_pln": 98.19,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "q1251675793",
@@ -10313,7 +10313,7 @@
       "potential_arbitrage_pln": 70.08,
       "hypothetical_margin_pln": 70.08,
       "residual_profit_pln": 70.08,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "g1251812089",
@@ -10409,7 +10409,7 @@
       "potential_arbitrage_pln": 133.17,
       "hypothetical_margin_pln": 133.17,
       "residual_profit_pln": 133.17,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "v1251516199",
@@ -10505,7 +10505,7 @@
       "potential_arbitrage_pln": 217.72,
       "hypothetical_margin_pln": 217.72,
       "residual_profit_pln": 217.72,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "e1251507348",
@@ -10602,7 +10602,7 @@
       "potential_arbitrage_pln": 85.94,
       "hypothetical_margin_pln": 85.94,
       "residual_profit_pln": 85.94,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "d1251551345",
@@ -10698,7 +10698,7 @@
       "potential_arbitrage_pln": 662.18,
       "hypothetical_margin_pln": 662.18,
       "residual_profit_pln": 662.18,
-      "closed_at": "2026-11-16T01:42:24Z"
+      "closed_at": "2026-11-16T09:18:12Z"
     },
     {
       "id": "deal_ended",
@@ -10794,7 +10794,7 @@
       "potential_arbitrage_pln": 163.11,
       "hypothetical_margin_pln": 163.11,
       "residual_profit_pln": 163.11,
-      "closed_at": "2026-11-16T01:41:48Z"
+      "closed_at": "2026-11-16T09:17:42Z"
     },
     {
       "id": "test_camera",

@@ -3,7 +3,7 @@
 > **Radar Aktywnych Licytacji, Baza Rzeczywistych Cen Końcowych (落札相場) i Arbitraż Yahoo vs Mercari**  
 > *Dedykowane narzędzie analityczne: gdzie aukcje miażdżą oferty Kup Teraz, jakie są realne ceny zamknięcia i które licytacje natychmiast wrzucić na celownik.*
 
-![Auction Radar](https://img.shields.io/badge/Auction%20Radar-Active-brightgreen) ![Watched Targets](https://img.shields.io/badge/Watched%20Targets-73%20Models-blue) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-16%2001:42%20UTC-purple) ![Exchange Rate](https://img.shields.io/badge/NBP%20Live-100%20JPY%20%E2%89%88%202.49%20PLN-success) ![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-51%20Days%20Left-orange) ![Max Li-Ion](https://img.shields.io/badge/IATA%20Limit-Max%202%20Li--Ion-red)
+![Auction Radar](https://img.shields.io/badge/Auction%20Radar-Active-brightgreen) ![Watched Targets](https://img.shields.io/badge/Watched%20Targets-73%20Models-blue) ![Last Scan](https://img.shields.io/badge/Last%20Scan-2026-11-16%2009:18%20UTC-purple) ![Exchange Rate](https://img.shields.io/badge/NBP%20Live-100%20JPY%20%E2%89%88%202.49%20PLN-success) ![Storage Window](https://img.shields.io/badge/ZenMarket%20Storage-51%20Days%20Left-orange) ![Max Li-Ion](https://img.shields.io/badge/IATA%20Limit-Max%202%20Li--Ion-red)
 
 ⬅ **Nawigacja:** [📱 **Aplikacja Android / PWA (Live)**](https://110kc3.github.io/japan-deal-watcher/) · [Główny Dashboard Mercari (README.md)](README.md) · [📦 **Pakiety Różności & Danshari (MYSTERY_LOTS_ANALYSIS.md)**](MYSTERY_LOTS_ANALYSIS.md) · [🎯 Poradnik Snajpera i Limity (AUCTION_SNIPING_GUIDE.md)](AUCTION_SNIPING_GUIDE.md) · [🔨 Katalog Alternatywnych Ofert (YAHOO_AUCTIONS_DEALS.md)](YAHOO_AUCTIONS_DEALS.md) · [📈 Historia Sprzedaży (MARKET_SALES_HISTORY.md)](MARKET_SALES_HISTORY.md) · [💰 Audyt Opłacalności (REAL_PROFITABILITY_AUDIT.md)](REAL_PROFITABILITY_AUDIT.md)
 
@@ -40,7 +40,7 @@ Ceny na Yahoo! Auctions zależą bezpośrednio od **stanu technicznego i wizualn
 
 | Model / Przedmiot | ⏳ Czas | Stan Wizualny | Aktualna Oferta | 🔮 Prognoza Zamknięcia | Cena w PL | Zysk przy Prognozie | 🎯 Werdykt i Limit Snajpera | Bateria |
 |---|:---:|:---:|---:|---:|---:|---:|:---:|:---:|
-| <img src='https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0110/user/8600f187a38dc5e29d0ecc83676d242c6b5caf11441b3cf73e916334312a421c/i-img339x384-176158839341123ywvtz136252.jpg?w=300&h=300' width='50' height='32' style='border-radius:4px; object-fit:contain; background:#0f172a; vertical-align:middle;' /><br>**HORI Dragon Quest Slime Controller PS2 (HP2-177)**<br><small>Niebieski Kropelka Slime</small> | <span style='color:#3b82f6;'>⏳ 14h 09m</span><br><small>⏰ Dziś o 16:51 (PL) / 00:51 (JP)</small> | <span style='color:#10b981; font-weight:600;'>B. Dobry</span><br><small style='color:#94a3b8;'>Sprawny 100% (potwierdzone)</small> | **3,800 JPY**<br><small>(~95 zł)</small> | **5,500 JPY**<br><small>(~137 zł)</small> | **260 zł**<br><small>Allegro: ~290 zł<br>OLX: ~230 zł</small> | <strong style='color:#ef4444;'>+12 zł</strong><br><small>(+5%)</small> | **⚠️ C-TIER: RYZYKO PRZEPŁACENIA**<br><small>Limit: `3,500 JPY`</small> | 🟢 0% Li-Ion |
+| <img src='https://auc-pctr.c.yimg.jp/i/auctions.c.yimg.jp/images.auctions.yahoo.co.jp/image/dr000/auc0110/user/8600f187a38dc5e29d0ecc83676d242c6b5caf11441b3cf73e916334312a421c/i-img339x384-176158839341123ywvtz136252.jpg?w=300&h=300' width='50' height='32' style='border-radius:4px; object-fit:contain; background:#0f172a; vertical-align:middle;' /><br>**HORI Dragon Quest Slime Controller PS2 (HP2-177)**<br><small>Niebieski Kropelka Slime</small> | <span style='color:#3b82f6;'>⏳ 6h 33m</span><br><small>⏰ Dziś o 16:51 (PL) / 00:51 (JP)</small> | <span style='color:#10b981; font-weight:600;'>B. Dobry</span><br><small style='color:#94a3b8;'>Sprawny 100% (potwierdzone)</small> | **3,800 JPY**<br><small>(~95 zł)</small> | **5,500 JPY**<br><small>(~137 zł)</small> | **260 zł**<br><small>Allegro: ~290 zł<br>OLX: ~230 zł</small> | <strong style='color:#ef4444;'>+12 zł</strong><br><small>(+5%)</small> | **⚠️ C-TIER: RYZYKO PRZEPŁACENIA**<br><small>Limit: `3,500 JPY`</small> | 🟢 0% Li-Ion |
 
 ---
 
@@ -101,4 +101,4 @@ Wybierz kategorię i kliknij odpowiedni filtr, aby natychmiast załadować w pan
    - Dopełniaj każdą paczkę przedmiotami o zerowej zawartości baterii (**Pakiety Gier Retro, GameCube, Aparaty Analogowe, Obiektywy**), aby rozbić koszt wysyłki na 5–8 przedmiotów!
 
 ---
-*Dashboard generated automatically by AuctionRadar & HistoryTracker. Last synchronization: 2026-11-16 01:42 UTC.*
+*Dashboard generated automatically by AuctionRadar & HistoryTracker. Last synchronization: 2026-11-16 09:18 UTC.*
